@@ -6,13 +6,13 @@ Start by setting up your local development environment.
 
 ## Install Node
 
-For this tutorial, you need Node.js version 10.13+. To check your version of Node.js, run the following command in your terminal:
+For this tutorial, you need Node.js version 12.22+. To check your version of Node.js, run the following command in your terminal:
 
-```shell
+```shell title="Check Node.js version"
 node -v
 ```
 
-If you do not have Node.js installed, you can download it from [Node.js Downloads](https://nodejs.org/en/download/). 
+If you do not have Node.js installed, you can download it from [nodejs.org (downloads)](https://nodejs.org/en/download/). 
 
 ## Set up a project directory
 
@@ -23,33 +23,32 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 ## Generate a package.json file
 
 <!-- theme: info -->
-> #### Note
-> * Make sure that you are using Node.js version 10.13+.
+> #### Node.js version and custom dependencies
+> * Make sure that you are using Node.js version 12.22+.
 > * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
- 
 
-1. Using the terminal, initialize the project's `package.json` file.
+1. To create the project's `package.json` file, enter the [interactive initialization sequence](https://docs.npmjs.com/cli/v8/commands/npm-init). Run the following command in the terminal:
 
-```shell
+```shell title="Initialize package.json"
 npm init
 ```
 
 Press enter to continue prompts.
 
-To write a `package.json` file with default values (descriptive fields will be blank), run `npm init -y` instead.
+To write a `package.json` file with default values, run `npm init -y` instead. Descriptive fields will be blank.
 
 ## Install npm packages
 
-1. Install BigDesign, Next, React, ReactDOM, and styled-components.
+1. Install `big-design`, `next`, `react`, `react-dom`, and `styled-components`.
 
-```shell
+```shell title="Install dependencies"
 npm install --save @bigcommerce/big-design next react react-dom styled-components
 ```
 
 2. Install dev dependencies.
 
-```shell
+```shell title="Install devDependencies"
 npm install --save-dev babel-plugin-styled-components @types/node @types/react typescript
 ```
 
@@ -58,8 +57,8 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 [@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
 
 <!-- theme: info -->
+> #### View tested package versions
 > You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
-
 
 
 ## Add scripts
@@ -68,12 +67,15 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 2. Update the `scripts` property, by adding the `dev`, `build`, and `start` scripts.
 
-```json
-"scripts": {
-  "dev": "next",
-  "build": "next build",
-  "start": "next start",
-  "test": "echo \"Error: no test specified\" && exit 1"
+```json title="Add npm scripts" lineNumbers
+{
+  ...
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
 ```
 
@@ -89,16 +91,17 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 4. Add `Panel` and `Text` BigDesign imports at the top of the file.
 
-```js
+```ts title="Add imports index.tsx"
 import { Panel, Text } from '@bigcommerce/big-design';
 ```
+
 The **Panel** component allows you to contain content in a structured format. To learn more about the BigDesign's **Panel** component, see [Panel Developer Docs](https://developer.bigcommerce.com/big-design/panel).
 
 **Text** is one of the many predefined typography components in BigDesign. BigDesign offers multiple properties to customize the typographic palette. To view available typography components, see  [Typography](https://developer.bigcommerce.com/big-design/typography).
 
-5. Add the `Index` functional component below the import statements.
+5. Add the `Index` functional component below the import statements. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/index.tsx).
 
-```js
+```tsx title="Add functional component index.tsx" lineNumbers
 const Index = () => (
     <Panel header="Homepage" margin="xxLarge">
         <Text>Hello world</Text>
@@ -108,28 +111,26 @@ const Index = () => (
 export default Index;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/index.tsx)
-
 Next.js associates each file in the pages folder with a route based on the file's name. Consequently, the `Index` React component you exported in `pages/index.tsx` will be accessible at `/index`.
 
 ## Initialize BigDesign
 
-Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](/) to give your app a distinct BigCommerce look and feel.
+Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](https://developer.bigcommerce.com/big-design/) to give your app a distinct BigCommerce look and feel.
 
 1. Next.js uses the `App` component to initialize pages. To override the default `App` component, add the `_app.tsx` file to the `pages` folder. This is where you initialize BigDesign. 
 
 2. Open `_app.tsx` and import `GlobalStyles` from BigDesign and `AppProps` from Next.js.
 
-```js
+```ts title="Add imports _app.tsx"
 import { GlobalStyles } from '@bigcommerce/big-design';
 import type { AppProps } from 'next/app'
 ```
 
 Importing the `GlobalStyles` component will set BigCommerce's base styles globally.
 
-3. Add the `MyApp` functional component below the import statements.
+3. Add the `MyApp` functional component below the import statements. You can [view _app.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_app.tsx).
 
-```js
+```tsx title="Functional component _app.tsx" lineNumbers
 const MyApp = ({ Component, pageProps }: AppProps) => (
    <>
        <GlobalStyles />
@@ -142,8 +143,6 @@ export default MyApp;
 
 The `Component` prop represents the active page. Consequently, it will change when you navigate between routes.
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_app.tsx)
-
 ## Initialize styled-components
 
 Because BigDesign uses styled-components, we need to add additional configuration for both BigDesign and styled-components to function properly.
@@ -152,19 +151,19 @@ Because BigDesign uses styled-components, we need to add additional configuratio
 
 2. Import `Document` and `DocumentContext`, the built-in TypeScript types, from Next.js.
 
-```js
+```ts title="Import components Document and DocumentContext"
 import Document, { DocumentContext } from 'next/document';
 ```
 
 3. Import `ServerStyleSheet` from styled-components.
 
-```js
+```ts title="Import component ServerStyleSheet"
 import { ServerStyleSheet } from 'styled-components';
 ```
 
-4. Extend the `Document` class.
+4. Extend the `Document` class. You can [view _document.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_document.tsx).
 
-```js
+```tsx title="Extend class Document" lineNumbers
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -194,13 +193,11 @@ export default class MyDocument extends Document {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_document.tsx)
-
 ## Start the development server
 
 1. Using the terminal, open the root directory of your app and start the development server. 
 
-```shell
+```shell title="Start development server"
 npm run dev
 ```
 

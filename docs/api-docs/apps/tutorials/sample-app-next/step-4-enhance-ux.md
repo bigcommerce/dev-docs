@@ -14,22 +14,20 @@ This step focuses on expanding functionality and integrating advanced design ele
 
 3. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports list.ts" lineNumbers
 import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/api-reference/store-management/catalog).
+4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/api-reference/store-management/catalog). You can [view list.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/list.ts).
 
-```js
+```ts title="Add logic list.ts" lineNumbers
 export default async function list(req: NextApiRequest, res: NextApiResponse) {
     try {
         const { accessToken, storeHash } = await getSession(req);
         const bigcommerce = bigcommerceClient(accessToken, storeHash);
         // Optional: pass in API params here
-        const params = [
-            'limit=11',
-        ].join('&');
+        const params = new URLSearchParams({ limit: '11' }).toString();
 
         const { data } = await bigcommerce.get(`/catalog/products?${params}`);
         res.status(200).json(data);
@@ -40,15 +38,13 @@ export default async function list(req: NextApiRequest, res: NextApiResponse) {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/list.ts)
-
 ## Update custom hooks
 
 1. In the `lib` folder, open the `hooks.ts` file.
 
-2. Add the ` isLoading` property to the `useProducts` custom hook.
+2. Add the `isLoading` property to the `useProducts` custom hook.
 
-```js
+```ts title="Add isLoading hooks.ts" lineNumbers
 export function useProducts() {
     const encodedContext = useSession()?.context;
     // Request is deduped and cached; Can be shared across components
@@ -62,9 +58,9 @@ export function useProducts() {
 }
 ```
 
-3. Add the `useProductList` custom hook.
+3. Add the `useProductList` custom hook. You can [view hooks.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/lib/hooks.ts).
 
-```js
+```ts title="Add useProductList hooks.ts" lineNumbers
 export function useProductList() {
     const encodedContext = useSession()?.context;
     // Use an array to send multiple arguments to fetcher
@@ -79,8 +75,6 @@ export function useProductList() {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/lib/hooks.ts)
-
 ## Create the Products page
 
 1. In the `pages` folder, create a `products` folder.
@@ -89,7 +83,7 @@ export function useProductList() {
 
 3. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports index.tsx" lineNumbers
 import { Button, Dropdown, Panel, Small, StatefulTable, Link as StyledLink } from '@bigcommerce/big-design';
 import { MoreHorizIcon } from '@bigcommerce/big-design-icons';
 import Link from 'next/link';
@@ -98,14 +92,13 @@ import { ReactElement } from 'react';
 import { useProductList } from '../../lib/hooks';
 ```
 <!-- theme: info -->
-> #### Note
+> #### Resolve Link namespace collision
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
 
+4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx).
 
-4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
-
-```js
+```tsx title="Functional component index.tsx" lineNumbers
 const Products = () => {
     const router = useRouter();
     // Retrieve data from the catalog/products endpoint
@@ -160,15 +153,13 @@ const Products = () => {
 export default Products;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx)
-
 ## Add the InnerHeader component
 
 1. In the `components` folder, create an `innerHeader.tsx` file.
 
 2. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports innerHeader.tsx" lineNumbers
 import { Box, Button, H1, HR, Text } from '@bigcommerce/big-design';
 import { ArrowBackIcon } from '@bigcommerce/big-design-icons';
 import { useRouter } from 'next/router';
@@ -176,9 +167,9 @@ import { useProductList } from '../lib/hooks';
 import { TabIds, TabRoutes } from './header';
 ```
 
-3. Define the `InnerHeader` functional component. You use it for the Product Edit page, a subpage of `products` (`/products/[pid]`), whereas the main `Header` component is used for the main pages such as `/` and `/products`.
+3. Define the `InnerHeader` functional component. You use it for the Product Edit page, a subpage of `products` (`/products/[pid]`), whereas the main `Header` component is used for the main pages such as `/` and `/products`. You can [view innerHeader.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/innerHeader.tsx).
 
-```js
+```tsx title="Functional component innerHeader.tsx" lineNumbers
 const InnerHeader = () => {
     const router = useRouter();
     const { pid } = router.query;
@@ -203,8 +194,6 @@ const InnerHeader = () => {
 export default InnerHeader;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/innerHeader.tsx)
-
 The `InnerHeader` component uses BigDesign's `Button` component with the `variant` property set to `subtle`. By setting the variant type to `subtle`, you remove the button's border and simultaneously add a hover effect. To learn more about the BigDesign's `Button` component, see [Buttons Design Guidelines](https://developer.bigcommerce.com/big-design/button).
 
 The `ArrowBackIcon` component is part of the BigDesign's Icons package. You can modify the look of the icon by setting its color and size. To learn more about BigDesign's Icons, see [Icons](https://developer.bigcommerce.com/big-design/icons).
@@ -215,7 +204,7 @@ In this step, you incorporate the BigDesign's `Tabs` component into your app. Yo
 
 1. In the components folder, open the `header.tsx` file and update the imports.
 
-```js
+```ts title="Add imports header.tsx" lineNumbers
 import { Box, Tabs } from '@bigcommerce/big-design';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -224,7 +213,7 @@ import InnerHeader from './innerHeader';
 
 2. Declare `TabIds`, `TabRoutes`, `InnerRoutes`, and `HeaderTypes` variables.
 
-```js
+```ts title="Declare variables header.tsx" lineNumbers
 export const TabIds = {
     HOME: 'home',
     PRODUCTS: 'products',
@@ -245,9 +234,9 @@ const HeaderTypes = {
 };
 ```
 
-3. Update the `Header` functional component.
+3. Update the `Header` functional component. You can [view header.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/header.tsx).
 
-```js
+```tsx title="Functional component header.tsx" lineNumbers
 const Header = () => {
     const [activeTab, setActiveTab] = useState<string>('');
     const [headerType, setHeaderType] = useState<string>(HeaderTypes.GLOBAL);
@@ -301,8 +290,6 @@ const Header = () => {
 export default Header;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/header.tsx)
-
 The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production or production-like environment (integration or staging). `router.prefetch()` does not prefetch the products page while in the development mode.
 
 ### Test your app
@@ -325,9 +312,9 @@ To surface error messages to the app's users, add an error message component. Yo
 
 1. In the `components` folder, add the `error.tsx` file.
 
-2. Copy and paste the following code to create the `ErrorMessage` component:
+2. Copy and paste the following code to create the `ErrorMessage` component. You can [view error.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/error.tsx).
 
-```js
+```tsx title="Functional component error.tsx" lineNumbers
 import { H3, Panel } from '@bigcommerce/big-design';
 
 interface ErrorMessageProps {
@@ -344,15 +331,13 @@ const ErrorMessage = ({ error }: ErrorMessageProps) => (
 export default ErrorMessage;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/error.tsx)
-
 ## Create the Loading component
 
 The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](https://developer.bigcommerce.com/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Circle Developer Docs](https://developer.bigcommerce.com/big-design/progress-circle).
 
-In the `components` folder, create a `loading.tsx` file.
+In the `components` folder, create a `loading.tsx` file. You can [view loading.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/loading.tsx).
 
-```js
+```tsx title="Functional component loading.tsx" lineNumbers
 import { Flex, H3, Panel, ProgressCircle } from '@bigcommerce/big-design';
 
 const Loading = () => (
@@ -367,8 +352,6 @@ const Loading = () => (
 export default Loading;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/loading.tsx)
-
 ## Add system checks
 
 Now that you have created the `ErrorMessage` and `Loading` components, you can add them to the `Products` component.
@@ -377,27 +360,25 @@ Now that you have created the `ErrorMessage` and `Loading` components, you can a
 
 2. Import the `ErrorMessage` and `Loading` components.
 
-```js
+```ts title="Add imports index.tsx" lineNumbers
 import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 ```
 
-3. Inside the `Products` functional component, above the `return` statement, add the logic to return `ErrorMessage` and `Loading` components. `isLoading` checks when the page or component is loading and `isError` checks for API errors.
+3. Inside the `Products` functional component, above the `return` statement, add the logic to return `ErrorMessage` and `Loading` components. `isLoading` checks when the page or component is loading and `isError` checks for API errors. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx).
 
-```js
+```tsx title="System check components index.tsx" lineNumbers
 if (isLoading) return <Loading />;
 if (isError) return <ErrorMessage />;
 ```
-
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx)
 
 ## Update TypeScript definitions
 
 1. In the `types` folder, open the `data.ts` file.
 
-2. Export `FormData` and `StringKeyValue` TypeScript definitions.
+2. Export `FormData` and `StringKeyValue` TypeScript definitions. You can [view data.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/types/data.ts).
 
-```js
+```ts title="Export types data.ts" lineNumbers
 export interface FormData {
     description: string;
     isVisible: boolean;
@@ -411,8 +392,6 @@ export interface StringKeyValue {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/types/data.ts)
-
 ## Create the Form component
 
 You use the BigDesign's `Form` component to display and edit individual product information.
@@ -423,7 +402,7 @@ The BigDesign's `Form` component comes with built-in support for accessibility, 
 
 2. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports form.tsx" lineNumbers
 import { Button, Checkbox, Flex, FormGroup, Input, Panel, Select, Form as StyledForm, Textarea } from '@bigcommerce/big-design';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { FormData, StringKeyValue } from '../types';
@@ -431,7 +410,7 @@ import { FormData, StringKeyValue } from '../types';
 
 3. Add the `FormProps` TypeScript definition.
 
-```js
+```ts title="Define FormProps form.tsx" lineNumbers
 interface FormProps {
     formData: FormData;
     onCancel(): void;
@@ -441,16 +420,16 @@ interface FormProps {
 
 4. Declare the `FormErrors` variable.
 
-```js
+```ts title="Declare FormErrors form.tsx" lineNumbers
 const FormErrors = {
     name: 'Product name is required',
     price: 'Default price is required',
 };
 ```
 
-5. Declare and export the `Form` functional component.
+5. Declare and export the `Form` functional component. You can [view form.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/form.tsx).
 
-```js
+```tsx title="Functional component form.tsx" lineNumbers
 const Form = ({ formData, onCancel, onSubmit }: FormProps) => {
     const { description, isVisible, name, price, type } = formData;
     const [form, setForm] = useState<FormData>({ description, isVisible, name, price, type });
@@ -564,8 +543,6 @@ const Form = ({ formData, onCancel, onSubmit }: FormProps) => {
 export default Form;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/form.tsx)
-
 ## Create dynamic product routes
 
 Next.js allows you to create dynamic routes by adding brackets to a page; for example, `[pid]`. Any route similar to `products/123` or `products/abc` is matched by `pages/products/[pid].tsx`. To learn more about defining dynamic routes in Next.js, see [Dynamic Routes](https://nextjs.org/docs/routing/dynamic-routes).
@@ -574,7 +551,7 @@ Next.js allows you to create dynamic routes by adding brackets to a page; for ex
 
 2. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports [pid].tsx" lineNumbers
 import { useRouter } from 'next/router';
 import ErrorMessage from '../../components/error';
 import Form from '../../components/form';
@@ -584,9 +561,9 @@ import { useProductList } from '../../lib/hooks';
 import { FormData } from '../../types';
 ```
 
-3. Declare and export the `ProductInfo` functional component.
+3. Declare and export the `ProductInfo` functional component. You can [view [pid].tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/%5Bpid%5D.tsx).
 
-```js
+```tsx title="Functional component ProductInfo [pid].tsx" lineNumbers
 const ProductInfo = () => {
     const router = useRouter();
     const encodedContext = useSession()?.context;
@@ -634,14 +611,11 @@ const ProductInfo = () => {
 export default ProductInfo;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/%5Bpid%5D.tsx)
-
 The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
-<!-- theme: info -->
-> #### Note
-> Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
-
+<!-- theme: warning -->
+> #### Avoid unnecessary Catalog API calls
+> Because you fetch all product data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
 
 
 The following image illustrates the `Form` input types:
@@ -656,14 +630,14 @@ The following image illustrates the `Form` input types:
 
 3. At the top of the file, import the following packages:
 
-```js
+```ts title="Add imports [pid].ts" lineNumbers
 import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the function to update individual products based on the data passed in a `PUT` request.
+4. Add the function to update individual products based on the data passed in a `PUT` request. You can [view [pid].ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/%5Bpid%5D.ts).
 
-```js
+```ts title="Update handler logic [pid].ts" lineNumbers
 export default async function products(req: NextApiRequest, res: NextApiResponse) {
     const {
         body,
@@ -683,8 +657,6 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/%5Bpid%5D.ts)
-
 ### Test your app
 
 1. Pick a product from the products list and try changing its information such as name or price. 
@@ -697,7 +669,7 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
 
 2. Update the imported packages.
 
-```js
+```ts title="Add imports index.tsx" lineNumbers
 import { Box, Flex, H1, H4, Panel } from '@bigcommerce/big-design';
 import { useEffect } from 'react';
 import styled from 'styled-components';
@@ -707,9 +679,9 @@ import { useSession } from '../context/session';
 import { useProducts } from '../lib/hooks';
 ```
 
-3. In the [Flex](https://developer.bigcommerce.com/big-design/flex) component, extend the styles of the [Box](https://developer.bigcommerce.com/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://developer.bigcommerce.com/big-design/typography). 
+3. In the [Flex](https://developer.bigcommerce.com/big-design/flex) component, extend the styles of the [Box](https://developer.bigcommerce.com/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://developer.bigcommerce.com/big-design/typography). You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/index.tsx).
 
-```js
+```tsx title="Extend Box styles index.tsx" lineNumbers
 const Index = ({ context }: { context: string }) => {
     const { isError, isLoading, summary } = useProducts();
     const { setContext } = useSession();
@@ -751,8 +723,6 @@ export const getServerSideProps = async ({ query }) => ({
 
 export default Index;
 ```
-
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/index.tsx)
 
 ### Test your app
 
