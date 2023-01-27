@@ -24,7 +24,7 @@ npm install --save mysql jsonwebtoken swr
 
 <!-- theme: info -->
 > #### Firebase version
-> These instructions have been tested using the **firebase v9** package.  You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
+> These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
 
 
 ## Add TypeScript definitions
@@ -157,7 +157,7 @@ JWT_KEY={SECRET}
 
 ```ts title="Add imports auth.ts" lineNumbers
 import * as jwt from 'jsonwebtoken';
-import * as BigCommerce from 'node-bigcommerce'
+import * as BigCommerce from 'node-bigcommerce';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { QueryParams, SessionProps } from '../types';
 import db from './db';
