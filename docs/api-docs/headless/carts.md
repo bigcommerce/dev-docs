@@ -23,7 +23,43 @@ Several example request bodies follow:
 
 <!--
 type: tab
-title: With line_items
+title: With option selections
+-->
+
+To create a cart with option selections, include an `option_id` and `option_value` for each selection. Make sure to specify a locale.
+
+```json title="Example request body: option selections" lineNumbers
+{
+  "customer_id": 0,
+  "line_items": [
+    {
+      "quantity": 2,
+      "product_id": 118,
+      "list_price": 25,
+      "variant_id": 140,
+      "name": "قميص",
+      "option_selections": [
+        {
+          "option_id": 125,
+          "option_value": 127,
+          "name": "بحجم",
+          "value": "صغير"
+        }
+      ]
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "JOD"
+  },
+  "locale": "ar-JO"
+}
+
+```
+
+<!--
+type: tab
+title: Minimal detail
 -->
 
 ```json title="Example request body: Create a cart" lineNumbers
@@ -35,21 +71,15 @@ title: With line_items
       "product_id": 80,
       "variant_id": 64
     }
-  ],
-  "locale": "en-us"
+  ]
 }
+
 ```
 
 <!--
 type: tab
-title: POST request
+title: With currency, locale
 -->
-
-```http title="Example POST request with X-Auth-Token header"
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-Content-Type: application/json
 
 ```json title="Example request body: Create a cart" lineNumbers
 {
@@ -96,42 +126,14 @@ Content-Type: application/json
   "locale": "en-US"
 }
 ```
+
 <!-- type: tab-end -->
 
 <!-- theme: info -->
-> #### Note
-> The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format. 
+> #### Locale format
+> The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.
 
 ## Customer support
-To create a cart with option selections, include an `option_id` and `option_value` for each selection. 
-
-```json title="Example request body: option selections" lineNumbers
-{
-  "customer_id": 0,
-  "line_items": [
-    {
-      "quantity": 2,
-      "product_id": 118,
-      "list_price": 25,
-      "variant_id": 140,
-      "name": "قميص",
-      "option_selections": [
-        {
-          "option_id": 125,
-          "option_value": 127,
-          "name": "بحجم",
-          "value": "صغير"
-        }
-      ]
-    }
-  ],
-  "channel_id": 1,
-  "currency": {
-    "code": "JOD"
-  },
-  "locale": "ar-JO"
-}
-```
 
 To create a cart for an existing customer, include the `customer_id` in your request body.
 
