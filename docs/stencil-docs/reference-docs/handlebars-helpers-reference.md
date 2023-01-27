@@ -1570,20 +1570,22 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 #### Example
 
 ```handlebars
-{{#JSONparseSafe '{"foo": "bar"}'}
+{{#JSONparseSafe '{"foo": "bar"}'}}
   {{foo}}
 {{/JSONparseSafe}}
 <!-- output: bar -->
 ```
 
 ```handlebars
-{{#JSONparseSafe 'foo'}
+{{#JSONparseSafe 'foo'}}
   {{foo}}
 {{else}}
   John Doe
 {{/JSONparseSafe}}
 <!-- output: bar -->
 ```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
 ## Standard helpers
 
@@ -1668,6 +1670,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
+| [JSONparse](#jsonparsesafe) | object | Parses data safely using `JSON.parseSafe`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)  | object | Stringifies an object using `JSON.stringify`. |
 | [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
