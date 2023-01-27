@@ -31,7 +31,7 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 
     Set the OAuth scope settings to the following defaults according to your import options.
 
-| **OAuth Scope**   | **Full Import**       | **Fast Headless** |
+| OAuth Scope       | Full Import           | Fast Headless     |
 |:------------------|:----------------------|:------------------|
 | Content           | None                  | None              |
 | Checkout content  | None                  | None              |
