@@ -1,83 +1,179 @@
 # Managing Carts
 
+This article explains how to use the Carts API to create and manage carts. It also discusses how to redirect shoppers from headless storefronts to BigCommerce-hosted cart and checkout pages.
 
-
-In this section, we will explain how to use the Carts API to create and manage carts. Additionally, we will discuss how to redirect shoppers from a headless storefront to the BigCommerce hosted cart and checkout pages.
+<!-- theme: success -->
+> #### Locale support
+> The Carts API supports selling in different markets by allowing locale-based overrides for product details. Supply a cart's locale and add `option_selections` to the cart's line items to configure alternative product names, option names, and modifier values. The Carts API stores the locale and makes it available to the Checkout and Orders APIs.
 
 ## Creating a cart
 
-The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers. 
+The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers.
 
-To create a cart, send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
+To create a cart, send a request to the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
-```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+```http title="Create a cart"
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-**Create a Cart request example**
+Several example request bodies follow:
 
-```json
+<!--
+type: tab
+title: With option selections
+-->
+
+To create a cart with option selections, include an `option_id` and `option_value` for each selection. Make sure to specify a locale.
+
+```json title="Example request body: option selections" lineNumbers
 {
-    "channel_id": 704181,
-    "line_items": [
+  "customer_id": 0,
+  "line_items": [
+    {
+      "quantity": 2,
+      "product_id": 118,
+      "list_price": 25,
+      "variant_id": 140,
+      "name": "قميص",
+      "option_selections": [
         {
-            "quantity": 1,
-            "product_id": 80,
-            "variant_id": 64
+          "option_id": 125,
+          "option_value": 127,
+          "name": "بحجم",
+          "value": "صغير"
         }
-    ]
+      ]
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "JOD"
+  },
+  "locale": "ar-JO"
+}
+
+```
+
+<!--
+type: tab
+title: Minimal detail
+-->
+
+```json title="Example request body: Create a cart" lineNumbers
+{
+  "channel_id": 1,
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 80,
+      "variant_id": 64
+    }
+  ]
+}
+
+```
+
+<!--
+type: tab
+title: With currency, locale
+-->
+
+```json title="Example request body: Create a cart" lineNumbers
+{
+  "customer_id": 0,
+  "line_items": [],
+  "custom_items": [
+    {
+      "sku": "custom-item-sku",
+      "name": "table",
+      "quantity": 1,
+      "list_price": 30,
+      "gift_wrapping": {
+        "wrap_together": true,
+        "wrap_details": [
+          {
+            "id": 0,
+            "message": "Happy Birthday"
+          }
+        ]
+      }
+    }
+  ],
+  "gift_certificates": [
+    {
+      "name": "Tobi Day",
+      "theme": "Birthday",
+      "amount": 1,
+      "quantity": 1,
+      "sender": {
+        "name": "Brandi Tyler",
+        "email": "Brandi.Tyler@mail.com"
+      },
+      "recipient": {
+        "name": "Tobi Day",
+        "email": "Tobi.Day@mail.com"
+      },
+      "message": "Happy Birthday"
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "usd"
+  },
+  "locale": "en-US"
 }
 ```
 
-To create a cart for an existing customer, include the `customer_id` in your `POST` request.
-
-```json
-{
-    "channel_id": 704181,
-    "customer_id": 1,
-    "line_items": [
-        {
-            "quantity": 1,
-            "product_id": 80,
-            "variant_id": 64
-        }
-    ]
-}
-```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner) -->
+<!-- type: tab-end -->
 
 <!-- theme: info -->
-> #### Note
-> The `id` returned in the response will correspond to the `cart_id` required to generate a cart redirect URL.
+> #### Locale format
+> The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.
 
+## Customer support
 
+To create a cart for an existing customer, include the `customer_id` in your request body.
+
+```json title="Example request body: existing customer" lineNumbers
+{
+  "channel_id": 1,
+  "customer_id": 1,
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 80,
+      "variant_id": 64
+    }
+  ],
+  "locale": "en-us"
+}
+```
 
 ### Guest cart
 
-A guest cart assumes the shopper is not a customer and is not logging in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
+Guest carts assume the shopper is not a customer and is not signing in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
 
 ## Redirecting to checkout
 
-A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. You can generate a cart redirect URL only from a cart created using the Carts API.
+A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. You can only generate a cart redirect URL from a cart created using the Carts API.
 
-To generate a cart redirect URL, send a `POST` request to the [Create Cart Redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
+### Using the Create a cart redirect URL endpoint
 
-```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/redirect_urls
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
+
+```http title="Create cart redirect URL"
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl#requestrunner) -->
+The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce-hosted checkout into a headless site using an iFrame.
 
-The response will contain `cart_url` and `checkout_url` parameters - use these URLs to redirect the customer to the BigCommerce hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce hosted checkout into a headless site via an iFrame.
-
-```json
+```json title="Example response: Create cart redirect URL" lineNumbers
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -85,76 +181,77 @@ The response will contain `cart_url` and `checkout_url` parameters - use these U
 }
 ```
 
-### Creating a redirect using the include query parameter
+### Using Create a cart with the include query parameter
 
-It is possible to generate a redirect URL when creating a cart using the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
+It is possible to generate a redirect URL when creating a cart using the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
-```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts?include=redirect_urls
+```http title="Create a cart"
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-```
 
-### Logging in and redirecting a customer
-
-If you passed the `customer_id` in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) request, redirect the customer to the login URL first before redirecting them to the cart or checkout pages. To do so, create a customer login JWT using the same `customer_id` and set the `redirect_to` parameter to the relative path of the desired redirect URL. 
-
-**Customer login JWT payload example**
-
-```js
 {
-  "iss": {{CLIENT_ID}},
-  "iat": 1535393113,
-  "jti": {{UUID}},
-  "operation": "customer_login",
-  "store_hash": {{STORE_HASH}},
-  "customer_id": {{CUSTOMER_ID}},
-  "channel_id": {{CHANNEL_ID}},
-  "redirect_to": "/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
-  "request_ip": "111.222.333.444"
+  // request body
 }
+
 ```
 
-Use the payload to generate the customer login JWT. Then, create a customer login URL by appending the JWT to `https://{{YOUR_BIGCOMMERCE_DOMAIN}}.com/login/token/`. 
+## Signing customers in before redirecting
 
-For example:
+Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
 
-`https://store.example.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is`
+<!-- theme: info -->
+> #### API account notes
+> The Customer Login API requires **app API credentials**. To learn more, see the articles on the [Customer Login API](/api-docs/storefront/customer-login-api#api-account-notes) and [Authentication](/api-docs/getting-started/authentication#user-generated-jwts).
 
-The customer login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
+The Customer Login API requires your application to generate a JWT, then send it as a path parameter of the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint.
 
-If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), pass the customer login URL to the Checkout SDK to log in the customer, then redirect to checkout within the embedded checkout iFrame.
+The following table is a reference for the specifics of JWT claims in the context of this use case. For a complete listing of payload claims, both required and optional, see the [Customer Login API JWT payload reference](/api-docs/storefront/customer-login-api#customer-login-jwt-payload-reference).
+
+| Field Name | Type | Description |
+|:-----------|:-----|:------------|
+| `iss` | string | The API account client ID.|
+| `store_hash` | string | The subject store hash.|
+| `channel_id` | integer | The `channel_id` of the subject storefront. Required for this use case; see [Channel ID is mandatory](#channel-id-is-mandatory). |
+| `customer_id` | integer | The ID of the shopper you associated with the cart.|
+| `redirect_to` | string | One of the redirect URLs you generated per the section on [Redirecting to checkout](#redirecting-to-checkout). |
+
+A successful call to the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint will redirect the user to the supplied relative URL. If you're calling the Customer Login API server-side, pass the redirect along to the frontend.
+
+<!-- theme: info -->
+> #### Channel ID is mandatory
+> The Customer Login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
+
+If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
 
 ## Deleting a line item
 
-To delete a line item from a cart, send a `DELETE` request to the [Delete Cart Line Item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint passing in the associated `cartId` and `itemId`.
+To delete a line item from a cart, send a request to the [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint, passing the associated `cartId` and `itemId` as path parameters.
 
-```http
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items/{itemId}
+```http title="Delete a line item"
+DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-items/deletecartlineitem#requestrunner) -->
 
 ## Clearing the cart
 
-Removing all cart items essentially deletes the cart. To clear the cart, call the [Delete a Cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
+To clear the cart, send a request to the [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
-```http
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}
+```http title="Delete a cart"
+DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/deleteacart#requestrunner) -->
+In practice, removing all cart items also essentially deletes the cart.
 
 ## Next step
 
-- [Learn how to move a cart to checkout](/api-docs/storefronts/guide/checkout)
+- [Learn how to move from cart to checkout](/api-docs/storefronts/guide/checkout)
 
 ## Resources
 
