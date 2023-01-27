@@ -29,7 +29,7 @@ This method takes the form `utils.api.getPage(url, options, callback)`.
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|
 | url | string | request URL. For example, `/cart.php`. |
-| options | object | Can contain `template`, [FormData (for POST methods)](https://developer.mozilla.org/en-US/docs/Web/API/FormData), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
+| options | object | Can contain `template`, [FormData (for POST methods)](https://developer.mozilla.org/en-US/docs/Web/API/FormData), `params` (for GET methods), and/or `config`. <br /><br />The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br /><br />The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
 The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/stencil-docs/adding-event-hooks-to-your-theme/remote-api-example#remote_remote-api-example).
@@ -69,7 +69,7 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|
-| page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
+| page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br /> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
@@ -139,10 +139,10 @@ utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
 
 The `itemAdd`method allows your code to add an item to the cart, with options. This method takes the form `utils.api.cart.itemAdd(FormData, callback);`.
 
-| Parameter | Type | Description/Usage |
-|:---|:---|:---|
-| FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br><br>FormData example: <br>`action: add` <br>`product_id: 123` <br> `attribute[123]: 321` <br>`qty[]: 1` |
-| callback | function | Asynchronous function the subject method calls to handle any results. |
+| Argument | Type | Description/Usage |
+|---|---|---|
+| FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br /><br />FormData example: <br />`action: add` <br />`product_id: 123` <br /> `attribute[123]: 321` <br />`qty[]: 1` |
+| callback| Function | Asynchronous function call to handle the results |
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
 

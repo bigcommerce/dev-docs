@@ -15,7 +15,7 @@ Shared attributes that control value facets on a product.
 |-|-|-|
 | name | string | Required field. The option's name, as used internally. Must be unique. |
 | display_name | string | Optional field. The option's name, as displayed on the storefront. Defaults to same value as `name`. However, a custom value can be defined here, and can be reused among multiple options. |
-| type | string | Optional field. The type of option, which determines how it will display on the storefront. Acceptable values: <br> `C`: Checkbox; <br>`D`: Date field; <br>`F`: File upload field; <br>`MT`: Multi-line text field; <br>`RB`: Radio buttons; <br>`RT`: Rectangular boxes (for product sizes); <br>`S`: Select/drop-down list; <br>`C`: Numbers-only text field; <br>`P`: Product Pick list; <br>`CS`: Color/texture Swatch; <br>`T`: Text field.  |
+| type | string | Optional field. The type of option, which determines how it will display on the storefront. Acceptable values: <br /> `C`: Checkbox; <br />`D`: Date field; <br />`F`: File upload field; <br />`MT`: Multi-line text field; <br />`RB`: Radio buttons; <br />`RT`: Rectangular boxes (for product sizes); <br />`S`: Select/drop-down list; <br />`C`: Numbers-only text field; <br />`P`: Product Pick list; <br />`CS`: Color/texture Swatch; <br />`T`: Text field.  |
 | values | object | Optional field. Object containing option values: a `url` and a `resource`. |
 | product_id | integer | Optional field; read-only. If `null`, this option can be reused with any product. If populated with a numeric ID, this option can be used exclusively with the corresponding product. |
 

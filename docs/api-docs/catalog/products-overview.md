@@ -354,8 +354,8 @@ This example results in selecting a combination of small and red on the storefro
 
 | Product | Variant option |
 | -- | -- |
-| T-Shirt | Blue<br>-<br>Small<br> Medium<br> Large|
-| Backpack | Black<br> Yellow<br>-<br>2L <br> 3L<br> 8L |
+| T-Shirt | Blue<br />-<br />Small<br /> Medium<br /> Large|
+| Backpack | Black<br /> Yellow<br />-<br />2L <br /> 3L<br /> 8L |
 
 ### Options created on V2 and V3
 
@@ -424,8 +424,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 | Product | Variant option | Variant |
 | -- | -- | -- |
-| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
-| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
+| T-Shirt | Blue<br />-<br /> Small<br /> Medium<br /> Large| SM-BLU<br /> SM-MED <br /> SM-LARG
+| Backpack | Black<br />Yellow<br />-<br />2L <br /> 3L<br /> 8L |BLACK-2L<br />BLACK-3L<br />BLACK 8L<br />-<br />YELLOW-2L<br />YELLOW-3L<br />YELLOW-8L|
 
 ## Creating variants
 
@@ -601,8 +601,8 @@ You can add an adjuster to a modifier option to change things, such as increasin
 
 | Product | Variant option | Variant |Modifier |
 | -- | -- | -- | -- |
-| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| BLU<br> BLU-MED <br> BLU-LARG| Checkbox<br>Donate to Charity|
-| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
+| T-Shirt | Blue<br />-<br /> Small<br /> Medium<br /> Large| BLU<br /> BLU-MED <br /> BLU-LARG| Checkbox<br />Donate to Charity|
+| Backpack | Black<br />Yellow<br />-<br />2L <br /> 3L<br /> 8L |BLACK-2L<br />BLACK-3L<br />BLACK 8L<br />-<br />YELLOW-2L<br />YELLOW-3L<br />YELLOW-8L| Text Field<br /> Add Embroidery|
 
 <!-- theme: info -->
 > #### Modifiers that support adjusters
@@ -752,10 +752,10 @@ Use complex rules when an adjustment should be triggered by:
 
 | Product | Variant option | Variant |Modifier | Complex rule |
 | -- | -- | -- | -- | -- |
-| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkbox<br> Donate to Charity.<br> Add $5
-| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
+| T-Shirt | Blue<br />-<br /> Small<br /> Medium<br /> Large| SM-BLU<br /> SM-MED <br /> SM-LARG| Checkbox<br />Donate to Charity| Checkbox<br /> Donate to Charity.<br /> Add $5
+| Backpack | Black<br />Yellow<br />-<br />2L <br /> 3L<br /> 8L |BLACK-2L<br />BLACK-3L<br />BLACK 8L<br />-<br />YELLOW-2L<br />YELLOW-3L<br />YELLOW-8L| Text Field<br /> Add Embroidery| N/A
 
-<br>
+<br />
 
 ### Creating complex rules based on modifiers
 

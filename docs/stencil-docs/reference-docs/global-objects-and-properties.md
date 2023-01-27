@@ -212,7 +212,7 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ## HTML Head
 
-**Description:** Data to be included in the HTML `<head>` element<br>
+**Description:** Data to be included in the HTML `<head>` element<br />
 
 **Handlebars Expression:**`{{head}}`
 
@@ -314,7 +314,7 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ## Page Type Property
 
-**Description:** A string representing the type of page currently displayed. <br>
+**Description:** A string representing the type of page currently displayed. <br />
 
 **Handlebars Expression:** `{{page_type}}`
 
@@ -570,11 +570,11 @@ All possible values for `{{page_type}}` are:
 
 ## Social Links
 
-**Description:** Array of all social-media site links for the storefront.<br>
+**Description:** Array of all social-media site links for the storefront.<br />
 
 **Handlebars Expression:** `{{social_media}}`
 
-**Object Properties:**<br><br>
+**Object Properties:**<br /><br />
 
 | Property | Description |
 |----|----|
@@ -585,7 +585,7 @@ All possible values for `{{page_type}}` are:
 
 ## Template Property
 
-**Description:** A string containing the name of the root template currently being rendered in the page context. <br>
+**Description:** A string containing the name of the root template currently being rendered in the page context. <br />
 
 **Handlebars Expression:** `{{template}}`
 
@@ -606,7 +606,7 @@ All possible values for `{{page_type}}` are:
 
 ## Top Sellers
 
-**Description:** Object to display a sidebar of top-selling products.<br>
+**Description:** Object to display a sidebar of top-selling products.<br />
 
 **Handlebars Expression:** `{{products.top_sellers}}`
 

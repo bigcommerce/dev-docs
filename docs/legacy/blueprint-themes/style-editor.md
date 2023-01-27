@@ -132,7 +132,7 @@ Less offers a variety of compilation methods, including applications for both Wi
 
 ## Testing Style Editor with Your Theme 
 
-If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.<br>
+If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.<br />
 (For example: <NOBR>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`</nobr>)
 
 This will enable [Developer Mode](#) for your store, which also enables Blueprint and other features for theme developers. You can [use Blueprint](#) as a basis for creating new themes.

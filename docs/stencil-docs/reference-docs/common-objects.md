@@ -23,34 +23,34 @@ This consistent behavior is true for each of the common objects documented in th
 | Property | Description | Type |
 |-|-|-|
 | with_tax | Price including tax | object |
-| &#x21B3; currency | Currency code | string  <br> `"USD"`|
-| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$216.50"` |
-| &#x21B3; value |Raw numeric value of the above price | number <br> `216.5`
+| &#x21B3; currency | Currency code | string  <br /> `"USD"`|
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$216.50"` |
+| &#x21B3; value |Raw numeric value of the above price | number <br /> `216.5`
 | without_tax | Price excluding tax | object |
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$200.00"` |
-| &#x21B3; value | Raw numeric value of the above price | number <br> `200` |
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$200.00"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br /> `200` |
 | non_sale_price_with_tax | Non-sale price, including tax (can be displayed alongside standard with_tax during sale events) | object |
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$243.56"`|
-| &#x21B3;  value | Raw numeric value of the above price | number <br> `243.56`|
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$243.56"`|
+| &#x21B3;  value | Raw numeric value of the above price | number <br /> `243.56`|
 | non_sale_price_without_tax | Non-sale price, excluding tax (can be displayed alongside standard without_tax during sale events) | object |
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$225.00"`|
-| &#x21B3; value | Raw numeric value of the above price | number <br> `225.00`|
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$225.00"`|
+| &#x21B3; value | Raw numeric value of the above price | number <br /> `225.00`|
 | rrp_with_tax	|List (i.e., manufacturer’s suggested retail) price, including tax | object |
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$242.48"` |
-| &#x21B3; value	| Raw numeric value of the above price | number <br> `242.48` |
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br /> `"$242.48"` |
+| &#x21B3; value	| Raw numeric value of the above price | number <br /> `242.48` |
 | rrp_without_tax | List (i.e., suggested retail) price, excluding tax | object|
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$224.00"` |
-| &#x21B3; value | Raw numeric value of the above price | number <br> `224`|
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br /> `"$224.00"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br /> `224`|
 |saved | Amount customer saved, compared to list price | object |
-| &#x21B3; currency | Currency code | string <br> `"USD"` |
-|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$25.98"` |
-| &#x21B3; value | Raw numeric value of the above price | number <br> `25.98`|
-| tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
+| &#x21B3; currency | Currency code | string <br /> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br /> `"$25.98"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br /> `25.98`|
+| tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br /> `"Tax"`|
 | price_range | See [Price Range Object](/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
 ## Price
@@ -81,22 +81,22 @@ This consistent behavior is true for each of the common objects documented in th
 | retail_price_range | Product Price Range | object |
 |&#x21B3;   max | The minimum variant price for the product | object |
 |&nbsp;  &nbsp;  &#x21B3;  with_tax | Price including tax | object |
-|&nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; currency | Currency code | string  <br> `"USD"`|
-| &nbsp;  &nbsp; &nbsp;  &nbsp; &#x21B3;formatted | String representation of the above price, including currency formatting | string <br> `"$37.89"` |
-| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br> `37.89` |
+|&nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; currency | Currency code | string  <br /> `"USD"`|
+| &nbsp;  &nbsp; &nbsp;  &nbsp; &#x21B3;formatted | String representation of the above price, including currency formatting | string <br /> `"$37.89"` |
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br /> `37.89` |
 | &nbsp;  &nbsp; &#x21B3; without_tax | Price without tax| object |
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string <br> `USD`|
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35` |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string <br /> `USD`|
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$35.00"` |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br /> `35` |
 |&#x21B3;  min | The minimum variant price for the product | object |
 | &nbsp;  &nbsp; &#x21B3;  with_tax | Price including tax | object |
-| &nbsp;  &nbsp;&nbsp;  &nbsp;  &#x21B3;currency | Currency code | string  <br> `"USD"`|
-| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3;formatted | String representation of the above price, including currency formatting | string <br> `"$37.89"` |
-| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br> `37.89` |
+| &nbsp;  &nbsp;&nbsp;  &nbsp;  &#x21B3;currency | Currency code | string  <br /> `"USD"`|
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3;formatted | String representation of the above price, including currency formatting | string <br /> `"$37.89"` |
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br /> `37.89` |
 | &nbsp;  &nbsp; &#x21B3; without_tax | Price without tax| object |
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string  <br> `"USD"`|
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
-| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35`|
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string  <br /> `"USD"`|
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br /> `"$35.00"` |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br /> `35`|
 
 **Available through:**
 

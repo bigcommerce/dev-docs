@@ -60,7 +60,7 @@ Understandable
 | Level    | Guideline 3.2: Predictable                                                  | Cornerstone technique |
 | --       | --                                                                          | --                    | 
 | Level A  | [On Input](https://www.w3.org/TR/WCAG21/#on-input)                          | You are required to click a submit button to perform an action.                                                                                     |
-| Level AA | [Consistent Navigation](https://www.w3.org/TR/WCAG21/#consistent-navigation)| * There is a consistent presentation and layout for users who interact with repeated content. <br>* Navigation menus are always in the same place.</br> * The Search box is in the same location on all pages.                                                                               |         
+| Level AA | [Consistent Navigation](https://www.w3.org/TR/WCAG21/#consistent-navigation)| * There is a consistent presentation and layout for users who interact with repeated content. <br />* Navigation menus are always in the same place.</br> * The Search box is in the same location on all pages.                                                                               |         
 | Level AAA| [Change on Request](https://www.w3.org/TR/WCAG21/#change-on-request)        | Users are automatically redirected from an old page to a new page in such a way that they never realize the redirect has occurred.                       |
 
 
@@ -68,7 +68,7 @@ Understandable
 | --       | --                                                                          | --                    | 
 | Level A  | [Error Identification](https://www.w3.org/TR/WCAG21/#error-identification)  | Users receive an error message when they fail to include an @ in the email address.                                                                       |
 | Level AA | [Error Suggestion](https://www.w3.org/TR/WCAG21/#error-suggestion)          | Prevent errors with the use of a checkbox and a submit button.                                                                                    |     
-| Level AAA| [Help](https://www.w3.org/TR/WCAG21/#help)                                  | * A help link is on every web page. <br>* Text instructions are at the beginning of a form or set of fields that describes the necessary input.</br> |
+| Level AAA| [Help](https://www.w3.org/TR/WCAG21/#help)                                  | * A help link is on every web page. <br />* Text instructions are at the beginning of a form or set of fields that describes the necessary input.</br> |
 
 
 ## Related resources

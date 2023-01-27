@@ -63,7 +63,7 @@ Once you’ve enabled product filtering for your sandbox store, you’ll need to
 10.  Include the required assets on your new facets pages. You can use the facets pages from Blueprint for reference (the assets will be named the same):
    *   `%%Panel.FacetedSearch%%` – This is the main Faceted Search panel, and will call the rest of the panels it needs accordingly (including required JavaScript and CSS).
     *   Add the `js-faceted-search-column` class to the container of your Faceted Search panel.
-    *   If you have a responsive theme, you can add the `Refine` button to your page, which toggles the Faceted Search column on or off. By default, this button displays only on mobile:<br>
+    *   If you have a responsive theme, you can add the `Refine` button to your page, which toggles the Faceted Search column on or off. By default, this button displays only on mobile:<br />
     `<button class="js-faceted-search-action btn"> %%LNG_FilterBy%% </button>`
 11.  If the pages mentioned above don’t exist, you can copy the existing pages from the Blueprint theme. Keep in mind that you’ll need to modify these pages to suit the structure of your theme.
 

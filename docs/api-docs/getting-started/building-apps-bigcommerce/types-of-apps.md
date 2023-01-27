@@ -28,7 +28,7 @@ Use Cases:
 
 
 
-<br>
+<br />
 
 To create a connector app that uses manual OAuth token creation, make the following selections on the Technical tab when registering your app in Dev Tools:
 

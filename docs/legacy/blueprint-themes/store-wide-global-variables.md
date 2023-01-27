@@ -18,8 +18,8 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 | `%%GLOBAL_HeaderLogo%%` | The store's logo. This can be either an image file or an HTML-formatted text string. |
 | `%%GLOBAL_ImageDirectory%%` | The name of the images directory. |
 | `%%GLOBAL_IMG_PATH%%` | The URI of the directory in which the site's image files reside. |
-| `%%GLOBAL_jQueryPath%%` | The URI of the minified jQuery library in use. For example:<br>`https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js` |
-| `%%GLOBAL_jQueryUIPath%%` | The path to the jQuery UI script. For example:<br> `https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js` |
+| `%%GLOBAL_jQueryPath%%` | The URI of the minified jQuery library in use. For example:<br />`https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js` |
+| `%%GLOBAL_jQueryUIPath%%` | The path to the jQuery UI script. For example:<br /> `https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js` |
 | `%%GLOBAL_LiveChatCodeEnabled%%` | A value representing whether Live Chat is enabled or disabled. For example: `none` |
 | `%%GLOBAL_LoginOrLogoutText%%` | The HTML code of the string (including links) providing the option to sign into the store or to log out. For example: <NOBR>`Sign in or Create an account`</nobr> |
 | `%%GLOBAL_LogoText%%` | The text string used for the store logo. |

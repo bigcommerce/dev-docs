@@ -14,7 +14,7 @@ Index of hierarchical categories used to organize and group products.
 | Name | Type | Description |
 |-|-|-|
 | id | int | A read-only field containing the unique numeric identifier of this category. |
-| parent_id | int | The ID of the parent category to which this category belongs.<br> (NOTE: the total number of parent categories cannot exceed seven.) |
+| parent_id | int | The ID of the parent category to which this category belongs.<br /> (NOTE: the total number of parent categories cannot exceed seven.) |
 | name | string | The name of the category. Must be unique. |
 | description | text | A description for the category. |
 | sort_order | int | The sort order of the category. |
