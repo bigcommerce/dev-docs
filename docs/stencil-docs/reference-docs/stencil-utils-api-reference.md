@@ -30,7 +30,7 @@ This method takes the form `utils.api.getPage(url, options, callback)`.
 |:----------|:-----|:------------------|
 | url | string | request URL. For example, `/cart.php`. |
 | options | object | Can contain `template`, [FormData (for POST methods)](https://developer.mozilla.org/en-US/docs/Web/API/FormData), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/stencil-docs/adding-event-hooks-to-your-theme/remote-api-example#remote_remote-api-example).
 
@@ -70,7 +70,7 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|
 | page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
 // Server returns HTML template in the response, even if response is unsuccessful  
@@ -93,7 +93,7 @@ This method takes the form `utils.api.cart.getCart(options, callback);`.
 | Parameter | Type | Description |
 |:---|:---|:---|
 | options | object | Return product variant options. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 ```js title="Example: getCart" lineNumbers
@@ -115,7 +115,7 @@ Get a sum of the cart line item quantities. It takes the form `utils.api.cart.ge
 | Parameter | Type | Description |
 |:---|:---|:---|
 | options | object | Return product variant options. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: getCartQuantity" lineNumbers
 utils.api.cart.getCartQuantity({}, (err, response) => {
@@ -140,7 +140,7 @@ The `itemAdd`method allows your code to add an item to the cart, with options. T
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br><br>FormData example: <br>`action: add` <br>`product_id: 123` <br> `attribute[123]: 321` <br>`qty[]: 1` |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
 
@@ -187,7 +187,7 @@ The `itemUpdate` method allows your code to update a specified cart item’s qua
 |:---|:---|:---|
 | itemId | string | The item’s ID |
 | qty | integer | The item’s quantity in the cart. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: itemUpdate" lineNumbers
 cartUpdate($target) {
@@ -244,7 +244,7 @@ The `itemRemove` method allows your code to remove items from the cart. This met
 | Parameter| Type | Description/Usage |
 |:---|:---|:---|
 | itemId | string | The item’s ID. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 In the following example (from `cart.js`), `itemRemove` is called before the if/else test.
@@ -274,7 +274,7 @@ The `update` method allows your code to update the set of items in the cart. It 
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | items | array | The items in the cart. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 The following example shows a call to `update` within the `itemUpdate` method:
@@ -317,7 +317,7 @@ The `getItemGiftWrappingOptions` method allows your code to retrieve gift-wrappi
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | itemId | string | The cart item. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to display gift-wrapping options in a modal.
@@ -355,7 +355,7 @@ The `submitItemGiftWrappingOption` method allows your code to handle the custome
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | itemId | string | The cart item. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 ```js title="Example: submitItemGiftWrappingOption" lineNumbers
@@ -378,7 +378,7 @@ The `getContent` method allows your code to display the cart contents in customi
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | options | object | Template containing content and totals children. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 This example (from `cart.js`) shows a call to `getContent` within the `refreshContent` function.
@@ -433,7 +433,7 @@ The `getShippingQuotes` method allows your code to retrieve shipping-cost quotes
 |:---|:---|:---|
 | params | object | Contains country_id, state_id, and zip_code. |
 | template | string, array, object | The template to use for rendering. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 See `submitShippingQuotes` for an example. 
@@ -451,7 +451,7 @@ The `submitShippingQuote` method must be called after `getShippingQuote`, which 
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | quoteId | number | ID for a shipping quote returned by `getShippingQuotes`. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 The following example from `cart/shipping-estimator.js` shows calls to both `getShippingQuotes` and `submitShippingQuote`.
@@ -500,7 +500,7 @@ The `applyCode` method applies a coupon code or gift certificate to the cart. It
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | code | string | Alphanumeric representation of the coupon or gift-certificate code. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 In the following example from `cart.js`, `applyCode` is called before the final if/else test to apply a coupon code:
 
@@ -559,7 +559,7 @@ This method applies a gift certificate to a cart. It takes the form `utils.api.c
 | Parameter | Type | Description |
 |:---|:---|:---|
 | code | string | Gift certificate code to apply. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 The following example calls `appleGiftCertificate`.
 
@@ -590,7 +590,7 @@ The country `getById` method retrieves standardized country names by numeric ID.
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | countryId | number | Country code. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
 The following example makes a call to country `getById`.
@@ -610,7 +610,7 @@ The `getByName` method retrieves states by country name, and returns an array of
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | countryName | string | Country name |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 In the following example from `common/state-country.js`, `getByName` is called after the initial `if` test:
 
@@ -665,7 +665,7 @@ The `optionChange` method is fired when the customer selects a product option fo
 |:---|:---|:---|
 | params | object | Contains a collection of IDs that map to product properties (color, size, etc.) |
 | productId | number | ID for this product. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 In this example (from `common/product-details.js`), `optionChange` is called to update options in a Quick View modal.
 
@@ -698,7 +698,7 @@ This method configures product options in the cart. It takes the form `utils.api
 |:---|:---|:---|
 | itemId | number | product ID|
 | params | object | |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: configureCart" lineNumbers
 utils.api.productAttributes.configureInCart(itemId, options, (err, response) => {
@@ -721,7 +721,7 @@ The product `getById` method allows your code to retrieve, and to present, detai
 |:---|:---|:---|
 | productId | number | ID for this product |
 | params | object | Contains request options and/or presentation template. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: Product getById" lineNumbers
 $('body').on('click', '.quickview', (event) => {
@@ -755,7 +755,7 @@ The core search method takes the form `utils.api.search.search(query, params, ca
 |:---|:---|:---|
 | query | string | Contains the customer’s search query |
 | params | object | Contains request options and/or presentation template. |
-| callback | function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: search" lineNumbers
 const doSearch = _.debounce((searchQuery) => {
