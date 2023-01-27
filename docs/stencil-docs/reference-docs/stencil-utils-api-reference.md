@@ -70,7 +70,7 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|
 | page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
-| callback | function | Asynchronous function handler that is called to handle the results. |
+| callback | function | Asynchronous function you can call to handle the results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
 // Server returns HTML template in the response, even if response is unsuccessful  
@@ -140,7 +140,7 @@ The `itemAdd`method allows your code to add an item to the cart, with options. T
 | Parameter | Type | Description/Usage |
 |:---|:---|:---|
 | FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br><br>FormData example: <br>`action: add` <br>`product_id: 123` <br> `attribute[123]: 321` <br>`qty[]: 1` |
-| callback| function | Asynchronous function you can call to handle the results. |
+| callback | function | Asynchronous function you can call to handle the results. |
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
 
