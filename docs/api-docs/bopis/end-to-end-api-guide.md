@@ -1084,11 +1084,13 @@ title: Response
 
 #### 3.2.1 Get locations
 
-For info on getting locations, see [Get Locations](https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/graphql/get-locations) 
+For info on getting locations, see [Get Locations](https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/graphql/get-locations).
+
+For info on getting location data in the storefront using Stencil Utils powered by GraphQL, see [Stencil Utils Reference- Get page by GraphQL](/stencil-docs/reference-docs/stencil-utils-api-reference#get-page-by-graphql).
 
 #### 3.2.2 Get inventory by location
 
-For info on getting inventory by location, see [Get Inventory by Location](https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/graphql/get-inventory-by-location)
+For info on getting inventory by location, see [Get Inventory by Location](https://bigcommerce.stoplight.io/docs/api-beta-buy-online-pick-up-in-store/api-docs/graphql/get-inventory-by-location).
 
 ----------
 
