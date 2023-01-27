@@ -152,11 +152,12 @@ To create a cart for an existing customer, include the `customer_id` in your req
 
 ### Guest cart
 
-A guest cart assumes the shopper is not a customer and is not signing in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
+Guest carts assume the shopper is not a customer and is not signing in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
 
 ## Redirecting to checkout
 
-A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. You can only generate a cart redirect URL from a cart created using the Carts API. The `id` returned with the response corresponds to the `cart_id` required to generate a cart redirect URL.
+A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. You can only generate a cart redirect URL from a cart created using the Carts API.
+
 ### Using the Create a cart redirect URL endpoint
 
 To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
@@ -235,7 +236,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Clearing the cart
 
-Removing all cart items essentially deletes the cart. To clear the cart, send a request to the [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
+To clear the cart, send a request to the [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
 ```http title="Delete a cart"
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
@@ -243,6 +244,8 @@ Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
+
+In practice, removing all cart items also essentially deletes the cart.
 
 ## Next step
 
