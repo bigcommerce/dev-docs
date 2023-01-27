@@ -68,7 +68,7 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 
 ## Setting up a WordPress site using API account credentials
 
-1. To set up a WordPress site using this method, click `Enter your API credentials` on the welcome screen in the plugin. 
+1. To set up a WordPress site using this method, click `Enter your API credentials` on the welcome screen in the plugin.
 
 ![WordPress Plugin Welcome Screen](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "WordPress Plugin Welcome Screen")
 
