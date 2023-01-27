@@ -5,8 +5,8 @@ When connecting more than one WordPress site to your BigCommerce store, you need
 ### Multi-site and subdirectories
 Multiple sites can share the same API credentials, or you can choose to create a new set of credentials for each site.
 
-| **Configuration Method** | **Is Supported** |
-|:-------------------------:|:---------------:|
+| Configuration Method | Is Supported |
+|:----------------------|:-----------:|
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
