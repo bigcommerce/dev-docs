@@ -1,8 +1,7 @@
 # Managing Carts
 
+This article explains how to use the Carts API to create and manage carts. It also discusses how to redirect shoppers from headless storefronts to BigCommerce-hosted cart and checkout pages.
 
-
-In this section, we will explain how to use the Carts API to create and manage carts. Additionally, we will discuss how to redirect shoppers from a headless storefront to the BigCommerce hosted cart and checkout pages.
 
 <!-- theme: info -->
 > #### Locale support
