@@ -14,7 +14,7 @@ title: Query
 -->
 
 ```http title="Example query: Get data layer enabled flag" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 
@@ -58,7 +58,7 @@ title: Mutation
 -->
 
 ```http title="Example mutation: Enable data layer" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -106,7 +106,7 @@ title: Mutation
 -->
 
 ```http title="Example mutation: Disable data layer" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
