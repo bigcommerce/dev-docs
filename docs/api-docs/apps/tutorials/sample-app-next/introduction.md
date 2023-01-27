@@ -4,12 +4,12 @@
 
 This tutorial demonstrates how to build and embed a BigCommerce app using Node.js, React, Next.js, and BigDesign, BigCommerce's library of React components.
 
-You will learn how to connect your app to BigCommerce, integrate an API, and set up a database to store app data. You will use BigDesign to give your app a native BigCommerce visual style and behavior. 
+You will learn how to connect your app to BigCommerce, integrate an API, and set up a database to store app data. You will use BigDesign to give your app a native BigCommerce visual style and behavior.
 
 At the end of this tutorial, you will have a functional single-click app that can make API calls and store app data in a database.
 
 <!-- theme: info -->
-> #### Note
+> #### Heroku option
 > To get the app up and running quickly, follow the steps described in [Quick Start: Deploy to Heroku Install Flow](/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku). 
 
 

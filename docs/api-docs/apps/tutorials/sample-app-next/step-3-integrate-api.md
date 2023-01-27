@@ -800,7 +800,7 @@ import SessionProvider from '../context/session';
 </SessionProvider>
 ```
 
-5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it. You can [view _app.tsx (GitHub)](hhttps://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx).
+5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it. You can [view _app.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx).
 
 ```tsx title="Add Box _app.tsx" lineNumbers
 const MyApp = ({ Component, pageProps }: AppProps) => (
