@@ -102,7 +102,7 @@ Content-Type: application/json
 > #### Note
 > The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format. 
 
-
+## Customer support
 To create a cart with option selections, include an `option_id` and `option_value` for each selection. 
 
 ```json title="Example request body: option selections" lineNumbers
@@ -157,6 +157,7 @@ A guest cart assumes the shopper is not a customer and is not signing in or crea
 ## Redirecting to checkout
 
 A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. You can only generate a cart redirect URL from a cart created using the Carts API. The `id` returned with the response corresponds to the `cart_id` required to generate a cart redirect URL.
+### Using the Create a cart redirect URL endpoint
 
 To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
 
@@ -177,7 +178,7 @@ The response will contain `cart_url` and `checkout_url` properties. Use these UR
 }
 ```
 
-### Creating a redirect using the include query parameter
+### Using Create a cart with the include query parameter
 
 It is possible to generate a redirect URL when creating a cart using the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
@@ -193,7 +194,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-### Signing in and redirecting a customer
+## Signing customers in before redirecting
 
 Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
 
