@@ -9,7 +9,7 @@ This guide illustrates the basics of using BODL data in your integration. First,
 ## Prerequisites
 
 For scripts to successfully use BODL to access storefront data, the following must be true:
-- Enable BODL on the subject storefront using the control panel or the [Datalayer API](/api-reference/graphql/data-layer-api)
+- Enable BODL on the subject storefront using the control panel or the [Datalayer API](/api-docs/store-management/data-layer-api)
 - The storefront must use a stencil theme
 - If a merchant enables cookie tracking consent on the subject storefront, the shopper must consent to the [appropriate category](#category-of-consent)
 
