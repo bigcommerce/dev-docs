@@ -19,32 +19,15 @@ POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-
-{
-    "channel_id": 1,
-    "line_items": [
-        {
-            "quantity": 1,
-            "product_id": 80,
-            "variant_id": 64
-        }
-    ]
-}
-
 ```
 
 Several example request bodies follow:
 
 <!--
 type: tab
-title: POST request
+title: With line_items
 -->
 
-```http title="Example POST request with X-Auth-Token header"
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-```
 ```json title="Example request body: Create a cart" lineNumbers
 {
   "channel_id": 1,
