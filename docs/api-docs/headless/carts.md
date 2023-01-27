@@ -2,14 +2,13 @@
 
 This article explains how to use the Carts API to create and manage carts. It also discusses how to redirect shoppers from headless storefronts to BigCommerce-hosted cart and checkout pages.
 
-
-<!-- theme: info -->
+<!-- theme: success -->
 > #### Locale support
-> The Carts API supports selling in different markets by allowing locale-based overrides for product details. Supply a cart's locale and add `option_selections` to the cart's line items to configure alternative product names, option names, and modifier values. The Carts API stores the locale and makes it available to the Checkout and Orders APIs. 
+> The Carts API supports selling in different markets by allowing locale-based overrides for product details. Supply a cart's locale and add `option_selections` to the cart's line items to configure alternative product names, option names, and modifier values. The Carts API stores the locale and makes it available to the Checkout and Orders APIs.
 
 ## Creating a cart
 
-The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers. 
+The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers.
 
 To create a cart, send a request to the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
@@ -168,7 +167,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce hosted checkout into a headless site using an iFrame.
+The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce-hosted checkout into a headless site using an iFrame.
 
 ```json title="Example response: Create cart redirect URL" lineNumbers
 {
@@ -224,7 +223,7 @@ If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/emb
 
 ## Deleting a line item
 
-To delete a line item from a cart, send a request to the [Delete Cart Line Item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint, passing the associated `cartId` and `itemId` as path parameters.
+To delete a line item from a cart, send a request to the [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint, passing the associated `cartId` and `itemId` as path parameters.
 
 ```http title="Delete a line item"
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
@@ -246,7 +245,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Next step
 
-- [Learn how to move a cart to checkout](/api-docs/storefronts/guide/checkout)
+- [Learn how to move from cart to checkout](/api-docs/storefronts/guide/checkout)
 
 ## Resources
 
