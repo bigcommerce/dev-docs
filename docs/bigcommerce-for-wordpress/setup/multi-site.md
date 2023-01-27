@@ -30,7 +30,7 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 3. For the OAuth Scopes, select the following default settings:
 
 | OAuth Scope | Default Selection |
-|:------------|:----------------|
+|:------------|:------------------|
 | Content           | None                  |
 | Checkout content  | None                  |
 | Customers         | Modify                |
