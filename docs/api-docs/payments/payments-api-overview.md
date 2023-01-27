@@ -72,6 +72,11 @@ The following table lists the payment gateways that are compatible with our publ
 | Worldpay         |                             | &check; |
 | Worldpay Core    |                             | &check; |
 
+<!-- theme: warning -->
+> #### Test payment gateway
+> The Payments API does not support the [BigCommerce Test Payment Gateway](https://support.bigcommerce.com/s/article/Testing-Shipping-Tax-and-Payment-Settings?language=en_US#test-gateway).
+
+
 To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
 ## Stored cards and PayPal accounts
