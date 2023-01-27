@@ -5,8 +5,8 @@ When connecting more than one WordPress site to your BigCommerce store, you need
 ### Multi-site and subdirectories
 Multiple sites can share the same API credentials, or you can choose to create a new set of credentials for each site.
 
-| **Configuration Method** | **Is Supported** |
-|:-------------------------:|:---------------:|
+| Configuration Method | Is Supported |
+|:----------------------|:-----------:|
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
@@ -29,8 +29,8 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 
 3. For the OAuth Scopes, select the following default settings:
 
-| **OAuth Scope**   | **Default Selection** |
-|:------------------|:----------------------|
+| OAuth Scope | Default Selection |
+|:--------------|:------------------|
 | Content           | None                  |
 | Checkout content  | None                  |
 | Customers         | Modify                |
