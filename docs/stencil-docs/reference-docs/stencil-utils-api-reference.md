@@ -73,10 +73,12 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
-// Server returns HTML template in the response, even if response is unsuccessful  
 
 utils.api.getPageByGQL('pages/store-locator', (err, response) => {
-  if (err) return;
+  if(err) {
+    console.error(err);
+  }
+  // Server returns HTML template in the response, even if response is unsuccessful
   modal.updateContent(response);
 });
 ```
