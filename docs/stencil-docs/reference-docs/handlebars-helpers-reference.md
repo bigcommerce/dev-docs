@@ -1564,7 +1564,7 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 
 #### Parameters
 
-- `json` {String} 
+- `json` {String}: The data parsed by the helper.
 
 
 #### Example
@@ -1584,8 +1584,6 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 {{/JSONparseSafe}}
 <!-- output: bar -->
 ```
-
-- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
 ## Standard helpers
 
