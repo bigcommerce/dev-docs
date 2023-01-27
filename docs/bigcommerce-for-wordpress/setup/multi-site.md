@@ -27,32 +27,34 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 > #### API account name field
 > We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than three characters.
 
-3. For the OAuth Scopes, select the following default settings:
+3. Depending on the product import options you select, the OAuth settings must match up accordingly to prevent importing errors. For more information on product import options, check out our [Product Import](/docs/bigcommerce-for-wordpress/setup/product-import.md) page.
 
-| **OAuth Scope**   | **Default Selection** |
-|:------------------|:----------------------|
-| Content           | None                  |
-| Checkout content  | None                  |
-| Customers         | Modify                |
-| Customers login   | Login                 |
-| Information & settings | Modify           |
-| Marketing         | Read-Only             |
-| Orders            | Read-Only             |
-| Order transactions| Read-Only             |
-| Create payments   | None                  |
-| Get payment methods | Read-Only           |
-| Stored payment instruments| None          |
-| Products          | Read-Only             |
-| Themes            | None                  |
-| Carts             | Modify                |
-| Checkouts         | Modify                |
-| Sites & routes    | Modify                |
-| Channel settings  | Modify                |
-| Channel listings  | Modify                |
-| Storefront API tokens | None              |
-| Storefront API customer impersonation tokens | None     |
-| Store logs        | None                  |
-| Store inventory   | None                  |
+    Set the OAuth scope settings to the following defaults according to your import options.
+
+| **OAuth Scope**   | **Full Import**       | **Fast Headless** |
+|:------------------|:----------------------|:------------------|
+| Content           | None                  | None              |
+| Checkout content  | None                  | None              |
+| Customers         | Modify                | Modify            |
+| Customers login   | Login                 | Login             |
+| Information & settings | Modify           | Modify            |
+| Marketing         | Read-Only             | Read-Only         |
+| Orders            | Read-Only             | Read-Only         |
+| Order transactions| Read-Only             | Read-Only         |
+| Create payments   | None                  | None              |
+| Get payment methods | Read-Only           | Read-Only         |
+| Stored payment instruments| None          | None              |
+| Products          | Read-Only             | Read-Only         |
+| Themes            | None                  | None              |
+| Carts             | Modify                | Modify            |
+| Checkouts         | Modify                | Modify            |
+| Sites & routes    | Modify                | Modify            |
+| Channel settings  | Modify                | Modify            |
+| Channel listings  | Modify                | Modify            |
+| Storefront API tokens | None              | Modify    |
+| Storefront API customer impersonation tokens | None     | Modify  |
+| Store logs        | None                  | None              |
+| Store inventory   | None                  | None              |
 
 4. After you have finished setting a name and selecting scopes, click `Save`. You will then see a modal that contains the `Client ID`, `Client Secret` and `Access Token` necessary for the remaining fields in the WordPress API Credentials settings.
 
