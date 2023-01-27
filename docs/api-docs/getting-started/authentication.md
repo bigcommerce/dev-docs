@@ -20,7 +20,7 @@ The following sections describe the two authentication schemes we use that rely 
 <!-- theme: info -->
 > Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
 
-Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
+Most of our REST endpoints and GraphQL Management API endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
 The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
