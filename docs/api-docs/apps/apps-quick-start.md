@@ -1,6 +1,6 @@
 # BigCommerce Apps Quick Start
 
-In this quick start tutorial, you will create a [single-click app](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Nodejs](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
+In this quick start tutorial, you will create a [single-click app](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ To successfully complete this tutorial, you will need the following:
 * [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 * Experience using [npm](https://www.npmjs.com/)
-* Nodejs 14.x
+* Node.js 14.x
 
 ## Get started
 

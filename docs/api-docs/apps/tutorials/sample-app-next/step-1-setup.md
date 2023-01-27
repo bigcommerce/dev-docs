@@ -6,13 +6,13 @@ Start by setting up your local development environment.
 
 ## Install Node
 
-For this tutorial, you need Nodejs version 12.22+. To check your version of Nodejs, run the following command in your terminal:
+For this tutorial, you need Node.js version 12.22+. To check your version of Node.js, run the following command in your terminal:
 
-```shell title="Check Nodejs version"
+```shell title="Check Node.js version"
 node -v
 ```
 
-If you do not have Nodejs installed, you can download it from [nodejs.org (downloads)](https://nodejs.org/en/download/). 
+If you do not have Node.js installed, you can download it from [nodejs.org (downloads)](https://nodejs.org/en/download/). 
 
 ## Set up a project directory
 
@@ -23,8 +23,8 @@ If you do not have Nodejs installed, you can download it from [nodejs.org (downl
 ## Generate a package.json file
 
 <!-- theme: info -->
-> #### Nodejs version and custom dependencies
-> * Make sure that you are using Nodejs version 12.22+.
+> #### Node.js version and custom dependencies
+> * Make sure that you are using Node.js version 12.22+.
 > * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
 
@@ -54,7 +54,7 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 [babel-plugin-styled-components](https://www.npmjs.com/package/babel-plugin-styled-components) is a supplement to the styled-components library that, among other things, offers improved debugging and minification of styles.
 
-[@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Nodejs and React.js respectively.
+[@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
 
 <!-- theme: info -->
 > #### View tested package versions
