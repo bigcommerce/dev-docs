@@ -40,7 +40,7 @@ To write a `package.json` file with default values, run `npm init -y` instead. D
 
 ## Install npm packages
 
-1. Install `big-design`, `Next`, `react`, `react-dom`, and `styled-components`.
+1. Install `big-design`, `next`, `react`, `react-dom`, and `styled-components`.
 
 ```shell title="Install dependencies"
 npm install --save @bigcommerce/big-design next react react-dom styled-components
