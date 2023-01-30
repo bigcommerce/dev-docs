@@ -1,6 +1,6 @@
 # Open Checkout Quick Start
 
-In this quick start tutorial, we'll configure our development environment and make a code change to a fork of BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)).
+In this quick start tutorial, we'll configure our development environment and make a code change to a fork of BigCommerce's [Checkout JS](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)).
 
 ### Prerequisites
 
