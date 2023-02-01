@@ -1,7 +1,5 @@
 # Currencies Overview
 
-
-
 BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants.
 
 This article provides a high-level guide to multi-currency concepts in BigCommerce as well as specific instructions on [adding currencies](#adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work).
@@ -18,29 +16,28 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 ![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")
 
-<!-- theme: info -->
-> #### Note
-> * If the shopper’s card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
-> * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
-
-
+<Callout type="info">
+#### Note
+* If the shopper's card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
+* You can choose whether a currency should be display-only or transactional when adding or editing a currency.
+</Callout>
 
 ## Preconfiguring the store
 
 <a id="preconfiguring-the-store"></a>
 
 Before setting up multiple currencies on a store, ensure your store is using the following:
+
 * A [Stencil theme](/stencil-docs/getting-started/about-stencil).
 * The [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) type.
 * A [multi-currency compatible payment gateway](https://support.bigcommerce.com/s/article/Managing-Currencies) set up and enabled. (Your store's default currency can use any gateway).
 
 Additionally, review the [Currency API reference](/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
 
-<!-- theme: info -->
-> #### Note 
-> Make sure to not change the store’s default currency. This could cause the currency to malfunction.
-
-
+<Callout type="info">
+#### Note
+* Make sure to not change the store’s default currency. This could cause the currency to malfunction.
+</Callout>
 
 ## Adding a currency
 
@@ -55,14 +52,12 @@ Transactional currencies can't be created via API, so they'll need to be added v
 
 For more in-depth instructions and helpful screenshots, see [Adding a Currency](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta#add) in the Help Center.
 
-<!-- theme: danger -->
-> #### Note
-> Do not change the default currency -- this may lead to unintended currency conversion issues.
+<Callout type="info">
+#### Note
+Do not change the default currency -- this may lead to unintended currency conversion issues.
 For instance, changing the default currency will not trigger price recalculation for the catalog.
 Additionally, changing the default currency will enable the newly assigned currency as transactional.
-
-
-
+</Callout>
 
 ## How currencies work
 
@@ -131,13 +126,15 @@ Please reach out to Stripe for more information on setting up the account.
 ## Related resources
 
 ### Articles
-- [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
-- [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
-- [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
-- [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) 
-- [Supported Currencies](https://stripe.com/docs/currencies)
-- [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement)
+
+* [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
+* [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
+* [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
+* [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1)
+* [Supported Currencies](https://stripe.com/docs/currencies)
+* [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement)
 
 ### Endpoints
-- [Currency API](/api-reference/store-management/currency-api)
-- [Price List API](/api-reference/catalog/pricelists-api)
+
+* [Currency API](/api-reference/store-management/currency-api)
+* [Price List API](/api-reference/catalog/pricelists-api)
