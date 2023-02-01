@@ -22,7 +22,7 @@ First, use the [Create tax properties](/api-reference/store-management/tax-prope
 
 The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Create tax properties" showLineNumbers
@@ -77,7 +77,7 @@ Accept: application/json
 
 Send a request to the [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties) endpoint to modify a tax property's `code`, `display_name`, or `description`. The request updates only fields that you specify.   
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Update tax properties" showLineNumbers 
@@ -118,7 +118,7 @@ Accept: application/json
 
 This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Get tax properties" showLineNumbers 
@@ -171,7 +171,7 @@ Accept: application/json
 
 To delete tax properties, send a request to the [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties) endpoint and use the `id:in` query parameter to specify the tax properties you want to delete.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Delete tax properties" showLineNumbers 
@@ -204,7 +204,7 @@ You can add multiple tax properties to a single product. The following example s
 
 To attach tax properties to a product, send a request to the [Update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties) endpoint. Use the same endpoint to modify a product's existing tax properties.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Update product with tax properties" showLineNumbers 
@@ -272,7 +272,7 @@ Accept: application/json
 
 To get the tax properties attached to a product, send a request to the [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties) endpoint and use the `product_id:in` query parameter. 
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Get product tax properties" showLineNumbers 
@@ -329,7 +329,7 @@ Accept: application/json
 To remove tax properties from a product, send a request to the [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties) endpoint and use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
 
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Delete product tax properties" showLineNumbers 

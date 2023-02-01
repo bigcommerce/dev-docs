@@ -8,7 +8,7 @@ This guide shows you how to use the Tax Settings API. For more info, see the [Ta
 
 To get tax settings, send a request to the [Get tax settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings) endpoint.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```http filename="Example request: Get tax settings" showLineNumbers
@@ -41,7 +41,7 @@ Accept: application/json
 
 To update tax settings, send a request to the [Update tax settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings) endpoint. The request updates only the fields that you specify.
 
-<Tabs items=([Request, Response])>
+<Tabs items={[`Request`, `Response`]}>
 
 <Tab>
 ```json filename="Example request: Update tax settings" showLineNumbers
