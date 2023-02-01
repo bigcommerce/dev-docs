@@ -8,24 +8,19 @@ This guide shows you how to use the Tax Settings API. For more info, see the [Ta
 
 To get tax settings, send a request to the [Get tax settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings) endpoint.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Get tax settings" lineNumbers
+<Tab>
+```http filename="Example request: Get tax settings" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/settings
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Get tax settings" lineNumbers 
+<Tab>
+```json filename="Example response: Get tax settings" showLineNumbers 
 {
   "data": {
     "tax_entered_with_prices": true,
@@ -38,19 +33,18 @@ title: Response
   "meta": {}
 }
 ```
+</Tab>
 
-<!-- type: tab-end -->
+</Tabs>
 
 ## Update tax settings
 
 To update tax settings, send a request to the [Update tax settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings) endpoint. The request updates only the fields that you specify.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```json title="Example request: Update tax settings" lineNumbers
+<Tab>
+```json filename="Example request: Update tax settings" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/settings
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -63,13 +57,10 @@ Accept: application/json
   }
 }
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Update tax settings" lineNumbers 
+<Tab>
+```json filename="Example response: Update tax settings" showLineNumbers 
 {
   "data": {
     "tax_entered_with_prices": false,
@@ -82,8 +73,9 @@ title: Response
   "meta": {}
 }
 ```
+</Tab>
 
-<!-- type: tab-end -->
+</Tabs>
 
 ## Resources
 
