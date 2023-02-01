@@ -14,9 +14,10 @@ A zone must be defined by one of the following location parameters:
 
 You can further narrow the scope of a zone by specifying one or more customer groups to whom the zone applies. You can also use zones to choose how a store displays prices to different customer groups; for example, whether prices are inclusive or exclusive of tax.
 
-<!-- theme: info -->
-> #### Default tax zone
-> The default tax zone, which has a zone `id` of 1, covers locations that other zones don't cover. Shoppers who don't meet the criteria for any manually-defined tax zone fall under the default tax zone. You cannot disable or delete the default tax zone. When updating the default tax zone, you cannot adjust the locations or customer groups that it covers.  
+<Callout type="info">
+#### Default tax zone
+The default tax zone, which has a zone `id` of 1, covers locations that other zones don't cover. Shoppers who don't meet the criteria for any manually-defined tax zone fall under the default tax zone. You cannot disable or delete the default tax zone. When updating the default tax zone, you cannot adjust the locations or customer groups that it covers.  
+</Callout>
 
 ### Create tax zones
 
@@ -24,12 +25,10 @@ To add tax zones to a store, send a request to the [Create tax zones](/api-refer
 
 The response includes an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Create tax zones" lineNumbers
+```http filename="Example request: Create tax zones" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -69,12 +68,10 @@ Accept: application/json
 ]
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Create tax zones" lineNumbers
+```json filename="Example response: Create tax zones" showLineNumbers
 {
   "data": [
     {
@@ -115,18 +112,17 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Update tax zones
 
 To modify a tax zone, send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint. In the request body, specify the `id` of the zones you want to update. The request updates only the fields for which you supply values.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Update tax zones" lineNumbers
+```http filename="Example request: Update tax zones" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -150,12 +146,10 @@ Accept: application/json
 ]
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Update tax zones" lineNumbers
+```json filename="Example response: Update tax zones" showLineNumbers
 {
   "data": [
     {
@@ -196,34 +190,32 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
-<!-- theme: info -->
-> #### Updating a tax zone
-> - You cannot adjust the `shopper_target_settings` for the default tax zone. 
-> - All zones must cover a specified location; `locations` cannot be an empty array in the request body.
+<Callout type="info">
+#### Updating a tax zone
+- You cannot adjust the `shopper_target_settings` for the default tax zone. 
+- All zones must cover a specified location; `locations` cannot be an empty array in the request body.
+</Callout>
 
 ### Get tax zones
 
 [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) returns all tax zones by default. To return select tax zones, include the `id:in` query parameter.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Get tax zones" lineNumbers
+```http filename="Example request: Get tax zones" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get tax zones" lineNumbers
+```json filename="Example response: Get tax zones" showLineNumbers
 {
   "data": [
     {
@@ -264,33 +256,31 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Delete tax zones
 
 To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Delete tax zones" lineNumbers
+```http filename="Example request: Delete tax zones" showLineNumbers
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=3,7
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```http title="Example response: Delete tax zones" lineNumbers
+```http filename="Example response: Delete tax zones" showLineNumbers
 HTTP 204 No content
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Tax rates
 
@@ -302,12 +292,10 @@ To create tax rates, send a request to the [Create tax rates](/api-reference/sto
 
 The response includes an `id` for each tax rate. Use the tax rate `id` to get, update, or delete the associated tax rate.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Create tax rates" lineNumbers
+```http filename="Example request: Create tax rates" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -333,12 +321,10 @@ Accept: application/json
 ]
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Create tax rates" lineNumbers
+```json filename="Example response: Create tax rates" showLineNumbers
 {
   "data": [
     {
@@ -362,18 +348,17 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Update tax rates
 
 To update tax rates, send a request to the [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates) endpoint. In the request body, specify the `id` of the rates you want to update. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Update tax rates" lineNumbers
+```http filename="Example request: Update tax rates" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -396,12 +381,10 @@ Accept: application/json
 ]
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Update tax rates" lineNumbers
+```json filename="Example response: Update tax rates" showLineNumbers
 {
   "data": [
     {
@@ -425,30 +408,27 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Get tax rates
 
 To get tax rates, send a request to the [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates) endpoint. To get the tax rates for a subset of zones, pass a comma-separated string of the tax zone `id`s using the `tax_zone_id:in` query parameter.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Get tax rates" lineNumbers
+```http filename="Example request: Get tax rates" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?tax_zone_id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get tax rates" lineNumbers
+```json filename="Example response: Get tax rates" showLineNumbers
 {
   "data": [
     {
@@ -472,33 +452,31 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Delete tax rates
 
 To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint. Use the `id:in` query parameter to specify the tax rates you want to delete.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={[`Request`, `Response`]}>
+<Tab>
 
-```http title="Example request: Delete tax rates" lineNumbers
+```http filename="Example request: Delete tax rates" showLineNumbers
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?id:in=3,5
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```http title="Example response: Delete tax rates" lineNumbers
+```http filename="Example response: Delete tax rates" showLineNumbers
 HTTP 204 No content
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Resources
 
