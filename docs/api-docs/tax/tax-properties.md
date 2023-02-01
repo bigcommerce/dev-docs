@@ -4,10 +4,11 @@ The Tax Properties API allows merchants to vary the tax information they send to
 
 Tax providers may sometimes need multiple inputs that can vary between different types of product. For example, for products with alcohol, the alcohol percentage and the volume sold affect alcohol taxes. As shown in this guide, merchants can provide both pieces of information to tax providers.
 
-<!-- theme: info -->
+<Callout type=”info”>
 > #### Tax properties versus tax codes
 > A tax code is a single code that tax providers use to invoke specific rules when calculating tax on a product. 
 > In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
+</Callout>
 
 This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
@@ -21,12 +22,10 @@ First, use the [Create tax properties](/api-reference/store-management/tax-prope
 
 The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Create tax properties" lineNumbers
+<Tab>
+```http filename="Example request: Create tax properties" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -45,13 +44,10 @@ Accept: application/json
   }  
 ]
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Create tax properties" lineNumbers 
+<Tab>
+```json filename="Example response: Create tax properties" showLineNumbers 
 {
   "data": [
     {
@@ -74,19 +70,17 @@ title: Response
   "meta": {}
 }
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Update tax properties
 
 Send a request to the [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties) endpoint to modify a tax property's `code`, `display_name`, or `description`. The request updates only fields that you specify.   
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Update tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Update tax properties" showLineNumbers 
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -99,13 +93,10 @@ Accept: application/json
   }  
 ]
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Update tax properties" lineNumbers 
+<Tab>
+```json filename="Example response: Update tax properties" showLineNumbers 
 {
   "data": [
     {
@@ -120,31 +111,26 @@ title: Response
   "meta": {}
 }
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Get tax properties
 
 This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Get tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Get tax properties" showLineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=1,2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Get tax properties" lineNumbers 
+<Tab>
+```json filename="Example response: Get tax properties" showLineNumbers 
 {
   "data": [
     {
@@ -178,35 +164,30 @@ title: Response
   }
 }
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Delete tax properties
 
 To delete tax properties, send a request to the [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties) endpoint and use the `id:in` query parameter to specify the tax properties you want to delete.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Delete tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Delete tax properties" showLineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```http title="Example response: Delete tax properties" lineNumbers 
+<Tab>
+```http filename="Example response: Delete tax properties" showLineNumbers 
 HTTP 204 No content
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Product tax properties 
 
@@ -214,20 +195,19 @@ After [creating a tax property](#create-tax-properties), you can attach it to a 
 
 You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume. 
 
-<!-- theme: info -->
+<Callout type=”info”>
 > #### Tax properties aren't product properties
 > Tax properties are not stored on or retrievable with the product object.
+</Callout>
 
 ### Update product with tax properties
 
 To attach tax properties to a product, send a request to the [Update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties) endpoint. Use the same endpoint to modify a product's existing tax properties.
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Update product with tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Update product with tax properties" showLineNumbers 
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -250,13 +230,10 @@ Accept: application/json
   }
 ]
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Update product with tax properties" lineNumbers 
+<Tab>
+```json filename="Example response: Update product with tax properties" showLineNumbers 
 {
   "data": [
     {
@@ -288,31 +265,26 @@ title: Response
   }
 }
 ```
-
-<!-- type: tab-end --> 
+</Tab>
+</Tabs> 
 
 ### Get product tax properties 
 
 To get the tax properties attached to a product, send a request to the [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties) endpoint and use the `product_id:in` query parameter. 
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Get product tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Get product tax properties" showLineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example response: Get product tax properties" lineNumbers 
+<Tab>
+```json filename="Example response: Get product tax properties" showLineNumbers 
 {
   "data": [
     {
@@ -344,40 +316,36 @@ title: Response
   }
 }
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Delete product tax properties
 
-<!-- theme: warning -->
+<Callout type=”warning”>
 > #### Batch deletion
 > This endpoint removes **all** tax properties from a given product.
+</Callout>
 
 To remove tax properties from a product, send a request to the [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties) endpoint and use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
 
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items=([Request, Response])>
 
-```http title="Example request: Delete product tax properties" lineNumbers 
+<Tab>
+```http filename="Example request: Delete product tax properties" showLineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+</Tab>
 
-<!--
-type: tab
-title: Response
--->
-
-```http title="Example response: Delete product tax properties" lineNumbers 
+<Tab>
+```http filename="Example response: Delete product tax properties" showLineNumbers 
 HTTP 204 No content
 ```
-
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Tax Quotes
 
@@ -385,7 +353,7 @@ BigCommerce sends product tax properties to request [tax estimates](/api-referen
 
 The following request uses the Tax Provider API:
 
-```http title="Example request: Get a tax estimate" lineNumbers
+```http filename="Example request: Get a tax estimate" showLineNumbers
 POST https://store.example.com/estimate
 Authorization: Basic ZGVtbzpwQDU1dzByZA==
 Content-Type: application/json
