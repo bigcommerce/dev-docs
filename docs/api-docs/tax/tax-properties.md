@@ -4,7 +4,7 @@ The Tax Properties API allows merchants to vary the tax information they send to
 
 Tax providers may sometimes need multiple inputs that can vary between different types of product. For example, for products with alcohol, the alcohol percentage and the volume sold affect alcohol taxes. As shown in this guide, merchants can provide both pieces of information to tax providers.
 
-<Callout type=”info”>
+<Callout type="info">
 > #### Tax properties versus tax codes
 > A tax code is a single code that tax providers use to invoke specific rules when calculating tax on a product. 
 > In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
@@ -195,7 +195,7 @@ After [creating a tax property](#create-tax-properties), you can attach it to a 
 
 You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume. 
 
-<Callout type=”info”>
+<Callout type="info">
 > #### Tax properties aren't product properties
 > Tax properties are not stored on or retrievable with the product object.
 </Callout>
@@ -321,7 +321,7 @@ Accept: application/json
 
 ### Delete product tax properties
 
-<Callout type=”warning”>
+<Callout type="warning">
 > #### Batch deletion
 > This endpoint removes **all** tax properties from a given product.
 </Callout>
