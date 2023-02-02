@@ -16,9 +16,10 @@ POS Foundation scaffolds manual connector apps that use [store API accounts](/ap
 
 ## Configure accounts
 
-<!-- theme: info -->
-> #### Account configuration requirements
-> We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront-enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront).
+<Callout type="info">
+#### Account configuration requirements
+We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront-enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront).
+</Callout>
 
 To configure your accounts, complete the following steps:
 
@@ -39,10 +40,11 @@ To configure your accounts, complete the following steps:
 | Channel Settings| modify| `store_channel_settings` |
 | Storefront API Tokens | manage| `store_storefront_api` |
 
-<!-- theme: success -->
-> #### Record the API account credentials
-> * Record the **access token**, **client ID**, and **client secret** in a safe place. In a later step, you will [update the .env file](#declare-environment-variables) and specify these credentials as the values of the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables.
-> * In addition, make note of the **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will specify the store hash as the value of the `BC_STORE_HASH` environment variable.
+<Callout type="info">
+#### Record the API account credentials
+* Record the **access token**, **client ID**, and **client secret** in a safe place. In a later step, you will [update the .env file](#declare-environment-variables) and specify these credentials as the values of the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables.
+* In addition, make note of the **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will specify the store hash as the value of the `BC_STORE_HASH` environment variable.
+</Callout>
 
 ## Fork and install the source repository 
 To fork the repository, complete the following steps:
@@ -51,7 +53,7 @@ To fork the repository, complete the following steps:
 2. Clone the fork to your local development environment.
 3. Navigate to the root directory of your cloned repository and install the default packages by running the following command:
 
-```shell title="Install packages"
+```shell filename="Install packages" showLineNumbers
 npm install
 ```
 
@@ -69,15 +71,17 @@ To configure the Stripe account to connect with your implementation, complete th
  
 ![pos-stripe-test-mode](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-stripe-test-mode.png)
 
-<!-- theme: info -->
-> #### Test mode
-> Simulate transactions using test mode to confirm your integration works correctly.
+<Callout type="info">
+#### Test mode
+Simulate transactions using test mode to confirm your integration works correctly.
+</Callout>
 
 4. Select **API keys** in the left menu, then locate the **Standard keys** section of the page. In the **Secret key** table row, click **Reveal test key** and copy the string that appears. 
 
-<!-- theme: success -->
-> #### Record the Stripe secret key
-> Record the **secret key** and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the secret key as the value of the `STRIPE_SECRET_KEY` environment variable.
+<Callout type="info">
+#### Record the Stripe secret key
+Record the **secret key** and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the secret key as the value of the `STRIPE_SECRET_KEY` environment variable.
+</Callout>
 
 5. On your [Stripe Dashboard](https://dashboard.stripe.com/), click **More > Terminal** to enable [Stripe Terminal](https://stripe.com/terminal). 
 
@@ -152,15 +156,16 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
 
    c. Copy the connection string that appears, and replace `<username>` and `<password>` with the values you specified in step 2b. Add **myFirstDatabase** to the connection string so that it resembles the following example:
 
-```shell title="Example MongoDB Cloud connection string"
+```shell filename="Example MongoDB Cloud connection string" showLineNumbers
 mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
 ![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-connection-string.png)
 
-<!-- theme: success -->
-> #### Record the connection string
-> Record the MongoDB Cloud connection string and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the connection string as the value of the `DATABASE_URL` environment variable.
+<Callout type="info">
+#### Record the connection string
+Record the MongoDB Cloud connection string and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the connection string as the value of the `DATABASE_URL` environment variable.
+</Callout>
 
 ## Declare environment variables
 
@@ -172,7 +177,7 @@ To declare environment variables, complete the following steps:
 
 2. Copy the contents of `.env.sample` to `.env` with the following command:
 
-```shell title="Copy .env.sample contents"
+```shell filename="Copy .env.sample contents" showLineNumbers
 cp .env.sample .env
 ```
 
@@ -197,39 +202,41 @@ To run the migration script and seed the database, complete the following steps:
   
 1. Run the Prisma migration script that is pre-defined in `/prisma/migrations/*` with the following command: 
 
-```shell title="Create the database"
+```shell filename="Create the database" showLineNumbers
 npx prisma db push
 ```
 
 2. Seed your database with pre-configured collections and documents using the following command:
  
-```shell title="Seed the database"
+```shell filename="Seed the database" showLineNumbers
 npm run seed
 ```
 
-<!-- theme: warning -->
-> #### Important
-> If you miss the preceding steps, you will not have any data to work with. 
+<Callout type="warning">
+#### Important
+If you miss the preceding steps, you will not have any data to work with. 
+</Callout>
 
 3. Generate a new Prisma client with the following command:
 
-```shell title="Generate the Prisma client"
+```shell filename="Generate the Prisma client" showLineNumbers
 npx prisma generate
 ```
 
-<!-- theme: info -->
-> #### Note
-> Successfully generating the Prisma client relies on the provider settings you configured in the preceding section on [creating and configuring the database](#create-and-configure-the-database).
+<Callout type="info">
+#### Note
+Successfully generating the Prisma client relies on the provider settings you configured in the preceding section on [creating and configuring the database](#create-and-configure-the-database).
+</Callout>
 
 4. Access the database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
 
-```shell title="Verify migration and seed"
+```shell filename="Verify migration and seed" showLineNumbers
 npx prisma studio
 ``` 
 
 5. To start the server that runs the POS system, run the following command:
 
-```shell title="Start the server"
+```shell filename="Start the server" showLineNumbers
 npm run dev
 ```
 
