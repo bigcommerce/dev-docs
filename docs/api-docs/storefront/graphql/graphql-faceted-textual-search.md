@@ -17,7 +17,7 @@ This page walks you through how to filter and query products and facets to displ
 
 To use faceted and textual search, specify a filter in the argument for `SearchProducts`. For faceted search, you can filter by price, rating, among other features and attributes of products. For textual search, use the `searchTerm` field. 
 
-```graphql title="Filters for products and facets" lineNumbers
+```graphql filename="Filters for products and facets" showLineNumbers
 ...
   searchProducts(
   filters: {
@@ -56,12 +56,10 @@ See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphq
 
 To get products, specify `products` as a field in `searchProducts`. Here is an example request that returns the first two products with a rating between three and five: 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example" lineNumbers
+```graphql filename="Example" showLineNumbers
 query {
   site {
     search {
@@ -92,12 +90,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example" lineNumbers
+```json filename="Example" showLineNumbers
 {
   "data": {
     "site": {
@@ -135,16 +131,15 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 You can sort the products that are returned using the `sort` field. Here is an example query that searches for products using a search term and sorts the returned products in alphabetical order:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example" lineNumbers
+```graphql filename="Example" showLineNumbers
 query {
   site {
     search {
@@ -172,12 +167,10 @@ query {
   }
 }
 ```
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example" lineNumbers
+```json filename="Example" showLineNumbers
 {
   "data": {
     "site": {
@@ -216,25 +209,24 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 The `sort` affects only the list of products returned. A merchant's [product filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determine how facets are sorted. 
 
-<!-- theme: info -->
-> #### Note
-> For a list of product fields that `searchTerm` searches, see the [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices) article.
-
+<Callout type="info">
+#### Note
+For a list of product fields that `searchTerm` searches, see the [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices) article.
+</Callout>
 
 ## Get facets
 
 To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns the specified facets that have products with a rating between three and five: 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example" lineNumbers
+```graphql filename="Example" showLineNumbers
 query {
   site {
     search {
@@ -299,12 +291,10 @@ query {
   }
 }
 ```
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example" lineNumbers
+```json filename="Example" showLineNumbers
 {
   "data": {
     "site": {
@@ -366,7 +356,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 For a complete list of facets, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground).
 
@@ -374,13 +365,11 @@ For a complete list of facets, see the [GraphQL Storefront Playground](https://d
 
 To get both products and facets, specify both `products` and `filters` fields in `searchProducts`. 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
 
-```graphql title="Example" lineNumbers
+```graphql filename="Example" showLineNumbers
 query {
   site {
     search {
@@ -460,12 +449,10 @@ query {
   }
 }
 ```
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example" lineNumbers
+```json filename="Example" showLineNumbers
 {
     "data": {
       "site": {
@@ -553,16 +540,12 @@ title: Response
     }
   }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example" lineNumbers
+```json filename="Example" showLineNumbers
 {
   "data": {
     "site": {
@@ -603,8 +586,6 @@ title: Response
   }
 }
 ```
-
-<!-- type: tab-end -->
 
 ## Resources
 
