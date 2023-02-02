@@ -1,8 +1,5 @@
 # Widgets API
 
-
-
-
 The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various content types, such as YouTube videos, image sliders, and chat apps. 
 
 When to use:
@@ -30,7 +27,7 @@ Global regions are special regions you can use to place and manage content sitew
 
 To create a global region, add the `--global` suffix to the region name as shown in the following example:
 
-```handlebars
+```handlebars showLineNumbers
 {{{region name="header_bottom--global"}}}
 ```
 
@@ -50,7 +47,7 @@ The following template examples use the built-in Handlebars [`#each`](https://ha
 
 The list template creates a list where each item in the list can have a different color. The text and color are determined by Handlebars placeholders that are set when creating the [widget](/api-reference/storefront/widgets-api/widget/createwidget).
 
-```json
+```json filename="Example list template" showLineNumbers
 {
   "name": "List",
   "template": "<ul>{{#each list_items}}<li style='color:{{color}};'>{{text}}</li>{{/each}}</ul>"
@@ -61,7 +58,7 @@ The list template creates a list where each item in the list can have a differen
 
 The slider template creates an image slider where each item in the slider can have a different image. The images are determined by Handlebars placeholders that are set when creating the [widget](/api-reference/storefront/widgets-api/widget/createwidget).
 
-```json
+```json filename="Example slider template" showLineNumbers
 {
 "name": "Slider",
 "template": "<ul class='slider'>{{#each slides}}<li class='slide'><img src={{image}}'/</li>{{/each}}</ul>"
@@ -80,9 +77,7 @@ A widget configuration is the JSON payload that defines the content you can rend
 
 In the following example, we define the `list_items` array and supply values for the color and text of each list item. Since you create the template separately from the configuration, you can use the same template UUID multiple times.
 
-**Widget configuration list items**
-
-```json
+```json filename="Example widget configuration with list items" showLineNumbers
 {
 	"list_items": [{
 			"color": "orange",
@@ -96,9 +91,7 @@ In the following example, we define the `list_items` array and supply values for
 }
 ```
 
-**Widget configuration slides**
-
-```json
+```json filename="Example widget configuration with slides" showLineNumbers
 {
   "slides": [
     {"image":"http://imageurl.com/nh35jn/test.png"},
@@ -107,18 +100,16 @@ In the following example, we define the `list_items` array and supply values for
 }
 ```
 
-<!-- theme: info -->
-> #### Reusing widget configuration
-> You set the widget configuration name when creating the widget template.
-> When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
-
+<Callout type="info">
+#### Reusing widget configuration
+You set the widget configuration name when creating the widget template.
+When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
+</Callout>
 
 
 When reusing the widget configuration from our list example, you must call the items array `list_items`, because you defined the `list_items` array when creating the widget template.
 
-**List items example: Incorrect**
-
-```json
+```json filename="Incorrect example of list items" showLineNumbers
 {
   "name": "List",
   "widget_configuration": {
@@ -139,9 +130,7 @@ When reusing the widget configuration from our list example, you must call the i
 
 The example above uses `list_items_two` in the configuration, which is not the same as `list_items`. If you have already established `list_items` during the initial configuration, it must be set as `list_items` when you use it again.
 
-**List items example: Correct**
-
-```json
+```json filename="Correct example of list items" showLineNumbers
 {
   "name": "List",
   "widget_configuration": {
@@ -176,10 +165,10 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
  ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
 
-<!-- theme: info -->
-> #### Note
->  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
-
+<Callout type="info">
+#### Note
+Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+</Callout>
 
 
 **Widget template definitions**
@@ -203,10 +192,10 @@ To update a widget template without impacting existing widgets, set the `create_
 
 Updating the widget template with `create_new_version` set to `true` will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`.
 
-<!-- theme: info -->
-> #### Note
->  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
-
+<Callout type="info">
+#### Note
+It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
+</Callout>
 
 
 ## Placements
@@ -268,21 +257,21 @@ It is also possible to place widgets on the following custom templates, where `<
 * pages/custom/category/`<filename>`
 * pages/custom/page/`<filename>`
 
-<!-- theme: info -->
-> #### Note
-> - To display a widget on the storefront, you must create a placement.
-> - A region can contain multiple placements with widgets.
-
+<Callout type="info">
+#### Note
+- To display a widget on the storefront, you must create a placement.
+- A region can contain multiple placements with widgets.
+</Callout>
 
 
 ### Placements sort_order
 
 When creating a placement with a widget, the widget content takes the full region width. The placement's `sort_order` property controls the display order of the widget. You would stack any additional widgets in the same region above or below based on each placement's `sort_order` property.
 
-<!-- theme: info -->
-> #### Note
-> If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
-
+<Callout type="info">
+#### Note
+If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
+</Callout>
 
 
 ### Placements entity_id
@@ -299,9 +288,7 @@ You can use `entity_id` with the following page types:
 
 In the following example, both the region and sort order have a value so that the widget will appear on a specific category page.
 
-**Widget with region**
-
-```json
+```json filename="Example widget with region" showLineNumbers
 {
   "widget_uuid": "2dfeb50e-5f8c-4df2-8525-a338091eed32",
   "entity_id": "21",
@@ -316,9 +303,7 @@ In the following example, both the region and sort order have a value so that th
 
 Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget's rendering using layouts.
 
-**Widget without a region**
-
-```json
+```json filename="Example widget without a region" showLineNumbers
 {
     "widget_uuid": "2dfeb50e-5f8c-4df2-8525-a338091eed32",
     "entity_id": "21",
