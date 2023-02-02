@@ -22,7 +22,7 @@ Let's start by adding a new region called `category_header_banner` to your store
 
 In `templates/pages/category.html`, add a new region `{{{region name="category_header_banner"}}}` below the page heading.
 
-```html
+```html showLineNumbers
 {{#unless theme_settings.hide_category_page_heading }}
     <h1 class="page-heading">{{category.name}}</h1>
     {{{region name="category_below_header"}}}
@@ -47,18 +47,16 @@ If you are using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-s
 
 To verify region creation, send a `GET` request to [`/v3/content/regions?template_file=pages/category`](/api-reference/storefront/widgets-api/regions/getcontentregions). Make sure to specify the  `template_file=pages/category` query string parameter to get the category template's regions.
 
-```http
+```http filename="Example request: Get theme regions" showLineNumbers
 GET /stores/{{STORE_HASH}}/v3/content/regions?template_file=pages/category
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner) -->
-
 Look for the region's name in the response.
 
-```json
+```json filename="Example response: Get theme regions" showLineNumbers
 {
   "data": [
     {
@@ -79,7 +77,7 @@ Look for the region's name in the response.
 
 Widgets derive from widget templates. Before you can create a widget, you must first create its template. To do so, send a `POST` request to [`/v3/content/widget-templates`](/api-reference/storefront/widgets-api/widget-template/createwidgettemplate).
 
-```http
+```http filename="Example request: Create a widget template" showLineNumbers
 POST /stores/{{store_hash}}/v3/content/widget-templates
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -92,11 +90,9 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) -->
-
 **Response:**
 
-```json
+```json filename="Example response: Create a widget template" showLineNumbers
 {
   "data": {
     "channel_id": 1,
@@ -115,11 +111,11 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
-> * Multiple widgets can use the same widget template.
-
+<Callout type="info">
+#### Note
+* Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
+* Multiple widgets can use the same widget template.
+</Callout>
 
 
 ## Create a widget
@@ -127,7 +123,7 @@ Accept: application/json
 To create a widget, use the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the `widget_template_uuid` placeholder value with your template's `uuid`.
 
 
-```http
+```http filename="Example request: Create a widget" showLineNumbers
 POST /stores/{{STORE_HASH}}/v3/content/widgets
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -154,7 +150,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget/createwidget#requestrunner) -->
 
 | Property | Description |
 |---|---|
@@ -164,10 +159,10 @@ Accept: application/json
 | `widget_configuration` | data for Handlebars context |
 | `widget_template_uuid` | default template `uuid` |
 
-<!-- theme: info -->
-> #### Note
-> * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
-
+<Callout type="info">
+#### Note
+Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
+</Callout>
 
 
 ## Create a placement
@@ -176,7 +171,7 @@ In the control panel UI, users can drag and drop widgets to place them in a regi
 
 To place your widget in the `category_header_banner` region of a category page, send a `POST` request to [`/v3/content/placements`](/api-reference/storefront/widgets-api/placement/createplacement).
 
-```http
+```http filename="Example request: Create a widget placement" showLineNumbers
 POST /stores/{{store_hash}}/v3/content/placements
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -192,8 +187,6 @@ Accept: application/json
   "status": "active"
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/placement/createplacement#requestrunner) -->
 
 | Property | Description |
 |---|---|
@@ -220,7 +213,7 @@ In this section, you will create a custom category template which you can then u
 
 3. Open the `config.stencil.json` file and update the `custom-category.html` property. The URL you define in `config.stencil.json` will be used for category mapping.
 
-```json
+```json filename="Example custom template" showLineNumbers
 {
   "customLayouts": {
     "brand": {},
@@ -239,7 +232,7 @@ If using Stencil CLI, push and apply your changes.
 
 4. To create a new category using the [Catalog API](/api-reference/store-management/catalog), send a `POST` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/createcategory). Use the URL defined in the `config.stencil.json` category mapping. In our example, it is `/custom-widget-templates/`.
 
-```http
+```http filename="Example request: Create a category" showLineNumbers
 POST /stores/{{store_hash}}/v3/catalog/categories
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -261,9 +254,7 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/category/createcategory#requestrunner) -->
-
-5. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
+1. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
 
 ## Create a user interface
 
@@ -271,7 +262,7 @@ BigCommerce's [Page Builder](/stencil-docs/page-builder/page-builder-overview) t
 
 The following is an example of a widget template compatible with Page Builder.
 
-```json
+```json filename="Example widget template" showLineNumbers
 {
    "name":"Header Images",
    "template":"{{#each images}}<a href='{{link}}'><img src={{imageUrl.src}} style='width:33.3%'/></a>{{/each}}",
@@ -313,8 +304,6 @@ The following is an example of a widget template compatible with Page Builder.
    ]
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/widget-template/createwidgettemplate#requestrunner) -->
 
 To learn more about Page Builder, see [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview).
 
