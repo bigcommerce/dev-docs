@@ -33,9 +33,10 @@ Consult the [Channels API documentation](/api-reference/cart-checkout/channels-l
 
 Each BigCommerce store is provisioned with one channel out of the box, intended for its first Stencil storefront. The ID of this channel is `1` for all BigCommerce stores. This channel may also be referred to as the "default channel", and it cannot be deleted. 
 
-<!-- theme: info -->
-> #### Backwards compatibility
-> In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the V2 Orders API that do not specify a channel ID will be associated with channel `1`.
+<Callout type="info">
+#### Backwards compatibility
+In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the V2 Orders API that do not specify a channel ID will be associated with channel `1`.
+</Callout>
 
 To learn more about upgrading your application to support multi-channel sales, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
 
