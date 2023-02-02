@@ -16,15 +16,16 @@ Previously, a store had a collection of categories that were organized in a tree
 
 To access the category structure used by a particular storefront, you must first identify which tree is tied to that storefront channel. You can do so by sending a request to the following endpoint. Include the `channel_id:in` query parameter, which accepts one or more channel IDs as a comma-separated list. 
 
-```http title="Example request: Get category tree for channel 3"
+```http filename="Example request: Get category tree for channel 3" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees?channel_id:in=3
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ``` 
 
-<!-- theme: info -->
-> #### Note
-> Currently, a tree may only be assigned to a maximum of one channel. BigCommerce's roadmap includes relaxing this restriction in the future so that several channels can share a common tree.
+<Callout type="info">
+#### Note
+Currently, a tree may only be assigned to a maximum of one channel. BigCommerce's roadmap includes relaxing this restriction in the future so that several channels can share a common tree.
+</Callout>
 
 If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to get the active category tree for shopper's channel in real time.
 
@@ -63,9 +64,10 @@ If your use case is primarily concerned with what the price will be for a given 
 
 [Channel Assignments API documentation]() 
 
-<!-- theme: info -->
-> #### The cardinal rule of multi-channel sales
-> Products must be explicitly assigned to a channel to be sold on that channel.
+<Callout type="info">
+#### The cardinal rule of multi-channel sales
+Products must be explicitly assigned to a channel to be sold on that channel.
+</Callout>
 
 It is important to understand the difference between assigning a product to a category and assigning a product to a channel. Adding a product to a category allows you to merchandise the product and develop a store's taxonomy of products, categories, and category trees, but it does not make the product available within a channel. A product must be explicitly assigned to a channel to be sold on that channel. For native Stencil storefronts, if a product is not assigned to the storefront's channel, it will be hidden from that channel's storefront.
 
@@ -135,9 +137,10 @@ Previously, the [Activate store theme](/api-reference/store-management/themes/th
 
 Because we now support installing different themes and/or theme configurations for each storefront, you must supply a `variation_id` and `configuration_id` for the theme configuration you want to apply, as well as a `site_id` or `channel_id` for the target storefront. The `which` value is not supported for multi-storefront installations.
 
-<!-- theme: info -->
-> #### Locating the configuration ID
-> The `configuration_id` is the same as a configuration's `uuid`, returned in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) response body.
+<Callout type="info">
+#### Locating the configuration ID
+The `configuration_id` is the same as a configuration's `uuid`, returned in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) response body.
+</Callout>
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
 [Themes API documentation](/api-reference/store-management/themes)
@@ -146,15 +149,15 @@ To understand which theme is active for a particular site, you can check the [Ge
 
 Themes themselves remain "global" to the store, but each theme now exposes a list of configuration settings. Each theme has a default configuration, but you can use the store control panel's Page Builder feature in the BigCommerce control panel to apply a different configuration to a storefront. 
 
-<!-- theme: info -->
-> #### Themes API roadmap
-> Our Themes API roadmap includes the following: 
-> * Exposing an endpoint to create a new theme configuration
-> * Adding a `download_url` query parameter to the [Get all themes](/api-reference/store-management/themes/themes/getstorethemes) endpoint
+<Callout type="info">
+#### Themes API roadmap
+Our Themes API roadmap includes the following: 
+* Exposing an endpoint to create a new theme configuration
+* Adding a `download_url` query parameter to the [Get all themes](/api-reference/store-management/themes/themes/getstorethemes) endpoint
+</Callout>
 
 Currently, you can use the [Download a theme](/api-reference/store-management/themes/theme-actions/downloadtheme) endpoint to download a theme. This will create a download job. 
 
-<!-- TODO: test link -->
 Because each theme can define its own configuration, the response from the [Get theme configurations](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) endpoint may differ for each theme. Valid configurations match the theme's schema. You can use the [Validate theme configurations](/api-reference/store-management/themes/theme-configurations/postthemesuuidconfigurationsvalidate) endpoint to validate a potential configuration against the theme's schema.
 
 ### Subscribers
@@ -165,6 +168,7 @@ Each subscriber now has an `origin_channel_id` property that identifies the chan
 
 If your application deals with subscribers, be sure to check the `origin_channel_id` to understand exactly where the subscriber signed up. If you are integrating with an email marketing system, you may want to allow the merchant to pick which email lists will be used for which channels.
 
-<!-- theme: info -->
-> #### Subscriber webhooks roadmap
-> Our roadmap includes augmenting subscriber webhooks with an `origin_channel_id`, so that new subscriptions can be added to the email list that corresponds with the subscriber's channel.
+<Callout type="info">
+#### Subscriber webhooks roadmap
+Our roadmap includes augmenting subscriber webhooks with an `origin_channel_id`, so that new subscriptions can be added to the email list that corresponds with the subscriber's channel.
+</Callout>
