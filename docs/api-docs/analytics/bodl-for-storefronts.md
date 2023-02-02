@@ -78,7 +78,7 @@ Merchants must enable BODL in the store control panel for your script to subscri
 
 To view BODL properties in the browser console, use the following example script:
 
-```html title="Log BODL to the browser console" lineNumbers
+```html filename="Log BODL to the browser console" showLineNumbers
 <script>
 
 function subscribeOnBodlEvents() {
@@ -133,15 +133,16 @@ window.addEventListener('load', subscribeOnBodlEvents, false);
 </script>
 ```
 
-<!--theme: info -->
-> #### Category of consent
-> If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+<Callout type="info">
+#### Category of consent
+If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+</Callout>
 
 ### Scripts API example
 
 The following is an example request that uses the Scripts API to inject the example script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API article](/api-docs/store-management/scripts).
 
-```json title="Example request: Create a Script" lineNumbers
+```json filename="Example request: Create a Script" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/scripts
 X-Auth-Token: {{ACCESS_TOKEN}}     //scope should include Checkout Content when adding script to a checkout page
 Content-Type: application/json
