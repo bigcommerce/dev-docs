@@ -24,13 +24,19 @@ The Settings APIs use query parameters to distinguish which set of settings a re
 
 Consider the following request to the [Get store profile settings](/api-reference/store-management/settings/store-profile/getstoreprofilesettings) endpoint:
 
-```http title="Example request: Get store profile settings"
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Get store profile settings"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-&nbsp;
-```json title="Example response: Get store profile" lineNumbers
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Get store profile" showLineNumbers
 {
   "data": {
     "store_phone": "+1 123-456-7890",
@@ -41,36 +47,51 @@ Accept: application/json
 }
 ```
 
+</Tab>
+</Tabs>
+
 Because the request did not specify any query parameters, the API returned the **global default** configuration for this merchant. Responses that return global configuration data will contain values for all properties of the requested object.
 
 The merchant's global configuration is used for all storefronts and other channels that have not specified different, channel-specific configuration settings.
 
 To check whether channel-specific values for a setting are defined, send the `channel_id` as a query parameter in your requests to settings endpoints.
 
-```http title="Example request: Get store profile settings for channel 122"
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Get store profile settings for channel 122"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=122
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-&nbsp;
-```json title="Example response: Get store profile settings for channel 122" lineNumbers
+</Tab>
+<Tab>
+
+```json filename="Example response: Get store profile settings for channel 122" showLineNumbers
 {
   "data": {},
   "meta": {}
 }
 ```
+</Tab>
+</Tabs>
 
 The response's empty `data` object indicates that no channel-specific store profile settings are configured for the specified channel. It is safe to infer that this channel is using the global default store profile settings. When the global default store profile settings change, this channel's profile will reflect those changes. For example, if the global default value for the store name changed, the store name would change at each place it appears in this channel.
 
 The following request-response pair shows an example of a channel that does have channel-specific store profile settings configured.
 
-```http title="Example request: Get store profile settings for channel 123"
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Get store profile settings for channel 123"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-&nbsp;
-```json title="Example response: Get store profile settings for channel 123" lineNumbers
+</Tab>
+<Tab>
+
+```json filename="Example response: Get store profile settings for channel 123" showLineNumbers
 {
   "data": {
     "store_name": "My Channel-Specific Name for Channel 123",
@@ -79,17 +100,26 @@ Accept: application/json
 }
 ```
 
+</Tab>
+</Tabs>
+
 Because a custom store name exists for channel 123, the channel-specific store name overrides the global default. Shoppers who interact with this channel will see the custom store name at each place it appears in the channel. When the global default `store_name` in the merchant's store profile settings changes, this channel will not reflect that change. However, any other changes to the global default store profile will affect channel 123, because `store_name` is the only channel-specific value defined. 
 
 The following request-response pair shows an example of a channel with a complete set of channel-specific store profile settings configured.
 
-```http title="Example request: Get store profile settings for channel 124"
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Get store profile settings for channel 124"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-&nbsp;
-```json title="Example response: Get store profile settings for channel 124" lineNumbers
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Get store profile settings for channel 124" showLineNumbers
 {
   "data": {
     "store_phone": "+1 555-555-555",
@@ -100,21 +130,25 @@ Accept: application/json
 }
 ```
 
+</Tab>
+</Tabs>
+
 Because channel-specific values exist for all store profile object properties, this channel is configured to override all the global default store profile configuration settings. Changes to the global defaults will not affect this channel.
 
 ## Editing store configuration settings
 
-<!-- theme: info -->
-> #### Global-only settings
-> Currently, the following settings are inherently global and cannot be modified with channel-specific overrides: 
-> * store_address_type
-> * store_country
+<Callout type="info">
+#### Global-only settings
+Currently, the following settings are inherently global and cannot be modified with channel-specific overrides: 
+* store_address_type
+* store_country
+</Callout>
 
 You can modify global and channel-specific settings alike by sending `PUT` requests to the relevant endpoints. 
 
 The following example uses the [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) endpoint to modify a store's global default configuration:
 
-```http title="Example request: Update global store profile settings"
+```http filename="Example request: Update global store profile settings"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -127,7 +161,7 @@ Accept: application/json
 
 To update channel-specific settings, send a request to the same endpoint along with a value for the `channel_id` query parameter.
 
-```http title="Example request: Update store profile settings for channel 123"
+```http filename="Example request: Update store profile settings for channel 123"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -143,15 +177,16 @@ If you wish to restore global defaults on a channel with a channel-specific conf
 * a comma-separated list of the property `keys` for the values you wish to reset.
 
 
-```http title="Example request: Reset channel-specific store profile settings to default"
+```http filename="Example request: Reset channel-specific store profile settings to default"
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124&keys=store_name,store_address
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!-- theme: info -->
-> #### Note
-> Global settings cannot be deleted, only updated.
+<Callout type="info">
+#### Note
+Global settings cannot be deleted, only updated.
+</Callout>
 
 ## The cumulative effect of global and channel-specific settings
 
