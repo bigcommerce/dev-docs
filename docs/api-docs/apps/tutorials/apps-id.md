@@ -63,8 +63,6 @@ Accept: application/json
 }]
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
 ## Resources
 * [Building Apps Guide](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * [Building Channel Apps](/api-docs/channels/guide/building-channel-apps)

@@ -44,8 +44,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/webhooks/webhooks/createwebhooks#requestrunner) -->
-
 [Learn more about creating webhooks](/api-docs/getting-started/webhooks/setting-up-webhooks).
 
 ## Next steps
