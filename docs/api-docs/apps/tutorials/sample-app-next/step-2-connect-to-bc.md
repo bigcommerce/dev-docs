@@ -12,9 +12,10 @@ To authenticate and use your app with the BigCommerce API, install BigCommerce's
 npm install github:bigcommerce/node-bigcommerce
 ```
 
-<!-- theme: info -->
-> #### View tested package versions
-> You can view a list of all the tested package versions in the [package.json file on the Step 2 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/package.json) of this sample app's repo.
+<Callout type="info">
+  #### View tested package versions
+  You can view a list of all the tested package versions in the [package.json file on the Step 2 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/package.json) of this sample app's repo.
+</Callout>
 
 ## Setup the auth lib page
 
@@ -163,10 +164,10 @@ ngrok http 3000
 
 ![https tunnel](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-02.png "https tunnel")
 
-<!-- theme: info -->
-> #### Ngrok configuration
-> Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
-
+<Callout type="info">
+  #### Ngrok configuration
+  Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
+</Callout>
 
 ## Register the draft app
 
@@ -186,9 +187,10 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 
 ![HTTPS URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-05.png "HTTPS URL")
 
-<!-- theme: warning -->
-> #### Use the secure tunnel
-> Avoid using the unsecured HTTP URL to prevent security policy errors.
+<Callout type="warning">
+  #### Use the secure tunnel
+  Avoid using the unsecured HTTP URL to prevent security policy errors.
+</Callout>
 
 * For Auth Callback URL, enter the URL of your app followed by `/api/auth`.
 * For Load Callback URL, enter the URL of your app followed by `/api/load`.
@@ -196,10 +198,10 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 
 ![Callback URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-06.png "Callback URL")
 
-<!-- theme: info -->
-> #### Next.js route mapping
-> Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
-
+<Callout type="info">
+  #### Next.js route mapping
+  Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
+</Callout>
 
 6. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
@@ -228,9 +230,10 @@ CLIENT_SECRET={app secret}
 AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 ```
 
-<!-- theme: warning -->
-> #### Don't commit authentication credentials
-> Never share sensitive data such as API keys and passwords publicly. Avoid committing them to your repository.
+<Callout type="warning">
+  #### Don't commit authentication credentials
+  Never share sensitive data such as API keys and passwords publicly. Avoid committing them to your repository.
+</Callout>
 
 
 3. Navigate to [Developer Portal > My Apps](https://devtools.bigcommerce.com/my/apps). Locate your app and click **View Client ID** to retrieve your app's credentials.
@@ -242,10 +245,10 @@ AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 npm run dev
 ```
 
-<!-- theme: info -->
-> #### Ngrok expiration and callbacks
-> If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
-
+<Callout type="info">
+  #### Ngrok expiration and callbacks
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+</Callout>
 
 ## Install and launch the app
 

@@ -48,7 +48,7 @@ BigCommerce rate limits all API requests made to a store in a thirty-second wind
 | Non-Enterprise Sandboxes | `20,000`          | `150`                       |
 
 <!-- info: note -->
-> \* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
+  \* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Apps making API requests to a store share the store's rate limit. This promotes fairness between apps accessing the API simultaneously, and prevents a single app from consuming the store's entire limit.
 
@@ -84,10 +84,10 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 * Slow rate of requests when `X-Rate-Limit-Requests-Left` nears zero.
 * Self-throttles requests to the average rate of `(X-Rate-Limit-Requests-Quota / X-Rate-Limit-Time-Window-Seconds)`.
 
-<!-- theme: warning -->
-> #### Note
-> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
-
+<Callout type="warning">
+  #### Note
+  Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
+</Callout>
 
 
 ### Respect platform limits

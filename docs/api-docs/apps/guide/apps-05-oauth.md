@@ -5,9 +5,10 @@ After you [install your draft app](/api-docs/apps/guide/development) and [create
 
 It may be more appropriate for your application to use an API client to handle this logic; see [the list of BigCommerce API clients](#helpful-tools) that expose OAuth-related helper methods. 
 
-<!-- theme: info -->
-> #### Store owner access_token constraint
-> Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
+<Callout type="info">
+  #### Store owner access_token constraint
+  Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
+</Callout>
 
 ## Overview
 
@@ -33,9 +34,10 @@ The next time the merchant opens the app in the store control panel, the browser
 
 ## Receiving the auth callback
 
-<!-- theme: info -->
-> #### Auth callback URL requirement
-> In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+<Callout type="info">
+  #### Auth callback URL requirement
+  In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+</Callout>
 
 The request to your app's `GET /auth` endpoint contains query parameters required to request an `access_token`.
 

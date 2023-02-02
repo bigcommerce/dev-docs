@@ -22,10 +22,11 @@ If you do not have Node.js installed, you can download it from [nodejs.org (down
 
 ## Generate a package.json file
 
-<!-- theme: info -->
-> #### Node.js version and custom dependencies
-> * Make sure that you are using Node.js version 12.22+.
-> * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
+<Callout type="info">
+  #### Node.js version and custom dependencies
+  * Make sure that you are using Node.js version 12.22+.
+  * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
+</Callout>
 
 
 1. To create the project's `package.json` file, enter the [interactive initialization sequence](https://docs.npmjs.com/cli/v8/commands/npm-init). Run the following command in the terminal:
@@ -56,10 +57,10 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 [@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
 
-<!-- theme: info -->
-> #### View tested package versions
-> You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
-
+<Callout type="info">
+  #### View tested package versions
+  You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
+</Callout>
 
 ## Add scripts
 

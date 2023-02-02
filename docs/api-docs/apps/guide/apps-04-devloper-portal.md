@@ -2,17 +2,19 @@
 
 Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development), we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).
 
-<!-- theme: info -->
-> #### Store email address constraint
-> Apps that aren't approved for distribution through the [App Marketplace](https://bigcommerce.com/apps) can only be installed on stores owned by the same email address as the developer portal account's email address.
+<Callout type="info">
+  #### Store email address constraint
+  Apps that aren't approved for distribution through the [App Marketplace](https://bigcommerce.com/apps) can only be installed on stores owned by the same email address as the developer portal account's email address.
+</Callout>
 
 ## Create an app profile
 
 Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
 
-<!-- theme: info -->
-> #### Information optional
-> No app profile fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
+<Callout type="info">
+  #### Information optional
+  No app profile fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
+</Callout>
 
 1. Sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com).
 
@@ -61,9 +63,10 @@ To learn more about using an app API account to generate store-specific access t
 ![Edit app dialog](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-edit-dialog-landing.png "Edit App / App Registration Dialog Landing View")
 
 
-<!-- theme: info -->
-> #### Marketplace delay
-> Edits can take up to 24 hours to appear in the [App Marketplace](https://www.bigcommerce.com/apps/), but changes are immediately effective and visible in your existing users' store control panels.
+<Callout type="info">
+  #### Marketplace delay
+  Edits can take up to 24 hours to appear in the [App Marketplace](https://www.bigcommerce.com/apps/), but changes are immediately effective and visible in your existing users' store control panels.
+</Callout>
 
 ### Edit technical details
 

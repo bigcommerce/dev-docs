@@ -57,9 +57,10 @@ Keep this tab open for the next step.
 
 After registering the draft app, add its credentials and auth callback URL to your project's environment variables file.
 
-<!-- theme: info -->
-> #### Alternate Heroku environment setup
-> If deploying on Heroku, skip the `.env` setup. Instead, enter `env` variables in the Heroku App Dashboard under **Settings** > **Config Vars**.
+<Callout type="info">
+  #### Alternate Heroku environment setup
+  If deploying on Heroku, skip the `.env` setup. Instead, enter `env` variables in the Heroku App Dashboard under **Settings** > **Config Vars**.
+</Callout>
 
 
 1. Create an `.env` file in the root directory of your project.
@@ -101,9 +102,10 @@ MYSQL_PORT={mysql port *optional*}
 
 5. Enter a JSON Web Token (**JWT**) secret. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
 
-<!-- theme: info -->
-> #### JWT key length
-> JWT key should be at least 32 random characters (256 bits) for HS256.
+<Callout type="info">
+  #### JWT key length
+  JWT key should be at least 32 random characters (256 bits) for HS256.
+</Callout>
 
 
 6. Specify `DB_TYPE`:
@@ -118,10 +120,10 @@ In a separate terminal from `ngrok`, start the app's dev environment.
 ```shell
 npm run dev
 ```
-<!-- theme: info -->
-> #### Ngrok configuration
-> Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
-
+<Callout type="info">
+  #### Ngrok configuration
+  Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
+</Callout>
 
 ## Install the app
 
@@ -135,10 +137,10 @@ Finally, install the draft app on any store registered to the same email as your
 
 Congrats! You've created and installed a BigCommerce draft app.
 
-<!-- theme: info -->
-> #### Becoming a partner
-> Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/api-docs/partner/app-store-approval-requirements).
-
+<Callout type="info">
+  #### Becoming a partner
+  Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/api-docs/partner/app-store-approval-requirements).
+</Callout>
 
 
 ## Next steps

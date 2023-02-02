@@ -22,10 +22,10 @@ If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 npm install --save mysql jsonwebtoken swr
 ```
 
-<!-- theme: info -->
-> #### Firebase version
-> These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
-
+<Callout type="info">
+  #### Firebase version
+  These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
+</Callout>
 
 ## Add TypeScript definitions
 
@@ -88,10 +88,10 @@ export * from './db';
 ```
 
 
-<!-- theme: info -->
-> #### Ngrok expiration and callbacks
-> If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
-
+<Callout type="info">
+  #### Ngrok expiration and callbacks
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+</Callout>
 
 
 ## Initialize React Context
@@ -144,10 +144,10 @@ You use a JSON Web Token (**JWT**) to securely transmit information encoded as a
 JWT_KEY={SECRET}
 ```
 
-<!-- theme: info -->
-> #### JWT key length
-> The JWT key should be at least 32 random characters (256 bits) for HS256.
-
+<Callout type="info">
+  #### JWT key length
+  The JWT key should be at least 32 random characters (256 bits) for HS256.
+</Callout>
 
 ## Update the auth lib page
 
@@ -323,10 +323,10 @@ FIRE_DOMAIN={firebaseConfig.authDomain}
 FIRE_PROJECT_ID={firebaseConfig.projectId}
 ```
 
-<!-- theme: info -->
-> #### Restart after adding environment variables
-> In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
-
+<Callout type="info">
+  #### Restart after adding environment variables
+  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+</Callout>
 
 ### Configure the Firebase database
 
@@ -428,10 +428,10 @@ MYSQL_PASSWORD={mysql password}
 MYSQL_PORT={mysql port}
 ```
 
-<!-- theme: info -->
-> #### Restart dev server when .env changes
-> In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
-
+<Callout type="info">
+  #### Restart dev server when .env changes
+  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+</Callout>
 
 ### Configure MySQL
 

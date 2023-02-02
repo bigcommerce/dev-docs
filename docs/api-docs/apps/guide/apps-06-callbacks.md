@@ -4,9 +4,10 @@ After a store owner installs your single-click app, they and their authorized us
 
 This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads. It also describes the payload schema of the `signed_payload_jwt`.
 
-<!-- theme: info -->
-> #### Callback URL requirements
-> In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+<Callout type="info">
+  #### Callback URL requirements
+  In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+</Callout>
 
 ## Overview
 

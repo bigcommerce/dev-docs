@@ -91,10 +91,10 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { useProductList } from '../../lib/hooks';
 ```
-<!-- theme: info -->
-> #### Resolve Link namespace collision
-> Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
-
+<Callout type="info">
+  #### Resolve Link namespace collision
+  Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
+</Callout>
 
 4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx).
 
@@ -613,10 +613,10 @@ export default ProductInfo;
 
 The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
-<!-- theme: warning -->
-> #### Avoid unnecessary Catalog API calls
-> Because you fetch all product data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
-
+<Callout type="warning">
+  #### Avoid unnecessary Catalog API calls
+  Because you fetch all product data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
+</Callout>
 
 The following image illustrates the `Form` input types:
 
