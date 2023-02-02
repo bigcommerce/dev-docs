@@ -1585,6 +1585,8 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 <!-- output: bar -->
 ```
 
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsonParseSafe.js)
+
 ## Standard helpers
 
 
