@@ -118,7 +118,7 @@ During the app setup, if you configure the Check Connection Options URL for the 
 
 `https://example.com/check_connection_options`
 
-```http lineNumbers
+```http showLineNumbers
 
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -144,9 +144,10 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service.
+<Callout type="info">
+#### Credential validation
+It is best practice to authenticate the user and store against your database or the downstream provider service.
+</Callout>
 
 Once you install the app, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
 
@@ -154,7 +155,7 @@ Once you install the app, it will be made available for configuration by merchan
 
 To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique to each carrier. If your carrier doesn’t require any connection settings, send an empty object for the `connection` settings property.
 
-```http title="Example carrier connection request with connection settings" lineNumbers
+```http filename="Example carrier connection request with connection settings" showLineNumbers
 POST https://example.com/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -169,7 +170,7 @@ Accept: application/json
 }
 ```
 &nbsp;
-```http title="Example carrier connection request without connection settings" lineNumbers
+```http filename="Example carrier connection request without connection settings" showLineNumbers
 POST https://example.com/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -184,7 +185,7 @@ Accept: application/json
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
 
-```http title="Example request: Create a shipping method in a specified zone" lineNumbers
+```http filename="Example request: Create a shipping method in a specified zone" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -201,7 +202,7 @@ Accept: application/json
 }
 ```
 &nbsp;
-```json title="Example response: Create a shipping method in a specified zone" lineNumbers
+```json filename="Example response: Create a shipping method in a specified zone" showLineNumbers
 {
   "id": 24,
   "name": "Per Order Test",
@@ -222,7 +223,7 @@ Accept: application/json
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. BigCommerce uses valid entries and does not call the shipping carrier. If a valid cache entry does not exist, BigCommerce makes a request to the Quote URL with details of the items to be shipped, the shipping origin, and the shipping destination. If you configured any connection settings or zone settings, include these. The shipping carrier must then respond with zero or more shipping quotes.
 
 
-```http title="Example request: Shipping rates" lineNumbers
+```http filename="Example request: Shipping rates" showLineNumbers
 POST https://example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -315,7 +316,7 @@ Accept: application/json
 }
 ```
 &nbsp;
-```json title="Example response: Shipping rates" lineNumbers
+```json filename="Example response: Shipping rates" showLineNumbers
 {
   "quote_id": "example_quote",
   "messages": [],
@@ -398,7 +399,7 @@ Accept: application/json
 
 If no shipping quotes are available, the shipping carrier will send a response with the following format for the shipping quote:
 
-```json title="Example response: No shipping rates" lineNumbers
+```json filename="Example response: No shipping rates" showLineNumbers
 {
   "quote_id": "example_quote",
   "messages": [],
@@ -408,9 +409,10 @@ If no shipping quotes are available, the shipping carrier will send a response w
 
 When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
-<!-- theme: info -->
-> #### Note
-> The response payload will display shipping quotes from lowest to highest price.
+<Callout type="info">
+#### Note
+The response payload will display shipping quotes from lowest to highest price.
+</Callout>
 
 ## Including product metadata in rate requests
 

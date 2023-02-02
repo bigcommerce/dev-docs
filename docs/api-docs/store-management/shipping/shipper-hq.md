@@ -27,10 +27,10 @@ These field values can be set in the control panel by the merchant as well as us
 | id | number | ID of the metafield. | read only |
 
 
-<!-- theme: warning -->
-> #### Entering metafield data
-> You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
-
+<Callout type="warning">
+#### Entering metafield data
+You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
+</Callout>
 
 
 
@@ -43,7 +43,7 @@ When you set Shipping Origins using the API, you cannot delete the fields using 
 
 To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`: 
 
-```http title="Example request: Add ShipperHQ metafield" lineNumbers
+```http filename="Example request: Add ShipperHQ metafield" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -57,7 +57,7 @@ Accept: application/json
 }
 ```
 &nbsp;
-```json title="Example response: Add ShipperHQ metafield" lineNumbers
+```json filename="Example response: Add ShipperHQ metafield" showLineNumbers
 {
 	"data": [
 		{
