@@ -10,17 +10,17 @@ Let's first take a look how apps are discovered, displayed, and managed on BigCo
 ### Discovery
 Approved apps are listed on the [App Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install.
 
-![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-01.png "App Marketplace")
+![App Marketplace](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-01-introduction-01.png "App Marketplace")
 
 ### Management
 Apps installed on a store are managed in the store's control panel under **Apps** > [**My Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). Here, store users can launch or uninstall the app.
 
-![App Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-02.png  "App Management")
+![App Management](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-01-introduction-02.png  "App Management")
 
 ### Display
 When a merchant launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame.
 
-![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
+![App Display](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-01-introduction-03.png  "App Display")
 
 ## Use cases
 What can developers do with BigCommerce apps?

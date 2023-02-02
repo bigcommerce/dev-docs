@@ -8,11 +8,11 @@ The first step when developing an app is deciding which type of app to develop. 
 
 Single-click apps are the recommended app type. They use [OAuth 2.0 Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) (oauth2.net) flow. Users initiate installation by clicking **Install**.
 
-![Install App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install App")
+![Install App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-02-types-01.png "Install App")
 
 The app requests the user to grant permissions associated to scopes configured for the app in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
 
-![App Permissions](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-02.png "App Permissions")
+![App Permissions](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-02-types-02.png "App Permissions")
 
 Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
 

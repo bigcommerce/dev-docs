@@ -10,7 +10,7 @@ Single-click apps can be installed from outside the BigCommerce control panel. F
 
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation.
 
-![Install Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-10-buttons-01.png "Install Button")
+![Install Button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-10-buttons-01.png "Install Button")
 
 Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{{CLIENT_ID}}/install`.
 
@@ -18,7 +18,7 @@ Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{
 
 When clicked, your button should open a modal similar to the image below. We recommend a modal sized `900px` wide by `450px` high.
 
-![Install Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-10-buttons-02.png "Install Button")
+![Install Button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-10-buttons-02.png "Install Button")
 
 Your button will link merchants to BigCommerce's install endpoint for your application. Once the merchant clicks the link, they will be prompted to sign in and authorize your application.
 

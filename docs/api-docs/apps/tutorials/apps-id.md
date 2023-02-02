@@ -16,11 +16,11 @@ An app's ID can be found in the URL while on the app's page in a store's control
 
 To open the app page, click the app:
 
-![Draft App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-id-01.png "Draft App")
+![Draft App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-id-01.png "Draft App")
 
 The app ID is in the URL after `/manage/marketplace/apps/`:
 
-![Draft App ID](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-id-02.png "Draft App ID")
+![Draft App ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-id-02.png "Draft App ID")
 
 ## Find in Developer Portal
 
