@@ -15,9 +15,10 @@ To create a sandbox store, complete the following steps:
   
 ![Create New menu](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-create-new.png)
 
-<!-- theme: warning -->
-> #### Store regions are immutable
-> You cannot update the store region of a partner sandbox.
+<Callout type="warning">
+#### Store regions are immutable
+You cannot update the store region of a partner sandbox.
+</Callout>
 
 ### Deal Registration sandbox
 
