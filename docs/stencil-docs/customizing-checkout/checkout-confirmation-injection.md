@@ -16,7 +16,7 @@ A prerequisite for the next two options is to add themewide styles to your Check
 
 You can replace each page's predefined header with your storewide header. To do so, first add themewide styles as described above. Next, replace the following code block (if present):
 
-```html
+```html showLineNumbers copy
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
         <h1 class="is-srOnly">{{lang 'checkout.title'}}
@@ -59,7 +59,7 @@ If you are working on a theme that does not have the scripts already enabled, he
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```html
+```html showLineNumbers copy
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -77,7 +77,7 @@ Additionally, at the bottom of the checkout template (`checkout.html`), add this
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```html
+```html showLineNumbers copy
     {{{ checkout.checkout_content }}}
 
     {{{ footer.scripts }}}
@@ -91,7 +91,7 @@ Add it between these existing statements, so it will ultimately read as shown be
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```html
+```html showLineNumbers copy
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -109,7 +109,7 @@ Additionally, at the bottom of the order confirmation template (`order-confirmat
 
 Insert it between these existing statements, so it will ultimately read as shown below.
 
-```html
+```html showLineNumbers copy
 {{{ checkout.order_confirmation_content }}}
 
 {{{ footer.scripts }}}
@@ -139,7 +139,7 @@ The following sections present examples of scripts that inject popular apps into
 
 As an example of injecting an app from the BigCommerce App Marketplace, you could enable the Olark Live Chat app on either page by using the script manager or our new Scripts API:
 
-```js
+```js showLineNumbers copy
 <!-- begin olark code -->
 <script type="text/javascript" async>
 ;(function(o,l,a,r,k,y){if(o.olark)return;
@@ -160,7 +160,7 @@ olark.identify('4080-493-10-1035');</script>
 
 Similarly, you could enable the Bluecheck age-verification app by using the script manager or our new Scripts API:
 
-```js
+```js showLineNumbers copy
 <!-- Bluecheck AV Start Here -->
    <script src="https://api.bluecheck.me/modal/latest/custom/bigcommerce.js"></script>
    <script src='//api.bluecheck.me/age-gate/v2/loader.js.php?domain_token=[user-token-value]'></script>
@@ -177,7 +177,7 @@ Similarly, you could enable the Bluecheck age-verification app by using the scri
 
 To add the Rebillia app, you could add the following tags by using the script manager or our new Scripts API:
 
-```html
+```html showLineNumbers copy
 <div id='rebillia_overlay'></div>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
@@ -193,7 +193,7 @@ function customerJWT(a){var b="r1sc6nvnnhed377cozp2bfwfa69cfz5",c=new XMLHttpReq
 
 Here is one final example of an app that you could enable by using the script manager or our new Scripts API. This example enables Conversions on Demand:
 
-```js
+```js showLineNumbers copy
 <script type='text/javascript'>// <![CDATA[
     var cod_page_guid = 'CHECKOUT';
     var COD_CONFIG = {'platform':'bigcommerce', 'stoken':'as2_bcmarket_org'};
@@ -215,7 +215,7 @@ Here is one final example of an app that you could enable by using the script ma
 
 The Addrexx app is integrated to the Checkout or Order Confirmation page via the BigCommerce control panel's Google Analytics box, rather than through injection directly into either Stencil template file. Here is the corresponding script to enter into the control panel:
 
-```js
+```js showLineNumbers copy
 <!-- START  Addrexx -->
 <script type="text/javascript">
 wwPage = window.location.href;
