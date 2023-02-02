@@ -85,9 +85,9 @@ We ask that you request the user’s permission rather than doing this automatic
 
 2.) __The merchant's theme is not set up correctly__ 
 
-The theme templates must have the handlebars expressions {{head.scripts}} and {{footer.scripts}} in the pages to render scripts. If either of these is absent, scripts on that page with location set to head or footer (respectively) will not render correctly.
+The theme templates must have the handlebars expressions `{{head.scripts}}` and `{{footer.scripts}}` in the pages to render scripts. If either of these is absent, scripts on that page with location set to head or footer (respectively) will not render correctly.
 
-Of particular note, {{head.scripts}} was only recently added to the checkout and order confirmation pages in our Cornerstone theme, and widespread adoption of this standard outside of Cornerstone is still an ongoing process.
+Of particular note, `{{head.scripts}}` was only recently added to the checkout and order confirmation pages in our Cornerstone theme, and widespread adoption of this standard outside of Cornerstone is still an ongoing process.
 
 To ensure your app is compatible with as many themes as possible, we recommend footer overhead for checkout, order_confirmation, and all_pages visibilities. 
 
@@ -108,7 +108,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 - Each app can have 10 scripts. 
 - You can install up to five scripts in a single call. 
 
-```js
+```js filename="Example scripts" showLineNumbers
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
 <script>
@@ -124,8 +124,8 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 | Scope | Visibility |
 | -- | -- |
-| `all_pages` | Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> My Account </br> Product Compare </br> Order Confirmation </br> Page </br> Payment Methods</br> Login </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br /> 404 page |
-| `storefront` |  Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Product Compare </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br /> 404 page|
+| `all_pages` | Add Wishlist <br></br> Blog List <br></br> Blog Post<br></br> Brand Pages <br></br> All Brands Page <br></br> Cart <br></br> Category <br></br> Checkout <br></br> My Account <br></br> Product Compare <br></br> Order Confirmation <br></br> Page <br></br> Payment Methods<br></br> Login <br></br> Contact Form <br></br> Product <br></br> Search <br></br> All Wishlist <br></br> Wish List <br /> 404 page |
+| `storefront` |  Add Wishlist <br></br> Blog List <br></br> Blog Post<br></br> Brand Pages <br></br> All Brands Page <br></br> Cart <br></br> Category <br></br> Product Compare <br></br> Page <br></br> Contact Form <br></br> Product <br></br> Search <br></br> All Wishlist <br></br> Wish List <br /> 404 page|
 | `checkout` | Checkout | 
 | `order_confirmation` | Order Confirmation | 
 
