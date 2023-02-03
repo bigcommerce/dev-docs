@@ -1,15 +1,12 @@
 # Price List API
 
-
 ## What is a price list?
 
-
-A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
+A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used.
 
 You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
 
 Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
-
 
 ### OAuth scopes
 The following OAuth Scopes are required:
@@ -19,8 +16,7 @@ The following OAuth Scopes are required:
 * A **price list** is a collection of price records. Price records make up a price list.
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
 
-
-```json title="Price Record" lineNumbers
+```js showLineNumbers
 	{
 		"variant_id": 3121,
 		"price": 10.0,
@@ -31,13 +27,11 @@ The following OAuth Scopes are required:
 	}
 ```
 
-
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
 - **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
-
-```http title="Example request: Get all price lists" lineNumbers
+```js showLineNumbers
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -90,7 +84,7 @@ The price list assignment assigns a price list to a specific sales channel. This
 
 See [Channels, Sites, and Routes](/api-reference/store-management/channels) for further documentation.
 
-```http title="Example request: Create a price list assignment" lineNumbers
+```http filename="Example request: Create a price list assignment" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -107,7 +101,7 @@ Content-Type: application/json
 
 ## Price lists assigned to customer groups 
 
-```http title="Example request: Assign a price list to a customer group" lineNumbers
+```http filename="Example request: Assign a price list to a customer group" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
