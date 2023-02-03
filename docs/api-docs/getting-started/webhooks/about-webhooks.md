@@ -12,7 +12,7 @@ This article is an overview of webhook behavior on BigCommerce. For webhook API 
 
 To create a webhook, send a `POST` request to the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
 
-```http title="Example request: Create a webhook" lineNumbers
+```http filename="Example request: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -32,7 +32,7 @@ Accept: application/json
 
 <!-- > Consult the Webhooks API reference for more about the differences. -->
 
-```json title="Example response: Create a webhook" lineNumbers
+```json filename="Example response: Create a webhook" showLineNumbers copy
 {
   "created_at": 1580329317,
   "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
@@ -56,7 +56,7 @@ Accept: application/json
 
 When a webhook is triggered, BigCommerce will `POST` a light payload containing event details to the destination server. For example, the `data` object for `store/order/statusUpdated` contains only the order `id`.
 
-```json title="Example store/order/statusUpdated payload object" lineNumbers
+```json filename="Example store/order/statusUpdated payload object" showLineNumbers copy
 {
  "store_id":"11111",
  "producer":"stores/abcde",
@@ -139,7 +139,7 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
 * Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests.
 
 
-```http title="Example request with header object: Create a webhook" lineNumbers
+```http filename="Example request with header object: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -179,7 +179,7 @@ Once the issue is resolved, set `is_active` to `true` using the [Update a webhoo
 * Check TLS/SSL configuration on the computer sending the request.
 * Verify `POST` request contains the following required `HTTP` headers:
 
-```http title="Example request with required headers: Create a webhook"
+```http filename="Example request with required headers: Create a webhook"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 Accept: application/json
 Content-Type: application/json

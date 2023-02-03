@@ -43,7 +43,7 @@ type: tab
 title: GET request
 -->
 
-```http title="Example GET request with X-Auth-Token header"
+```http filename="Example GET request with X-Auth-Token header"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -54,7 +54,7 @@ type: tab
 title: POST request
 -->
 
-```http title="Example POST request with X-Auth-Token header"
+```http filename="Example POST request with X-Auth-Token header"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -70,7 +70,7 @@ type: tab
 title: PUT request
 -->
 
-```http title="Example PUT request with X-Auth-Token header"
+```http filename="Example PUT request with X-Auth-Token header"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -86,7 +86,7 @@ type: tab
 title: DELETE request
 -->
 
-```http title="Example DELETE request with X-Auth-Token header"
+```http filename="Example DELETE request with X-Auth-Token header"
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -112,7 +112,7 @@ type: tab
 title: Example Request: Current Customer API
 -->
 
-```js title="Example GET request" lineNumbers
+```js filename="Example GET request" showLineNumbers copy
 const customerJWT = (apiAccountClientId) => {
   let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
   return fetch(resource)
@@ -136,7 +136,7 @@ type: tab
 title: Example Response: Current Customer API
 -->
 
-```shell title="Example text response: JWT string"
+```shell filename="Example text response: JWT string"
 # response body
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
 ```
@@ -183,7 +183,7 @@ type: tab
 title: Example request: Dynamic token
 -->
 
-```http title="Example request: limited-use auth token"
+```http filename="Example request: limited-use auth token"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
 X-Auth-Token: {{access_token}} # the OAuth scopes of this access token must allow the stuff you want to do with the limited-use token
 Accept: application/json
@@ -203,7 +203,7 @@ title: GraphQL Storefront API
 
 GraphQL Storefront response-request pairs resemble the following:
 
-```json title="Example response: Create a GraphQL Storefront API token" lineNumbers
+```json filename="Example response: Create a GraphQL Storefront API token" showLineNumbers copy
 {
   "token":"BigCommerceProvidedJwt.dotDelimited.threePartString",
   "meta": {
@@ -214,7 +214,7 @@ GraphQL Storefront response-request pairs resemble the following:
 
 &nbsp;
 
-```js title="Example query: GraphQL Storefront API" lineNumbers
+```js filename="Example query: GraphQL Storefront API" showLineNumbers copy
 
 const gqlStorefrontQuery = (token, gqlQueryString) => {
   // example token is "BigCommerceProvidedJwt.dotDelimited.threePartString"
@@ -247,7 +247,7 @@ title: Payments API
 
 Payments response-request pairs resemble the following:
 
-```json title="Example response: Create a payment access token" lineNumbers
+```json filename="Example response: Create a payment access token" showLineNumbers copy
 {
   "data": {
     "id": "BigCommerceProvidedJwt.dotDelimited.threePartString"
@@ -260,7 +260,7 @@ Payments response-request pairs resemble the following:
 
 &nbsp;
 
-```http title="Example request: Process a payment" lineNumbers
+```http filename="Example request: Process a payment" showLineNumbers copy
 
 # example TOKEN is BigCommerceProvidedJwt.dotDelimited.threePartString
 
@@ -292,7 +292,7 @@ The following table lists the APIs that rely on user-generated JWTs. For OAuth s
 ### Customer Login API example request
 For the Customer Login API, your request will look something like the following:
 
-```js title="Example GET request: Customer Login API"
+```js filename="Example GET request: Customer Login API"
 
 const loginCustomer = (yourJwt) => {
   let resource = `${window.location.origin}/login/token/${yourJwt}`;
@@ -334,7 +334,7 @@ The REST Storefront API lets you make client-side requests for carts, checkouts,
 
 The following examples illustrate how to make calls to the REST Storefront API:
 
-```js title="Example script: REST Storefront API call" lineNumbers
+```js filename="Example script: REST Storefront API call" showLineNumbers copy
 
 const storefrontCall = (endpoint, requestBody = null) => {
   let resource = `${window.location.origin}/api/storefront${endpoint.route}`;
@@ -376,7 +376,7 @@ type: tab
 title: storefrontCall GET request 
 -->
 
-```js title="Example GET call: Get a cart" lineNumbers
+```js filename="Example GET call: Get a cart" showLineNumbers copy
 let endpoint = {
   route: "/carts?include=lineItems.physicalItems.options",
   method: "GET",
@@ -394,7 +394,7 @@ type: tab
 title: storefrontCall POST request 
 -->
 
-```js title="Example POST call: Add cart line items" lineNumbers
+```js filename="Example POST call: Add cart line items" showLineNumbers copy
 let endpoint = {
   route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890/items", 
   method: "POST", 
@@ -421,7 +421,7 @@ type: tab
 title: storefrontCall PUT request 
 -->
 
-```js title="Example PUT call: Update checkout billing address" lineNumbers
+```js filename="Example PUT call: Update checkout billing address" showLineNumbers copy
 let endpoint = {
   route: "/checkouts/123abc45-de67-89f0-123a-bcd456ef7890/billing-address/123abc456def7",
   method: "PUT",
@@ -452,7 +452,7 @@ type: tab
 title: storefrontCall DELETE request 
 -->
 
-```js title="Example DELETE call: Delete a cart" lineNumbers
+```js filename="Example DELETE call: Delete a cart" showLineNumbers copy
 let endpoint = {
   route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890",
   method: "DELETE", 

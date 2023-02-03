@@ -140,7 +140,7 @@ The priority in which you can process these methods are:
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
-```json title="Example JSON request body" lineNumbers
+```json filename="Example JSON request body" showLineNumbers copy
 {
  "id": 5,
  "name": "iPod",
@@ -152,7 +152,7 @@ The body of a JSON request is an object containing a set of key-value pairs. A s
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
 
-```http title="Example response: Get a category"
+```http filename="Example response: Get a category"
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
 
 {

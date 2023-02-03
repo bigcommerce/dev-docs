@@ -57,7 +57,7 @@ You can request any field that is available on the object. Excluding unnecessary
 The following example shows product name and price included in a single request:
 
 
-```http title="Example response: Product name and price" lineNumbers
+```http filename="Example response: Product name and price" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price
 
 {

@@ -85,7 +85,7 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
-```http title="Example: Rate limit headers"
+```http filename="Example: Rate limit headers"
 X-Rate-Limit-Requests-Left: 6
 X-Rate-Limit-Requests-Quota: 25
 X-Rate-Limit-Time-Reset-Ms: 3000

@@ -30,7 +30,7 @@ We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Ap
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-```js title="Logout Callback" lineNumbers
+```js filename="Logout Callback" showLineNumbers copy
 Bigcommerce.init({
       onLogout: callback
 });
@@ -70,7 +70,7 @@ The following table details the full list of parameters and values included in t
 This example initiates the token exchange, with a requested scope of store_v2_orders:
 
 
-```http title="Initial Installation" lineNumbers
+```http filename="Initial Installation" showLineNumbers copy
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
@@ -78,7 +78,7 @@ Host: app.example.com
 ### Example – Updating Scopes
 The following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-```http title="Updating Scopes" lineNumbers
+```http filename="Updating Scopes" showLineNumbers copy
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
@@ -128,7 +128,7 @@ Include values for each of the following parameters.
 
 **Examples – Initial Installation**
 
-```http title="HTTP" lineNumbers
+```http filename="HTTP" showLineNumbers copy
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
@@ -136,7 +136,7 @@ Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 &nbsp;
-```php title="PHP" lineNumbers
+```php filename="PHP" showLineNumbers copy
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -157,7 +157,7 @@ $token = $response->access_token;
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-```http title="HTTP" lineNumbers
+```http filename="HTTP" showLineNumbers copy
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
@@ -165,7 +165,7 @@ Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 &nbsp;
-```php title="PHP" lineNumbers
+```php filename="PHP" showLineNumbers copy
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -196,7 +196,7 @@ The POST response will include a JSON object containing the permanent OAuth toke
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-```json title="Initial Installation" lineNumbers
+```json filename="Initial Installation" showLineNumbers copy
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders",
@@ -210,7 +210,7 @@ The POST response will include a JSON object containing the permanent OAuth toke
 
 Update requests will refresh the payload’s access_token and scope values. Here again, the following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-```json title="Updating Scopes" lineNumbers
+```json filename="Updating Scopes" showLineNumbers copy
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders store_v2_products",
@@ -240,7 +240,7 @@ Each event listed here triggers a GET request from BigCommerce containing a sign
 
 Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
 
-```http title="Example response to GET /load endpoint"
+```http filename="Example response to GET /load endpoint"
 # The GET request contains a signed payload, as shown below.
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
@@ -271,7 +271,7 @@ If you have not enabled [multi-user support](#multi-user-support), you will not 
 
 **Example -- Get Request sent to the Remove User URI**
 
-```http title="Remove User URI" lineNumbers
+```http filename="Remove User URI" showLineNumbers copy
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
@@ -312,7 +312,7 @@ To verify the payload, you need to sign the payload using your client secret, an
   To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 </Callout>
 
-```php title="PHP: verifySignedRequest" lineNumbers
+```php filename="PHP: verifySignedRequest" showLineNumbers copy
 function verifySignedRequest($signedRequest)
 {
     list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
@@ -338,7 +338,7 @@ function verifySignedRequest($signedRequest)
 </Callout>
 
 
-```ruby title="Ruby: verify()" lineNumbers
+```ruby filename="Ruby: verify()" showLineNumbers copy
 require "base64"
 require "openssl"
 
@@ -397,7 +397,7 @@ Use the store information endpoint to identify the store to which the request pe
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
 
-```json title="User Information" lineNumbers
+```json filename="User Information" showLineNumbers copy
 {
     "user":
          {
@@ -483,7 +483,7 @@ If there were errors, call:
 Below is a sample code snippet of an auth callback that does this:
 
 
-```lua title="Lua Auth Callback" lineNumbers
+```lua filename="Lua Auth Callback" showLineNumbers copy
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end

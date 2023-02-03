@@ -20,7 +20,7 @@ To see an example request-response pair for creating a webhook, consult the crea
 
 Callback payloads take the following form. The `data` property will contain varying attributes specific to the type of event the webhook represents.
 
-```json title="Example callback payload object" lineNumbers
+```json filename="Example callback payload object" showLineNumbers copy
 {
   "scope": "store/order/created",
   "store_id": "1025646",
@@ -65,7 +65,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/cart/abandoned`
 
 
-```json title="Example cart created payload object" lineNumbers
+```json filename="Example cart created payload object" showLineNumbers copy
 {
     "scope": "store/cart/created",
     "store_id": "1025646",
@@ -80,7 +80,7 @@ Payload objects with the following scopes take the form that follows:
 ```
 Payload objects with the `store/cart/couponApplied` scope take the form that follows:
 
-```json title="Example cart coupon applied payload object" lineNumbers
+```json filename="Example cart coupon applied payload object" showLineNumbers copy
 {
     "scope": "store/cart/couponApplied",
     "store_id": "1025646",
@@ -97,7 +97,7 @@ Payload objects with the `store/cart/couponApplied` scope take the form that fol
 
 Payload objects with the `store/cart/converted` scope take the form that follows:
 
-```json title="Example cart converted payload object" lineNumbers
+```json filename="Example cart converted payload object" showLineNumbers copy
 {
     "scope": "store/cart/converted",
     "store_id": "1025646",
@@ -131,7 +131,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/cart/lineItem/updated`
 * `store/cart/lineItem/deleted`
 
-```json title="Example cart line item payload object" lineNumbers
+```json filename="Example cart line item payload object" showLineNumbers copy
 {
     "scope": "store/cart/lineItem/created",
     "store_id": "1025646",
@@ -167,7 +167,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/category/deleted`
 
 
-```json title="Example category payload object" lineNumbers
+```json filename="Example category payload object" showLineNumbers copy
 {
     "scope": "store/category/created",
     "store_id": "1025646",
@@ -212,7 +212,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/customer/payment/instrument/default/updated`
 
 
-```json title="Example customer payload object" lineNumbers
+```json filename="Example customer payload object" showLineNumbers copy
 {
     "scope": "store/customer/created",
     "store_id": "1025646",
@@ -233,7 +233,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/customer/address/deleted`
 
 
-```json title="Example customer address payload object" lineNumbers
+```json filename="Example customer address payload object" showLineNumbers copy
 {
     "scope": "store/customer/address/created",
     "store_id": "1025646",
@@ -283,7 +283,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/order/updated`
 * `store/order/archived`
 
-```json title="Example order payload object" lineNumbers
+```json filename="Example order payload object" showLineNumbers copy
 {
     "scope": "store/order/created",
     "store_id": "1025646",
@@ -299,7 +299,7 @@ Payload objects with the following scopes take the form that follows:
 
 Payload objects with the `store/order/statusUpdated` scope take the form that follows:
 
-```json title="Example order status updated payload object" lineNumbers
+```json filename="Example order status updated payload object" showLineNumbers copy
 {
     "scope": "store/order/statusUpdated",
     "store_id": "1025646",
@@ -319,7 +319,7 @@ Payload objects with the `store/order/statusUpdated` scope take the form that fo
 
 Payload objects with the `store/order/message/created` scope take the form that follows:
 
-```json title="Example order message payload object" lineNumbers
+```json filename="Example order message payload object" showLineNumbers copy
 {
     "scope": "store/order/message/created",
     "store_id": "1025646",
@@ -337,7 +337,7 @@ Payload objects with the `store/order/message/created` scope take the form that 
 ```
 Payload objects with the `store/order/refund/created` scope take the form that follows:
 
-```json title="Example order refund payload object" lineNumbers
+```json filename="Example order refund payload object" showLineNumbers copy
 {
     "scope": "store/order/refund/created",
     "store_id": "1025646",
@@ -359,7 +359,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/order/transaction/created`
 * `store/order/transaction/updated`
 
-```json title="Example order transaction payload object" lineNumbers
+```json filename="Example order transaction payload object" showLineNumbers copy
 {
     "scope": "store/order/transaction/created",
     "channel_id": null,
@@ -404,7 +404,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/product/created`
 * `store/product/updated`
 
-```json title="Example product payload object" lineNumbers
+```json filename="Example product payload object" showLineNumbers copy
 {
     "scope": "store/product/deleted",
     "store_id": "1025646",
@@ -423,7 +423,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/product/inventory/updated`
 * `store/product/inventory/order/updated`
 
-```json title="Example product inventory payload object" lineNumbers
+```json filename="Example product inventory payload object" showLineNumbers copy
 {
     "scope": "store/product/inventory/updated",
     "store_id": "1025646",
@@ -499,7 +499,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/shipment/updated`
 * `store/shipment/deleted`
 
-```json title="Example shipment payload object" lineNumbers
+```json filename="Example shipment payload object" showLineNumbers copy
 {
     "scope": "store/shipment/created",
     "store_id": "1025646",
@@ -536,7 +536,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/sku/deleted`
 
 
-```json title="Example sku payload object" lineNumbers
+```json filename="Example sku payload object" showLineNumbers copy
 {
     "scope": "store/sku/created",
     "store_id": "1025646",
@@ -560,7 +560,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/sku/inventory/updated`
 
 
-```json title="Example sku inventory payload object" lineNumbers
+```json filename="Example sku inventory payload object" showLineNumbers copy
 {
     "scope": "store/sku/inventory/updated",
     "store_id": "1025646",
@@ -629,7 +629,7 @@ Changes to the following store settings will trigger a `store/information/update
 * Stencil Template Enabled
 * Wishlist Enabled*
 
-```json title="Example store information updated payload object" lineNumbers
+```json filename="Example store information updated payload object" showLineNumbers copy
 {
   "scope": "store/information/updated",
   "store_id": "1025646",
@@ -657,7 +657,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/subscriber/updated`
 * `store/subscriber/deleted`
 
-```json title="Example subscriber payload object" lineNumbers
+```json filename="Example subscriber payload object" showLineNumbers copy
 {
     "scope": "store/subscriber/created",
     "store_id": "1025646",
