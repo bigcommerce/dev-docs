@@ -1,8 +1,8 @@
 # Google AMP
 
-<!-- theme: warning -->
-> ### Warning
-> Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
+<Callout type="warning">
+ Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
+</Callout>
 
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
@@ -14,9 +14,9 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 
 The article will walk you through enabling Google AMP pages in your theme.
 
-<!-- theme: info -->
-> #### Cornerstone
-> This example uses Cornerstone.
+<Callout type="info">
+ This example uses Cornerstone.
+</Callout>
 
 ## Implementing AMP
 
@@ -32,7 +32,7 @@ Ensure the Google Analytics ID has been added in the control panel. This is what
 
 In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template files replace `theme_settings` with `settings`.
 
-```handlebars title="Example replacement of amp_analytics_id property templates/layout/amp.html" lineNumbers
+```handlebars filename="Example replacement of amp_analytics_id property templates/layout/amp.html" showLineNumbers  show
 {{{snippet 'htmlhead'}}}
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
@@ -44,7 +44,7 @@ In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template f
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
 
-```json title="Ensure google_amp appears in the 'features' array config.json" lineNumbers
+```json filename="Ensure google_amp appears in the 'features' array config.json" showLineNumbers copy
   "features": [
       "fully_responsive",
       "mega_navigation",
