@@ -12,9 +12,10 @@ Follow the link for your scenario:
 If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
 
 
-<!-- theme: warning -->
-> #### No automatic check for dependencies
-> The `stencil bundle` and `stencil push` commands do not check for the dependencies that these build systems install. So if those dependencies are missing, these commands will not immediately report errors. However, your resulting .zip file will not properly upload to BigCommerce, and will not run properly on a storefront.
+<Callout type="warning" emoji="⚠️">
+#### No automatic check for dependencies
+The `stencil bundle` and `stencil push` commands do not check for the dependencies that these build systems install. So if those dependencies are missing, these commands will not immediately report errors. However, your resulting .zip file will not properly upload to BigCommerce, and will not run properly on a storefront.
+ </Callout>
 
 ## Verify directory and file permissions
 
@@ -23,9 +24,10 @@ If you have added any new subdirectories or files to your base theme, verify tha
 * Set newly added directories to permission `755` (`drwxr-xr-x`).
 * Set newly added files to permission `644` (`rw-r--r--`).
 
-<!-- theme: warning -->
-> #### Writable permissions are required
-> Without these writable permissions, bundling your theme will fail, blocking its upload to BigCommerce.
+<Callout type="warning" emoji="⚠️">
+#### Writable permissions are required
+Without these writable permissions, bundling your theme will fail, blocking its upload to BigCommerce.
+</Callout>
 
 ## Bundling your theme
 
@@ -137,10 +139,11 @@ Use your arrow keys to move the selection caret to each theme/version that you w
 If you are certain of your selections, you can press **Enter** to delete the themes.
 
 
-<!-- theme: danger -->
-> #### Select carefully – no confirmation
-> Once you press `Enter`, the selected themes will be deleted immediately, with no further confirmation.
-> If you have any doubts – especially about deleting multiple themes/versions – it is safest to delete them through the control panel GUI. This GUI allows you to compare uploaded versions and to inspect their metadata.
+<Callout type="warning" emoji="⚠️">
+ #### Select carefully – no confirmation
+ Once you press `Enter`, the selected themes will be deleted immediately, with no further confirmation.
+ If you have any doubts – especially about deleting multiple themes/versions – it is safest to delete them through the control panel GUI. This GUI allows you to compare uploaded versions and to inspect their metadata.
+</Callout>
 
 ## Other bundling or upload errors
 
