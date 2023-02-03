@@ -28,7 +28,7 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-```json title="Catalog price object, no sale price defined" lineNumbers
+```json filename="Catalog price object, no sale price defined" showLineNumbers copy
 "product": {
     // ...
   },
@@ -83,7 +83,7 @@ Assume that a merchant has defined the following for a product in the control pa
 A corresponding catalog price object for the product will be structured as shown below:
 
 
-```json title="Catalog price object, sale price defined" lineNumbers
+```json filename="Catalog price object, sale price defined" showLineNumbers copy
 "product": {
   // ...
   "price": {
@@ -143,7 +143,7 @@ The example below tests for the presence of the `sale_price_without_tax` propert
 With the logic below, the page will display a strikeout standard price next to the **Sale Price** field, indicating the current selling price of the product.
 
 
-```handlebars title="Conditional logic" lineNumbers
+```handlebars filename="Conditional logic" showLineNumbers copy
   {{#or price.sale_price_without_tax price.sale_price_with_tax}}
      ... [code to display on-sale strikeout pricing or content for a discounted product]  ...
   {{/or}}
@@ -177,7 +177,7 @@ There is no defined sale price for the product.
 
 A corresponding catalog price object will be structured as shown below:
 
-```json title="Product including and excluding tax, no sale price defined" lineNumbers
+```json filename="Product including and excluding tax, no sale price defined" showLineNumbers copy
 "product": {
   "price": {
     "with_tax": {
@@ -212,9 +212,10 @@ In this example:
 | `with_tax` | This property represents the `without_tax` value plus a 10% tax markup.|
 | `rrp_with_tax` | This property represents the `rrp_without_tax` value plus a 10% tax markup.|
 
-<!-- theme: warning -->
-> #### Tax display configurations
-> The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
+<Callout type="warning" emoji="⚠️">
+ #### Tax display configurations
+ The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
+ </Callout>
 
 ### Sale price defined in control panel
 
@@ -223,7 +224,7 @@ Assume that a merchant has defined the following tax configurations for a produc
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax
 
-```json title="Product including and excluding tax, sale price defined" lineNumbers
+```json filename="Product including and excluding tax, sale price defined" showLineNumbers copy
 "product": {
   "price": {
     "with_tax": {
