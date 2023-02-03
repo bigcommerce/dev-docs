@@ -11,7 +11,7 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below.
 
-```json filename="addition of paymentbuttons to 'settings' object config.json" showlineNumbers copy
+```json filename="Addition of paymentbuttons to 'settings' object config.json" showlineNumbers copy
  "settings": {
     "..."
     "color_badge_product_sale_badges": "#007dc6",
