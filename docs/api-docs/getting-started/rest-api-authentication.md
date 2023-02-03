@@ -25,9 +25,10 @@ In addition to the [API account components](#api-accounts) in the preceding sect
 
 Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
 
-<!-- theme: danger -->
-> #### Be careful with client secrets
-> Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+<Callout type="error">
+  #### Be careful with client secrets
+  Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+</Callout>
 
 ### Obtaining store API credentials
 
@@ -39,15 +40,17 @@ To get started making requests, see [Getting Started](/api-docs/getting-started/
 
 To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
 
-<!-- theme: danger -->
-> #### Delete carefully
-> Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+<Callout type="error">
+  #### Delete carefully
+  Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+</Callout>
 
 To delete a store API account, consult our Knowledge Base article on [Deleting a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting).
 
-<!-- theme: warning -->
-> #### Don't forget your webhooks and metafields
-> Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
+<Callout type="warning">
+  #### Don't forget your webhooks and metafields
+  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
+</Callout>
 
 
 ## App API accounts
@@ -74,9 +77,11 @@ There is no way to manually revoke or force-regenerate app API account access to
 
 After one of these changes, the store owner will be prompted to review the change and reauthorize the app the next time they click the app icon in the store control panel.
 
-<!-- theme: danger -->
-> #### Delete apps carefully
-> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+<Callout type="error">
+  #### Delete apps carefully
+  When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+</Callout>
+
 
 To delete an app API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
 
@@ -99,9 +104,10 @@ Where both types of API account are supported, review the preceding sections to 
 
 ## Migrating from legacy to OAuth
 
-<!-- theme: warning -->
-> #### Legacy API Accounts
-> BigCommerce no longer issues legacy API Accounts to new stores. Existing legacy API Accounts will continue to work until further notice. **Migrate to OAuth as soon as possible.**
+<Callout type="warning">
+  #### Legacy API Accounts
+  BigCommerce no longer issues legacy API Accounts to new stores. Existing legacy API Accounts will continue to work until further notice. **Migrate to OAuth as soon as possible.**
+</Callout>
 
 ### Benefits of migrating to OAuth
 
@@ -137,9 +143,11 @@ Rate limiting works differently for OAuth API connections. For details, see the 
 
 All OAuth scopes except `default` provide `read-only` permissions scopes so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
-<!-- theme: info -->
-> #### Webhooks scope
-> Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
+<Callout type="info">
+  #### Webhooks scope
+  Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
+</Callout>
+
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|

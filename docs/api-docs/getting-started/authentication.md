@@ -17,16 +17,18 @@ The following sections describe the two authentication schemes we use that rely 
 
 ### Access tokens
 
-<!-- theme: info -->
-> Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
+<Callout type="info">
+  Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
+</Callout>
 
 Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
 The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
-<!-- theme: info -->
-> #### The X-Auth-Client header is deprecated
-> Your API account's client ID is [no longer a required header value](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
+<Callout type="info">
+  #### The X-Auth-Client header is deprecated
+  Your API account's client ID is [no longer a required header value](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
+</Callout>
 
 For a request to succeed, the access token's API account must have permission to receive the response. Configure your API account with the minimum set of OAuth scopes that your implementation needs. 
 
@@ -152,9 +154,10 @@ Our JWT-based authentication schemes fall into the following categories:
 
 All requests that use JWTs require at least two steps. In addition to the request itself, you must also either get, make, or decrypt the JWT that the request sends or receives. The following sections describe the steps for these three JWT-based authentication schemes, reference the endpoints to which they apply, and give example requests.
 
-<!-- theme: warning -->
-> #### Make sure your tokens are in scope
-> Before you create an API account to request dynamic tokens, determine the required OAuth scopes by consulting the documentation for your target endpoint and its corresponding REST token generation endpoint.
+<Callout type="warning">
+  #### Make sure your tokens are in scope
+  Before you create an API account to request dynamic tokens, determine the required OAuth scopes by consulting the documentation for your target endpoint and its corresponding REST token generation endpoint.
+</Callout>
 
 ### BigCommerce-generated JWTs
 

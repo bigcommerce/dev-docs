@@ -20,9 +20,10 @@ The following APIs and tools are deprecated. We discourage using these listed it
 |`/v3/content/widgets/search` | [V3 Get All Widgets](/api-reference/store-management/widgets/widget/getwidgets) |
 
 
-<!-- theme: info -->
-> #### Accessing product options with V3
-> In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
+<Callout type="info">
+  #### Accessing product options with V3
+  In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
+</Callout>
 
 ### Product tools
 

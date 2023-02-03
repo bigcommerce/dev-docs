@@ -83,10 +83,10 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=
 Host: app.example.com
 ```
 
-<!-- theme: info -->
-> #### Token Invalidation
-> When your app receives a new token, any previously issued token is invalidated.
-
+<Callout type="info">
+  #### Token Invalidation
+  When your app receives a new token, any previously issued token is invalidated.
+</Callout>
 
 
 ## Responding to the GET Request
@@ -105,9 +105,10 @@ Make the POST request to the following address: `https://login.bigcommerce.com/o
 
 Upon receiving the POST request during inital installation, BigCommerce marks the status of your app as “Installed”, removes the progress-indicator overlay, and places your app icon in the control panel’s left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your GET response.
 
-<!-- theme: info -->
-> #### Receiving the POST request
-> Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
+<Callout type="info">
+  #### Receiving the POST request
+  Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
+</Callout>
 
 
 
@@ -277,8 +278,9 @@ Host: app.example.com
 
 Upon receiving the GET request, your app will need to process the signed payload.
 
-<!-- theme: warning -->
-> Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
+<Callout type="warning">
+  Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
+</Callout>
 
 
 
@@ -305,9 +307,10 @@ To decode the signed payload, complete the following steps:
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
-<!-- theme: warning -->
-> #### Timing Attacks
-> To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
+<Callout type="warning">
+  #### Timing Attacks
+  To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
+</Callout>
 
 ```php title="PHP: verifySignedRequest" lineNumbers
 function verifySignedRequest($signedRequest)
@@ -329,9 +332,10 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-<!-- theme: info -->
-> #### !hash_equals
-> !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
+<Callout type="info">
+  #### !hash_equals
+  !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
+</Callout>
 
 
 ```ruby title="Ruby: verify()" lineNumbers
@@ -521,9 +525,10 @@ Internet Explorer is one of the browsers that BigCommerce [supports](https://sup
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
 
-<!-- theme: info -->
-> #### Microsoft No Longer Supports P3P
-> Support for P3P 1.0 has been removed in Windows 10 and will have minimal ongoing servicing for previous versions of Windows. [_Microsoft_](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/mt146424(v=vs.85)?redirectedfrom=MSDN)
+<Callout type="info">
+  #### Microsoft No Longer Supports P3P
+  Support for P3P 1.0 has been removed in Windows 10 and will have minimal ongoing servicing for previous versions of Windows. [_Microsoft_](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/mt146424(v=vs.85)?redirectedfrom=MSDN)
+</Callout>
 
 
 

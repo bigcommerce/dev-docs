@@ -36,8 +36,10 @@ Callback payloads take the following form. The `data` property will contain vary
 
 ## Carts
 
-<!-- theme: info -->
-> For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
+<Callout type="info">
+  For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
+</Callout>
+
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -49,9 +51,11 @@ Callback payloads take the following form. The `data` property will contain vary
 | store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
 | store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
 
-<!-- theme: info -->
-> #### Note
-> The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
+<Callout type="info">
+  #### Note
+  The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
+</Callout>
+
 
 Payload objects with the following scopes take the form that follows:
 
@@ -110,8 +114,9 @@ Payload objects with the `store/cart/converted` scope take the form that follows
 
 ## Cart line items
 
-<!-- theme: info -->
-> For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
+<Callout type="info">
+  For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
+</Callout>
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -144,8 +149,9 @@ Payload objects with the following scopes take the form that follows:
 
 ## Categories
 
-<!-- theme: info -->
-> For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+<Callout type="info">
+  For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+</Callout>
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -183,8 +189,9 @@ Consult the [category trees section of the Channel Webhooks Guide](/api-docs/cha
 Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
 ## Customers
 
-<!-- theme: info -->
-> For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
+<Callout type="info">
+  For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
+</Callout>
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -254,8 +261,9 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 
 ## Orders
 
-<!-- theme: info -->
-> For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
+<Callout type="info">
+  For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
+</Callout>
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -460,10 +468,10 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 * Variant (deleted)
 * Visibility
 
-<!-- theme: info -->
-> #### Note
-> Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
-
+<Callout type="info">
+  #### Note
+  Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
+</Callout>
 
 ## Routes
 
