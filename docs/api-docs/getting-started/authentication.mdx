@@ -38,61 +38,48 @@ To find the specific OAuth scopes your requests require, consult the root API re
 
 The following tabs contain examples of how to authenticate requests by passing an access token to the `X-Auth-Token` header.
 
-<!--
-type: tab
-title: GET request
--->
+<Tabs items={['GET request', 'POST request', 'PUT request', 'DELETE request']}>
+  <Tab>
+    ```http filename="Example GET request with X-Auth-Token header"
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    ```
+  </Tab>
+  <Tab>
+    ```http filename="Example POST request with X-Auth-Token header"
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    Content-Type: application/json
 
-```http filename="Example GET request with X-Auth-Token header"
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-```
+    {
+      // request body
+    }
+    ```
+  </Tab>
+  <Tab>
+    ```http filename="Example PUT request with X-Auth-Token header"
+    PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    Content-Type: application/json
 
-<!--
-type: tab
-title: POST request
--->
+    {
+      // request body
+    }
 
-```http filename="Example POST request with X-Auth-Token header"
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-Content-Type: application/json
+    ```
+  </Tab>
+  <Tab>
+    ```http filename="Example DELETE request with X-Auth-Token header"
+    DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    ```
+  </Tab>
+</Tabs>
 
-{
-  // request body
-}
-```
-
-<!--
-type: tab
-title: PUT request
--->
-
-```http filename="Example PUT request with X-Auth-Token header"
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-Content-Type: application/json
-
-{
-  // request body
-}
-
-```
-<!--
-type: tab
-title: DELETE request
--->
-
-```http filename="Example DELETE request with X-Auth-Token header"
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
-X-Auth-Token: {{access_token}}
-Accept: application/json
-```
-
-<!-- type: tab-end -->
 
 ### Client ID
 
@@ -107,41 +94,34 @@ The following table lists the APIs that authenticate with a client ID. For OAuth
 
 ### Current Customer API example request
 
-<!-- 
-type: tab
-title: Example Request: Current Customer API
--->
-
-```js filename="Example GET request" showLineNumbers copy
-const customerJWT = (apiAccountClientId) => {
-  let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
-  return fetch(resource)
-  .then(response => {
-    if(response.status === 200) {
-      return response.text();
-    } else {
-      return new Error(`response.status is ${response.status}`);
+<Tabs items={['Example Request: Current Customer API', 'Example Response: Current Customer API']}>
+  <Tab>
+    ```js filename="Example GET request" showLineNumbers copy
+    const customerJWT = (apiAccountClientId) => {
+      let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
+      return fetch(resource)
+      .then(response => {
+        if(response.status === 200) {
+          return response.text();
+        } else {
+          return new Error(`response.status is ${response.status}`);
+        }
+      })
+      .then(jwt => {
+        console.log(jwt); // JWT here
+        // decode...
+      })
+      .catch(error => console.error(error));
     }
-  })
-  .then(jwt => {
-    console.log(jwt); // JWT here
-    // decode...
-  })
-  .catch(error => console.error(error));
-}
-```
-
-<!-- 
-type: tab
-title: Example Response: Current Customer API
--->
-
-```shell filename="Example text response: JWT string"
-# response body
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
-```
-
-<!-- type: tab-end -->
+    ```
+  </Tab>
+  <Tab>
+    ```shell filename="Example text response: JWT string"
+    # response body
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
+    ```
+  </Tab>
+</Tabs>
 
 ## Dynamic tokens
 
@@ -178,104 +158,93 @@ To obtain a dynamic token, send a request to the REST endpoint listed in the **O
 
 ### Authorization header example requests
 
-<!-- 
-type: tab
-title: Example request: Dynamic token
--->
+<Tabs items={['Example request: Dynamic token', 'GraphQL Storefront API', 'Payments API']}>
+  <Tab>
+    ```http filename="Example request: limited-use auth token" copy
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
+    X-Auth-Token: {{access_token}} # the OAuth scopes of this access token must allow the stuff you want to do with the limited-use token
+    Accept: application/json
+    Content-Type: application/json
 
-```http filename="Example request: limited-use auth token"
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
-X-Auth-Token: {{access_token}} # the OAuth scopes of this access token must allow the stuff you want to do with the limited-use token
-Accept: application/json
-Content-Type: application/json
+    {
+      // request body per token request endpoint documentation
+    }
+    ```
 
-{
-  // request body per token request endpoint documentation
-}
-```
+    Then, include the returned token with an identifying string in the Authorization header of your request.
+  </Tab>
+  <Tab>
+    GraphQL Storefront response-request pairs resemble the following:
 
-Then, include the returned token with an identifying string in the Authorization header of your request.
+    ```json filename="Example response: Create a GraphQL Storefront API token" showLineNumbers copy
+    {
+      "token":"BigCommerceProvidedJwt.dotDelimited.threePartString",
+      "meta": {
+        // ...
+      }
+    }
+    ```
 
-<!-- 
-type: tab
-title: GraphQL Storefront API
--->
+    &nbsp;
 
-GraphQL Storefront response-request pairs resemble the following:
+    ```js filename="Example query: GraphQL Storefront API" showLineNumbers copy
 
-```json filename="Example response: Create a GraphQL Storefront API token" showLineNumbers copy
-{
-  "token":"BigCommerceProvidedJwt.dotDelimited.threePartString",
-  "meta": {
-    // ...
-  }
-}
-```
+    const gqlStorefrontQuery = (token, gqlQueryString) => {
+      // example token is "BigCommerceProvidedJwt.dotDelimited.threePartString"
+      let authHeader = `Bearer ${token}`; // there's a space between "Bearer" and the token
+      let requestBody = {
+        query: gqlQueryString
+      };
+      return fetch('/graphql', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authHeader 
+        },
+        body: JSON.stringify(requestBody)
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result); // GraphQL query response
+        // do stuff...
+      })
+      .catch(error => console.error(error));
+    }
+    ```
+  </Tab>
+  <Tab>
+    Payments response-request pairs resemble the following:
 
-&nbsp;
+    ```json filename="Example response: Create a payment access token" showLineNumbers copy
+    {
+      "data": {
+        "id": "BigCommerceProvidedJwt.dotDelimited.threePartString"
+      },
+      "meta": {
+        // ...
+      }
+    }
+    ```
 
-```js filename="Example query: GraphQL Storefront API" showLineNumbers copy
+    &nbsp;
 
-const gqlStorefrontQuery = (token, gqlQueryString) => {
-  // example token is "BigCommerceProvidedJwt.dotDelimited.threePartString"
-  let authHeader = `Bearer ${token}`; // there's a space between "Bearer" and the token
-  let requestBody = {
-    query: gqlQueryString
-  };
-  return fetch('/graphql', {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': authHeader 
-    },
-    body: JSON.stringify(requestBody)
-  })
-  .then(response => response.json())
-  .then(result => {
-    console.log(result); // GraphQL query response
-    // do stuff...
-  })
-  .catch(error => console.error(error));
-}
-```
+    ```http filename="Example request: Process a payment" showLineNumbers copy
 
-<!-- 
-type: tab
-title: Payments API
--->
+    # example TOKEN is BigCommerceProvidedJwt.dotDelimited.threePartString
 
-Payments response-request pairs resemble the following:
+    POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
+    Accept: application/vnd.bc.v1+json # note uncommon accept header value
+    Authorization: PAT {{TOKEN}} # there's a space between "PAT" and the token
+    Content-Type: application/json
 
-```json filename="Example response: Create a payment access token" showLineNumbers copy
-{
-  "data": {
-    "id": "BigCommerceProvidedJwt.dotDelimited.threePartString"
-  },
-  "meta": {
-     // ...
-  }
-}
-```
+    {
+      // ...
+    }
 
-&nbsp;
-
-```http filename="Example request: Process a payment" showLineNumbers copy
-
-# example TOKEN is BigCommerceProvidedJwt.dotDelimited.threePartString
-
-POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
-Accept: application/vnd.bc.v1+json # note uncommon accept header value
-Authorization: PAT {{TOKEN}} # there's a space between "PAT" and the token
-Content-Type: application/json
-
-{
-  // ...
-}
-
-```
-
-<!-- type: tab-end -->
+    ```
+  </Tab>
+</Tabs>
 
 ### User-generated JWTs
 
@@ -371,101 +340,86 @@ const storefrontCall = (endpoint, requestBody = null) => {
 ```
 &nbsp;
 
-<!-- 
-type: tab
-title: storefrontCall GET request 
--->
-
-```js filename="Example GET call: Get a cart" showLineNumbers copy
-let endpoint = {
-  route: "/carts?include=lineItems.physicalItems.options",
-  method: "GET",
-  accept: "application/json",
-  // content: "application/json",
-  success: 200 
-}
-
-storefrontCall(endpoint);
-
-```
-
-<!-- 
-type: tab
-title: storefrontCall POST request 
--->
-
-```js filename="Example POST call: Add cart line items" showLineNumbers copy
-let endpoint = {
-  route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890/items", 
-  method: "POST", 
-  accept: "application/json",
-  content: "application/json",
-  success: 200
-}
-
-let requestBody = {
-  lineItems: [
-    {
-      productId: 123,
-      quantity: 3
+<Tabs items={['GET request', 'POST request', 'PUT request', 'DELETE request']}>
+  <Tab>
+    ```js filename="Example GET call: Get a cart" showLineNumbers copy
+    let endpoint = {
+      route: "/carts?include=lineItems.physicalItems.options",
+      method: "GET",
+      accept: "application/json",
+      // content: "application/json",
+      success: 200 
     }
-  ]
-}
 
-storefrontCall(endpoint, requestBody);
+    storefrontCall(endpoint);
 
-```
+    ```
+  </Tab>
+  <Tab>
+    ```js filename="Example POST call: Add cart line items" showLineNumbers copy
+    let endpoint = {
+      route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890/items", 
+      method: "POST", 
+      accept: "application/json",
+      content: "application/json",
+      success: 200
+    }
 
-<!-- 
-type: tab
-title: storefrontCall PUT request 
--->
+    let requestBody = {
+      lineItems: [
+        {
+          productId: 123,
+          quantity: 3
+        }
+      ]
+    }
 
-```js filename="Example PUT call: Update checkout billing address" showLineNumbers copy
-let endpoint = {
-  route: "/checkouts/123abc45-de67-89f0-123a-bcd456ef7890/billing-address/123abc456def7",
-  method: "PUT",
-  accept: "application/json",
-  content: "application/json",
-  success: 200
-}
+    storefrontCall(endpoint, requestBody);
 
-let requestBody = {
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "janedoe@example.com",
-  "company": "BigCommerce",
-  "address1": "123 Main Street",
-  "address2": "Apt 1",
-  "city": "Austin",
-  "stateOrProvinceCode": "TX",
-  "countryCode": "US",
-  "postalCode": "78701"
-}
+    ```
+  </Tab>
+  <Tab>
+    ```js filename="Example PUT call: Update checkout billing address" showLineNumbers copy
+    let endpoint = {
+      route: "/checkouts/123abc45-de67-89f0-123a-bcd456ef7890/billing-address/123abc456def7",
+      method: "PUT",
+      accept: "application/json",
+      content: "application/json",
+      success: 200
+    }
 
-storefrontCall(endpoint, requestBody);
+    let requestBody = {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@example.com",
+      "company": "BigCommerce",
+      "address1": "123 Main Street",
+      "address2": "Apt 1",
+      "city": "Austin",
+      "stateOrProvinceCode": "TX",
+      "countryCode": "US",
+      "postalCode": "78701"
+    }
 
-```
+    storefrontCall(endpoint, requestBody);
 
-<!-- 
-type: tab
-title: storefrontCall DELETE request 
--->
+    ```
+  </Tab>
+  <Tab>
+    ```js filename="Example DELETE call: Delete a cart" showLineNumbers copy
+    let endpoint = {
+      route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890",
+      method: "DELETE", 
+      accept: "application/json", 
+      // content: "application/json", 
+      success: 204
+    }
 
-```js filename="Example DELETE call: Delete a cart" showLineNumbers copy
-let endpoint = {
-  route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890",
-  method: "DELETE", 
-  accept: "application/json", 
-  // content: "application/json", 
-  success: 204
-}
+    storefrontCall(endpoint);
 
-storefrontCall(endpoint);
-
-```
-
-<!-- type: tab-end -->
+    ```
+  </Tab>
+</Tabs>
 
 ## Developer-configured authentication
 
