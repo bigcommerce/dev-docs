@@ -25,7 +25,7 @@ For this example, we'll be using packages from [Material-UI](https://material-ui
 
 Navigate into the root Cornerstone theme folder, then install the following npm packages.
 
-```shell
+```shell showLineNumbers copy
 # navigate into theme dir
 cd ~/path/to/theme/dir
 
@@ -37,7 +37,7 @@ npm install --save-dev @material-ui/core react react-dom babel-plugin-transform-
 
 Update` webpack.common.js` with the new presets and plugins.
 
-```js title="Example 1: New presets and plugins" lineNumbers
+```js filename="Example 1: New presets and plugins" showLineNumbers copy
 ...
 plugins: [
   ...
@@ -47,7 +47,7 @@ plugins: [
 
 &nbsp;
 
-```js title="Example 2: New presets and plugins" lineNumbers
+```js filename="Example 2: New presets and plugins" showLineNumbers copy
 ...
 presets: [
     ['@babel/preset-env', {
@@ -66,7 +66,7 @@ In the following steps, we'll be adding React components to assemble our coupon 
 4. Create a `CouponDrawer.js` file.
 5. Copy the following code into the file:
 
-```js title="CouponDrawer.js" lineNumbers
+```js filename="CouponDrawer.js" showLineNumbers copy
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -99,7 +99,7 @@ export default function CouponDrawer() {
 6. In the same `/components` folder, create a `VerticalStepper.js` file.
 7. Copy the following code into the file:
 
-```js title="VerticalStepper.js" lineNumbers
+```js filename="VerticalStepper.js" showLineNumbers copy
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -185,7 +185,7 @@ export default function VerticalLinearStepper() {
 8. In the same `/components` folder, create a `TextField.js` file.
 9. Copy the following code into the file:
 
-```js title="TextField.js" lineNumbers
+```js filename="TextField.js" showLineNumbers copy
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -214,7 +214,7 @@ export default function BasicTextFields() {
 
 1. Import the React dependencies and  the new CouponDrawer component we've created into `assets/js/app.js`:
 
-```js title="assets/js/app.js" lineNumbers
+```js filename="assets/js/app.js" showLineNumbers copy
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
 import Global from './theme/global';
@@ -225,7 +225,7 @@ import CouponDrawer from './components/CouponDrawer';
 
 2. At the bottom of the file, render the `CouponDrawer` component and assign it an id.
 
-```js title="Render CouponDrawer component" lineNumbers
+```js filename="Render CouponDrawer component" showLineNumbers copy
 ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 ```
 
@@ -234,7 +234,7 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 1. Navigate to `templates/layout/base.html`.
 2. Add a new div element with our new id inside the body.
 
-```handlebars title="templates/layout/base.html" lineNumbers
+```handlebars filename="templates/layout/base.html" showLineNumbers copy
 <body>
   ...
   <div id="coupondrawer"></div>
@@ -258,7 +258,7 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 
 View the finished product using the Stencil CLI command `stencil start` in the Cornerstone theme directory.
 
-```shell title="stencil start"
+```shell filename="stencil start" showLineNumbers copy
 # move into theme dir
 cd ~/path/to/theme/dir
 
