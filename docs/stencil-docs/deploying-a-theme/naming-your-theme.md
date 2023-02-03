@@ -9,7 +9,7 @@ The basic details of the Cornerstone theme are outlined in the theme's configura
 
 Here are the first key-value sets in Cornerstone's `config.json`: 
 
-```json title="Cornerstone settings config.json" lineNumbers
+```json filename="Cornerstone settings config.json" showLineNumbers copy
 {
   "name": "Cornerstone",
   "version": "4.9.0",
@@ -24,7 +24,7 @@ Here are the first key-value sets in Cornerstone's `config.json`:
 The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
 
 
-```json title="Cornerstone settings config.json" lineNumbers
+```json filename="Cornerstone settings config.json" showLineNumbers copy
 {
 "name": "MyTheme",
 "version": "1.1.2",
@@ -41,7 +41,7 @@ The following example shows how to change Cornerstone's configurations to reflec
 You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
 
 
-```json title="Cornerstone Light theme variation settings config.json" lineNumbers
+```json filename="Cornerstone Light theme variation settings config.json" showLineNumbers copy
   "variations": [
     {
       "name": "Light",
@@ -66,7 +66,7 @@ You define variations in your theme's `config.json` file. Below is the Cornersto
 Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
 
 
-```json title="Example theme variation definition config.json" lineNumbers
+```json filename="Example theme variation definition config.json" showLineNumbers copy
 "variations": [
 // ...
   {
@@ -91,7 +91,7 @@ To learn more about defining variations, see [Defining Global Styles](/stencil-d
 
 The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
 
-```json title="Example body font variation config.json" lineNumbers
+```json Filename="Example body font variation config.json" showLineNumbers copy
 {
   "name": "MyCustomVariation",
   "id": "my_custom_variation",
@@ -108,10 +108,11 @@ The following example shows how to set the body font of a theme variation to a s
 
 For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/deploying-a-theme/preparing-thumbnail-images).
 
-<!-- theme: info -->
-> #### Using Stencil CLI to change variations
-> To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI's `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
-> `stencil start -v variation-name`
+<Callout type="info" emoji="ℹ️">
+ #### Using Stencil CLI to change variations
+ To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI's `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
+ `stencil start -v variation-name`
+ </Callout>
 
 ## Resources
 
