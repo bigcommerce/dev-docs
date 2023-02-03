@@ -43,22 +43,15 @@ The request to your app's `GET /auth` endpoint contains query parameters require
 
 It's a best practice to request and receive an `access_token` **before** responding to the auth callback.
 
-<!--
-type: tab
-title: Example request
--->
-
+<Tabs items={['Example request', 'URL-decoded query parameters']}>
+  <Tab>
 ```http title="Example request: auth callback" lineNumbers
 GET https://your_app.example.com/auth?account_uuid=12345678-90ab-cdef-1234-567890abcdef&code=qr6h3thvbvag2ffq&context=stores%2Fg5cd38&scope=store_v2_orders+store_channel_listings_read_only
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Referer: https://login.bigcommerce.com/
 ```
-
-<!-- 
-type: tab
-title: URL-decoded query parameters
--->
-
+  </Tab>
+  <Tab>
 ```json title="Example query parameters: auth callback" lineNumbers
 {
   "account_uuid": "12345678-90ab-cdef-1234-567890abcdef",
@@ -67,8 +60,8 @@ title: URL-decoded query parameters
   "scope": "store_v2_orders store_channel_listings_read_only"
 }
 ```
-
-<!-- type: tab-end -->
+  </Tab>
+</Tabs>
 
 ### Query parameters in auth callback
 
