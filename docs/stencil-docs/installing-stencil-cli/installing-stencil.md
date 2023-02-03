@@ -11,11 +11,11 @@ This article contains the detailed instructions needed to install and configure 
 To install Stencil CLI and its dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 
-<!-- theme: info -->
-> These instructions have been tested on **Mac OS X Yosemite**.
+<Callout type="info">
+ These instructions have been tested on **Mac OS X Yosemite**.
+</Callout>
 
-
-```shell
+```shell showLineNumbers copy
 # For ARM based macs
 arch -x86_64 /bin/zsh
 
@@ -37,9 +37,9 @@ npm install -g @bigcommerce/stencil-cli
 Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
 
 
-<!-- theme: info -->
-> These instructions have been tested on a **MacBook Air** with an M1 chip.
-
+<Callout type="info">
+ These instructions have been tested on a **MacBook Air** with an M1 chip.
+</Callout>
 
 To open the Rosetta terminal:
 
@@ -52,7 +52,7 @@ To open the Rosetta terminal:
 
 Run the following commands:
 
-```shell
+```shell showLineNumbers copy
 # Install Stencil CLI supported version of Node.js
 nvm install 14.20.0
 
@@ -69,7 +69,8 @@ There are two methods for installing Stencil CLI and its dependencies on Windows
 
 ### Method 1: Install dependencies using Chocolatey
 If you're not comfortable manually installing and configuring Python and Node.js on Windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
-```shell
+
+```shell showLineNumbers copy
  # Install Chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
 
@@ -93,14 +94,15 @@ npm config set python python2.7
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<!-- theme: warning -->
-> #### Execution policy errors
-> If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
+<Callout type="warning">
+ #### Execution policy errors
+ If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
+</Callout>
 
-
-<!-- theme: info -->
-> #### Chocolatey installation alternatives
-> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
+<Callout type="warning">
+ #### Chocolatey installation alternatives
+ For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
+ </Callout>
 
 ### Method 2: Install dependencies manually
 
@@ -114,19 +116,20 @@ If you're a pro at installing and configuring Python and Node.js environments on
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
 
-```shell
+```shell  copy
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<!-- theme: info -->
-> These instructions have been tested successfully on **Windows 10**.
-> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+<Callout type="info">
+ These instructions have been tested successfully on **Windows 10**.
+ Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+ </Callout>
 
 ## Installing on Linux
 
 To install Stencil CLI and dependencies on debian-based distros, open a terminal and run the following commands:
 
-```shell
+```shell showLineNumbers copy
 # Download and install nvm if you don't have it.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
@@ -147,19 +150,18 @@ npm install -g @bigcommerce/stencil-cli
 * [libsass](https://sass-lang.com/libsass)
 * git
 
-<!-- theme: info -->
-> #### Note
-> * These instructions have been tested on **Ubuntu 18.04**.
-> * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
-> * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
-
+<Callout type="info">
+ * These instructions have been tested on **Ubuntu 18.04**.
+ * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+ * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
+</Callout>
 
 ## Live previewing a theme
 
 Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
 
 
-```shell
+```shell showLineNumbers copy
 # move into theme dir
 cd ~/path/to/theme/dir
 
@@ -177,14 +179,14 @@ stencil start
 ### Chocolatey install error
 If you receive an error installing Chocolatey, run the following command to enable scripts on your system.
 
-```powershell
+```powershell copy
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
 ### Visual Studio not found error
 If you receive the error "Could not find VS", run the following commands:
 
-```powershell
+```powershell showLineNumbers copy
 choco install python visualcpp-build-tools -y
 npm config set msvs_version 2017 
 ```
@@ -192,7 +194,7 @@ npm config set msvs_version 2017
 ### Python npm configuration error
 If you receive "Error: Could not find any Python installation to use", run the following command:
 
-```powershell
+```powershell copy
 choco install python --version=2.7.2
 ```
 
