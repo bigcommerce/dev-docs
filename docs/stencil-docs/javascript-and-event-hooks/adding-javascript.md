@@ -77,7 +77,7 @@ To help you encapsulate your theme's logic, Stencil themes include an API for ru
 
 These page types correspond to the pages within your theme. Each of these page types maps to an ES6 module that extends the base `PageManager` abstract class
 
-```js
+```js showLineNumbers copy
 export default class Blog extends PageManager {
         constructor() {
             //Setup code goes here – attach to internals, and use internals as you would 'this'
@@ -85,9 +85,9 @@ export default class Blog extends PageManager {
     }
 ```
 
-<!-- theme: info -->
-> #### Note
-> Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
+<Callout type="info">
+ Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
+</Callout>
 
 ## JavaScript template context injection
 
@@ -101,7 +101,7 @@ To retrieve the parsable JSON object, call `{{jsContext}}` after all of the `{{i
 
 For example, to set up the product name in your client-side app, you can do this if you're in the context of a product:
 
-```html
+```html showLineNumbers copy
 {{inject "myProductName" product.title}}
 
 <script>
@@ -134,7 +134,7 @@ Each `=>import(...)` function within this class maps a page type to the entry mo
 
 Below is an excerpt of mappings from the Cornerstone base theme's [assets/js/app.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/app.js).
 
-```javascript
+```javascript showLineNumbers copy
 import Global from './theme/global';
 
 const getAccount = () => import('./theme/account');
@@ -194,7 +194,7 @@ Inside the `cart` module ([assets/js/theme/cart.js](https://github.com/bigcommer
 
 Below is an excerpt from Cornerstone's `assets/js/theme/cart.js` file.
 
-```javascript
+```javascript showLineNumbers copy
 import PageManager from './page-manager';
 import _ from 'lodash';
 import giftCertCheck from './common/gift-certificate-validator';
@@ -243,7 +243,7 @@ If you add [custom page templates](/stencil-docs/storefront-customization/custom
 
 In the following example, we will map a custom JavaScript file, `assets/js/themes/custom.js` to a custom product page file `templates/pages/custom/product/customProd.html`.
 
-```js
+```js showLineNumbers copy
 import PageManager from "./page-manager";
 
 export default class Custom extends PageManager {
@@ -255,7 +255,7 @@ export default class Custom extends PageManager {
 
 This is a basic module that creates a class called `Custom` which extends the PageManager class.
 
-```html
+```html showLineNumbers copy
 {{~inject 'template' template}}
 <h2>Hello World!</h2>
 <body>
@@ -276,7 +276,7 @@ It is a good idea to pull in `{{>layout/base}}` to your custom template file bec
 
 Finally, use the customClasses function in `assets/js/app.js` to map the custom page file to your custom template. Your app.js file should look like this:
 
-```js
+```js showLineNumbers copy
 const customClasses = {
     'pages/custom/product/customProd': () => import('./theme/custom'), // Mac/Linux
     'pages\\custom\\product\\customProd': () => import('./theme/custom'), // Windows
