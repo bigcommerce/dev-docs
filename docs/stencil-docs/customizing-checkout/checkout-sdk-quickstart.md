@@ -30,7 +30,7 @@ For example, `cd cornerstone`
 
 In your text editor, create a file called checkout-loader.js with the following content:
 
-```var script = document.createElement('script');
+```var script = document.createElement('script'); copy
 script.onload = function () {
     checkoutKitLoader.load('checkout-sdk')
         .then(function (module) {
