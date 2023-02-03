@@ -1,4 +1,4 @@
-# Creating an External Installation Button
+``# Creating an External Installation Button
 
 
 
@@ -12,7 +12,7 @@ First, embed an install button like the one below, at any web location from whic
 
 ![Install Button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-10-buttons-01.png "Install Button")
 
-Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{{CLIENT_ID}}/install`.
+Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{CLIENT_ID}/install`.
 
 ## Configuring the button
 
@@ -35,15 +35,15 @@ If your application's installation was initiated and completed through an extern
 If you receive this parameter and there are no errors, make a `GET` request to the install succeeded endpoint.
 
 
-```http
-GET /app/{{CLIENT_ID}}/install/succeeded  HTTP/1.1
+```http copy
+GET /app/{CLIENT_ID}/install/succeeded  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
 If there were errors, make a `GET` request to the install failed endpoint:
 
-```http
-GET /app/{{CLIENT_ID}}/install/failed  HTTP/1.1
+```http copy
+GET /app/{CLIENT_ID}/install/failed  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
@@ -53,7 +53,7 @@ Depending on which endpoint you call, BigCommerce will render a success or failu
 
 Handling errors in Lua:
 
-```lua
+```lua copy
 if params['external_install']
     return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
 end
@@ -95,3 +95,4 @@ end
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
+``

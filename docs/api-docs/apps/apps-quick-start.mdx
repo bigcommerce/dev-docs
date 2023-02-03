@@ -16,23 +16,23 @@ To successfully complete this tutorial, you will need the following:
 1. Start by forking the [sample-app-nodejs](https://github.com/bigcommerce/sample-app-nodejs) repository.
 2. Navigate to the root directory of your project and install npm packages.
 
-```shell
+```shell copy
 npm install
 ```
 
 ## Add and start ngrok
 
-You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
+You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000{:http}` to the public internet over secure tunnels.
 
 1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
 
-```shell
+```shell copy
 npm install ngrok -g
 ```
 
 2. Expose the web server on port 3000 to the internet.
 
-```shell
+```shell copy
 ngrok http 3000
 ```
 
@@ -44,9 +44,9 @@ Next, register the draft app in the [Developer Portal](https://devtools.bigcomme
 2. Click **Create an app**.
 3. Give the app a name.
 4. Click **Technical**.
-5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth`. For example, `https://12345.ngrok.io/api/auth`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`.
-6. Enter Load Callback URL as `https://{ngrok_id}.ngrok.io/api/load`.
-7. Enter Uninstall Callback URL as `https://{ngrok_id}.ngrok.io/api/uninstall`.
+5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth{:http}`. For example, `https://12345.ngrok.io/api/auth{:http}`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000{:shell}`.
+6. Enter Load Callback URL as `https://{ngrok_id}.ngrok.io/api/load{:http}`.
+7. Enter Uninstall Callback URL as `https://{ngrok_id}.ngrok.io/api/uninstall{:http}`.
 8. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 9. Click **Update & Close**.
 10. Click **View Client ID** -- this is the app's client ID and client secret.
@@ -63,11 +63,11 @@ After registering the draft app, add its credentials and auth callback URL to yo
 </Callout>
 
 
-1. Create an `.env` file in the root directory of your project.
+1. Create a `.env` file in the root directory of your project.
 
 2. Copy the contents of `.env-sample` to `.env`.
 
-```shell
+```shell copy
 
 # Get the Client ID and Secret from the Developer Portal
 CLIENT_ID={app client id}
@@ -98,7 +98,7 @@ MYSQL_PORT={mysql port *optional*}
 
 3. Replace the `CLIENT_ID` and `CLIENT_SECRET` with the app's client ID and client secret from the [Developer Portal](https://devtools.bigcommerce.com/).
 
-4. Update the `AUTH_CALLBACK` with the `ngrok_id`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`. 
+4. Update the `AUTH_CALLBACK` with the `ngrok_id`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000{:shell}`. 
 
 5. Enter a JSON Web Token (**JWT**) secret. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
 
@@ -117,7 +117,7 @@ MYSQL_PORT={mysql port *optional*}
 
 In a separate terminal from `ngrok`, start the app's dev environment.
 
-```shell
+```shell copy
 npm run dev
 ```
 <Callout type="info">

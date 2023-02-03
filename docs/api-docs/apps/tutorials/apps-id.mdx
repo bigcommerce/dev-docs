@@ -30,17 +30,17 @@ To find an app's ID in the [Developer Portal](https://devtools.bigcommerce.com/m
 
 2. Click **Edit App**.
 
-3. Identify the app's ID is in the URL (ex: `/my/apps/{{APP_ID}}/summary?review=false`).
+3. Identify the app's ID is in the URL (ex: `/my/apps/{APP_ID}/summary?review=false`).
 
 
 ## Usage
 
-Once you obtain the app ID, you can use it to create or modify the `app` configuration for a channel via `POST` or `PUT` request to `/stores/{{STORE_HASH}}/v3/channels`:
+Once you obtain the app ID, you can use it to create or modify the `app` configuration for a channel via `POST` or `PUT` request to `/stores/{STORE_HASH}/v3/channels`:
 
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
-X-Auth-Token: {{ACCESS_TOKEN}}
+POST https://api.bigcommerce.com/stores/{STORE_HASH}/v3/channels
+X-Auth-Token: {ACCESS_TOKEN}
 Content-Type: application/json
 Accept: application/json
 
