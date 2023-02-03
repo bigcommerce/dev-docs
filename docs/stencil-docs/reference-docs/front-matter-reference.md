@@ -17,7 +17,7 @@ You cannot use front matter for templates in the following directories:
 ## Global attributes
 ​Global attributes are available on all pages.
 ​
-```yaml
+```yaml showLineNumbers
 customer:                         
   returns: true                     # show product return requests for this customer
   wishlists:     
@@ -36,7 +36,7 @@ customer:
 |  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering available. |
 |  `limit` | The maximum number of the entity to display. |
 
-```yaml
+```yaml showLineNumbers
 products:
   featured:
     limit: 5   #limits the number of featured products to 5
@@ -53,14 +53,14 @@ products:
 |`new`| null: No new products displayed. The maximum allowable value is 25. If not defined, defaults to 8 products.|
 |`top_sellers`| null: No top-selling products displayed. If not defined, defaults to all top sellers.|
 
-```yaml 
+```yaml showLineNumbers 
 carousel: true    # displays carousel on the storefront unless set to null
 ```
 | Property | Description |
 |:---------|:------------|
 |`carousel`|Boolean indicating whether to display a carousel on a storefront. No filtering available.|
 
-```yaml
+```yaml showLineNumbers
 blog:	
   recent_posts:
     limit: 5    # limits recent blog posts to 5
@@ -73,14 +73,14 @@ blog:
 |`recent_posts`| null: No recent blog posts displayed. If not defined, defaults to the maximum of 20 blog posts.|
 |`summary`|Sets the number of characters to display in each blog post summary. If not defined, it displays 100 characters.|
 
-```yaml 
+```yaml showLineNumbers 
 cart: true    # show cart data
 ```
 | Property | Description |
 |:---------|:------------|
 |`cart`|Boolean indicating whether to retrieve cart data. false: Do not return cart data.|
 
-```yaml
+```yaml showLineNumbers
 categories: true      # displays category tree
   description: true   # displays category description
 ```
@@ -90,7 +90,7 @@ categories: true      # displays category tree
 |`categories`|Boolean indicating whether to retrieve the category tree during an AJAX request. false: Do not retrieve the category tree.|
 |`description`|Boolean indicating whether to retrieve category descriptions dynamically from the database. Set to true for themes that must display category descriptions when pages render.|
 
-```yaml
+```yaml showLineNumbers
 shop_by_brand: true   # displays brand list
   limit: 10           # limits brands to 10 
 ```
@@ -102,7 +102,7 @@ shop_by_brand: true   # displays brand list
 ## Category attributes
 Category attributes are available in the context of a category.
 
-```yaml
+```yaml showLineNumbers
 category:	
   shop_by_price: true   # displays shop by price controls
   products: 10          # displays 10 products per page for this category 
@@ -117,7 +117,7 @@ category:
 ## Blog attributes
 Blog attributes are available in the context of a blog.
 
-```yaml
+```yaml showLineNumbers
 blog: 
   posts:
     limit: 10        # limits number of blog posts to 10
@@ -130,12 +130,12 @@ blog:
 |`posts`|Default sorting is by `published_date`, from most recent to earliest.|
 |`limit`|null: No blog posts displayed. The maximum is 20 blog posts per page.|
 |`pages`|null: No pagination. If not defined, defaults to five pages.|
-|`summary`|<number> sets the number of characters to display in each blog-post summary. If not defined, it displays 250 characters.|
+|`summary`|sets the number of characters to display in each blog-post summary. If not defined, it displays 250 characters.|
 
 ## Product attributes
 Product attributes are available in the context of a product.
 
-```yaml
+```yaml showLineNumbers
 product:
   videos:
     limit: 5           # limits videos to 5
@@ -160,7 +160,7 @@ product:
   
 Sample GraphQL query for product reviews over the limit.
   
-```graphql lineNumbers
+```graphql showLineNumbers
 # Fetch product reviews for a product
 query reviewsByProductId(
   $productId: Int!
@@ -191,7 +191,7 @@ query reviewsByProductId(
 ```
 ## Brand attributes
 
-```yaml
+```yaml showLineNumbers
 brand:
   products:
     limit: 50   # limits products displayed for this brand to 50
@@ -203,7 +203,7 @@ brand:
 
 ## Brand list attributes
 
-```yaml
+```yaml showLineNumbers
 brands:
   limit: 50   # limits number of brands displayed in the list to 50
 ```
@@ -215,7 +215,7 @@ brands:
 
 ## Search attributes
 
-```yaml
+```yaml showLineNumbers
 search: 
   product_results:
     limit: 16   # limits product results to 16
@@ -228,7 +228,7 @@ search:
 ## GraphQL attributes
 You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
- ```yaml lineNumbers
+ ```yaml showLineNumbers
 product:
   videos:
       limit: {{theme_settings.productpage_videos_count}}
@@ -261,7 +261,7 @@ We suggest testing GraphQL queries using the [storefront API playground](https:/
   
 Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
 
-```handlebars lineNumbers
+```handlebars showLineNumbers
 {{#if gql.data.site.product}}
 {{#each gql.data.site.product.variants.edges}}
   {{#with node}}
@@ -270,8 +270,10 @@ Once you have added a query to your template's front matter block, execution hap
 {{/each}}
 {{/if}}
 ```
+
 If the GraphQL query is invalid, Stencil returns an `errors` object with `locations` and `message` properties similar to the following example:
-```json lineNumbers
+
+```json showLineNumbers
 {
   "gql": {
     "errors": [
@@ -302,7 +304,7 @@ The following is the complete list of available variables:
 You can also query data without using variables. The following query returns the product category tree as a JSON object:
 
   
- ```yaml lineNumbers
+```yaml showLineNumbers lineNumbers
 gql: "query CategoryTree3LevelsDeep {
   site {
     categoryTree {
@@ -322,12 +324,11 @@ fragment CategoryFields on CategoryTreeItem {
   path
   entityId
 }"
-
 ```
   
 The example query returns the following JSON object:
 
-```json lineNumbers
+```json showLineNumbers
 {
   "data": {
     "site": {
