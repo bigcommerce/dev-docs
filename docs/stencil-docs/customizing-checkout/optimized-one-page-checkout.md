@@ -9,10 +9,10 @@ Cornerstone includes a SCSS file that styles the Optimized Checkout page. In you
 You can access the most recent version of this file in the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss). All themes share the same stylesheet for the Optimized One-Page checkout, even those not based on Cornerstone, so this stylesheet applies universally across Stencil themes.
 
 
-<!-- theme: danger -->
-> #### Customizing checkout restrictions
-> When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
-
+<Callout type="warning" emoji="⚠️">
+#### Customizing checkout restrictions
+When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
+</Callout>
 
 
 ## Configuring the desktop viewport
@@ -20,7 +20,7 @@ You can access the most recent version of this file in the [Cornerstone reposito
 To set up optimized checkout's responsive features within the `optimized-checkout.scss` file, you should configure the following breakpoint to define your preferred desktop viewport size:
 
 
-```css
+```css showLineNumbers copy
     // TODO:
     // Configure media query to be 'desktop' breakpoint size
     // --
@@ -65,10 +65,10 @@ In Cornerstone's `optimized-checkout.scss`, each SCSS class and property availab
 
 You can enable the display of alternate currencies on your Stencil theme's Optimized One-Page Checkout and order confirmation pages.
 
-<!-- theme: warning -->
-> #### Restrictions
-> The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
-
+<Callout type="warning" emoji="⚠️">
+#### Restrictions
+The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
+</Callout>
 
 
 Note that regardless of the display options you set below, you will always process transactions in the store's single default currency. To change that setting, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
