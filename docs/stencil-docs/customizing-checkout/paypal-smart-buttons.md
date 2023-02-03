@@ -11,7 +11,7 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below.
 
-```json title="addition of paymentbuttons to 'settings' object config.json" lineNumbers
+```json filename="addition of paymentbuttons to 'settings' object config.json" showlineNumbers copy
  "settings": {
     "..."
     "color_badge_product_sale_badges": "#007dc6",
@@ -39,10 +39,10 @@ Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does no
   },
 ```
 
-<!-- theme: warning -->
-> #### Page Builder Customization
-> Adding the above keys to the `config.json` file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the `schema.json` file.
-
+<Callout type="warning" emoji="⚠️">
+#### Page Builder Customization
+Adding the above keys to the `config.json` file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the `schema.json` file.
+</Callout>
 
 
 <a id="page-builder"></a>
@@ -52,7 +52,7 @@ Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does no
 Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can also customize PayPal Smart Buttons via Page Builder. As a theme developer, you can enable PayPal Smart Buttons customization via [Page Builder](/stencil-docs/stencil-theme-editor/schema-json-metadata), by appending the following object to the <span class="fn">schema.json</span> file:
 
 
-```json title="Addition to schema.json file in order to enable Page Builder customization schema.json" lineNumbers
+```json Filename="Addition to schema.json file in order to enable Page Builder customization schema.json"  showLineNumbers copy
 {
       "name": "Payment Buttons",
       "enable": "smartButtons",
@@ -174,14 +174,15 @@ Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can
             ]
 ```
 
-<!-- theme: danger -->
-> #### Mutually exclusive options
-> Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page.
-> All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
-> * If you have a layout setting of `vertical`, you **can not** have a button size of `small`.
-> * If you have a layout setting of `vertical`, you **can not** customize the `branding` of the button.
-> * If you have a layout setting of `vertical`, you **can not** customize the `tagline` of the button.
-> * If you have a layout setting of `vertical`, you **can not** customize the `funding icons` settings.
+<Callout type="warning" emoji="⚠️">
+#### Mutually exclusive options
+Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page.
+All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
+ * If you have a layout setting of `vertical`, you **can not** have a button size of `small`.
+ * If you have a layout setting of `vertical`, you **can not** customize the `branding` of the button.
+ * If you have a layout setting of `vertical`, you **can not** customize the `tagline` of the button.
+ * If you have a layout setting of `vertical`, you **can not** customize the `funding icons` settings.
+</Callout>
 
 ## Resources
 
