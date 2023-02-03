@@ -18,7 +18,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 <Callout type="info">
 #### Note
-* If the shopper's card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
+* If the shopper’s card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
 * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
 </Callout>
 
@@ -27,7 +27,6 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 <a id="preconfiguring-the-store"></a>
 
 Before setting up multiple currencies on a store, ensure your store is using the following:
-
 * A [Stencil theme](/stencil-docs/getting-started/about-stencil).
 * The [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) type.
 * A [multi-currency compatible payment gateway](https://support.bigcommerce.com/s/article/Managing-Currencies) set up and enabled. (Your store's default currency can use any gateway).
@@ -35,8 +34,8 @@ Before setting up multiple currencies on a store, ensure your store is using the
 Additionally, review the [Currency API reference](/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
 
 <Callout type="info">
-#### Note
-* Make sure to not change the store’s default currency. This could cause the currency to malfunction.
+#### Note 
+Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 </Callout>
 
 ## Adding a currency
@@ -52,7 +51,7 @@ Transactional currencies can't be created via API, so they'll need to be added v
 
 For more in-depth instructions and helpful screenshots, see [Adding a Currency](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta#add) in the Help Center.
 
-<Callout type="info">
+<Callout type="warning">
 #### Note
 Do not change the default currency -- this may lead to unintended currency conversion issues.
 For instance, changing the default currency will not trigger price recalculation for the catalog.
@@ -126,15 +125,13 @@ Please reach out to Stripe for more information on setting up the account.
 ## Related resources
 
 ### Articles
-
-* [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
-* [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
-* [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
-* [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1)
-* [Supported Currencies](https://stripe.com/docs/currencies)
-* [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement)
+- [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
+- [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
+- [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
+- [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) 
+- [Supported Currencies](https://stripe.com/docs/currencies)
+- [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement)
 
 ### Endpoints
-
-* [Currency API](/api-reference/store-management/currency-api)
-* [Price List API](/api-reference/catalog/pricelists-api)
+- [Currency API](/api-reference/store-management/currency-api)
+- [Price List API](/api-reference/catalog/pricelists-api)
