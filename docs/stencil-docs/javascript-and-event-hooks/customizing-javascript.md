@@ -20,7 +20,7 @@ In this example, we will add some "Hello World!" text to the product page's `onR
 In `assets/js/theme/product.js` file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method, which we'll implement in the next step.
 
 
-```js
+```js showLineNumbers copy
 export default class Product extends PageManager {
     constructor(context) {
         super(context);
@@ -40,7 +40,7 @@ export default class Product extends PageManager {
 
 Next, implement the `helloWorld()` function by adding it to the `Product` class just after the closing `onReady()` bracket.
 
-```javascript
+```javascript showLineNumbers copy
 export default class Product extends PageManager {
     constructor(context) {
         super(context);
@@ -72,13 +72,13 @@ In your browser, refresh any product details pop-up or page to see your new "Hel
 
 You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inject...}}` expression.
 
-```html
+```html copy
 {{inject 'productThumbSize' theme_settings.productthumb_size}}
 ```
 
 To inject `theme_settings.productthumb_size` into the product page's context, add `{{inject 'productThumbSize' theme_settings.productthumb_size}}` just under `{{#partial "page"}}` in `templates/pages/product.html<`:
 
-```html
+```html showLineNumbers copy
 product:
     videos:
         limit: {{theme_settings.productpage_videos_count}}
@@ -100,7 +100,7 @@ product:
 
 The injected `productThumbSize` property can then be accessed from `product.js` by calling `this.context.productThumbSize`.
 
-```js
+```js showLineNumbers copy
 export default class Product extends PageManager {
     constructor(context) {
         super(context);
@@ -128,7 +128,7 @@ Note that the `console.log(this.context.themeImageSizes);` statement will report
 
 
 
-```
+``` showLineNumbers copy
 [/assets/js/theme/product.js]: Hello World!
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```
@@ -138,13 +138,13 @@ product.js:63 [/assets/js/theme/product.js]: 100x100
 Once you have installed the default Stencil theme, you can add custom JavaScript libraries with npm.
 
 
-```shell
+```shell copy
 npm install jquery
 ```
 
 Next, you would open `assets/js/theme/product.js`, and insert the statements excerpted below:
 
-```js
+```js showLineNumbers copy
 import $ from 'jquery';
 
 $('.myElement').click(() => {
