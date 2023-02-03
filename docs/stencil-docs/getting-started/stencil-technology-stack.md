@@ -10,7 +10,7 @@ Stencil's use of Handlebars.js, JavaScript, and YAML Front Matter on the front e
 
 A Handlebars expression begins and end with curly braces. Below is a basic example.
 
-```handlebars title="Using handlebars to access the {{title}} variable" lineNumbers
+```handlebars filename="Using handlebars to access the {{title}} variable" showLineNumbers copy
 <div class="entry">
   <h1>{{title}}</h1>
   <div class="body"></div>
@@ -25,7 +25,7 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 
 Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
 
-```json title="Example banners object JSON for a banner object, accessible through Handlebars.js " lineNumbers
+```json filename="Example banners object JSON for a banner object, accessible through Handlebars.js " showLineNumbers copy
   "banners": {
     "top": [
       "For the week of May 20th, all apparel available at the online store will be 25% off the standard store price."
@@ -58,7 +58,7 @@ When utilized, Front Matter must be the opening text of a file and must take the
 See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
 
-```yml title="YAML Front Matter home.html, Cornerstone theme" lineNumbers
+```yml filename="YAML Front Matter home.html, Cornerstone theme" showLineNumbers copy
 products:
   new:
     limit: {{theme_settings.homepage_new_products_count}}
