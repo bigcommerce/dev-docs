@@ -41,7 +41,7 @@ Here is an example of a compliant file type and location:
 
 Here is how you would reference this file within [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
-```js
+```js copy showLineNumbers
 {
   // [...]
   "meta": {
@@ -78,7 +78,7 @@ Below is an example showing two files of compliant types and location.
 
 Here is how you would reference these files within [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json), for a variation named `Bright`:
 
-```js
+```js showLineNumbers copy
 // [...]
   "variations": [
     {
