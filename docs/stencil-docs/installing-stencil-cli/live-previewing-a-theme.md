@@ -4,9 +4,10 @@ Once you've installed the Stencil CLI, the next steps are downloading a theme to
 
 The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
 
-<!-- theme: warning -->
-> #### Theme access, copyright, and distribution
-> Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
+<Callout type="warning">
+ #### Theme access, copyright, and distribution
+Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
+ </Callout>
 
 ## Obtaining store API credentials
 
@@ -27,30 +28,33 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 
 To develop against BigCommerce's Cornerstone theme (which is the building block and starting point for rapidly developing themes for BigCommerce) clone [the repository](https://github.com/bigcommerce/cornerstone) from GitHub:
 
-```shell
+```shell copy
 git clone https://github.com/bigcommerce/cornerstone.git
 ```
 
-<!-- theme: warning -->
-> #### Distribution of Cornerstone-based themes
-> Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
+<Callout type="warning">
+ #### Distribution of Cornerstone-based themes
+ Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
+ </Callout>
 
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
-<!-- theme: info -->
-> #### Update themes after download  
-> Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+<Callout type="info">
+ #### Update themes after download  
+ Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 &nbsp;
+ </Callout>
 
 ## Installing theme modules
 
-<!-- theme: warning -->
-> #### Back up before reinstalling
-> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+<Callout type="warning">
+ #### Back up before reinstalling
+ If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+ </Callout>
 
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
-```shell
+```shell copy showLineNumbers
 # move into the theme dir
 cd ~/path/to/theme/dir
 
@@ -71,15 +75,16 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-<!-- theme: info -->
-> #### Note
-> The store's URL should be a vanity URL.
+
+<Callout type="info">
+ The store's URL should be a vanity URL.
+ </Callout>
 
 This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials).
 
 To initialize a new `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
 
-```shell
+```shell showLineNumbers copy
 # move into the theme's directory
 cd ~/path/to/theme/dir
 
@@ -95,7 +100,7 @@ stencil start
 
 `stencil start` will output several URLs:
 
-```shell
+```shell showLineNumbers copy
 # ...
 [Browsersync] Proxying: http://localhost:3001
 [Browsersync] Access URLs:
@@ -117,9 +122,10 @@ It is possible to serve a live preview over HTTPS using [ngrok](https://ngrok.co
 
 ## Debugging your theme
 
-<!-- theme: info -->
-> #### BitBucket re-authentication
-> If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
+<Callout type="info">
+ #### BitBucket re-authentication
+ If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
+ </Callout>
 
 The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
 
