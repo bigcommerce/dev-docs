@@ -8,7 +8,7 @@ There are two ways to import images. The steps below describe the quickest and e
 2. Add images to the `/content` directory.
 3. Upload the images using a WebDAV client. You can access the images within the theme using the `cdn` Handlebars helper as follows:
 
-```handlebars title="cdn helper"
+```handlebars filename="cdn helper"
 {{cdn "webdav:/img/image.jpg"}}
 ```
 The WebDAV import option allows you to upload images in bulk. However, we recommend that you only select the specific files needed. Importing the entire markup folder or unessential files can affect page load time.
@@ -31,7 +31,7 @@ You can then use the `{{jsContext}}` Handlebars helper to access a stringified J
 
 The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
-```handlebars title="product.html" lineNumbers
+```handlebars filename="product.html" showLineNumbers copy
 {{inject "myProductName" product.title}}
 
 <script>
@@ -57,9 +57,10 @@ We recommend that you use Lighthouse to focus on the following metrics for optim
 ### Largest Contentful Paint
 Largest Contentful Paint (LCP) is the metric that reports the time it takes to display the largest image on the screen. This metric is important because page speed ensures visitors receive the best performance and presentation of the site.
 
-<!-- theme: info -->
-> #### Good score
-> The optimal LCP score is 2.5 seconds or faster. 
+<Callout type="info" emoji="ℹ️">
+ #### Good score
+ The optimal LCP score is 2.5 seconds or faster. 
+</Callout>
 
 To improve LCP:
 * Make images smaller or remove anything preventing a quick download.
@@ -70,9 +71,10 @@ To improve LCP:
 ### First Input Delay
 First Input Delay (FID) is the metric that measures the delay users experience when interacting with a page. It is the time it takes for the site to respond when a user clicks a link, selects a button, taps on the screen, etc.
 
-<!-- theme: info -->
-> #### Good score
-> The optimal FID score is 100 milliseconds or less. 
+<Callout type="info" emoji="ℹ️">
+ #### Good score
+ The optimal FID score is 100 milliseconds or less. 
+</Callout>
 
 To improve FID:
 * Reduce the effect of third-party code.
@@ -87,9 +89,10 @@ A good TBT score is 300 milliseconds or less.
 
 Cumulative Layout Shift (CLS) is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user views a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
 
-<!-- theme: info -->
-> #### Good score
-> The optimal CLS score is 0.1 seconds or less. 
+<Callout type="info" emoji="ℹ️">
+ #### Good score
+ The optimal CLS score is 0.1 seconds or less. 
+</Callout>
 
 To improve CLS:
 * Add size attributes to elements.
@@ -109,7 +112,7 @@ To improve performance, let's start by measuring usused JavaScript. In Chrome De
 
 In addition to removing unused code, you can minify, compress, and refactor CSS and JavaScript files by removing line breaks, whitespace, and comments.
 
-```css title="Example, Part 1: Not minified" lineNumbers
+```css filename="Example, Part 1: Not minified" showLineNumbers copy
 .element-class {
 padding: 1px 5px 1px 5px;
 font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, 
@@ -117,7 +120,7 @@ font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sa
 background-color: #eeeeee;}
 ```
 &nbsp;
-```css title="Example, Part 2: Minified" lineNumbers
+```css filename="Example, Part 2: Minified" showLineNumbers copy
 .element-class{padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
 ```
 
