@@ -60,9 +60,9 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [decrementVar](#decrementvar) | variables | Decrements a variable by 1. |
 | [incrementVar](#incrementvar) | variables | Increments a variable by 1. |
 
-### {{limit}}
+### `{{limit}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{limit data limit}}
 ```
 
@@ -70,26 +70,26 @@ Limits the number of items returned from an array; returns a new array.
 
 #### Parameters
 
-- `data` {Array}: Collection.
-- `limit` {Number}: Index specifying the number of items to exclude.
+- `data` (Array): Collection.
+- `limit` (Number): Index specifying the number of items to exclude.
 
 #### Example
 
 Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit that behavior to only the first four items.
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {var: 'This is longer than the chosen limit'} -->
 {{limit var 10}}
 <!-- => This is lo -->
 ```
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {var: 'This is longer than the chosen limit'} -->
 {{limit var 10}}
 <!-- results in: 'This is lo' -->
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -111,9 +111,9 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=limit)
 
-### {{pluck}}
+### `{{pluck}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{pluck limit collection path}}
 ```
 
@@ -122,37 +122,37 @@ Retrieves corresponding values from some or all elements in a collection using s
 #### Parameters
 
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
-- `collection` {Object|Array}: Collection.
-- `path` {String}: The string to search for.
+- `collection` (Object|Array): Collection.
+- `path` (String): The string to search for.
 
 #### Examples
 
-```handlebars
+```handlebars showLineNumbers
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
 
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
-```json
+```json showLineNumbers
 categories: [
     { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
     { "id": 2, "name": "Cookware", "image": { "data": "http://...", "alt": "Cookware image"} },
     { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
 ]
 ```
-```handlebars
+```handlebars showLineNumbers
 {{pluck (limit categories 2) 'image.data'}}
 <!-- Returns a comma-separated list of image URLs. -->
 ```
 
-```json
+```json showLineNumbers
 users: [
     { "user": "barney", "age": 36, "image": { "url": "barney.jpg" } },
     { "user": "fred",   "age": 40, "image": { "url": "fred.jpg" } }
 ]
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{pluck users "age"}}
 <!-- => 36,40 -->
 
@@ -167,9 +167,9 @@ results in: '["aa", "bb", "cc"]'
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pluck)
 
-### {{cdn}}
+### `{{cdn}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{cdn assetPath}}
 ```
 
@@ -177,25 +177,25 @@ A URL transformer for content delivery networks.
 
 #### Parameters
 
-- `assetPath` {String}: Path to the file containing static assets.
+- `assetPath` (String): Path to the file containing static assets.
 
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{cdn "assets/img/image.jpg"}}
 <!-- => https://cdn.bcapp/3dsf74g/stencil/123/img/image.jpg -->
 ```
 
 To reference static assets staged locally outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, the following link:
 
-```handlebars
+```handlebars showLineNumbers
 <img src="{{cdn 'webdav:img/image.jpg'}}">
 ```
 
 will be transformed to a result like this:
 
-```handlebars
+```handlebars showLineNumbers
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
@@ -209,7 +209,7 @@ You could use a local version of the image in development and a version on a CDN
 
 For example:
 
-```json
+```json showLineNumbers
 {
   "name": "Cornerstone",
   "version": "1.3.5",
@@ -225,19 +225,19 @@ For example:
 
 After defining the endpoint, you can use the short name in the same way as you would use a `webdav:` protocol:
 
-```handlebars
+```handlebars showLineNumbers
 <img src="{{cdn 'customcdn:img/image.jpg'}}" />
 ```
 
 In local development, that helper would return:
 
-```handlebars
+```handlebars showLineNumbers
 <img src="/assets/cdn/customcdn/img/image.jpg"/>
 ```
 
 Whereas in production, it would return:
 
-```handlebars
+```handlebars showLineNumbers
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
@@ -252,18 +252,18 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
 
 ##### Parameters
 
-- `resourceHint` - {String}
+- `resourceHint` - (String)
   - Corresponds to the `rel` attribute in `<link>`.
   - Value can be any of `preload`, `preconnect`, `prerender`, `dns-prefetch`.
   - For more information, see [rel](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel) on MDN Web Docs.
-- `as` - {String}
+- `as` - (String)
   - Corresponds to the `as` attribute in `<link>`.
   - Value can be any of `style`, `font`, `script`, `document`.
   - If an invalid value is provided, `as` won't be included.
   - This parameter is optional.
 
   - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
-- `cors` - {String}
+- `cors` - (String)
   - Corresponds to the `rel` attribute in `<link>`.
   - Value can be any of `no`, `anonymous`, `use-credentials`.
   - Defaults to `no` when no value is provided.
@@ -275,15 +275,15 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
 
 The following script is an example of Early Hints usage in the Cornerstone theme:
 
-```javascript
+```javascript showLineNumbers
 <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
 ```
 
 You can view more Early Hints usage in Cornerstone's `templates/layout/base.html` file by visiting the [Cornerstone Repository](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
 
-### {{moment}}
+### `{{moment}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{moment date format}}
 ```
 
@@ -293,26 +293,26 @@ Use [momentjs](https://momentjs.com/) to format and calculate dates.
 #### Examples
 
 
-```handlebars
+```handlebars showLineNumbers
 {{moment "5 hours ago" "MM/DD/YYYY HH:mm"}}
 <!-- example calculation -->
 ```
 
 If you encounter an issue with the last day of the month, use one of the following fixes:
 
-```handlebars
+```handlebars showLineNumbers
 {{moment date format datejs=false}}
 <!-- To disable date.js -->
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{moment "January 1, 2022" format="YYYY-MM-DD"}}
 <!-- To call moment.js functions -->
 ```
 
-### {{money}}
+### `{{money}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{money value n s c}}
 ```
 
@@ -320,22 +320,22 @@ Formats number length, thousands delimiter, and decimal delimiter.
 
 #### Parameters
 
-- `value` {Number}: The number to format.
-- `n` {Integer}: Length of decimal.
-- `s` {Mixed}: Thousands delimiter.
-- `c` {Mixed}: Decimal delimiter.
+- `value` (Number): The number to format.
+- `n` (Integer): Length of decimal.
+- `s` (Mixed): Thousands delimiter.
+- `c` (Mixed): Decimal delimiter.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{money 1000 2 ',' '.'}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js)
 
-### {{getFontLoaderConfig}}
+### `{{getFontLoaderConfig}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getFontLoaderConfig fontConfig}}
 ```
 
@@ -343,20 +343,20 @@ Returns font-loader config as a JSON string.
 
 #### Parameters
 
-- `fontConfig` {String}: Font config in the `Google_FontName_Weight` format.
+- `fontConfig` (String): Font config in the `Google_FontName_Weight` format.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getFontLoaderConfig 'Google_Karla_700'}}
 <!-- => Karla:700 -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js)
 
-### {{getFontsCollection}}
+### `{{getFontsCollection}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getFontsCollection}}
 ```
 
@@ -364,7 +364,7 @@ Returns `<link>` elements for configured fonts.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getFontsCollection}}
 <!-- => <link href="https://fonts.googleapis.com/css?family=Open+Sans:,400italic,700|Karla:700|Lora:400|Volkron:|Droid:400,700|Crimson+Text:400,700&display=swap" rel="stylesheet"> -->
 ```
@@ -372,9 +372,9 @@ Returns `<link>` elements for configured fonts.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontsCollection)
 
-### {{encodeHtmlEntities}}
+### `{{encodeHtmlEntities}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{encodeHtmlEntities string args}}
 ```
 
@@ -382,12 +382,12 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 
 #### Parameters
 
-- `string` {String}: String to encode with HTML entities.
+- `string` (String): String to encode with HTML entities.
 - `args` {Boolean}: Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
 
 #### Examples
 
-```handlebars
+```handlebars showLineNumbers
 {{encodeHtmlEntities 'foo © bar ≠ baz 𝌆 qux'}}
 <!-- => foo &#xA9; bar &#x2260; baz &#x1D306; qux -->
 
@@ -413,9 +413,9 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js)
 
-### {{nl2br}}
+### `{{nl2br}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{nl2br text}}
 ```
 
@@ -423,11 +423,11 @@ Converts newline characters to `<br>` tags.
 
 #### Parameters
 
-- `text` {String}: Text to convert.
+- `text` (String): Text to convert.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{nl2br settings.address}}
 <!-- => <br>685 Market St<br>San Francisco<br>94105<br>CA<br> -->
 ```
@@ -435,9 +435,9 @@ Converts newline characters to `<br>` tags.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=nl2br)
 
-### {{pre}}
+### `{{pre}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{pre value}}
 ```
 
@@ -445,11 +445,11 @@ Renders preformatted text. This helper will escape text.
 
 #### Parameters
 
-- `value` {String}: Text to format.
+- `value` (String): Text to format.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {var: {}} -->
 {{pre var}}
 <!-- => <pre>{}</pre> -->
@@ -462,9 +462,9 @@ Renders preformatted text. This helper will escape text.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre)
 
-### {{resourceHints}}
+### `{{resourceHints}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{resourceHints}}
 ```
 
@@ -472,7 +472,7 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{resourceHints}}
 <!-- => <link rel="dns-prefetch preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 ```
@@ -480,9 +480,9 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=resourceHints)
 
-### {{stylesheet}}
+### `{{stylesheet}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{stylesheet assetPath}}
 ```
 
@@ -490,21 +490,21 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 
 #### Parameters
 
-- `assetPath` (String}): Filepath to the theme's CSS stylesheet file.
+- `assetPath` (String): Filepath to the theme's CSS stylesheet file.
 - `options`: You can append optional parameters as key/value pairs.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{stylesheet "assets/css/style.scss" class="myStylesheet"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=stylesheet)
 
-### {{lang}}
+### `{{lang}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{lang translationKey}}
 ```
 
@@ -512,19 +512,19 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 
 #### Parameters
 
-- `translationKey`{String}
+- `translationKey`(String)
 - `options`: You can append optional parameters as key/value pairs.
 
 #### Examples
 
-```handlebars
+```handlebars showLineNumbers
 <label class="form-label" for="search_query_adv">
   {{lang 'forms.search.query' }}
   <small>{{lang 'common.required' }}</small>
 </label>
 ```
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {name: 'BigCommerce'} -->
 {{lang 'powered_by' name=name}}
 <!-- => Powered By BigCommerce -->
@@ -533,9 +533,9 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=lang)
 
-### {{langJson}}
+### `{{langJson}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{langJson keyFilter}}
 ```
 
@@ -543,11 +543,11 @@ Returns language translation keys as a JSON string.
 
 #### Parameters
 
-- `keyFilter` {String}: The language translation keys to render for the storefront locale/language.
+- `keyFilter` (String): The language translation keys to render for the storefront locale/language.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{langJson 'validation_messages'}}
 <!-- This will load validation messages in JSON format for the storefront locale/language. -->
 ```
@@ -555,9 +555,9 @@ Returns language translation keys as a JSON string.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=langJson)
 
-### {{getContentImage}}
+### `{{getContentImage}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getContentImage path width height}}
 ```
 
@@ -565,13 +565,13 @@ Returns a URL for an image uploaded to `/dav/content/`. To learn more about uplo
 
 #### Parameters
 
-- `path` {String}: Image path relative to `/dav/content/`.
-- `width` {Integer}: Width in pixels.
-- `height` {Integer}: Height in pixels.
+- `path` (String): Image path relative to `/dav/content/`.
+- `width` (Integer): Width in pixels.
+- `height` (Integer): Height in pixels.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- Original image URL returned if no size or invalid size is passed in -->
 {{getContentImage "asset.jpg"}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg -->
@@ -589,9 +589,9 @@ Returns a URL for an image uploaded to `/dav/content/`. To learn more about uplo
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImage.js)
 
-### {{getContentImageSrcset}}
+### `{{getContentImageSrcset}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getContentImageSrcset path}}
 ```
 
@@ -599,11 +599,11 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 #### Parameters
 
-- `path` {String}: Image path relative to `/dav/content/`.
+- `path` (String): Image path relative to `/dav/content/`.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getContentImageSrcset "asset.jpg"}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/80w/content/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/asset.jpg 2560w -->
 
@@ -613,9 +613,9 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImageSrcset.js)
 
-### {{getImage}}
+### `{{getImage}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getImage stencilImage size}}
 ```
 
@@ -623,22 +623,22 @@ Returns `<img>` tag `src` value for images of a specified size. Values for the s
 
 #### Parameters
 
-- `stencilImage` {String}: A Stencil image.
-- `size` {String}: A key in the `theme_settings` object.
-- `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
+- `stencilImage` (String): A Stencil image.
+- `size` (String): A key in the `theme_settings` object.
+- `defaultImage` (String): Optional default image URL to use if the `stencilImage` is undefined.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getImage image "logo"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImage)
 
-### {{getImageManagerImage}}
+### `{{getImageManagerImage}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageManagerImage path width height}}
 ```
 
@@ -646,13 +646,13 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 #### Parameters
 
-- `path` {String}: Image path relative to `/dav/product_images/uploaded_images`.
-- `width` {Integer}: Width in pixels.
-- `height` {Integer}: Height in pixels.
+- `path` (String): Image path relative to `/dav/product_images/uploaded_images`.
+- `width` (Integer): Width in pixels.
+- `height` (Integer): Height in pixels.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- Original image URL returned if no size or invalid size is passed in -->
 {{getImageManagerImage "asset.jpg"}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/asset.jpg -->
@@ -671,9 +671,9 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js)
 
-### {{getImageManagerImageSrcset}}
+### `{{getImageManagerImageSrcset}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageManagerImageSrcset path}}
 ```
 
@@ -681,11 +681,11 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 #### Parameters
 
-- `path` {String}: Image path relative to `/dav/product_images/uploaded_images`.
+- `path` (String): Image path relative to `/dav/product_images/uploaded_images`.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageManagerImageSrcset "asset.jpg"}}
 <!-- =>
 https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w -->
@@ -697,9 +697,9 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w,
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js).
 
-### {{getImageSrcset}}
+### `{{getImageSrcset}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageSrcset stencilImage size}}
 ```
 
@@ -707,9 +707,9 @@ The `getImageSrcset` helper is a replacement for [`getImage`](#getImage) which a
 
 #### Parameters
 
-- `stencilImage` {String}: A Stencil image.
-- `size` {String}: A key in the `theme_settings` object.
-- `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
+- `stencilImage` (String): A Stencil image.
+- `size` (String): A key in the `theme_settings` object.
+- `defaultImage` (String): Optional default image URL to use if the `stencilImage` is undefined.
 
 You can specify what sizes you want as named arguments on the helper.
 
@@ -719,14 +719,14 @@ You can specify what sizes you want as named arguments on the helper.
 
 By specifying `use_default_sizes=true` on the helper, a `srcset` string will be constructed with a set of sizes chosen by BigCommerce to be optimal for most uses.
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageSrcset image use_default_sizes=true}}
 {{getImageSrcset image "https://place-hold.it/500x300" use_default_sizes=true}}
 ```
 
 Default sizes:
 
-```html
+```html showLineNumbers
 '80w': '80w',
 '160w': '160w',
 '320w': '320w',
@@ -739,7 +739,7 @@ Default sizes:
 
 **Single 1x size**
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageSrcset image 1x=theme_settings.zoom_size}}
 {{getImageSrcset image 1x="1280x800"}}
 {{getImageSrcset image 1x="1280w"}}
@@ -749,7 +749,7 @@ By specifying a single size as `1x`, you can choose any image resolution. You ca
 
 **Pixel density**
 
-```handlebars
+```handlebars showLineNumbers
 {{getImageSrcset image 1x="1280w" 2x="2560w"}}
 {{getImageSrcset image 1x="800w" 1.5x="1200w" 2x="1600w"}}
 {{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
@@ -761,7 +761,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 **Inherent width**
 
-```handlebars
+```handlebars showLineNumbers
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
 <!-- =>
@@ -780,9 +780,9 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageSrcset)
 
-### {{any}}
+### `{{any}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{any arg}}
 ```
 
@@ -790,11 +790,11 @@ Renders block if one or more parameters are true.
 
 #### Parameters
 
-- `arg` {String|Number|Array|Object}
+- `arg` (String|Number|Array|Object)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#any items selected=true}}
   <!-- block to display if any items have selected=true -->
 {{/any}}
@@ -804,7 +804,7 @@ A usage example is [`templates/components/category/shop-by-price.html`](https://
 
 In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```handlebars
+```handlebars showLineNumbers
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -817,9 +817,9 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=any)
 
-### {{all}}
+### `{{all}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{all arg}}
 ```
 
@@ -827,17 +827,17 @@ Renders block if all parameters are true.
 
 #### Parameters
 
-- `arg` {String|Number|Array|Object}
+- `arg` (String|Number|Array|Object)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#all items theme_settings.optionA theme_settings.optionB}}
    <!-- block to display if all items evaluate to true -->
 {{/all}}
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
     <li class="tab">
         <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
@@ -848,9 +848,9 @@ Renders block if all parameters are true.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=all)
 
-### {{compare}}
+### `{{compare}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{compare a operator b}}
 ```
 
@@ -858,8 +858,8 @@ Compares values with JavaScript operators. Renders block if comparison of the fi
 
 #### Parameters
 
-- `a` {}
-- `operator` {}: The operator to use. Operators must be enclosed in quotes: ">", "=", "<=", and so on.
+- `a` ()
+- `operator` (): The operator to use. Operators must be enclosed in quotes: `>`, `=`, `<=`, and so on.
   * `==`
   * `===`
   * `!=`
@@ -869,16 +869,16 @@ Compares values with JavaScript operators. Renders block if comparison of the fi
   * `<=`
   * `>=`
   * `typeof`
-- `b` {}
-- `options` {Object}: Options object.
-- `returns` {String}: Block, or if specified the inverse block is rendered if falsy.
+- `b` ()
+- `options` (Object): Options object.
+- `returns` (String): Block, or if specified the inverse block is rendered if falsy.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=compare)
 
-### {{contains}}
+### `{{contains}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{contains collection value}}
 ```
 
@@ -887,11 +887,11 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 #### Parameters
 
 - `collection` {Array|Object|String}: The collection to iterate over.
-- `value` {String|Number|Array|Object}: The value to check for.
+- `value` (String|Number|Array|Object): The value to check for.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- array = ['a', 'b', 'c'] -->
 {{#contains array "d"}}
   This will not be rendered.
@@ -902,9 +902,9 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
-### {{for}}
+### `{{for}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{for a b}}
 ```
 
@@ -912,12 +912,12 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 
 #### Parameters
 
-- `a` {Number}: Starting number.
-- `b` {Number}: Ending number. (Inclusive)
+- `a` (Number): Starting number.
+- `b` (Number): Ending number. (Inclusive)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#for 1 12}}
     {{lang (concat 'common.short_months.' $index)}}
 {{/for}}
@@ -926,9 +926,9 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=for)
 
-### {{if}}
+### `{{if}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{if arg}}
 ```
 
@@ -936,11 +936,11 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 
 #### Parameters
 
-- `arg` {String|Number|Array|Object}
+- `arg` (String|Number|Array|Object)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#if page_type '===' 'account_order'}}
     <li class="navBar-item is-active">
         <a class="navBar-action" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
@@ -953,9 +953,9 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=if)
 
-### {{or}}
+### `{{or}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{or arg}}
 ```
 
@@ -963,17 +963,17 @@ Renders block if one or more parameters evaluates to true.
 
 #### Parameters
 
-- `arg` {String|Number|Array|Object}: Parameters can be of mixed types.
+- `arg` (String|Number|Array|Object): Parameters can be of mixed types.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#or 1 0 0 0 0 0 0}}
 <!-- 1 evaluates to true, so block is rendered-->
 {{/or}}
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -982,9 +982,9 @@ Renders block if one or more parameters evaluates to true.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/or.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=or)
 
-### {{unless}}
+### `{{unless}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{unless arg}}
 ```
 
@@ -992,11 +992,11 @@ Renders a block if a statement is false; does not support operators for comparis
 
 #### Parameters
 
-- `arg` {String|Number|Array|Object}
+- `arg` (String|Number|Array|Object)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -1011,9 +1011,9 @@ Renders a block if a statement is false; does not support operators for comparis
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless)
 
 
-### {{option}}
+### `{{option}}`
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {options: {a: {b: {c: 'ddd'}}}} -->
  * {{option "a.b.c"}}
  * <!-- results => `ddd` -->
@@ -1022,7 +1022,7 @@ Returns the given value of prop from `this.options`.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 context = {
    "options":{
       "a":{
@@ -1034,31 +1034,31 @@ context = {
 }
 ```
 
-{{option "a.b.c"}} returns "ddd"
+`{{option "a.b.c"}}` returns "ddd"
 
 
-### {{get}}
-```handlebars
+### `{{get}}`
+```handlebars showLineNumbers
 {{get (concat “a.b.c.d”) someObject}}
 ```
 Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. You can use return values from the `concat` helper as property paths.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#get "posts" blog}}{{/get}}
 ```
 
-### {{getObject}}
+### `{{getObject}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{#with (getObject "a.b.c" someObject)}}...{{/with}}
 ```
 Use property paths (`a.b.c`) to get an object from the context. Differs from the `get` helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper.
 
-### {{concat}}
+### `{{concat}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{concat value otherValue}}
 ```
 
@@ -1066,12 +1066,12 @@ Concatenates two strings.
 
 #### Parameters
 
-- `value` {String}
-- `otherValue` {String}
+- `value` (String)
+- `otherValue` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{concat 'hello' 'world'}}
 <!-- => helloworld -->
 ```
@@ -1079,9 +1079,9 @@ Concatenates two strings.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=concat)
 
-### {{join}}
+### `{{join}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{join values separator}}
 ```
 
@@ -1089,13 +1089,13 @@ Joins an array of string elements into a single string.
 
 #### Parameters
 
-- `values` {Array}
-- `separator` {String}
+- `values` (Array)
+- `separator` (String)
 - `limit=<number>`: An optional limit.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {
     list: ['Mario', 'Chris', 'Mick', 'Hau', 'Cody']
 } -->
@@ -1109,9 +1109,9 @@ Joins an array of string elements into a single string.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/join.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=join)
 
-### {{json}}
+### `{{json}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{json object}}
 ```
 
@@ -1119,11 +1119,11 @@ Converts a JavaScript object into a JSON string.
 
 #### Parameters
 
-- `object` {Object}: A JavaScript object.
+- `object` (Object): A JavaScript object.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {
     object: { a: 1, b: "hello" }
 } -->
@@ -1133,9 +1133,9 @@ Converts a JavaScript object into a JSON string.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js)
 
-### {{occurrences}}
+### `{{occurrences}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{occurrences str substring}}
 ```
 
@@ -1143,21 +1143,21 @@ Returns the number of occurrences of substring within the given string.
 
 #### Parameters
 
-- `str` {String}
-- `substring` {String}
+- `str` (String)
+- `substring` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{occurrences "foo bar foo bar baz" "foo"}}
 <!-- => 2 -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js)
 
-### {{replace}}
+### `{{replace}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{replace firstParam secondParam string}}
 ```
 
@@ -1165,13 +1165,13 @@ Replaces all instances of the first parameter in the second parameter with the c
 
 #### Parameters
 
-- `firstParam` {?}
-- `secondParam` {?}
-- `string` {String}
+- `firstParam` (?)
+- `secondParam` (?)
+- `string` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- Replace all instances of `%%Syndicate%%` in `page.content` with `{{> components/page/rss_feed}}`. -->
 {{#replace '%%Syndicate%%' page.content}}
     {{> components/page/rss_feed}}
@@ -1183,9 +1183,9 @@ Replaces all instances of the first parameter in the second parameter with the c
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=replace)
 
-### {{setURLQueryParam}}
+### `{{setURLQueryParam}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{setURLQueryParam url key value}}
 ```
 
@@ -1193,22 +1193,22 @@ Appends key values to a URL.
 
 #### Parameters
 
-- `url` {String}: The URL of the query parameter.
-- `key` {String}: The query parameter key.
-- `value` {Number}: The query parameter value of the stated key.
+- `url` (String): The URL of the query parameter.
+- `key` (String): The query parameter key.
+- `value` (Number): The query parameter value of the stated key.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{setURLQueryParam "http://example.com/image.jpg" "c" "2"}}
 <!-- results in: http://example.com/image.jpg?c=2 -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/setURLQueryParam.js).
 
-### {{stripQuerystring}}
+### `{{stripQuerystring}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{stripQuerystring url}}
 ```
 
@@ -1216,20 +1216,20 @@ Strips query string from a URL.
 
 #### Parameters
 
-- `url` {String}: The URL containing the query parameter.
+- `url` (String): The URL containing the query parameter.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{stripQuerystring "http://example.com?tests=true"}}
 <!-- results in: http://example.com -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
 
-### {{strReplace}}
+### `{{strReplace}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{strReplace subjectString targetSubstring newSubstring occurrenceSelection}}
 ```
 
@@ -1238,14 +1238,14 @@ Replaces some or all occurrences of a target substring within the subject string
 
 #### Parameters
 
-- `subjectString` {String}: The original string to modify.
-- `targetSubstring` {String}: The substring in `subjectString` to be replaced.
-- `newSubstring` {String}: The substring to insert in place of `targetSubstring`.
-- `occurenceSelection` {Integer}: Optional. The number of occurrences of `targetSubstring` to replace with `newSubstring`. If you pass no argument or the supplied integer is greater than the number of `targetSubstring` occurrences, `newSubstring` will replace all instances of `targetSubstring`. A positive integer `n` will replace `n` instances of `targetSubstring`, starting from the left side of the string. Arguments of zero or less will replace no instances. Non-integer arguments may have unpredictable results.
+- `subjectString` (String): The original string to modify.
+- `targetSubstring` (String): The substring in `subjectString` to be replaced.
+- `newSubstring` (String): The substring to insert in place of `targetSubstring`.
+- `occurenceSelection` (Integer): Optional. The number of occurrences of `targetSubstring` to replace with `newSubstring`. If you pass no argument or the supplied integer is greater than the number of `targetSubstring` occurrences, `newSubstring` will replace all instances of `targetSubstring`. A positive integer `n` will replace `n` instances of `targetSubstring`, starting from the left side of the string. Arguments of zero or less will replace no instances. Non-integer arguments may have unpredictable results.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- Replace all instances -->
 {{strReplace "Buy one, get one half price. Limit one per customer." "one" "two"}}
 <!-- output: Buy two, get two half price. Limit two per customer. -->
@@ -1268,14 +1268,13 @@ Replaces some or all occurrences of a target substring within the subject string
 
 {{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" -2}}
 <!-- output: Buy one, get one half price. Limit one per customer. -->
-
 ```
 
 - [See the strReplace helper (GitHub)](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
 
-### {{toLowerCase}}
+### `{{toLowerCase}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{toLowerCase string}}
 ```
 
@@ -1283,11 +1282,11 @@ Converts a string to lowercase.
 
 #### Parameters
 
-- `string` {String}: String you want to convert.
+- `string` (String): String you want to convert.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{toLowerCase 'I Love PIZZA'}}
 <!-- => i love pizza -->
 ```
@@ -1295,9 +1294,9 @@ Converts a string to lowercase.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=toLowerCase)
 
-### {{truncate}}
+### `{{truncate}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{truncate string length}}
 ```
 
@@ -1305,21 +1304,21 @@ Truncates a string.
 
 #### Parameters
 
-- `string` {String}: The string you want to truncate.
-- `length` {Number}: The desired length of the returned truncated string.
+- `string` (String): The string you want to truncate.
+- `length` (Number): The desired length of the returned truncated string.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{truncate "This will be truncated to only the first part of the sentence." 22}}
 <!-- results in: 'This will be truncated' -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js)
 
-### {{block}}
+### `{{block}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{block string}}
 ```
 
@@ -1327,11 +1326,11 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 
 #### Parameters
 
-- `string` {String}
+- `string` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <div class="container">
     {{#block "page"}} {{/block}}
 </div>
@@ -1340,9 +1339,9 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=block)
 
-### {{dynamicComponent}}
+### `{{dynamicComponent}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{dynamicComponent path}}
 ```
 
@@ -1350,11 +1349,11 @@ Inserts a dynamic partial in the specified path.
 
 #### Parameters
 
-- `path` {String}: The path to insert a dynamic component in.
+- `path` (String): The path to insert a dynamic component in.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#each forms.create_account.address_fields }}
     {{{dynamicComponent 'components/common/forms'}}}
 {{/each}}
@@ -1363,9 +1362,9 @@ Inserts a dynamic partial in the specified path.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=dynamicComponent)
 
-### {{inject}}
+### `{{inject}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{inject value object}}
 ```
 
@@ -1373,12 +1372,12 @@ Injects key values into the [jsContext](#jscontext) helper.
 
 #### Parameters
 
-- `value` {String}: The value to inject.
-- `object` {Object}
+- `value` (String): The value to inject.
+- `object` (Object)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{inject "myProductName" product.title}}
 
 <script>
@@ -1388,7 +1387,7 @@ console.log(jsContext.myProductName);
 </script>
 ```
 
-```handlebars
+```handlebars showLineNumbers
 {{inject 'productSize' theme_settings.product_size}}
 <!-- Returns a JSON representation of an object of all the keys injected. -->
 ```
@@ -1396,9 +1395,9 @@ console.log(jsContext.myProductName);
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?q=inject)
 
-### {{jsContext}}
+### `{{jsContext}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{jsContext}}
 ```
 
@@ -1407,9 +1406,9 @@ Returns a JSON representation of the data injected by the [inject](#inject) help
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
-### {{partial}}
+### `{{partial}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{partial string}}
 ```
 
@@ -1417,11 +1416,11 @@ Overrides content defined by the [block](#block) helper.
 
 #### Parameters
 
-- `string` {String}
+- `string` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -1435,9 +1434,9 @@ Overrides content defined by the [block](#block) helper.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
-### {{region}}
+### `{{region}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{region name}}
 ```
 
@@ -1445,11 +1444,11 @@ Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region
 
 #### Parameters
 
-- `name` {String}: The name of the region.
+- `name` (String): The name of the region.
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 <!-- context = {
     banner-top: "hello world"
     } -->
@@ -1460,9 +1459,9 @@ Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/region.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=region)
 
-### {{assignVar}}
+### `{{assignVar}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{assignVar key value}}
 ```
 
@@ -1470,20 +1469,20 @@ Assigns a variable for later use in the template.
 
 #### Parameters
 
-- `key` {String}
+- `key` (String)
 - `value` {String|Number}
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{assignVar "foo" 10}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/assignVar.js)
 
-### {{getVar}}
+### `{{getVar}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{getVar key}}
 ```
 
@@ -1491,19 +1490,19 @@ Returns the variable set by [assignVar](#assignVar).
 
 #### Parameters
 
-- `key` {String}
+- `key` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{getVar "foo"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getVar.js)
 
-### {{decrementVar}}
+### `{{decrementVar}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{decrementVar key}}
 ```
 
@@ -1511,19 +1510,19 @@ Decrements the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
 
-- `key` {String}
+- `key` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{decrementVar "foo"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/decrementVar.js)
 
-### {{incrementVar}}
+### `{{incrementVar}}`
 
-```handlebars
+```handlebars showLineNumbers
 {{incrementVar key}}
 ```
 
@@ -1531,27 +1530,27 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
 
-- `key` {String}
+- `key` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{incrementVar "foo"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
-### {{JSONparse}}
+### `{{JSONparse}}`
 
 Parse data with JSONparse.
 
 #### Parameters
 
-- `json` {String}
+- `json` (String)
 
 #### Example
 
-```handlebars
+```handlebars showLineNumbers
 {{#JSONparse '{"foo": "bar"}'}}
   {{foo}}
 {{/JSONparse}}
