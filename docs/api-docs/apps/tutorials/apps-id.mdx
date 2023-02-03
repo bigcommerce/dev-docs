@@ -35,10 +35,9 @@ To find an app's ID in the [Developer Portal](https://devtools.bigcommerce.com/m
 
 ## Usage
 
-Once you obtain the app ID, you can use it to create or modify the `app` configuration for a channel via `POST` or `PUT` request to `/stores/{STORE_HASH}/v3/channels`:
+Once you obtain the app ID, you can use it to create or modify the app configuration for a channel using the [Create a channel](/api-reference/store-management/channels/channels/createchannel) or [Update a channel](/api-reference/store-management/channels/channels/updatechannel) endpoint.
 
-
-```http
+```http filename="Example request: Create a channel with app configuration" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{STORE_HASH}/v3/channels
 X-Auth-Token: {ACCESS_TOKEN}
 Content-Type: application/json
