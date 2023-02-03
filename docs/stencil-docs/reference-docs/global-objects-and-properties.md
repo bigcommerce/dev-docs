@@ -4,11 +4,12 @@
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
-<!-- theme: info -->
-> #### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
-> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
-> If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+<Callout type="info">
+#### Debugging Your Theme
+The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+`http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
+If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+</Callout>
 
 ## Banner
 
@@ -24,9 +25,10 @@ Global objects and properties are common components shared across the entire Big
 | &nbsp;&nbsp;top | Array of HTML content/strings, for custom top-banner content; banners are populated from the BigCommerce control panel |
 | &nbsp;&nbsp;bottom | Array of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel |
 
-<!-- theme: warning -->
-> ####  Handlebars Formatting Exception
-> Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example: `{{{banner}}}`. (Double braces would escape the HTML.)
+<Callout type="warning">
+####  Handlebars Formatting Exception
+Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example: `{{{banner}}}`. (Double braces would escape the HTML.)
+</Callout>
 
 ## Breadcrumbs
 
@@ -103,7 +105,7 @@ Global objects and properties are common components shared across the entire Big
 
 **Handlebars Expression:** `{{categories}}`
 
-```handlebars title="Example: Categories usage" lineNumbers
+```handlebars filename="Example: Categories usage" showLineNumbers
 <!-- renders a UL of categories for the current page context -->
 <ul class="people_list">
   {{#each categories}}
@@ -168,7 +170,7 @@ The code example below displays the global `{{products.featured}}` object on the
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
-```yml title="Example: Frontmatter declaration"
+```yml filename="Example: Frontmatter declaration" showLineNumbers
 products:
   [...]
   featured:
@@ -177,7 +179,7 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (GitHub).
 
-```json title="homepage_featured_products_count"
+```json filename="homepage_featured_products_count" showLineNumbers
 "settings": {
   // ...
   "homepage_featured_products_count": 8,
@@ -189,7 +191,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```handlebars title="home.html"
+```handlebars filename="home.html" showLineNumbers
 {{#if products.featured}}
   {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
 {{/if}}
@@ -252,7 +254,7 @@ To access the global `{{products.new}}` object on your page, you must first use 
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (GitHub).
 
-```yml title="Example: Frontmatter declaration"
+```yml filename="Example: Frontmatter declaration" showLineNumbers
 products:
   new:
     limit: {{theme_settings.homepage_new_products_count}}
@@ -260,7 +262,7 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (GitHub).
 
-```json title="config.json"
+```json filename="config.json" showLineNumbers
 "settings": {
   "homepage_new_products_count": 5,
   // ...
@@ -271,7 +273,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
 
 In the body of [Cornerstone's home.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```handlebars title="home.html"
+```handlebars filename="home.html" showLineNumbers
 {{#if products.new}}
   {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
 {{/if}}
@@ -428,7 +430,7 @@ All possible values for `{{page_type}}` are:
 | show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors |
 |  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store |
 |  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store |
-|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Analytics > GA in an active MSF-enabled BigCommerce control panel |
+|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For `{{settings.data_tag_enabled}}` to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Analytics > GA in an active MSF-enabled BigCommerce control panel |
 | show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists |
 | base_url | The normal shop URL |
 | client_ip_address | IP address of the customer browsing the store |
@@ -448,14 +450,14 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; title | Title for the logo – the text configured in the control panel under **Storefront > Logo**. |
 | &#x21B3; image | Optional image file, as a Stencil image object. To access the store_logo use: `{{settings.store_logo.image.data}}` and `{{settings.store_logo.image.alt}}` to access the alt tag. These are pulled from the Stencil image object. |
 | privacy_cookie | If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false. |
-| urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
+| urls | Global URLs that the template can access – for example, the template could link to the cart page using `{{urls.cart}}` |
 | &#x21B3; home | Store’s home page |
 | &#x21B3; account | Collection of (customer and storefront) account-related URLs:|
 | &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php` |
 | &nbsp; &nbsp; &#x21B3; orders | Collection of orders-related URLs: |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders. `/account.php?action=order_status` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; completed | URL to view completed orders `/account.php?action=view_orders` |
-|  &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; save_new_return | URL to submit a New Return form<. `/account.php?action=save_new_return` |
+|  &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; save_new_return | URL to submit a New Return form `/account.php?action=save_new_return` |
 | &nbsp; &nbsp; &#x21B3; update_action | URL to submit an Edit Account form. `/account.php?action=update_account` |
 | &nbsp; &nbsp; &#x21B3; returns | List of returns. `/account.php?action=view_returns` |
 |  &nbsp; &nbsp; &#x21B3; addresses | List of addresses; default sorting is by address id, from lowest to highest. `/account.php?action=address_book` |
@@ -478,7 +480,7 @@ All possible values for `{{page_type}}` are:
 | &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
 | &nbsp; &nbsp; &#x21B3; check_login | URL to which to submit the login form `/login.php?action=check_login` |
 | &nbsp; &nbsp; &#x21B3; create_account | URL to the Create Account form page `/login.php?action=create_account` |
-| &nbsp; &nbsp; &#x21B3; save_new_account | URL to which to submit the Create Account form< `/login.php?action=save_new_account` |
+| &nbsp; &nbsp; &#x21B3; save_new_account | URL to which to submit the Create Account form `/login.php?action=save_new_account` |
 | &nbsp; &nbsp; &#x21B3; forgot_password | URL to the Forgot Password form `/login.php?action=reset_password` |
 | &nbsp; &nbsp; &#x21B3; send_password_email | Submission URL for the Forgot Password form `/login.php?action=send_password_email` |
 | &nbsp; &nbsp; &#x21B3; save_new_password | Submission URL for saving a new password `/login.php?action=save_new_password` |
@@ -549,6 +551,7 @@ All possible values for `{{page_type}}` are:
 | amp_analytics_id | Returns Google AMP analytics ID |
 | bulk_discount_enabled | Boolean that return `true` if bulk discount is enabled on products. |
 
+
 ## Sitemap
 
 **Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
@@ -581,7 +584,7 @@ All possible values for `{{page_type}}` are:
 | name | Internal name of this social-media platform (e.g., "googleplus"). |
 | url | URL to point to, set by merchant in control panel (https://www.facebook.com/BigCommerce, etc.). |
 | position | Display sort order for this platform within the social-media list. |
-| display_name | Displayed/formatted name of this social-media platform (e.g., “Google+”).  |
+| display_name | Displayed/formatted name of this social-media platform (e.g., "Google+").  |
 
 ## Template Property
 
@@ -616,9 +619,10 @@ All possible values for `{{page_type}}` are:
 
 `{{products.top_sellers}}` returns 10 products by default.
 
-To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
+To access the global `{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
-```yml title="Template frontmatter"
+```yml filename="Template frontmatter" showLineNumbers
 products:
   top_sellers:
 ```
+
