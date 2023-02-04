@@ -66,7 +66,6 @@ To use dynamic data from the template in client-side code, use the inject helper
 <!-- templates/pages/category.html -->
 
 {{inject "categoryId" category.id}}
-
 ```
 
 ```js
