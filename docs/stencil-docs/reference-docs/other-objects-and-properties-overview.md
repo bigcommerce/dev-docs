@@ -1011,7 +1011,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 ### Contact Us Form
 
-**Description:**Form object used to manage merchants’ "Contact Us" pages. Called on the default `<theme-name>/templates/pages/contact-us.html`template.
+**Description:** Form object used to manage merchants’ "Contact Us" pages. Called on the default `<theme-name>/templates/pages/contact-us.html`template.
 
 **Handlebars Expression:** `{{forms.contact}}`
 
