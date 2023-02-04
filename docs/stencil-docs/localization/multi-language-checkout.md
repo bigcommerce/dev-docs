@@ -9,7 +9,7 @@ Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/bl
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
-```html
+```html showLineNumbers copy
 {{#partial "head"}}
 
 {{{ checkout.checkout_head }}}
