@@ -18,17 +18,17 @@ To complete this tutorial, you should be familiar with the following concepts:
 ## Adding a language file
 1. After downloading and extracting your Stencil theme, open the folder containing your theme files and navigate to the `/lang` subfolder. 
 
-<!-- theme: info -->
-> #### Note
-> The `/lang` subfolder includes the `en.json` file and example language files. The `en.json` file and your language file must be present for a localized Stencil theme to work. Each language requires its own JSON file. 
+<Callout type="info">
+The `/lang` subfolder includes the `en.json` file and example language files. The `en.json` file and your language file must be present for a localized Stencil theme to work. Each language requires its own JSON file. 
+</Callout>
 
 
 2. Name your translation file `es.json` and save it in the `/lang` subfolder. Translation files are named based on the [BCP 47 specification](https://tools.ietf.org/html/bcp47) of language and region codes.
 
 3. Copy the desired key-value pairs from the `en.json` file and paste them into your newly-created `es.json` file. Update the values to create your language file.
 
-en.json
-```json
+
+```json filename="en.json" showLineNumbers copy
 {
 "header": {
   "welcome_back": "Welcome back, {name}",
@@ -37,8 +37,7 @@ en.json
  }
 ```
 
-es.json
-```json
+```json filename="es.json" showLineNumbers copy
 {
 "header": {
   "welcome_back": "Bienvenidos, {name}",
@@ -56,7 +55,7 @@ Perform the following steps to create new key-value pairs and invoke a defined t
   
   In `en.json`, add `new_hours` key and corresponding information for the value.
 
-```json
+```json showLineNumbers copy
 "header": {
         "welcome_back": "Welcome back, {name}",
         "skip_to_main": "Skip to main content",
@@ -66,7 +65,7 @@ Perform the following steps to create new key-value pairs and invoke a defined t
 ```
 In `es.json`, add the same `new_hours` key and the Spanish translation of the value.
 
-```json
+```json showLineNumbers copy
 "header": {
         "welcome_back": "Bienvenidos, {name}",
         "skip_to_main": "Saltar a la principal",
@@ -78,7 +77,7 @@ In `es.json`, add the same `new_hours` key and the Spanish translation of the va
 
 For this example, update `/templates/components/common/header.html` using the code below. Add the code after the `{{/if}}` tag and before the `<header>` tag.
 
-```html
+```html showLineNumbers copy
 {{/if}} 
 {{> components/common/alert/alert-success (lang 'header.new_hours' hours="8 AM to 5 PM Central" ) }}
 <header class="header" role="banner">
@@ -95,9 +94,9 @@ Update your language browser to display the translation on the storefront. The f
 5. Drag the newly selected language to the top of the list.
 6. Refresh your browser to see the translations.
 
-<!-- theme: info -->
-> #### Note
-> Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
+<Callout type="info">
+Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
+</Callout>
 
 
 
