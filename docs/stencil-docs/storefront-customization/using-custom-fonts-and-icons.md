@@ -1,10 +1,10 @@
 # Custom Fonts and Icons
 
-<!-- theme: warning -->
-> #### Custom fonts unavailable on Page Builder
-> * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
-> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
-
+<Callout type="warning">
+  #### Custom fonts unavailable on Page Builder
+  * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
+  * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
+</Callout>
 
 
 <a id="markdown-applying-custom-fonts" name="applying-custom-fonts"></a>
@@ -21,7 +21,7 @@ There are two paths to take for using custom fonts. They are as follows:
 
 You can update the fonts in `config.json`; make sure to follow the `Google_FontName_Weight` format.
 
-```json
+```json showLineNumbers
 //old
 "body-font": "Google_Karla_400"
 
@@ -29,10 +29,10 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 "body-font": "Google_Lato_700"
 ```
 
-<!-- theme: info -->
-> #### Check with your theme developer
-> If you are using a different theme, please check with the theme developer on using Google Fonts.
-
+<Callout type="info">
+  #### Check with your theme developer
+  If you are using a different theme, please check with the theme developer on using Google Fonts.
+</Callout>
 
 
 ### Custom fonts
@@ -45,7 +45,7 @@ Custom fonts can be used in any theme. To use a custom font upload it to the sto
 
 Next, edit the appropriate template file's `<head>` sections to reference your custom fonts. In this logo example, you would edit the `templates/layout/base.html` file's `<head>` section to insert the following code (which references the custom font you just uploaded):
 
-```html
+```html showLineNumbers
 <style type="text/css" media="screen, print">
     @font-face {
         font-family: "MyFont";
@@ -56,7 +56,7 @@ Next, edit the appropriate template file's `<head>` sections to reference your c
 
 For all possible browser support use the following:
 
-```html
+```html showLineNumbers
 <style type="text/css" media="screen, print">
     @font-face {
     font-family: "MyFont";
@@ -73,7 +73,7 @@ For all possible browser support use the following:
 
 Finally, update the appropriate CSS to reference the same font. In this example, you would edit the `assets/scss/layouts/header/_header.scss` file to change the header font.
 
-```css
+```css showLineNumbers
 .header-logo-text {
 display: block;
    font-family: 'MyFont';
@@ -81,11 +81,11 @@ display: block;
 }
 ```
 
-<!-- theme: info -->
-> #### CDN Handlebars
-> The CDN custom Handlebars helper assumes WebDAV's default `/content/` folder, so there is no need to specify that folder.
-> Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
-
+<Callout type="info">
+  #### CDN Handlebars
+  The CDN custom Handlebars helper assumes WebDAV's default `/content/` folder, so there is no need to specify that folder.
+  Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
+</Callout>
 
 
 Files that do not contain font-overriding CSS code will use the CSS settings in the `config.json` file.
@@ -108,7 +108,7 @@ If your theme relies on a Sass framework other than Foundation, the relevant sty
 
 Assume that your theme's `config.json` contains the following key name and value (the details of both are arbitrary, but the key name must end in `-font`, and the value must follow a defined format):
 
-```json
+```json showLineNumbers
 {
     // ...
     "headings-font": "Google_Open+Sans_700"`
@@ -118,14 +118,14 @@ Assume that your theme's `config.json` contains the following key name and value
 
 In your Sass stylesheet, you would call the `stencilFontFamily` and `stencilFontWeight` custom Sass functions on the corresponding `config.json` key name like so:
 
-```css
+```css showLineNumbers
 $body-font-family: stencilFontFamily("body-font");
 $body-font-weight: stencilFontWeight("body-font");
 ```
 
 These functions would extract the corresponding `config.json` values as:
 
-```css
+```css showLineNumbers
 $body-font-family: 'Open Sans';
 $body-font-weight: 700;
 ```
