@@ -14,9 +14,9 @@
 | stencilImage  | `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.  |
 
 <Callout type="info">
-> #### Note
-> The [config.json](/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
-
+  #### Note
+  The [config.json](/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
+</Callout>
 
 ## Compiling custom Sass files
 
@@ -42,10 +42,10 @@ Finally, ensure `{{stylesheet '/assets/css/theme.scss'}}` is located in `templat
 </head>
 ```
 
-While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.scss`</span> file (note that this object file’s name is always the same, and is independent of your custom Sass file's names).
+While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.scss`</span>  file (note that this object file’s name is always the same, and is independent of your custom Sass file's names).
 
 <Callout type="warning">
-> #### Before you customize
-> The Stencil framework is designed to support your incorporation of custom Sass files/frameworks. However, BigCommerce does not offer technical assistance on substitutions for, or customized versions of, Stencil’s default dependencies.
-
+  #### Before you customize
+  The Stencil framework is designed to support your incorporation of custom Sass files/frameworks. However, BigCommerce does not offer technical assistance on substitutions for, or customized versions of, Stencil’s default dependencies.
+</Callout>
 

@@ -10,7 +10,7 @@ To use Disqus blog comments in Stencil, follow the steps below:
 2. Navigate to **Storefront Design** > **My Themes**.
 3. Open **Edit Theme Files** for your theme.
 4. Navigate to **Templates** > **Pages** > **blog-post.html**.
-5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
+5. Paste your Disqus Universal Code before the closing `{{/partial}}` tag.
 6. Save your files.
 7. Apply your theme.
 
@@ -20,11 +20,11 @@ To use Disqus blog comments in Stencil, follow the steps below:
 2. Navigate to **Storefront Design** > **My Themes**.
 3. Open **Edit Theme Files** for your theme.
 4. Navigate to **Templates** > **Pages** > **product.html**.
-5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
+5. Paste your Disqus Universal Code before the closing `{{/partial}}` tag.
 6. In the Disqus Universal Code that you have posted, there is a function that reads like below:
 
 
-```js title="Disqus universal code" lineNumbers
+```js filename="Disqus universal code" showLineNumbers
 var disqus_config = function () {
     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
@@ -34,7 +34,7 @@ var disqus_config = function () {
 Change the value of `this.page.url` to be `product.url`, and the value of `this.page.identifier` to be `product.id`, so that the function now reads like below:
 
 
-```js title="Disqus universal code final function" lineNumbers
+```js filename="Disqus universal code final function" showLineNumbers
 var disqus_config = function () {
     this.page.url = product.url;
     this.page.identifier = product.id;

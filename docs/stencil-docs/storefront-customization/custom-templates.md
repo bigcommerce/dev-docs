@@ -10,12 +10,12 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 This section explains how to author a custom template, map it to a URL, upload it to BigCommerce, and apply it to a storefront as a theme.
 
 <Callout type="warning">
-> #### Stencil versus blueprint themes
-> If you are migrating from BigCommerce's legacy Blueprint themes framework, keep in mind these differences in how Stencil handles custom templates:
-> * The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
-> * Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
-> * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. After you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
-
+  #### Stencil versus blueprint themes
+  If you are migrating from BigCommerce's legacy Blueprint themes framework, keep in mind these differences in how Stencil handles custom templates:
+  * The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
+  * Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
+  * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. After you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
+</Callout>
 
 ## Authoring a custom template
 
@@ -35,13 +35,14 @@ To create a custom page:
 4. Next, create the template file in .html format, and then place the file in the appropriate `templates/pages/custom/` subdirectory.
 
 <Callout type="warning">
-> #### File permissions required
-> Make sure to set following permissions:
+  #### File permissions required
+  Make sure to set following permissions:
 
 * `755 (drwxr-x-r-x)` on all new subdirectories
 * `644 (rw-r–r–)` on all new files 
 
-> Without these permissions, running your theme locally will fail with multiple error messages. You also will not be able to bundle your theme and the theme won't be uploaded to the store.
+  Without these permissions, running your theme locally will fail with multiple error messages. You also will not be able to bundle your theme and the theme won't be uploaded to the store.
+</Callout>
 
 ## Mapping a Template to a URL
 

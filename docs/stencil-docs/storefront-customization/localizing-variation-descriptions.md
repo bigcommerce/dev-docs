@@ -10,7 +10,7 @@ You can localize theme variations by adding a `translations` object for each var
 
 The following example demonstrates how to localize each variation description by adding a `translations` object.
 
-```json
+```json showLineNumbers
 {
  "variations": [
    {
@@ -76,11 +76,11 @@ The following example demonstrates how to localize each variation description by
 ```
 
 <Callout type="info">
-> #### Note
-> * Translations can only contain `i18n.description` at the moment.
-> * You must include the original `description` value to render the theme on the BigCommerce theme marketplace.
-> * Language code must contain a default value.
-
+  #### Note
+  * Translations can only contain `i18n.description` at the moment.
+  * You must include the original `description` value to render the theme on the BigCommerce theme marketplace.
+  * Language code must contain a default value.
+</Callout>
 
 ## Supported language code schemes
 
