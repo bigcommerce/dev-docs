@@ -14,10 +14,10 @@ Stencil automatically detects the `Accept-Language` request HTTP header from the
 
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (for example, the name of a product).
 
-<!-- theme: info -->
-> #### Full support for multiple languages
-> If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
-
+<Callout type="info">
+ #### Full support for multiple languages
+ If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
+</Callout>
 
 
 ## Required subdirectory
@@ -57,7 +57,7 @@ If you design your theme’s storefront pages to refer to this message by its ge
 
 Key-value pairs are grouped into objects, for example:
 
-```json title="Objects with translation key-value pairs" lineNumbers
+```json filename="Objects with translation key-value pairs" showLineNumbers copy
 {
   "header": {
     "welcome_back": "Welcome back, {name}"
@@ -93,27 +93,27 @@ Once keys and values are defined in the [JSON translation file](https://github.c
 
 To invoke a defined translation key, follow this generic format:
 
-```handlebars title="Syntax to invoke a defined translation key" lineNumbers
+```handlebars filenamee="Syntax to invoke a defined translation key" copy
   {{lang "translation.key" optionalVariable="someValue"}}
 ```
 
 In a non-internationalized theme, a storefront page might include a string like this:
 
-```handlebars title="Example snippet from a non-internationalized theme" lineNumbers
+```handlebars filename="Example snippet from a non-internationalized theme" copy
   <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
 The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
-```handlebars title="Example snippet from an internationalized theme" lineNumbers
+```handlebars filename="Example snippet from an internationalized theme" copy
 <a href="{{ urls.account }}">{{ lang "header.welcome_back" name=customer.name }}</a>
 
 ```
 
-<!-- theme: warning -->
-> #### File permissions required
-> Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
-
+<Callout type="warning">
+ #### File permissions required
+ Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
+</Callout>
 
 
 <a id="basis_localization-example"></a>
@@ -122,7 +122,7 @@ The corresponding internationalized version would substitute the text with the f
 
 Below is an example based on the Cornerstone’s `templates/components/cart/shipping-estimator.html` file. Here, each highlighted `{{lang...}}` statement abstracts the message indicated by its English-language key to enable internationalization of that message:
 
-```handlebars title="Example of an internationalized template templates/components/cart/shipping-estimator.html, Cornerstone theme" lineNumbers
+```handlebars filename="Example of an internationalized template templates/components/cart/shipping-estimator.html, Cornerstone theme" showlineNumbers copy
 <div class="shipping-estimator" style="display: none;">
   <form class="estimator-form">
     <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
@@ -152,7 +152,7 @@ Below is an example based on the Cornerstone’s `templates/components/cart/ship
 
 In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
-```json title="Example translation key definitions lang/en.json" lineNumbers
+```json filename="Example translation key definitions lang/en.json" showLineNumbers copy
 {
   "header": {
     "welcome_back": "Welcome back, {name}",
