@@ -53,7 +53,7 @@ Theme Styles supports the following data types:
 
 Within `schema.json`, you can declare each object's data type in a statement like the one highlighted here:
 
-```json
+```json showLineNumbers copy
  {
     "type": "color",
     "label": "Text Color",
@@ -65,7 +65,7 @@ Within `schema.json`, you can declare each object's data type in a statement lik
 
 Within `schema.json`, you will also see `"type": "heading"` statements like the one below.
 
-```json
+```json showLineNumbers copy
 {
     "name": "Colors",
     "settings": [
