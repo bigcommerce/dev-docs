@@ -10,13 +10,12 @@ Within the `schema` property of the Create a Widget Template endpoint, settings 
 ### Tabs
 Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
 
-<!-- theme: info -->
-> #### Note
-> Sections render in the same order they are listed within a tab.
+<Callout type="info">
+ Sections render in the same order they are listed within a tab.
+</Callout>
 
 
-**Tab schema example**
-```json
+```json filename="Tab schema example" showLineNumbers copy
 [{
   "type": "tab",
   "label": "Content",
@@ -29,8 +28,7 @@ Sections are groups of related settings. Each section will have a title that the
 
 Settings render in the same order they are listed within a section.
 
-**Section schema example**
-```json
+```json filename="Section schema example" showLineNumbers copy
 [{
   "type": "tab",
   "label": "Content",
@@ -46,8 +44,8 @@ Arrays allow for building collections of elements within the widget. Array eleme
 
 Elements in the list have settings defined by the array’s schema, which you can build using tabs, sections, and settings.
 
-**Array schema example**
-```json
+
+```json filename="Array schema example" showLineNumbers copy
 {
   "type": "array",
   "label": "Carousel",
@@ -79,18 +77,18 @@ Elements in the list have settings defined by the array’s schema, which you ca
 }
 
 ```
-<!-- theme: info -->
-> #### Notes
->- Each element in the list can have tabs and sections included.
->- The `defaultCount` attribute is the number of elements that are displayed in the list by default.
->- Use the `thumbnail` attribute to display an image stored at the specified attribute name.
->- Use the `entryLabel` attribute to set a name for each element in the list.
+<Callout type="info">
+- Each element in the list can have tabs and sections included.
+- The `defaultCount` attribute is the number of elements that are displayed in the list by default.
+- Use the `thumbnail` attribute to display an image stored at the specified attribute name.
+- Use the `entryLabel` attribute to set a name for each element in the list.
+</Callout>
 
 ## Hidden settings
 You can use hidden settings to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the schema's top level because they are not grouped into any other tabs or arrays. You can use them in advanced widgets with complex interactions in the preview pane, such as inline editing.
 
-**Hidden settings schema example**
-```json
+
+```json filename="Hidden settings schema example" showLineNumbers copy
 {
   "type": "hidden",
   "settings": [
