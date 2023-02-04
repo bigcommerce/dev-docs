@@ -11,13 +11,13 @@ In this example, we will translate several regions on the home page. The followi
 
 1. Add `translation` fields to the home page (/templates/pages/home.html).
 
-<!-- theme: info -->
-> #### Notes 
-> * Translation must follow prefix “i18n.RegionName.” 
-> * You can only add a translation field to a `{{{ region }}}` field.
+<Callout type="info">
+ * Translation must follow prefix “i18n.RegionName.” 
+ * You can only add a translation field to a `{{{ region }}}` field.
+</Callout>
 
-home.html
-```html
+
+```html filename="home.html" showLineNumbers copy
 <div class="main full">
     {{#if products.featured}}
         {{> components/products/featured products=products.featured 
@@ -46,18 +46,17 @@ translation="i18n.RegionName.HomeBelowContentGlobal"}}}
 
 2. Add region translations to the `schema_translations.json` file. 
 
-<!-- theme: info -->
-> #### Notes 
-> * Region translations must live within the `schema_translations.json` file.
-> * Language code must contain a default value.
-> * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:
->   - Example of two character language code “en”, “fr”, “uk”, “zh”.
->   - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
-
+<Callout type="info">
+ * Region translations must live within the `schema_translations.json` file.
+ * Language code must contain a default value.
+ * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:
+   - Example of two character language code “en”, “fr”, “uk”, “zh”.
+   - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
+</Callout>
 
 schemaTranslations.json
 
-```json
+```json showLineNumbers copy
 {
  "i18n.RegionName.HomeBelowMenu": {
    "default": "Home Below Menu",
