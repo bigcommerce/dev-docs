@@ -20,7 +20,7 @@ Here is the signature of the cart.getContent function used further down:
 
 This first complete code snippet calls cart.itemAdd, catches any errors, and displays the cart contents in a modal dialog:
 
-```js title="cart.itemAdd" lineNumbers
+```js filename="cart.itemAdd" showLineNumbers copy
  // Add item to cart
 utils.api.cart.itemAdd(new FormData(form), (err, response) => {
     const errorMessage = err || response.data.error;
@@ -55,7 +55,7 @@ utils.api.cart.itemAdd(new FormData(form), (err, response) => {
 
 This final code snippet calls `cart.getContent` to fetch the cart contents, then display it in a preview format, which is specified by a template option with a value of `cart/preview`:
 
-```js title="cart.getContent" lineNumbers
+```js filename="cart.getContent" showLineNumbers copy
  /**
      * Get cart contents
      *
