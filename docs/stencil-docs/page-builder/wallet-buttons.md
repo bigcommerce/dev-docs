@@ -1,16 +1,18 @@
 # Configuring Wallet Buttons
 
-<!-- theme: info -->
-> #### Familiarity with Stencil development
-> The file structure of each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil) development may be required to render wallet buttons. The examples in this article use the Cornerstone theme.
+<Callout type="info">
+ #### Familiarity with Stencil development
+ The file structure of each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil) development may be required to render wallet buttons. The examples in this article use the Cornerstone theme.
+ </Callout>
 
 This article explains how to add wallet buttons to the Product Detail Page, or _PDP_. Cornerstone 6.7.0+ supports wallet buttons by default; however, you can upgrade older themes to support wallet buttons by following the steps outlined in this article.
 
-<!-- theme: info -->
-> #### Wallet button availability
-> Wallet buttons are always available to the customer except in the following cases:
-> * The product details form is invalid.
-> * The product is not purchasable.
+<Callout type="info">
+ #### Wallet button availability
+ Wallet buttons are always available to the customer except in the following cases:
+ * The product details form is invalid.
+ * The product is not purchasable.
+</Callout>
 
 ## Adding wallet buttons
 
@@ -18,11 +20,12 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 
 1. In `config.json`, add a `show_quick_payment_buttons` property and provide a default value.
 
-<!-- theme: info -->
-> #### Setting a default value
-> To turn on this feature by default, set `"show_quick_payment_buttons": true`.
+<Callout type="info">
+ #### Setting a default value
+ To turn on this feature by default, set `"show_quick_payment_buttons": true`.
+</Callout>
 
-```json title="config.json" lineNumbers
+```json filename="config.json" showLineNumbers copy
 {
   ...,
   "settings": {
@@ -34,7 +37,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 
 2. To create a checkbox for the merchant to toggle the feature on and off in Page Builder, add the following code to the Products section of `schema.json`:
 
-```json title="schema.json" lineNumbers
+```json filename="schema.json" showLineNumbers copy
 {
   ...,
   {
@@ -63,7 +66,7 @@ To set the number of wallet buttons visible on the product page, perform the fol
 
 1. In `config.json`, add a `paymentbuttons-number-of-buttons` property and provide a default value.
 
-```json title="config.json, number of buttons default" lineNumbers
+```json filename="config.json, number of buttons default" showLineNumbers copy
 {
   ...,
   "settings": {
@@ -73,13 +76,14 @@ To set the number of wallet buttons visible on the product page, perform the fol
 }
 ```
 
-<!-- theme: info -->
-> #### Default number of buttons
-> If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
+<Callout type="info">
+ #### Default number of buttons
+ If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
+ </Callout>
 
 2. To add a Page Builder dialog for the merchant to configure the number of visible wallet buttons, add the following code to the Payments section of `schema.json`:
 
-```json title="schema.json" lineNumbers
+```json filename="schema.json" showLineNumbers copy
 {
   ...,
   {
@@ -122,7 +126,7 @@ Adding a sorting features allows merchants to choose the order in which wallet b
 
 1. In `config.json`, add a `paymentbuttons-provider-sorting` property and provide a default value.
 
-```json title="config.json" lineNumbers
+```json filename="config.json" showLineNumbers copy
 {
   ...,
   "settings": {
@@ -134,10 +138,11 @@ Adding a sorting features allows merchants to choose the order in which wallet b
 
 2. To add the sorting component to the wallet buttons Page Builder dialog, add the following code to the Payments section of `schema.json`:
 
-<!-- theme: info -->
-> Adding "heading" for a section can be skipped if it was added before.
+<Callout type="info">
+Adding "heading" for a section can be skipped if it was added before.
+</Callout>
 
-```json title="schema.json" lineNumbers
+```json filename="schema.json" showLineNumbers copy
 {
   ...,
   {
@@ -201,10 +206,11 @@ In Page Builder, the dialog appears as follows:
 
 To render wallet buttons, you must perform the preceding steps described in this article. [Add wallet buttons](#adding-wallet-buttons), [set the quantity of buttons](#setting-quantity-of-wallet-buttons), and [sort the buttons](#sorting-wallet-buttons) as desired, then insert the following code underneath the **Add to Cart** button on the PDP.
 
-<!-- theme: info -->
-> Additional steps may be required depending on your theme's setup.
+<Callout type="info">
+ Additional steps may be required depending on your theme's setup.
+  </Callout>
 
-```handlebars title="add-to-cart.html" lineNumbers
+```handlebars filename="add-to-cart.html" showLineNumbers copy
 {{#if this.with_wallet_buttons}}
   {{#if wallet_buttons}}
     <div class="your-class-for-wallet-buttons-list">
