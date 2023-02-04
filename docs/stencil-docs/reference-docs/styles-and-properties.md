@@ -3,15 +3,16 @@ Use the following data types in the `schema.json` file to create configurable op
 
 You can use your widget template settings to define a data type in the schema_translations property of the widget template schema.
 
-<!-- theme: info -->
-> #### Force reload
-> Some data types use the `force_reload` field. Setting `"force_reload": true` allows Page Builder to reload when the setting defined by `schema.json` changes.
+<Callout type="info">
+  #### Force reload
+  Some data types use the `force_reload` field. Setting `"force_reload": true` allows Page Builder to reload when the setting defined by `schema.json` changes.
+</Callout>
 
 ## Checkbox
 
 Used to toggle on theme settings (boolean value)
 
-```yml
+```yml showLineNumbers
 {
  "type": "checkbox",
  "label": "i18n.HideBreadcrumbs",
@@ -27,7 +28,7 @@ Optional field: `force_reload`
 
 Used to set color value on theme setting (hex value)
 
-```yml
+```yml showLineNumbers
 {
  "type": "color",
  "label": "i18n.BannerBackground",
@@ -40,7 +41,7 @@ Required fields: `type`, `label`, and  `id`
 
 Used to select font value on theme setting
 
-```yml
+```yml showLineNumbers
 {
  "type": "font",
  "label": "i18n.BodyTextFontFamily",
@@ -70,7 +71,7 @@ Optional field: `force_reload`
 
 ## Heading
 
-```yml
+```yml showLineNumbers
 {
  "type": "heading",
  "content": "i18n.BackgroundAndLines"
@@ -82,7 +83,7 @@ Required fields: `type` and  `content`
 
 Used to set image ratio on theme setting
 
-```yml
+```yml showLineNumbers
 {
  "type": "imageDimension",
  "id": "blog_size",
@@ -108,9 +109,7 @@ Note: "custom" value option will allow users to specify the width/height. Else, 
 
 The reference field on a setting can show additional settings based on the value of another setting. For example, we may want to hide the `Product Sale Badge Label` setting if `Show product sale badges` setting equals none.
 
-ShowProductSaleBadges setting example
-
-```yml
+```yml filename="Example: ShowProductSaleBadges setting" showLineNumbers
 {
  "type": "select",
  "label": "i18n.ShowProductSaleBadges",
@@ -137,9 +136,7 @@ ShowProductSaleBadges setting example
 },
 ```
 
-ProductSaleBadgeLabel setting example
-
-```yml
+```yml filename="Example: ProductSaleBadgeLabel setting" showLineNumbers
 {
  "type": "text",
  "label": "i18n.ProductSaleBadgeLabel",
@@ -162,7 +159,7 @@ Used to select custom value on theme settings.
 
 Note: Option types should all be the same (i.e., string, number, etc.).
 
-```yml
+```yml showLineNumbers
 {
  "type": "select",
  "label": "i18n.BodyTextFontSize",
@@ -196,7 +193,7 @@ Optional field: `force_reload`
 
 Used to set string value for theme settings
 
-```
+```json showLineNumbers
 {
  "type": "text",
  "label": "i18n.ProductPriceLabelSale",
