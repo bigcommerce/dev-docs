@@ -2,10 +2,10 @@
  
 
 <Callout type="info">
-#### Debugging Your Theme
-The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
-`http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax.
-If you want to view the available JSON objects and rendered page at the same time, change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+  #### Debugging Your Theme
+  The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+  `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax.
+  If you want to view the available JSON objects and rendered page at the same time, change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 </Callout>
 
 ## Product
@@ -1048,8 +1048,8 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | &nbsp;&nbsp;markup | HTML that adds reCAPTCHA V2 |
 
 <Callout type="info">
-#### Customizing Login Form Content
-Login form content can be customized in templates/components/common/alert-success.html
+  #### Customizing Login Form Content
+  Login form content can be customized in templates/components/common/alert-success.html
 </Callout>
 
 ## Order Confirmation Objects
