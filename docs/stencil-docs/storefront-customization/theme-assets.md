@@ -3,7 +3,7 @@
 
 Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `assets/` directory contains the files and subdirectories that you can view on the [Cornerstone GitHub Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
 
-<!-- theme: warning -->
+<Callout type="warning">
 > In parts of your theme's directory tree where you are free to add new subdirectories and files, be sure to:
 > * Set newly added directories to permission `755 (drwxr-xr-x)`.
 > * Set newly added files to permission `644 (rw-r--r--)`.
