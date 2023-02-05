@@ -184,8 +184,7 @@ Accept: application/json
 ```
 
 <Callout type="info">
-#### Note
-Global settings cannot be deleted, only updated.
+  Global settings cannot be deleted, only updated.
 </Callout>
 
 ## The cumulative effect of global and channel-specific settings

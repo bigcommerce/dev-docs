@@ -23,8 +23,7 @@ Accept: application/json
 ``` 
 
 <Callout type="info">
-#### Note
-Currently, a tree may only be assigned to a maximum of one channel. BigCommerce's roadmap includes relaxing this restriction in the future so that several channels can share a common tree.
+  Currently, a tree may only be assigned to a maximum of one channel. BigCommerce's roadmap includes relaxing this restriction in the future so that several channels can share a common tree.
 </Callout>
 
 If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to get the active category tree for shopper's channel in real time.
