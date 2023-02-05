@@ -57,8 +57,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 * Supported / unsupported countries
 
 <Callout type="info">
-#### Note
-We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
+  We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to   testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid     unnecessary dependencies.
 </Callout>
 
 
@@ -71,8 +70,7 @@ Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and
 Make sure to also review our [app development best practices](/api-docs/apps/guide/best-practices) for some tips.
 
 <Callout type="info">
-#### Note
-If you have registered your app in the Developer Portal but have not submitted it for approval because it's still in development, the app will be in a Draft state. This means your app can only be installed on stores owned by the same email address as the Developer Portal account email.
+  If you have registered your app in the Developer Portal but have not submitted it for approval because it's still in development, the app will be in a Draft state.     This means your app can only be installed on stores owned by the same email address as the Developer Portal account email.
 </Callout>
 
 
@@ -137,8 +135,9 @@ Estimate calls will also be made in the control panel when using flows like the 
 * Test connection functionality when users navigate to **Settings > Setup > Tax > Tax Provider** in an active MSF-enabled BigCommerce control panel
 
 <Callout type="info">
-#### Note
-Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to return a valid tax estimate.
+  Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For      
+  example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to     
+  return a valid tax estimate.
 </Callout>
 
 
