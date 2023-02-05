@@ -8,11 +8,11 @@ The first step when developing an app is deciding which type of app to develop. 
 
 Single-click apps are the recommended app type. They use [OAuth 2.0 Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) (oauth2.net) flow. Users initiate installation by clicking **Install**.
 
-![Install App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install App")
+![Install App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-02-types-01.png "Install App")
 
 The app requests the user to grant permissions associated to scopes configured for the app in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
 
-![App Permissions](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-02.png "App Permissions")
+![App Permissions](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps/apps-02-types-02.png "App Permissions")
 
 Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
 
@@ -27,16 +27,15 @@ Connector apps use manual OAuth token creation instead of the single-click app f
 There are three visibility options for apps: **Draft**, **Unlisted**, and **Public**.
 
 | Visibility | Description | Use Cases |
-| --- | --- | --- |
+|:-----------|:------------|:----------|
 | Draft | Apps registered in the [Developer Portal](https://devtools.bigcommerce.com/) but never submitted for approval | <li>Installing on stores owned by the same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to the [App Marketplace](https://www.bigcommerce.com/apps/)</li> |
-| Unlisted | Apps submitted and approved but not listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to the [App Marketplace](https://www.bigcommerce.com/apps/) |
-| Public | Apps submitted, approved, and listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Making apps visible and installable on all stores</li><li>Making apps sellable on the [App Marketplace](https://www.bigcommerce.com/apps/) |
+| Unlisted | Apps submitted and approved but not listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to the [App Marketplace](https://www.bigcommerce.com/apps/)</li> |
+| Public | Apps submitted, approved, and listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Making apps visible and installable on all stores</li><li>Making apps sellable on the [App Marketplace](https://www.bigcommerce.com/apps/)</li> |
 
-<!-- theme: info -->
-> #### Note
-> * Only approved [partners](https://www.bigcommerce.com/partners/) can create unlisted apps.
-> * To have an app unlisted, contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
-
+<Callout type="info">
+  * Only approved [partners](https://www.bigcommerce.com/partners/) can create unlisted apps.
+  * To have an app unlisted, contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
+</Callout>
 
 
 ## Next steps
