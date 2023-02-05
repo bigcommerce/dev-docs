@@ -12,9 +12,7 @@ See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/authentic
 
 ### Use Request Runner
 
-The easiest way to experiment with BigCommerce REST APIs is via the built-in **Request Runner**:
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/getproducts#requestrunner) -->
+The easiest way to experiment with BigCommerce REST APIs is using the **Request Runner** built in to the [API Reference](/api-reference) for most endpoints.
 
 Just copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
 
@@ -51,13 +49,11 @@ To make your first requests in a browser with the Storefront APIs, see the step-
 ### Obtain storefront token
 We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner) -->
-
 Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
-```javascript
+```json
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
   "expires_at": 1602288000,   // double utc unix timestamp (required)

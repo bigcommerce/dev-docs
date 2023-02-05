@@ -25,9 +25,10 @@ In addition to the [API account components](#api-accounts) in the preceding sect
 
 Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
 
-<!-- theme: danger -->
-> #### Be careful with client secrets
-> Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+<Callout type="error">
+  #### Be careful with client secrets
+  Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+</Callout>
 
 ### Obtaining store API credentials
 
@@ -39,15 +40,17 @@ To get started making requests, see [Getting Started](/api-docs/getting-started/
 
 To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
 
-<!-- theme: danger -->
-> #### Delete carefully
-> Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+<Callout type="error">
+  #### Delete carefully
+  Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+</Callout>
 
 To delete a store API account, consult our Knowledge Base article on [Deleting a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting).
 
-<!-- theme: warning -->
-> #### Don't forget your webhooks and metafields
-> Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
+<Callout type="warning">
+  #### Don't forget your webhooks and metafields
+  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
+</Callout>
 
 
 ## App API accounts
@@ -74,9 +77,11 @@ There is no way to manually revoke or force-regenerate app API account access to
 
 After one of these changes, the store owner will be prompted to review the change and reauthorize the app the next time they click the app icon in the store control panel.
 
-<!-- theme: danger -->
-> #### Delete apps carefully
-> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+<Callout type="error">
+  #### Delete apps carefully
+  When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+</Callout>
+
 
 To delete an app API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
 
@@ -99,9 +104,10 @@ Where both types of API account are supported, review the preceding sections to 
 
 ## Migrating from legacy to OAuth
 
-<!-- theme: warning -->
-> #### Legacy API Accounts
-> BigCommerce no longer issues legacy API Accounts to new stores. Existing legacy API Accounts will continue to work until further notice. **Migrate to OAuth as soon as possible.**
+<Callout type="warning">
+  #### Legacy API Accounts
+  BigCommerce no longer issues legacy API Accounts to new stores. Existing legacy API Accounts will continue to work until further notice. **Migrate to OAuth as soon as possible.**
+</Callout>
 
 ### Benefits of migrating to OAuth
 
@@ -137,45 +143,53 @@ Rate limiting works differently for OAuth API connections. For details, see the 
 
 All OAuth scopes except `default` provide `read-only` permissions scopes so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
-<!-- theme: info -->
-> #### Webhooks scope
-> Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
+<Callout type="info">
+  Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
+</Callout>
+
+### Token creation scopes
+
+| UI Name | Permission | Parameter | Description | Endpoints |
+|:--------|:-----------|:----------|:------------|:----------|
+| Create Payments | modify | `store_payments_access_token_create` | Create payment access tokens, process payments | [Payments, Access Tokens](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) <br /> [Payments, Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) |
+| Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/api-reference/store-management/tokens/api-token/createtoken) |
+| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
+
+
+### Resource scopes
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
-| Content | modify | `store_v2_content` | View and modify store content | [/v2/pages](/api-reference/content/store-content-api) <br />[/v2/blog](/api-reference/content/store-content-api) <br />[/v2/redirects](/api-reference/content/store-content-api) <br />/v3/widgets |
-| Content | read-only | `store_v2_content_read_only` | View store content | [/v2/pages](/api-reference/content/store-content-api) <br />[/v2/blog](/api-reference/content/store-content-api) <br />[/v2/redirects](/api-reference/content/store-content-api) <br />/v3/widgets |
-| Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [/v3/scripts](/api-reference/content/store-content-api) |
-| Checkout Content | read-only | `store_content_checkout_read_only` | View content on checkout pages | [/v3/scripts](/api-reference/content/store-content-api) |
-| Customers | modify | `store_v2_customers` | View and modify customer information | [/v2/customers](/api-reference/customer-subscribers/customers-api) <br />[/v2/customer_groups](/api-reference/customer-subscribers/customers-api) <br />[/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) <br />[/v3/customers/subscribers/wishlist](/api-reference/customer-subscribers/wishlist-api) |
-| Customers | read-only | `store_v2_customers_read_only` | View customer information | [/v2/customers](/api-reference/customer-subscribers/customers-api) <br />[/v2/customer_groups](/api-reference/customer-subscribers/customers-api) <br />[/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) <br />[/v3/customers/subscribers/wishlist](/api-reference/customer-subscribers/wishlist-api) |
-| Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/api-docs/storefront/customer-login-api)
-| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [/v2/store](/api-reference/store-management/store-information-api/store-information/) <br />[/v2/time](/api-reference/store-management/store-information-api/time-zone/) |
-| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [/v2/store](/api-reference/store-management/store-information-api/store-information/) <br />[/v2/shipping/time](/api-reference/store-management/store-information-api/time-zone/) |
-| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [/v2/coupons](/api-reference/marketing/marketing-api) <br />[/v2/gift_certificates](/api-reference/marketing/marketing-api) <br />[/v2/banners](/api-reference/marketing/marketing-api) |
-| Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [/v2/coupons](/api-reference/marketing/marketing-api) <br />[/v2/gift_certificates](/api-reference/marketing/marketing-api) <br />[/v2/banners](/api-reference/marketing/marketing-api) |
-| Orders | modify | `store_v2_orders` | View and modify orders | [/v2/orders](/api-reference/orders/orders-api) <br />[/v2/order_statuses](/api-reference/orders/orders-api) |
-| Orders | read-only | `store_v2_orders_read_only` | View orders | [/v2/orders](/api-reference/orders/orders-api) <br />[/v2/order_statuses](/api-reference/orders/orders-api) |
-| Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
-| Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
-| Create Payments | modify | `store_payments_access_token_create` | Process payments | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
-| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [/payments](/api-reference/payments/payments-process-payments) |
-| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [/v3/catalog](/api-reference/catalog/catalog-api) <br />[/v3/pricelists](/api-reference/price-lists/pricelists-api) |
-| Products | read-only | `store_v2_products_read_only` | View products | [/v3/catalog](/api-reference/catalog/catalog-api) <br />[/v3/pricelists](/api-reference/price-lists/pricelists-api) |
-| Themes | modify | `store_themes_manage` | View and modify themes | [/v3/themes](/api-reference/themes/themes-api) |
-| Themes | read-only | `store_themes_read_only` | View themes | [/v3/themes](/api-reference/themes/themes-api) |
-| Carts | modify | `store_cart` | View and modify carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-| Carts | read-only | `store_cart_read_only` | View carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-| Checkouts | modify | `store_checkout` | View and modify a checkout | [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
-| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
-| Sites & Routes | modify | `store_sites` | View and modify sites and routes | [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) <br />[/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
-| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) <br />[/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
-| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
-| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
-| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
-| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
-| Storefront API Tokens | modify | `store_storefront_api` | Create a storefront API token | [/v3/storefront/api-token](/api-reference/store-management/tokens/createtoken) |
-| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
+| Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/api-reference/store-management/store-content/pages/getallpages) <br />[Blog V2](/api-reference/store-management/store-content/blog-posts/getallblogposts) <br />[Redirects V2](/api-reference/store-management/store-content/redirects/getalistofredirects) <br />[Widgets V3](/api-reference/store-management/widgets) |
+| Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/api-reference/store-management/store-content/pages/getallpages) <br />[Blog V2](/api-reference/store-management/store-content/blog-posts/getallblogposts) <br />[Redirects V2](/api-reference/store-management/store-content/redirects/getalistofredirects) <br />[Widgets V3](/api-reference/store-management/widgets) |
+| Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [Scripts V3](/api-reference/store-management/scripts) |
+| Checkout Content | read-only | `store_content_checkout_read_only` | View content on checkout pages | [Scripts V3](/api-reference/store-management/scripts) |
+| Customers | modify | `store_v2_customers` | View and modify customer information | [Customers V2](/api-reference/store-management/customers-v2/customers/getallcustomers) <br />[Customer Groups V2](/api-reference/store-management/customers-v2/customer-groups/getallcustomergroups) <br />[Subscribers V3](/api-reference/store-management/subscribers/subscribers/getsubscribers) <br />[Wishlists V3](/api-reference/store-management/wishlists/wishlists/wishlistsget) |
+| Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/api-reference/store-management/customers-v2/customers/getallcustomers) <br />[Customer Groups V2](/api-reference/store-management/customers-v2/customer-groups/getallcustomergroups) <br />[Subscribers V3](/api-reference/store-management/subscribers/subscribers/getsubscribers) <br />[Wishlists V3](/api-reference/store-management/wishlists/wishlists/wishlistsget) |
+| Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/api-docs/storefront/customer-login-api) |
+| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/api-reference/store-management/store-information-api/store-information/getstore) <br />[Time V2](/api-reference/store-management/store-information-api/time-zone/gettime) |
+| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/api-reference/store-management/store-information-api/store-information/getstore) <br />[Time V2](/api-reference/store-management/store-information-api/time-zone/gettime) |
+| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/api-reference/store-management/marketing/coupons/getallcoupons) <br />[Gift Certificates V2](/api-reference/store-management/marketing/gift-certificates/getallgiftcertificates) <br />[Banners V2](/api-reference/store-management/marketing/banners/getallbanners) |
+| Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [Coupons V2](/api-reference/store-management/marketing/coupons/getallcoupons) <br />[Gift Certificates V2](/api-reference/store-management/marketing/gift-certificates/getallgiftcertificates) <br />[Banners V2](/api-reference/store-management/marketing/banners/getallbanners) |
+| Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/api-reference/store-management/orders) <br />[Order Status V2](/api-reference/store-management/orders/order-status/getorderstatus) |
+| Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/api-reference/store-management/orders) <br />[Order Status V2](/api-reference/store-management/orders/order-status/getorderstatus) |
+| Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/api-reference/store-management/order-transactions) |
+| Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/api-reference/store-management/order-transactions) |
+| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments, Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) |
+| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/api-reference/store-management/catalog) <br />[Price Lists V3](/api-reference/store-management/price-lists) |
+| Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/api-reference/store-management/catalog) <br />[Price Lists V3](/api-reference/store-management/price-lists) |
+| Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/api-reference/store-management/themes) |
+| Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/api-reference/store-management/themes) |
+| Carts | modify | `store_cart` | View and modify carts | [Carts V3](/api-reference/store-management/carts) |
+| Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/api-reference/store-management/carts) |
+| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/api-reference/store-management/checkouts) |
+| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/api-reference/store-management/checkouts) |
+| Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/api-reference/store-management/sites) <br /> [Channels V3 Sites](/api-reference/store-management/channels/channel-site/get-channel-site) |
+| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/api-reference/store-management/sites) <br /> [Channels V3 Sites](/api-reference/store-management/channels/channel-site/get-channel-site) |
+| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [Channels V3](/api-reference/store-management/channels) |
+| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/api-reference/store-management/channels) |
+| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/api-reference/store-management/channels/channel-listings/listchannellistings) |
+| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/api-reference/store-management/channels/channel-listings/listchannellistings) |
 
 ## Resources
 * [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
