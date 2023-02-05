@@ -5,7 +5,6 @@
     "pull_request_template_CODEOWNER.md",
     "pull_request_template.md",
     "docs/api-docs/cart-and-checkout/channels-sites-routes.md",
-    "docs/stencil-docs/customizing-checkout/checkout-sdk-example.md",
     "docs/api-docs/channels/channels-pos-tutorial.md",
     "docs/api-docs/developers-guide-headless.md",
     "docs/api-docs/orders/orders-overview.md",
@@ -14,10 +13,7 @@
     "docs/api-docs/storefront/graphql/rendering-widgets.md",
     "docs/api-docs/storefront/widgets.md",
     "docs/available-apis.md",
-    "docs/legacy/stencil-themes/installing-legacy-theme-modules.md",
-    "docs/stencil-docs/configure-store-design-ui/defining-ui-options.md",
-    "docs/stencil-docs/configure-store-design-ui/store-design-overview.md",
-    "docs/stencil-docs/javascript-and-event-hooks/dynamic-content-rendering.md"
+    "docs/legacy/stencil-themes/installing-legacy-theme-modules.md"
   ],
   "formats": {
     "openapi": {
