@@ -86,7 +86,6 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 * Self-throttles requests to the average rate of `(X-Rate-Limit-Requests-Quota / X-Rate-Limit-Time-Window-Seconds)`.
 
 <Callout type="warning">
-  #### Note
   Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
 </Callout>
 
