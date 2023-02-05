@@ -41,9 +41,9 @@ To provide merchants with a positive integration experience, we expect point of 
 
 - **Catalog Import/Export:** 100 Complex Products per Second.
 
-<!-- theme: info -->
-> #### Note
-> This volume of requests per second may hit the rate limits of lower tier BigCommerce plans - logic should be implemented around the response headers to ensure your application does not exceed the allowable number of requests for a given storefront.
+<Callout type="info">
+  This volume of requests per second may hit the rate limits of lower tier BigCommerce plans - logic should be implemented around the response headers to ensure your application does not exceed the allowable number of requests for a given storefront.
+</Callout>
 
 For increased performance, consider using batch operations and parallel requests when possible.
 
@@ -54,13 +54,13 @@ Logs should be broken out per service. For example, a user should be able to acc
 
 Logs should be provided in a light, human-readable format and appended to the running feed of logs:
 
-```shell
+```shell showLineNumbers
 20 Products Identified - 5 Products Created - 15 Products Updated - 0 Errors   |   12/10/19 @ 3:45PM CST
 ```
 
 The merchant should also have the option to download verbose logs in CSV format:
 
-```shell
+```shell showLineNumbers
 POS ID, BC ID, EVENT
 34, 103, Product Created
 35, --, Error: Product Creation Skipped [Invalid product name]
