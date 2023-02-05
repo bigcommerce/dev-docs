@@ -17,7 +17,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -39,7 +39,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 [View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
@@ -47,7 +46,7 @@ Accept: application/json
 
 Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -60,8 +59,6 @@ Accept: application/json
   ...
   }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 ### Accepted values
 
@@ -78,7 +75,7 @@ Accept: application/json
 
 Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
 
-```http
+```http filename="Example request: Create channel menus" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -95,9 +92,9 @@ Accept: application/json
 }
 ```
 
-<!-- theme:info -->
-> #### Note
-> These UI sections were previously managed via `config_meta`. As of March 29, 2022, changes to UI sections via `config_meta` are dual written to the new API when `config_meta.app.sections` exists in the payload.
+<Callout type="info">
+  These UI sections were previously managed via `config_meta`. As of March 29, 2022, changes to UI sections via `config_meta` are dual written to the new API when `config_meta.app.sections` exists in the payload.
+</Callout>
 
 ## Protected UI sections
 
@@ -112,7 +109,7 @@ The following protected sections are provided by BigCommerce:
 
 Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
 
-```http
+```http filename="Example request: Create channel menus" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -140,28 +137,33 @@ Include the `storefront_settings` [protected section](#protected-ui-sections) in
 
 Read channel specific storefront settings using the [Settings API](/api-reference/store-management/settings). For example, to [get storefront category settings](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
 
-```http
-GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
-Host: api.bigcommerce.com
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner) -->
+  ```http filename="Example request: Get storefront category settings" showLineNumbers
+  GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
+  Host: api.bigcommerce.com
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+  ```
 
-**Response:**
+  </Tab>
+  <Tab>
 
-```json
-{
-  "data": {
-    "listing_mode": null,
-    "default_product_sort": "bestselling",
-    "category_tree_depth": 0
-  },
-  "meta": {}
-}
-```
+  ```json filename="Example response: Get storefront category settings" showLineNumbers
+  {
+    "data": {
+      "listing_mode": null,
+      "default_product_sort": "bestselling",
+      "category_tree_depth": 0
+    },
+    "meta": {}
+  }
+  ```
+
+  </Tab>
+</Tabs>
 
 [View the settings API Reference](/api-reference/store-management/settings).
 
@@ -173,27 +175,32 @@ Include the `currencies` [protected section](#protected-ui-sections) in the Chan
 
 You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
 
-```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner) -->
+  ```http filename="Example request: Get channel currency assignments" showLineNumbers
+  GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+  ```
 
-**Response:**
+  </Tab>
+  <Tab>
 
-```json
-{
-  "data": {
-    "channel_id": 1,
-    "default_currency": "USD",
-    "enabled_currencies": ["USD", "CAD"]
-  },
-  "meta": {}
-}
-```
+  ```json filename="Example response: Get channel currency assignments" showLineNumbers
+  {
+    "data": {
+      "channel_id": 1,
+      "default_currency": "USD",
+      "enabled_currencies": ["USD", "CAD"]
+    },
+    "meta": {}
+  }
+  ```
+
+  </Tab>
+</Tabs>
 
 [View the Channels API reference](/api-reference/store-management/channels).
 
