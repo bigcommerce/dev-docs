@@ -8,7 +8,7 @@ Start by setting up your local development environment.
 
 For this tutorial, you need Node.js version 12.22+. To check your version of Node.js, run the following command in your terminal:
 
-```shell copy file="Check Node.js version"
+```shell copy filename="Check Node.js version"
 node -v
 ```
 
@@ -31,7 +31,7 @@ If you do not have Node.js installed, you can download it from [nodejs.org (down
 
 1. To create the project's `package.json` file, enter the [interactive initialization sequence](https://docs.npmjs.com/cli/v8/commands/npm-init). Run the following command in the terminal:
 
-```shell copy file="Initialize package.json"
+```shell copy filename="Initialize package.json"
 npm init
 ```
 
@@ -43,13 +43,13 @@ To write a `package.json` file with default values, run `npm init -y` instead. D
 
 1. Install `big-design`, `next`, `react`, `react-dom`, and `styled-components`.
 
-```shell copy file="Install dependencies"
+```shell copy filename="Install dependencies"
 npm install --save @bigcommerce/big-design next react react-dom styled-components
 ```
 
 2. Install dev dependencies.
 
-```shell copy file="Install devDependencies"
+```shell copy filename="Install devDependencies"
 npm install --save-dev babel-plugin-styled-components @types/node @types/react typescript
 ```
 
@@ -68,7 +68,7 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 2. Update the `scripts` property, by adding the `dev`, `build`, and `start` scripts.
 
-```json file="Add npm scripts" showLineNumbers copy
+```json filename="Add npm scripts" showLineNumbers copy
 {
   ...
   "scripts": {
@@ -92,7 +92,7 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 4. Add `Panel` and `Text` BigDesign imports at the top of the file.
 
-```ts file="Add imports index.tsx"
+```ts filename="Add imports index.tsx"
 import { Panel, Text } from '@bigcommerce/big-design';
 ```
 
@@ -102,7 +102,7 @@ The **Panel** component allows you to contain content in a structured format. To
 
 5. Add the `Index` functional component below the import statements. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/index.tsx).
 
-```tsx file="Add functional component index.tsx" showLineNumbers copy
+```tsx filename="Add functional component index.tsx" showLineNumbers copy
 const Index = () => (
     <Panel header="Homepage" margin="xxLarge">
         <Text>Hello world</Text>
@@ -122,7 +122,7 @@ Next.js allows you to use a theme provider and import CSS files from `node_modul
 
 2. Open `_app.tsx` and import `GlobalStyles` from BigDesign and `AppProps` from Next.js.
 
-```ts file="Add imports _app.tsx"
+```ts filename="Add imports _app.tsx"
 import { GlobalStyles } from '@bigcommerce/big-design';
 import type { AppProps } from 'next/app'
 ```
@@ -131,7 +131,7 @@ Importing the `GlobalStyles` component will set BigCommerce's base styles global
 
 3. Add the `MyApp` functional component below the import statements. You can [view _app.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_app.tsx).
 
-```tsx file="Functional component _app.tsx" showLineNumbers copy
+```tsx filename="Functional component _app.tsx" showLineNumbers copy
 const MyApp = ({ Component, pageProps }: AppProps) => (
    <>
        <GlobalStyles />
@@ -152,19 +152,19 @@ Because BigDesign uses styled-components, we need to add additional configuratio
 
 2. Import `Document` and `DocumentContext`, the built-in TypeScript types, from Next.js.
 
-```ts file="Import components Document and DocumentContext"
+```ts filename="Import components Document and DocumentContext"
 import Document, { DocumentContext } from 'next/document';
 ```
 
 3. Import `ServerStyleSheet` from styled-components.
 
-```ts file="Import component ServerStyleSheet"
+```ts filename="Import component ServerStyleSheet"
 import { ServerStyleSheet } from 'styled-components';
 ```
 
 4. Extend the `Document` class. You can [view _document.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/pages/_document.tsx).
 
-```tsx file="Extend class Document" showLineNumbers copy
+```tsx filename="Extend class Document" showLineNumbers copy
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -198,7 +198,7 @@ export default class MyDocument extends Document {
 
 1. Using the terminal, open the root directory of your app and start the development server. 
 
-```shell copy file="Start development server"
+```shell copy filename="Start development server"
 npm run dev
 ```
 

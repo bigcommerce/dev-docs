@@ -28,7 +28,7 @@ The following table lists the app management callbacks that BigCommerce stores s
 
 Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store control panel, as well as their authorized users' control panels. When a user clicks your app's listing or another referring UI component, BigCommerce dispatches a request to your app's `GET /load{:http}` endpoint. The following is an example request: 
 
-```http file="Example request: /load callback from BigCommerce"
+```http filename="Example request: /load callback from BigCommerce"
 GET https://your_app.example.com/load?signed_payload_jwt={header_b64.payload_claims_b64.signature_b64}
 Accept: application/json
 ```
@@ -39,7 +39,7 @@ After your app [verifies the payload](#decode-and-verify-signed_payload_jwt), [i
 
 When the store owner clicks the **Uninstall** button on your app's card in the store control panel, BigCommerce dispatches a request to the app's `GET /uninstall{:http}` endpoint. The following is an example request:
 
-```http file="Example request: uninstall callback from BigCommerce"
+```http filename="Example request: uninstall callback from BigCommerce"
 GET https://your_app.example.com/uninstall?signed_payload_jwt={header_b64.payload_claims_b64.signature_b64}
 Accept: application/json
 ```
@@ -50,7 +50,7 @@ After your app [verifies the payload](#decode-and-verify-signed_payload_jwt) and
 
 When the store owner revokes a user's authorization to access your app, BigCommerce dispatches a request to the app's the `GET /remove_user{:http}` endpoint. The following is an example request:
 
-```http file="Example request: remove_user callback"
+```http filename="Example request: remove_user callback"
 GET https://your_app.example.com/remove_user?signed_payload_jwt={header_b64.payload_claims_b64.signature_b64}
 Accept: application/json
 ```
@@ -61,7 +61,7 @@ After your app [verifies the payload](#decode-and-verify-signed_payload_jwt) and
 
 The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
-```js file="Form of payload JWT"
+```js filename="Form of payload JWT"
 header_b64.payload_claims_b64.signature_b64
 ```
 
@@ -80,7 +80,7 @@ Use the payload claim data to identify the store and user. What your app should 
 
 The following is an example of the payload claims encoded in the `signed_payload_jwt` that BigCommerce sends to your app callback endpoints:
 
-```json file="Example: app callback payload" showLineNumbers copy
+```json filename="Example: app callback payload" showLineNumbers copy
 {
   "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
   "iss": "bc",

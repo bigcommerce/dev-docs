@@ -45,14 +45,14 @@ It's a best practice to request and receive an `access_token` **before** respond
 
 <Tabs items={['Example request', 'URL-decoded query parameters']}>
   <Tab>
-```http file="Example request: auth callback" showLineNumbers copy
+```http filename="Example request: auth callback" showLineNumbers copy
 GET https://your_app.example.com/auth?account_uuid=12345678-90ab-cdef-1234-567890abcdef&code=qr6h3thvbvag2ffq&context=stores%2Fg5cd38&scope=store_v2_orders+store_channel_listings_read_only
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Referer: https://login.bigcommerce.com/
 ```
   </Tab>
   <Tab>
-```json file="Example query parameters: auth callback" showLineNumbers copy
+```json filename="Example query parameters: auth callback" showLineNumbers copy
 {
   "account_uuid": "12345678-90ab-cdef-1234-567890abcdef",
   "code": "qr6h3thvbvag2ffq",
@@ -79,7 +79,7 @@ Before proceeding with the grant code authorization flow, it's a best practice t
 
 To generate an access_token for the merchant's store, send a `POST` request to `https://login.bigcommerce.com/oauth2/token{:http}`. The request body contains a combination of query arguments from the auth callback and credentials from your app profile.
 
-```http file="Example request: Create an access_token" showLineNumbers copy
+```http filename="Example request: Create an access_token" showLineNumbers copy
 POST https://login.bigcommerce.com/oauth2/token
 Accept: application/json
 Content-Type: application/json
@@ -114,7 +114,7 @@ Content-Type: application/json
 
 BigCommerce responds to the access_token request with JSON that contains a permanent `access_token`, among other information. Use this `access_token` to authenticate API requests the app makes on behalf of the store; see [Authentication and Example Requests](/api-docs/getting-started/authentication). To provide the most responsive app architecture and re-authentication checks, save all the response values.
 
-```json file="Example response: Create an access_token" showLineNumbers copy
+```json filename="Example response: Create an access_token" showLineNumbers copy
 {
   "access_token": "xxxxalphanumstringxxxx",
   "scope": "store_v2_orders store_channel_listings_read_only",
