@@ -21,7 +21,7 @@ Apps curated as solutions within the **Create Channel** flow must create a basic
 
 To [create a channel](/api-reference/store-management/channels/channels/createchannel), send a `POST` request to `/v3/channels`.
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -44,10 +44,10 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> **Note**
-> - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/store-management/channels#platform).
-> - For instructions on finding your app's ID, see [Find and App's ID](/api-docs/apps/tutorials/id).
+<Callout type="info">
+  - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/store-management/channels#platform).
+  - For instructions on finding your app's ID, see [Find and App's ID](/api-docs/apps/tutorials/id).
+</Callout>
 
 ## Create a channel with navigation
 
@@ -57,7 +57,7 @@ We recommend that apps also create navigation sections to better integrate the a
 
 To create a channel with navigation, use the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus) after creating a channel record.
 
-```http
+```http filename="Example request: Create channel menus" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
