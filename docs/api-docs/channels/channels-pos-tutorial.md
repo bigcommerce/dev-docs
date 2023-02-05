@@ -15,7 +15,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -51,21 +51,18 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
 [View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
-<!-- theme: info -->
-> #### Note
-> You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
-
+<Callout type="info">
+  You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
+</Callout>
 
 
 ## Specifying the platform
 
 Specify the POS system by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -80,8 +77,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
 ### Accepted values
 
 | Platform          | Accepted Type             |
@@ -95,7 +90,7 @@ Accept: application/json
 
 Define and configure the channel's UI tabs displayed in the control panel by passing in a `config_meta` object.
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
