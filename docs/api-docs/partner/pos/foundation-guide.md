@@ -224,8 +224,7 @@ npx prisma generate
 ```
 
 <Callout type="info">
-#### Note
-Successfully generating the Prisma client relies on the provider settings you configured in the preceding section on [creating and configuring the database](#create-and-configure-the-database).
+  Successfully generating the Prisma client relies on the provider settings you configured in the preceding section on [creating and configuring the database](#create-   and-configure-the-database).
 </Callout>
 
 4. Access the database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
