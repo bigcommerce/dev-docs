@@ -55,9 +55,9 @@ updateView() {
 
 The Cornerstone theme uses the `getPage` method in the following contexts:
 
-- [`assets/js/theme/wishlist.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/wishlist.js)
-- [`assets/js/theme/gift-certificate.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
-- [`assets/js/theme/faceted-search.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
+- [assets/js/theme/wishlist.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/wishlist.js)
+- [assets/js/theme/gift-certificate.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
+- [assets/js/theme/faceted-search.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
 
 ### Get page by GraphQL
 
@@ -131,7 +131,7 @@ utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
+- [assets/js/theme/global/cart-preview.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
 
 ### Item add
 [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
@@ -176,7 +176,7 @@ utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, 
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ### Item update
 
@@ -235,7 +235,7 @@ cartUpdate($target) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Item remove
 [itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
@@ -265,7 +265,7 @@ cartRemoveItem(itemId) {
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Update
 [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
@@ -346,7 +346,7 @@ bindGiftWrappingEvents() {
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Submit item gift wrapping option
 [submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
@@ -421,9 +421,9 @@ refreshContent(remove) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/global/cart-preview.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ### Get shipping quotes
 [getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
@@ -440,7 +440,7 @@ The `getShippingQuotes` method allows your code to retrieve shipping-cost quotes
 See `submitShippingQuotes` for an example. 
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
+- [assets/js/theme/cart/shipping-estimator.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Submit shipping quote
 [submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
@@ -491,7 +491,7 @@ bindEstimatorEvents() {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
+- [assets/js/theme/cart/shipping-estimator.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Apply code
 [applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
@@ -550,7 +550,7 @@ bindPromoCodeEvents() {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Apply gift certificate
 [applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
@@ -578,7 +578,7 @@ utils.api.cart.applyGiftCertificate(code, (err, resp) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ## Countries Resource
 These methods allow your theme or app to retrieve standardized country names, by numeric ID or by string.
@@ -652,7 +652,7 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/state-country.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/state-country.js)
+- [assets/js/theme/common/state-country.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/state-country.js)
 
 ## Product Attributes Resource
 
@@ -686,8 +686,8 @@ if (_.isEmpty(productAttributesData) && hasOptions) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Configure in cart
 [configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
@@ -709,7 +709,7 @@ utils.api.productAttributes.configureInCart(itemId, options, (err, response) => 
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ## Product Resource
 ### Product get by id
@@ -740,7 +740,7 @@ $('body').on('click', '.quickview', (event) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/quick-view.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-view.js)
+- [assets/js/theme/global/quick-view.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-view.js)
 
 ## Search Resource
 
@@ -770,7 +770,7 @@ const doSearch = _.debounce((searchQuery) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/quick-search/js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
+- [assets/js/theme/global/quick-search/js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
 
 ## Config Object
 
