@@ -175,11 +175,8 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
-|  | read-only |  | View web analytics | [](/...) |
-|  | modify |  | View and modify web analytics | [](/...) |
 | Storefront API Tokens | modify | `store_storefront_api` | Create a storefront API token | [/v3/storefront/api-token](/api-reference/store-management/tokens/createtoken) |
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
-
 
 ## Resources
 * [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
