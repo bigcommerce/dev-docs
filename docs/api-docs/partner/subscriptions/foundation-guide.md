@@ -11,16 +11,15 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 
 ## Configure accounts
 
-<!-- theme: info -->
-> #### Account configuration requirements
-> * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
-> * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+<Callout type="info">
+  #### Account configuration requirements
+  * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
+  * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+</Callout>
 
 To configure your accounts, complete the following steps:
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
 2. To register apps and create app API accounts, you need a BigCommerce Dev Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).
-
-
 
 ## Fork and install the source repository
 To fork the repository, complete the following steps:
@@ -40,10 +39,10 @@ Because you must serve apps over fully-qualified publicly accessible URLs, this 
 
 To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
-<!-- theme: success -->
-> #### Make note of your ngrok ID
-> After you successfully start ngrok, make sure to note your ngrok ID. You will use it to create an app profile. By default, ngrok generates a new ID every time you start it up. Make sure to update the callback URLs in your [app profile](#create-an-app-profile) each time the ngrok id changes.
-
+<Callout type="info">
+  #### Make note of your ngrok ID
+  After you successfully start ngrok, make sure to note your ngrok ID. You will use it to create an app profile. By default, ngrok generates a new ID every time you start it up. Make sure to update the callback URLs in your [app profile](#create-an-app-profile) each time the ngrok id changes.
+</Callout>
 
 ## Create an app profile
 
@@ -96,9 +95,10 @@ During development, you'll work with two Stripe accounts. You'll create them bot
 | Merchant account | This account simulates a merchant's pre-existing account |
 | App account      | You'll configure this account as the app's dedicated Stripe Connect-enabled account |
 
-<!-- theme: info -->
-> #### Multi-tenant setup
-> Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the merchant's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
+<Callout type="info">
+  #### Multi-tenant setup
+  Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the merchant's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
+</Callout>
 
 ![platform-configuration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/platform-configuration.png "Multi-Tenant Stripe Platform Configuration")
 
@@ -120,18 +120,19 @@ To create a Stripe account, complete the following steps:
    
    c. Under **Get started with Stripe**, copy the **Secret key**.
    
-<!-- theme: success -->
-> #### Make note of the secret key
-> Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
-
+<Callout type="info">
+  #### Make note of the secret key
+  Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
+</Callout>
 
 ### Enable Stripe Connect for Platforms
 
 **As you complete the following steps, make sure that you are making changes to the app-specific account. To verify, check the top left corner of your Stripe Dashboard for the app account name you chose in step 3b of the preceding section.**
 
-<!-- theme: info -->
-> #### Test mode
-> You can simulate transactions in test mode to confirm your integration works correctly.
+<Callout type="info">
+  #### Test mode
+  You can simulate transactions in test mode to confirm your integration works correctly.
+</Callout>
 
 To configure test mode, complete the following steps:
 
@@ -147,9 +148,10 @@ To configure test mode, complete the following steps:
    
    a. Copy the **Test mode client ID**.
    
-   <!-- theme: success -->
-   > #### Make note of the client ID
-   > Make note of the **test mode client ID** and keep it in a safe location. In a later step, you will use the client ID to update the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable in the `.env` file.
+   <Callout type="info">
+     #### Make note of the client ID
+     Make note of the **test mode client ID** and keep it in a safe location. In a later step, you will use the client ID to update the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable in the `.env` file.
+   </Callout>
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
    
@@ -179,9 +181,10 @@ To configure the store to make subscription charges, complete the following step
 
 After you configure the store, you have all the information you need to add environment variables to your project.
 
-<!-- theme: info -->
-> #### Note on naming conventions
-> In some places, this guide and app template code refer to a Stripe API account's public key as a **client ID**, and its secret key as a **client secret**.
+<Callout type="info">
+  #### Note on naming conventions
+  In some places, this guide and app template code refer to a Stripe API account's public key as a **client ID**, and its secret key as a **client secret**.
+</Callout>
 
 To declare environment variables, complete the following steps:
 
@@ -207,9 +210,10 @@ Open the `.env` file you just created and update the following environment varia
 
 ## Run migration and start the server
 
-<!-- theme: info -->
-> #### Database note
-> This example uses Postgres as a data store. We recommend using [Supabase](https://supabase.com/) for a free database. For information on switching databases, see the [Replacing Postgres](#replacing-postgres) section.
+<Callout type="info">
+  #### Database note
+  This example uses Postgres as a data store. We recommend using [Supabase](https://supabase.com/) for a free database. For information on switching databases, see the [Replacing Postgres](#replacing-postgres) section.
+</Callout>
 
 To run the migration and start the server, complete the following steps:
 
@@ -260,8 +264,9 @@ databse db {
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
 ```
-<!-- theme: warning -->
-> If you miss the preceding step, the database provider will not be successfully switched. For a list of Prisma migrate limitations, see [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers).
+<Callout type="warning">
+  If you miss the preceding step, the database provider will not be successfully switched. For a list of Prisma migrate limitations, see [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers).
+</Callout>
 
 4. To generate a fresh app client that uses the new database provider, run the following script:
 
@@ -289,9 +294,10 @@ To add new subscription rules and edit existing ones, complete the following ste
 1. In the store control panel, navigate to the **Channel Manager** menu and click **Stripe Subscriptions**.
 2. Click the product you want to modify. For more information, see [Foundations for Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing).
 
-<!-- theme: info -->
-> #### Subscription sales channel
-> The app will create its own dedicated sales channel upon installation.
+<Callout type="info">
+  #### Subscription sales channel
+  The app will create its own dedicated sales channel upon installation.
+</Callout>
 
 If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/api-docs/multi-storefront/api-guide#products) for more information.
 
@@ -323,9 +329,10 @@ To deploy your app with Vercel:
 
 8. After you have successfully deployed to Vercel, you must update your environment variables. For more information, see [Declare environment variables](#declare-environment-variables). 
 
-<!-- theme: info -->
-> #### Updating `NEXT_PUBLIC_APP_URL`
-> Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
+<Callout type="info">
+  #### Updating `NEXT_PUBLIC_APP_URL`
+  Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
+</Callout>
 
 9. Redeploy your application to Vercel for the environment variable changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
 
