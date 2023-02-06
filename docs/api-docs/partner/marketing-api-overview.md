@@ -98,8 +98,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
 <Callout type="info">
-#### Note
-A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
+  A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
 </Callout>
 
 
