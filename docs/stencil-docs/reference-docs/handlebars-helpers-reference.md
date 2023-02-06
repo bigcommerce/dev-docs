@@ -383,7 +383,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 #### Parameters
 
 - `string` (String): String to encode with HTML entities.
-- `args` {Boolean}: Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
+- `args` (Boolean): Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
 
 #### Examples
 
@@ -886,7 +886,7 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 
 #### Parameters
 
-- `collection` {Array|Object|String}: The collection to iterate over.
+- `collection` (Array|Object|String): The collection to iterate over.
 - `value` (String|Number|Array|Object): The value to check for.
 
 #### Example
@@ -1470,7 +1470,7 @@ Assigns a variable for later use in the template.
 #### Parameters
 
 - `key` (String)
-- `value` {String|Number}
+- `value` (String|Number)
 
 #### Example
 
