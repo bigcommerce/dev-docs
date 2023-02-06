@@ -1022,15 +1022,15 @@ Returns the given value of prop from `this.options`.
 
 #### Example
 
-```handlebars showLineNumbers
+```js showLineNumbers
 context = {
-   "options":{
-      "a":{
-         "b":{
-            "c":"ddd"
-         }
-      }
-   }
+  "options": {
+    "a": {
+      "b": {
+        "c": "ddd"
+       }
+    }
+  }
 }
 ```
 
