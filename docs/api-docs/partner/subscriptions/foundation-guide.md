@@ -28,7 +28,7 @@ To fork the repository, complete the following steps:
 2. Clone your fork to your local development environment.
 3. Navigate to the root directory of your cloned repository and install the default packages for your app by running the following command:
 
-```shell title="Install packages"
+```shell filename="Install packages" showLineNumbers
 npm install
 ```
 ## Create an HTTPS tunnel
@@ -157,7 +157,7 @@ To configure test mode, complete the following steps:
    
    c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
-   ```http title="Your app's Stripe callback URI"
+   ```http filename="Your app's Stripe callback URI" showLineNumbers
    https://{ngrok_id}.ngrok.io/stripe/callback
    ```
 
@@ -192,7 +192,7 @@ To declare environment variables, complete the following steps:
 
 2. Copy the contents of `.env.sample` to `.env` with the following command:
 
-```shell title="Copy .env.sample contents"
+```shell filename="Copy .env.sample contents" showLineNumbers
 cp .env.sample .env
 ```
 Open the `.env` file you just created and update the following environment variables:
@@ -225,13 +225,13 @@ To run the migration and start the server, complete the following steps:
       
      b. In the Supabase dashboard, click the Settings (gear) icon, and in the left navigation menu, click **Database**. Scroll down the page to the **Connection string** section, click **URI**, and copy the connection string. Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
 
-```shell title="Example Postgres Cloud connection string"
+```shell filename="Example Postgres Cloud connection string" showLineNumbers
 postgresql://postgres:[YOUR-PASSWORD]@db.uqchmyniufaqkijttavq.supabase.co:5432/postgres
 ```
 
 3. Run the pre-configured Prisma migration script to create the database tables and initial client as defined in `/prisma/migrations/*` by issuing the following command: 
 
-```shell title="Run Prisma migration"
+```shell filename="Run Prisma migration" showLineNumbers
 npx prisma migrate dev
 ```
 ![npx_prisma_migrate_dev_postgres](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate_dev_postgres.png)
@@ -239,7 +239,7 @@ npx prisma migrate dev
 
 3. Start the app server with the following npm script:
 
-```shell title="Start the app server"
+```shell filename="Start the app server" showLineNumbers
 npm run dev
 ```
 
@@ -261,7 +261,7 @@ databse db {
 
 3. Run the prisma migration script with the following command:
 
-```shell title="Run Prisma migration"
+```shell filename="Run Prisma migration" showLineNumbers
 npx prisma migrate dev
 ```
 <Callout type="warning">
@@ -270,19 +270,19 @@ npx prisma migrate dev
 
 4. To generate a fresh app client that uses the new database provider, run the following script:
 
-```shell title="Run Prisma generate"
+```shell filename="Run Prisma generate" showLineNumbers
 npx prisma generate 
 ```
 
 5. To access this database locally, run the following command, then use a visual editor to verify that the database tables have been created.
 
-```shell title="Run Prisma studio"
+```shell filename="Run Prisma studio" showLineNumbers
 npx prisma studio
 ```
 
 6. Start the app server by running the following command:
 
-```shell title="Start the app server"
+```shell filename="Start the app server" showLineNumbers
 npm run dev
 ```
 
