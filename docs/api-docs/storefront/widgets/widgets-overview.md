@@ -166,8 +166,7 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
  ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
 
 <Callout type="info">
-#### Note
-Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 </Callout>
 
 
@@ -193,8 +192,7 @@ To update a widget template without impacting existing widgets, set the `create_
 Updating the widget template with `create_new_version` set to `true` will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`.
 
 <Callout type="info">
-#### Note
-It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
+  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
 </Callout>
 
 
@@ -258,9 +256,8 @@ It is also possible to place widgets on the following custom templates, where `<
 * pages/custom/page/`<filename>`
 
 <Callout type="info">
-#### Note
-- To display a widget on the storefront, you must create a placement.
-- A region can contain multiple placements with widgets.
+  - To display a widget on the storefront, you must create a placement.
+  - A region can contain multiple placements with widgets.
 </Callout>
 
 
@@ -269,8 +266,7 @@ It is also possible to place widgets on the following custom templates, where `<
 When creating a placement with a widget, the widget content takes the full region width. The placement's `sort_order` property controls the display order of the widget. You would stack any additional widgets in the same region above or below based on each placement's `sort_order` property.
 
 <Callout type="info">
-#### Note
-If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
+  If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
 </Callout>
 
 
