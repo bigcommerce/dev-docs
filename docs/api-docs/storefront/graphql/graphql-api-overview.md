@@ -19,8 +19,7 @@ Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data f
 This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](/api-docs/storefront/graphql/graphql-storefront-api-samples).
 
 <Callout type="info">
-#### Note
-BigCommerce legacy Blueprint themes do not support the GraphQL API and Playground.
+  BigCommerce legacy Blueprint themes do not support the GraphQL API and Playground.
 </Callout>
 
 ## See it in action
@@ -42,8 +41,7 @@ The GraphQL Storefront API Playground will open.
 ![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
 <Callout type="info">
-#### Note
-If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the GraphQL Storefront API.
+  If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the GraphQL Storefront API.
 </Callout>
 
 ## Using the GraphQL Playground
@@ -138,9 +136,8 @@ Content-Type: application/json
 </Tabs>
 
 <Callout type="info">
-#### Notes
-* The `allowed_cors_origins` array currently accepts only one origin. Generate a fresh token for each origin.
-* The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
+  * The `allowed_cors_origins` array currently accepts only one origin. Generate a fresh token for each origin.
+  * The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
 </Callout>
 
 Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
@@ -241,8 +238,7 @@ GraphQL Storefront API calls can be made directly from within a Stencil theme or
 The following example request uses the `{{settings.storefront_api.token}}` Handlebars object and [JavaScript's Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch):
 
 <Callout type="info">
-#### Note
-The `fetch` request's `credentials` property must be set to `same-origin`.
+  The `fetch` request's `credentials` property must be set to `same-origin`.
 </Callout>
 
 ```js filename="Example request: GraphQL query using Stencil token" showLineNumbers
@@ -600,8 +596,7 @@ For example, if your store hash is `abc123` and your channel ID is `456`, the ch
 To expose a channel's permanent URL, [create a site](/api-reference/store-management/sites/sites/post-site) for the channel.
 
 <Callout type="info">
-#### Note 
-When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, the server will reject your requests. See this article's section on [Creating a token](#creating-a-token).
+  When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, the server will reject your requests. See this article's section on [Creating a token](#creating-a-token).
 </Callout>
 
 ### I want to run requests from a front-end application or browser. I only show anonymous information, or I do not support signing in as a customer

@@ -215,8 +215,7 @@ query {
 The `sort` affects only the list of products returned. A merchant's [product filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determine how facets are sorted. 
 
 <Callout type="info">
-#### Note
-For a list of product fields that `searchTerm` searches, see the [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices) article.
+  For a list of product fields that `searchTerm` searches, see the [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices) article.
 </Callout>
 
 ## Get facets
