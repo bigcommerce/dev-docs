@@ -1,6 +1,6 @@
 # Data Layer API
 
-The Data Layer API allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/api-docs/analytics/bodl-for-storefronts). Bigcommerce can build native integrations to analytic providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer via the Data Layer API.
+The Data Layer API allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/api-docs/analytics/bodl-for-storefronts). Bigcommerce can build native integrations to analytic providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer via the Data Layer API. The data layer is enabled at the global level.
 
 This guide shows you how to use the Data Layer API. For more info, see the [Data Layer API Reference](/api-reference/graphql/data-layer-api). 
 
@@ -14,7 +14,7 @@ title: Query
 -->
 
 ```http title="Example query: Get data layer enabled flag" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 
@@ -83,10 +83,12 @@ title: Response
 ```graphql title="Example response: Enable data layer" lineNumbers
 {
   "data": {
-    "store": {
-      "settings": {
-        "dataSolutions": {
-          "isDataLayerEnabled": true
+    "settings": {
+      "dataSolutions": {
+        "updateDataLayer": {
+          "dataSolutions": {
+            "isDataLayerEnabled": true
+          }
         }
       }
     }
@@ -132,10 +134,12 @@ title: Response
 ```graphql title="Example response: Disable data layer" lineNumbers
 {
   "data": {
-    "store": {
-      "settings": {
-        "dataSolutions": {
-          "isDataLayerEnabled": false
+    "settings": {
+      "dataSolutions": {
+        "updateDataLayer": {
+          "dataSolutions": {
+            "isDataLayerEnabled": false
+          }
         }
       }
     }
