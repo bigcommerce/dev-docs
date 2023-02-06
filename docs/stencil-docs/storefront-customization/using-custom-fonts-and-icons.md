@@ -23,10 +23,14 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 
 ```json showLineNumbers
 //old
-"body-font": "Google_Karla_400"
+{
+  "body-font": "Google_Karla_400"
+}
 
 //new
-"body-font": "Google_Lato_700"
+{
+  "body-font": "Google_Lato_700"
+}
 ```
 
 <Callout type="info">
@@ -37,15 +41,15 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 
 ### Custom fonts
 
-Custom fonts can be used in any theme. To use a custom font upload it to the stores `/content/` folder in [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+Custom fonts can be used in any theme. To use a custom font upload it to the stores `/content/` folder in [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
-![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/content_folder_webdav.png "Content Folder Webdav")
+![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/content_folder_webdav.png "Content Folder WebDAV")
 
 ### Reference fonts in head
 
 Next, edit the appropriate template file's `<head>` sections to reference your custom fonts. In this logo example, you would edit the `templates/layout/base.html` file's `<head>` section to insert the following code (which references the custom font you just uploaded):
 
-```html showLineNumbers
+```handlebars showLineNumbers
 <style type="text/css" media="screen, print">
     @font-face {
         font-family: "MyFont";
@@ -56,7 +60,7 @@ Next, edit the appropriate template file's `<head>` sections to reference your c
 
 For all possible browser support use the following:
 
-```html showLineNumbers
+```handlebars showLineNumbers
 <style type="text/css" media="screen, print">
     @font-face {
     font-family: "MyFont";
@@ -75,9 +79,9 @@ Finally, update the appropriate CSS to reference the same font. In this example,
 
 ```css showLineNumbers
 .header-logo-text {
-display: block;
-   font-family: 'MyFont';
-   [...]
+  display: block;
+  font-family: 'MyFont';
+  [...]
 }
 ```
 
@@ -86,7 +90,6 @@ display: block;
   The CDN custom Handlebars helper assumes WebDAV's default `/content/` folder, so there is no need to specify that folder.
   Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
 </Callout>
-
 
 Files that do not contain font-overriding CSS code will use the CSS settings in the `config.json` file.
 
@@ -110,22 +113,22 @@ Assume that your theme's `config.json` contains the following key name and value
 
 ```json showLineNumbers
 {
-    // ...
-    "headings-font": "Google_Open+Sans_700"`
-    // ...
+  // ...
+  "headings-font": "Google_Open+Sans_700"`
+  // ...
 }
 ```
 
 In your Sass stylesheet, you would call the `stencilFontFamily` and `stencilFontWeight` custom Sass functions on the corresponding `config.json` key name like so:
 
-```css showLineNumbers
+```scss showLineNumbers
 $body-font-family: stencilFontFamily("body-font");
 $body-font-weight: stencilFontWeight("body-font");
 ```
 
 These functions would extract the corresponding `config.json` values as:
 
-```css showLineNumbers
+```scss showLineNumbers
 $body-font-family: 'Open Sans';
 $body-font-weight: 700;
 ```
@@ -173,6 +176,6 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 
 ### Additional resources
 * [Stencil Custom Sass Functions](/stencil-docs/storefront-customization/custom-sass-functions)
-* [Custom Icons Video Tutorial](//youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce YouTube)
-* [Custom Fonts Video Tutorial](//youtube.com/watch/-w7Hbn_p_pw) (BigCommerce YouTube)
-* [Google Fonts](https://fonts.google.com/) (Google)
+* [Custom Icons Video Tutorial (BigCommerce YouTube)](//youtube.com/watch?v=ZwrVN5QrEZY)  
+* [Custom Fonts Video Tutorial (BigCommerce YouTube)](//youtube.com/watch/-w7Hbn_p_pw) 
+* [Google Fonts (Google)](https://fonts.google.com/)
