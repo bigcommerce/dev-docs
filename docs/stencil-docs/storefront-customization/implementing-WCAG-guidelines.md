@@ -8,13 +8,14 @@ This article provides Cornerstone code snippets which satisfy current WCAG guide
 ## Bypass blocks
 To satisfy the [bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks) WCAG guideline, Cornerstone has a 'Skip to Main' link on each page. You can find this code in `/templates/components/common/header.html`.
 
-```html showLineNumbers
+```handlebars showLineNumbers
 {{lang 'header.skip_to_main'}} {{#if banners.top}}
-{{#each (limit banners.top_metadata 1)}}
-{{{this.content}}}
-{{/each}}
+  {{#each (limit banners.top_metadata 1)}}
+    {{{this.content}}}
+  {{/each}}
 {{/if}}
 ```
+
 **HTML output**
 
 ![Skip to Main](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG_guideline_skip_to_main.png "Skip to Main")
@@ -22,10 +23,11 @@ To satisfy the [bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks) WCAG
 ## Location
 To satisfy the [Location](https://www.w3.org/TR/WCAG21/#location) WCAG guideline, Cornerstone provides breadcrumbs on each page. See an example of breadcrumbs in `/templates/components/common/contact-us.html`.
 
-```html
+```handlebars
 {{#partial "page"}} {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#unless theme_settings.hide_contact_us_page_heading }}
+{{#unless theme_settings.hide_contact_us_page_heading}}
 ```
+
 **HTML output**
 
 ![Breadcrumbs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG_guidelines_breadcrumbs.png "Breadcrumbs")
