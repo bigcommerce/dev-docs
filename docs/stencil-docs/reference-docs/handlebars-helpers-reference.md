@@ -6,8 +6,8 @@ This article is a reference for [Stencil](/stencil-docs/getting-started/about-st
 
 The following table contains BigCommerce's open source [Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers).
 
-| **Helper** | **Category** | **Description** |
-| --- | --- | --- |
+| Helper | Category | Description |
+|:-------|:---------|:------------|
 | [limit](#limit) | array | Limits array to second argument. |
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
@@ -60,7 +60,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [decrementVar](#decrementvar) | variables | Decrements a variable by 1. |
 | [incrementVar](#incrementvar) | variables | Increments a variable by 1. |
 
-### `{{limit}}`
+### limit
 
 ```handlebars showLineNumbers
 {{limit data limit}}
@@ -111,7 +111,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=limit)
 
-### `{{pluck}}`
+### pluck
 
 ```handlebars showLineNumbers
 {{pluck limit collection path}}
@@ -167,7 +167,7 @@ results in: '["aa", "bb", "cc"]'
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pluck)
 
-### `{{cdn}}`
+### cdn
 
 ```handlebars showLineNumbers
 {{cdn assetPath}}
@@ -281,7 +281,7 @@ The following script is an example of Early Hints usage in the Cornerstone theme
 
 You can view more Early Hints usage in Cornerstone's `templates/layout/base.html` file by visiting the [Cornerstone Repository](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
 
-### `{{moment}}`
+### moment
 
 ```handlebars showLineNumbers
 {{moment date format}}
@@ -310,7 +310,7 @@ If you encounter an issue with the last day of the month, use one of the followi
 <!-- To call moment.js functions -->
 ```
 
-### `{{money}}`
+### money
 
 ```handlebars showLineNumbers
 {{money value n s c}}
@@ -333,7 +333,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js)
 
-### `{{getFontLoaderConfig}}`
+### getFontLoaderConfig
 
 ```handlebars showLineNumbers
 {{getFontLoaderConfig fontConfig}}
@@ -354,7 +354,7 @@ Returns font-loader config as a JSON string.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js)
 
-### `{{getFontsCollection}}`
+### getFontsCollection
 
 ```handlebars showLineNumbers
 {{getFontsCollection}}
@@ -372,7 +372,7 @@ Returns `<link>` elements for configured fonts.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontsCollection)
 
-### `{{encodeHtmlEntities}}`
+### encodeHtmlEntities
 
 ```handlebars showLineNumbers
 {{encodeHtmlEntities string args}}
@@ -413,7 +413,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js)
 
-### `{{nl2br}}`
+### nl2br
 
 ```handlebars showLineNumbers
 {{nl2br text}}
@@ -435,7 +435,7 @@ Converts newline characters to `<br>` tags.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=nl2br)
 
-### `{{pre}}`
+### pre
 
 ```handlebars showLineNumbers
 {{pre value}}
@@ -462,7 +462,7 @@ Renders preformatted text. This helper will escape text.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre)
 
-### `{{resourceHints}}`
+### resourceHints
 
 ```handlebars showLineNumbers
 {{resourceHints}}
@@ -480,7 +480,7 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=resourceHints)
 
-### `{{stylesheet}}`
+### stylesheet
 
 ```handlebars showLineNumbers
 {{stylesheet assetPath}}
@@ -502,7 +502,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=stylesheet)
 
-### `{{lang}}`
+### lang
 
 ```handlebars showLineNumbers
 {{lang translationKey}}
@@ -533,7 +533,7 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=lang)
 
-### `{{langJson}}`
+### langJson
 
 ```handlebars showLineNumbers
 {{langJson keyFilter}}
@@ -555,7 +555,7 @@ Returns language translation keys as a JSON string.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=langJson)
 
-### `{{getContentImage}}`
+### getContentImage
 
 ```handlebars showLineNumbers
 {{getContentImage path width height}}
@@ -589,7 +589,7 @@ Returns a URL for an image uploaded to `/dav/content/`. To learn more about uplo
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImage.js)
 
-### `{{getContentImageSrcset}}`
+### getContentImageSrcset
 
 ```handlebars showLineNumbers
 {{getContentImageSrcset path}}
@@ -613,7 +613,7 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImageSrcset.js)
 
-### `{{getImage}}`
+### getImage
 
 ```handlebars showLineNumbers
 {{getImage stencilImage size}}
@@ -636,7 +636,7 @@ Returns `<img>` tag `src` value for images of a specified size. Values for the s
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImage)
 
-### `{{getImageManagerImage}}`
+### getImageManagerImage
 
 ```handlebars showLineNumbers
 {{getImageManagerImage path width height}}
@@ -671,7 +671,7 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js)
 
-### `{{getImageManagerImageSrcset}}`
+### getImageManagerImageSrcset
 
 ```handlebars showLineNumbers
 {{getImageManagerImageSrcset path}}
@@ -697,7 +697,7 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w,
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js).
 
-### `{{getImageSrcset}}`
+### getImageSrcset
 
 ```handlebars showLineNumbers
 {{getImageSrcset stencilImage size}}
@@ -780,7 +780,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageSrcset)
 
-### `{{any}}`
+### any
 
 ```handlebars showLineNumbers
 {{any arg}}
@@ -817,7 +817,7 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=any)
 
-### `{{all}}`
+### all
 
 ```handlebars showLineNumbers
 {{all arg}}
@@ -848,7 +848,7 @@ Renders block if all parameters are true.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=all)
 
-### `{{compare}}`
+### compare
 
 ```handlebars showLineNumbers
 {{compare a operator b}}
@@ -876,7 +876,7 @@ Compares values with JavaScript operators. Renders block if comparison of the fi
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=compare)
 
-### `{{contains}}`
+### contains
 
 ```handlebars showLineNumbers
 {{contains collection value}}
@@ -902,7 +902,7 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
-### `{{for}}`
+### for
 
 ```handlebars showLineNumbers
 {{for a b}}
@@ -926,7 +926,7 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=for)
 
-### `{{if}}`
+### if
 
 ```handlebars showLineNumbers
 {{if arg}}
@@ -953,7 +953,7 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=if)
 
-### `{{or}}`
+### or
 
 ```handlebars showLineNumbers
 {{or arg}}
@@ -982,7 +982,7 @@ Renders block if one or more parameters evaluates to true.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/or.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=or)
 
-### `{{unless}}`
+### unless
 
 ```handlebars showLineNumbers
 {{unless arg}}
@@ -1011,7 +1011,7 @@ Renders a block if a statement is false; does not support operators for comparis
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless)
 
 
-### `{{option}}`
+### option
 
 ```handlebars showLineNumbers
 <!-- context = {options: {a: {b: {c: 'ddd'}}}} -->
@@ -1037,7 +1037,7 @@ context = {
 `{{option "a.b.c"}}` returns "ddd"
 
 
-### `{{get}}`
+### get
 ```handlebars showLineNumbers
 {{get (concat “a.b.c.d”) someObject}}
 ```
@@ -1049,14 +1049,14 @@ Use property paths (`a.b.c`) to get a value or nested value from the context. Wo
 {{#get "posts" blog}}{{/get}}
 ```
 
-### `{{getObject}}`
+### getObject
 
 ```handlebars showLineNumbers
 {{#with (getObject "a.b.c" someObject)}}...{{/with}}
 ```
 Use property paths (`a.b.c`) to get an object from the context. Differs from the `get` helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper.
 
-### `{{concat}}`
+### concat
 
 ```handlebars showLineNumbers
 {{concat value otherValue}}
@@ -1079,7 +1079,7 @@ Concatenates two strings.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=concat)
 
-### `{{join}}`
+### join
 
 ```handlebars showLineNumbers
 {{join values separator}}
@@ -1109,7 +1109,7 @@ Joins an array of string elements into a single string.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/join.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=join)
 
-### `{{json}}`
+### json
 
 ```handlebars showLineNumbers
 {{json object}}
@@ -1133,7 +1133,7 @@ Converts a JavaScript object into a JSON string.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js)
 
-### `{{occurrences}}`
+### occurrences
 
 ```handlebars showLineNumbers
 {{occurrences str substring}}
@@ -1155,7 +1155,7 @@ Returns the number of occurrences of substring within the given string.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js)
 
-### `{{replace}}`
+### replace
 
 ```handlebars showLineNumbers
 {{replace firstParam secondParam string}}
@@ -1183,7 +1183,7 @@ Replaces all instances of the first parameter in the second parameter with the c
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=replace)
 
-### `{{setURLQueryParam}}`
+### setURLQueryParam
 
 ```handlebars showLineNumbers
 {{setURLQueryParam url key value}}
@@ -1206,7 +1206,7 @@ Appends key values to a URL.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/setURLQueryParam.js).
 
-### `{{stripQuerystring}}`
+### stripQuerystring
 
 ```handlebars showLineNumbers
 {{stripQuerystring url}}
@@ -1227,7 +1227,7 @@ Strips query string from a URL.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
 
-### `{{strReplace}}`
+### strReplace
 
 ```handlebars showLineNumbers
 {{strReplace subjectString targetSubstring newSubstring occurrenceSelection}}
@@ -1272,7 +1272,7 @@ Replaces some or all occurrences of a target substring within the subject string
 
 - [See the strReplace helper (GitHub)](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
 
-### `{{toLowerCase}}`
+### toLowerCase
 
 ```handlebars showLineNumbers
 {{toLowerCase string}}
@@ -1294,7 +1294,7 @@ Converts a string to lowercase.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=toLowerCase)
 
-### `{{truncate}}`
+### truncate
 
 ```handlebars showLineNumbers
 {{truncate string length}}
@@ -1316,7 +1316,7 @@ Truncates a string.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js)
 
-### `{{block}}`
+### block
 
 ```handlebars showLineNumbers
 {{block string}}
@@ -1339,7 +1339,7 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=block)
 
-### `{{dynamicComponent}}`
+### dynamicComponent
 
 ```handlebars showLineNumbers
 {{dynamicComponent path}}
@@ -1362,7 +1362,7 @@ Inserts a dynamic partial in the specified path.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=dynamicComponent)
 
-### `{{inject}}`
+### inject
 
 ```handlebars showLineNumbers
 {{inject value object}}
@@ -1395,7 +1395,7 @@ console.log(jsContext.myProductName);
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?q=inject)
 
-### `{{jsContext}}`
+### jsContext
 
 ```handlebars showLineNumbers
 {{jsContext}}
@@ -1406,7 +1406,7 @@ Returns a JSON representation of the data injected by the [inject](#inject) help
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
-### `{{partial}}`
+### partial
 
 ```handlebars showLineNumbers
 {{partial string}}
@@ -1434,7 +1434,7 @@ Overrides content defined by the [block](#block) helper.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
-### `{{region}}`
+### region
 
 ```handlebars showLineNumbers
 {{region name}}
@@ -1459,7 +1459,7 @@ Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/region.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=region)
 
-### `{{assignVar}}`
+### assignVar
 
 ```handlebars showLineNumbers
 {{assignVar key value}}
@@ -1480,7 +1480,7 @@ Assigns a variable for later use in the template.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/assignVar.js)
 
-### `{{getVar}}`
+### getVar
 
 ```handlebars showLineNumbers
 {{getVar key}}
@@ -1500,7 +1500,7 @@ Returns the variable set by [assignVar](#assignVar).
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getVar.js)
 
-### `{{decrementVar}}`
+### decrementVar
 
 ```handlebars showLineNumbers
 {{decrementVar key}}
@@ -1520,7 +1520,7 @@ Decrements the variable set by [assignVar](#assignVar) by 1.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/decrementVar.js)
 
-### `{{incrementVar}}`
+### incrementVar
 
 ```handlebars showLineNumbers
 {{incrementVar key}}
@@ -1540,7 +1540,7 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
-### `{{JSONparse}}`
+### JSONparse
 
 Parse data with JSONparse.
 
