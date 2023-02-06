@@ -47,8 +47,7 @@ A sandbox store cannot process transactions and is for developing and testing ap
 We encourage you to create your sandbox store and your Developer Portal account using the same login credentials.
 
 <Callout type="info">
-#### Note
-Your Developer Portal account is an entirely separate account outside of the Partner Portal.
+  Your Developer Portal account is an entirely separate account outside of the Partner Portal.
 </Callout>
 
 <Callout type="warning">
