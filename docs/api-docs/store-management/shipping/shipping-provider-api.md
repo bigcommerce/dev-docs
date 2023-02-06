@@ -410,8 +410,7 @@ If no shipping quotes are available, the shipping carrier will send a response w
 When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
 <Callout type="info">
-#### Note
-The response payload will display shipping quotes from lowest to highest price.
+  The response payload will display shipping quotes from lowest to highest price.
 </Callout>
 
 ## Including product metadata in rate requests
