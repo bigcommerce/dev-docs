@@ -12,7 +12,7 @@ You can use your widget template settings to define a data type in the schema_tr
 
 Used to toggle on theme settings (boolean value)
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "checkbox",
  "label": "i18n.HideBreadcrumbs",
@@ -28,7 +28,7 @@ Optional field: `force_reload`
 
 Used to set color value on theme setting (hex value)
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "color",
  "label": "i18n.BannerBackground",
@@ -41,7 +41,7 @@ Required fields: `type`, `label`, and  `id`
 
 Used to select font value on theme setting
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "font",
  "label": "i18n.BodyTextFontFamily",
@@ -71,7 +71,7 @@ Optional field: `force_reload`
 
 ## Heading
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "heading",
  "content": "i18n.BackgroundAndLines"
@@ -83,7 +83,7 @@ Required fields: `type` and  `content`
 
 Used to set image ratio on theme setting
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "imageDimension",
  "id": "blog_size",
@@ -109,7 +109,7 @@ Note: "custom" value option will allow users to specify the width/height. Else, 
 
 The reference field on a setting can show additional settings based on the value of another setting. For example, we may want to hide the `Product Sale Badge Label` setting if `Show product sale badges` setting equals none.
 
-```yml filename="Example: ShowProductSaleBadges setting" showLineNumbers
+```json filename="Example: ShowProductSaleBadges setting" showLineNumbers
 {
  "type": "select",
  "label": "i18n.ShowProductSaleBadges",
@@ -136,7 +136,7 @@ The reference field on a setting can show additional settings based on the value
 },
 ```
 
-```yml filename="Example: ProductSaleBadgeLabel setting" showLineNumbers
+```json filename="Example: ProductSaleBadgeLabel setting" showLineNumbers
 {
  "type": "text",
  "label": "i18n.ProductSaleBadgeLabel",
@@ -159,7 +159,7 @@ Used to select custom value on theme settings.
 
 Note: Option types should all be the same (i.e., string, number, etc.).
 
-```yml showLineNumbers
+```json showLineNumbers
 {
  "type": "select",
  "label": "i18n.BodyTextFontSize",
