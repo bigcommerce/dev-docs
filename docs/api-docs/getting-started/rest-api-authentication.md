@@ -87,7 +87,7 @@ Where both types of API account are supported, review the preceding sections to 
 | API or Use Case | App API Account | Store API Account |
 |:----------------|:---------------:|:-----------------:|
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
-| [GraphQL Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
+| [GraphQL Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | | &times; |
 | [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) |  | &times; |
 | [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) |  | &times; |
 | [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | &times; |  |
