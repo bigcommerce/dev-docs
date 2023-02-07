@@ -36,7 +36,7 @@ The `config` argument works like front matter: it encapsulates JSON. For a usage
 
 In the following example from `common/faceted-search.js`, an `updateView()` method uses `api.getPage()` to refresh page content.
 
-```js title="Example: getPage" lineNumbers
+```js filename="Example: getPage" showLineNumbers
 updateView() {
   $(this.options.blockerSelector).show();
 
@@ -55,9 +55,9 @@ updateView() {
 
 The Cornerstone theme uses the `getPage` method in the following contexts:
 
-- [`assets/js/theme/wishlist.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/wishlist.js)
-- [`assets/js/theme/gift-certificate.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
-- [`assets/js/theme/faceted-search.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
+- [assets/js/theme/wishlist.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/wishlist.js)
+- [assets/js/theme/gift-certificate.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
+- [assets/js/theme/faceted-search.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
 
 ### Get page by GraphQL
 
@@ -72,8 +72,7 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 | page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br /> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: getPageByGQL" lineNumbers
-
+```js filename="Example: getPageByGQL" showLineNumbers
 utils.api.getPageByGQL('pages/store-locator', (err, response) => {
   if(err) {
     console.error(err);
@@ -98,7 +97,7 @@ This method takes the form `utils.api.cart.getCart(options, callback);`.
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
-```js title="Example: getCart" lineNumbers
+```js filename="Example: getCart" showLineNumbers
 utils.api.cart.getCart({}, (err, response) => {
   console.log(response);
   console.log(err);
@@ -119,7 +118,7 @@ Get a sum of the cart line item quantities. It takes the form `utils.api.cart.ge
 | options | object | Return product variant options. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: getCartQuantity" lineNumbers
+```js filename="Example: getCartQuantity" showLineNumbers
 utils.api.cart.getCartQuantity({}, (err, response) => {
   console.log(response);
   console.log(err);
@@ -132,7 +131,7 @@ utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
+- [assets/js/theme/global/cart-preview.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
 
 ### Item add
 [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
@@ -146,7 +145,7 @@ The `itemAdd`method allows your code to add an item to the cart, with options. T
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
 
-```js title="Example: itemAdd" lineNumbers
+```js filename="Example: itemAdd" showLineNumbers
 utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, response) => {
   const errorMessage = err || response.data.error;
 
@@ -177,7 +176,7 @@ utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, 
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ### Item update
 
@@ -191,7 +190,7 @@ The `itemUpdate` method allows your code to update a specified cart item’s qua
 | qty | integer | The item’s quantity in the cart. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: itemUpdate" lineNumbers
+```js filename="Example: itemUpdate" showLineNumbers
 cartUpdate($target) {
   const itemId = $target.data('cartItemid');
   const $el = $(`#qty-${itemId}`);
@@ -236,7 +235,7 @@ cartUpdate($target) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Item remove
 [itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
@@ -251,7 +250,7 @@ The `itemRemove` method allows your code to remove items from the cart. This met
 
 In the following example (from `cart.js`), `itemRemove` is called before the if/else test.
 
-```js title="Example: itemRemove" lineNumbers
+```js filename="Example: itemRemove" showLineNumbers
 cartRemoveItem(itemId) {
   this.$overlay.show();
   utils.api.cart.itemRemove(itemId, (err, response) => {
@@ -266,7 +265,7 @@ cartRemoveItem(itemId) {
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Update
 [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
@@ -281,7 +280,7 @@ The `update` method allows your code to update the set of items in the cart. It 
 
 The following example shows a call to `update` within the `itemUpdate` method:
 
-```js title="Example: update" lineNumbers
+```js filename="Example: update" showLineNumbers
 itemUpdate(itemId, qty, callback) {
   let callbackArg = callback;
   let items;
@@ -324,7 +323,7 @@ The `getItemGiftWrappingOptions` method allows your code to retrieve gift-wrappi
 
 The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to display gift-wrapping options in a modal.
 
-```js title="Example: getItemGiftWrappingOptions" lineNumbers
+```js filename="Example: getItemGiftWrappingOptions" showLineNumbers
 bindGiftWrappingEvents() {
   const modal = defaultModal();
 
@@ -347,7 +346,7 @@ bindGiftWrappingEvents() {
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Submit item gift wrapping option
 [submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
@@ -360,7 +359,7 @@ The `submitItemGiftWrappingOption` method allows your code to handle the custome
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
 
-```js title="Example: submitItemGiftWrappingOption" lineNumbers
+```js filename="Example: submitItemGiftWrappingOption" showLineNumbers
 /**
  * Submit giftwrapping options
  *
@@ -385,7 +384,7 @@ The `getContent` method allows your code to display the cart contents in customi
 
 This example (from `cart.js`) shows a call to `getContent` within the `refreshContent` function.
 
-```js title="Example: getContent" lineNumbers
+```js filename="Example: getContent" showLineNumbers
 refreshContent(remove) {
   const $cartItemsRows = $('[data-item-row]', this.$cartContent);
   const $cartPageTitle = $('[data-cart-page-title]');
@@ -422,9 +421,9 @@ refreshContent(remove) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/global/cart-preview.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ### Get shipping quotes
 [getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
@@ -441,7 +440,7 @@ The `getShippingQuotes` method allows your code to retrieve shipping-cost quotes
 See `submitShippingQuotes` for an example. 
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
+- [assets/js/theme/cart/shipping-estimator.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Submit shipping quote
 [submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
@@ -458,7 +457,7 @@ The `submitShippingQuote` method must be called after `getShippingQuote`, which 
 
 The following example from `cart/shipping-estimator.js` shows calls to both `getShippingQuotes` and `submitShippingQuote`.
 
-```js title="Example: getShippingQuotes and submitShippingQuote" lineNumbers
+```js filename="Example: getShippingQuotes and submitShippingQuote" showLineNumbers
 bindEstimatorEvents() {
   const $estimatorContainer = $('.shipping-estimator');
   const $estimatorForm = $('.estimator-form');
@@ -492,7 +491,7 @@ bindEstimatorEvents() {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
+- [assets/js/theme/cart/shipping-estimator.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Apply code
 [applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
@@ -506,7 +505,7 @@ The `applyCode` method applies a coupon code or gift certificate to the cart. It
 
 In the following example from `cart.js`, `applyCode` is called before the final if/else test to apply a coupon code:
 
-```js title="Example: applyCode" lineNumbers
+```js filename="Example: applyCode" showLineNumbers
 bindPromoCodeEvents() {
   const $couponContainer = $('.coupon-code');
   const $couponForm = $('.coupon-form');
@@ -551,7 +550,7 @@ bindPromoCodeEvents() {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Apply gift certificate
 [applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
@@ -565,7 +564,7 @@ This method applies a gift certificate to a cart. It takes the form `utils.api.c
 
 The following example calls `appleGiftCertificate`.
 
-```js title="Example: applyGiftCertificate" lineNumbers
+```js filename="Example: applyGiftCertificate" showLineNumbers
 utils.api.cart.applyGiftCertificate(code, (err, resp) => {
   if (resp.data.status === 'success') {
     this.refreshContent();
@@ -579,7 +578,7 @@ utils.api.cart.applyGiftCertificate(code, (err, resp) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ## Countries Resource
 These methods allow your theme or app to retrieve standardized country names, by numeric ID or by string.
@@ -597,7 +596,7 @@ The country `getById` method retrieves standardized country names by numeric ID.
 
 The following example makes a call to country `getById`.
 
-```js title="Example: getById and getByName" lineNumbers
+```js filename="Example: getById and getByName" showLineNumbers
 utils.api.countries.getById(countryId, (err, res) => {
   const url = this.endpoint + countryId;
   this.remoteRequest(url, 'GET', {}, callback);
@@ -616,8 +615,7 @@ The `getByName` method retrieves states by country name, and returns an array of
 
 In the following example from `common/state-country.js`, `getByName` is called after the initial `if` test:
 
-```js title="Example: getByName" lineNumbers
-
+```js filename="Example: getByName" showLineNumbers
 callback(err, element) => {
   if(err) {
     console.log(err);
@@ -654,7 +652,7 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/state-country.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/state-country.js)
+- [assets/js/theme/common/state-country.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/state-country.js)
 
 ## Product Attributes Resource
 
@@ -671,7 +669,7 @@ The `optionChange` method is fired when the customer selects a product option fo
 
 In this example (from `common/product-details.js`), `optionChange` is called to update options in a Quick View modal.
 
-```js title="Example: optionChange" lineNumbers
+```js filename="Example: optionChange" showLineNumbers
 // Update product attributes. If we're in quick view and the product has options, then also update the initial view in case items are oos
 if (_.isEmpty(productAttributesData) && hasOptions) {
   const $productId = $('[name="product_id"]', $form).val();
@@ -688,8 +686,8 @@ if (_.isEmpty(productAttributesData) && hasOptions) {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/common/product-details.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Configure in cart
 [configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
@@ -702,7 +700,7 @@ This method configures product options in the cart. It takes the form `utils.api
 | params | object | |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: configureCart" lineNumbers
+```js filename="Example: configureCart" showLineNumbers
 utils.api.productAttributes.configureInCart(itemId, options, (err, response) => {
   modal.updateContent(response.content);
   this.bindGiftWrappingForm();
@@ -711,7 +709,7 @@ utils.api.productAttributes.configureInCart(itemId, options, (err, response) => 
 
 ### Usage in Cornerstone
 
-- [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
+- [assets/js/theme/cart.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ## Product Resource
 ### Product get by id
@@ -725,7 +723,7 @@ The product `getById` method allows your code to retrieve, and to present, detai
 | params | object | Contains request options and/or presentation template. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: Product getById" lineNumbers
+```js filename="Example: Product getById" showLineNumbers
 $('body').on('click', '.quickview', (event) => {
     event.preventDefault();
     const productId = $(event.currentTarget).data('product-id');
@@ -742,7 +740,7 @@ $('body').on('click', '.quickview', (event) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/quick-view.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-view.js)
+- [assets/js/theme/global/quick-view.js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-view.js)
 
 ## Search Resource
 
@@ -759,7 +757,7 @@ The core search method takes the form `utils.api.search.search(query, params, ca
 | params | object | Contains request options and/or presentation template. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-```js title="Example: search" lineNumbers
+```js filename="Example: search" showLineNumbers
 const doSearch = _.debounce((searchQuery) => {
   utils.api.search.search(searchQuery, { template: 'search/quick-results' }, (err, response) => {
     if (err) {
@@ -772,7 +770,7 @@ const doSearch = _.debounce((searchQuery) => {
 ```
 
 ### Usage in Cornerstone
-- [`assets/js/theme/global/quick-search/js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
+- [assets/js/theme/global/quick-search/js](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
 
 ## Config Object
 
@@ -780,7 +778,7 @@ A `config` object can be passed in as part of the Stencil Utils API.
 
 The object only returns data **in the context** of that call. The config will not be available to anything else. It will not surface objects that are not normally available to the page. Use YAML to return objects in the context of an entire page. Some config objects can only be used on the listed pages, while others are available globally. 
 
-```js title="Example: config" lineNumbers
+```js filename="Example: config" showLineNumbers
 getCartContent(cartItemHash, onComplete) {
   const options = {
     template: 'cart/preview',
@@ -804,7 +802,7 @@ getCartContent(cartItemHash, onComplete) {
 
 [Product Search Results](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/search.html)
 
-```json title="Example: Product search results" lineNumbers
+```json filename="Example: Product search results" showLineNumbers
 {
   "search": {
     "product_results": {
@@ -819,7 +817,7 @@ getCartContent(cartItemHash, onComplete) {
 ### Brand list
 [Brand List Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brands.html)
 
-```json title="Example: Brand list object" lineNumbers
+```json filename="Example: Brand list object" showLineNumbers
 {
   "brands": {
     "limit": 5
@@ -830,7 +828,7 @@ getCartContent(cartItemHash, onComplete) {
 ### Brand page
 [Brand Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brand.html)
 
-```json title="Example: Brand page object" lineNumbers
+```json filename="Example: Brand page object" showLineNumbers
 {
   "brand": {
     "products": {
@@ -844,7 +842,7 @@ getCartContent(cartItemHash, onComplete) {
 
 [Cart Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/cart.html)
 
-```json title="Example: Cart object" lineNumbers
+```json filename="Example: Cart object" showLineNumbers
 {
   "cart": {
     "suggestions": {
@@ -858,7 +856,7 @@ getCartContent(cartItemHash, onComplete) {
 
 [Product Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html)
 
-```json title="Example: Product object" lineNumbers
+```json filename="Example: Product object" showLineNumbers
 {
   "product": {
     "videos": {
@@ -884,7 +882,7 @@ getCartContent(cartItemHash, onComplete) {
 
 [Blog Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/blog.html)
 
-```json title="Example: Blog object" lineNumbers
+```json filename="Example: Blog object" showLineNumbers
 {
   "blog": {
     "posts": {
@@ -901,7 +899,7 @@ getCartContent(cartItemHash, onComplete) {
 
 [Category Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html)
 
-```json title="Example: Category page object" lineNumbers
+```json filename="Example: Category page object" showLineNumbers
 {
   "category": {
     "shop_by_price": false,
@@ -914,7 +912,7 @@ getCartContent(cartItemHash, onComplete) {
 
 ### Global Objects
 
-```json title="Products" lineNumbers
+```json filename="Products" showLineNumbers
 {
   "products": {
     "featured": 3,
@@ -924,7 +922,7 @@ getCartContent(cartItemHash, onComplete) {
 }
 ```
 &nbsp;
-```json title="Example: " lineNumbers
+```json filename="Example: " showLineNumbers
 {
   "products": {
     "featured": {
@@ -940,7 +938,7 @@ getCartContent(cartItemHash, onComplete) {
 }
 ```
 &nbsp;
-```json title="All objects" lineNumbers
+```json filename="All objects" showLineNumbers
 {
   "customer": {
     "addresses": false,

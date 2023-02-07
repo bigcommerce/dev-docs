@@ -6,12 +6,12 @@ Stencil template objects expose dynamic page data. Not all objects are available
 
 ## Viewing a page's context
 
-To get the template context in plaintext JSON for a page served locally by Stencil CLI, add `debug=context` to the URL query string. To get the template context JSON ouput to a rendered page, use `debug=bar`. Example:
+To get the template context in plaintext JSON for a page served locally by Stencil CLI, add `debug=context` to the URL query string. To get the template context JSON output to a rendered page, use `debug=bar`. Example:
 
 * `http://localhost:3000/?debug=context`
 * `http://localhost:3000/?debug=bar`
 
-Here’s a javascript bookmark that uses the fetch API to dump the context to the console:
+Here’s a JavaScript bookmark that uses the fetch API to dump the context to the console:
 
 ```js
 javascript:void%20function(){fetch(window.location.pathname+%22%3Fdebug=context%22).then(function(n){n.json().then(function(n){console.log(n)})})}();
@@ -31,7 +31,7 @@ fetch(window.location.pathname + "?debug=context")
 
 The templating language used by Stencil themes is Handlebars; use it in templates to access dynamic page data:
 
-```html
+```handlebars
 {{#if page.sub_pages}}
 <nav class="navBar navBar--sub">
     <ul class="navBar-section account-navigation">
@@ -62,11 +62,10 @@ export default class Global extends PageManager {
 
 To use dynamic data from the template in client-side code, use the inject helper:
 
-```html
+```handlebars
 <!-- templates/pages/category.html -->
 
 {{inject "categoryId" category.id}}
-
 ```
 
 ```js
