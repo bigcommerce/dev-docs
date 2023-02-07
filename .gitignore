@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+.vscode
+.idea
+.scratch
+.notes
+.env
+.bashrc
+# .bash_profile
+
