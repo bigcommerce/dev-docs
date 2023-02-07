@@ -4,11 +4,12 @@ Certain Stencil objects can be accessed through multiple other Stencil objects. 
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
-<!-- theme: info -->
-> #### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
-> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
-> If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+<Callout type="info">
+  #### Debugging Your Theme
+  The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+  `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
+  If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+</Callout>
 
 ## Catalog Price
 
@@ -146,14 +147,14 @@ This consistent behavior is true for each of the common objects documented in th
 | category | Categories the product belongs to. | array |
 | price |References the [catalog price object](#catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
 | summary | Summary description of the product |  string |
-| image | Default image for the product, in  [Stencil image format](#stencil-image) | object
-| images | Array of a product's images, in  [Stencil image format](#stencil-image); currently limited to 5 images | array object |
+| image | Default image for the product, in [Stencil image format](#stencil-image) | object
+| images | Array of a product's images, in [Stencil image format](#stencil-image); currently limited to 5 images | array object |
 | date_added | Date the product was added to this BigCommerce storefront | string Ex. `"Aug 15th 2018"` |
 | pre_order |Product’s availability for pre-order | boolean |
 | show_cart_action | Indicates whether the product is available for purchase | boolean |
 | has_options | Indicates whether customer is required to specify options when ordering the product | Boolean | 
 | stock_level | If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. | number or null |
-| low_stock_level | If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the  `stock_level`property's value falls below this threshold. If inventory tracking is turned off: A "null" string. | number or "null" |
+| low_stock_level | If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the `stock_level` property's value falls below this threshold. If inventory tracking is turned off: A "null" string. | number or "null" |
 | custom_fields | Array of [custom fields](https://support.bigcommerce.com/articles/Public/Custom-Fields) for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc. | array |
 | &#x21B3; id |Unique (integer) identifier for this custom field | integer |
 | &#x21B3; name | Name of this custom field| string |
