@@ -425,8 +425,8 @@ Payload objects with the following scopes take the form that follows:
         "inventory": {
             "product_id": 167, // ID of the product
             "method": "absolute", // absolute or relative
-                // absolute -- inventory updated by an order
-		        // relative -- inventory updated using the API or the control panel
+                // absolute -- inventory updated using the API or the control panel
+		        // relative -- inventory updated by an order
             "value": 100000000 // the number of items that the inventory changed by
                 // value can be negative if the inventory is decreased (-3) or positive if an item is returned to the inventory from an order, (+2)
         }
@@ -562,8 +562,8 @@ Payload objects with the following scopes take the form that follows:
         "inventory": {
             "product_id": 206, // ID of the product
             "method": "absolute", // absolute or relative
-                // absolute -- inventory updated by an order
-		        // relative -- inventory updated using the API or the control panel
+                // absolute -- inventory updated using the API or the control panel
+		        // relative -- inventory updated by an order
             "value": 5, //  the number of items that the inventory changed by. 
                 // This can be negative if the inventory is decreased (-3), or positive if an item is returned to the inventory from an order (+2).
             "variant_id": 509 // ID of the variant
