@@ -30,7 +30,7 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | Tax provider name | Required | String | Displayed in the active MSF-enabled BigCommerce control panel (e.g. **Settings > Setup > Tax > Add tax service**). | `Sample Tax` |
 | Tax provider type | Required | Production, Sandbox | Hierarchy of tax provider configurations, Production is primary and Sandboxes are secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information. | `Production` |
 | Partner support email | Required | Email | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request. | `support@sampletax.example.com` |
-| Links displayed in an active MSF-enabled control panel | Optional | URL, Title, Description | Link(s) displayed to shoppers when they navigate to **Settings > Setup > Tax > Tax Provider**. One or multiple links supported. | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.` |
+| Links displayed in an active MSF-enabled control panel | Optional | URL, Title, Description | Link(s) displayed to shoppers when they navigate to **Settings > Setup > Tax > _TaxProviderName_**. One or multiple links supported. | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.` |
 **Coverage** | | | | |
 | Tax provider visibility | Required | Show, Hide | Tells us if tax provider should be displayed to users in the BigCommerce control panel before the tax providers app is installed on the associated store. | `Show` |
 | Platform availability | Required | All stores, Private instance | Tells us if tax provider should work on all stores or only on the stores where a store hash has been provided. | `All stores` |
@@ -57,7 +57,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 * Supported / unsupported countries
 
 <Callout type="info">
-  We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to   testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid     unnecessary dependencies.
+  We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
 </Callout>
 
 
@@ -108,7 +108,7 @@ Once the tax provider's app has been successfully installed and basic authentica
 
 To enable the tax provider, users must navigate to **Settings > Setup > Tax** in an active MSF-enabled BigCommerce control panel and click **Enable** next to the associated tax provider.
 
-If document submission is supported, navigate to **Settings > Setup > Tax > Tax Provider** in an active MSF-enabled BigCommerce control panel and ensure the **Submit Order Data** checkbox is checked.
+If document submission is supported, navigate to the provider's settings menu, found at **Settings > Setup > Tax > _TaxProviderName_** in an active MSF-enabled BigCommerce control panel and ensure the **Submit Order Data** checkbox is checked.
 
 ## Tax estimation
 
@@ -132,7 +132,7 @@ Estimate requests are not expected after the following events.
 Estimate calls will also be made in the control panel when using flows like the following.
 
 * Line-item refund flows
-* Test connection functionality when users navigate to **Settings > Setup > Tax > Tax Provider** in an active MSF-enabled BigCommerce control panel
+* Test connection functionality when users navigate to **Settings > Setup > Tax > _TaxProviderName_** in an active MSF-enabled BigCommerce control panel
 
 <Callout type="info">
   Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to     
@@ -152,7 +152,7 @@ Document submission enables tax providers to persist a tax quote request, replac
 
 Supporting document submission is optional. However, tax providers wishing to support this functionality must share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
-If document submission is supported, navigate to **Settings > Setup > Tax > Tax Provider** in an active MSF-enabled control panel and ensure the **Submit Order Data** checkbox is checked.
+If document submission is supported, navigate to **Settings > Setup > Tax > _TaxProviderName_** in an active MSF-enabled control panel and ensure the **Submit Order Data** checkbox is checked.
 
 [View the Commit Tax Quote API reference](/api-reference/providers/tax-provider-api/tax-provider/commit).
 
@@ -163,9 +163,9 @@ Prior to testing a tax provider, the merchant or partner test store should have 
 * The store default country, found by navigating to **Settings > Setup > Store profile**, is set to a country that is supported by the tax provider
 * The shipping origin address, found by navigating to **Settings > Setup > Shipping**, is configured. This value is included in tax estimate requests
 * The tax provider, found by navigating to **Settings > Setup > Tax**, is enabled
-* If document submission is supported, navigate to **Settings > Setup > Tax > Tax Provider** and ensure the **Submit Order Data** checkbox is checked
+* If document submission is supported, navigate to **Settings > Setup > Tax > _TaxProviderName_** and ensure the **Submit Order Data** checkbox is checked
 
-To test the tax provider connection, navigate to **Settings > Setup > Tax > Tax Provider** in an active MSF-enabled BigCommerce control panel and click **Test Connection**. This will trigger a sample tax estimate request to be sent to the estimate URL provided by the tax provider. If the connection is unsuccessful, users can navigate to **Settings > Advanced > Store logs** in an active MSF-enabled BigCommerce control panel to view the error and its description to assist with triaging the issue.
+To test the tax provider connection, navigate to **Settings > Setup > Tax > _TaxProviderName_** in an active MSF-enabled BigCommerce control panel and click **Test Connection**. This will trigger a sample tax estimate request to be sent to the estimate URL provided by the tax provider. If the connection is unsuccessful, users can navigate to **Settings > Advanced > Store logs** in an active MSF-enabled BigCommerce control panel to view the error and its description to assist with triaging the issue.
 
 ## Support
 
