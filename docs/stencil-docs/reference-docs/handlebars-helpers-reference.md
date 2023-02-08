@@ -1568,6 +1568,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [after](https://github.com/helpers/handlebars-helpers#after) | array | Returns all of the items in an array after the specified index. |
 | [arrayify](https://github.com/helpers/handlebars-helpers#arrayify)| array | Casts the given value to an array. |
 | [before](https://github.com/helpers/handlebars-helpers#before) | array | Returns all of the items in the collection before the specified count. |
+| [each](https://handlebarsjs.com/guide/builtin-helpers.html#each) | array | Block helper that iterates over the items in a given array. |
 | [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex) | array |  |
 | [filter](https://github.com/helpers/handlebars-helpers#filter) | array | Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned. |
 | [first](https://github.com/helpers/handlebars-helpers#first) | array | Returns the first item or first `n` items of an array. |
