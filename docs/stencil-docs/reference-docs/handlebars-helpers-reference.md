@@ -1,6 +1,6 @@
 # Handlebars Helpers Reference
 
-This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
@@ -383,7 +383,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 #### Parameters
 
 - `string` {String}: String to encode with HTML entities.
-- `args` {Boolean}: Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
+- `args` {Boolean}: Acceptlist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
 
 #### Examples
 
@@ -1561,13 +1561,14 @@ Parse data with JSONparse.
 ## Standard helpers
 
 
-The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
+The following table contains acceptlisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
 | [after](https://github.com/helpers/handlebars-helpers#after) | array | Returns all of the items in an array after the specified index. |
 | [arrayify](https://github.com/helpers/handlebars-helpers#arrayify)| array | Casts the given value to an array. |
 | [before](https://github.com/helpers/handlebars-helpers#before) | array | Returns all of the items in the collection before the specified count. |
+| [each](https://handlebarsjs.com/guide/builtin-helpers.html#each) | array | Block helper that iterates over the items in a given array. |
 | [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex) | array |  |
 | [filter](https://github.com/helpers/handlebars-helpers#filter) | array | Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned. |
 | [first](https://github.com/helpers/handlebars-helpers#first) | array | Returns the first item or first `n` items of an array. |
