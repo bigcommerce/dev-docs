@@ -1,6 +1,6 @@
 # Handlebars Helpers Reference
 
-This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
@@ -383,7 +383,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 #### Parameters
 
 - `string` {String}: String to encode with HTML entities.
-- `args` {Boolean}: Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
+- `args` {Boolean}: Acceptlist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
 
 #### Examples
 
@@ -1561,7 +1561,7 @@ Parse data with JSONparse.
 ## Standard helpers
 
 
-The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
+The following table contains acceptlisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
