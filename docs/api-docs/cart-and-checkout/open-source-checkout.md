@@ -36,7 +36,7 @@ When a store uses custom checkout, some properties are attached to the `window.c
 
 To use the data exposed in the window object, include relevant code in your loader file. Here is an example of this code :
 
-```js
+```js showLineNumbers
 ReactDOM.render(
   <Checkout checkoutId={ window.checkoutConfig.checkoutId } />,
   document.getElementById(window.checkoutConfig.containerId)
