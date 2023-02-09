@@ -24,7 +24,7 @@ Customer groups are only available on specific plans. See [BigCommerce Pricing](
 
 ## What is a subscriber?
 
-A subscriber is someone who has signed up for a store's newsletter. The location of the sign-up field is in the footer of most storefront themes. 
+A subscriber is someone who has signed up for a store's newsletter. The location of the sign-up field is in the footer of most storefront themes.
 
 Subscribers can also be added by:
 
@@ -60,9 +60,9 @@ There are two Customers API endpoints available:
 
 ### V3 Customers API
 
-The [V3 Customers API](/api-reference/customer-subscribers/v3-customers-api) is comprised of customers, customer attributes, customer address, and customer form fields. 
+The [V3 Customers API](/api-reference/customer-subscribers/v3-customers-api) is comprised of customers, customer attributes, customer address, and customer form fields.
 
-A customer makes a purchase on a store and creates an account. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
+A customer makes a purchase on a store and creates an account. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency.
 
 [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes/) and [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define the name of a name-value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
@@ -75,9 +75,9 @@ Customer attributes are created separately from the customer. After the name and
 
 [Customer addresses](/api-reference/store-management/customers-v3/customer-addresses/) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer form field values](/api-reference/store-management/customers-v3/customer-form-field-values/) are fields on either the customer address or customer sign-up that accept any string data. For example, a sign-up field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
+[Customer form field values](/api-reference/store-management/customers-v3/customer-form-field-values/) are fields on either the customer address or customer sign-up that accept any string data. For example, a sign-up field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields).
 
-You can access and edit the values for the fields on customer and customer address records using the API. 
+You can access and edit the values for the fields on customer and customer address records using the API.
 
 ### V2 Customers API
 
@@ -89,7 +89,7 @@ The V2 Customers API is comprised of customers, customer addresses, and customer
 
 ## Differences between V2 and V3 Customers APIs
 
-When resources are available through both APIs, we recommend using the V3 Customers API as BigCommerce will eventually migrate all existing V2 resources to V3. 
+When resources are available through both APIs, we recommend using the V3 Customers API as BigCommerce will eventually migrate all existing V2 resources to V3.
 
 This section covers the important differences between V2 and V3 Customers APIs.
 
@@ -98,7 +98,6 @@ This section covers the important differences between V2 and V3 Customers APIs.
 The V3 Customers API is easier to use. It reduces the number of API calls needed to accomplish a task. For example, to create a new customer with the V2 API, you have to make multiple API calls. With the V3 API, you can create customer attributes and address in one step, allowing you to batch create multiple customers and their subresources in a single API call.
 
 **Create a customer**
-
 Single customer on V3:
 
 -`/customers`
@@ -113,7 +112,6 @@ Single customer on V2:
 With the V3 Customers API, queries become a powerful tool. There is one `GET` endpoint per resource with filters to refine the request. The V2 API necessitates using a different endpoint to get customer subresources.
 
 **Get customer addresses**
-
 Get customer address by name and company on V3:
 
 `/customers/addresses?company:in=bigcommerce,commongood&customer_id:in1,2,3`
@@ -163,10 +161,10 @@ You can use the V3 Customers API [Upsert Customer Attribute Values](/api-referen
 
 The V3 Customers API offers two ways to set a customer's password:
 
-- You can set a new password under the `authentication > new_password` object in a `PUT` or `POST` request. 
+- You can set a new password under the `authentication > new_password` object in a `PUT` or `POST` request.
 - To prompt a customer to reset their password, set `force_password_reset` to `true` under `authentication > new_password` object in a `PUT` or `POST` request.
 
-[Password confirmation](/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [validation](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under the V2 Customers API. 
+[Password confirmation](/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [validation](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under the V2 Customers API.
 
 ## Subscribers API
 
@@ -176,7 +174,7 @@ The Subscribers API allows you to manage subscribers who have signed up for the 
 
 **Which API should I use?**
 
-When possible, use the V3 Customers API as BigCommerce will eventually deprecate the existing V2 Customers API. 
+When possible, use the V3 Customers API as BigCommerce will eventually deprecate the existing V2 Customers API.
 
 **How can I validate customer passwords?**
 
@@ -185,6 +183,7 @@ Password validation is only available on the V2 Customers API at this time. We r
 ## Related resources
 
 ### Articles
+
 *[Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields)
 *[Checkout Settings](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#checkout-settings)
 
@@ -200,4 +199,5 @@ Password validation is only available on the V2 Customers API at this time. We r
 *[Subscribers API](/api-reference/store-management/subscribers)
 
 ### Webhooks
+
 *[Customer](/api-docs/store-management/webhooks/webhook-events#customer)
