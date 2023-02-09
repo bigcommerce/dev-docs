@@ -11,11 +11,11 @@ A complete Stencil theme includes screenshots to display the theme on cards that
 * **Storefront** › **Themes**: Each individual card displays a composite which is an image that contains combination of screenshots of the theme's multiple variations.
 * **Storefront** › **Themes Marketplace**: Each card displays one variation of your theme. The three variations of Cornerstone (Light, Warm, and Bold) are displayed across three separate cards.
 
-![Desktop View of My Themes](//s3.amazonaws.com/user-content.stoplight.io/6116/1563226648470 "Desktop View of My Themes")
+![Desktop View of My Themes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/my-themes-desktop.png "Desktop View of My Themes")
 
-![Desktop View of Themes Marketplace](//s3.amazonaws.com/user-content.stoplight.io/6116/1563227303129 "Desktop View of Themes Marketplace")
+![Desktop View of Themes Marketplace](https://storage.googleapis.com/bigcommerce-production-dev-center/images/themes-marketplace-desktop.png "Desktop View of Themes Marketplace")
 
-![Mobile View of Themes Marketplace](//s3.amazonaws.com/user-content.stoplight.io/6116/1563227341485 "Mobile View of Themes Marketplace")
+![Mobile View of Themes Marketplace](https://storage.googleapis.com/bigcommerce-production-dev-center/images/themes-marketplace-mobile.png "Mobile View of Themes Marketplace")
 
 ## General image requirements
 
