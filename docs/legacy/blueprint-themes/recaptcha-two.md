@@ -17,10 +17,11 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 * `product_comments.html`
 
     
-<!-- theme: danger -->
-> #### Updating Safely 
-> Please back up each file before making any changes. 
-
+<Callout type="warning">
+ #### Updating Safely 
+ Please back up each file before making any changes. 
+</Callout>
+ 
 The instructions below are based on the default Blueprint theme (Classic Next), as it was last published in BigCommerce’s Theme Marketplace. Therefore, the HTML markup will vary, based on customizations you have already made to this theme, or to other Marketplace themes.
 
 
@@ -28,7 +29,7 @@ The instructions below are based on the default Blueprint theme (Classic Next), 
 ### Script Tag to Remove
 Search each of the three template files for a ``<script>`` tag like the following. If you find it, delete the whole tag. (This script invokes a legacy reCAPTCHA v1 challenge:)
 
-```html title="Script Tag to Remove" lineNumbers
+```html filename="Script Tag to Remove" showLineNumbers copy
 <script type="text/javascript"> 
  var RecaptchaOptions = { 
     theme : 'clean' or 'white' 
@@ -40,7 +41,7 @@ Search each of the three template files for a ``<script>`` tag like the followin
 Alternately, you might see the same `RecaptchaOptions` variable inside a different `<script>` tag at the top of the same three templates. If so, delete the lines shown here:
 
 
-```js title="Variable to Remove" lineNumbers
+```js filename="Variable to Remove" showLineNumbers copy
 var RecaptchaOptions = { 
  theme : 'clean' or 'white'
 };
@@ -52,16 +53,15 @@ var RecaptchaOptions = {
 In each of the three template files, add the following script tag to the top of the page.
 
 
-```html title="Script Tag to Update" lineNumbers
+```html filename="Script Tag to Update" copy
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 ```
 
 Then replace the "before" code block just below with the simplified "after" code that follows.
 
 #### Replace this (before):
-
-
-```html title="Script Tag to Remove" lineNumbers
+ 
+```html filename="Script Tag to Remove" showLineNumbers copy
 <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=%%GLOBAL_ReCaptchaAPIKeyPublic%%">
 </script>
 
@@ -77,7 +77,7 @@ Then replace the "before" code block just below with the simplified "after" code
 
 #### ...with this (after):
 
-```java title="" lineNumbers
+```java filename="" copy
 %%GLOBAL_ReCaptchaMarkup%%
 ```
 
@@ -91,4 +91,4 @@ Below are the browsers supported for the BigCommerce control panel. We drop supp
 | Firefox latest |
 | Safari latest |
 
-For a current list of target browsers (desktop and mobile) that BigCommerce supports for _storefronts_ using our themes, please see <NOBR><a href="https://forum.bigcommerce.com/s/article/Themes-Supported-Browsers" target="_blank">this support page</a>.</nobr>
+For a current list of target browsers (desktop and mobile) that BigCommerce supports for _storefronts_ using our themes, please see [this support page](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers?language=en_US).
