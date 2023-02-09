@@ -12,7 +12,7 @@ To edit transactional email templates in a store's control panel, [log in](https
 Use [Handlebars expressions](/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
 
 
-```html
+```html showLineNumbers
 <!-- Combined Order Status Email Template -->
 
  <p>{{ lang 'hello' name=order.customer_name }}. Below are the products you ordered.</p>
@@ -28,43 +28,46 @@ Use [Handlebars expressions](/api-docs/store-management/email-templates/handleba
 
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
-<!-- theme: info -->
-> #### Note
-> Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
-
+<Callout type="info">
+  Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
+</Callout>
 
 ## API
 
 To manage transactional email templates programmatically, use the [Email Templates API](/api-reference/store-management/email-templates). For example, to [get a list of email templates](/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
 
-```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates
-X-Auth-Token: {{ACCESS_TOKEN}}
-Accept: application/json
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner) -->
+    ```http filename="Example request: Get email templates" showLineNumbers
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Accept: application/json
+    ```
 
+  </Tab>
+  <Tab>
 
-**Response:**
-
-```json
-{
-  "data": [
+    ```json filename="Example response: Get email templates" showLineNumbers
     {
-      "type_id": "account_reset_password_email",
-      "body": "<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <title>Title</title> </head> <body> <p>     {{lang \"reset_password\" name=store.name}} </p> <br/> <br/> <a href='{{account.reset_password_link}}'>     {{account.reset_password_link}} </a>  </body> </html>",
-      "translations": [...],
-      "subject": "Reset your password at {{store.name}}"
+      "data": [
+        {
+          "type_id": "account_reset_password_email",
+          "body": "<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <title>Title</title> </head> <body> <p>     {{lang \"reset_password\" name=store.name}} </p> <br/> <br/> <a href='{{account.reset_password_link}}'>     {{account.reset_password_link}} </a>  </body> </html>",
+          "translations": [...],
+          "subject": "Reset your password at {{store.name}}"
+        }
+      ],
+      "meta": {...}
     }
-  ],
-  "meta": {...}
-}
-```
+    ```
+
+  </Tab>
+</Tabs>
 
 To [update an email template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
 
-```http
+```http filename="Example request: Update an email template" showLineNumbers
 PUT /stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -86,14 +89,12 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner) -->
-
 ## Overrides
 
 Pass in a [channel's](/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
 
-```http
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email?channel_id=123
+```http filename="Example request: Update an email template" showLineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -113,10 +114,9 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> Omit `?channel_id` to interact with global email templates.
-
+<Callout type="info">
+  Omit `?channel_id` to interact with global email templates.
+</Callout>
 
 
 ## Resources
