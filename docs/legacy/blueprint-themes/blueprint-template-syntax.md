@@ -96,7 +96,7 @@ The following tables map earlier to current syntax:
 
 The `ASSET` variable can be used only with files and folders inside the `/template/` directory. To take advantage of a CDN's benefits, we strongly recommend moving your assets to the `/template/` directory. However, if you need to keep assets outside of the `/template/` directory, the best practice is to use _protocol-relative_, absolute or fully qualified, URLs. Here are some examples:
 
-```
+``` copy showLineNumbers
 <img src="//mystore.com/content/images/foo.jpg" />
 url(//mystore.com/content/images/foo.jpg")
 <link href="//mystore.com/content/foo.css" rel="stylesheet" type="text/css" />
@@ -110,6 +110,7 @@ Includes are referenced within template files as follows:
 
 <pre>
 %%Include.http://www.example.com/remote_file.html%%
-%%Include.https://www.example.com/secure_remote_file.html%%</pre>
+%%Include.https://www.example.com/secure_remote_file.html%%
+</pre>
 
 Notes: Included external links will not follow redirects (http status code 301 or 302). So if a redirect is encountered, it will not include the content.
