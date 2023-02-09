@@ -12,7 +12,7 @@ The following example demonstrates how to fetch product data using the GraphQL S
 
 **Product Listing Page query example**
 
-```graphql
+```graphql showLineNumbers
 function getProductInfo(params) {
     const storeUrl = new URL(params.store_url);
 
@@ -72,7 +72,7 @@ Following the same API fetching logic, you can retrieve data for a single produc
 
 **Product Details Page query example**
 
-```graphql
+```graphql showLineNumbers
 query SingleProduct {
   site {
     product (entityId: ${params.id}) {
@@ -92,10 +92,9 @@ query SingleProduct {
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> We recommend using the GraphQL Storefront API to query the product data. It lets you specify the information needed from the server and retrieve multiple resources in a single call. For example, using the GraphQL Storefront API, you can fetch product pricing, options, and variations in a single request, improving performance and minimizing the need for subsequent API calls.
-
+<Callout type="info">
+  We recommend using the GraphQL Storefront API to query the product data. It lets you specify the information needed from the server and retrieve multiple resources in a single call. For example, using the GraphQL Storefront API, you can fetch product pricing, options, and variations in a single request, improving performance and minimizing the need for subsequent API calls.
+</Callout>
 
 ## Managing products
 
@@ -103,7 +102,7 @@ The GraphQL Storefront API provides read-only data and cannot be used to manipul
 
 To update products in batches, send a `PUT` request to the [Update Products (Batch)](/api-reference/store-management/catalog/products/updateproducts) endpoint. 
 
-```http
+```http filename="Example request: Update products" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -125,11 +124,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ]
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner) -->
-
 To update a single product, send a `PUT` request to the [Update a Product](/api-reference/store-management/catalog/products/updateproduct) endpoint.
 
-```http
+```http filename="Example request: Update a product" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}
 Accept: application/json
 Content-Type: application/json
@@ -141,8 +138,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "price": 55.97
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner) -->
 
 ### Cache the catalog
 
