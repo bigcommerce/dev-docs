@@ -26,7 +26,7 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 |[help](#stencil-help)       |Displays help and returns all the options available to use for the specified command.        |
 
 
-![Basic Stencil CLI Options and Commands](//s3.amazonaws.com/user-content.stoplight.io/6116/1538055264839 "Basic Stencil CLI Options and Commands")
+![Basic Stencil CLI Options and Commands](https://storage.googleapis.com/bigcommerce-production-dev-center/images/CLI-options-commands.png "Basic Stencil CLI Options and Commands")
 
 ## stencil help
 
