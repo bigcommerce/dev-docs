@@ -42,7 +42,7 @@ Stencil objects are the individual JavaScript objects that are rendered onto a S
   }
 ```
 
-![Banners Object (rendered)](//s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909 "Banners Object (rendered)")
+![Banners Object (rendered)](https://storage.googleapis.com/bigcommerce-production-dev-center/images/banners-object-rendered.png "Banners Object (rendered)")
 
 As a developer, you can use Handlebars.js syntax to access objects and use them to customize your Stencil theme.
 
