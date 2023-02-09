@@ -148,13 +148,11 @@ function getCart(url) {
   .catch(error => console.error(error));
 };
 ```
-&nbsp;
 ```js filename="Example call: getCart()" showLineNumbers
 getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
   .then(data => console.log(JSON.stringify(data)))
   .catch(error => console.error(error));
 ```
-&nbsp;
 ```json filename="Example response: getCart()" showLineNumbers
 [
   {
@@ -253,7 +251,6 @@ addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
-&nbsp;
 ```json filename="Example response: addCartItem()" showLineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
@@ -353,7 +350,7 @@ deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
   .then(data => console.log(JSON.stringify(data)))
   .catch(error => console.log(error));
 ```
-&nbsp;
+
 ```json filename="Example response: deleteCartItem()" showLineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
@@ -462,7 +459,7 @@ addBillingAddress(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
-&nbsp;
+
 ```json filename="Example response: addBillingAddress()" showLineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
@@ -629,7 +626,7 @@ createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
-&nbsp;
+
 ```json filename="Example response: createConsignment()" showLineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
@@ -859,7 +856,7 @@ updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
-&nbsp;
+
 ```json filename="Example response: updateConsignment()" showLineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
