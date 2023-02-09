@@ -108,7 +108,7 @@ If you are already at your theme limit, you can automatically delete the oldest 
 
 Stencil CLI will display `ok` confirmations, or `not ok` errors, or `warnings` for individual substeps in bundling and uploading your theme. If bundling is successful, you will next see a `Processing` progress bar to track the upload.
 
-![bundling](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055887301)
+![bundling](https://storage.googleapis.com/bigcommerce-production-dev-center/images/bundling.png)
 
 ### Successful upload
 
@@ -118,19 +118,19 @@ Upon successful upload, you will receive the prompt, `Would you like to apply yo
 
 If you chose to apply the newly uploaded theme, you will receive the prompt: "Which variation would you like to apply? (Use arrow keys)"
 
-![which variation](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055910721)
+![which variation](https://storage.googleapis.com/bigcommerce-production-dev-center/images/which-variation.png)
 
 Use your arrow keys to move the selection caret/highlight to the variation you want, and then press `Enter`.
 
 Stencil CLI will then confirm which variation is active on the storefront.
 
-![select variation](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081)
+![select variation](https://storage.googleapis.com/bigcommerce-production-dev-center/images/select-variation.png)
 
 ## Theme quota warning
 
 If you run `stencil push` when your store's **My Themes** section has reached its maximum of 20 themes, you will receive a prompt to select at least one existing theme for deletion.
 
-![theme quota warning](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055988142)
+![theme quota warning](https://storage.googleapis.com/bigcommerce-production-dev-center/images/theme-quota-warning.png)
 
 Custom themes – which are available for selection – will have a circle to their left. Marketplace themes and the store's active theme – all of which are protected from deletion – will be flagged `(Disabled)`.
 
