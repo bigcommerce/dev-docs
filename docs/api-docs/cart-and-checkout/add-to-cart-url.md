@@ -33,7 +33,7 @@ Below is a table of common scenarios and example URLs.
 
 Once constructed, a URL can be inserted directly as text or as an HTML link:
 
-```html
+```html showLineNumbers
 <a href="https://example.com/cart.php?action=buy&product_id=123">Purchase Our New Product Now!</a>
 ```
 
@@ -43,7 +43,7 @@ The `sku` and `product_id` parameters accept a single value; you can only use th
 
 The following gives a very basic example using jQuery.  You can also use async/await syntax to make a series of calls from within a `for` loop.
 
-```html
+```html showLineNumbers
 
 <button type="button" id="addToCart">Add Bundle to Cart</button>
 
@@ -78,8 +78,9 @@ $("button#addToCart").click(function() {
 </script>
 ```
 
-<!-- theme: warning -->
-> Due to CORS (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
+<Callout type="warning">
+  Due to CORS (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
+</Callout>
 
 Alternatively, the [Storefront Cart APIs](/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, using Storefront Cart APIs may be a better solution than adding to cart URLs.
 
