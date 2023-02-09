@@ -1,7 +1,5 @@
 # Order Refunds
 
-
-
 [Order V3](/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 
 This article provides an overview of Order's V3 refund capabilities and includes a step-by-step example for creating a [single order refund](#single-order-refund-example).
@@ -16,6 +14,7 @@ Refunding an order consists of two API requests.
 |2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
 
 The example requests in this article use an order with the following properties:
+
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
@@ -27,7 +26,8 @@ The refunded amount will include the shipping, tax, and product cost (a total of
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
 To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
-
+<Tabs items={[`Example`, `Response`]}>
+<Tab>
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -54,9 +54,9 @@ Accept: application/json
   ]
 }
 ```
-
+</Tab>
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) -->
-
+<Tab>
 **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
 
 ```json
@@ -85,16 +85,21 @@ Accept: application/json
   "meta": {}
 }
 ```
+</Tab>
+</Tabs>
 
-<!-- theme: info -->
-> #### Note
-> * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
-> * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
+<Callout type="info">
+#### Note
+
+* To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
+* To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
+</Callout>
 
 ## Creating a refund
 
 Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
-
+<Tabs items={[`Example`, `Response`]}>
+<Tab>
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -128,9 +133,9 @@ Accept: application/json
   ]
 }
 ```
-
+</Tab>
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
-
+<Tab>
 **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
 
 ```json
@@ -172,13 +177,13 @@ Accept: application/json
   "meta": {}
 }
 ```
-
+</Tab>
+</Tabs>
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
 
 ## Creating order level refunds
 
 To refund a tax-exempt custom amount at the order level, set `item_type` to `ORDER` and specify the `amount` to refund.
-
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -273,11 +278,15 @@ It is possible to process a refund without creating a quote first. Quotes serve 
 
 Use the V2 Orders Endpoint to get the required ID:
 
-  - `PRODUCT` -- Order Product ID
-  - `GIFT_WRAPPING` -- Order Product ID
-  - `SHIPPING` -- Order Address ID
-  - `HANDLING` -- Order Address ID
-  - `ORDER` -- Order ID
+* `PRODUCT` -- Order Product ID
+
+* `GIFT_WRAPPING` -- Order Product ID
+
+* `SHIPPING` -- Order Address ID
+
+* `HANDLING` -- Order Address ID
+
+* `ORDER` -- Order ID
 
 **Will this trigger an email to the shopper?**
 
@@ -300,9 +309,11 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 ## Related resources
 
 ### Articles
+
 * [Orders Overview](/api-docs/store-management/orders)
 * [Order Webhook Events](/api-docs/store-management/webhooks/webhook-events#orders)
 
 ### Endpoints
+
 * [Orders V2 Reference](/api-reference/store-management/orders)
 * [Orders V3 Reference](/api-reference/store-management/order-transactions)
