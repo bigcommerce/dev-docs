@@ -4,7 +4,7 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 
 | Variable | Description |
 |-|-|
-| `%%GLOBAL_AllPricesAreInCurrency%%` | This variable produces a text string that identifies the currency currently active on the store. For example: <NOBR>`All Prices are in USD`</nobr> |
+| `%%GLOBAL_AllPricesAreInCurrency%%` | This variable produces a text string that identifies the currency currently active on the store. For example: <nobr>`All Prices are in USD`</nobr> |
 | `%%GLOBAL_AlternateClass%%` | . |
 | `%%GLOBAL_CdnAppPath%%` | The URI of the CDN application. |
 | `%%GLOBAL_CdnStorePath%%` | The URI to the store's CDN directory. |
@@ -21,11 +21,11 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 | `%%GLOBAL_jQueryPath%%` | The URI of the minified jQuery library in use. For example:<br />`https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js` |
 | `%%GLOBAL_jQueryUIPath%%` | The path to the jQuery UI script. For example:<br /> `https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js` |
 | `%%GLOBAL_LiveChatCodeEnabled%%` | A value representing whether Live Chat is enabled or disabled. For example: `none` |
-| `%%GLOBAL_LoginOrLogoutText%%` | The HTML code of the string (including links) providing the option to sign into the store or to log out. For example: <NOBR>`Sign in or Create an account`</nobr> |
+| `%%GLOBAL_LoginOrLogoutText%%` | The HTML code of the string (including links) providing the option to sign into the store or to log out. For example: <nobr>`Sign in or Create an account`</nobr> |
 | `%%GLOBAL_LogoText%%` | The text string used for the store logo. |
 | `%%GLOBAL_MASTER_THEME_PATH%%` | The URI of the __master theme directory. |
 | `%%GLOBAL_PageLink%%` | The URI of the page. |
-| `%%GLOBAL_PageName%%` | The name of the page. For example: <NOBR>`RSS Syndication`</nobr> |
+| `%%GLOBAL_PageName%%` | The name of the page. For example: <nobr>`RSS Syndication`</nobr> |
 | `%%GLOBAL_PoweredBy%%` | The string identifying the software used by the store. For example: `Shopping Cart Software by BigCommerce` |
 | `%%GLOBAL_SHARED_GIFT_THEME_PATH%%` | The CDN URI of the store's gift themes. |
 | `%%GLOBAL_ShopPath%%` | The store's URI. If the page is protected with TLS/SSL, this will be an HTTPS path. |
