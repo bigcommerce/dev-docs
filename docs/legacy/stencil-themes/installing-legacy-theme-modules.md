@@ -8,13 +8,13 @@ If a theme’s version number is lower than `1.10.0`, the theme uses `jspm` as i
 
 ## Step 1: Install `jspm`
 
-```shell
+```shell copy 
 npm install -g jspm@0.16.30
 ```
 
 Or, for Windows:
 
-```shell
+```shell copy 
 npm install -g jspm@0.16.31
 ```
 
@@ -33,14 +33,14 @@ For the next step, you will need the [jspm-git registry plug-in](https://www.npm
 
 To install it, enter the following in a terminal: 
 
-```shell
+```shell copy showLineNumbers
 # Install jspm-git registry plug-in
 npm install -g jspm-git
 ```
 
 If you already have an earlier version of `jspm-git` installed, you might need to update it to handle git projects with two-digit version numbers: 
 
-```shell
+```shell copy showLineNumbers
 npm upgrade jspm-git@latest
 ```
 
@@ -48,7 +48,7 @@ npm upgrade jspm-git@latest
 
 Working with downloaded Marketplace themes requires adding a BitBucket registry for `jspm`. To do so, you'll need a [BitBucket account](https://bitbucket.org/product). Once you have an account, enter the following in a terminal to add BitBucket as a `jspm` registry:
 
-```shell
+```shell copy showLineNumbers
 jspm registry create bitbucket jspm-git
 
 # When prompted for a base URL, Enter: ssh://git@bitbucket.org
@@ -58,7 +58,7 @@ jspm registry create bitbucket jspm-git
 
 Finally, install the `npm` and `jspm` modules required to access Stencil JavaScript events:
 
-```shell
+```shell copy showLineNumbers
 # move into the theme's directory
 cd ~/path/to/theme
 
