@@ -13,10 +13,9 @@ A checkout containing physical products is not eligible to become an order until
 
 ### OAuth scopes
 
-<!-- theme: info -->
-  
-> The Storefront Checkout API allows developers to manage a shopper’s cart, checkout, and order data using client-side JavaScript on BigCommerce Stencil-powered storefronts. The Storefront Checkout API requests do not require OAuth scopes.
-  
+<Callout type="info">
+  The Storefront Checkout API allows developers to manage a shopper’s cart, checkout, and order data using client-side JavaScript on BigCommerce Stencil-powered storefronts. The Storefront Checkout API requests do not require OAuth scopes.
+</Callout>  
 
 
 Use the following OAuth scopes for the Server-to-Server Checkout API.
@@ -28,9 +27,10 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 
 For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
-<!-- theme: info -->
-> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
-> The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
+<Callout type="info">
+  For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
+  The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
+</Callout>
   
 
 
@@ -40,9 +40,9 @@ For more information on OAuth Scopes and authentication, see [Authentication](/a
 
 
 
-<!-- theme: info -->
-> Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
-
+<Callout type="info">
+  Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
+</Callout>
 
 
 The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
@@ -50,7 +50,7 @@ The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout
 The following is an example `POST` request for creating two consignments. Append `include=consignment.available_shipping_options` to the endpoint so that you will have the information to select one of them in the next step.
 
   
-  ```http
+```http filename="Example request: Create a consignment" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
 Accept: application/json
 Content-Type: application/json
@@ -115,7 +115,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
 
@@ -125,15 +124,15 @@ The [Update a consignment endpoint](/api-reference/store-management/checkouts/ch
 
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
-<!-- theme: warning -->
-> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
-
+<Callout type="warning">
+  You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+</Callout>
 
 
 
 The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).
 
-  ```http
+```http filename="Example request: Update a consignment" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
 Accept: application/json
 Content-Type: application/json
@@ -144,8 +143,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` and query parameter (`consignments.available_shipping_options`) into the form, then click **Send**.
 
