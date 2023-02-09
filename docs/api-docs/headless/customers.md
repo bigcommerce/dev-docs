@@ -14,7 +14,7 @@ To login a customer account with an email address and a password in client-side 
 
 **Customer login mutation**
 
-```graphql
+```graphql showLineNumbers
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
@@ -38,7 +38,7 @@ You can log a customer into an embedded checkout by setting `redirect_to` in the
 
 **JWT payload example**
 
-```http
+```http showLineNumbers
 {
   "iss": {{CLIENT_ID}},
   "iat": 1535393113,
@@ -63,7 +63,10 @@ When querying the GraphQL Storefront API, customer-specific pricing will be refl
 
 For server-side REST implementations, you can use the [Pricing API](/api-reference/store-management/pricing) to [get prices](/api-reference/store-management/pricing/products/get-prices) for a particular customer group.
 
-```http
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Get Prices" showLineNumbers
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/pricing/products
 Accept: application/json
 Content-Type: application/json
@@ -88,9 +91,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-**Response example**
+</Tab>
+<Tab>
 
-```json
+```json filename="Example response: Get Prices" showLineNumbers
 {
   "data": [
     {
@@ -115,6 +119,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "meta": {}
 }
 ```
+</Tab>
+</Tabs>
 
 ## Next step
 
