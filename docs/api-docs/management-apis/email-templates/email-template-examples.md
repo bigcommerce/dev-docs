@@ -4,10 +4,10 @@ This article provides examples of how to customize email templates. The examples
 
 The following code examples demonstrate how to update text, add a button, change logo size, change the font size, and add a tracking script to an email.
 
-<!-- theme: info -->
-> #### Note
-> Previewing changes can help you write [accessible emails](https://www.w3.org/WAI/tips/writing/). Read more about satisfying [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) with BigCommerce's [Stencil framework](/stencil-docs/accessibility/WCAG-compliance-levels).
-  
+<Callout type="info">
+  Previewing changes can help you write [accessible emails](https://www.w3.org/WAI/tips/writing/). Read more about satisfying [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) with BigCommerce's [Stencil framework](/stencil-docs/accessibility/WCAG-compliance-levels).
+</Callout>  
+
 ## Updating text
 To change existing text in an email template, update information in the **Phrases** and **Code** tabs. For detailed instructions, see [Editing Template Phrases](https://support.bigcommerce.com/s/article/Customizing-Emails?language=en_US#phrases). 
 
@@ -18,7 +18,7 @@ You can create an email button using HTML. The following code example adds a blu
 
 Go to **Transactional Emails > Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure that you paste the text outside the open `<table>` and closed `</table>` tags. 
   
-```handlebars title="Add an email button" lineNumbers
+```handlebars filename="Add an email button" showLineNumbers
 <table class="row">
    <tr>
       <th class="column">
@@ -35,10 +35,9 @@ Go to **Transactional Emails > Email Templates**. Click **...** next to **Accoun
 </table>
 ```
 
-<!-- theme: info -->
-> #### Note
-> You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
- 
+<Callout type="info">
+  You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
+</Callout> 
 
 ![Add button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-button.png "Button with white text on a blue background")
 
@@ -46,18 +45,17 @@ Go to **Transactional Emails > Email Templates**. Click **...** next to **Accoun
 
 To change the size of your logo that appears in your email, specify width and height values in the Content editor. Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Email** and select **Edit Template**. Go to the **Code** tab and replace: 
 
-```handlebars title="Default logo size"
+```handlebars filename="Default logo size" showLineNumbers
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}">
 ```
 with
-```handlebars title="Custom logo size"
+```handlebars filename="Custom logo size" showLineNumbers
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}" width="200" height="200">
 ```
 
-<!-- theme: info -->
-> #### Note
-> You can also add width and height values to images.
- 
+<Callout type="info">
+  You can also add width and height values to images.
+</Callout> 
   
 ![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-change-logo-size.png "Change logo size")
 
@@ -65,17 +63,17 @@ with
   
 To change the email font size, use the style attribute. You can define attributes such as color and font size within the paragraph `<p>` tag. Go to **Transactional Emails > Email Templates**, click **...** next to **Guest Account**, and select **Edit Template**. Go to the **Code** tab and replace: 
   
-```handlebars title="Default font size"
+```handlebars filename="Default font size" showLineNumbers
 <p>{{lang 'help'}}</p>
 ```
 with 
 
-```handlebars title="Custom font size in pixels"
+```handlebars filename="Custom font size in pixels" showLineNumbers
 <p style="font-size:16px;">{{lang 'help'}}</p>
 ```
 To make your text responsive so that readers can view it on a variety of devices and screen sizes, use the viewport width (`vw`) unit to set the `font-size`. `vw` style settings allow you to control the widths of elements no matter the viewport size. 
   
-```handlebars title="Custom font size in pixels using viewport width"
+```handlebars filename="Custom font size in pixels using viewport width" showLineNumbers
 <p style="font-size:2.0vw">{{lang 'help'}}</p>
 ```
 ## Adding a tracking script
@@ -84,7 +82,7 @@ You can add a tracking script to an email template. To ensure that the script ap
 
 Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. In the **Phrases** tab, use `tracking_title` for phrase name and `Tracking information` for phrase value. Then copy and paste the contents below into the Content editor. 
   
-```handlebars title="Add a tracking script" lineNumbers
+```handlebars filename="Add a tracking script" showLineNumbers
  <th>
    <h2>{{lang 'tracking_title'}}</h2>
    {{#if order.tracking}}
