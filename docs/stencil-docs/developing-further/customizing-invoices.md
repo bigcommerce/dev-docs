@@ -58,7 +58,7 @@ Localization of the merchant-printed invoice is handled the same way as system a
 
 The customer printable invoice is the printable invoice that is available on a storefront's order page for shoppers that have registered accounts with your store.
 
-![Customer Printable Invoice](//s3.amazonaws.com/user-content.stoplight.io/6116/1563210752661 "Customer Printable Invoice")
+![Customer Printable Invoice](https://storage.googleapis.com/bigcommerce-production-dev-center/images/customer-printable-invoice.png "Customer Printable Invoice")
 
 This invoice becomes available in a shopper's orders after completing an order. A shopper can generate this invoice by clicking **Print Invoice** on the right-hand side of the page.
 
