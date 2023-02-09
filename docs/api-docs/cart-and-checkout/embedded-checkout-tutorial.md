@@ -30,7 +30,7 @@ To allow an external website to serve the BigCommerce checkout, create a new cha
 
 **Create a Channel POST request**
 
-```json
+```json showLineNumbers
 {
     "type": "storefront",
     "platform": "custom",
@@ -42,7 +42,7 @@ The response will contain an `id` which we will use as the `channel_id` in futur
 
 **Create Channel response**
 
-```json
+```json showLineNumbers
 
 {
     "data": {
@@ -58,9 +58,9 @@ The response will contain an `id` which we will use as the `channel_id` in futur
     "meta": {}
 }
 ```
-<!-- theme: info -->
-> Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
-
+<Callout type="info">
+  Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
+</Callout>
 
 
 
@@ -72,7 +72,7 @@ Next, create a site for the channel by sending a `POST` request to the `/channel
 
 **Create Site POST**
 
-```js
+```js showLineNumbers
 {
     "channel_id": 20266,
     "url": "https://www.{your-site}.com"
@@ -83,7 +83,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 **Create Site response**
 
-```js
+```js showLineNumbers
 {
     {
     "data": {
@@ -106,7 +106,7 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 
 **Create Cart POST request**
 
-```json
+```json showLineNumbers
 {
   "channel_id": 20266,
   "line_items": [
@@ -121,7 +121,7 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 
 If you are creating a cart for a specific customer, pass in the `customer_id` in the request.
 
-```json
+```json showLineNumbers
 {
   "customer_id": 42,
   "line_items": [
@@ -137,7 +137,7 @@ Contained in the response is an `id` which we'll use as the `cart_id` in the nex
 
 **Create Cart response**
 
-```json
+```json showLineNumbers
 {
     "data": {
         "id": "33608b81-ba34-4ff2-8bab-2771aeab3f73",
@@ -150,7 +150,7 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 
 **Generate Redirect URLs response**
 
-```json
+```json showLineNumbers
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -171,7 +171,7 @@ Next, include the `embedded_checkout_url` as part of the request payload you sen
 **Customer Login Request**
 
 
-```json
+```json showLineNumbers
 {
 "iss": {client_id},
 "iat": 1535393113,
@@ -184,22 +184,22 @@ Next, include the `embedded_checkout_url` as part of the request payload you sen
 }
 ```
 
-<!-- theme: info -->
+<Callout type="info">
 The `request_ip` field is optional.
-
+</Callout>
 
 ## Embedding the checkout
 
 Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout.
 
-<!-- theme: info -->
+<Callout type="info">
 	
-> When the shopper is logged in, use the `https://{{store-url}}/login/token/{{token}}` URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
-	
+  When the shopper is logged in, use the `https://{{store-url}}/login/token/{{token}}` URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
+</Callout>	
 
 
 **JSON object**
-```json
+```json showLineNumbers
 {
 "containerId": "foo-bar-checkout",
 "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
@@ -211,7 +211,7 @@ Pass the object to the `embedCheckout` method of the Checkout SDK.
 
 **embedCheckout method**
 
-```js
+```js showLineNumbers
 embedCheckout({
 "containerId": "foo-bar-checkout",
 "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
@@ -221,7 +221,7 @@ embedCheckout({
 This will render the checkout to an HTML element with the `id` you chose.
 
 **HTML element**
-```html
+```html showLineNumbers
 <div id="foo-bar-checkout"></div>
 ```
 
