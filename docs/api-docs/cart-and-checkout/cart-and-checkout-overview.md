@@ -32,7 +32,7 @@ fetch('/api/storefront/cart', {
   console.log(error);
 });
 ```
-&nbsp;
+
 ```js filename="Log checkout details to the console" showLineNumbers
 console.log('Log Checkout');
 fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
