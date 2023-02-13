@@ -41,7 +41,7 @@ B3 renders client-facing pages and elements by mounting fixed containers to BigC
 
 When done, the object will resemble the following:
 
-```jsx title="Example: Specify a custom mount node for the dashboard container"
+```jsx filename="Example: Specify a custom mount node for the dashboard container" showLineNumbers
 window.b3themeConfig.useContainers = {
  /* B3 will append the dashboard container to the first returned DOM node with a class of "page" that is a descendant of an element with the class of "container" */
 	'dashboard.container': '.container .page',
@@ -58,14 +58,13 @@ To modify the styling of a B3 module, follow these steps:
 1. Insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. 
 2. Within `window.b3themeConfig.useStyles = {}`, create a property with the name of the B3 element as its key and an object that defines the desired CSS styles as its value.
 
-<!-- theme: info -->
-> #### Note
-> Because the CSS is written in a JavaScript object, two-word properties, like `background-color`, must be written with camel case syntax. For example, `backgroundColor: "red"`.
-
+<Callout type="info">
+  Because the CSS is written in a JavaScript object, two-word properties, like `background-color`, must be written with camel case syntax. For example, `backgroundColor: "red"`.
+</Callout>
 
 When done, the object will resemble the following:
 
-```jsx title="Example: Specify custom styles for the TPA button" lineNumbers
+```jsx filename="Example: Specify custom styles for the TPA button" showLineNumbers
 window.b3themeConfig.useStyles = {
 /* B3 will use the specified styles for the "Trade Partner Application" button that is appended to the secondary navigation menu */
   'tpa.entryButton': {
@@ -98,7 +97,7 @@ To overwrite the default text that B3 renders, follow these steps:
 
 When done, the object will resemble the following:
 
-```jsx title="Example: Specify custom display text for the quick order button" lineNumbers
+```jsx filename="Example: Specify custom display text for the quick order button" showLineNumbers
 window.b3themeConfig.useText = {
 /* B3 will now use the call to action "Place Quick Order" instead of the default "Quick Order Pad" for the button that is appended to the secondary navigation menu */
  'nav.button.quickOrderPad': 'Place Quick Order',
@@ -125,7 +124,7 @@ To overwrite and/or inject custom functions for a supported B3 module, follow th
 
 When done, your object will resemble the following example that demonstrates the call stack of each function:
 
-```jsx title="Example: Specify lifecycle method values for the quick order pad module" lineNumbers
+```jsx filename="Example: Specify lifecycle method values for the quick order pad module" showLineNumbers
 window.b3themeConfig.useJavaScript = {
   quickorderpad: {
     overwrite: false,
@@ -144,7 +143,7 @@ window.b3themeConfig.useJavaScript = {
 
 The following displays the example's browser console output:
 
-![B3 console log output](https://github.com/bigcommerce/dev-docs/blob/fc576cd09ee4f346d2668d97082a75aeff7ff468/assets/images/B3-console.png?raw=true)
+![B3 console log output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/b3_console_log_output.png)
 
 For a full list of available modules, see the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/js.html).
 
