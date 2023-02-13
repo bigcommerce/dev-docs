@@ -1,12 +1,9 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
-
 # Shortcodes
-
- 
 
 Most of the plugin's functionality is exposed on the front-end of the site through shortcodes embedded on automatically created pages. The code controlling those shortcodes can be found in the classes in `src/BigCommerce/Shortcodes`.
 
 ## Products Shortcode
+
 `[bigcommerce_product]`
 
 The product shortcode can be used to include one or more products on other pages or posts on the WordPress site. Click the **Add Products** button above the editor to select products or build a dynamic query to include in the page.
@@ -48,10 +45,10 @@ You can build the shortcode using the Block Editor, or it can be created manuall
 ## Other Shortcodes
 
 |Shortcode|Description|
-|-|-|-|
-|`[bigcommerce_signin_form]` |The form for users to log in to the site. If user registration is enabled, it will also give a link to the registration page.
-|`[bigcommerce_registration_form]`|A form to register a new customer account.
-|`[bigcommerce_cart]`|The items currently in the customer’s cart.
-|`[bigcommerce_account_profile]`|A form to update the customer’s profile.
-|`[bigcommerce_order_history]`|A list of the customer’s past orders.
-|`[bigcommerce_shipping_address_list]`|A list of the customer’s shipping addresses, and forms to add, remove, or update addresses.
+|-|-|
+|`[bigcommerce_signin_form]` | The form for users to log in to the site. If user registration is enabled, it will also give a link to the registration page. |
+|`[bigcommerce_registration_form]`| A form to register a new customer account |
+|`[bigcommerce_cart]`| The items currently in the customer’s cart |
+|`[bigcommerce_account_profile]`| A form to update the customer’s profile |
+|`[bigcommerce_order_history]`| A list of the customer’s past orders |
+|`[bigcommerce_shipping_address_list]`| A list of the customer’s shipping addresses, and forms to add, remove, or update addresses |
