@@ -1,5 +1,3 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
-
 # Plugin Settings
 
 BigCommerce settings for WordPress are found in the left admin menu in WordPress, under the BigCommerce menu item.
@@ -7,6 +5,7 @@ BigCommerce settings for WordPress are found in the left admin menu in WordPress
 ![Plugin Settings](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "Plugin Settings")
 
 ## Product Sync
+
 Once the plugin is connected, the plugin will import products using the BigCommerce API. This will run automatically using [WordPress cron](https://developer.wordpress.org/plugins/cron/), using the schedule set on the settings page (default: every five minutes).
 If you choose to disable the cron job, you can set a server-side cron job to run the sync using WP-CLI. The command to import products is:
 
@@ -24,29 +23,30 @@ The store’s currency code will be imported from the BigCommerce API as part of
 
 ### Accounts and Registration
 
-User accounts in WordPress will be connected to customer accounts in BigCommerce. If user registration is enabled in WordPress (the “Anyone can register” checkbox in **Settings** › **General** in the WordPress admin), customers will be able to register accounts and manage their profiles. 
+User accounts in WordPress will be connected to customer accounts in BigCommerce. If user registration is enabled in WordPress (the “Anyone can register” checkbox in **Settings** › **General** in the WordPress admin), customers will be able to register accounts and manage their profiles.
 
-The plugin requires several pages to support user account management. These pages will all be created automatically. Each will contain a shortcode that renders the relevant content. If any are deleted, they will be automatically re-created for you. If you have multiple pages with these shortcodes, you may select which will be treated as canonical using the dropdowns in this settings section. 
+The plugin requires several pages to support user account management. These pages will all be created automatically. Each will contain a shortcode that renders the relevant content. If any are deleted, they will be automatically re-created for you. If you have multiple pages with these shortcodes, you may select which will be treated as canonical using the dropdowns in this settings section.
 
 The “Support Email” field will be used to give customers an address to contact you with questions about orders.
 The cart page should be excluded from any page caching system enabled for your site.
 
 ## Theme Customizer
+
 The visual presentation of your store can be customized using the WordPress theme customizer. Open the theme customizer and find the "BigCommerce" panel, which contains several sections.
 
 * **Buttons:** Control the labels applied to buttons for interacting with products.  
 
 * **Colors & Themes:** Customize colors to better match your theme.
   
-* **Catalog Pages:** Control the presentation of lists of products. 
- 
+* **Catalog Pages:** Control the presentation of lists of products.
+
 * **Product Single:** Control the presentation of individual product pages.  
 
 * **Product Archive:** Customize labels and filters for the prouct archive.
 
 ## Navigation Menus
 
-The BigCommerce for WordPress plugin creates several pages, which can be added to the WordPress navigation menus using the standard WordPress admin(**Appearance** › **Menus**, or in the theme customizer). 
+The BigCommerce for WordPress plugin creates several pages, which can be added to the WordPress navigation menus using the standard WordPress admin(**Appearance** › **Menus**, or in the theme customizer).
 Some of these pages acquire special functionality when they are added to navigation menus:
 
 * **Cart:** The cart menu item will show the number of items in the current user's cart.
@@ -57,13 +57,15 @@ Some of these pages acquire special functionality when they are added to navigat
 * **Account Profile, Order History, Addresses:** If the user is not logged in, these menu items will be disabled (they won't render on the front end of the site).
 
 ## Reviews
+
 Reviews placed on the WordPress store are synced to BigCommerce for permanent storage as well as usage on other channels. Additionally, reviews are stored in a local, custom database for quick access.
 The review system on WordPress is enabled or disabled by the site’s Comments setting, under **Settings > Discussion** in the WordPress admin. Additionally, each product has a Comments switch which can be used to override the global settings.
 
 ## Gift Certificate Settings
+
 If the gift certificate setting is enabled in WordPress, shoppers will be able to purchase gift certificates from the site. Gift certificate functionality relies on two pages that are automatically created by the plugin. Both pages can be replaced by pages you create containing the appropriate shortcodes.
 
-* Gift Certificate Page: The page where customers purchase gift certificates. 
+* Gift Certificate Page: The page where customers purchase gift certificates.
 Use the shortcode `[bigcommerce_gift_form]`
 
 * Gift Certificate Balance Page:
