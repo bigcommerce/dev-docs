@@ -4,7 +4,10 @@ The Big Open Data Layer (shortened as _BODL_, pronounced 'Bottle') is a JavaScri
 
 BODL is event-based. Scripts can capture accurate storefront data as it exists at the moment a shopper triggers any BODL-supported event.
 
-This guide illustrates the basics of using BODL data in your integration. First, it describes the standard BODL schema after a shopper triggers a specified event, so that you can see how BODL organizes event data for your integration to capture. Next, it provides an example script that uses the standard BODL object to examine BODL properties in the browser console. Finally, it gives an example of adding a BODL script to a storefront page using the Scripts API.
+This guide illustrates the basics of using BODL data in your integration. This article does the following: 
+1. Describes the standard BODL schema after a shopper triggers a specified event so that you can see how BODL organizes event data for your integration to capture. 
+2. Provides an example script that uses the standard BODL object so you can examine BODL properties in the browser console. 
+3. Gives an example of adding a BODL script to a storefront page using the Scripts API.
 
 ## Prerequisites
 
