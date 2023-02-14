@@ -161,10 +161,10 @@ Product demos and tutorials
 ### Case Studies
 These can either be “Thought Leadership” case studies and/or traditional case studies that demonstrate how BigCommerce merchants have benefited from using your solution with their business. Use the + ​icon to add a case study, and the x ​icon to remove. Four case studies maximum.
 
-  <Callout type="warning">
+<Callout type="warning">
   #### Case Studies
   Case studies that include competitor platforms are not allowed and will be removed. Partners will be required to repurpose general case studies, remove competitor platform mentions, and republish the asset accordingly.
-
+</Callout>
 
 
 ### Features
@@ -180,9 +180,10 @@ Links to your privacy policy and terms of service. This requirement is in place 
 ### International Optimization
 Please add the countries for which your solution is optimized and those which your solution does not currently support.
 
-  <Callout type="warning">
+<Callout type="warning">
   #### International Optimization
   This feature will not currently be utilized in the Marketplace, but will be a part of planned internationalization updates.
+</Callout>
 
 
 
