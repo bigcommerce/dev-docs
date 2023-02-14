@@ -79,7 +79,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 1. Visit the Git provider where Vercel created a new repository. Clone that repository locally.
 2. Navigate to the locally cloned project's root directory and create a copy of the `.env.template` file. Rename the newly created file `.env.local` and insert your environmental variables using the following as a reference:
 
-```bash title=".env.template"
+```bash filename=".env.template" showLineNumbers
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
 BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_HASH}
@@ -87,7 +87,7 @@ BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 ```
 &nbsp;
-```bash title=".env.local"
+```bash filename=".env.local" showLineNumbers
 COMMERCE_PROVIDER=bigcommerce
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_API_TOKEN}
@@ -113,10 +113,9 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
 5. To see your Next.js Commerce storefront running locally, open `localhost:3000` in your browser.
 
-<!-- theme: info -->
-> #### Note
-> Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
-
+<Callout type="info">
+  Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
+</Callout>
 
 
 ## Application
@@ -174,7 +173,7 @@ Next.js Commerce uses [Tailwind](https://tailwindcss.com/) to style components. 
 
 Next.js supports internationalized (i18n) routing and Next.js Commerce uses [sub-path routing](https://nextjs.org/docs/advanced-features/i18n-routing#sub-path-routing) which puts the locale in the URL path. By default, the `next.config.js` file has US English (`en-US`) and Spanish (`es`) set as locales with `en-US` set as the default.
 
-```json
+```json showLineNumbers
 i18n: {
    locales: ['en-US', 'es'],
    defaultLocale: 'en-US',

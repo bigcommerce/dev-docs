@@ -32,7 +32,7 @@ The Abandoned Cart Saver email link points to the Stencil storefront (channel ID
 
 This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](/api-reference/store-management/channels/channel-site/get-channel-site) endpoint.
 
-```http
+```http filename="Example request: Get a channel site" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/site
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -40,11 +40,9 @@ Accept: application/json
 
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-site/get-channel-site#requestrunner) -->
-
 **Example response**
 
-```json
+```json filename="Example response: Get a channel site" showLineNumbers
 {
   "data": {
     "channel_id": 773240,
@@ -67,7 +65,7 @@ You can locate your channel ID by:
 
 To create a `recover_abandoned_cart` site route, send a `POST` request to the [Create a Site Route](/api-reference/store-management/sites/site-routes/post-site-route) endpoint.
 
-```http
+```http filename="Example request: Create a site route" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -80,11 +78,9 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner) -->
-
 **Example response**
 
-```json
+```json filename="Example response: Create a site route" showLineNumbers
 {
   "data": {
     "id": 11,
@@ -110,7 +106,7 @@ The Abandoned Cart Saver email link contains a token in the form of a `t` parame
 
 To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) endpoint.
 
-```http
+```http filename="Example request: Get an abandoned cart" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/abandoned-carts/{token}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -118,11 +114,9 @@ Accept: application/json
 
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts#requestrunner) -->
-
 The response will contain the corresponding cart ID.
 
-```json
+```json filename="Example response: Get an abandoned cart" showLineNumbers
 {
   "data": {
     "cart_id": "74cd7d0a-c748-4efa-b9bf-cf15751e78b2"
@@ -133,15 +127,12 @@ The response will contain the corresponding cart ID.
 
 To retrieve the cart details, send a `GET` request to the [Get a Cart](/api-reference/store-management/carts/cart/getacart) endpoint.
 
-```http
+```http filename="Example request: Get a cart" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts/{cartId}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
-
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/getacart#requestrunner) -->
 
 The response will contain the cart details.
 
@@ -153,7 +144,7 @@ The following example demonstrates how a headless storefront can recover abandon
 
 1. Link your headless storefront to your sales channel by sending a `POST` request to the [Create a Site](/api-reference/store-management/sites/sites/post-site) endpoint.
 
-   ```http
+   ```http filename="Example request: Create a site" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -165,11 +156,9 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/post-site#requestrunner) -->
-
 2. Using the [Site Routes](/api-reference/store-management/sites/site-routes/post-site-route) endpoint, create a `recover_abandoned_cart` route.
 
-   ```http
+   ```http filename="Example request: Create a site route" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -180,16 +169,13 @@ The following example demonstrates how a headless storefront can recover abandon
      "route": "/my-abandoned-cart-page/",
      "type": "recover_abandoned_cart"
    }
-
    ```
-
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner) -->
 
 ### Create cart with customer
 
 1. To create a customer, send a `POST` request to the [Create Customers](/api-reference/store-management/customers-v3/customers/customerspost) endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account optimized to receive Abandoned Cart Saver emails.
 
-   ```http
+   ```http filename="Example request: Create customers" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -223,11 +209,9 @@ The following example demonstrates how a headless storefront can recover abandon
    ]
    ```
 
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customerspost#requestrunner) -->
-
 2. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart. Include the customer ID and channel ID in the request body so that the URL inserted in transactional emails contains the correct site and routes.
 
-   ```http
+   ```http filename="Example request: Create a cart" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -271,13 +255,11 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner) -->
-
 ### Create cart with guest customer
 
 1. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart.
 
-   ```http
+   ```http filename="Example request: Create a cart" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -294,11 +276,9 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner) -->
-
 2. Send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint to add checkout billing address. Include the email address in the request body so that the abandoned cart saver notification could be triggered.
 
-   ```http
+   ```http filename="Example request: Add checkout billing address" showLineNumbers
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/billing-address
    X-Auth-Token: {{ACCESS_TOKEN}}
    Content-Type: application/json
@@ -318,8 +298,6 @@ The following example demonstrates how a headless storefront can recover abandon
      "phone": "1234567890"
    }
    ```
-
-   <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost#requestrunner) -->
 
 This request creates a cart associated with the headless storefront without using BigCommerce's Optimized One-Page Checkout. Because the checkout is incomplete, the store treats this cart as abandoned and initiates the abandoned cart recovery sequence.
 
