@@ -72,7 +72,7 @@ BC4WP allows your WordPress site to access most of your BigCommerce data. The fo
 
 If you have a WordPress post ID (as you might get by calling `get_the_ID()` in the context of a template), you can get a Product object.
 
-```php
+```php showLineNumbers copy
 $post_id = get_the_ID();
 $product = new \BigCommerce\Post_Types\Product\Product( $post_id );
 ```
@@ -85,7 +85,7 @@ In the context of many templates, the `$product` variable is already available t
 
 If the Product object is available, you can access all the product's cached information from the BigCommerce Catalog API.
 
-```php
+```php showLineNumbers copy
 $bigcommerce_id = $product->bc_id(); // the BigCommerce product ID
 $post_id = $product->post_id(); // the WordPress post ID
 $sku = $product->sku();
@@ -96,24 +96,22 @@ Consult the code reference for a full list of methods available on the Product o
 
 For any data not directly exposed through a dedicated method, call `$product->get_property()` to retrieve the value.
 
-```php
+```php showLineNumbers copy
 $weight = $product->get_property( 'weight' );
 $height = $product->get_property( 'height' );
 ```
 
 You can retrieve the same properties using the `__get()` method already available on the Product object:
 
-```php
+```php showLineNumbers copy
 $weight = $product->weight;
 $height = $product->height;
 ```
 The product ID can appear in various places on the client side. The ID you use depends on the context. Here are some places to look:
 
-- On an Add to Cart button
-  </br>
+- On an Add to Cart button \
   `var product_id = $('.bc-btn--add_to_cart').attr('data-js')`
-- On the product price
-  </br>
+- On the product price \
   `var product_id = $('.bc-product__pricing').attr('data-product-price-id')`
 
 Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.
@@ -128,7 +126,7 @@ Retrieve a Product object as explained in the Products section. After that step,
 
 The returned objects will match the schema from the BigCommerce API.
 
-```php
+```php showLineNumbers copy
 $variant_ids = wp_list_pluck( $variants, 'id' );
 foreach ( $variants as $variant ) {
   $sku = $variant->sku;
@@ -138,7 +136,7 @@ foreach ( $variants as $variant ) {
 
 On the client side, variant details are available in the product form.
 
-```php
+```php showLineNumbers copy
 var variants = JSON.parse($('[data-js="product-variants-object"]').attr('data-variants'));
 var variant_ids = variants.map( variant => variant.variant_id );
 ```
@@ -158,14 +156,14 @@ The schema does not completely match the API data. It has been adjusted to suit 
 
 The current channel is available through a Connections object.
 
-```php
+```php showLineNumbers copy
 $connections = new \BigCommerce\Taxonomies\Channel\Connections();
 $channel     = $connections->current();
 ```
 
 The response is a WP_Term object with meta containing the channel ID:
 
-```php
+```php showLineNumbers copy
 $channel_name = $channel->name;
 $channel_id   = get_term_meta( $channel->term_id, \BigCommerce\Taxonomies\Channel\Channel::CHANNEL_ID, true );
 ```
@@ -176,14 +174,14 @@ The channel ID is not available anywhere on the client side.
 
 A logged-out user does not have any customer information. For a logged-in user, you can create a Customer object to get the customer's information.
 
-```php
+```php showLineNumbers copy
 $customer    = new \BigCommerce\Accounts\Customer( get_current_user_id() );
 $customer_id = $customer->get_customer_id();
 ```
 
 Aside from the customer ID, no customer information is cached in WordPress. Retrieving additional information will make an API call.
 
-```php
+```php showLineNumbers copy
 $profile   = $customer->get_profile();
 $addresses = $customer->get_addresses();
 $orders    = $customer->get_orders( $page, $limit );
@@ -196,14 +194,14 @@ The customer ID is not available anywhere on the client side.
 
 Similar to the customer ID, the customer group ID is available via the Customer object.
 
-```php
+```php showLineNumbers copy
 $customer = new \BigCommerce\Accounts\Customer( get_current_user_id() );
 $group_id = $customer->get_group_id();
 ```
 
 Additional information about the customer group is not cached in WordPress. However, you can request more information from the BigCommerce API:
 
-```php
+```php showLineNumbers copy
 $group      = $customer->get_group();
 $group_info = $group->get_info();
 ```
@@ -216,7 +214,7 @@ To style BigCommerce for WordPress elements with custom CSS, add your CSS to you
 
 For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s stylesheet:
 
-```css
+```css showLineNumbers copy
 button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
   background-color: #ff9c33;
 }
@@ -241,9 +239,9 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
-<!-- theme: danger -->
-> #### Warning
-> Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
+<Callout type="warning">
+ Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
+</Callout>
 
 
 
@@ -253,7 +251,7 @@ An instance of each of the service providers found in the src/BigCommerce/Contai
 
 Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:
 
-```php
+```php showLineNumbers copy
 remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates->product_archive, 10 );
 
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
@@ -263,7 +261,7 @@ add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10
 
 You can localize the language used by BC4WP to display messages on your storefront. The array `$js_i18n_array` defined in `src/BigCommerce/Assets/Theme/JS_Localization.php:19` contains all strings used by `assets/js/dist/scripts.js` to display messages on the front-end.
 
-```php
+```php showLineNumbers copy
 $js_i18n_array = [
 			'operations' => [
 				'query_string_separator' => __( '&', 'bigcommerce' ),
@@ -314,7 +312,7 @@ As an example of how to localize strings, let's change the message displayed to 
 
 Your `update_add_to_cart_message()` function will look like the following:
 
-```php
+```php showLineNumbers copy
 function update_add_to_cart_message( $js_i18n_array ){
    $js_i18n_array['cart']['ajax_add_to_cart_success'] = 'Item added to cart. <a href="/cart">View Cart!</a>';
    return $js_i18n_array;
@@ -323,7 +321,7 @@ function update_add_to_cart_message( $js_i18n_array ){
 
 Following the `update_add_to_cart_message` function, call the `add_filter()` function that is available through the WordPress Plugin API. `add_filter()` hooks a function or method to a specific filter action. Hook `update_add_to_cart_message()` to the `bigcommerce/js_localization` filter hook that is provided by the BC4WP plugin.
 
-```php
+```php copy
 add_filter( 'bigcommerce/js_localization', 'update_add_to_cart_message' );
 ```
 
@@ -348,7 +346,7 @@ Embedded Checkout includes settings within the WordPress theme customizer that a
 Below, we define a function called `myCheckoutFunction()` that accepts `$checkout_config` as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass `myCheckoutFunction` to the Checkout Config hook. Try adding the below snippet to your theme’s `functions.php` file to test it out
 
 
-```php title="myCheckoutFunction() functions.php" lineNumbers
+```php filename="myCheckoutFunction() functions.php" showLineNumbers copy
 function myCheckoutFunction($checkout_config) {
   $checkout_config['styles']['heading']['color'] = '#C70039'; //red
   $checkout_config['styles']['step']['icon']['backgroundColor'] = '#AE0BE6'; //purple
