@@ -32,28 +32,35 @@ The Abandoned Cart Saver email link points to the Stencil storefront (channel ID
 
 This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](/api-reference/store-management/channels/channel-site/get-channel-site) endpoint.
 
-```http filename="Example request: Get a channel site" showLineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/site
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-```
+    ```http filename="Example request: Get a channel site" showLineNumbers
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/site
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
 
-**Example response**
+    ```
 
-```json filename="Example response: Get a channel site" showLineNumbers
-{
-  "data": {
-    "channel_id": 773240,
-    "created_at": "2021-08-23T20:02:11Z",
-    "id": 1001,
-    "updated_at": "2021-08-23T20:02:11Z",
-    "url": "http://commerce-zr8y-teststore-bigcommerce.vercel.app"
-  },
-  "meta": {}
-}
-```
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Get a channel site" showLineNumbers
+    {
+      "data": {
+        "channel_id": 773240,
+        "created_at": "2021-08-23T20:02:11Z",
+        "id": 1001,
+        "updated_at": "2021-08-23T20:02:11Z",
+        "url": "http://commerce-zr8y-teststore-bigcommerce.vercel.app"
+      },
+      "meta": {}
+    }
+    ```
+
+  </Tab>
+</Tabs>
 
 You can locate your channel ID by:
 
@@ -65,34 +72,41 @@ You can locate your channel ID by:
 
 To create a `recover_abandoned_cart` site route, send a `POST` request to the [Create a Site Route](/api-reference/store-management/sites/site-routes/post-site-route) endpoint.
 
-```http filename="Example request: Create a site route" showLineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-{
- "type": "recover_abandoned_cart",
- "matching": "*",
- "route": "/my-abandoned-cart-page/"
-}
-```
+    ```http filename="Example request: Create a site route" showLineNumbers
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
 
-**Example response**
-
-```json filename="Example response: Create a site route" showLineNumbers
-{
-  "data": {
-    "id": 11,
+    {
     "type": "recover_abandoned_cart",
     "matching": "*",
-    "route": "/my-abandoned-cart-page/",
-    "created_at": "2021-08-25T18:36:05Z",
-    "updated_at": "2021-08-25T18:36:05Z"
-  },
-  "meta": {}
-}
-```
+    "route": "/my-abandoned-cart-page/"
+    }
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Create a site route" showLineNumbers
+    {
+      "data": {
+        "id": 11,
+        "type": "recover_abandoned_cart",
+        "matching": "*",
+        "route": "/my-abandoned-cart-page/",
+        "created_at": "2021-08-25T18:36:05Z",
+        "updated_at": "2021-08-25T18:36:05Z"
+      },
+      "meta": {}
+    }
+    ```
+
+  </Tab>
+</Tabs>
 
 To test the route creation, send a `GET` request to the [Get a Site's Routes](/api-reference/store-management/sites/site-routes/index-site-routes) endpoint. The response will contain all of the routes associated with your headless storefront's domain.
 
@@ -106,24 +120,33 @@ The Abandoned Cart Saver email link contains a token in the form of a `t` parame
 
 To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) endpoint.
 
-```http filename="Example request: Get an abandoned cart" showLineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/abandoned-carts/{token}
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-```
-
 The response will contain the corresponding cart ID.
 
-```json filename="Example response: Get an abandoned cart" showLineNumbers
-{
-  "data": {
-    "cart_id": "74cd7d0a-c748-4efa-b9bf-cf15751e78b2"
-  },
-  "meta": {}
-}
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+    ```http filename="Example request: Get an abandoned cart" showLineNumbers
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/abandoned-carts/{token}
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
+
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Get an abandoned cart" showLineNumbers
+    {
+      "data": {
+        "cart_id": "74cd7d0a-c748-4efa-b9bf-cf15751e78b2"
+      },
+      "meta": {}
+    }
+    ```
+
+  </Tab>
+</Tabs>
 
 To retrieve the cart details, send a `GET` request to the [Get a Cart](/api-reference/store-management/carts/cart/getacart) endpoint.
 
