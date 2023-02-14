@@ -35,8 +35,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/options/{option_id}/values?page={number} |
-| Limit | int | /api/v2/options/{option_id}/values?limit={count} |
+| Page | int | `/api/v2/options/{option_id}/values?page={number}` |
+| Limit | int | `/api/v2/options/{option_id}/values?limit={count}` |
 
 ### Response 
 
@@ -205,5 +205,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/options/{option_id}/values?page={number} |
-| Limit | int | /api/v2/options/{option_id}/values?limit={count} |
+| Page | int | `/api/v2/options/{option_id}/values?page={number}` |
+| Limit | int | `/api/v2/options/{option_id}/values?limit={count}` |

@@ -41,11 +41,11 @@ Filter parameters can be added to the URL query string to select specific catego
 
 | Parameter | Type | Example |
 |-|-|-|
-| parent_id | string | /api/v2/categories?parent_id={value} |
-| name | string | /api/v2/categories?name={value} |
-| is_visible | string | /api/v2/categories?is_visible={value} |
-| min_id | int | /api/v2/categories?min_id={value} |
-| max_id | int | /api/v2/categories?max_id={value} |
+| parent_id | string | `/api/v2/categories?parent_id={value}` |
+| name | string | `/api/v2/categories?name={value}` |
+| is_visible | string | `/api/v2/categories?is_visible={value}` |
+| min_id | int | `/api/v2/categories?min_id={value}` |
+| max_id | int | `/api/v2/categories?max_id={value}` |
 
 ### Pagination 
 
@@ -53,8 +53,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/categories?page={number} |
-| Limit | int | /api/v2/categories?limit={count} |
+| Page | int | `/api/v2/categories?page={number}` |
+| Limit | int | `/api/v2/categories?limit={count}` |
 
 ### Response
 

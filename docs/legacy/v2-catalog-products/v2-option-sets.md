@@ -33,7 +33,7 @@ Filter parameters can be added to the URL query string to select specific option
 
 | Parameter | Type | Example |
 |-|-|-|
-| name | string | /api/v2/option_sets?name={value} |
+| name | string | `/api/v2/option_sets?name={value}` |
 
 ### Pagination 
 
@@ -41,8 +41,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/option_sets?page={number} |
-| Limit | int | /api/v2/option_sets?limit={count} |
+| Page | int | `/api/v2/option_sets?page={number}` |
+| Limit | int | `/api/v2/option_sets?limit={count}` |
 
 ### Response 
 

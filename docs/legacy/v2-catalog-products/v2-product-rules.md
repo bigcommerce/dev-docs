@@ -43,8 +43,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/rules?page={number} |
-| limit | int | /api/v2/products/{product_id}/rules?limit={count} |
+| page | int | `/api/v2/products/{product_id}/rules?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/rules?limit={count}` |
 
 ### Response 
 
@@ -256,5 +256,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/rules?page={number} |
-| limit | int | /api/v2/products/{product_id}/rules?limit={count} 
+| page | int | `/api/v2/products/{product_id}/rules?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/rules?limit={count}` |

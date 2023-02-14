@@ -29,7 +29,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 | is_purchasing_disabled | boolean | if true, this prohibits purchasing of the SKU. | 
 | purchasing_disabled_message | string | The message to display if purchasing is disabled on this SKU. | 
 | image_file | string | The image that will be displayed when this SKU is selected on the storefront. When updating a SKU image, send the publicly accessible URL. Supported image formats are JPEG, PNG, and GIF. | 
-| options | object_array | This is an object {"product_option_id": int, "option_value_id":int} |
+| options | object_array | This is an object `{"product_option_id": int, "option_value_id":int}` |
 
 ## List Product SKUs 
 
@@ -37,7 +37,7 @@ Gets the collection of SKUs associated with a product.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus`
 
-**Note**s 
+**Note** 
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
 
@@ -47,17 +47,17 @@ Filter parameters can be added to the URL query string to select specific skus i
 
 | Parameter | Type | Example |
 |-|-|-|
-| min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
-| max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
-| sku | string | /api/v2/products/{product_id}/skus?sku={value} |
-| upc | string | /api/v2/products/{product_id}/skus?upc={value} |
-| inventory_level | string | /api/v2/products/{product_id}/skus?inventory_level={value} |
-| inventory_warning_level | string | /api/v2/products/{product_id}/skus?inventory_warning_level={value} |
-| bin_picking_number | string | /api/v2/products/{product_id}/skus?bin_picking_number={value} |
-| min_inventory_level | int | /api/v2/products/{product_id}/skus?min_inventory_level={value} |
-| max_inventory_level | int | /api/v2/products/{product_id}/skus?max_inventory_level={value} |
-| is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
-| product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
+| min_id | int | `/api/v2/products/{product_id}/skus?min_id={value}` |
+| max_id | int | `/api/v2/products/{product_id}/skus?max_id={value}` |
+| sku | string | `/api/v2/products/{product_id}/skus?sku={value}` |
+| upc | string | `/api/v2/products/{product_id}/skus?upc={value}` |
+| inventory_level | string | `/api/v2/products/{product_id}/skus?inventory_level={value}` |
+| inventory_warning_level | string | `/api/v2/products/{product_id}/skus?inventory_warning_level={value}` |
+| bin_picking_number | string | `/api/v2/products/{product_id}/skus?bin_picking_number={value}` |
+| min_inventory_level | int | `/api/v2/products/{product_id}/skus?min_inventory_level={value}` |
+| max_inventory_level | int | `/api/v2/products/{product_id}/skus?max_inventory_level={value}` |
+| is_low_inventory | boolean | `/api/v2/products/{product_id}/skus?is_low_inventory={value}` |
+| product_hash | int | `/api/v2/products/{product_id}/skus?product_hash={value}` |
 
 #### Pagination 
 
@@ -65,8 +65,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/skus?page={number} |
-| limit | int | /api/v2/products/{product_id}/skus?limit={count} |
+| page | int | `/api/v2/products/{product_id}/skus?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/skus?limit={count}` |
 
 ### Response 
 
@@ -312,17 +312,17 @@ Filter parameters can be added to the URL query string to select specific SKUs i
 
 | Parameter | Type | Example |
 |-|-|-|
-| min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
-| max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
-| sku | string | /api/v2/products/{product_id}/skus?sku={value} |
-| upc | string | /api/v2/products/{product_id}/skus?upc={value} |
-| inventory_level | string | /api/v2/products/{product_id}/skus?inventory_level={value} |
-| inventory_warning_level | string | /api/v2/products/{product_id}/skus?inventory_warning_level={value} |
-| bin_picking_number | string | /api/v2/products/{product_id}/skus?bin_picking_number={value} |
-| min_inventory_level | int | /api/v2/products/{product_id}/skus?min_inventory_level={value} |
-| max_inventory_level | int | /api/v2/products/{product_id}/skus?max_inventory_level={value} |
-| is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
-| product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
+| min_id | int | `/api/v2/products/{product_id}/skus?min_id={value}` |
+| max_id | int | `/api/v2/products/{product_id}/skus?max_id={value}` |
+| sku | string | `/api/v2/products/{product_id}/skus?sku={value}` |
+| upc | string | `/api/v2/products/{product_id}/skus?upc={value}` |
+| inventory_level | string | `/api/v2/products/{product_id}/skus?inventory_level={value}` |
+| inventory_warning_level | string | `/api/v2/products/{product_id}/skus?inventory_warning_level={value}` |
+| bin_picking_number | string | `/api/v2/products/{product_id}/skus?bin_picking_number={value}` |
+| min_inventory_level | int | `/api/v2/products/{product_id}/skus?min_inventory_level={value}` |
+| max_inventory_level | int | `/api/v2/products/{product_id}/skus?max_inventory_level={value}` |
+| is_low_inventory | boolean | `/api/v2/products/{product_id}/skus?is_low_inventory={value}` |
+| product_hash | int | `/api/v2/products/{product_id}/skus?product_hash={value}` |
 
 ### Pagination 
 
@@ -330,5 +330,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/skus?page={number} |
-| limit | int | /api/v2/products/{product_id}/skus?limit={count} |
+| page | int | `/api/v2/products/{product_id}/skus?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/skus?limit={count}` |

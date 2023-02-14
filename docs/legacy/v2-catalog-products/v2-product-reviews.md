@@ -41,8 +41,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/reviews?page={number} |
-| limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
+| page | int | `/api/v2/products/{product_id}/reviews?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/reviews?limit={count}` |
 
 ### Response 
 
@@ -183,7 +183,7 @@ Example JSON returned in the response:
 
 Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}
+>`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
 
 ## Delete All Product Reviews 
 

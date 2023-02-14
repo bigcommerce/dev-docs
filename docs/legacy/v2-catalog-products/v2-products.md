@@ -112,32 +112,32 @@ Filter parameters can be added to the URL query string to select specific produc
 
 | Parameter | Type | Example |
 |-|-|-|
-| min_id | int | /api/v2/products?min_id={value} |
-| max_id | int | /api/v2/products?max_id={value} |
-| name | string | /api/v2/products?name={value} |
-| keyword_filter | string | /api/v2/products?keyword_filter={value} |
-| description | string | /api/v2/products?description={value} |
-| sku | string | /api/v2/products?sku={value} |
-| condition | string | /api/v2/products?condition={value} |
-| availability | string | /api/v2/products?availability={value} |
-| brand_id | string | /api/v2/products?brand_id={value} |
-| min_date_created | dateTime or date | /api/v2/products?min_date_created={value} |
-| max_date_created | dateTime or date | /api/v2/products?max_date_created={value} |
-| min_date_modified | dateTime or date | /api/v2/products?min_date_modified={value} |
-| max_date_modified | dateTime or date | /api/v2/products?max_date_modified={value} |
-| min_date_last_imported | date | /api/v2/products?min_date_last_imported={value} |
-| max_date_last_imported | date | /api/v2/products?max_date_last_imported={value} |
-| min_price | decimal | /api/v2/products?min_price={value} |
-| max_price | decimal | /api/v2/products?max_price={value} |
-| min_number_sold | int | /api/v2/products?min_number_sold={value} |
-| max_number_sold | int | /api/v2/products?max_number_sold={value} |
-| is_visible | string | /api/v2/products?is_visible={value} |
-| is_featured | string | /api/v2/products?is_featured={value} |
-| min_inventory_level | int | /api/v2/products?min_inventory_level={value} |
-| max_inventory_level | int | /api/v2/products?max_inventory_level={value} |
-| include_sku | boolean | /api/v2/products?include_sku={value} |
-| category | string | /api/v2/products?category={value} |
-| product_tax_code | string | /api/v2/products?product_tax_code={value} |
+| min_id | int | `/api/v2/products?min_id={value}` |
+| max_id | int | `/api/v2/products?max_id={value}` |
+| name | string | `/api/v2/products?name={value}` |
+| keyword_filter | string | `/api/v2/products?keyword_filter={value}` |
+| description | string | `/api/v2/products?description={value}` |
+| sku | string | `/api/v2/products?sku={value}` |
+| condition | string | `/api/v2/products?condition={value}` |
+| availability | string | `/api/v2/products?availability={value}` |
+| brand_id | string | `/api/v2/products?brand_id={value}` |
+| min_date_created | dateTime or date | `/api/v2/products?min_date_created={value}` |
+| max_date_created | dateTime or date | `/api/v2/products?max_date_created={value}` |
+| min_date_modified | dateTime or date | `/api/v2/products?min_date_modified={value}` |
+| max_date_modified | dateTime or date | `/api/v2/products?max_date_modified={value}` |
+| min_date_last_imported | date | `/api/v2/products?min_date_last_imported={value}` |
+| max_date_last_imported | date | `/api/v2/products?max_date_last_imported={value}` |
+| min_price | decimal | `/api/v2/products?min_price={value}` |
+| max_price | decimal | `/api/v2/products?max_price={value}` |
+| min_number_sold | int | `/api/v2/products?min_number_sold={value}` |
+| max_number_sold | int | `/api/v2/products?max_number_sold={value}` |
+| is_visible | string | `/api/v2/products?is_visible={value}` |
+| is_featured | string | `/api/v2/products?is_featured={value}` |
+| min_inventory_level | int | `/api/v2/products?min_inventory_level={value}` |
+| max_inventory_level | int | `/api/v2/products?max_inventory_level={value}` |
+| include_sku | boolean | `/api/v2/products?include_sku={value}` |
+| category | string | `/api/v2/products?category={value}` |
+| product_tax_code | string | `/api/v2/products?product_tax_code={value}` |
 
 ### Pagination
 
@@ -145,10 +145,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/products?page={number} |
-| Limit | int | /api/v2/products?limit={count} |
+| Page | int | `/api/v2/products?page={number}` |
+| Limit | int | `/api/v2/products?limit={count}` |
 
-**Note**s
+**Note**
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -663,34 +663,34 @@ Filter parameters can be added to the URL query string to select specific produc
 
 | Parameter | Type | Example |
 |-|-|-|
-| min_id | int | /api/v2/products?min_id={value} |
-| max_id | int | /api/v2/products?max_id={value} |
-| name | string | /api/v2/products?name={value} |
-| keyword_filter | string | /api/v2/products?keyword_filter={value} |
-| description | string | /api/v2/products?description={value} |
-| sku | string | /api/v2/products?sku={value} |
-| condition | string | /api/v2/products?condition={value} |
-| availability | string | /api/v2/products?availability={value} |
-| brand_id | string | /api/v2/products?brand_id={value} |
-| min_date_created | date | /api/v2/products?min_date_created={value} |
-| max_date_created | date | /api/v2/products?max_date_created={value} |
-| min_date_modified | date | /api/v2/products?min_date_modified={value} |
-| max_date_modified | date | /api/v2/products?max_date_modified={value} |
-| min_date_last_imported | date | /api/v2/products?min_date_last_imported={value} |
-| max_date_last_imported | date | /api/v2/products?max_date_last_imported={value} |
-| min_price | decimal | /api/v2/products?min_price={value} |
-| max_price | decimal | /api/v2/products?max_price={value} |
-| min_number_sold | int | /api/v2/products?min_number_sold={value} |
-| max_number_sold | int | /api/v2/products?max_number_sold={value} |
-| is_visible | string | /api/v2/products?is_visible={value} |
-| is_featured | string | /api/v2/products?is_featured={value} |
-| min_inventory_level | int | /api/v2/products?min_inventory_level={value} |
-| max_inventory_level | int | /api/v2/products?max_inventory_level={value} |
-| include_sku | boolean | /api/v2/products?include_sku={value} |
-| category | string | /api/v2/products?category={value} |
-| product_tax_code | string | /api/v2/products?product_tax_code={value} |
+| min_id | int | `/api/v2/products?min_id={value}` |
+| max_id | int | `/api/v2/products?max_id={value}` |
+| name | string | `/api/v2/products?name={value}` |
+| keyword_filter | string | `/api/v2/products?keyword_filter={value}` |
+| description | string | `/api/v2/products?description={value}` |
+| sku | string | `/api/v2/products?sku={value}` |
+| condition | string | `/api/v2/products?condition={value}` |
+| availability | string | `/api/v2/products?availability={value}` |
+| brand_id | string | `/api/v2/products?brand_id={value}` |
+| min_date_created | date | `/api/v2/products?min_date_created={value}` |
+| max_date_created | date | `/api/v2/products?max_date_created={value}` |
+| min_date_modified | date | `/api/v2/products?min_date_modified={value}` |
+| max_date_modified | date | `/api/v2/products?max_date_modified={value}` |
+| min_date_last_imported | date | `/api/v2/products?min_date_last_imported={value}` |
+| max_date_last_imported | date | `/api/v2/products?max_date_last_imported={value}` |
+| min_price | decimal | `/api/v2/products?min_price={value}` |
+| max_price | decimal | `/api/v2/products?max_price={value}` |
+| min_number_sold | int | `/api/v2/products?min_number_sold={value}` |
+| max_number_sold | int | `/api/v2/products?max_number_sold={value}` |
+| is_visible | string | `/api/v2/products?is_visible={value}` |
+| is_featured | string | `/api/v2/products?is_featured={value}` |
+| min_inventory_level | int | `/api/v2/products?min_inventory_level={value}` |
+| max_inventory_level | int | `/api/v2/products?max_inventory_level={value}` |
+| include_sku | boolean | `/api/v2/products?include_sku={value}` |
+| category | string | `/api/v2/products?category={value}` |
+| product_tax_code | string | `/api/v2/products?product_tax_code={value}` |
 
-**Note**s
+**Note**
 
 If no filters are applied, the total number of products is returned.
 
@@ -868,7 +868,7 @@ Deletes a product.
 
 > `DELETE /stores/{store_hash}/v2/products/{id}`
 
-**Note**s
+**Note**
 
 Successful deletion of a product returns a `204 No Content` response:
 
@@ -882,7 +882,7 @@ Deletes all products from the store.
 
 > `DELETE /stores/{store_hash}/v2/products`
 
-**Note**s
+**Note**
 
 Successful deletion of all products returns a `204 No Content` response:
 

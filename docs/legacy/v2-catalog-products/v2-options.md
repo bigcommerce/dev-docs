@@ -35,8 +35,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/options?page={number} |
-| limit | int | /api/v2/products/{product_id}/options?limit={count} |
+| page | int | `/api/v2/products/{product_id}/options?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/options?limit={count}` |
 
 ### Response 
 

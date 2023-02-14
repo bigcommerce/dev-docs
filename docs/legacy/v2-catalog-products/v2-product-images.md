@@ -28,7 +28,7 @@ Images associated with a product.
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
->GET /stores/{store_hash}/v2/products/{product_id}/images
+>`GET /stores/{store_hash}/v2/products/{product_id}/images`
 
 ### Filters 
 
@@ -40,8 +40,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| page | int | /api/v2/products/{product_id}/images?page={number} |
-| limit | int | /api/v2/products/{product_id}/images?limit={count} |
+| page | int | `/api/v2/products/{product_id}/images?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/images?limit={count}` |
 
 ### Response 
 
@@ -208,5 +208,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/products/{product_id}/images?page={number} |
-| Limit | int | /api/v2/products/{product_id}/images?limit={count} |
+| Page | int | `/api/v2/products/{product_id}/images?page={number}` |
+| Limit | int | `/api/v2/products/{product_id}/images?limit={count}` |

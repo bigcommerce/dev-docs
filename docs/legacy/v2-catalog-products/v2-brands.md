@@ -35,9 +35,9 @@ Filter parameters can be added to the URL query string to select specific brands
 
 | Parameter | Type | Example |
 |-|-|-|
-| name | string | /api/v2/brands?name={value} |
-| min_id | int | /api/v2/brands?min_id={value} |
-| max_id | int | /api/v2/brands?max_id={value} |
+| name | string | `/api/v2/brands?name={value}` |
+| min_id | int | `/api/v2/brands?min_id={value}` |
+| max_id | int | `/api/v2/brands?max_id={value}` |
 
 ### Pagination 
 
@@ -45,8 +45,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 |-|-|-|
-| Page | int | /api/v2/brands?page={number} |
-| Limit | int | /api/v2/brands?limit={count} |
+| Page | int | `/api/v2/brands?page={number}` |
+| Limit | int | `/api/v2/brands?limit={count}` |
 
 ### Response 
 
