@@ -23,7 +23,7 @@ BigCommerce does not dynamically convert currency. To convert, the merchant will
 
 **Example:**
 
-```json
+```json showLineNumbers copy
 {
   "country_iso2": "EU",
   "currency_code": "EUR",
@@ -50,8 +50,9 @@ You can create price lists in any currency setup in the store. Both transactiona
 
 ![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-price-overrides.png "Price Overrides")
 
-<!-- theme: info -->
-> This feature is limited to Enterprise plans and requires a Stencil theme.
+<Callout type="info">
+This feature is limited to Enterprise plans and requires a Stencil theme.
+</Callout>
 
 
 
@@ -68,7 +69,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 [**Create Price Record** ](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection):
 
-```json
+```json showLineNumbers copy
 [
   {
     "variant_id": 360,
@@ -89,7 +90,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 [**Price List Sample Response** ](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection):
 
-```json
+```json showLineNumbers copy
 {
   "data": [
     {
@@ -148,10 +149,10 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
 
-**Example POST Create a Cart** 
-*[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
+**Example POST Create a Cart** \
+[*`https://api.bigcommerce.com/stores/{storehash}/v3/carts`*](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
 
-```json
+```json showLineNumbers copy
 {
   "customer_id": 1,
   "line_items": [
@@ -183,7 +184,7 @@ In the example below, the store’s default currency is `USD`, and the item is `
 
 **Abbreviated example create a cart response**
 
-```json
+```json showLineNumbers copy
 {
   "id": "4c8681f7-cc64-4377-b5a3-cf5f762edf5d",
   "cart": {
@@ -256,7 +257,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 
 **Example:**
 
-```json
+```json showLineNumbers copy
 {
   //...   
   "currency_id": 4,
@@ -318,7 +319,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 [**Create a Gift Certificate**](/api-reference/marketing/marketing-api/gift-certificates/createagiftcertificate)
 
-```json
+```json showLineNumbers copy
 {
   "code": "10R-6E3-AO4-RST",
   "amount": "700.0000",
