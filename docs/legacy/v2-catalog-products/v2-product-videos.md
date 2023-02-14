@@ -4,10 +4,12 @@
 
 Embedded videos displayed on product listings.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Videos](/api-reference/store-management/catalog/product-videos).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Videos](/api-reference/store-management/catalog/product-videos).
+</Callout>
+
 ### Videos Object – Properties 
 
 | Name | Type | Description |
@@ -36,7 +38,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": "UmhvxsOwhqk",
@@ -63,7 +65,7 @@ Gets a count of the number of product videos in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 0
 }
@@ -96,7 +98,7 @@ Only YouTube videos are supported. To create a new video, pass the full `url` in
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
 }
@@ -129,7 +131,7 @@ Posting a new `url` will update the `id` of the video to reference the new video
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "New video title",
   "sort_order": 2

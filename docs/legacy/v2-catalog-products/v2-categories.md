@@ -4,10 +4,11 @@
 
 Index of hierarchical categories used to organize and group products.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Category](/api-reference/store-management/catalog/category).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Category](/api-reference/store-management/catalog/category).
+</Callout>
 
 ### Category Object – Properties 
 
@@ -59,7 +60,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -92,7 +93,7 @@ Gets a single category.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "parent_id": 1,
@@ -124,7 +125,7 @@ Gets a count of the total number of categories in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 10
 }
@@ -159,7 +160,7 @@ In addition, BigCommerce caps the total number of parent categories at seven. If
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "Xmen toys"
 }
@@ -169,7 +170,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "parent_id": 1,
@@ -216,7 +217,7 @@ To maximize system performance, BigCommerce caps the total number of parent cate
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "parent_id": 1,
@@ -244,10 +245,10 @@ Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
-<!-- theme: danger -->
-> #### Delete Products before Categories
-> The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
-
+<Callout type="warning">
+  #### Delete Products before Categories
+  The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+</Callout>
 
 ## Delete All Categories 
 

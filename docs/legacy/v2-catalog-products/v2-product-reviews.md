@@ -6,10 +6,12 @@
 
 Reviews associated with a product.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Reviews](/api-reference/store-management/catalog/product-reviews).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Reviews](/api-reference/store-management/catalog/product-reviews).
+</Callout>
+
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
@@ -46,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 190,
@@ -91,7 +93,7 @@ Gets a product review.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 190,
   "product_id": 5310,
@@ -134,7 +136,7 @@ The following properties of the product review are required. The request won’t
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 8,
   "product_id": 32,
@@ -164,7 +166,7 @@ The following properties of the product review are read-only. If one or more of 
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 8,
   "product_id": 32,

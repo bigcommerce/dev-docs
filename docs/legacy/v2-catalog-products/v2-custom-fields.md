@@ -6,10 +6,12 @@
 
 Custom fields associated with a product.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Custom Fields](/api-reference/store-management/catalog/product-custom-fields/getcustomfields).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Custom Fields](/api-reference/store-management/catalog/product-custom-fields/getcustomfields).
+</Callout>
+
 ### Custom Field Object – Properties 
 
 | Name | Type | Description |
@@ -46,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -73,7 +75,7 @@ Gets a custom field associated with a product.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 2,
   "product_id": 30,
@@ -92,7 +94,7 @@ Gets a count of the number of custom fields in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 0
 }
@@ -121,7 +123,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "Release Date",
   "text": "2013-12-25"
@@ -132,13 +134,14 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 5,
   "product_id": 45,
   "name": "Release Date",
   "text": "2013-12-25"
 }
+```
 
 ## Update a Custom Field 
 
@@ -163,7 +166,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "Release Date",
   "text": "2013-12-31"
@@ -174,7 +177,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 5,
   "product_id": 45,

@@ -4,10 +4,11 @@
 
 Rules that modify the properties of a product, such as weight, price, and product image.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules).
+</Callout>
 
 ### Product Rule Object – Properties 
 
@@ -49,7 +50,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -104,7 +105,7 @@ Gets a single product rule.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 2,
   "product_id": 3,
@@ -137,7 +138,7 @@ Gets a count of the number of product rules in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 3
 }
@@ -166,7 +167,7 @@ The following properties of the product rule are required. The request won’t b
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "product_id": 3,
@@ -214,7 +215,7 @@ There are no property requirements for updating a product rule.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 2,
   "product_id": 3,

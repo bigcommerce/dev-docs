@@ -1,16 +1,17 @@
 # Products
  
 
-<!-- theme: danger -->
-> It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
+<Callout type="warning">
+  It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
+</Callout>
 
 ## Products
 A product object represents a saleable item in the catalog.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+</Callout>
 
 
 ### Product Object – Properties
@@ -98,7 +99,7 @@ A product object represents a saleable item in the catalog.
 | option_set | resource | See the [Product Option Sets](/legacy/v2-catalog-products/v2-option-sets) resource for information. |
 | options | resource | Options from the [option set](/api/v2/#option-sets) applied to the product. See the [Product Options](/api/v2/#product-options) resource for information. |
 | tax_class | resource | Assigned tax class, when using a manual tax setup. This can be a number matching one of the tax classes set up in your store. |
-| avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br /><br /> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br /><br /> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
+| avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br /><br /> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br /><br /> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a  on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
 
 ## List Products
 
@@ -161,7 +162,7 @@ For details, syntax, and examples, please see the [Get a Product](#get-a-product
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 32,
@@ -446,7 +447,7 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=date_created
 
 Here is a corresponding sample response:
 
-```
+```json showLineNumbers
 {
     "id": 32,
     "name": "[Sample] Tomorrow is today, Red printed scarf",
@@ -486,7 +487,7 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=@summary
 
 Here is a corresponding sample response:
 
-```
+```json showLineNumbers
 {
     "id": 32,
     "name": "[Sample] Tomorrow is today, Red printed scarf",
@@ -526,7 +527,7 @@ We have omitted the corresponding sample response. However, the following sectio
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 {
   "id": 32,
   "keyword_filter": null,
@@ -697,7 +698,7 @@ If no filters are applied, the total number of products is returned.
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 {
   "count": 44
 }
@@ -743,7 +744,7 @@ The following properties of the product are required. The request won’t be ful
 
 Create a request by sending a [product object](#product-object--properties) with the minimum required properties:
 
-```
+```json showLineNumbers
 {
     "name": "Plain T-Shirt",
     "type": "physical",
@@ -806,7 +807,7 @@ There are no required properties when updating a product.
 
 To update a product, set one or more product properties in the `PUT` request:
 
-```
+```json showLineNumbers
 {
     "custom_url": "/plain-tshirt/",
     "is_visible": true
@@ -815,7 +816,7 @@ To update a product, set one or more product properties in the `PUT` request:
 
 For example, you can use a `PUT` to link a product to an option set:
 
-```
+```json showLineNumbers
 {
     "option_set_id": 14
 }
@@ -825,7 +826,7 @@ Invalid property values will produce a `400 Bad Request` error response:
 
 ### Request
 
-```
+```json showLineNumbers
 {
     "condition": "Worn"
 }
@@ -841,7 +842,7 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 
 ### Request
 
-```
+```json showLineNumbers
 {
     "number_sold": 99
 }

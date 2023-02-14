@@ -6,10 +6,10 @@
 
 A reusable set of option facets that can be applied to products.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+</Callout>
 
 
 ### Option Set Object – Properties 
@@ -48,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -83,7 +83,7 @@ Gets an option set.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "product_id": null,
@@ -106,7 +106,7 @@ Gets a count of the number of option sets in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 4
 }
@@ -135,7 +135,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "T-Shirts"
 }
@@ -145,7 +145,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "product_id": null,
@@ -181,7 +181,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "T-shirt Facets"
 }
@@ -191,7 +191,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "product_id": null,

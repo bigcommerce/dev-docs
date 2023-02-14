@@ -6,10 +6,12 @@
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Brands](/api-reference/store-management/catalog/brands).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Brands](/api-reference/store-management/catalog/brands).
+</Callout>
+
 ### Brand Object – Properties 
 
 | Name | Type | Description |
@@ -51,7 +53,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -84,7 +86,7 @@ Gets a brand.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 1,
   "name": "Apple",
@@ -106,7 +108,7 @@ Returns the total number of brands in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 25
 }
@@ -138,7 +140,7 @@ To maximize system performance, BigCommerce caps the number of brands that can b
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "name": "Xmen",
   "page_title": "X men brand"
@@ -149,7 +151,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "name": "Xmen",
@@ -181,7 +183,7 @@ The following properties of the brand are required. The request won’t be fulfi
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 10,
   "name": "Xmen",

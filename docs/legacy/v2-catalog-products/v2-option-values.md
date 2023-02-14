@@ -6,11 +6,11 @@
 
 Values that can be selected for an option.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Option Values](/api-reference/store-management/catalog/product-option-values).
-
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Option Values](/api-reference/store-management/catalog/product-option-values).
+</Callout>
 
 ### Option Value Object – Properties 
 
@@ -42,7 +42,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -73,7 +73,7 @@ Gets an option value.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 9,
   "option_id": 3,
@@ -114,7 +114,7 @@ When you POST an `is_default`property of `true`, all other option values on the 
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "label": "white",
   "sort_order": 0,
@@ -127,7 +127,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 68,
   "option_id": 3,
@@ -163,7 +163,7 @@ When you PUT an `is_default` property of `true`, all other option values on the 
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "label": "whitish",
   "sort_order": 1,
@@ -176,7 +176,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 68,
   "option_id": 3,

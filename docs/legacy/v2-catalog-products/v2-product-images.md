@@ -6,10 +6,12 @@
 
 Images associated with a product.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images/getproductimages).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images/getproductimages).
+</Callout>
+
 ### Product Image Object – Properties 
 
 | Name | Type | Description |
@@ -45,7 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 247,
@@ -86,7 +88,7 @@ Gets a product image.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 248,
   "product_id": 32,
@@ -112,7 +114,7 @@ Gets a count of the number of product images in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 105
 }
@@ -142,7 +144,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 116,
   "product_id": 29,
@@ -176,7 +178,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 118,
   "product_id": 30,

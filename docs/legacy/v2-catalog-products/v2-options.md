@@ -4,10 +4,10 @@
 
 Shared attributes that control value facets on a product.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+</Callout>
 
 ### Options Object – Properties 
 
@@ -42,7 +42,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 13,
@@ -71,7 +71,7 @@ Gets an option associated with a product.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 14,
   "option_id": 9,

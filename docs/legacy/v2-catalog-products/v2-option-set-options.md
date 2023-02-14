@@ -5,10 +5,10 @@
 
 Options belonging to an option set.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+</Callout>
 
 ### Option Set Option: Object â€“ Properties 
 
@@ -42,7 +42,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 43,
@@ -133,7 +133,7 @@ Gets an option set option.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 4,
   "option_id": 5,
@@ -173,7 +173,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "option_id": 10,
   "display_name": "Choose a color",
@@ -186,7 +186,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 2,
   "option_id": 10,
@@ -225,7 +225,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "display_name": "Pick a color...",
   "sort_order": 2,
@@ -237,7 +237,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 2,
   "option_id": 10,

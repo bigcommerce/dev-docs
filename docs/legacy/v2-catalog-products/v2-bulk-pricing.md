@@ -3,10 +3,12 @@
 
 Bulk pricing rules applied to a product.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
+</Callout>
+
 ###  Bulk Pricing Object – Properties 
 
 | Name | Type | Description |
@@ -41,7 +43,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": "1",
@@ -64,7 +66,7 @@ Gets a product bulk pricing rule.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": "1",
   "product_id": 30,
@@ -85,7 +87,7 @@ Gets a count of the number of bulk pricing rules in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 9
 }
@@ -120,7 +122,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "min": 100,
   "max": 500,
@@ -133,7 +135,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": "1",
   "product_id": 30,
@@ -173,7 +175,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```json
+```json showLineNumbers
 {
   "min": 200,
   "max": 300,
@@ -186,7 +188,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": "1",
   "product_id": 30,

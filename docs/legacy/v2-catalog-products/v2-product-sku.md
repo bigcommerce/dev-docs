@@ -4,10 +4,11 @@
 
 Stock Keeping Unit identifiers associated with products or product options.
 
-<!-- theme: warning -->
-> #### Deprecated
-> Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Variants](/api-reference/store-management/catalog/product-variants).
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Variants](/api-reference/store-management/catalog/product-variants).
+</Callout>
 
 ### SKU Object – Properties 
 
@@ -71,7 +72,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```
+```json showLineNumbers
 [
   {
     "id": 1,
@@ -140,7 +141,7 @@ Gets a single product SKU.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 5,
   "product_id": 7,
@@ -179,7 +180,7 @@ Gets a count of the number of product SKUs in the store.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "count": 1235
 }
@@ -218,7 +219,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 5,
   "product_id": 7,
@@ -267,7 +268,7 @@ There are no required properties for updating a product SKU.
 
 Example JSON returned in the response:
 
-```json
+```json showLineNumbers
 {
   "id": 5,
   "product_id": 7,
