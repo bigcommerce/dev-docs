@@ -8,11 +8,10 @@ This article illustrates the difference between V2 and V3 Catalog APIs by compar
 
 In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
-<!-- theme: info -->
-> #### Note
-> * **Simple products** are products that do not have variants, options, or modifiers.
-> * **Complex products** are products that have variants, options, or modifiers.
-
+<Callout type="info">
+  * **Simple products** are products that do not have variants, options, or modifiers.
+  * **Complex products** are products that have variants, options, or modifiers.
+</Callout>
 
 
 ### Get a product
@@ -25,7 +24,7 @@ To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/cat
 
 `GET /v3/catalog/products/{product_id}`
 
-```json
+```json showLineNumbers
 {
   "data": {
     "availability": "available",
@@ -113,7 +112,7 @@ To retrieve a product using the V2 Products API, send a `GET` request to `/v2/pr
 
 `GET /v2/products/{product_id}`
 
-```json
+```json showLineNumbers
 {
     "id": 77,
     "keyword_filter": null,
@@ -239,7 +238,7 @@ To create a simple product using the V3 Catalog API, send a `POST` request to `/
 
 `POST /v3/catalog/products`
 
-```json
+```json showLineNumbers
 {
   "name": "BigCommerce Storage Basket",
   "price": "10.00",
@@ -258,7 +257,7 @@ To create a simple product using the V2 Products API, in addition to the propert
 
 `POST /v2/products`
 
-```json
+```json showLineNumbers
 {
   "name": "BigCommerce Clay Vase",
   "price": "20.00",
@@ -280,7 +279,7 @@ To add an image to the existing product using the V3 Catalog API, send a `POST` 
 
 `POST /v3/catalog/products/{product_id}/images`
 
-```json
+```json showLineNumbers
 {
   "is_thumbnail": true,
   "sort_order": 1,
@@ -295,7 +294,7 @@ The V2 `/images` endpoint only accepts the `multipart/form-data` media type.
 
 `POST /v2/products/{product_id}/images`
 
-```shell
+```shell showLineNumbers
 curl -X POST \
   https://api.bigcommerce.com/stores/{store_hash}/v2/products/{product_id}/images \
   -H 'Accept: application/json' \
@@ -315,7 +314,7 @@ To add a video to the existing product using the V3 Catalog API, send a `POST` r
 
 `POST /v3/catalog/products/{product_id}/videos`
 
-```json
+```json showLineNumbers
 {
   "title": "Your Video",
   "description": "Company Values",
@@ -331,7 +330,7 @@ To add a product video using the V2 API, you must pass the full video URL in the
 
 `POST /v2/products/{product_id}/videos`
 
-```json
+```json showLineNumbers
 {
   "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
 }
@@ -345,7 +344,7 @@ The V3 Catalog API lets you create a complex product with SKUs in one request.
 
 `POST /v3/catalog/products`
 
-```json
+```json showLineNumbers
 {
   "name": "BigCommerce Cutting Board",
   "price": "15.00",
@@ -388,7 +387,7 @@ This will only create an option with no values added.
 
 `POST /v2/options`
 
-```json
+```json showLineNumbers
 {
    "name": "Color",
    "display_name": "Choose a color",
@@ -402,7 +401,7 @@ This will add values such as white, black, and blue. You can only create one val
 
 `POST /v2/options/{option_id}/values`
 
-```json
+```json showLineNumbers
 {
     "label": "Black",
     "sort_order": 1,
@@ -417,7 +416,7 @@ Next, you need to create an option set and add the option and values created in 
 
 `POST /v2/option_sets`
 
-```json
+```json showLineNumbers
 {
   "name": "Color"
 }
@@ -427,7 +426,7 @@ Next, you need to create an option set and add the option and values created in 
 
 `POST /v2/option_sets/{option_set_id}/options`
 
-```json
+```json showLineNumbers
 {
   "option_id": 37
 }
@@ -439,7 +438,7 @@ To assign the option set to the product, send a `PUT` request to `/v2/products/{
 
 `PUT /v2/products/{id}`
 
-```json
+```json showLineNumbers
 {
   "option_set_id": 20
 }
@@ -451,7 +450,7 @@ First, retrieve the options associated with the option set. You will need the op
 
 `/GET /v2/option_sets/{option_set_id}/options`
 
-```json
+```json showLineNumbers
 [
     {
         "id": 64,
@@ -499,7 +498,7 @@ Now that you have both `option_value_id` and `product_option_id`, you can add SK
 
 `POST /v2/products/{product_id}/skus`
 
-```json
+```json showLineNumbers
 {
   "sku": "WHITE-1",
   "options": [
@@ -513,7 +512,7 @@ Now that you have both `option_value_id` and `product_option_id`, you can add SK
 
 **V2 response**
 
-```json
+```json showLineNumbers
 [
     {
         "id": 145,
@@ -597,7 +596,7 @@ This example uses a checkbox that is created in two steps.
 
 `POST /v3/catalog/products/{product_id}/modifiers`
 
-```json
+```json showLineNumbers
 {
   "config": {
     "checkbox_label": "Check for Donation",
@@ -614,7 +613,7 @@ This example uses a checkbox that is created in two steps.
 
 `PUT /v3/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}`
 
-```json
+```json showLineNumbers
 {
   "is_default": false,
   "adjusters": {
@@ -638,7 +637,7 @@ In V3, it is best practice to either assign values directly to a variant or use 
 
 `POST /v3/catalog/products/{product_id}/complex-rules`
 
-```json
+```json showLineNumbers
 {
   "product_id": 124,
   "enabled": true,
@@ -661,17 +660,16 @@ In V3, it is best practice to either assign values directly to a variant or use 
 
 In the following V2 example, we will add a complex rule to increase the product's price by $5 if the checkbox is selected.
 
-<!-- theme: info -->
-> #### Note
-> In V2, you cannot add a complex rule without an option.
-
+<Callout type="info">
+  In V2, you cannot add a complex rule without an option.
+</Callout>
 
 
 **V2 example**
 
 `POST /v2/products/{product_id}/rules`
 
-```json
+```json showLineNumbers
 {
   "price_adjuster": {
     "adjuster": "relative",
@@ -694,7 +692,7 @@ To update a product's stock levels using the V3 Catalog API, send a `PUT` reques
 
 `PUT /v3/catalog/products/{id}`
 
-```json
+```json showLineNumbers
 {
   "inventory_level": 100,
   "inventory_warning_level": 10
@@ -707,7 +705,7 @@ To update a product's stock levels using the V2 Products API, send a `PUT` reque
 
 `PUT /v2/products/{id}`
 
-```json
+```json showLineNumbers
 {
   "inventory_level": 15,
   "inventory_warning_level": 5
@@ -720,7 +718,7 @@ To update stock levels on a single variant and SKU using the V3 Catalog API, sen
 
 `PUT /v3/catalog/products/{id}/variants/{id}`
 
-```json
+```json showLineNumbers
 {
   "inventory_level": 100,
   "inventory_warning_level": 10
@@ -733,7 +731,7 @@ To update stock levels on a single variant and SKU using the V2 Products API, in
 
 `PUT /v2/products/{id}/skus/{id}`
 
-```json
+```json showLineNumbers
 {
   "inventory_level": 100,
   "inventory_warning_level": 10,
@@ -771,7 +769,7 @@ The product used in this example is a t-shirt with a global option set of **Size
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
-```json
+```json showLineNumbers
 {
     "data": [
         {
@@ -866,11 +864,10 @@ The product used in this example is a t-shirt with a global option set of **Size
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> * `option_values` IDs for **Color** are 180, 181, and 182.
-> * `option_values` IDs for **Size** are 192, 193, and 194.
-
+<Callout type="info">
+  * `option_values` IDs for **Color** are 180, 181, and 182.
+  * `option_values` IDs for **Size** are 192, 193, and 194.
+</Callout>
 
 
 #### Size and Color
@@ -882,7 +879,7 @@ Below, **Small** is updated to **Small T-Shirt**.
 
 `PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
 
-```json
+```json showLineNumbers
 {
 	"label": "Small T-Shirt"
 }
@@ -892,7 +889,7 @@ Notice that the option value ID has changed from 192 to 214.
 
 **V3 response**
 
-```json
+```json showLineNumbers
 {
     "data": {
         "id": 214,
@@ -911,7 +908,7 @@ Even though we edited only one option value, option value IDs for all other opti
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
-```json
+```json showLineNumbers
 {
     "data": [
         {
