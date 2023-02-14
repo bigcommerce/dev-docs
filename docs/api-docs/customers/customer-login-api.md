@@ -4,11 +4,10 @@
 
 In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens.
 
-<!-- theme:info -->
-> #### Note
->
-> You can also use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-login) to sign in and out of a customer's account.  
-
+<Callout type="info">
+You can also use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-login) to sign in and out of a customer's account.  
+</Callout>
+    
 ## Overview
 
 Single sign-on (SSO) is an authentication mechanism that enables users to sign in to multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on).
@@ -53,11 +52,11 @@ Be sure to set the Customers Login scope to Login.
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
-<!-- theme: info -->
-> #### API account notes
->
-> * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
-> * The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
+<Callout type="info">
+ #### API account notes
+ * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+ * The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
+ </Callout>
 
 ## Enable single sign-on
 
@@ -75,7 +74,7 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 
 1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`.
 
-```json
+```json showLineNumbers copy
 {
     "accepts_product_review_abandoned_cart_emails": true,
     "authentication": {
@@ -114,7 +113,7 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 
 Example:
 
-```http
+```http copy
 https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is
 ```
 
@@ -132,20 +131,20 @@ In this part of the tutorial, we will walk you through creating an access point 
 
 1. Create and open a new folder by running the following commands in your terminal:
 
-```bash
+```bash showLineNumbers copy
 $ mkdir urlGenerator
 $ cd urlGenerator
 ```
 
 2. Create a new node project with the following command:
 
-```bash
+```bash copy
 $ npm init
 ```
 
 3. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
 
-```bash
+```bash copy
 $ npm install jsonwebtoken uuid
 ```
 
@@ -153,7 +152,7 @@ $ npm install jsonwebtoken uuid
 
 5. Paste the following code into the new JS file:
 
-```js
+```js showLineNumbers copy
 const jwt = require('jsonwebtoken');
 const {v4: uuidv4} = require('uuid');
  
@@ -185,9 +184,8 @@ console.log(loginUrl);
 
 7. Run the code:
   
-```bash
+```bash copy
 $ node youFileName.js
-
 ```
 
 You should receive a complete access point URL as an output.
