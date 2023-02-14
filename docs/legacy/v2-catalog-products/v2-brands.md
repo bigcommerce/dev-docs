@@ -22,7 +22,6 @@ Brand facets for identifying and categorizing products according to their manufa
 | meta_keywords | text | Comma-separated list of meta keywords to include in the HTML. |
 | meta_description | text | A meta description to include. |
 | image_file | string | A valid image. |
-| s
 
 ## List Brands 
 
