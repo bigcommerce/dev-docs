@@ -24,10 +24,9 @@ Products can be physical or digital:
 * **Digital** - Non-physical products, including downloadable files (for example, computer software, ebooks, or music) and services (for example, haircuts, consulting, or lawn care).
 
 
-<!-- theme: info -->
-> #### Note
-> Only one product can be created at a time.
-
+<Callout type="info">
+  Only one product can be created at a time.
+</Callout>
 
 
 ### Creating a product
@@ -35,7 +34,7 @@ Products can be physical or digital:
 Below is an example `POST` request for creating a simple product without variant options or modifiers.
 
 
-```http
+```http filename="Example request: Create a product" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -53,13 +52,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
-
 ## Creating products with variant options
 
 To create a complex product with variant options selectable by shoppers, include a `variants` array in the request body.
 
-```http
+```http filename="Example request: Create a product" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -97,19 +94,16 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
-
+<Callout type="info">
+  When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
+</Callout>
 
 
 ## Creating digital products
 
 To create a digital product (like an ebook), set `type` to `digital`.
 
-```http
+```http filename="Example request: Create a product" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -132,12 +126,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
-
+<Callout type="info">
+  Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
+</Callout>
 
 
 
@@ -145,7 +136,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add an image to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/images`.
 
-```http
+```http filename="Example request: Create a product image" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
 Accept: application/json
 Content-Type: application/json
@@ -159,24 +150,21 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-images/createproductimage#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
-> * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
-> * A product can have only one thumbnail image at a time.
-> * If only one image is on the product, it becomes both the thumbnail and the main product image.
-> * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
-
+<Callout type="info">
+  * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
+  * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
+  * A product can have only one thumbnail image at a time.
+  * If only one image is on the product, it becomes both the thumbnail and the main product image.
+  * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
+</Callout>
 
 
 ## Adding product videos
 
-To add a video hosted on YouTube as a product video, send a `PUT` request to `/v3/catalog/products/{{product_id}}/videos`.
+To add a video hosted on YouTube as a product video, send a `POST` request to `/v3/catalog/products/{{product_id}}/videos`.
 
-```http
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
+```http filename="Example request: Create a product video" showLineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -190,21 +178,18 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> * A product can have more than one video.
-> * You must host product videos on YouTube.
-> * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
-
+<Callout type="info">
+  * A product can have more than one video.
+  * You must host product videos on YouTube.
+  * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
+</Callout>
 
 
 ## Adding custom fields
 
 To add custom fields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/custom-fields`.
 
-```http
+```http filename="Example request: Create a custom fields" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
 Accept: application/json
 Content-Type: application/json
@@ -216,12 +201,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner) -->
 
-<!-- theme: info -->
-> #### Note
-> Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
-
+<Callout type="info">
+  Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+</Callout>
 
 
 
@@ -229,7 +212,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
 
-```http
+```http filename="Example request: Create a bulk pricing rule" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
 Accept: application/json
 Content-Type: application/json
@@ -253,8 +236,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner) -->
-
 For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
 
 ## Pricing precision
@@ -271,10 +252,10 @@ Currency display settings allow for more than four decimal places. In such cases
 [Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
-To add metafields to a product, send a `PUT` request to `/v3/catalog/products/{{product_id}}/metafields`.
+To add metafields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/metafields`.
 
-```http
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
+```http filename="Example request: Create a product metafield" showLineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -290,19 +271,16 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> You can add metafields to variants, products, categories, and brands.
-
+<Callout type="info">
+  You can add metafields to variants, products, categories, and brands.
+</Callout>
 
 
 ## Adding product reviews
 
 To add product reviews to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/reviews`.
 
-```http
+```http filename="Example request: Create a product review" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
 Accept: application/json
 Content-Type: application/json
@@ -319,12 +297,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> You cannot create reviews in the control panel.
-
+<Callout type="info">
+  You cannot create reviews in the control panel.
+</Callout>
 
 
 ## Variant options
@@ -363,15 +338,16 @@ This example results in selecting a combination of small and red on the storefro
 * SKUs in V2 map to variants in V3.
 * Base variants are not SKUs in V2.
 
-<!-- theme: info -->
-> #### Create a variant option
-> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+<Callout type="info">
+  #### Create a variant option
+  Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+</Callout>
 
 ### Create variant options
 
 The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
 
-```http title="Create Size Variant Option" lineNumbers
+```http filename="Example request: Create Size Variant Option" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -402,8 +378,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/createoption#requestrunner) -->
-
 ## Variants
 
 [Variants](/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
@@ -415,10 +389,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 * In non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”.
 
 
-<!-- theme: warning -->
-> #### V2 SKU rules will override variant pricing
-> Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
-
+<Callout type="warning">
+  #### V2 SKU rules will override variant pricing
+  Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
+</Callout>
 
 ### Variant examples:
 
@@ -439,7 +413,7 @@ The example below will go over using existing variant options to create the vari
 
 To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
-```http title="Get product variant options"
+```http filename="Example request: Get product variant options" showLineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -487,26 +461,23 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/getoptions#requestrunner) -->
-
 In the above response, there are two variant options of size and color with three values each.
 
 To combine the variant option values into variants and build out SKUs use the following endpoint:
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
-<!-- theme: info -->
-> #### Note
-> * Variants need to be created one at a time using this endpoint.
-> * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
-> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
-
+<Callout type="info">
+  * Variants need to be created one at a time using this endpoint.
+  * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
+  * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
+</Callout>
 
 
 The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the ID from the variant option response `option_values > id`. The `option_id` is the ID of the option.
 
 
-```json
+```json showLineNumbers
 {
   "id": 193, //option_id
   "product_id": 134,
@@ -532,7 +503,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 The following example creates a base product, variant options, and variants in a single call to the [Products](/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
-```http
+```http filename="Example request: Create a variant using the product endpoint" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -571,12 +542,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
-
-<!-- theme: info -->
-> #### Supported types
-> Swatch, radio button, rectangle, dropdown, product list, and product list with images.
-
+<Callout type="info">
+  #### Supported types
+  Swatch, radio button, rectangle, dropdown, product list, and product list with images.
+</Callout>
 
 
 
@@ -604,10 +573,10 @@ You can add an adjuster to a modifier option to change things, such as increasin
 | T-Shirt | Blue<br />-<br /> Small<br /> Medium<br /> Large| BLU<br /> BLU-MED <br /> BLU-LARG| Checkbox<br />Donate to Charity|
 | Backpack | Black<br />Yellow<br />-<br />2L <br /> 3L<br /> 8L |BLACK-2L<br />BLACK-3L<br />BLACK 8L<br />-<br />YELLOW-2L<br />YELLOW-3L<br />YELLOW-8L| Text Field<br /> Add Embroidery|
 
-<!-- theme: info -->
-> #### Modifiers that support adjusters
-> Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
-
+<Callout type="info">
+  #### Modifiers that support adjusters
+  Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
+</Callout>
 
 
 
@@ -617,85 +586,90 @@ The following example shows how to add a modifier and a checkbox with a price ad
 
 Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
-<!-- theme: info -->
-> #### Modifiers that require a second step to add an adjuster
-> Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
-
+<Callout type="info">
+  #### Modifiers that require a second step to add an adjuster
+  Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
+</Callout>
 
 
 
 To [create a modifier](/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
-Accept: application/json
-Content-Type: application/json
-X-Auth-Token: {{ACCESS_TOKEN}}
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-{
-  "type": "checkbox",
-  "required": false,
-  "config": {
-    "default_value": "Yes",
-    "checked_by_default": false,
-    "checkbox_label": "Check for Donation"
-  },
-  "display_name": "Add a $5 Donation"
-}
-```
+    ```http filename="Example request: Create a product modifier" showLineNumbers
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner) -->
-
-
-**Response:**
-
-```json
-{
-  "data": [
     {
-      "id": 160,
-      "product_id": 131,
-      "name": "Add-a-$5-Donation1535039590-191",
-      "display_name": "Add a $5 Donation",
       "type": "checkbox",
       "required": false,
       "config": {
-        "checkbox_label": "Check for Donation",
-        "checked_by_default": false
+        "default_value": "Yes",
+        "checked_by_default": false,
+        "checkbox_label": "Check for Donation"
       },
-      "option_values": [
-        {
-          "id": 149,
-          "option_id": 160,
-          "label": "Yes",
-          "sort_order": 0,
-          "value_data": {
-            "checked_value": true
-          },
-          "is_default": false,
-          "adjusters": {...},
-        {
-          "id": 150,
-          "option_id": 160,
-          "label": "No",
-          "sort_order": 1,
-          "value_data": {
-            "checked_value": false
-          },
-          "is_default": true,
-          "adjusters": {...}
-      ]
+      "display_name": "Add a $5 Donation"
     }
-  ],
-  "meta": {...}
-}
-```
+    ```
+
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Create a product modifier" showLineNumbers
+    {
+      "data": [
+        {
+          "id": 160,
+          "product_id": 131,
+          "name": "Add-a-$5-Donation1535039590-191",
+          "display_name": "Add a $5 Donation",
+          "type": "checkbox",
+          "required": false,
+          "config": {
+            "checkbox_label": "Check for Donation",
+            "checked_by_default": false
+          },
+          "option_values": [
+            {
+              "id": 149,
+              "option_id": 160,
+              "label": "Yes",
+              "sort_order": 0,
+              "value_data": {
+                "checked_value": true
+              },
+              "is_default": false,
+              "adjusters": {...},
+            {
+              "id": 150,
+              "option_id": 160,
+              "label": "No",
+              "sort_order": 1,
+              "value_data": {
+                "checked_value": false
+              },
+              "is_default": true,
+              "adjusters": {...}
+          ]
+        }
+      ],
+      "meta": {...}
+    }
+    ```
+
+  </Tab>
+</Tabs>
 
 Since this is a checkbox with two states, you create two option values. The default `adjuster_value` is null.
 
 To [update the modifier value](/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
-```http
+```http filename="Example request: Update a product modifier value" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
 Accept: application/json
 Content-Type: application/json
@@ -712,11 +686,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue#requestrunner) -->
-
 ### Troubleshooting: 422 Errors
 
-```json
+```json showLineNumbers
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
@@ -761,8 +733,8 @@ Use complex rules when an adjustment should be triggered by:
 
 Complex rules must have a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when you check both boxes.
 
-```http
-PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/complex-rules
+```http filename="Example request: Create a complex rule" showLineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/complex-rules
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -785,13 +757,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   ]
 }
 ```
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-complex-rules/updatecomplexrule#requestrunner) -->
+
 
 ### Troubleshooting: 422 Errors
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 error.
 
-```json
+```json showLineNumbers
 {
     "status": 422,
     "title": "The rule must contain multiple modifier conditions with unique modifier ids or a variant condition and modifier condition",
@@ -804,7 +776,7 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 To create a [Brand](/api-reference/store-management/catalog/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
 
 
-```http
+```http filename="Example request: Create a brand" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
 Accept: application/json
 Content-Type: application/json
@@ -822,8 +794,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/brands/createbrand#requestrunner) -->
-
 For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
 
 ## Categories
@@ -834,7 +804,7 @@ BigCommerce's V3 REST API does not require products to be associated with a cate
 
 You can associate products with multiple categories. A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure.
 
-```http
+```http filename="Example request: Create a category" showLineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories
 
 Accept: application/json
@@ -851,55 +821,60 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/category/createcategory#requestrunner) -->
-
 ### Category tree
 
 [Category Tree](/api-reference/store-management/catalog/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. You can use this endpoint to fetch the categories if building out a custom navigation for a store.
 
-```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/categories/tree
-Accept: application/json
-Content-Type: application/json
-X-Auth-Token: {{ACCESS_TOKEN}}
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-**Response:**:
+    ```http filename="Example request: Get a category tree" showLineNumbers
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees/{{TREE_ID}}/categories
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    ```
 
-```json
-{
-  "data": [
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Get a category tree" showLineNumbers
     {
-      "id": 25,
-      "parent_id": 0,
-      "name": "Towels",
-      "is_visible": true,
-      "url": "/towels/",
-      "children": [
+      "data": [
         {
-          "id": 26,
-          "parent_id": 25,
-          "name": "Bath Towels",
+          "id": 25,
+          "parent_id": 0,
+          "name": "Towels",
           "is_visible": true,
-          "url": "/towels/bath-towels/",
+          "url": "/towels/",
           "children": [
             {
-              ...
+              "id": 26,
+              "parent_id": 25,
+              "name": "Bath Towels",
+              "is_visible": true,
+              "url": "/towels/bath-towels/",
               "children": [
+                {
+                  ...
+                  "children": [
+                    ...
+                    ]
+                },
                 ...
-                ]
+              ]
             },
-            ...
+            ..
           ]
         },
-        ..
-      ]
-    },
-    ...
-  ],
-  "meta": {...}
-}
-```
+        ...
+      ],
+      "meta": {...}
+    }
+    ```
+
+  </Tab>
+</Tabs>
 
 ## Product Sort Order
 
@@ -914,10 +889,9 @@ Product sorting methods:
 1. Manually specified sort order on a category level.
 2. Manually specified sort order on a product level. `0` by default. 
 
-<!-- theme: info -->
-> #### Note
-> Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
-
+<Callout type="info">
+  Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
+</Callout>
 
 
 ## Related resources
