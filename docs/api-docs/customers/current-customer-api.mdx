@@ -8,11 +8,11 @@ Suppose your application interacts dynamically with a storefront and conveys spe
 To address this need, BigCommerce provides a Current Customer endpoint that your app can access on the storefront using JavaScript. This endpoint allows a remote application, such as a third-party subscription billing app, to request a JSON web token, or _JWT_, with identifying customer details. The response is encrypted with your [app API account's client secret](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
 
 
-<!-- theme: info -->
-> #### API account notes
-> - This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
-> - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
-
+<Callout type="info">
+#### API account notes
+- This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+- The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
+</Callout>
 
 ## Request
 
@@ -29,7 +29,7 @@ Decode the JWT using the client secret from the same app API account as the clie
 
 The following code block is an example payload from a decoded Current Customer JWT:
 
-```json title="Example payload: Current Customer" lineNumbers
+```json filename="Example payload: Current Customer" lineNumbers
 {
   "customer": {
     "id": 4927,
@@ -48,9 +48,10 @@ The following code block is an example payload from a decoded Current Customer J
 }
 ```
 
-<!-- theme: info -->
-> #### IAT and EXP claims
-> Current customer tokens are valid for 15 minutes.
+<Callout type="info">
+#### IAT and EXP claims
+Current customer tokens are valid for 15 minutes.
+<Callout>
 
 To view the data during development, you can use the JWT decoding tool at [jwt.io](https://jwt.io/). In production, your implementation should handle decoding the JWT. There are robust packages for most languages that can handle this for you. You can see end-to-end examples that display a customer's recently purchased products in the [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
