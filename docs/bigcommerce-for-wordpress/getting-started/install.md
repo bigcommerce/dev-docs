@@ -1,12 +1,6 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
-
 # Install
 
-
-
-
 ## System requirements
-
 
 * PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
@@ -24,8 +18,8 @@ For a walkthrough on installing and activating the plugin, see [Using BigCommerc
 
 Once connected, you will set up a new [channel name](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress#installation). This name will be used to identify this specific WordPress instance in BigCommerce when checking orders or listing products.
 
-<!-- theme: info -->
-> #### Multisite Instructions 
-> For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
+### Multisite Instructions
+
+For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 After you have created your new channel name, the initial product sync will begin and you can begin configuring your plugin settings.
