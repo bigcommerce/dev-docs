@@ -759,6 +759,17 @@ When the `is_visible` property is not provided, the product's visibility is `fal
 
 To make newly created products immediately visible on the storefront, you must set `is_visible` to `true` when you create each product.
 
+You may encounter a case where the Catalog endpoint saves product data correctly but the Inventory Service is unable to save the inventory data due to one of the following:
+
+* the structure of the inventory data is incorrect (for example a negative stock level).
+
+* The Inventory Service is unavailable.
+
+In either case you will receive the following response code:
+```
+207 Product information has been updated successfully but inventory data failed to update. Consider updating inventory information again or try to use the new Inventory API to separate product information updates from updates to the inventory data.
+```
+
 To maximize system performance, BigCommerce caps the number of categories to which a product can belong. The maximum is 1,000. If your `POST` includes an array of more than 1,000 `categories` ID values, BigCommerce will return a 403 error:
 
 ```
@@ -851,6 +862,17 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 
 ```
 400 Bad Request
+```
+
+You may encounter a case where the Catalog endpoint saves product data correctly but the Inventory Service is unable to save the inventory data due to one of the following:
+
+* the structure of the inventory data is incorrect (for example a negative stock level).
+
+* The Inventory Service is unavailable.
+
+In either case you will receive the following response code:
+```
+207 Product information has been updated successfully but inventory data failed to update. Consider updating inventory information again or try to use the new Inventory API to separate product information updates from updates to the inventory data.
 ```
 
 To maximize system performance, BigCommerce caps the maximum number of categories to which a product can belong, at 1,000. If your `PUT` includes an array of more than 1,000 `categories` ID values, BigCommerce will return a `403` error:

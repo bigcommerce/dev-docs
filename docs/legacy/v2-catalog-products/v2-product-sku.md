@@ -243,6 +243,16 @@ Example JSON returned in the response:
   ]
 }
 ```
+You may encounter a case where the Catalog endpoint saves product data correctly but the Inventory Service is unable to save the inventory data due to one of the following:
+
+* the structure of the inventory data is incorrect (for example a negative stock level).
+
+* The Inventory Service is unavailable.
+
+In either case you will receive the following response code:
+```
+207 Product information has been updated successfully but inventory data failed to update. Consider updating inventory information again or try to use the new Inventory API to separate product information updates from updates to the inventory data.
+```
 
 ## Update a Product SKU 
 
@@ -291,6 +301,16 @@ Example JSON returned in the response:
     }
   ]
 }
+```
+You may encounter a case where the Catalog endpoint saves product data correctly but the Inventory Service is unable to save the inventory data due to one of the following:
+
+* the structure of the inventory data is incorrect (for example a negative stock level).
+
+* The Inventory Service is unavailable.
+
+In either case you will receive the following response code:
+```
+207 Product information has been updated successfully but inventory data failed to update. Consider updating inventory information again or try to use the new Inventory API to separate product information updates from updates to the inventory data.
 ```
 
 ## Delete a Product SKU 
