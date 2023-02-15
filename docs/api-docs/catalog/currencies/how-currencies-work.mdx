@@ -7,9 +7,11 @@ This article details how you can surface currencies throughout BigCommerce APIs,
 When you configure multiple currencies, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
 
 Catalog search and filtering by price only work for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
+
 * `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through price lists and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
 
 BigCommerce does not dynamically convert currency. To convert, the merchant will need to do one of the following:
+
 * Manually update their conversion rate from default currency to other transactional currencies.
 * Set up automatic updates to their conversion rate through APIs.
 * Set up explicit pricing per each currency using price lists (only available to Enterprise merchants).
@@ -45,19 +47,15 @@ BigCommerce does not dynamically convert currency. To convert, the merchant will
 
 ## Price Lists
 
-
 You can create price lists in any currency setup in the store. Both transactional and display currencies are available in price lists. BigCommerce does not copy price records from one currency to another; you must create the price record for each currency.
 
-![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-price-overrides.png "Price Overrides")
+![titled](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-price-overrides.png "Price Overrides")
 
 <Callout type="info">
 This feature is limited to Enterprise plans and requires a Stencil theme.
 </Callout>
 
-
-
 ## Price list modifiers
-
 
 Modifiers use the auto conversion rate. For example, if the keychain is €30, and there's a modifier for engraving, the price is: €30 + ($5 * auto conversion rate).
 
@@ -237,7 +235,7 @@ If a shopper changes the currency and has added at least one item to the cart, t
 
 The API also still returns Australian Dollars as the currency.
 
-![Order Summary](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-order-summary.png "Order Summary")
+![Order Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-order-summary.png "Order Summary")
 
 To change the transactional currency of their cart, the shopper will need to empty the cart and re-add the items in the desired transactional currency.
 
@@ -273,13 +271,13 @@ To change the transactional currency of their cart, the shopper will need to emp
 ```
 
 **Shopper Order History**:
-![Shopper Order History](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-orders.png "Shopper Order History")
+![Shopper Order History](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-order-summary.png "Shopper Order History")
 
 **Shopper Invoice:**
-![Shopper Invoice](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-invoice.png "Shopper Invoice")
+![Shopper Invoice](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-invoice.png "Shopper Invoice")
 
 **Control Panel Order History**:
-![Order Summary](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-admin-orders.png "Control Panel Order History")
+![Order Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-admin-orders.png "Control Panel Order History")
 
 ## Promotions
 
@@ -287,7 +285,7 @@ Coupons are available in the default currency only. Attempting to use a coupon w
 
 You can create cart level discounts in your currency of choice. The shopper must have the currency selected for the promotion to apply.
 
-![Cart Level Discount](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi_currency_cart_level_discount_one.png "Cart Level Discount")
+![Cart Level Discount](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi_currency_cart_level_discount_one.png "Cart Level Discount")
 
 ## Shipping
 
@@ -307,13 +305,13 @@ You can create cart level discounts in your currency of choice. The shopper must
 ## Payment methods supported
 
 | Payment Method    | Details                                                                                                                                                |
-|-|--|
+|:--|:--|
 | Gift Certificates | can be used in the currency they were purchased in and can be setup per currency                                                                       |
 | Store Credit      | not converted currently. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
 | Credit Cards      | Processed through Stripe Payment Gateway or Test Payment Gateway                                                                                       |
 
 
-![Gift Certificates](https://raw.githubusercontent.com/tatiana-perry/dev-docs-images/master/currency_beta/gift_certificates_multi_currency.png "Gift Certificates")
+![Gift Certificates](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/gift_certificates_multi_currency.png "Gift Certificates")
 
 ## Gift certificates
 
@@ -333,4 +331,4 @@ You can create cart level discounts in your currency of choice. The shopper must
 ```
 
 **Control Panel UI**
-![Gift Certificates](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-gift-cerfiticates.png "Gift Certificates")
+![Gift Certificates](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-gift-cerfiticates.png "Gift Certificates")
