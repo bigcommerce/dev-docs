@@ -28,7 +28,7 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
 To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
 <Tabs items={[`Example`, `Response`]}>
 <Tab>
-```http
+```http showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -59,7 +59,7 @@ Accept: application/json
 <Tab>
 **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
 
-```json
+```json showLineNumbers
 {
   "data": {
     "total_refund_amount": 21.83,
@@ -100,7 +100,7 @@ Accept: application/json
 Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
 <Tabs items={[`Example`, `Response`]}>
 <Tab>
-```http
+```http showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -138,7 +138,7 @@ Accept: application/json
 <Tab>
 **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
 
-```json
+```json showLineNumbers
 {
   "data": {
     "id": 1,
@@ -184,7 +184,7 @@ Accept: application/json
 ## Creating order level refunds
 
 To refund a tax-exempt custom amount at the order level, set `item_type` to `ORDER` and specify the `amount` to refund.
-```http
+```http showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -209,7 +209,7 @@ Accept: application/json
 
 To refund shipping or handling, set `item_type` to `SHIPPING` or `HANDLING` and specify the `amount` to refund.
 
-```http
+```http showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -234,7 +234,7 @@ Accept: application/json
 
 To refund a product or gift wrapping, set `item_type` to `PRODUCT` or `GIFT_WRAPPING` and specify the `quantity` to refund.
 
-```http
+```http showLineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
