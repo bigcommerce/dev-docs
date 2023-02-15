@@ -1582,7 +1582,7 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 {{else}}
   John Doe
 {{/JSONparseSafe}}
-<!-- output: bar -->
+<!-- output: John Doe -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsonParseSafe.js)
