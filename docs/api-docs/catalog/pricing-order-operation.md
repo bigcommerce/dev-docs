@@ -3,11 +3,11 @@
 The table below lists each price type available on a product. The table is read from top to bottom, with the default price having the lowest weight and the tax having the highest weight when calculating price.  
 
 | Price Type | Description |
-|--|--|
-| Default product price | Product requirement | 
+|:--|:--|
+| Default product price | Product requirement |
 | Product sale price | A product option that overrides the default price |  
-| Variant price | A product option that overrides the product sale price | 
-| Variant sale price | A product option that overrides the variant price | 
+| Variant price | A product option that overrides the product sale price |
+| Variant sale price | A product option that overrides the variant price |
 | Customer group discount | Available in fixed ($5), relative (-$2), or percentage (-25%) amount that overrides the variant sale price. Might apply to one product, category, subcategory, or the entire store's products. |
 | Product bulk pricing | Available in fixed ($5), relative (-$2), or percentage (-25%) amount that overrides the customer group discount. Dependent on the total quantity of products, including SKUs added to the cart. |
 | Price list variants | A price list record requirement that overrides all previous pricing and excludes SKUs from the total number of items for product bulk pricing. 
