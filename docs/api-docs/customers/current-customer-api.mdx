@@ -29,7 +29,7 @@ Decode the JWT using the client secret from the same app API account as the clie
 
 The following code block is an example payload from a decoded Current Customer JWT:
 
-```json filename="Example payload: Current Customer" lineNumbers
+```json filename="Example payload: Current Customer" showLineNumbers
 {
   "customer": {
     "id": 4927,
@@ -51,7 +51,7 @@ The following code block is an example payload from a decoded Current Customer J
 <Callout type="info">
 #### IAT and EXP claims
 Current customer tokens are valid for 15 minutes.
-<Callout>
+</Callout>
 
 To view the data during development, you can use the JWT decoding tool at [jwt.io](https://jwt.io/). In production, your implementation should handle decoding the JWT. There are robust packages for most languages that can handle this for you. You can see end-to-end examples that display a customer's recently purchased products in the [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 

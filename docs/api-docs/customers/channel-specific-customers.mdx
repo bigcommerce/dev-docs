@@ -88,12 +88,10 @@ Now that you know how to check whether one of your channels allows for global lo
 
 Taking the `channel_id` of the channel you would like to update, send a `PUT` request to `/v3/customer/settings/channels/{channel_id}` and update the value of `allow_global_logins` to either `true` or `false`. The following is an example request:
 
-``` copy
+```json showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store-hash}/v3/customers/settings/channels/{channel_id}
-
-Headers:
-  Content-Type: application/json
-	X-Auth-Token: {{X-Auth-Token}}
+Content-Type: application/json
+X-Auth-Token: {{X-Auth-Token}}
 
 Body:
   {

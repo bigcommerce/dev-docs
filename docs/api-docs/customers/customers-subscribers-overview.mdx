@@ -124,7 +124,7 @@ Get customer address by name and company on V2:
 
 V3 Customers `POST` and `PUT` requests require an array object.
 
-```http filename="Example request: Update a customer V3" lineNumbers
+```http filename="Example request: Update a customer V3" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -139,8 +139,8 @@ Accept: application/json
   }
 ]
 ```
-&nbsp;
-```http filename="Example request: Update a Customer V2" lineNumbers
+
+```http filename="Example request: Update a Customer V2" showLineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
