@@ -52,7 +52,7 @@ V3 includes endpoints for working with catalog trees. Stores that have multi-sto
 
 Previously (prior to December 17th, 2018), when a product option, is created in V2 and assigned to a product, trying to edit the global option using the V3 API would return a 422 error.
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
@@ -81,7 +81,7 @@ On the following product, you will see the original option response of a product
 
 This product is a T-Shirt with a global option set of size and color added. Take a note of the option values id’s. These will change when an update is made to the option using the /options endpoint on V3. While they will all change since the entire option set is copied to the product, the one we are updating below is the label for Size Small, which has a `option_value` > `id` of 192.
 
-```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers
+```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers copy
 // Note the option_values id's for the colors are 180, 181 and 182. The values for color are 192, 193 and 194.  
 {
     "data": [
@@ -181,13 +181,13 @@ This product is a T-Shirt with a global option set of size and color added. Take
 
 Below, "Small" is updated to "Small T-Shirt".
 
-```json filename="PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)" showLineNumbers
+```json filename="PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value}" showLineNumbers copy
 {
 	"label": "Small T-Shirt"
 }
 ```
 &nbsp;
-```json filename="Response PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)" showLineNumbers
+```json filename="Response PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value}" showLineNumbers copy
 {
     "data": {
         "id": 214,
@@ -202,7 +202,7 @@ Below, "Small" is updated to "Small T-Shirt".
 
 The ID is now 214. It was changed from 192. Below you can see the `option_value` > `id` for all the options changed even though only one was edited. The Control Panel now shows the options as (Custom).
 
-```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers
+```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers copy
 // The option_value > id is now 214
 {
     "data": [
