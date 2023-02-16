@@ -20,7 +20,7 @@ To learn more about using the Fetch API with the Storefront see our [Working wit
 
 You can run fetch requests from the browser console to test, or you can use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
 
-```js filename="Log cart details to the console" showLineNumbers
+```js filename="Log cart details to the console" showLineNumbers copy
 console.log('Log Cart');
 fetch('/api/storefront/cart', {
   credentials: 'include'
@@ -33,7 +33,7 @@ fetch('/api/storefront/cart', {
 });
 ```
 
-```js filename="Log checkout details to the console" showLineNumbers
+```js filename="Log checkout details to the console" showLineNumbers copy
 console.log('Log Checkout');
 fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
   credentials: 'include'
@@ -61,7 +61,7 @@ fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
   To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
 </Callout>
 
-```js filename="Log order details to the console" showLineNumbers
+```js filename="Log order details to the console" showLineNumbers copy
 console.log('Log Order');
 fetch('/api/storefront/order/' + checkout.order.id, {
   credentials: 'include'
@@ -76,7 +76,7 @@ fetch('/api/storefront/order/' + checkout.order.id, {
 
 To access `checkout.order.id` from `order-confirmation.html`, use the Stencil theme's page context to assign the value of `checkout.order.id` to a variable. The following example assigns the value returned by `{{checkout.order.id}}` to the variable `jsContextOrderId`, then fetches order details and logs them to the console.
 
-```html filename="Log order details to the console" showLineNumbers
+```html filename="Log order details to the console" showLineNumbers copy
 <script>
 // assign order ID to a variable
 let jsContextOrderId = {{checkout.order.id}};
@@ -137,7 +137,7 @@ Options and modifiers refer to a list of choices on a product. Options used to b
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
 
 
-```json filename="Single modifier" showLineNumbers
+```json filename="Single modifier" showLineNumbers copy
 {
   "line_items": [
     {
@@ -156,7 +156,7 @@ To add a product to the cart with a single modifier (text field), POST to the [C
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-```json filename="Single option" showLineNumbers
+```json filename="Single option" showLineNumbers copy
 {
   "line_items": [
     {
@@ -170,7 +170,7 @@ To add a product to the cart with one option (radio button) associated with it, 
 
 To add a product with both an option and a modifier associated with it, use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-```json filename="Modifier and option" showLineNumbers
+```json filename="Modifier and option" showLineNumbers copy
 {
   "line_items": [
     {
@@ -203,7 +203,7 @@ Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) 
 
 To create a cart with a product modifier:
 
-```json filename="Create cart with modifier" showLineNumbers
+```json filename="Create cart with modifier" showLineNumbers copy
 {
   "line_items": [
     {
@@ -233,7 +233,7 @@ A better option is to create a cart with the `customer_id` as part of the reques
 
 To create a cart with a `customer_id`:
 
-```json filename="Create cart with customer ID" showLineNumbers
+```json filename="Create cart with customer ID" showLineNumbers copy
 {
   "customer_id": 12,
   "line_items": [
@@ -255,7 +255,7 @@ To create a cart with a `customer_id`:
 To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
 To create a cart with a variant ID:
 
-```json filename="Create cart with variant ID" showLineNumbers
+```json filename="Create cart with variant ID" showLineNumbers copy
 {
   "line_items": [
     {
@@ -273,7 +273,7 @@ The `option_id` is incorrect.
 ***Resolution:***
 To get the correct `option_id`, make a request to [Get Products](/api-reference/catalog/catalog-api/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
 
-```json filename="Create cart option ID" showLineNumbers
+```json filename="Create cart option ID" showLineNumbers copy
 {
   "line_item": {
     "quantity": 1,
@@ -301,7 +301,7 @@ To get the correct `option_id`, make a request to [Get Products](/api-reference/
 **Resolution:**
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
-```json filename="Create cart optionId and optionValue" showLineNumbers
+```json filename="Create cart optionId and optionValue" showLineNumbers copy
 {
   "lineItems": [
     {
@@ -320,7 +320,7 @@ To add a product to the cart with a single modifier (text field), POST to the [C
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-```json filename="Create Storefront Cart variantID" showLineNumbers
+```json filename="Create Storefront Cart variantID" showLineNumbers copy
 {
   "lineItems": [
     {
@@ -334,7 +334,7 @@ To add a product to the cart with one option (radio button) associated with it, 
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-```json filename="Add item with option and modifier" showLineNumbers
+```json filename="Add item with option and modifier" showLineNumbers copy
 {
   "lineItems": [
     {

@@ -31,7 +31,7 @@ When a store uses a custom confirmation page, the following properties are attac
 
 To use the data exposed in the window object, include relevant code in your loader file. The following is an example of the relevant code:
 
-```jsx filename="Include code in loader file" showLineNumbers
+```jsx filename="Include code in loader file" showLineNumbers copy
 ReactDOM.render(
   <OrderConfirmation orderId={ window.checkoutConfig.orderId } />,
   document.getElementById(window.checkoutConfig.containerId)

@@ -29,7 +29,7 @@ You can create a cart by sending a POST request to the [Create Cart](/api-refere
 We will create the `createCart()` helper function to accomplish this POST request. Copy and execute the code below to create the function.
 
 
-```js filename="Example function: createCart()" showLineNumbers
+```js filename="Example function: createCart()" showLineNumbers copy
 function createCart(url, cartItems) {
   return fetch(url, {
     method: "POST",
@@ -50,7 +50,7 @@ The `createCart()` function takes two arguments:
 
 To create a cart, execute the code below passing in `productId` values specific to your store.
 
-```js filename="Example call: createCart()" showLineNumbers
+```js filename="Example call: createCart()" showLineNumbers copy
 createCart(`/api/storefront/carts`, {
   "lineItems": [
     {
@@ -69,7 +69,7 @@ createCart(`/api/storefront/carts`, {
 
 Your result should be similar to the one below.
 &nbsp;
-```json filename="Example response: createCart()" showLineNumbers
+```json filename="Example response: createCart()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
   "customerId": 0,
@@ -138,7 +138,7 @@ To display the contents of a cart, we need to send a GET request to the [Get a C
 
 Copy and execute the code below to create and subsequently call the `getCart()` helper function.
 
-```js filename="Example function: getCart()" showLineNumbers
+```js filename="Example function: getCart()" showLineNumbers copy
 function getCart(url) {
   return fetch(url, {
     method: "GET",
@@ -148,12 +148,12 @@ function getCart(url) {
   .catch(error => console.error(error));
 };
 ```
-```js filename="Example call: getCart()" showLineNumbers
+```js filename="Example call: getCart()" showLineNumbers copy
 getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
   .then(data => console.log(JSON.stringify(data)))
   .catch(error => console.error(error));
 ```
-```json filename="Example response: getCart()" showLineNumbers
+```json filename="Example response: getCart()" showLineNumbers copy
 [
   {
     "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
@@ -222,7 +222,7 @@ See [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-
 
 Copy and execute the code below to create the `addCartItem()` helper function.
 
-```js filename="Example function: addCartItem()" showLineNumbers
+```js filename="Example function: addCartItem()" showLineNumbers copy
 function addCartItem(url, cartId, cartItems) {
   return fetch(url + cartId + '/items', {
     method: "POST",
@@ -239,7 +239,7 @@ function addCartItem(url, cartId, cartItems) {
 Call the function to add a new line item to your cart. Make sure to replace the `cartId` and `productId` with your own values.
 
 
-```js filename="Example call: addCartItem()" showLineNumbers
+```js filename="Example call: addCartItem()" showLineNumbers copy
 addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
   "lineItems": [
     {
@@ -251,7 +251,7 @@ addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
-```json filename="Example response: addCartItem()" showLineNumbers
+```json filename="Example response: addCartItem()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
   "customerId": 0,
@@ -329,7 +329,7 @@ addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
 To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](/api-reference/cart-checkout/storefront-cart-api/cart-items/deletecartlineitem) endpoint and pass in the `cartId` and `itemId` to be deleted.
 
 
-```js filename="Example function: deleteCartItem()" showLineNumbers
+```js filename="Example function: deleteCartItem()" showLineNumbers copy
 function deleteCartItem(url, cartId, itemId) {
   return fetch(url + cartId + '/items/' + itemId, {
     method: "DELETE",
@@ -345,13 +345,13 @@ function deleteCartItem(url, cartId, itemId) {
 
 Pass your `cartId` and `itemId` to the `deleteCartItem()` helper function to delete the line item.
 
-```js filename="Example call: deleteCartItem()" showLineNumbers
+```js filename="Example call: deleteCartItem()" showLineNumbers copy
 deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `3f8dd1ed-f917-41be-b7f7-20c10f406e09`)
   .then(data => console.log(JSON.stringify(data)))
   .catch(error => console.log(error));
 ```
 
-```json filename="Example response: deleteCartItem()" showLineNumbers
+```json filename="Example response: deleteCartItem()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
   "customerId": 0,
@@ -426,7 +426,7 @@ To add a billing address to a checkout, send a POST request to the [Add Checkout
 
 Copy and execute the code below to create the `addBillingAddress()` helper function.
 
-```js filename="Example function: addBillingAddress()" showLineNumbers
+```js filename="Example function: addBillingAddress()" showLineNumbers copy
 function addBillingAddress(url, cartId, data) {
   return fetch(url + cartId + `/billing-address`,  {
     method: "POST",
@@ -443,7 +443,7 @@ function addBillingAddress(url, cartId, data) {
 
 Now call the `addBillingAddress()` function making sure to replace the `cartId` with your own value.
 
-```js filename="Example call: addBillingAddress()" showLineNumbers
+```js filename="Example call: addBillingAddress()" showLineNumbers copy
 addBillingAddress(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
   "firstName": "Jane",
   "lastName": "Doe",
@@ -460,7 +460,7 @@ addBillingAddress(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .catch(error => console.error(error));
 ```
 
-```json filename="Example response: addBillingAddress()" showLineNumbers
+```json filename="Example response: addBillingAddress()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
   "cart": {
@@ -566,7 +566,7 @@ See [Add New Consignment to Checkout](/api-reference/cart-checkout/storefront-ch
 Create the `createConsignment()`helper function to test this functionality.
 
 
-```js filename="Example function: createConsignment()" showLineNumbers
+```js filename="Example function: createConsignment()" showLineNumbers copy
 function createConsignment(url, cartId, data) {
   return fetch(url + cartId + `/consignments?include=consignments.availableShippingOptions`,   {
     method: "POST",
@@ -584,7 +584,7 @@ function createConsignment(url, cartId, data) {
 Copy and execute the code below to create a new consignment. Make sure to replace the `cartId` with your own value.
 
 
-```js filename="Example call: createConsignment()" showLineNumbers
+```js filename="Example call: createConsignment()" showLineNumbers copy
 createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
   [{
     "shippingAddress": {
@@ -627,7 +627,7 @@ createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .catch(error => console.error(error));
 ```
 
-```json filename="Example response: createConsignment()" showLineNumbers
+```json filename="Example response: createConsignment()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
     "cart": {
@@ -831,7 +831,7 @@ To update a consignment, add your `consignmentId` and the appropriate `shippingO
 Create the `updateConsignment()` helper function to accomplish this.
 
 
-```js filename="Example function: updateConsignment()" showLineNumbers
+```js filename="Example function: updateConsignment()" showLineNumbers copy
 function updateConsignment(url, cartId, consignmentId, data,) {
   return fetch(url + cartId + `/consignments/` + consignmentId,   {
     method: "PUT",
@@ -849,7 +849,7 @@ function updateConsignment(url, cartId, consignmentId, data,) {
 Execute the code below to update the consignment, replacing `cartId`, `consigmentId`, and `shippingOptionId` with your values.
 
 
-```js filename="Example call: updateConsignment()" showLineNumbers
+```js filename="Example call: updateConsignment()" showLineNumbers copy
 updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `5e6a91ff83c6d`,{
   "shippingOptionId": "4dcbf24f457dd67d5f89bcf374e0bc9b"
 })
@@ -857,7 +857,7 @@ updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5
 .catch(error => console.error(error));
 ```
 
-```json filename="Example response: updateConsignment()" showLineNumbers
+```json filename="Example response: updateConsignment()" showLineNumbers copy
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
   "cart": {
