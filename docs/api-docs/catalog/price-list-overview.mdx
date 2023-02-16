@@ -16,22 +16,22 @@ The following OAuth Scopes are required:
 * A **price list** is a collection of price records. Price records make up a price list.
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
 
-```js showLineNumbers
-	{
-		"variant_id": 3121,
-		"price": 10.0,
-		"sale_price": 8.0,
-		"retail_price": 12.0,
-		"map_price": 6.0,
-		"currency": "EUR"
-	}
+```js showLineNumbers copy
+{
+  "variant_id": 3121,
+  "price": 10.0,
+  "sale_price": 8.0,
+  "retail_price": 12.0,
+  "map_price": 6.0,
+  "currency": "EUR"
+}
 ```
 
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
 - **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
-```js showLineNumbers
+```js filename="Example request: Get all price lists" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -84,7 +84,7 @@ The price list assignment assigns a price list to a specific sales channel. This
 
 See [Channels, Sites, and Routes](/api-reference/store-management/channels) for further documentation.
 
-```http filename="Example request: Create a price list assignment" lineNumbers
+```http filename="Example request: Create a price list assignment" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ## Price lists assigned to customer groups 
 
-```http filename="Example request: Assign a price list to a customer group" lineNumbers
+```http filename="Example request: Assign a price list to a customer group" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
