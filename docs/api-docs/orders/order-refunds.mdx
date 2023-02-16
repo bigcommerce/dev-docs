@@ -26,165 +26,160 @@ The refunded amount will include the shipping, tax, and product cost (a total of
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
 To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
-<Tabs items={[`Example`, `Response`]}>
-<Tab>
-```http showLineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
 
-{
-  "items": [
-    {
-      "item_type": "PRODUCT",  // Refund a product
-      "item_id": 8,            // Order product ID
-      "quantity": 1,           // Quantity to refund
-    },
-    {
-      "item_type": "SHIPPING", // Refund shipping
-      "item_id": 9,            // Order address ID
-      "amount": 10,            // Amount to refund
-    },
-    {
-      "item_type": "ORDER",    // Tax-exempt order level refund
-      "item_id": 9,            // Order ID
-      "amount": 1,             // Amount to refund
-    }
-  ]
-}
-```
-</Tab>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) -->
-<Tab>
-**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
+<Tabs items={[`Request`, `Response`]}>
+  <Tab>
+    ```http filename="Example request: Create a refund quote" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
 
-```json showLineNumbers
-{
-  "data": {
-    "total_refund_amount": 21.83,
-    "total_refund_tax_amount": 0.83,
-    "rounding": 0,
-    "adjustment": 0,
-    "is_tax_included": false,
-    "order_level_refund_amount": 0,
-    "refund_methods": [
-      [
+    {
+      "items": [
         {
-          "provider_id": "braintree",
-          "provider_description": "Store Credit",
-          "amount": 21.83,
-          "offline": false,
-          "offline_provider": false,
-          "offline_reason": ""
+          "item_type": "PRODUCT",  // Refund a product
+          "item_id": 8,            // Order product ID
+          "quantity": 1,           // Quantity to refund
+        },
+        {
+          "item_type": "SHIPPING", // Refund shipping
+          "item_id": 9,            // Order address ID
+          "amount": 10,            // Amount to refund
+        },
+        {
+          "item_type": "ORDER",    // Tax-exempt order level refund
+          "item_id": 9,            // Order ID
+          "amount": 1,             // Amount to refund
         }
-      ],
-      ...
-    ]
-  },
-  "meta": {}
-}
-```
-</Tab>
+      ]
+    }
+    ```
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Create a refund quote" showLineNumbers copy
+    {
+      "data": {
+        "total_refund_amount": 21.83,
+        "total_refund_tax_amount": 0.83,
+        "rounding": 0,
+        "adjustment": 0,
+        "is_tax_included": false,
+        "order_level_refund_amount": 0,
+        "refund_methods": [
+          [
+            {
+              "provider_id": "braintree",
+              "provider_description": "Store Credit",
+              "amount": 21.83,
+              "offline": false,
+              "offline_provider": false,
+              "offline_reason": ""
+            }
+          ],
+          ...
+        ]
+      },
+      "meta": {}
+    }
+    ```
+  </Tab>
 </Tabs>
 
 <Callout type="info">
-#### Note
-
-* To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
-* To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
+  * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
+  * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
 </Callout>
 
 ## Creating a refund
 
 Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
-<Tabs items={[`Example`, `Response`]}>
-<Tab>
-```http showLineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
+<Tabs items={[`Request`, `Response`]}>
+  <Tab>
+    ```http filename="Example request: Create a refund" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
 
-{
-  "items": [
     {
-      "item_type": "PRODUCT",  // Refund a product
-      "item_id": 8,            // Order product ID
-      "quantity": 1            // Quantity to refund
-    },
-    {
-      "item_type": "SHIPPING", // Refund shipping
-      "item_id": 9,            // Order address ID
-      "amount": 10             // Amount to refund
-    },
-    {
-      "item_type": "ORDER",   // Tax-exempt order level refund
-      "item_id": 123,         // Order ID
-      "amount": 1,            // Amount to refund
+      "items": [
+        {
+          "item_type": "PRODUCT",  // Refund a product
+          "item_id": 8,            // Order product ID
+          "quantity": 1            // Quantity to refund
+        },
+        {
+          "item_type": "SHIPPING", // Refund shipping
+          "item_id": 9,            // Order address ID
+          "amount": 10             // Amount to refund
+        },
+        {
+          "item_type": "ORDER",   // Tax-exempt order level refund
+          "item_id": 123,         // Order ID
+          "amount": 1,            // Amount to refund
+        }
+      ],
+      "payments": [
+        {
+          "provider_id": "braintree",
+          "amount": 21.83,
+          "offline": false
+        }
+      ]
     }
-  ],
-  "payments": [
-    {
-      "provider_id": "braintree",
-      "amount": 21.83,
-      "offline": false
-    }
-  ]
-}
-```
-</Tab>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
-<Tab>
-**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
+    ```
+  </Tab>
+  <Tab>
+  **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
 
-```json showLineNumbers
-{
-  "data": {
-    "id": 1,
-    "order_id": 21,
-    "user_id": 0,
-    "created": "",
-    "reason": "",
-    "total_amount": 20.83,
-    "total_tax": 0.83,
-    "items": [
-      {
-        "item_type": "PRODUCT",
-        "item_id": 8,
-        "reason": "",
-        "quantity": 1,
-        "requested_amount": 10
-      },
-      {
-        "item_type": "SHIPPING",
-        "item_id": 9,
-        "reason": "",
-        "requested_amount": 10
-      }
-    ],
-    "payments": [
-      {
+    ```json filename="Example response: Create a refund" showLineNumbers copy
+    {
+      "data": {
         "id": 1,
-        "provider_id": "braintree",
-        "amount": 20.83,
-        "offline": false,
-        "is_declined": false,
-        "declined_message": ""
-      }
-    ]
-  },
-  "meta": {}
-}
-```
-</Tab>
+        "order_id": 21,
+        "user_id": 0,
+        "created": "",
+        "reason": "",
+        "total_amount": 20.83,
+        "total_tax": 0.83,
+        "items": [
+          {
+            "item_type": "PRODUCT",
+            "item_id": 8,
+            "reason": "",
+            "quantity": 1,
+            "requested_amount": 10
+          },
+          {
+            "item_type": "SHIPPING",
+            "item_id": 9,
+            "reason": "",
+            "requested_amount": 10
+          }
+        ],
+        "payments": [
+          {
+            "id": 1,
+            "provider_id": "braintree",
+            "amount": 20.83,
+            "offline": false,
+            "is_declined": false,
+            "declined_message": ""
+          }
+        ]
+      },
+      "meta": {}
+    }
+    ```
+  </Tab>
 </Tabs>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
 
 ## Creating order level refunds
 
 To refund a tax-exempt custom amount at the order level, set `item_type` to `ORDER` and specify the `amount` to refund.
-```http showLineNumbers
+```http filename="Example request: Create a refund" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -203,13 +198,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
-
 ## Refunding shipping and handling
 
 To refund shipping or handling, set `item_type` to `SHIPPING` or `HANDLING` and specify the `amount` to refund.
 
-```http showLineNumbers
+```http filename="Example request: Create a refund" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -228,13 +221,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
-
 ## Refunding products and gift wrapping
 
 To refund a product or gift wrapping, set `item_type` to `PRODUCT` or `GIFT_WRAPPING` and specify the `quantity` to refund.
 
-```http showLineNumbers
+```http filename="Example request: Create a refund" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -257,8 +248,6 @@ Accept: application/json
   "payments": [...]
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
 
 ## Offline order refunds
 

@@ -14,7 +14,7 @@ This article introduces BigCommerce's [Orders V2](/api-reference/store-managemen
 
 To [create an order](/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
-```http filename="Create an order" lineNumbers
+```http filename="Example request: Create an order" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -43,19 +43,16 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
-
 <Callout type= "info">
-#### Note
-* The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
-* The product ordered is a *custom* product; custom products do not exist in the catalog.
+  * The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
+  * The product ordered is a *custom* product; custom products do not exist in the catalog.
 </Callout>
 
 ## Changing order status
 
 Specify [order status](/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
 
-```http filename="Change order status" lineNumbers
+```http filename="Example request: Change order status" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -66,22 +63,19 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
-
 To [get a list of order statuses](/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
-<Tabs items={['Example', 'Response']}>
+<Tabs items={['Request', 'Response']}>
 <Tab>
-```http filename="Example request: Get order statuses"
+```http filename="Example request: Get order statuses" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/order_statuses
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 </Tab>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-status/getorderstatus#requestrunner) -->
 
 <Tab>
-```json filename="Example response: Get order statuses" lineNumbers
+```json filename="Example response: Get order statuses" showLineNumbers copy
 [
   {
     "id": 0,
@@ -98,18 +92,17 @@ Accept: application/json
 </Tabs>
 
 <Callout type= "info">
-#### Note
-* If not specified, `status_id` defaults to `1`.
-* The refunded status is neither paid nor unpaid.
-* For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
-* When an order is created, set to `Awaiting Fulfillment`, and then manually edited, inventory levels won't reflect a change in stock. To learn more about inventory stock settings, see [Stock Adjustment Settings](https://support.bigcommerce.com/s/article/Inventory-Tracking?language=en_US#stock-adjustment).
+  * If not specified, `status_id` defaults to `1`.
+  * The refunded status is neither paid nor unpaid.
+  * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
+  * When an order is created, set to `Awaiting Fulfillment`, and then manually edited, inventory levels won't reflect a change in stock. To learn more about inventory stock settings, see [Stock Adjustment Settings](https://support.bigcommerce.com/s/article/Inventory-Tracking?language=en_US#stock-adjustment).
 </Callout>
 
 ## Specifying order customer
 
 Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
-```http filename="Example request: Specify order customer" lineNumbers
+```http filename="Example request: Specify order customer" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -123,28 +116,23 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
-
 To [get a list of customers](/api-reference/store-management/customers-v3/customers/customersget), send a `GET` request to `/stores/{{STORE_HASH}}/v3/customers`.
 
-```http filename="Example request: Get a list of customers" lineNumbers
+```http filename="Example request: Get a list of customers" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customersget#requestrunner) -->
-
 <Callout type= "info">
-#### Note
-Set `customer_id` to `0` to create a guest order.
+  Set `customer_id` to `0` to create a guest order.
 </Callout>
 
 ## Including shipping addresses
 
 Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
-```http filename="Example request: add shipping addresses" lineNumbers
+```http filename="Example request: add shipping addresses" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -172,18 +160,15 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
-
 <Callout type= "info">
-#### Note
-Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
+  Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
 </Callout>
 
 ## Adding products
 
 Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
-```http filename="Example request: Add products" lineNumbers
+```http filename="Example request: Add products" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -216,22 +201,19 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
-
 To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). See the example response that follows, or consult the [response schema](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses).
-<Tabs items={['Example', 'Response']}>
+<Tabs items={['Request', 'Response']}>
 <Tab>
-```http filename="Example request: Get product variants" lineNumbers
+```http filename="Example request: Get product variants" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner) -->
 </Tab>
 <Tab>
-```json filename="Example response: Get product variants" lineNumbers
+```json filename="Example response: Get product variants" showLineNumbers copy
 {
   "data": [
     {
@@ -261,12 +243,11 @@ Accept: application/json
 </Tabs>
 
 <Callout type= "info">
-#### Note
-* Custom products do not get added to the catalog.
-* If the product's price is not specified in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
-* Marketing promotions currently do not apply to orders created with the Orders API.
-* If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
-* Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
+  * Custom products do not get added to the catalog.
+  * If the product's price is not specified in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+  * Marketing promotions currently do not apply to orders created with the Orders API.
+  * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
+  * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 </Callout>
 
 ## Creating order shipments
@@ -275,7 +256,7 @@ Once an order has products, a billing address, and a shipping address, you can c
 
 To [create an order shipment](/api-reference/store-management/orders/order-shipments/createordershipments), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipments`.
 
-```http filename="Example request: Create an order shipment" lineNumbers
+```http filename="Example request: Create an order shipment" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -298,7 +279,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner) -->
 
 |Property|Description|
 |-|-|
@@ -309,11 +289,10 @@ Accept: application/json
 |`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`
 
 <Callout type= "info">
-#### Note
-* Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
-* Create an order shipment with product variants by using the `id` returned in each `GET` request.
-* Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
-* Deleting a shipment does **not** move the order out of `shipped` status.
+  * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
+  * Create an order shipment with product variants by using the `id` returned in each `GET` request.
+  * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
+  * Deleting a shipment does **not** move the order out of `shipped` status.
 </Callout>
 
 ## Shipping to multiple locations
@@ -322,7 +301,7 @@ You can create multiple shipments for orders, and each shipment can have a diffe
 
 <Tabs items={['Example 1', 'Example 2']}>
 <Tab>
-```http filename="Example 1: order_address_id"
+```http filename="Example 1: order_address_id" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -341,7 +320,7 @@ Accept: application/json
 ```
 </Tab>
 <Tab>
-```http filename="Example 2: different order_address_id"
+```http filename="Example 2: different order_address_id" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -360,7 +339,6 @@ Accept: application/json
 ```
 </Tab>
 </Tabs>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner) -->
 
 |Property|Description|
 |-|-|
@@ -373,16 +351,15 @@ Accept: application/json
 To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses). 
 <Tabs items={['Request', 'Response']}>
 <Tab>
-```http filename="Example request: Get shipping quotes" lineNumbers
+```http filename="Example request: Get shipping quotes" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipping_addresses/{{shipping_address_id}}/shipping_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 </Tab>
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#requestrunner) -->
 
 <Tab>
-```json filename="Example response: Get shipping quotes" lineNumbers
+```json filename="Example response: Get shipping quotes" showLineNumbers copy
 {
   "id": "16",
   "uuid": "18aaa5eb-3c7a-4bf8-bfaa-d14d155606f1",
@@ -403,39 +380,38 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-taxes/getordertaxes#responses). 
 
-<Tabs items={['Example', 'Request']}>
-<Tab>
-```http filename="Example request: Get order taxes" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/taxes
-X-Auth-Token: {{ACCESS_TOKEN}}
-Accept: application/json
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    ```http filename="Example request: Get order taxes" showLineNumbers copy
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/taxes
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Accept: application/json
+    ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner) -->
-</Tab>
-<Tab>
-```json filename="Example response: Get order taxes" lineNumbers
-[
-  {
-    "id": 13,
-    "order_id": 138,
-    "order_address_id": 39,
-    "tax_rate_id": 1,
-    "tax_class_id": 0,
-    "name": "Tax",
-    "class": "Default Tax Class",
-    "rate": "8.0000",
-    "priority": 0,
-    "priority_amount": "17.6400",
-    "line_amount": "17.6400"
-  }
-]
-```
-</Tab>
+  </Tab>
+  <Tab>
+    ```json filename="Example response: Get order taxes" showLineNumbers copy
+    [
+      {
+        "id": 13,
+        "order_id": 138,
+        "order_address_id": 39,
+        "tax_rate_id": 1,
+        "tax_class_id": 0,
+        "name": "Tax",
+        "class": "Default Tax Class",
+        "rate": "8.0000",
+        "priority": 0,
+        "priority_amount": "17.6400",
+        "line_amount": "17.6400"
+      }
+    ]
+    ```
+  </Tab>
 </Tabs>
 The response's [order tax object](/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
 
-```json filename="Example response detail: Tax object from get order taxes" lineNumbers
+```json filename="Example response detail: Tax object from get order taxes" showLineNumbers copy
 [
   {
     "id": 13,
@@ -460,64 +436,61 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
 <Callout type= "info">
-#### Note
-* Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
-* You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
-* You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
-* If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created with the API.
+  * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
+  * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
+  * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
+  * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created with the API.
 </Callout>
 
 ## Getting order transactions
 
 To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/order-transactions/transactions/gettransactions#responses).
-<Tabs items={['Example', 'Response']}>
-<Tab>
-```http filename="Example request: Get order transactions" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{{order_id}}/transactions
-X-Auth-Token: {{ACCESS_TOKEN}}
-Accept: application/json
-```
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    ```http filename="Example request: Get order transactions" showLineNumbers copy
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{{order_id}}/transactions
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Accept: application/json
+    ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner) -->
-</Tab>
-<Tab>
-```json filename="Example response: Get order transactions" lineNumbers
-{
-  "data": [
+  </Tab>
+  <Tab>
+    ```json filename="Example response: Get order transactions" showLineNumbers copy
     {
-      "id": 85926313,
-      "order_id": "121",
-      "event": "purchase",
-      "method": "nonce",
-      "amount": 1,
-      "currency": "USD",
-      "gateway": "squarev2",
-      "gateway_transaction_id": "pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF",
-      "status": "ok",
-      "test": false,
-      "fraud_review": false,
-      "reference_transaction_id": {},
-      "date_created": "2018-05-08T15:06:12+00:00",
-      "avs_result": {...},
-      "cvv_result": {...},
-      "credit_card": {},
-      "gift_certificate": {},
-      "store_credit": {},
-      "offline": {},
-      "custom": {},
-      "payment_instrument_token": {},
-      "payment_method_id": "squarev2.card"
+      "data": [
+        {
+          "id": 85926313,
+          "order_id": "121",
+          "event": "purchase",
+          "method": "nonce",
+          "amount": 1,
+          "currency": "USD",
+          "gateway": "squarev2",
+          "gateway_transaction_id": "pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF",
+          "status": "ok",
+          "test": false,
+          "fraud_review": false,
+          "reference_transaction_id": {},
+          "date_created": "2018-05-08T15:06:12+00:00",
+          "avs_result": {...},
+          "cvv_result": {...},
+          "credit_card": {},
+          "gift_certificate": {},
+          "store_credit": {},
+          "offline": {},
+          "custom": {},
+          "payment_instrument_token": {},
+          "payment_method_id": "squarev2.card"
+        }
+      ],
+      "meta": {...}
     }
-  ],
-  "meta": {...}
-}
-```
-</Tab>
+    ```
+  </Tab>
 </Tabs>
 
 <Callout type= "info">
-#### Note
-Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
+  Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
 </Callout>
 
 
@@ -544,9 +517,8 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
 <Callout type= "info">
-#### Note
-* If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
-* To add a manual discount, overwrite the product price or `discount_amount`.
+  * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
+  * To add a manual discount, overwrite the product price or `discount_amount`.
 </Callout>
 
 ## FAQ
