@@ -12,7 +12,7 @@ To edit transactional email templates in a store's control panel, [log in](https
 Use [Handlebars expressions](/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
 
 
-```html showLineNumbers
+```html showLineNumbers copy
 <!-- Combined Order Status Email Template -->
 
  <p>{{ lang 'hello' name=order.customer_name }}. Below are the products you ordered.</p>
@@ -39,7 +39,7 @@ To manage transactional email templates programmatically, use the [Email Templat
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```http filename="Example request: Get email templates" showLineNumbers
+    ```http filename="Example request: Get email templates" showLineNumbers copy
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates
     X-Auth-Token: {{ACCESS_TOKEN}}
     Accept: application/json
@@ -48,7 +48,7 @@ To manage transactional email templates programmatically, use the [Email Templat
   </Tab>
   <Tab>
 
-    ```json filename="Example response: Get email templates" showLineNumbers
+    ```json filename="Example response: Get email templates" showLineNumbers copy
     {
       "data": [
         {
@@ -67,7 +67,7 @@ To manage transactional email templates programmatically, use the [Email Templat
 
 To [update an email template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
 
-```http filename="Example request: Update an email template" showLineNumbers
+```http filename="Example request: Update an email template" showLineNumbers copy
 PUT /stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -93,7 +93,7 @@ Accept: application/json
 
 Pass in a [channel's](/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
 
-```http filename="Example request: Update an email template" showLineNumbers
+```http filename="Example request: Update an email template" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
