@@ -55,7 +55,6 @@ For example:
 
 ```css filename="" copy
 @font-declaration: '{ "Lato":["Lato", "Arial", "sans-serif"], "Freckle Face":["Freckle Face", "cursive"]}';
-
 ```
 
 This will populate all font drop-downs with the fonts “Lato” and “Freckle Face,” and if one of them is selected, the fonts for that variable will be set to the values in the corresponding array of fonts. For example, “Lato” will set the fonts to “Lato”, Arial, sans-serif.
@@ -64,7 +63,6 @@ To use these fonts in the Style Editor, they must be included in the style edito
 
 ```css filename="" copy
 @import url(//fonts.googleapis.com/css?family=Lato|Freckle+Face);
-
 ```
 `@color-declaration` — This variable will store all the default colors for the style editor. It will list these colours in the color picker’s palette after all the color picker’s defaults.
 
@@ -119,7 +117,6 @@ Once you have finished working on your `.less` files, _don’t forget to compile
 
 ```less filename="" copy
 lessc Styles/less/theme.less > Styles/theme.css 
-
 ```
 This will use the `theme.less` file to generate the `theme.css` file into your theme's `Styles/` folder.
 

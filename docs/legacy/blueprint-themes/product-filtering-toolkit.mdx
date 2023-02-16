@@ -3,10 +3,10 @@
 Product filtering (also known as faceted search) enables shoppers to refine product searches based on multiple attributes like price, size, ratings, etc. For a store owner's view of administering this feature, please see <a href="https://forum.bigcommerce.com/s/article/Product-Filtering-Settings" target="_blank">this KB article</a>. 
 
 <Callout type="warning">
- #### Requirements/Restrictions
- * Adding product filtering to a theme is recommended for experienced theme developers only. You must have facility with HTML and CSS, and must also familiarize yourself with how BigCommerce themes are structured and operate.
- * Product filtering is a Pro/Enterprise feature. To enable it on an active public store, you must upgrade to a Pro or Enterprise plan.
- * As noted below, we recommend implementing product filtering on a temporary sandbox store. You can create a trial store, and then upload your theme customizations to that store via WebDAV to replicate your local changes.
+  #### Requirements/Restrictions
+  * Adding product filtering to a theme is recommended for experienced theme developers only. You must have facility with HTML and CSS, and must also familiarize yourself with how BigCommerce themes are structured and operate.
+  * Product filtering is a Pro/Enterprise feature. To enable it on an active public store, you must upgrade to a Pro or Enterprise plan.
+  * As noted below, we recommend implementing product filtering on a temporary sandbox store. You can create a trial store, and then upload your theme customizations to that store via WebDAV to replicate your local changes.
 </Callout>
   
 ## Creating a New Theme with Product Filtering 
@@ -28,8 +28,8 @@ To enable product filtering, just enable [Developer Mode](#devmode) on your stor
 
 
 <Callout type="warning">
- #### Start with a Sandbox Store
- Depending on the customizations you have made to your theme, enabling Developer Mode could have unexpected results. **We recommend** using a sandbox store (not your main store) when applying these changes for the first time.
+  #### Start with a Sandbox Store
+  Depending on the customizations you have made to your theme, enabling Developer Mode could have unexpected results. **We recommend** using a sandbox store (not your main store) when applying these changes for the first time.
 </Callout>
 
 If you are working with a new store, product filtering might already work out-of-the-box for your theme.
@@ -39,8 +39,8 @@ If you are working with a new store, product filtering might already work out-of
 Once you’ve enabled product filtering for your sandbox store, you’ll need to get the most up-to-date Blueprint files and copy them into your own theme. Here is how to do so.
 
 <Callout type="warning">
- ####  Restricted/Grandfathered Access to Blueprint Base Theme
- As noted above, the Blueprint base theme is now available only to stores that applied it before November 2016.
+  ####  Restricted/Grandfathered Access to Blueprint Base Theme
+  As noted above, the Blueprint base theme is now available only to stores that applied it before November 2016.
 </Callout>
 
 1.  Enable [Developer Mode](#devmode) in your sandbox store, if you haven’t already. This will enable the Blueprint theme and the faceted search feature.
@@ -88,8 +88,8 @@ When switched off:
 *   Category pages > `category.html`
 
 <Callout type="warning">
- #### Clone and Rename Templates, Don’t Alter Originals
- Development agencies should not modify the _base_ templates of the `brand.html`, `search.html`, or `category.html` pages to include faceted search. Clients who are not on a Pro or Enterprise plan do not get faceted search, so if you include it on `category.html`, `brand.html` or `search.html` page, your theme will be useless to those clients.
+  #### Clone and Rename Templates, Don’t Alter Originals
+  Development agencies should not modify the _base_ templates of the `brand.html`, `search.html`, or `category.html` pages to include faceted search. Clients who are not on a Pro or Enterprise plan do not get faceted search, so if you include it on `category.html`, `brand.html` or `search.html` page, your theme will be useless to those clients.
 </Callout>
 
 
