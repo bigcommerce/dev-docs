@@ -13,7 +13,7 @@ The [Carts API](/api-reference/store-management/carts) lets you create carts for
 
 To create a cart, send a request to the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
-```http filename="Create a cart" showLineNumbers
+```http filename="Create a cart" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
 Accept: application/json
 Content-Type: application/json
@@ -28,7 +28,7 @@ Several example request bodies follow:
 
     To create a cart with option selections, include an `option_id` and `option_value` for each selection. Make sure to specify a locale.
 
-    ```json filename="Example request body: option selections" showLineNumbers
+    ```json filename="Example request body: option selections" showLineNumbers copy
     {
       "customer_id": 0,
       "line_items": [
@@ -59,7 +59,7 @@ Several example request bodies follow:
   </Tab>
   <Tab>
 
-    ```json filename="Example request body: Create a cart" showLineNumbers
+    ```json filename="Example request body: Create a cart" showLineNumbers copy
     {
       "channel_id": 1,
       "line_items": [
@@ -75,7 +75,7 @@ Several example request bodies follow:
   </Tab>
   <Tab>
 
-    ```json filename="Example request body: Create a cart" showLineNumbers
+    ```json filename="Example request body: Create a cart" showLineNumbers copy
     {
       "customer_id": 0,
       "line_items": [],
@@ -132,7 +132,7 @@ Several example request bodies follow:
 
 To create a cart for an existing customer, include the `customer_id` in your request body.
 
-```json filename="Example request body: existing customer" showLineNumbers
+```json filename="Example request body: existing customer" showLineNumbers copy
 {
   "channel_id": 1,
   "customer_id": 1,
@@ -159,7 +159,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 
 To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
 
-```http filename="Create cart redirect URL" showLineNumbers
+```http filename="Create cart redirect URL" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
 Accept: application/json
 Content-Type: application/json
@@ -168,7 +168,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce-hosted checkout into a headless site using an iFrame.
 
-```json filename="Example response: Create cart redirect URL" showLineNumbers
+```json filename="Example response: Create cart redirect URL" showLineNumbers copy
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -180,7 +180,7 @@ The response will contain `cart_url` and `checkout_url` properties. Use these UR
 
 It is possible to generate a redirect URL when creating a cart using the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
-```http filename="Create a cart" showLineNumbers
+```http filename="Create a cart" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
 Accept: application/json
 Content-Type: application/json
@@ -225,7 +225,7 @@ If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/emb
 
 To delete a line item from a cart, send a request to the [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint, passing the associated `cartId` and `itemId` as path parameters.
 
-```http filename="Delete a line item" showLineNumbers
+```http filename="Delete a line item" showLineNumbers copy
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
 Accept: application/json
 Content-Type: application/json
@@ -236,7 +236,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To clear the cart, send a request to the [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
-```http filename="Delete a cart" showLineNumbers
+```http filename="Delete a cart" showLineNumbers copy
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
 Accept: application/json
 Content-Type: application/json

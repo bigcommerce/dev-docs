@@ -12,7 +12,7 @@ The following example demonstrates how to fetch product data using the GraphQL S
 
 **Product Listing Page query example**
 
-```graphql showLineNumbers
+```graphql showLineNumbers copy
 function getProductInfo(params) {
     const storeUrl = new URL(params.store_url);
 
@@ -72,7 +72,7 @@ Following the same API fetching logic, you can retrieve data for a single produc
 
 **Product Details Page query example**
 
-```graphql showLineNumbers
+```graphql showLineNumbers copy
 query SingleProduct {
   site {
     product (entityId: ${params.id}) {
@@ -102,7 +102,7 @@ The GraphQL Storefront API provides read-only data and cannot be used to manipul
 
 To update products in batches, send a `PUT` request to the [Update Products (Batch)](/api-reference/store-management/catalog/products/updateproducts) endpoint. 
 
-```http filename="Example request: Update products" showLineNumbers
+```http filename="Example request: Update products" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -126,7 +126,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To update a single product, send a `PUT` request to the [Update a Product](/api-reference/store-management/catalog/products/updateproduct) endpoint.
 
-```http filename="Example request: Update a product" showLineNumbers
+```http filename="Example request: Update a product" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}
 Accept: application/json
 Content-Type: application/json

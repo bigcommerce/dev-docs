@@ -14,7 +14,7 @@ To login a customer account with an email address and a password in client-side 
 
 **Customer login mutation**
 
-```graphql showLineNumbers
+```graphql showLineNumbers copy
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
@@ -38,7 +38,7 @@ You can log a customer into an embedded checkout by setting `redirect_to` in the
 
 **JWT payload example**
 
-```http showLineNumbers
+```http showLineNumbers copy
 {
   "iss": {{CLIENT_ID}},
   "iat": 1535393113,
@@ -66,7 +66,7 @@ For server-side REST implementations, you can use the [Pricing API](/api-referen
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Get Prices" showLineNumbers
+```http filename="Example request: Get Prices" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/pricing/products
 Accept: application/json
 Content-Type: application/json
@@ -94,7 +94,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 </Tab>
 <Tab>
 
-```json filename="Example response: Get Prices" showLineNumbers
+```json filename="Example response: Get Prices" showLineNumbers copy
 {
   "data": [
     {

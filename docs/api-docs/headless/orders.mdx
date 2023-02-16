@@ -12,7 +12,7 @@ To successfully complete this section, you must first create a cart with a **red
 
 You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint. Your `checkoutId` will correspond with the cart `id` returned in response to [Create a Cart](/api-reference/store-management/carts/cart/createacart).
 
-```http filename="Example request: Add checkout billing address" showLineNumbers
+```http filename="Example request: Add checkout billing address" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address
 Accept: application/json
 Content-Type: application/json
@@ -41,7 +41,7 @@ Now that you have transformed your headless cart into a checkout, you need to ad
 
 Send a `POST` request to the [Add Consignment to Checkout](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
 
-```http filename="Example request: Add Consignment to checkout" showLineNumbers
+```http filename="Example request: Add Consignment to checkout" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
 Accept: application/json
 Content-Type: application/json
@@ -74,7 +74,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 The response will contain an array of `available_shipping_options`. You will use one of the available shipping options to update the consignment in the next step.
 
-```json filename="Example response: Add Consignment to checkout" showLineNumbers
+```json filename="Example response: Add Consignment to checkout" showLineNumbers copy
 "available_shipping_options": [
   {
     "id": "80ad65f7946c23bd4ee9a531d85c5e21",
@@ -120,7 +120,7 @@ The response will contain an array of `available_shipping_options`. You will use
 Use one of the available shipping options to update the consignment you created in Step 1.
 Send a `PUT` request to the [Update Checkout Consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) endpoint.
 
-```http filename="Example request: Update checkout consignment" showLineNumbers
+```http filename="Example request: Update checkout consignment" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
 Accept: application/json
 Content-Type: application/json
@@ -139,7 +139,7 @@ Now that you have added a billing address and a consignment to your checkout, yo
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```http filename="Example request: Create an order" showLineNumbers
+    ```http filename="Example request: Create an order" showLineNumbers copy
     POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/orders
     Accept: application/json
     Content-Type: application/json
@@ -149,7 +149,7 @@ Now that you have added a billing address and a consignment to your checkout, yo
   </Tab>
   <Tab>
 
-    ```json filename="Example response: Create an order" showLineNumbers
+    ```json filename="Example response: Create an order" showLineNumbers copy
     {
       "data": {
         "id": 125
@@ -172,7 +172,7 @@ Depending on the shopper's card-on-file authorization, you can use one of the fo
 
 1. Start by retrieving the available payment methods. Send a `GET` request to the `Get Accepted Payment Methods` endpoint. 
 
-```http filename="Example request: Get accepted payment methods" showLineNumbers
+```http filename="Example request: Get accepted payment methods" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{store_hash}/v3/payments/methods
 Accept: application/json
 Content-Type: application/json
@@ -181,7 +181,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 1. To process a payment for an order, you will need to make a call to the Payments API which requires an access token. To generate an access token, send a `POST` request to the [Create Payment Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint. 
 
-```http filename="Example request: Create payment access token" showLineNumbers
+```http filename="Example request: Create payment access token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens
 Accept: application/json
 Content-Type: application/json
@@ -203,7 +203,7 @@ Make a note of the access token `id`. This token is required in subsequent payme
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```http filename="Example request: Process payment" showLineNumbers
+    ```http filename="Example request: Process payment" showLineNumbers copy
     POST https://api.bigcommerce.com/stores/{store_hash}/payments
     Accept: application/json
     Content-Type: application/json
@@ -224,7 +224,7 @@ Make a note of the access token `id`. This token is required in subsequent payme
   </Tab>
   <Tab>
 
-    ```json filename="Example response: Process payment" showLineNumbers
+    ```json filename="Example response: Process payment" showLineNumbers copy
     {
       "data": {
         "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -245,7 +245,7 @@ If a shopper does not have a payment method saved on file, you can process a pay
 
 2. Send a `POST` request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/api-docs/store-management/payment-processing#credit-cards).
 
-```json filename="Example response: Process payment" showLineNumbers
+```json filename="Example response: Process payment" showLineNumbers copy
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",

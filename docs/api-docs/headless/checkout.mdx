@@ -8,7 +8,7 @@ This section covers checkout options available to headless storefronts.
 
 You can redirect a customer to the BigCommerce hosted checkout page when creating a cart by appending the `include=redirect_urls` query parameter to the request URL of the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
-```http showLineNumbers
+```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts?include=redirect_urls
 Accept: application/json
 Content-Type: application/json
@@ -19,7 +19,7 @@ The `redirect_urls` object returned in the response will contain `cart_url`, `ch
 
 For example:
 
-```json showLineNumbers
+```json showLineNumbers copy
 "redirect_urls": {
     "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=1687e279-6813-44a8-aee7-1cbe4c01297c&token=cb6d14d60b724cd844b3f21ccaaaa69d66f3fdb327baea08dfb176c15e0dcc4f",
     "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=1687e279-6813-44a8-aee7-1cbe4c01297c&token=cb6d14d60b724cd844b3f21ccaaaa69d66f3fdb327baea08dfb176c15e0dcc4f",
