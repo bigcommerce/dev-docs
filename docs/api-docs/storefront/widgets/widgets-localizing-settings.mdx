@@ -26,7 +26,7 @@ Each `label` value must start with the `i18n.` prefix. For example, `"label": "i
 
 It must contain a default language code along with the other languages you want to support formatted by two lowercase letters, a dash, and at least two alphanumeric characters. For more information, see the [Supported language code schemes](#supported-language-code-schemes) section below.
 
-```json filename="Schema translations example" showLineNumbers
+```json filename="Schema translations example" showLineNumbers copy
 {
  "i18n.LineColor": {
    "default": "Line color",
@@ -65,7 +65,7 @@ It must contain a default language code along with the other languages you want 
 
 You will pass it as a value to `schema_translations` in the next step.
 
-```json filename="Stringified schema translations" showLineNumbers
+```json filename="Stringified schema translations" showLineNumbers copy
 "{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CN\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CN\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CN\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CN\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CN\": \"结盟\"\n }\n}"
 ```
 
@@ -73,7 +73,7 @@ You will pass it as a value to `schema_translations` in the next step.
 
 To create a widget template, send a `POST` request to the [Create a Widget Template](/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget:
 
-```http filename="Example request: Create a widget template" showLineNumbers
+```http filename="Example request: Create a widget template" showLineNumbers copy
 POST /stores/{{store_hash}}/v3/content/widget-templates
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}

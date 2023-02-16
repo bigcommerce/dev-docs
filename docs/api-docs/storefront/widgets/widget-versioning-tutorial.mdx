@@ -19,7 +19,7 @@ This article documents how to use [widget versioning](/api-docs/store-management
 
 To create a widget template, send a `POST` request to [`v3/content/widget-templates`](/api-reference/store-management/widgets/widget-template/createwidgettemplate).
 
-```http filename="Example request: Create a widget template" showLineNumbers
+```http filename="Example request: Create a widget template" showLineNumbers copy
 POST /stores/{{store_hash}}/v3/content/widget-templates
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -68,7 +68,7 @@ In this tutorial, you will create and place a widget programmatically. To place 
 
 To create a widget using the Widgets API, send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget). Replace the `widget_template_uuid` placeholder with the `uuid` from the [previous step](#create-a-widget-template).
 
-```http filename="Example request: Create a widget" showLineNumbers
+```http filename="Example request: Create a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/widgets
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -86,7 +86,7 @@ Accept: application/json
 
 Look for `version_uuid` and `current_version_uuid` in the response. The widget's `version_uuid`should match the `current_version_uuid` of the widget template.
 
-```json filename="Example response: Create a widget" showLineNumbers
+```json filename="Example response: Create a widget" showLineNumbers copy
 {
   "data": {
     "channel_id": 1,
@@ -121,7 +121,7 @@ You can place the widget on the storefront by [creating a placement](/api-refere
 
 To place your widget, send a `POST` request to [`/v3/content/placements`](/api-reference/store-management/widgets/placement/createplacement). 
 
-```http filename="Example request: Place a widget" showLineNumbers
+```http filename="Example request: Place a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/placements
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -146,7 +146,7 @@ The `create_new_version` parameter controls whether widget updates are *forced* 
 
 To create a new version of the widget template without affecting existing widgets, set `create_new_version` to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new widget template version record and associate that record to the `current_version_uuid`.
 
-```http filename="Example request: Update a widget template" showLineNumbers
+```http filename="Example request: Update a widget template" showLineNumbers copy
 POST /stores/{{store_hash}}v3/content/widget-templates/{uuid}
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -189,7 +189,7 @@ All widgets created after the update will be based on the most current version. 
 
 Send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget) replacing the `widget_template_uuid` placeholder with your widget template `uuid`.
 
-```http filename="Example request: Create a widget" showLineNumbers
+```http filename="Example request: Create a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/widgets
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
