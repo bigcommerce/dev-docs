@@ -53,7 +53,7 @@ To fork the repository, complete the following steps:
 2. Clone the fork to your local development environment.
 3. Navigate to the root directory of your cloned repository and install the default packages by running the following command:
 
-```shell filename="Install packages" showLineNumbers
+```shell filename="Install packages" showLineNumbers copy
 npm install
 ```
 
@@ -156,7 +156,7 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
 
    c. Copy the connection string that appears, and replace `<username>` and `<password>` with the values you specified in step 2b. Add **myFirstDatabase** to the connection string so that it resembles the following example:
 
-```shell filename="Example MongoDB Cloud connection string" showLineNumbers
+```shell filename="Example MongoDB Cloud connection string" showLineNumbers copy
 mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
@@ -177,7 +177,7 @@ To declare environment variables, complete the following steps:
 
 2. Copy the contents of `.env.sample` to `.env` with the following command:
 
-```shell filename="Copy .env.sample contents" showLineNumbers
+```shell filename="Copy .env.sample contents" showLineNumbers copy
 cp .env.sample .env
 ```
 
@@ -202,13 +202,13 @@ To run the migration script and seed the database, complete the following steps:
   
 1. Run the Prisma migration script that is pre-defined in `/prisma/migrations/*` with the following command: 
 
-```shell filename="Create the database" showLineNumbers
+```shell filename="Create the database" showLineNumbers copy
 npx prisma db push
 ```
 
 2. Seed your database with pre-configured collections and documents using the following command:
  
-```shell filename="Seed the database" showLineNumbers
+```shell filename="Seed the database" showLineNumbers copy
 npm run seed
 ```
 
@@ -219,7 +219,7 @@ If you miss the preceding steps, you will not have any data to work with.
 
 3. Generate a new Prisma client with the following command:
 
-```shell filename="Generate the Prisma client" showLineNumbers
+```shell filename="Generate the Prisma client" showLineNumbers copy
 npx prisma generate
 ```
 
@@ -229,13 +229,13 @@ npx prisma generate
 
 4. Access the database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
 
-```shell filename="Verify migration and seed" showLineNumbers
+```shell filename="Verify migration and seed" showLineNumbers copy
 npx prisma studio
 ``` 
 
 5. To start the server that runs the POS system, run the following command:
 
-```shell filename="Start the server" showLineNumbers
+```shell filename="Start the server" showLineNumbers copy
 npm run dev
 ```
 
