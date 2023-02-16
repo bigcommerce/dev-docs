@@ -41,7 +41,7 @@ The response will contain all of the filters currently active on your store.
 <Tabs items={['Request', 'Response']}>
     <Tab>
 
-        ```http filename="Example request: Get enabled filters" showLineNumbers
+        ```http filename="Example request: Get enabled filters" showLineNumbers copy
         GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters
         X-Auth-Token: {{ACCESS_TOKEN}}
         Accept: application/json
@@ -50,7 +50,7 @@ The response will contain all of the filters currently active on your store.
     </Tab>
     <Tab> 
 
-    ```json filename="Example response: Get enabled filters" showLineNumbers
+    ```json filename="Example response: Get enabled filters" showLineNumbers copy
     {
       "data": [
         {
@@ -103,7 +103,7 @@ To retrieve all available storefront filters, send a `GET` request to [`/v3/sett
 <Tabs items={['Request', 'Response']}>
     <Tab>
 
-        ```http filename="Example request: Get available filters" showLineNumbers
+        ```http filename="Example request: Get available filters" showLineNumbers copy
         GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available
         X-Auth-Token: {{ACCESS_TOKEN}}
         Accept: application/json
@@ -112,7 +112,7 @@ To retrieve all available storefront filters, send a `GET` request to [`/v3/sett
     </Tab>
     <Tab>
 
-        ```json filename="Example response: Get enabled filters" showLineNumbers
+        ```json filename="Example response: Get enabled filters" showLineNumbers copy
         {
           "data": [
             {
@@ -148,7 +148,7 @@ To retrieve a list of filters available on a given category, include the `catego
 <Tabs items={['Request', 'Response']}>
     <Tab>
 
-        ```http filename="Example request: Get available filters for a category" showLineNumbers
+        ```http filename="Example request: Get available filters for a category" showLineNumbers copy
         GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available?channel_id=1&category_id={{CATEGORY_ID}}
         X-Auth-Token: {{ACCESS_TOKEN}}
         Accept: application/json
@@ -157,7 +157,7 @@ To retrieve a list of filters available on a given category, include the `catego
     </Tab>
     <Tab>
 
-        ```json filename="Example response: Get available filters for a category" showLineNumbers
+        ```json filename="Example response: Get available filters for a category" showLineNumbers copy
         {
           "data": [
             {
@@ -220,7 +220,7 @@ The response will contain the category's existing contextual overrides.
 <Tabs items={['Request', 'Response']}>
     <Tab>
 
-        ```http filename="Example request: Get contextual filters for a category" showLineNumbers
+        ```http filename="Example request: Get contextual filters for a category" showLineNumbers copy
         GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/contexts?channel_id=1&category_id={{CATEGORY_ID}}
         X-Auth-Token: {{ACCESS_TOKEN}}
         Accept: application/json
@@ -229,7 +229,7 @@ The response will contain the category's existing contextual overrides.
     </Tab>
     <Tab>
 
-        ```json filename="Example response: Get contextual filters for a category" showLineNumbers
+        ```json filename="Example response: Get contextual filters for a category" showLineNumbers copy
         {
           "data": [
             {
@@ -290,7 +290,7 @@ The order and names of returned filters should match the filters listed under **
 
 Using the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint, you can configure available category-level filters. To test it out, update some of your category's properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](/api-reference/store-management/settings/search-filters/upsertcontexts).
 
-```http filename="Example request: Upsert contextual filters" showLineNumbers
+```http filename="Example request: Upsert contextual filters" showLineNumbers copy
 PUT /stores/{{STORE_HASH}}/v3/settings/search/filters/contexts
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
