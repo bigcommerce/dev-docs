@@ -59,11 +59,11 @@ Within BigCommerce for WordPress, there are multiple ways to configure how the c
 * When the cart menu item is clicked, show a mini-cart overview as an overlay on the page, which details the items, total, and links to view cart or checkout.
 * Available as a widget to build into other parts of the template (for example, to display a persistent, dynamic sidebar cart).
 
-####Ajax add-to-cart
+#### Ajax add-to-cart
 * Keep the shopper on the page after they have added an item.
 * When the cart menu item is clicked, navigate to the cart page.
 
-####Redirect to cart
+#### Redirect to cart
 * When the shopper adds an item to the cart, navigate to the cart page.
 
 ### Select checkout type
@@ -169,7 +169,7 @@ This requires activation of the `multi-channel` mode, which is a one-line comman
 
 Multi-channel mode:
 
-```js
+```js copy
 add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );
 ```
 
@@ -178,18 +178,15 @@ For more details on how to build a multi-region storefront with BigCommerce for 
 ### CLI setup instructions
 
 The import process will run faster and more reliably if run from the command line.
-<Steps>
-### Check your WP CLI
-Ensure that your host has [WP-CLI](https://wp-cli.org/) installed and configured to manage your WordPress site.
 
-### Import products
-The initial import will likely take longer than subsequent imports. Run the following command for the first import: 
+1. Ensure that your host has [WP-CLI](https://wp-cli.org/) installed and configured to manage your WordPress site.
+
+2. The initial import will likely take longer than subsequent imports. Run the following command for the first import: 
 `wp bigcommerce import products`
 
-### Set up a cron job
- Set up a system cron job to run the import at your desired frequency. For example, to run every 10 minutes:
+3. Set up a system cron job to run the import at your desired frequency. For example, to run every 10 minutes:
 `*/10 * * * * /usr/bin/wp bigcommerce import products --quiet > /dev/null 2>&1`
-</Steps>
+
 This does not disable the WordPress cron-based import process. As long as the CLI import runs more frequently than the import configured on the settings screen, the cron-based import should never be triggered. In the event that both are running concurrently, safeguards are in place to ensure that only one process runs at a time.
 
 ![Product Sync](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce%20for%20WordPress/cli-setup-instructions.png)
@@ -204,17 +201,14 @@ WordPress sites will generally operate more efficiently if WordPress's default c
 
 To disable WordPress's default cron, follow these steps:
 
-<Steps>
-
-### Disable WP cron
+1. Disable WP cron
 Set a constant in `your wp-config.php`:
 `define( 'DISABLE_WP_CRON', true );`
 
-### Enable WP cron events
+2. Enable WP cron events
 Set up a system cron job to run WordPress's cron events from the command line:
 `* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1`
 Running the job every minute is generally recommended.
-</Steps>
 
 ### Details on how to debug
 
@@ -230,7 +224,7 @@ If running an import from the command line, add the `--debug` flag to get additi
 
 If network latency is causing your API requests to timeout, the timeout duration can be increased with a filter:
 
-```js
+```js showLineNumbers copy
 add_filter( 'bigcommerce/api/timeout', function () {
 	return 60;
 } );

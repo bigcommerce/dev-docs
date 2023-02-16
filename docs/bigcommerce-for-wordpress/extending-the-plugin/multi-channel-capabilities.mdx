@@ -8,7 +8,7 @@ This article explains how to enable and make use of BigCommerce for WordPress's 
 
 Multi-channel capabilities can be enabled with the addition of a BigCommerce for WordPress specific filter:
 
-```php
+```php copy
 add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );
 ```
 
@@ -18,7 +18,7 @@ This will enable an admin to connect to multiple channels on the settings screen
 
 Once multi-channel support is enabled and multiple channels are connected via BigCommerce settings in the WordPress admin, the channel displayed to shoppers on the front-end can be toggled with the following filter:
 
-```php
+```php showLineNumbers copy
 add_filter( 'bigcommerce/channel/current', function( $channel ) {
 
     // add logic here to determine the channel to use
@@ -42,8 +42,7 @@ A common use case for multiple channels and storefronts is offering differentiat
 * Admin access to a WordPress instance with BigCommerce for WordPress installed
 * Ability to edit WordPress instance files locally or via FTP
 
-<Steps>
-### Setup Directory Structure
+## Step 1: Setup Directory Structure
 
 In your WordPress instance's `wp-content/plugins/` directory:
 
@@ -52,7 +51,7 @@ In your WordPress instance's `wp-content/plugins/` directory:
 
 Once finished, the directory structure should look as follows:
 
-```bash
+```bash showLineNumbers copy
 ├── wp-content                                       # WP instance wp-content dir
 |    ├── plugins                                     # WP instance plugins dir
 |    |   ├── bigcommerce                             # BigCommerce for WordPress Plugin
@@ -61,11 +60,10 @@ Once finished, the directory structure should look as follows:
 |    |   ├── ...
 ```
 <Callout type="info">
-#### Note
-For more information on editing WordPress and plugin files, see [Editing Files](https://wordpress.org/support/article/editing-files/) (wordpress.org).
+  For more information on editing WordPress and plugin files, see [Editing Files](https://wordpress.org/support/article/editing-files/) (wordpress.org).
 </Callout>
 
-### Connect Channels
+## Step 2: Connect Channels
 
 Add and connect the desired channels in **WordPress Admin > BigCommerce > Settings > Channels** and make note of the `term_id` in the URL when hovering over **Make Primary**:
 
@@ -76,18 +74,17 @@ In the example screenshot above, we've created and connected two channels:
 1. a `UK` channel with `term_id` `31`
 
 <Callout type="info">
-#### Note
-The `term_id`s for your channels will probably be different
+  The `term_id`s for your channels will probably be different
 </Callout>
 
 
-### Add the Plugin Code
+## Step 3: Add the Plugin Code
 
 Now that we've connected two channels and made note of the `term_id`s, we're ready to begin coding.
 
 Using your favorite code editor, copy and paste the following source code into `query-string-region-activation.php`:
 
-```php
+```php showLineNumbers copy
 <?php
 /**
  * Plugin Name: BC4WP: Query String Region Activation
@@ -124,9 +121,8 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 ```
 
 <Callout type="info">
-#### Note
-* replace `31` in `get_term()` above with the `term_id` of your channel
-* change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
+  * replace `31` in `get_term()` above with the `term_id` of your channel
+  * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
 </Callout>
 
 Here's what's happening in the example code:
@@ -144,7 +140,6 @@ Once everything is configured correctly, we can test by navigating to **All Prod
 Now let's switch the channel and currency symbol by passing in `region=uk` in the query string (notice product and currency symbol have changed):
 
 ![All Product UK](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce%20for%20WordPress/multi-channel-capabilities-2.png)
-</Steps>
 
 ## Developing Further
 
