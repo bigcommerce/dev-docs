@@ -223,7 +223,7 @@ Accept: application/json
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. BigCommerce uses valid entries and does not call the shipping carrier. If a valid cache entry does not exist, BigCommerce makes a request to the Quote URL with details of the items to be shipped, the shipping origin, and the shipping destination. If you configured any connection settings or zone settings, include these. The shipping carrier must then respond with zero or more shipping quotes.
 
 
-```http filename="Example request: Shipping rates" showLineNumbers
+```http filename="Example request: Shipping rates" showLineNumbers copy
 POST https://example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
