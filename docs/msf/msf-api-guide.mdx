@@ -16,7 +16,7 @@ Previously, a store had a collection of categories that were organized in a tree
 
 To access the category structure used by a particular storefront, you must first identify which tree is tied to that storefront channel. You can do so by sending a request to the following endpoint. Include the `channel_id:in` query parameter, which accepts one or more channel IDs as a comma-separated list. 
 
-```http filename="Example request: Get category tree for channel 3" showLineNumbers
+```http filename="Example request: Get category tree for channel 3" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees?channel_id:in=3
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json

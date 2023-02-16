@@ -27,7 +27,7 @@ Consider the following request to the [Get store profile settings](/api-referenc
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Get store profile settings"
+```http filename="Example request: Get store profile settings" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -36,7 +36,7 @@ Accept: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Get store profile" showLineNumbers
+```json filename="Example response: Get store profile" showLineNumbers copy
 {
   "data": {
     "store_phone": "+1 123-456-7890",
@@ -59,7 +59,7 @@ To check whether channel-specific values for a setting are defined, send the `ch
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Get store profile settings for channel 122"
+```http filename="Example request: Get store profile settings for channel 122" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=122
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -67,7 +67,7 @@ Accept: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Get store profile settings for channel 122" showLineNumbers
+```json filename="Example response: Get store profile settings for channel 122" showLineNumbers copy
 {
   "data": {},
   "meta": {}
@@ -83,7 +83,7 @@ The following request-response pair shows an example of a channel that does have
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Get store profile settings for channel 123"
+```http filename="Example request: Get store profile settings for channel 123" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -91,7 +91,7 @@ Accept: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Get store profile settings for channel 123" showLineNumbers
+```json filename="Example response: Get store profile settings for channel 123" showLineNumbers copy
 {
   "data": {
     "store_name": "My Channel-Specific Name for Channel 123",
@@ -110,7 +110,7 @@ The following request-response pair shows an example of a channel with a complet
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Get store profile settings for channel 124"
+```http filename="Example request: Get store profile settings for channel 124" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -119,7 +119,7 @@ Accept: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Get store profile settings for channel 124" showLineNumbers
+```json filename="Example response: Get store profile settings for channel 124" showLineNumbers copy
 {
   "data": {
     "store_phone": "+1 555-555-555",
@@ -148,7 +148,7 @@ You can modify global and channel-specific settings alike by sending `PUT` reque
 
 The following example uses the [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) endpoint to modify a store's global default configuration:
 
-```http filename="Example request: Update global store profile settings"
+```http filename="Example request: Update global store profile settings" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -161,7 +161,7 @@ Accept: application/json
 
 To update channel-specific settings, send a request to the same endpoint along with a value for the `channel_id` query parameter.
 
-```http filename="Example request: Update store profile settings for channel 123"
+```http filename="Example request: Update store profile settings for channel 123" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -177,7 +177,7 @@ If you wish to restore global defaults on a channel with a channel-specific conf
 * a comma-separated list of the property `keys` for the values you wish to reset.
 
 
-```http filename="Example request: Reset channel-specific store profile settings to default"
+```http filename="Example request: Reset channel-specific store profile settings to default" showLineNumbers copy
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124&keys=store_name,store_address
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
