@@ -1,0 +1,18 @@
+name: lint-valid-mdx
+
+on:
+  pull_request:
+    branches: [migrate-DEVDOCS-4719]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js v17.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17.x
+      - run: npm ci
+      - run: npm run lint
