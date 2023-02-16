@@ -1,8 +1,13 @@
 {
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 14.0.0"
+  },
+  "scripts": {
+    "lint": "eslint ./docs --ext mdx --max-warnings 0"
   },
   "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-plugin-mdx": "^2.0.5",
     "grunt": "^1.5.3",
     "grunt-mdspell": "^0.4.0",
     "grunt-textlint": "^0.1.0",
