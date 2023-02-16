@@ -185,7 +185,7 @@ Accept: application/json
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
 
-```http filename="Example request: Create a shipping method in a specified zone" showLineNumbers
+```http filename="Example request: Create a shipping method in a specified zone" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
