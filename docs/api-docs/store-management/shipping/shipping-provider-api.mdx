@@ -155,7 +155,7 @@ Once you install the app, it will be made available for configuration by merchan
 
 To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique to each carrier. If your carrier doesn’t require any connection settings, send an empty object for the `connection` settings property.
 
-```http filename="Example carrier connection request with connection settings" showLineNumbers
+```http filename="Example carrier connection request with connection settings" showLineNumbers copy
 POST https://example.com/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
