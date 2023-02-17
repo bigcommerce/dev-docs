@@ -244,6 +244,12 @@ Example JSON returned in the response:
 }
 ```
 
+You may encounter a case where product information was updated successfully, but related inventory data failed to update. In such cases, BigCommerce will return a `207` status along with the object as updated and a descriptive error message.
+
+```
+207 Multi-Status
+```
+
 ## Update a Product SKU 
 
 Updates an existing product SKU.
@@ -291,6 +297,12 @@ Example JSON returned in the response:
     }
   ]
 }
+```
+
+You may encounter a case where product information was updated successfully, but related inventory data failed to update. In such cases, BigCommerce will return a `207` status along with the object as updated and a descriptive error message.
+
+```
+207 Multi-Status
 ```
 
 ## Delete a Product SKU 
