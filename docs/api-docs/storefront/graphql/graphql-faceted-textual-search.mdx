@@ -17,7 +17,7 @@ This page walks you through how to filter and query products and facets to displ
 
 To use faceted and textual search, specify a filter in the argument for `SearchProducts`. For faceted search, you can filter by price, rating, among other features and attributes of products. For textual search, use the `searchTerm` field. 
 
-```graphql filename="Filters for products and facets" showLineNumbers
+```graphql filename="Filters for products and facets" showLineNumbers copy
 ...
   searchProducts(
   filters: {
@@ -59,7 +59,7 @@ To get products, specify `products` as a field in `searchProducts`. Here is an e
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```graphql filename="Example" showLineNumbers
+```graphql filename="Example" showLineNumbers copy
 query {
   site {
     search {
@@ -93,7 +93,7 @@ query {
 </Tab>
 <Tab>
 
-```json filename="Example" showLineNumbers
+```json filename="Example" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -139,7 +139,7 @@ You can sort the products that are returned using the `sort` field. Here is an e
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```graphql filename="Example" showLineNumbers
+```graphql filename="Example" showLineNumbers copy
 query {
   site {
     search {
@@ -170,7 +170,7 @@ query {
 </Tab>
 <Tab>
 
-```json filename="Example" showLineNumbers
+```json filename="Example" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -225,7 +225,7 @@ To get facets, specify `filters` as a field in `searchProducts`. Here is an exam
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```graphql filename="Example" showLineNumbers
+```graphql filename="Example" showLineNumbers copy
 query {
   site {
     search {
@@ -293,7 +293,7 @@ query {
 </Tab>
 <Tab>
 
-```json filename="Example" showLineNumbers
+```json filename="Example" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -368,7 +368,7 @@ To get both products and facets, specify both `products` and `filters` fields in
 <Tab>
 
 
-```graphql filename="Example" showLineNumbers
+```graphql filename="Example" showLineNumbers copy
 query {
   site {
     search {
@@ -451,7 +451,7 @@ query {
 </Tab>
 <Tab>
 
-```json filename="Example" showLineNumbers
+```json filename="Example" showLineNumbers copy
 {
     "data": {
       "site": {
@@ -544,7 +544,7 @@ query {
 
 If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
-```json filename="Example" showLineNumbers
+```json filename="Example" showLineNumbers copy
 {
   "data": {
     "site": {

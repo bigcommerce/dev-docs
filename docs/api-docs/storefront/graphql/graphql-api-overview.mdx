@@ -54,7 +54,7 @@ To use the request runner, input queries on the left side and then click the **P
 The following is an example query to get you started.
 
 
-```graphql filename="Example query" showLineNumbers
+```graphql filename="Example query" showLineNumbers copy
 query MyFirstQuery {
   site {
     settings {
@@ -124,7 +124,7 @@ Content-Type: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Create a GraphQL Storefront API token" showLineNumbers
+```json filename="Example response: Create a GraphQL Storefront API token" showLineNumbers copy
 {
   "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9...",
   "meta": {
@@ -146,7 +146,7 @@ Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/r
 
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
-```js filename="Example request: GraphQL query using Stencil token" showLineNumbers
+```js filename="Example request: GraphQL query using Stencil token" showLineNumbers copy
 fetch('/graphql', {
   method: 'POST',
   credentials: 'same-origin',
@@ -182,7 +182,7 @@ Content-Type: application/json
 </Tab>
 <Tab>
 
-```json filename="Example response: Create a customer impersonation token" showLineNumbers
+```json filename="Example response: Create a customer impersonation token" showLineNumbers copy
 {
   "data":
   {
@@ -208,7 +208,7 @@ curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H '
 
 If you're using the GraphQL Storefront API from a browser, for example, on top of your Stencil storefront, you can use the new Customer Login mutation to sign in to a customer account with an email address and a password. For server-side integrations, consider a customer impersonation token instead. This will set a session cookie in the browser which will authenticate the customer account on future requests:
 
-```graphql filename="Example query: login mutation" showLineNumbers
+```graphql filename="Example query: login mutation" showLineNumbers copy
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
@@ -223,7 +223,7 @@ As a best practice, you should inject the password using GraphQL query variables
 You can use a logout mutation to sign out of a customer account:
 
 
-```graphql filename="Example query: logout mutation" showLineNumbers
+```graphql filename="Example query: logout mutation" showLineNumbers copy
 mutation Logout {
    logout {
      result
@@ -241,7 +241,7 @@ The following example request uses the `{{settings.storefront_api.token}}` Handl
   The `fetch` request's `credentials` property must be set to `same-origin`.
 </Callout>
 
-```js filename="Example request: GraphQL query using Stencil token" showLineNumbers
+```js filename="Example request: GraphQL query using Stencil token" showLineNumbers copy
 fetch('/graphql', {
   method: 'POST',
   credentials: 'same-origin',
@@ -291,7 +291,7 @@ The GraphQL Storefront API follows the [GraphQL Cursor Connections Specification
 
 For example, consider the following query for a store's first three products (notice `first: 3` passed to `products`):
 
-```graphql filename="Example query: first three products" showLineNumbers
+```graphql filename="Example query: first three products" showLineNumbers copy
 query paginateProducts {
   site {
     products (first: 3) {
@@ -315,7 +315,7 @@ You can run this query against an example storefront using the [GraphQL Playgrou
 
 The results look something like the following:
 
-```json filename="Example response: first three products" showLineNumbers
+```json filename="Example response: first three products" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -355,7 +355,7 @@ The results look something like the following:
 
 Notice the `edge` corresponding to `entityId: 81` has a `cursor` of `YXJyYXljb25uZWN0aW9uOjE=`. We can pass that cursor to the `after` parameter to get the three products after `entityId: 81`:
 
-```graphql filename="Example query using cursor" showLineNumbers
+```graphql filename="Example query using cursor" showLineNumbers copy
 query paginateProducts {
   site {
     products (first: 3, after: "YXJyYXljb25uZWN0aW9uOjE=") {
@@ -377,7 +377,7 @@ query paginateProducts {
 
 The results will look something like this (notice the last product `entityId: 82` is now the first product):
 
-```json filename="Example response using cursor" showLineNumbers
+```json filename="Example response using cursor" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -418,7 +418,7 @@ The results will look something like this (notice the last product `entityId: 82
 
 This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* using `startCursor` and `endCursor`. For example, the following query gets the first thirty brands:
 
-```graphql filename="Example query using slices" showLineNumbers
+```graphql filename="Example query using slices" showLineNumbers copy
 query brands {
   site {
     brands (first: 30) {
@@ -439,7 +439,7 @@ query brands {
 
 And given the following results:
 
-```json filename="Example response using slices" showLineNumbers
+```json filename="Example response using slices" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -465,7 +465,7 @@ And given the following results:
 
 You can retrieve the next thirty by making a new query and passing in the `endCursor` from the first page of results:
 
-```graphql filename="Example query using slices and cursor" showLineNumbers
+```graphql filename="Example query using slices and cursor" showLineNumbers copy
 query brands {
   site {
     brands (first: 30, after:"YXJyYXljb25uZWN0aW9uOjM="  {
@@ -501,7 +501,7 @@ If a query's complexity score exceeds the complexity limit, you will receive an 
 
 The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values.
 
-```graphql filename="Example query with excessive complexity" showLineNumbers
+```graphql filename="Example query with excessive complexity" showLineNumbers copy
 query {
   site {
     products(first:50) {
@@ -554,7 +554,7 @@ query {
 
 The complexity of this query is easily reduced by changing the number of products queried from `first:50` to `first:10`:
 
-```graphql filename="Example query with limited complexity" showLineNumbers
+```graphql filename="Example query with limited complexity" showLineNumbers copy
 query {
   site {
     products(first:10) { // <--- reducing quantity requested reduces complexity score
