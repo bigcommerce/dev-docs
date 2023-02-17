@@ -34,7 +34,7 @@ Products can be physical or digital:
 Below is an example `POST` request for creating a simple product without variant options or modifiers.
 
 
-```http filename="Example request: Create a product" showLineNumbers
+```http filename="Example request: Create a product" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -56,7 +56,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To create a complex product with variant options selectable by shoppers, include a `variants` array in the request body.
 
-```http filename="Example request: Create a product" showLineNumbers
+```http filename="Example request: Create a product" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -103,7 +103,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To create a digital product (like an ebook), set `type` to `digital`.
 
-```http filename="Example request: Create a product" showLineNumbers
+```http filename="Example request: Create a product" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -136,7 +136,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add an image to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/images`.
 
-```http filename="Example request: Create a product image" showLineNumbers
+```http filename="Example request: Create a product image" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
 Accept: application/json
 Content-Type: application/json
@@ -163,7 +163,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add a video hosted on YouTube as a product video, send a `POST` request to `/v3/catalog/products/{{product_id}}/videos`.
 
-```http filename="Example request: Create a product video" showLineNumbers
+```http filename="Example request: Create a product video" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
 Accept: application/json
 Content-Type: application/json
@@ -189,7 +189,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add custom fields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/custom-fields`.
 
-```http filename="Example request: Create a custom fields" showLineNumbers
+```http filename="Example request: Create a custom fields" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
 Accept: application/json
 Content-Type: application/json
@@ -212,7 +212,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
 
-```http filename="Example request: Create a bulk pricing rule" showLineNumbers
+```http filename="Example request: Create a bulk pricing rule" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
 Accept: application/json
 Content-Type: application/json
@@ -254,7 +254,7 @@ Currency display settings allow for more than four decimal places. In such cases
 
 To add metafields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/metafields`.
 
-```http filename="Example request: Create a product metafield" showLineNumbers
+```http filename="Example request: Create a product metafield" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
 Accept: application/json
 Content-Type: application/json
@@ -280,7 +280,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 To add product reviews to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/reviews`.
 
-```http filename="Example request: Create a product review" showLineNumbers
+```http filename="Example request: Create a product review" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
 Accept: application/json
 Content-Type: application/json
@@ -347,7 +347,7 @@ This example results in selecting a combination of small and red on the storefro
 
 The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
 
-```http filename="Example request: Create Size Variant Option" showLineNumbers
+```http filename="Example request: Create Size Variant Option" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -413,7 +413,7 @@ The example below will go over using existing variant options to create the vari
 
 To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
-```http filename="Example request: Get product variant options" showLineNumbers
+```http filename="Example request: Get product variant options" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -477,7 +477,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the ID from the variant option response `option_values > id`. The `option_id` is the ID of the option.
 
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 193, //option_id
   "product_id": 134,
@@ -503,7 +503,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 The following example creates a base product, variant options, and variants in a single call to the [Products](/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
-```http filename="Example request: Create a variant using the product endpoint" showLineNumbers
+```http filename="Example request: Create a variant using the product endpoint" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
@@ -598,7 +598,7 @@ To [create a modifier](/api-reference/store-management/catalog/product-modifiers
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```http filename="Example request: Create a product modifier" showLineNumbers
+    ```http filename="Example request: Create a product modifier" showLineNumbers copy
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
     Accept: application/json
     Content-Type: application/json
@@ -620,7 +620,7 @@ To [create a modifier](/api-reference/store-management/catalog/product-modifiers
   </Tab>
   <Tab>
 
-    ```json filename="Example response: Create a product modifier" showLineNumbers
+    ```json filename="Example response: Create a product modifier" showLineNumbers copy
     {
       "data": [
         {
@@ -669,7 +669,7 @@ Since this is a checkbox with two states, you create two option values. The defa
 
 To [update the modifier value](/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
-```http filename="Example request: Update a product modifier value" showLineNumbers
+```http filename="Example request: Update a product modifier value" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
 Accept: application/json
 Content-Type: application/json
@@ -688,7 +688,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Troubleshooting: 422 Errors
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
@@ -733,7 +733,7 @@ Use complex rules when an adjustment should be triggered by:
 
 Complex rules must have a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when you check both boxes.
 
-```http filename="Example request: Create a complex rule" showLineNumbers
+```http filename="Example request: Create a complex rule" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/complex-rules
 Accept: application/json
 Content-Type: application/json
@@ -763,7 +763,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 error.
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "status": 422,
     "title": "The rule must contain multiple modifier conditions with unique modifier ids or a variant condition and modifier condition",
@@ -776,7 +776,7 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 To create a [Brand](/api-reference/store-management/catalog/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
 
 
-```http filename="Example request: Create a brand" showLineNumbers
+```http filename="Example request: Create a brand" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
 Accept: application/json
 Content-Type: application/json
@@ -804,7 +804,7 @@ BigCommerce's V3 REST API does not require products to be associated with a cate
 
 You can associate products with multiple categories. A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure.
 
-```http filename="Example request: Create a category" showLineNumbers
+```http filename="Example request: Create a category" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories
 
 Accept: application/json
@@ -828,7 +828,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```http filename="Example request: Get a category tree" showLineNumbers
+    ```http filename="Example request: Get a category tree" showLineNumbers copy
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees/{{TREE_ID}}/categories
     Accept: application/json
     Content-Type: application/json
@@ -838,7 +838,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   </Tab>
   <Tab>
 
-    ```json filename="Example response: Get a category tree" showLineNumbers
+    ```json filename="Example response: Get a category tree" showLineNumbers copy
     {
       "data": [
         {
