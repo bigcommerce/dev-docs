@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
   title: Catalog
   description: |-
@@ -42,7 +42,11 @@ info:
     Create and manage category trees for BigCommerce stores.
 
     Create and manage products assignments.
-  termsOfService: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   version: ''
 servers:
   - url: 'https://api.bigcommerce.com'
@@ -829,11 +833,23 @@ paths:
                           current: '?page=1&limit=50'
                           next: string
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: |-
+            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            
+            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_Base'
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/product_Full'
+                  errors: 
+                    $ref: '#/components/schemas/errorMultiStatus'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
         '404':
           description: The resource was not found.
           content:
@@ -946,8 +962,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/product_Full'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaCollection_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -1179,12 +1194,26 @@ paths:
                     calculated_price: 0
                     calculated_weight: 0
                 meta: {}
-        '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+                '207':
+        '207': 
+          description: |-
+            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            
+            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_Base'
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/product_Full'
+                  errors: 
+                    $ref: '#/components/schemas/errorMultiStatus'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+
         '409':
           description: |
             `Product` was in conflict with another product. This is the result of duplicate unique values, such as name or SKU; a missing or invalid `category_id`, `brand_id`, or `tax_class id`; or a conflicting `bulk_pricing_rule`.
@@ -1604,8 +1633,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/product_Full'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaCollection_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -1844,11 +1872,21 @@ paths:
               schema:
                 type: object
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: |-
+            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            
+            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_Base'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/product_Full'
+                  errors: 
+                    $ref: '#/components/schemas/errorMultiStatus'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
         '404':
           description: |
             The resource was not found.
@@ -3688,44 +3726,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVariant_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 384
-                  product_id: 192
-                  sku: SMIT-2
-                  sku_id: 350
-                  price: 25
-                  calculated_price: 25
-                  sale_price: 20
-                  retail_price: 25
-                  map_price: {}
-                  weight: 2
-                  calculated_weight: 1
-                  width: 5
-                  height: 5
-                  depth: 5
-                  is_free_shipping: false
-                  fixed_cost_shipping_price: 10
-                  purchasing_disabled: false
-                  purchasing_disabled_message: ''
-                  image_url: ''
-                  cost_price: 25
-                  upc: ''
-                  mpn: ''
-                  gtin: ''
-                  inventory_level: 0
-                  inventory_warning_level: 0
-                  bin_picking_number: ''
-                  option_values:
-                    - id: 176
-                      label: Black
-                      option_id: 220
-                      option_display_name: Color
-                meta: {}
+                    $ref: '#/components/schemas/metaCollection_Full'
               examples:
                 example-1:
                   value:
@@ -3760,12 +3761,57 @@ paths:
                       calculated_price: 0
                       calculated_weight: 0
                     meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 384
+                      product_id: 192
+                      sku: SMIT-2
+                      sku_id: 350
+                      price: 25
+                      calculated_price: 25
+                      sale_price: 20
+                      retail_price: 25
+                      map_price: {}
+                      weight: 2
+                      calculated_weight: 1
+                      width: 5
+                      height: 5
+                      depth: 5
+                      is_free_shipping: false
+                      fixed_cost_shipping_price: 10
+                      purchasing_disabled: false
+                      purchasing_disabled_message: ''
+                      image_url: ''
+                      cost_price: 25
+                      upc: ''
+                      mpn: ''
+                      gtin: ''
+                      inventory_level: 0
+                      inventory_warning_level: 0
+                      bin_picking_number: ''
+                      option_values:
+                        - id: 176
+                          label: Black
+                          option_id: 220
+                          option_display_name: Color
+                    meta: {}
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: |-
+            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            
+            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_Base'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/productVariant_Full'
+                  errors: 
+                    $ref: '#/components/schemas/errorMultiStatus'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
         '404':
           description: |
             The resource was not found.
@@ -3967,10 +4013,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVariant_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaCollection_Full'
               example:
                 data:
                   bin_picking_number: '0'
@@ -4001,11 +4044,21 @@ paths:
                   width: 2
                 meta: {}
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: |-
+            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            
+            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_Base'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/productVariant_Full'
+                  errors: 
+                    $ref: '#/components/schemas/errorMultiStatus'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
         '404':
           description: |
             The resource was not found.
@@ -5385,45 +5438,6 @@ paths:
                     title: Meta
                     type: object
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 220
-                  product_id: 192
-                  name: Color (Colors only)
-                  display_name: Color
-                  type: swatch
-                  sort_order: 0
-                  option_values:
-                    - id: 174
-                      label: Beige
-                      sort_order: 1
-                      value_data:
-                        colors:
-                          - '#FAFAEB'
-                      is_default: false
-                    - id: 175
-                      label: Grey
-                      sort_order: 2
-                      value_data:
-                        colors:
-                          - '#BDBDBD'
-                      is_default: false
-                    - id: 176
-                      label: Black
-                      sort_order: 3
-                      value_data:
-                        colors:
-                          - '#000000'
-                      is_default: false
-                    - id: 189
-                      label: Black-Walnut
-                      sort_order: 4
-                      value_data:
-                        colors:
-                          - '#e80ee8'
-                      is_default: false
-                  config: {}
-                meta: {}
               examples:
                 example-1:
                   value:
@@ -5438,8 +5452,8 @@ paths:
                         checkbox_label: string
                         date_limited: true
                         date_limit_mode: earliest
-                        date_earliest_value: '2019-08-24'
-                        date_latest_value: '2019-08-24'
+                        date_earliest_value: '2022-08-24T00:00:00+00:00'
+                        date_latest_value: '2022-08-27T00:00:00+00:00'
                         file_types_mode: specific
                         file_types_supported:
                           - 'images, documents, other'
@@ -5468,6 +5482,46 @@ paths:
                           id: 0
                       image_url: string
                       name: Add-a-$5-Donation1535042499-187
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 220
+                      product_id: 192
+                      name: Color (Colors only)
+                      display_name: Color
+                      type: swatch
+                      sort_order: 0
+                      option_values:
+                        - id: 174
+                          label: Beige
+                          sort_order: 1
+                          value_data:
+                            colors:
+                              - '#FAFAEB'
+                          is_default: false
+                        - id: 175
+                          label: Grey
+                          sort_order: 2
+                          value_data:
+                            colors:
+                              - '#BDBDBD'
+                          is_default: false
+                        - id: 176
+                          label: Black
+                          sort_order: 3
+                          value_data:
+                            colors:
+                              - '#000000'
+                          is_default: false
+                        - id: 189
+                          label: Black-Walnut
+                          sort_order: 4
+                          value_data:
+                            colors:
+                              - '#e80ee8'
+                          is_default: false
+                      config: {}
                     meta: {}
         '409':
           description: |
@@ -13740,7 +13794,6 @@ paths:
                     total_pages: 1
                     links:
                       current: '?page=1&limit=50'
-              examples: {}
     post:
       tags:
         - Category
@@ -13907,12 +13960,8 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
-        '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Base'
+        '207': 
+          $ref: '#/components/responses/General207Status'
         '409':
           description: |
             The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`.
@@ -14519,11 +14568,7 @@ paths:
                     type: object
                     description: Empty meta object; may be used later.
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Base'
+          $ref: '#/components/responses/General207Status'
         '404':
           description: The resource was not found.
           content:
@@ -15867,11 +15912,7 @@ paths:
                     is_customized: false
                 meta: {}
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Base'
+          $ref: '#/components/responses/General207Status'
         '409':
           description: Brand was in conflict with another brand. This is the result of duplicate unique fields such as name.
           content:
@@ -16288,11 +16329,7 @@ paths:
                     is_customized: false
                 meta: {}
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Base'
+          $ref: '#/components/responses/General207Status'
         '404':
           description: |
             The resource was not found.
@@ -16656,19 +16693,6 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 4
-                  key: location_id
-                  value: 'Shelf 3, Bin 5'
-                  namespace: App Namespace
-                  permission_set: app_only
-                  resource_type: brand
-                  resource_id: 137
-                  description: Where products are located
-                  date_created: '2021-08-06T19:15:35+00:00'
-                  date_modified: '2021-08-06T19:15:35+00:00'
-                meta: {}
               examples:
                 example-1:
                   value:
@@ -16683,6 +16707,20 @@ paths:
                       description: Location in the warehouse
                       date_created: '2018-05-07T20:14:17+00:00'
                       date_modified: '2018-05-07T20:14:17+00:00'
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 4
+                      key: location_id
+                      value: 'Shelf 3, Bin 5'
+                      namespace: App Namespace
+                      permission_set: app_only
+                      resource_type: brand
+                      resource_id: 137
+                      description: Where products are located
+                      date_created: '2021-08-06T19:15:35+00:00'
+                      date_modified: '2021-08-06T19:15:35+00:00'
                     meta: {}
         '409':
           description: |
@@ -16912,7 +16950,7 @@ paths:
                   resource_id: 137
                   description: Where products are located
                   date_created: '2021-08-06T19:15:35+00:00'
-                  date_modified: '2021-08-06T19:15:35+00:00'  
+                  date_modified: '2021-08-06T19:15:35+00:00'
                 meta: {}
         '404':
           description: |
@@ -22207,6 +22245,23 @@ components:
       description: |
         Error payload for the BigCommerce API.
       x-internal: false
+    errorMultiStatus:
+      title: errorMultiStatus
+      type: object
+      properties:
+        status: 
+          type: integer
+          minLength: 3
+          maxLength: 3
+          description: 'The [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) of the failure or partial success.'
+        title: 
+          type: string
+          description: A summary of the failure or partial success.
+        type: 
+          type: string
+          description: A BigCommerce-defined error signifier.
+        errors: 
+          $ref: '#/components/schemas/detailedErrors'
     errorNotFound:
       title: errorNotFound
       type: object
@@ -22281,6 +22336,7 @@ components:
       x-internal: false
     detailedErrors:
       title: detailedErrors
+      description: Each key-value pair describes a failure or partial success case.
       type: object
       properties:
         additionalProperties:
@@ -25479,8 +25535,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Base'
-    HTTP207Status:
-      description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+    General207Status:
+      description: 'Multi-status. Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL or inventory data has failed.'
       content:
         application/json:
           schema:
