@@ -23,7 +23,7 @@ Embedded videos displayed on product listings.
 
 Gets the videos associated with a product.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/videos`
+`GET /stores/{store_hash}/v2/products/{product_id}/videos`
 
 ### Pagination 
 
@@ -38,7 +38,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": "UmhvxsOwhqk",
@@ -53,19 +53,19 @@ Example JSON returned in the response:
 
 Gets a product video.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
 ## Get a Count of Product Videos 
 
 Gets a count of the number of product videos in the store.
 
->`GET /stores/{store_hash}/v2/products/videos/count`
+`GET /stores/{store_hash}/v2/products/videos/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 0
 }
@@ -75,7 +75,7 @@ Example JSON returned in the response:
 
 Adds a link to a YouTube video to a product.
 
->`POST /stores/{store_hash}/v2/products/{product_id}/videos`
+`POST /stores/{store_hash}/v2/products/{product_id}/videos`
 
 ### Read-only Properties 
 
@@ -98,7 +98,7 @@ Only YouTube videos are supported. To create a new video, pass the full `url` in
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
 }
@@ -108,7 +108,7 @@ Example request object:
 
 Edit the metadata of a product video.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
 ### Read-only Properties 
 
@@ -131,7 +131,7 @@ Posting a new `url` will update the `id` of the video to reference the new video
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "New video title",
   "sort_order": 2
@@ -142,10 +142,10 @@ Example request object:
 
 Delete a product video.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
 ## Delete All Product Videos 
 
 Deletes all videos belonging to a product.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/videos`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/videos`

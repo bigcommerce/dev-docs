@@ -25,7 +25,7 @@ A reusable set of option facets that can be applied to products.
 
 Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/option_sets`
+`GET /stores/{store_hash}/v2/option_sets`
 
 ### Filters 
 
@@ -48,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -77,13 +77,13 @@ Example JSON returned in the response:
 
 Gets an option set.
 
->`GET /stores/{store_hash}/v2/option_sets/{id}`
+`GET /stores/{store_hash}/v2/option_sets/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "product_id": null,
@@ -100,13 +100,13 @@ Example JSON returned in the response:
 
 Gets a count of the number of option sets in the store.
 
->`GET /stores/{store_hash}/v2/option_sets/count`
+`GET /stores/{store_hash}/v2/option_sets/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 4
 }
@@ -116,7 +116,7 @@ Example JSON returned in the response:
 
 Creates a new Option set.
 
->`POST /stores/{store_hash}/v2/option_sets`
+`POST /stores/{store_hash}/v2/option_sets`
 
 ### Read-only Properties 
 
@@ -135,7 +135,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "T-Shirts"
 }
@@ -145,7 +145,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "product_id": null,
@@ -162,7 +162,7 @@ Example JSON returned in the response:
 
 Updates an existing option set.
 
->`PUT /stores/{store_hash}/v2/option_sets/{id}`
+`PUT /stores/{store_hash}/v2/option_sets/{id}`
 
 ### Read-only Properties 
 
@@ -181,7 +181,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "T-shirt Facets"
 }
@@ -191,7 +191,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "product_id": null,
@@ -208,10 +208,10 @@ Example JSON returned in the response:
 
 Deletes an option set.
 
->`DELETE /stores/{store_hash}/v2/option_sets/{id}`
+`DELETE /stores/{store_hash}/v2/option_sets/{id}`
 
 ## Delete All Option Sets 
 
 Deletes all option sets in the store.
 
->`DELETE /stores/{store_hash}/v2/option_sets`
+`DELETE /stores/{store_hash}/v2/option_sets`

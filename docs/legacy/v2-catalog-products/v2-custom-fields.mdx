@@ -29,7 +29,7 @@ Custom fields associated with a product.
 
 Gets custom fields associated with a product.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields`
 
 ### Filters 
 
@@ -48,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -69,13 +69,13 @@ Example JSON returned in the response:
 
 Gets a custom field associated with a product.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 2,
   "product_id": 30,
@@ -88,13 +88,13 @@ Example JSON returned in the response:
 
 Gets a count of the number of custom fields in the store.
 
->`GET /stores/{store_hash}/v2/products/custom_fields/count`
+`GET /stores/{store_hash}/v2/products/custom_fields/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 0
 }
@@ -104,7 +104,7 @@ Example JSON returned in the response:
 
 Creates a new custom field associated with a product
 
->`POST /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+`POST /stores/{store_hash}/v2/products/{product_id}/custom_fields`
 
 ### Read-only Properties 
 
@@ -123,7 +123,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "Release Date",
   "text": "2013-12-25"
@@ -134,7 +134,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 5,
   "product_id": 45,
@@ -147,7 +147,7 @@ Example JSON returned in the response:
 
 Updates an existing custom field associated with a product.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
 ### Read-only Properties 
 
@@ -166,7 +166,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "Release Date",
   "text": "2013-12-31"
@@ -177,7 +177,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 5,
   "product_id": 45,
@@ -190,13 +190,13 @@ Example JSON returned in the response:
 
 Deletes a custom field associated with a product.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
 ## Delete Multiple Custom Fields 
 
 Deletes multiple custom fields associated with a product.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields`
 
 ### Pagination 
 

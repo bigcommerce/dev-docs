@@ -27,7 +27,7 @@ Options belonging to an option set.
 
 Gets the options associated with an option set. (Default sorting is by option id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
+`GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
 
 ### Pagination 
 
@@ -42,7 +42,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 43,
@@ -127,13 +127,13 @@ Example JSON returned in the response:
 
 Gets an option set option.
 
->`GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
+`GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 4,
   "option_id": 5,
@@ -152,7 +152,7 @@ Example JSON returned in the response:
 
 Creates a new option associated with an option set.
 
->`POST /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
+`POST /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
 
 ### Read-only Properties 
 
@@ -173,7 +173,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "option_id": 10,
   "display_name": "Choose a color",
@@ -186,7 +186,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 2,
   "option_id": 10,
@@ -205,7 +205,7 @@ Example JSON returned in the response:
 
 Updates an existing option set option.
 
->`PUT /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
+`PUT /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 
 ### Read-only Properties 
 
@@ -225,7 +225,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "display_name": "Pick a color...",
   "sort_order": 2,
@@ -237,7 +237,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 2,
   "option_id": 10,
@@ -256,13 +256,13 @@ Example JSON returned in the response:
 
 Deletes an option belonging to an option set.
 
->`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
+`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 
 ## Delete Multiple Option Set Options 
 
 Deletes multiple options associated with an option set.
 
->`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
+`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
 
 ### Pagination 
 

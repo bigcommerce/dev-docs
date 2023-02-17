@@ -33,7 +33,7 @@ Index of hierarchical categories used to organize and group products.
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/categories`
+`GET /stores/{store_hash}/v2/categories`
 
 ### Filters 
 
@@ -60,7 +60,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -87,13 +87,13 @@ Example JSON returned in the response:
 
 Gets a single category.
 
->`GET /stores/{store_hash}/v2/categories/{id}`
+`GET /stores/{store_hash}/v2/categories/{id}`
 
 ### Response
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "parent_id": 1,
@@ -119,13 +119,13 @@ Example JSON returned in the response:
 
 Gets a count of the total number of categories in the store.
 
->`GET /stores/{store_hash}/v2/categories/count`
+`GET /stores/{store_hash}/v2/categories/count`
 
 ### Response
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 10
 }
@@ -135,7 +135,7 @@ Example JSON returned in the response:
 
 Creates a new category.
 
->`POST /stores/{store_hash}/v2/categories`
+`POST /stores/{store_hash}/v2/categories`
 
 ### Read-only Properties 
 
@@ -160,7 +160,7 @@ In addition, BigCommerce caps the total number of parent categories at seven. If
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "Xmen toys"
 }
@@ -170,7 +170,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "parent_id": 1,
@@ -196,7 +196,7 @@ Example JSON returned in the response:
 
 Updates an existing category.
 
->`PUT /stores/{store_hash}/v2/categories/{id}`
+`PUT /stores/{store_hash}/v2/categories/{id}`
 
 ### Read-only Properties 
 
@@ -217,7 +217,7 @@ To maximize system performance, BigCommerce caps the total number of parent cate
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "parent_id": 1,
@@ -243,7 +243,7 @@ Example JSON returned in the response:
 
 Deletes a category.
 
->`DELETE /stores/{store_hash}/v2/categories/{id}`
+`DELETE /stores/{store_hash}/v2/categories/{id}`
 
 <Callout type="warning">
   #### Delete Products before Categories
@@ -254,4 +254,4 @@ Deletes a category.
 
 Deletes all the categories in the store.
 
->`DELETE /stores/{store_hash}/v2/categories`
+`DELETE /stores/{store_hash}/v2/categories`

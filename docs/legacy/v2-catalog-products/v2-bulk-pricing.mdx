@@ -24,7 +24,7 @@ Bulk pricing rules applied to a product.
 
 Gets the collection of product bulk pricing rules.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules`
+`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules`
 
 ### Filters 
 
@@ -43,7 +43,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": "1",
@@ -60,13 +60,13 @@ Example JSON returned in the response:
 
 Gets a product bulk pricing rule.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": "1",
   "product_id": 30,
@@ -81,13 +81,13 @@ Example JSON returned in the response:
 
 Gets a count of the number of bulk pricing rules in the store.
 
->`GET /stores/{store_hash}/v2/products/discount_rules/count`
+`GET /stores/{store_hash}/v2/products/discount_rules/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 9
 }
@@ -97,7 +97,7 @@ Example JSON returned in the response:
 
 Creates a new product bulk pricing rule.
 
->`POST /stores/{store_hash}/v2/products/{product_id}/discount_rules`
+`POST /stores/{store_hash}/v2/products/{product_id}/discount_rules`
 
 ### Read-only Properties 
 
@@ -122,7 +122,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "min": 100,
   "max": 500,
@@ -135,7 +135,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": "1",
   "product_id": 30,
@@ -150,7 +150,7 @@ Example JSON returned in the response:
 
 Updates an existing product bulk pricing rule.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
 
 ### Read-only Properties 
 
@@ -175,7 +175,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "min": 200,
   "max": 300,
@@ -188,7 +188,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": "1",
   "product_id": 30,
@@ -203,13 +203,13 @@ Example JSON returned in the response:
 
 Deletes a product bulk pricing rule.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
 
 ## Delete Multiple Product Bulk Pricing Rules 
 
 Deletes bulk pricing rules associated with a product.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules`
 
 ### Pagination 
 

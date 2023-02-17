@@ -28,7 +28,7 @@ Images associated with a product.
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/products/{product_id}/images`
+`GET /stores/{store_hash}/v2/products/{product_id}/images`
 
 ### Filters 
 
@@ -47,7 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 247,
@@ -82,13 +82,13 @@ Example JSON returned in the response:
 
 Gets a product image.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 248,
   "product_id": 32,
@@ -108,13 +108,13 @@ Example JSON returned in the response:
 
 Gets a count of the number of product images in the store.
 
->`GET /stores/{store_hash}/v2/products/images/count`
+`GET /stores/{store_hash}/v2/products/images/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 105
 }
@@ -124,7 +124,7 @@ Example JSON returned in the response:
 
 Creates a new product image.
 
->`POST /stores/{store_hash}/v2/products/{product_id}/images`
+`POST /stores/{store_hash}/v2/products/{product_id}/images`
 
 ### Read-only Properties 
 
@@ -144,7 +144,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 116,
   "product_id": 29,
@@ -160,7 +160,7 @@ Example JSON returned in the response:
 
 Updates an existing product image.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}`
 
 ### Read-only Properties 
 
@@ -178,7 +178,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 118,
   "product_id": 30,
@@ -194,13 +194,13 @@ Example JSON returned in the response:
 
 Deletes a product image.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
 
 ## Delete Multiple Product Images 
 
 Deletes multiple product images.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/images`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/images`
 
 ### Pagination 
 

@@ -162,7 +162,7 @@ For details, syntax, and examples, please see the [Get a Product](#get-a-product
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 32,
@@ -447,7 +447,7 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=date_created
 
 Here is a corresponding sample response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "id": 32,
     "name": "[Sample] Tomorrow is today, Red printed scarf",
@@ -487,7 +487,7 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=@summary
 
 Here is a corresponding sample response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "id": 32,
     "name": "[Sample] Tomorrow is today, Red printed scarf",
@@ -527,7 +527,7 @@ We have omitted the corresponding sample response. However, the following sectio
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 32,
   "keyword_filter": null,
@@ -698,7 +698,7 @@ If no filters are applied, the total number of products is returned.
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 44
 }
@@ -744,7 +744,7 @@ The following properties of the product are required. The request won’t be ful
 
 Create a request by sending a [product object](#product-object--properties) with the minimum required properties:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "name": "Plain T-Shirt",
     "type": "physical",
@@ -807,7 +807,7 @@ There are no required properties when updating a product.
 
 To update a product, set one or more product properties in the `PUT` request:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "custom_url": "/plain-tshirt/",
     "is_visible": true
@@ -816,7 +816,7 @@ To update a product, set one or more product properties in the `PUT` request:
 
 For example, you can use a `PUT` to link a product to an option set:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "option_set_id": 14
 }
@@ -826,7 +826,7 @@ Invalid property values will produce a `400 Bad Request` error response:
 
 ### Request
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "condition": "Worn"
 }
@@ -842,7 +842,7 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 
 ### Request
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
     "number_sold": 99
 }

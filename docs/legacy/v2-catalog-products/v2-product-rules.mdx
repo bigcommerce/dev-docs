@@ -31,7 +31,7 @@ Rules that modify the properties of a product, such as weight, price, and produc
 
 Gets the collection of rules associated with a product. (Default sorting is by rule id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/products/{product_id}/rules`
+`GET /stores/{store_hash}/v2/products/{product_id}/rules`
 
 ### Filters 
 
@@ -50,7 +50,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -99,13 +99,13 @@ Example JSON returned in the response:
 
 Gets a single product rule.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 2,
   "product_id": 3,
@@ -132,13 +132,13 @@ Example JSON returned in the response:
 
 Gets a count of the number of product rules in the store.
 
->`GET /stores/{store_hash}/v2/products/rules/count`
+`GET /stores/{store_hash}/v2/products/rules/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 3
 }
@@ -148,7 +148,7 @@ Example JSON returned in the response:
 
 Creates a new product rule.
 
->`POST /stores/{store_hash}/v2/products/{product_id}/rules`
+`POST /stores/{store_hash}/v2/products/{product_id}/rules`
 
 ### Read-only Properties 
 
@@ -167,7 +167,7 @@ The following properties of the product rule are required. The request won’t b
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "product_id": 3,
@@ -198,7 +198,7 @@ Updates an existing product rule.
 
 If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
 
 ### Read-only Properties 
 
@@ -215,7 +215,7 @@ There are no property requirements for updating a product rule.
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 2,
   "product_id": 3,
@@ -242,13 +242,13 @@ Example JSON returned in the response:
 
 Deletes a product rule.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
 
 ## Delete Multiple Product Rules 
 
 Deletes multiple product rules.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/rules`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/rules`
 
 ### Pagination 
 

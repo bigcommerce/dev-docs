@@ -35,7 +35,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 
 Gets the collection of SKUs associated with a product.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/skus`
+`GET /stores/{store_hash}/v2/products/{product_id}/skus`
 
 **Note** 
 
@@ -72,7 +72,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -135,13 +135,13 @@ Example JSON returned in the response:
 
 Gets a single product SKU.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 5,
   "product_id": 7,
@@ -172,15 +172,15 @@ Example JSON returned in the response:
 Gets a count of the number of product SKUs in the store.
 
 *   OAuth
->`GET /stores/{store_hash}/v2/products/skus/count`
+`GET /stores/{store_hash}/v2/products/skus/count`
 *   Basic Auth
->`GET /api/v2/products/skus/count`
+`GET /api/v2/products/skus/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 1235
 }
@@ -191,7 +191,7 @@ Example JSON returned in the response:
 Creates a new product SKU.
 
 *   OAuth
->`POST /stores/{store_hash}/v2/products/{product_id}/skus`
+`POST /stores/{store_hash}/v2/products/{product_id}/skus`
 
 ### Read-only Properties 
 
@@ -219,7 +219,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 5,
   "product_id": 7,
@@ -249,7 +249,7 @@ Example JSON returned in the response:
 
 Updates an existing product SKU.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
 ### Read-only Properties 
 
@@ -268,7 +268,7 @@ There are no required properties for updating a product SKU.
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 5,
   "product_id": 7,
@@ -298,13 +298,13 @@ Example JSON returned in the response:
 
 Deletes a product SKU.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
 ## Delete Multiple Product SKUs 
 
 Deletes multiple product SKUs.
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/skus`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/skus`
 
 ### Filters 
 

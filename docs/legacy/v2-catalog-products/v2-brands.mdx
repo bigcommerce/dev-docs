@@ -27,7 +27,7 @@ Brand facets for identifying and categorizing products according to their manufa
 
 Gets the collection of brands. (Default sorting is by brand id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/brands`
+`GET /stores/{store_hash}/v2/brands`
 
 ### Filters 
 
@@ -52,7 +52,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 1,
@@ -79,13 +79,13 @@ Example JSON returned in the response:
 
 Gets a brand.
 
->`GET /stores/{store_hash}/v2/brands/{id}`
+`GET /stores/{store_hash}/v2/brands/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 1,
   "name": "Apple",
@@ -101,13 +101,13 @@ Example JSON returned in the response:
 
 Returns the total number of brands in the store.
 
->`GET /stores/{store_hash}/v2/brands/count`
+`GET /stores/{store_hash}/v2/brands/count`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "count": 25
 }
@@ -117,7 +117,7 @@ Example JSON returned in the response:
 
 Creates a new brand.
 
->`POST /stores/{store_hash}/v2/brands`
+`POST /stores/{store_hash}/v2/brands`
 
 ### Read-only Properties 
 
@@ -139,7 +139,7 @@ To maximize system performance, BigCommerce caps the number of brands that can b
 
 Example request object:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "name": "Xmen",
   "page_title": "X men brand"
@@ -150,7 +150,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "name": "Xmen",
@@ -166,7 +166,7 @@ Example JSON returned in the response:
 
 Updates an existing brand.
 
->`PUT /stores/{store_hash}/v2/brands/{id}`
+`PUT /stores/{store_hash}/v2/brands/{id}`
 
 ### Read-only Properties 
 
@@ -182,7 +182,7 @@ The following properties of the brand are required. The request won’t be fulfi
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 10,
   "name": "Xmen",
@@ -198,10 +198,10 @@ Example JSON returned in the response:
 
 Deletes a brand.
 
->`DELETE /stores/{store_hash}/v2/brands/{id}`
+`DELETE /stores/{store_hash}/v2/brands/{id}`
 
 ## Delete All Brands 
 
 Deletes all brands belonging to a product.
 
->`DELETE /stores/{store_hash}/v2/brands`
+`DELETE /stores/{store_hash}/v2/brands`

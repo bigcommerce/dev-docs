@@ -29,7 +29,7 @@ Reviews associated with a product.
 
 Gets the reviews associated with a product. (Default sorting is by review id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/products/{id}/reviews`
+`GET /stores/{store_hash}/v2/products/{id}/reviews`
 
 ### Filters 
 
@@ -48,7 +48,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 [
   {
     "id": 190,
@@ -87,13 +87,13 @@ Example JSON returned in the response:
 
 Gets a product review.
 
->`GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
+`GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
 
 ### Response 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 190,
   "product_id": 5310,
@@ -114,7 +114,7 @@ Creates a new product review.
 
 The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
 
->`POST /stores/{store_hash}/v2/products/{product_id}/reviews`
+`POST /stores/{store_hash}/v2/products/{product_id}/reviews`
 
 ### Read-only Properties 
 
@@ -136,7 +136,7 @@ The following properties of the product review are required. The request won’t
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 8,
   "product_id": 32,
@@ -153,7 +153,7 @@ Example JSON returned in the response:
 
 Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.
 
->`PUT /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
+`PUT /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
 
 ### Read-only Properties 
 
@@ -166,7 +166,7 @@ The following properties of the product review are read-only. If one or more of 
 
 Example JSON returned in the response:
 
-```json showLineNumbers
+```json showLineNumbers copy
 {
   "id": 8,
   "product_id": 32,
@@ -183,10 +183,10 @@ Example JSON returned in the response:
 
 Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
 
 ## Delete All Product Reviews 
 
 Deletes all reviews for the specified product. (If successful, this will typically return a `204 No Content`.)
 
->`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews`
+`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews`
