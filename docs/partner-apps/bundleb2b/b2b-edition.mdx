@@ -41,7 +41,7 @@ B3 renders client-facing pages and elements by mounting fixed containers to BigC
 
 When done, the object will resemble the following:
 
-```jsx filename="Example: Specify a custom mount node for the dashboard container" showLineNumbers
+```jsx filename="Example: Specify a custom mount node for the dashboard container" showLineNumbers copy
 window.b3themeConfig.useContainers = {
  /* B3 will append the dashboard container to the first returned DOM node with a class of "page" that is a descendant of an element with the class of "container" */
 	'dashboard.container': '.container .page',
@@ -64,7 +64,7 @@ To modify the styling of a B3 module, follow these steps:
 
 When done, the object will resemble the following:
 
-```jsx filename="Example: Specify custom styles for the TPA button" showLineNumbers
+```jsx filename="Example: Specify custom styles for the TPA button" showLineNumbers copy
 window.b3themeConfig.useStyles = {
 /* B3 will use the specified styles for the "Trade Partner Application" button that is appended to the secondary navigation menu */
   'tpa.entryButton': {
@@ -97,7 +97,7 @@ To overwrite the default text that B3 renders, follow these steps:
 
 When done, the object will resemble the following:
 
-```jsx filename="Example: Specify custom display text for the quick order button" showLineNumbers
+```jsx filename="Example: Specify custom display text for the quick order button" showLineNumbers copy
 window.b3themeConfig.useText = {
 /* B3 will now use the call to action "Place Quick Order" instead of the default "Quick Order Pad" for the button that is appended to the secondary navigation menu */
  'nav.button.quickOrderPad': 'Place Quick Order',
@@ -124,7 +124,7 @@ To overwrite and/or inject custom functions for a supported B3 module, follow th
 
 When done, your object will resemble the following example that demonstrates the call stack of each function:
 
-```jsx filename="Example: Specify lifecycle method values for the quick order pad module" showLineNumbers
+```jsx filename="Example: Specify lifecycle method values for the quick order pad module" showLineNumbers copy
 window.b3themeConfig.useJavaScript = {
   quickorderpad: {
     overwrite: false,
