@@ -93,7 +93,7 @@ To explore the storefront GraphQL schema, checkout the **Docs** and **Schema** t
 GraphQL Storefront API requests are authenticated with tokens sent using the HTTP `Authorization` header.
 
 
-```shell filename="Example Authorization header using cURL"
+```shell filename="Example Authorization header using cURL" showLineNumbers copy
 curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
   # ...
   -H 'Authorization: Bearer {token}'\
@@ -107,7 +107,7 @@ Use the [Create a GraphQL Storefront API token](/api-reference/store-management/
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Create a GraphQL Storefront API token"
+```http filename="Example request: Create a GraphQL Storefront API token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -168,7 +168,7 @@ It's also possible to generate tokens for use in server-to-server interactions w
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```http filename="Example request: Create a customer impersonation token"
+```http filename="Example request: Create a customer impersonation token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
 X-Auth-Token: {{access_token}}
 Accept: application/json
@@ -200,7 +200,7 @@ Customer impersonation tokens should **never** be exposed publicly, for example,
 
 Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`.
 
-```shell filename="Example request: Query as customer 123"
+```shell filename="Example request: Query as customer 123" showLineNumbers copy
 curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
 ```
 
@@ -491,7 +491,7 @@ The GraphQL Storefront API uses an algorithm to calculate a complexity score for
 If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following:
 
 
-```json filename="Example response with complexity error"
+```json filename="Example response with complexity error" showLineNumbers copy
 {
   "error": {
     "error": "The query is too complex as it has a complexity score of 12230 out of 10000. Please remove some elements and try again"
