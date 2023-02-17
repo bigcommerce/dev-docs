@@ -9,9 +9,9 @@ In this quick start tutorial, we'll configure our development environment and ma
 - NPM v3 and later
 - [Unix-based OS](https://github.com/bigcommerce/checkout-js#requirements) (Linux or Mac OS X)
 
-<!-- theme: info -->
-> #### Note
-> We recommend that Windows 10 users use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
+<Callout type="info">
+ We recommend that Windows 10 users use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
+ </Callout>
 
 
 
@@ -19,7 +19,7 @@ In this quick start tutorial, we'll configure our development environment and ma
 
 Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js); then, install dependencies.
 
-```bash
+```bash showLineNumbers copy
 # Clone the repo
 git clone https://github.com/bigcommerce/checkout-js
 
@@ -32,14 +32,14 @@ npm ci
 
 Start webpack in watch mode and launch dev server.
 
-```bash
+```bash showLineNumbers copy
 npm run dev & npm run dev:server
 ```
 
-<!-- theme: info -->
-> #### Note
-> - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running (you should see content from `build/`).
-> - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
+<Callout type="info">
+ - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running (you should see content from `build/`).
+ - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
+</Callout>
 
 
 
@@ -58,7 +58,7 @@ Next, configure your sandbox to use the files served up by your dev server.
 
 Make a code change and wait a few seconds for webpack to reload the dev server. For example, the code below adds a `<div>` to the Checkout component defined in `src/app/checkout/Checkout.tsx`.
 
-```javascript
+```javascript showLineNumbers copy
 class Checkout extends Component<CheckoutProps & WithCheckoutProps & WithLanguageProps, CheckoutState> {
     // ...
     render(): ReactNode {
