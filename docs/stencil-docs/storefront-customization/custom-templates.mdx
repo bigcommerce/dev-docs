@@ -134,22 +134,21 @@ You can add front matter directly to a custom template. For more information on 
 The following example shows how to add front matter data to the `templates/pages/custom/brand/custom-brand.html` file. 
 
 
-<!-- 
-type: tab
-title: Custom template - custom-brand.html
--->
-  
-```handlebars title="Example: Specifying front matter in custom templates"
----
-brand:
-  products:
-     limit: {{theme_settings.brandpage_products_per_page}}
-cart: true
----
-<div>...</div>
-```
+<Tabs items={["Custom template - custom-brand.html"]}>
+  <Tab>
 
-<!-- type: tab-end -->
+    ```handlebars filename="Example: Specifying front matter in custom templates" copy
+    ---
+    brand:
+      products:
+        limit: {{theme_settings.brandpage_products_per_page}}
+    cart: true
+    ---
+    <div>...</div>
+    ```
+
+  </Tab>
+</Tabs>
 
 
 ## Uploading a theme 
