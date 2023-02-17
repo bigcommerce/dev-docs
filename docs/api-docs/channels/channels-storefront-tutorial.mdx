@@ -17,7 +17,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -46,7 +46,7 @@ Accept: application/json
 
 Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -75,7 +75,7 @@ Accept: application/json
 
 Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
 
-```http filename="Example request: Create channel menus" showLineNumbers
+```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -109,7 +109,7 @@ The following protected sections are provided by BigCommerce:
 
 Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
 
-```http filename="Example request: Create channel menus" showLineNumbers
+```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -140,7 +140,7 @@ Read channel specific storefront settings using the [Settings API](/api-referenc
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-  ```http filename="Example request: Get storefront category settings" showLineNumbers
+  ```http filename="Example request: Get storefront category settings" showLineNumbers copy
   GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
   Host: api.bigcommerce.com
   X-Auth-Token: {{ACCESS_TOKEN}}
@@ -151,7 +151,7 @@ Read channel specific storefront settings using the [Settings API](/api-referenc
   </Tab>
   <Tab>
 
-  ```json filename="Example response: Get storefront category settings" showLineNumbers
+  ```json filename="Example response: Get storefront category settings" showLineNumbers copy
   {
     "data": {
       "listing_mode": null,
@@ -178,7 +178,7 @@ You can manage channel specific currency settings using the Channel API [Currenc
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-  ```http filename="Example request: Get channel currency assignments" showLineNumbers
+  ```http filename="Example request: Get channel currency assignments" showLineNumbers copy
   GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
   X-Auth-Token: {{ACCESS_TOKEN}}
   Content-Type: application/json
@@ -188,7 +188,7 @@ You can manage channel specific currency settings using the Channel API [Currenc
   </Tab>
   <Tab>
 
-  ```json filename="Example response: Get channel currency assignments" showLineNumbers
+  ```json filename="Example response: Get channel currency assignments" showLineNumbers copy
   {
     "data": {
       "channel_id": 1,

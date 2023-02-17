@@ -52,7 +52,7 @@ These components can dramatically accelerate the development process by providin
 
 After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/api-reference/store-management/channels/channels/createchannel).
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -108,7 +108,7 @@ In general, you should support at least import and export functionality. Dependi
 
 To import products to BigCommerce, `GET` the products from the external channel then `POST` them to BigCommerce via `/stores/{{STORE_HASH}}/catalog/products`:
 
-```http filename="Example request: Create a product" showLineNumbers
+```http filename="Example request: Create a product" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -135,7 +135,7 @@ Variants can be added via the same request used to create the product or later a
 
 To export catalog data from BigCommerce to an external channel, you will need to get all products and variants from BigCommerce. To do so, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products?include=variants`:
 
-```http filename="Example request: Get all products" showLineNumbers
+```http filename="Example request: Get all products" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?include=variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -161,7 +161,7 @@ Whether importing or exporting the catalog, you will need to create listings for
 
 To [create channel listings](/api-reference/store-management/channels/channel-listings/createchannellistings), send a `POST` request to `/v3/channels/{{CHANNEL_ID}}/listings`:
 
-```http filename="Example request: Create channel listings" showLineNumbers
+```http filename="Example request: Create channel listings" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -206,7 +206,7 @@ To import or export customer and order data, integrate the following endpoints:
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
-```http filename="Example request: Create an order" showLineNumbers
+```http filename="Example request: Create an order" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -241,7 +241,7 @@ To do this, integrate the following endpoints:
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
-```http filename="Example request: Create an order" showLineNumbers
+```http filename="Example request: Create an order" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json

@@ -15,7 +15,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -62,7 +62,7 @@ Accept: application/json
 
 Specify the POS system by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -90,7 +90,7 @@ Accept: application/json
 
 Define and configure the channel's UI tabs displayed in the control panel by passing in a `config_meta` object.
 
-```http filename="Example request: Create a channel" showLineNumbers
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json

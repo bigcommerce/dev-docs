@@ -8,7 +8,7 @@ To learn more about sales channels, see the [Channels Overview](/api-docs/channe
 
 To create a webhook, send a request to the [Create a webhook](/api-reference/store-management/webhooks/webhooks/createwebhooks) endpoint. Follow the process described in the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook), and include a `channel_id` where indicated to subscribe to that channel's events.
 
-```http filename="Example request: Create a webhook" showLineNumbers
+```http filename="Example request: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -45,7 +45,7 @@ The following webhook events fire in response to actions that govern a store's s
 
 Channel event payloads take the form that follows:
 
-```json filename="Example channel event payload object" showLineNumbers
+```json filename="Example channel event payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -87,7 +87,7 @@ The following cart webhook events fire in response to actions that affect carts 
 
 Cart payload objects take the form that follows:
 
-```json filename="Example cart payload object" showLineNumbers
+```json filename="Example cart payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -114,7 +114,7 @@ The following cart line item webhook events fire in response to actions that aff
 
 Cart line items payload objects take the form that follows:
 
-```json filename="Example cart line items profile payload object" showLineNumbers
+```json filename="Example cart line items profile payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -142,7 +142,7 @@ The following categories webhook events fire in response to actions that affect 
 
 Categories payload objects take the form that follows:
 
-```json filename="Example categories payload object" showLineNumbers
+```json filename="Example categories payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -166,7 +166,7 @@ The following category tree webhook event fires in response to actions that affe
 
 Category tree payload objects take the form that follows:
 
-```json filename="Example category tree payload object" showLineNumbers
+```json filename="Example category tree payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -190,7 +190,7 @@ The following customers webhook event fires in response to customer changes:
 
 Customers payload objects take the form that follows:
 
-```json filename="Example customers payload object" showLineNumbers
+```json filename="Example customers payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -219,7 +219,7 @@ The following emails webhook events fire in response to actions that affect a sp
 
 Emails payload objects take the form that follows:
 
-```json filename="Example emails payload object" showLineNumbers
+```json filename="Example emails payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -242,7 +242,7 @@ The following notifications webhook events fire in response to actions that affe
 
 Notifications payload objects take the form that follows:
 
-```json filename="Example notifications payload object" showLineNumbers
+```json filename="Example notifications payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -269,7 +269,7 @@ The following orders webhook events fire in response to actions that affect a sp
 
 Order payload objects take the form that follows:
 
-```json filename="Example order payload object" showLineNumbers
+```json filename="Example order payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -296,7 +296,7 @@ The following page-related webhook events fire in response to actions that affec
 
 Web pages payload objects take the form that follows:
 
-```json filename="Example page payload object" showLineNumbers
+```json filename="Example page payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -322,7 +322,7 @@ The following price list assignment webhook event fires in response to price lis
 
 Price list assignment payload objects take the form that follows:
 
-```json filename="Example price list assignment payload object" showLineNumbers
+```json filename="Example price list assignment payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -351,7 +351,7 @@ The following product assignment webhook events fire in response to actions that
 
 Product assignment payload objects take the form that follows:
 
-```json filename="Example product assignment payload object" showLineNumbers
+```json filename="Example product assignment payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -375,7 +375,7 @@ The following routes webhook events fire in response to actions that affect a sp
 
 Routes payload objects take the form that follows:
 
-```json filename="Example route payload object" showLineNumbers
+```json filename="Example route payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -402,7 +402,7 @@ The following scripts webhook events fire in response to actions that affect a s
 
 Scripts payload objects take the form that follows:
 
-```json filename="Example scripts payload object" showLineNumbers
+```json filename="Example scripts payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -441,7 +441,7 @@ The following settings webhook events fire in response to actions that affect a 
 
 Settings payload objects take the form that follows:
 
-```json filename="Example settings profile payload object" showLineNumbers
+```json filename="Example settings profile payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -464,7 +464,7 @@ The following sites webhook events fire in response to actions that affect a sit
 
 Site payload objects take the form that follows:
 
-```json filename="Example site payload object" showLineNumbers
+```json filename="Example site payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -487,7 +487,7 @@ The following social media links webhook event fires in response to actions that
 
 Social media link payload objects take the form that follows:
 
-```json filename="Example social media links payload object" showLineNumbers
+```json filename="Example social media links payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -512,7 +512,7 @@ The following themes webhook events fire in response to actions that affect a si
 
 Theme payload objects take the form that follows:
 
-```json filename="Example theme payload object" showLineNumbers
+```json filename="Example theme payload object" showLineNumbers copy
 {
  "store_id": "11111",
  "producer": "stores/abcde",
