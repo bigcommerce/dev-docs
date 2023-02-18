@@ -13,7 +13,7 @@ Differences between server cron and WP-Cron include:
 - Server cron runs automatically and is fired by server processes. There's no need for an external source for events firing.
 - WP-Cron only runs when someone is on the site.
 
-Scheduling a job to run once an hour with WP-cron triggers WordPress to set an execution time for that job. However, the job won't be performed until there's site traffic or there's an external request to WordPress. 
+When you schedule a job to run once an hour with WP-cron, WordPress will set an execution time for that job. However, the job won't be performed until there's site traffic or there's an external request to WordPress.
 
 Because of this, WP-Cron jobs can be postponed or not performed at all, whereas a job you schedule with server cron is performed even if there isn't site traffic or external requests.
 
@@ -46,13 +46,13 @@ There are plenty of job managers available for hosting providers like [HostGator
 
 The following example is for HostGator, but you can also use it for any other host that uses cPanel:
 
-1. Sign in to cPanel
-2. Find the **Advanced** tab
-3. Click on **Cron jobs**
-4. Set the required interval under the **Add new cron job** section
+1. Sign in to cPanel.
+2. Find the **Advanced** tab.
+3. Click on **Cron jobs**.
+4. Set the required interval under the **Add new cron job** section.
 5. Set the following job, replacing `example.com` with your domain name:
 
-```md filename="Create a cPanel cron job" copy
+```shell filename="Create a cPanel cron job" copy
 wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ```
 6. Click **Add new cron job** to save the job
@@ -66,11 +66,11 @@ wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 
 The following is the basic set of commands required to set cron jobs with crontab and other command-line tools. Be sure that you have SSH access configured before following these steps to add a server cron job that fires every five minutes.
 
-1. Open SSH-enabled Terminal
-2. Type `crontab -e` to open the cron-job manager
+1. Open the SSH-enabled terminal.
+2. Type `crontab -e` to open the cron-job manager.
 3. Add the following command, replacing `example.com` with your domain name:
 
-```md filename="Create cron job with SSH" copy
-*/5 * * * * wget -q -O - 'https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
+```shell filename="Create cron job with SSH" copy
+*/5 * * * * wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ```
 4. Save and exit from crontab

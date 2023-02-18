@@ -4,7 +4,7 @@ BigCommerce for WordPress allows you to power content-driven WordPress storefron
 
 You can use the BigCommerce for WordPress plugin as a building block to create an ecommerce solution that’s unique to your brand. Whether you want to link multiple WordPress storefronts to a single BigCommerce store or extend the open source plugin to create custom-made solutions, BigCommerce for WordPress makes it easy to combine the power of BigCommerce with the flexible presentation of WordPress.
 
-## How It Works
+## How it works
 
 BigCommerce for WordPress connects your WordPress site to your BigCommerce store via API, and pulls all of the relevant data into a variety of database tables, some custom, some default WordPress. Products are a post type: product data is stored in the post table and product meta is stored in the post_meta table.
 
@@ -14,16 +14,18 @@ Most store options and settings are managed inside the BigCommerce UI, including
 
 ### Templating
 
-All templates that render on the front end are found in the `/wp-content/plugins/bigcommerce/templates/public` directory. To
-Override any template, create a `bigcommerce` directory in your theme and copy the template file to that directory.
+All templates that render on the front end are found in the `/wp-content/plugins/bigcommerce/templates/public` directory. To override any template, create a `bigcommerce` directory in your theme and copy the template file to that directory.
 
 For example, copy
+
+```copy
+wp-content/plugins/bigcommerce/templates/public/single-bigcommerce_product.php
 ```
-`wp-content/plugins/bigcommerce/templates/public/single-bigcommerce_product.php`
-```
+
 to
-```
-`wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php`
+
+```copy
+wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php
 ```
 Then, edit `wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php` to override the default content.
 

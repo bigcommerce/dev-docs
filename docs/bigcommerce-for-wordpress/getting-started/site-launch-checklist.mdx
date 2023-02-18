@@ -201,13 +201,19 @@ WordPress sites will generally operate more efficiently if WordPress's default c
 
 To disable WordPress's default cron, follow these steps:
 
-1. Disable WP cron
-Set a constant in `your wp-config.php`:
-`define( 'DISABLE_WP_CRON', true );`
+1. Disable WP-cron.
+2. Set a constant in `your wp-config.php`:
 
-2. Enable WP cron events
-Set up a system cron job to run WordPress's cron events from the command line:
-`* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1`
+```php copy
+define( 'DISABLE_WP_CRON', true );
+```
+
+3. Enable WP cron events.
+4. Set up a system cron job to run WordPress's cron events from the command line:
+
+```shell copy
+* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1
+```
 Running the job every minute is generally recommended.
 
 ### Details on how to debug
