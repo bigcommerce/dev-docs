@@ -1,7 +1,5 @@
 # BigCommerce Channels Overview
 
-<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/overview -->
-
 BigCommerce's Channel Manager is the central place for merchants to discover, connect to, and manage their sales channels, including external channels like eBay, Amazon, Facebook by Meta, and Instagram by Meta. These external sales channels can extend the merchant's control panel experience in a number of ways, such as pushing orders from these external channels into the control panel alongside their BigCommerce storefront orders, allowing them to be fulfilled in the same way, and managing products on these channel from within the control panel in many of the same ways as they do for their BigCommerce storefronts.
 
 Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), any BigCommerce [partner](https://www.bigcommerce.com/partners/) can create and list a sales channel app on BigCommerce's [App Marketplace](https://www.bigcommerce.com/apps/) for any merchant to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed and discoverable from within the Channel Manager in every BigCommerce store's control panel.
@@ -54,11 +52,10 @@ We enable this through our Channels API endpoints:
 
 ![Channels in Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channels in Channel Manager")
 
-<!-- theme: info -->
-> #### Note
-> - BigCommerce has control of which platforms and types are available to create. It is currently a manual process to add new platforms. A channel instance can be only 1 type; however, a channel app can register multiple different channels.
-> - For channel apps that are strategically approved ([select partners](/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
-
+<Callout type="info">
+  - BigCommerce has control of which platforms and types are available to create. It is currently a manual process to add new platforms. A channel instance can be only 1 type; however, a channel app can register multiple different channels.
+  - For channel apps that are strategically approved ([select partners](/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
+</Callout>
 
 
 ### Management
@@ -67,9 +64,9 @@ Once installed, merchants manage channel apps via Channel Manager in the control
 
 ![Edit Channel Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-edit-settings.png "Edit Channel Settings")
 
-<!-- theme: info -->
-> #### Note
-> Apps provided by partners who don't use the Channel API will only appear in the App Marketplace and **My Apps**.
+<Callout type="info">
+  Apps provided by partners who don't use the Channel API will only appear in the App Marketplace and **My Apps**.
+</Callout>
 
 On the **View Products** page, merchants can list products on any installed channel that supports per-product listing capabilities.
 
@@ -81,10 +78,9 @@ Merchants can also list products from the product edit page.
 
 ![Manage Channel Assignment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-all-assignments.png "Manage Channel Assignment")
 
-<!-- theme: info -->
-> #### Note
-> Not all channel apps can or should support per product listing capabilities; determining if this functionality is appropriate and useful is up to the app developer.
-
+<Callout type="info">
+  Not all channel apps can or should support per product listing capabilities; determining if this functionality is appropriate and useful is up to the app developer.
+</Callout>
 
 ## Types of channels
 
@@ -169,10 +165,3 @@ Once you're ready to get started developing the channel app, see [Building Chann
 
 - [Building Channels Quick Start](/api-docs/channels/quick-start)
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=
--->
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbODgxMjY3NTkxLC04OTM4NTIxODMsNzMwOT
-k4MTE2XX0=
--->

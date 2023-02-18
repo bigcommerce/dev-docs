@@ -1,8 +1,4 @@
-<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/building-channel-apps -->
-
 # Building Channel Apps
-
-
 
 Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with point-of-sale devices, [headless storefronts](/api-docs/storefronts/developers-guide-headless), online marketplaces, marketing platforms, and social networking sites. BigCommerce lists all approved channel apps on the [App Marketplace](https://www.bigcommerce.com/apps/) and markets channel apps developed by [select partners](https://www.bigcommerce.com/partners/) in [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager).
 
@@ -52,7 +48,7 @@ These components can dramatically accelerate the development process by providin
 
 After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/api-reference/store-management/channels/channels/createchannel).
 
-```http
+```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -80,18 +76,15 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
 Once created, channels show up in the product list within the control panel so the merchant can choose which products should be available on it. The orders list is updated to include a filter to show which orders came in from the channel. The value of the `name` property is displayed to the merchant in the control panel.
 
 [View reference documentation for the Create a Channel request](/api-reference/store-management/channels/channels/createchannel).
 
-<!-- theme: info -->
-> #### Note
-> - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
-> - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
-> - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
-
+<Callout type="info">
+  - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
+  - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
+  - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
+</Callout>
 
 
 ## Getting catalog data
@@ -111,7 +104,7 @@ In general, you should support at least import and export functionality. Dependi
 
 To import products to BigCommerce, `GET` the products from the external channel then `POST` them to BigCommerce via `/stores/{{STORE_HASH}}/catalog/products`:
 
-```http
+```http filename="Example request: Create a product" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -131,7 +124,6 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/createproduct#requestrunner) -->
 
 Variants can be added via the same request used to create the product or later after the product is created by a `POST` request to the [Product Variant](/api-reference/catalog/catalog-api/product-variants/createvariant) endpoint (the former is recommended for bulk variant creation).
 
@@ -139,14 +131,12 @@ Variants can be added via the same request used to create the product or later a
 
 To export catalog data from BigCommerce to an external channel, you will need to get all products and variants from BigCommerce. To do so, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products?include=variants`:
 
-```http
+```http filename="Example request: Get all products" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?include=variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/getproducts#requestrunner) -->
 
 [Filters](/api-docs/getting-started/filtering) can be used in this call to retrieve subsets of the merchant's catalog. Also, keep in mind that you will more than likely need to handle pagination to retrieve all products in a merchant's catalog.
 
@@ -167,7 +157,7 @@ Whether importing or exporting the catalog, you will need to create listings for
 
 To [create channel listings](/api-reference/store-management/channels/channel-listings/createchannellistings), send a `POST` request to `/v3/channels/{{CHANNEL_ID}}/listings`:
 
-```http
+```http filename="Example request: Create channel listings" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -199,8 +189,6 @@ Accept: application/json
 ]
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-listings/updatechannellistings#requestrunner) -->
-
 ## Importing and exporting sales
 
 ### Customer and order imports
@@ -214,8 +202,8 @@ To import or export customer and order data, integrate the following endpoints:
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+```http filename="Example request: Create an order" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -227,10 +215,9 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
-
+<Callout type="info">
+  If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
+</Callout>
 
 
 ## Managing orders and inventory
@@ -250,8 +237,8 @@ To do this, integrate the following endpoints:
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+```http filename="Example request: Create an order" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -263,11 +250,10 @@ Accept: application/json
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0`, the value used for guest shoppers.
-> - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/api-reference/store-management/catalog/products/getproducts).
-
+<Callout type="info">
+  - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0`, the value used for guest shoppers.
+  - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/api-reference/store-management/catalog/products/getproducts).
+</Callout>
 
 
 ## Syncing gift card balances
