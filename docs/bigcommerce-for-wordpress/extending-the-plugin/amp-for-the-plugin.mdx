@@ -1,11 +1,9 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
-
 # AMP for the BigCommerce WordPress plugin
 #### Prepared by XWP for BigCommerce
 
-<!-- theme: warning -->
-> ### Warning
-> Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
+<Callout type="warning">
+  Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
+</Callout>
 
 ## What's AMP?
 
@@ -61,10 +59,9 @@ For more technical details on how the 3 modes are differentiated, please check o
 
 ### Classic mode (v0.1+) - Legacy
 
-<!-- theme: warning -->
-> Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
-
-
+<Callout type="warning">
+  Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
+</Callout>
 
 This is the original mode for rendering AMP pages and it renders an AMP theme that is separate and different from your WordPress theme. Think of it as a whole new WordPress theme that is only displayed when the site is being viewed as AMP. The AMP theme is customizable and can be branded to align with your brand.
 
@@ -76,18 +73,20 @@ Once AMP is enabled and you’ve decided on a mode, you will probably want to pr
 Classic mode
 If you’re running with classic, you can preview the mode in two ways:
 
-1. yourdomain.com/products/product-slug/amp
+1. `yourdomain.com/products/product-slug/amp`
 
-2. yourdomain.com/products/product-slug/?amp
+2. `yourdomain.com/products/product-slug/?amp`
 
-By visiting any of these two URL’s the AMP version will be shown in a browser.
+When you visit either of these two URLs, the AMP version will be shown in a browser.
 
 ### Paired Mode
+
 For paired mode, you can only use the ?amp query parameter to show the AMP version in a browser.
 
 `yourdomain.com/products/product-slug/amp`
 
 ### Native Mode
+
 As discussed earlier, native mode will always display the AMP version of the theme.
 
 ## AMP Tools
@@ -95,14 +94,17 @@ As discussed earlier, native mode will always display the AMP version of the the
 There are a number of tools that you can use to help you with AMP development, testing, and maintenance.
 
 ### AMP Test
+
 To test if a webpage is AMP valid, you can use the AMP Test tool provided by Google:
 https://search.google.com/test/amp
 
 ### AMP Validator
+
 The official AMP project provides an AMP validator tool for validating and debugging AMP pages:
 https://validator.ampproject.org/
 
 ### AMP Validator for Chrome
+
 If you’re using Chrome, there is an AMP Validator extension that allows you to test AMP pages directly while browsing your website:
 [https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en)
 
@@ -117,6 +119,7 @@ There is nothing additional that you need to do to get the added SEO benefit fro
 The BigCommerce for WordPress plugin ships with beautifully customized AMP templates that look great. You may however want to customize these AMP templates to be more aligned with your brand.
 
 ### Classic Mode
+
 The classic AMP theme can be customized in the WordPress Customizer. Click on `Appearance` on the WordPress Admin menu and then click `Customize`. The WordPress Customizer will then open and you’ll see a panel for AMP. Click `AMP` and then `Design` and from this panel you can change the look and feel.
 
 You may want to go a step further and customize the actual HTML markup and output. This is customized in the same way as the non-AMP BigCommerce templates.

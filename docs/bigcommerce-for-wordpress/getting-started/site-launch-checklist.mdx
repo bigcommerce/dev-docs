@@ -1,8 +1,4 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
-
 # Site Launch Checklist
-
-
 
 This document outlines our recommended steps for launching a BigCommerce for WordPress site. It assumes that you have a reasonable understanding of WordPress and BigCommerce and know how to install the BigCommerce for WordPress plugin. For an overview of BigCommerce and the BigCommerce for WordPress plugin, see the following articles:
 
@@ -29,13 +25,13 @@ While you can use BigCommerce for WordPress on a vast majority of WordPress host
 
 ### Connect BigCommerce for WordPress to BigCommerce using API credentials
 
-BigCommerce for WordPress connects to the BigCommerce API with a set of API credentials. These credentials are for a single BigCommerce app. For production sites, you will need to create a separate set of API credentials to ensure proper rate limits are applied. 
+BigCommerce for WordPress connects to the BigCommerce API with a set of API credentials. These credentials are for a single BigCommerce app. For production sites, you will need to create a separate set of API credentials to ensure proper rate limits are applied.
 
 A separate set of API credentials is required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. For instructions on how to create additional API credentials, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 API credentials can be set using constants in the site's `wp-config.php` file, as shown below. Values set in `wp-config.php` will override options in the database.
 
-Setting API credentials in `wp-config.php` file: 
+Setting API credentials in `wp-config.php` file:
 
 ```
 define( 'BIGCOMMERCE_API_URL', 'https://api.bigcommerce.com/stores/xxxxxxxxxx/v3/' );
@@ -46,28 +42,28 @@ define( 'BIGCOMMERCE_ACCESS_TOKEN', 'xxxxxxxxxx' );
 
 ### Configure BigCommerce for WordPress product sync
 
-The product sync occurs every 5 minutes, by default. All newly-added BigCommerce products will be automatically listed on the WordPress site. 
+The product sync occurs every 5 minutes, by default. All newly-added BigCommerce products will be automatically listed on the WordPress site.
 
-These settings can be configured to match business requirements. The frequency of new products being added and whether all of the catalog should be for sale online determines the correct settings. 
+These settings can be configured to match business requirements. The frequency of new products being added and whether all of the catalog should be for sale online determines the correct settings.
 
 The plugin uses the standard [WP-Cron](https://developer.wordpress.org/plugins/cron/) system, which needs traffic to run. If you would like to process regardless of site visitors, we recommend setting a cron job on the server to force processing. For information on how to use the system task scheduler for WP-Cron, see the [Plugin Handbook](https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/).
 
-Product, inventory, and checkout webhook events are automatically set up when the plugin is installed. Their actions in BigCommerce will automatically trigger a future partial sync for only the affected products. 
+Product, inventory, and checkout webhook events are automatically set up when the plugin is installed. Their actions in BigCommerce will automatically trigger a future partial sync for only the affected products.
 
 ### Select cart type
 
 Within BigCommerce for WordPress, there are multiple ways to configure how the cart interactions work. Take the time to select the right experience from the following:
 
-**Mini-cart**
+#### Mini-cart
 * Keep the shopper on the page after they have added an item.
 * When the cart menu item is clicked, show a mini-cart overview as an overlay on the page, which details the items, total, and links to view cart or checkout.
 * Available as a widget to build into other parts of the template (for example, to display a persistent, dynamic sidebar cart).
 
-**Ajax add-to-cart**
+#### Ajax add-to-cart
 * Keep the shopper on the page after they have added an item.
 * When the cart menu item is clicked, navigate to the cart page.
 
-**Redirect to cart**
+#### Redirect to cart
 * When the shopper adds an item to the cart, navigate to the cart page.
 
 ### Select checkout type
@@ -145,7 +141,7 @@ Once you install BigCommerce for WordPress, you can access the BigCommerce secti
 * Link color
 * Error color
 
-## Optional steps 
+## Optional steps
 
 ### Create a staging WordPress instance
 
@@ -171,11 +167,10 @@ More than one channel can be connected to BigCommerce for WordPress to drive mul
 
 This requires activation of the `multi-channel` mode, which is a one-line command you add to your WordPress code, and some customization to tell WordPress when to use each channel.
 
-Multi-channel mode: 
+Multi-channel mode:
 
-```js
+```js copy
 add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );
-
 ```
 
 For more details on how to build a multi-region storefront with BigCommerce for WordPress, see [Building a Multi-Region Storefront](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9).
@@ -194,7 +189,7 @@ The import process will run faster and more reliably if run from the command lin
 
 This does not disable the WordPress cron-based import process. As long as the CLI import runs more frequently than the import configured on the settings screen, the cron-based import should never be triggered. In the event that both are running concurrently, safeguards are in place to ensure that only one process runs at a time.
 
-![Product Sync](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/cli-setup-instructions.png)
+![Product Sync](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce%20for%20WordPress/cli-setup-instructions.png)
 
 Subsequent imports will only update products that have changed since the last import. To force an update on all products, add the `--force` flag to the import command:
 
@@ -206,18 +201,26 @@ WordPress sites will generally operate more efficiently if WordPress's default c
 
 To disable WordPress's default cron, follow these steps:
 
-1. Set a constant in `your wp-config.php`:
-`define( 'DISABLE_WP_CRON', true );`
+1. Disable WP-cron.
+2. Set a constant in `your wp-config.php`:
 
-2. Set up a system cron job to run WordPress's cron events from the command line:
-`* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1`
+```php copy
+define( 'DISABLE_WP_CRON', true );
+```
+
+3. Enable WP cron events.
+4. Set up a system cron job to run WordPress's cron events from the command line:
+
+```shell copy
+* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1
+```
 Running the job every minute is generally recommended.
 
 ### Details on how to debug
 
 If the site is not importing as expected, enable diagnostic logging to produce a detailed log of the import process.
 
-![Diagnostic logging](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/details-on-how-to-debug.png)
+![Diagnostic logging](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce%20for%20WordPress/cli-setup-instructions.png)
 
 After the next import has run, click **Get Diagnostics** to display data from the logs.
 
@@ -227,7 +230,7 @@ If running an import from the command line, add the `--debug` flag to get additi
 
 If network latency is causing your API requests to timeout, the timeout duration can be increased with a filter:
 
-```js
+```js showLineNumbers copy
 add_filter( 'bigcommerce/api/timeout', function () {
 	return 60;
 } );
