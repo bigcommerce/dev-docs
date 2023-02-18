@@ -18,10 +18,9 @@ You will need to use the [Channels, Sites, and Routes](/api-reference/store-mana
 
 Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to render the checkout in your site. Learn more about the [Checkout SDK](/api-docs/cart-and-checkout/checkout-sdk).
 
-<!-- theme: info -->
-> #### Note 
-> Stencil translation files are not supported by Embedded Checkout. To display translated strings at checkout, we suggest [Installing a Custom Checkout](/stencil-docs/customizing-checkout/installing-custom-checkouts). 
-
+<Callout type="info">
+  Stencil translation files are not supported by Embedded Checkout. To display translated strings at checkout, we suggest [Installing a Custom Checkout](/stencil-docs/customizing-checkout/installing-custom-checkouts). 
+</Callout>
 
 ## Logged-In customers
 
