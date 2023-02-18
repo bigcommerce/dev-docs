@@ -22,10 +22,10 @@ In V3 a variant needs to be created for every combination of option values. In V
 
 We recommend creating products using V3 as BigCommerce starts to move operations to the V3 API.
 
-<!-- theme: warning -->
-> #### V2 SKU rules will override Variant pricing
-> Creating SKU rules via the V2 API or via CSV import will alter or override any Variant price or sale price added to a product via the Control Panel, V3 API or Price Lists UI.
-
+<Callout type="warning">
+  #### V2 SKU rules will override Variant pricing
+  Creating SKU rules via the V2 API or via CSV import will alter or override any Variant price or sale price added to a product via the Control Panel, V3 API or Price Lists UI.
+</Callout>
 
 ### Options and Modifiers
 
@@ -52,7 +52,7 @@ V3 includes endpoints for working with catalog trees. Stores that have multi-sto
 
 Previously (prior to December 17th, 2018), when a product option, is created in V2 and assigned to a product, trying to edit the global option using the V3 API would return a 422 error.
 
-```json
+```json showLineNumbers copy
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
@@ -81,7 +81,7 @@ On the following product, you will see the original option response of a product
 
 This product is a T-Shirt with a global option set of size and color added. Take a note of the option values id’s. These will change when an update is made to the option using the /options endpoint on V3. While they will all change since the entire option set is copied to the product, the one we are updating below is the label for Size Small, which has a `option_value` > `id` of 192.
 
-```json title="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" lineNumbers
+```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers copy
 // Note the option_values id's for the colors are 180, 181 and 182. The values for color are 192, 193 and 194.  
 {
     "data": [
@@ -177,17 +177,17 @@ This product is a T-Shirt with a global option set of size and color added. Take
 }
 ```
 
-![Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "Size and Color")
+![Size and Color](https://storage.googleapis.com/bigcommerce-production-dev-center/images/EditProduct.png "Size and Color")
 
 Below, "Small" is updated to "Small T-Shirt".
 
-```json title="PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)" lineNumbers
+```json filename="PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value}" showLineNumbers copy
 {
 	"label": "Small T-Shirt"
 }
 ```
 &nbsp;
-```json title="Response PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)" lineNumbers
+```json filename="Response PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value}" showLineNumbers copy
 {
     "data": {
         "id": 214,
@@ -202,7 +202,7 @@ Below, "Small" is updated to "Small T-Shirt".
 
 The ID is now 214. It was changed from 192. Below you can see the `option_value` > `id` for all the options changed even though only one was edited. The Control Panel now shows the options as (Custom).
 
-```json title="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" lineNumbers
+```json filename="GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options" showLineNumbers copy
 // The option_value > id is now 214
 {
     "data": [
@@ -298,7 +298,7 @@ The ID is now 214. It was changed from 192. Below you can see the `option_value`
 }
 ```
 
-![Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "Size and Color")
+![Size and Color](https://storage.googleapis.com/bigcommerce-production-dev-center/images/EditProduct.png "Size and Color")
 
 ## What's not in V3
 
@@ -340,7 +340,7 @@ In the examples below:
 **Response V3 Product**
 `GET /v3/catalog/products/{product_id}`
 
-```json
+```json showLineNumbers copy
 {
   "data": {
     "id": 195,
@@ -425,7 +425,7 @@ In the examples below:
 **Response V2 Product**
 `GET /v2/products/{product_id}`
 
-```json
+```json showLineNumbers copy
 {
   "id": 195,
   "keyword_filter": null,
@@ -568,7 +568,7 @@ In the examples below:
 **Request V3 Product**
 `POST /v3/catalog/products`
 
-```json
+```json showLineNumbers copy
 {
   "name": "BigCommerce Coffee Mug",
   "price": "10.00",
@@ -584,7 +584,7 @@ In the examples below:
 **Request V2 Product**
 `POST /v2/products`
 
-```json
+```json showLineNumbers copy
 {
   "name": "Plain T-Shirt",
   "type": "physical",
@@ -608,7 +608,7 @@ In the examples below:
 1. Create a product using: `POST /v3/catalog/products`
 2. Add images using: `POST /v3/catalog/products/{product_id}/images`
 
-```json
+```json showLineNumbers copy
 {
   "is_thumbnail": true,
   "sort_order": 1,
@@ -625,7 +625,7 @@ In the examples below:
 
 * Only accepts form data.
 
-```shell
+```shell showLineNumbers copy
 curl -X POST \
   https://api.bigcommerce.com/stores/{store_hash}/v2/products/{product_id}/images \
   -H 'Accept: application/json' \
@@ -647,7 +647,7 @@ curl -X POST \
 1. Create a product using: `POST /v3/catalog/products`
 2. Add video using: `POST /v3/catalog/products/{{id}}/videos`
 
-```json
+```json showLineNumbers copy
 {
   "title": "Your Video",
   "description": "Company Values",
@@ -660,7 +660,7 @@ curl -X POST \
 **Request V2 Product Videos**
 `POST /v2/products/{{id}}/videos`
 
-```json
+```json showLineNumbers copy
 {
   "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
 }
@@ -677,7 +677,7 @@ curl -X POST \
 **Request V3 Product Variants**
 `POST /v3/catalog/products`
 
-```json
+```json showLineNumbers copy
 {
   "name": "BigCommerce Coffee Mug",
   "price": "10.00",
@@ -726,7 +726,7 @@ When using the V2 Products API to make product options and option sets. The simp
 `POST /v2/option_sets`
 This will only create an option with no values added.
 
-```json
+```json showLineNumbers copy
 {
   "name": "Size",
   "display_name": "T-Shirt Size",
@@ -739,7 +739,7 @@ This will only create an option with no values added.
 
 This will add values such as small, medium and large. Only one value at a time can be created. In this example it will take 3 seperate /POST requests to create all sizes.
 
-```json
+```json showLineNumbers copy
 {
   "label": "Medium",
   "sort_order": 1,
@@ -753,7 +753,7 @@ After the option with values has been created, an option set needs to be created
 **Create Option Set**
 `POST /v2/optionsets`
 
-```json
+```json showLineNumbers copy
 {
   "name": "T-Shirt Sizes BigCommerce"
 }
@@ -762,7 +762,7 @@ After the option with values has been created, an option set needs to be created
 **Add the T-Shirt Size Options to Set**
 `POST /optionsets/{option_set_id}/options`
 
-```json
+```json showLineNumbers copy
 {
   "option_id": 88
 }
@@ -773,7 +773,7 @@ To assign the option set to a product, do a /PUT request against the product and
 **Assign the Option Set to the Product**
 `PUT /v2/products/{product_id}*`
 
-```json
+```json showLineNumbers copy
 {
   "option_set_id": 60
 }
@@ -782,7 +782,7 @@ To assign the option set to a product, do a /PUT request against the product and
 To create the SKU's first you need the `option_value_id`.
 `/GET optionsets/{option_set_id}/options`
 
-```json
+```json showLineNumbers copy
 {
     "id": 119,
     "option_id": 88,
@@ -828,7 +828,7 @@ Each size will need a separate POST to create all the SKU's.
 **Add Product SKU**
 `POST /v2/products/{product_id}/skus`
 
-```json
+```json showLineNumbers copy
 {
   "sku": "SMALL-1",
   "options": [
@@ -851,7 +851,7 @@ This examples uses a checkbox which is created in two steps.
 
 1. Create Modifier
 
-```json
+```json showLineNumbers copy
 {
   "type": "checkbox",
   "required": false,
@@ -868,7 +868,7 @@ This examples uses a checkbox which is created in two steps.
 
 `PUT /v3/catalog/products/{product_id}/modifiers/{modifier_id}/values`
 
-```json
+```json showLineNumbers copy
 {
   "is_default": false,
   "adjusters": {
@@ -900,7 +900,7 @@ This examples uses a checkbox which is created in two steps.
 
 They are not recommended for V3 products since they can be created at the variant level. See [Complex Rules](/api-docs/store-management/catalog/catalog-overview#complex-rules) for more information.
 
-```json
+```json showLineNumbers copy
 {
   "product_id": 1200,
   "enabled": true,
@@ -927,7 +927,7 @@ They are not recommended for V3 products since they can be created at the varian
 
 The example below add's a complex rule to increase the price by $5 if the checkbox is selected.
 
-```json
+```json showLineNumbers copy
 {
     "id": 89,
     "product_id": null,
@@ -941,7 +941,7 @@ The example below add's a complex rule to increase the price by $5 if the checkb
 }
 ```
 
-```json
+```json showLineNumbers copy
 {
   "price_adjuster": {
     "adjuster": "relative",
@@ -968,7 +968,7 @@ For a simple product
 **Request V3 Product Stock**
 `PUT /v3/catalog/products/{id}`
 
-```json
+```json showLineNumbers copy
 {
   "inventory_level": 100,
   "inventory_warning_level": 10
@@ -978,7 +978,7 @@ For a simple product
 **Request V2 Product Stock**
 `PUT /v2/products/{id}`
 
-```json
+```json showLineNumbers copy
 {
   "inventory_level": 15,
   "inventory_warning_level": 5,
@@ -992,7 +992,7 @@ For a single SKU
 **Request V3 Stock Variant**
 `PUT /v3/catalog/products/{id}/variants/{id}`
 
-```json
+```json showLineNumbers copy
 {
   "inventory_level": 100,
   "inventory_warning_level": 10
@@ -1002,7 +1002,7 @@ For a single SKU
 **Request V2 Stock Variant**
 `PUT /v2/products/{id}/skus/{id}`
 
-```json
+```json showLineNumbers copy
 {
   "inventory_level": 100,
   "inventory_warning_level": 10,
@@ -1018,7 +1018,7 @@ For a single SKU
 **Request V3 Stock on Multiple Variants**
 `PUT /v3/catalog/products/{id}`
 
-```json
+```json showLineNumbers copy
 [
   {
     "inventory_level": 100,
@@ -1040,7 +1040,7 @@ For a single SKU
 
 A request must be sent for each SKU
 
-```json
+```json showLineNumbers copy
 {
   "inventory_level": 100,
   "inventory_warning_level": 10

@@ -66,7 +66,7 @@ When you create a local custom template page for products, you expect that page 
 
 To test your custom templates locally, edit your `.stencil` or `config.stencil.json` file (if you are using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. In the `.stencil` file or `config.stencil.json` file, look for the following section:
 
-```json title="customLayouts properties config.stencil.json" lineNumbers
+```json title="customLayouts properties config.stencil.json" lineNumbers copy
 "customLayouts": {
     "product": {},
     "brand": {},
@@ -77,7 +77,7 @@ To test your custom templates locally, edit your `.stencil` or `config.stencil.j
 
 In this section, populate each key with a URL to create a mapping. For example, if you have a custom product template named alternate-product.html, and you want to view that template locally at http://localhost:3000/test-url/, you need to populate the product key as shown in the following example:
 
-```json title="Populate product key" lineNumbers
+```json title="Populate product key" lineNumbers copy
 "product": {
     	"alternate-product.html":"/test-url/"
 },
@@ -86,7 +86,7 @@ In this section, populate each key with a URL to create a mapping. For example, 
 
 The following code sample provides a more extensive example where the brand, page, and category keys are also populated:
 
-```json title="Populated brand, page, and category keys" lineNumbers
+```json title="Populated brand, page, and category keys" lineNumbers copy
 {
   "normalStoreUrl": "http://cornerstone-light-demo.mybigcommerce.com",
   "port": 3000,
@@ -115,7 +115,7 @@ In the final entry of the `.stencil` or `config.stencil.json` (if you're using S
 In addition to mapping a single array to a URL you can also map an array of URLs to each template. This is shown in the following example for the product template:
 
 
-```json title="Map multiple URLs" lineNumbers
+```json title="Map multiple URLs" lineNumbers copy
   "customLayouts": {
     "product": {
       "featured-product.html": ["/special-product-one", "/special-product-two"],
