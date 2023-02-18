@@ -61,7 +61,7 @@ Now that you have the `channel_id` value for one or more channels, we can determ
 
 The following is an example response detailing the customer settings for a channel:
 
-```json
+```json showLineNumbers copy
 {
   "data": {
     "allow_global_logins": true,
@@ -88,12 +88,10 @@ Now that you know how to check whether one of your channels allows for global lo
 
 Taking the `channel_id` of the channel you would like to update, send a `PUT` request to `/v3/customer/settings/channels/{channel_id}` and update the value of `allow_global_logins` to either `true` or `false`. The following is an example request:
 
-```
+```json showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store-hash}/v3/customers/settings/channels/{channel_id}
-
-Headers:
-  Content-Type: application/json
-	X-Auth-Token: {{X-Auth-Token}}
+Content-Type: application/json
+X-Auth-Token: {{X-Auth-Token}}
 
 Body:
   {
@@ -121,7 +119,7 @@ Now that you have retrieved a list of customers and determined their access leve
 
 By default, the value of `channel_ids` is `null`, granting login access to any store that allows global logins. You can specify the channels that a customer has access to on creation by sending a `POST` request to `/v3/customers`. In addition to the required `email`, `first_name`, and `last_name`, include a `channel_ids` array similar to the following example:
 
-```json
+```json showLineNumbers copy
 {
   "email": "string@example.com",
   "first_name": "string",
@@ -136,7 +134,7 @@ For more information on creating a customer, visit [Create Customers](/api-refer
 
 To change the channels that an existing customer can access, send a `PUT` request to `/v3/customers`. In the request body, include the `id` of the customer and the updated value for `channel_ids`. The body will resemble the following example:
 
-```json
+```json showLineNumbers copy
 {
   "id": 132,
   "channel_ids": [1]
