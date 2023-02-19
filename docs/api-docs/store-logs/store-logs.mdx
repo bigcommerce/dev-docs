@@ -1,7 +1,3 @@
----
-stoplight-id: 8093a34240fc9
----
-
 # Store Logs API
 
 The Store Logs API allows merchants to track events in their store. Each event creates an entry in the log. To process events over time, you can configure external systems to retrieve store log entries. For example, you can see how often merchants request shipping quotes from a carrier. You can also learn more about errors that occur on a store.
@@ -20,24 +16,20 @@ To filter the entries by log ID, pass a comma-separated list of log IDs to the `
 
 The following example retrieves entries by log ID: 
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http title="Example request: Filter by log ID" lineNumbers
+```http filename="Example request: Filter by log ID" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?id:in=5,7
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Filter by log ID" lineNumbers
+```json filename="Example response: Filter by log ID" showLineNumbers copy
 {
   "data": [
     {
@@ -74,7 +66,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 
 ### Filter by type 
@@ -83,24 +76,20 @@ The store logs categorize entries into various types. For example, requesting sh
 
 The following example retrieves shipping entries:
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http title="Example request: Filter by type" lineNumbers
+```http filename="Example request: Filter by type" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=shipping
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Filter by type" lineNumbers
+```json filename="Example response: Filter by type" showLineNumbers copy
 {
   "data": [
     {
@@ -137,7 +126,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Filter by module
 
@@ -145,24 +135,20 @@ To see how often merchants request shipping quotes from a specific carrier, URL-
 
 The following example retrieves shipping entries by module:
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http title="Example request: Filter by module" lineNumbers
+```http filename="Example request: Filter by module" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=USPS+%28endicia%29
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Filter by module" lineNumbers
+```json filename="Example response: Filter by module" showLineNumbers copy
 {
   "data": [
     {
@@ -190,7 +176,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Filter by severity 
 
@@ -198,24 +185,20 @@ Each event has an associated outcome, also known as `severity`. To filter the re
 
 The following example retrieves notices, which have a `severity` of `2`:
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http title="Example request: Filter by severity" lineNumbers
+```http filename="Example request: Filter by severity" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?severity=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Filter by severity" lineNumbers
+```json filename="Example response: Filter by severity" showLineNumbers copy
 {
   "data": [
     {
@@ -252,7 +235,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Filter with pagination
 
@@ -260,24 +244,20 @@ As stated at the beginning of the section, the [Get system logs](/api-reference/
 
 The following example requests page two with two entries per page, which returns the third and fourth oldest entries:  
 
-<!--
-type: tab
-title: Request
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http title="Example request: Filter with pagination" lineNumbers
+```http filename="Example request: Filter with pagination" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Filter with pagination" lineNumbers
+```json filename="Example response: Filter with pagination" showLineNumbers copy
 {
   "data": [
     {
@@ -315,7 +295,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 
 ## Resources
