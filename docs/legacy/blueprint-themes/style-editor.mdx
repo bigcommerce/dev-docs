@@ -10,7 +10,7 @@ Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to tak
 
 Less (formally, Less.js) is a CSS preprocessor that allows theme designers to use advanced functions and programming principles in their CSS. A JavaScript compiler runs over the Less files, and converts them into usable CSS that can be included in themes.
 
-For more information on examples, techniques, and how to install Less, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
+For more information on examples, techniques, and how to install Less, please see [lesscss.org](http://lesscss.org/).
 
 ## Integrating a Theme with the Style Editor 
 
@@ -33,7 +33,7 @@ There are some syntax patterns involved that Style Editor will understand to hel
 
 For example:
 
-```css title="" lineNumbers
+```css filename="" copy
 @color-header-background: #FFFFFF;
 ```
 
@@ -43,7 +43,7 @@ This will generate a color picker with the label “Header Background”, set to
 
 For example:
 
-```css title="" lineNumbers
+```css filename="" copy
 @font-page-text: "Open Sans",Helvetica,Arial,sans-serif;
 ```
 
@@ -53,25 +53,22 @@ This will generate a dropdown with the label “Page Text”, and with the “Op
 
 For example:
 
-```css title="" lineNumbers
+```css filename="" copy
 @font-declaration: '{ "Lato":["Lato", "Arial", "sans-serif"], "Freckle Face":["Freckle Face", "cursive"]}';
-
 ```
 
 This will populate all font drop-downs with the fonts “Lato” and “Freckle Face,” and if one of them is selected, the fonts for that variable will be set to the values in the corresponding array of fonts. For example, “Lato” will set the fonts to “Lato”, Arial, sans-serif.
 
 To use these fonts in the Style Editor, they must be included in the style editor variables file through an import. For the above example, you would include the styles from Google Fonts like so:
 
-```css title="" lineNumbers
+```css filename="" copy
 @import url(//fonts.googleapis.com/css?family=Lato|Freckle+Face);
-
 ```
-
 `@color-declaration` — This variable will store all the default colors for the style editor. It will list these colours in the color picker’s palette after all the color picker’s defaults.
 
 For example:
 
-```css title="" lineNumbers
+```css filename="" copy
 @color-declaration: '["#FF7700, #9966CC" ]';
 ```
 
@@ -93,9 +90,9 @@ More information on syntax, and examples, can be found in the comments of the st
 
 This file is for you to store the variables that you may need to use, but don’t want the Style editor to see. For example, you can use it to create a hierarchy within your Less file, so that:
 
-*   The user sets a value to @color-store-name;
-*   in internal-variables.less, @main-accent: @color-store-name;
-*   in init.less, we set a:hover {color: @main-accent};
+*   The user sets a value to `@color-store-name;`
+*   in internal-variables.less, `@main-accent: @color-store-name;`
+*   in init.less, we set a:hover `{color: @main-accent};`
 
 In this example, the link hover color will be set to whatever the store name color is. We can add as many selectors as we want to this css statement, depending on our design.
 
@@ -105,12 +102,11 @@ This way, we can reuse the color that gets set to `@color-store-name` as the col
 
 This is where you initialize the use of the variables. This file contains all the CSS that will be compiled and generated into the theme.css file. For example, the @color-store-name can now be applied to the `#HeaderLogo h1` element by saying:
 
-```css title="" lineNumbers
+```css filename="" showLineNumbers
 #HeaderLogo h1 {
 color: @color-store-name
 }
 ```
-
 ### theme.less 
 
 The file that ultimately gets compiled into `theme.css`. This just uses `@import` to include the other three Less files for compilation. The Style Editor will read this file for instructions on how to compile your styles using Less.
@@ -119,11 +115,9 @@ Compiling your Less files
 
 Once you have finished working on your `.less` files, _don’t forget to compile them!_ If you are using the command line, you should be doing something similar to:
 
-```less title="" lineNumbers
+```less filename="" copy
 lessc Styles/less/theme.less > Styles/theme.css 
-
 ```
-
 This will use the `theme.less` file to generate the `theme.css` file into your theme's `Styles/` folder.
 
 If you find that you have to make a change to `theme.css`, please don't forget to replicate this change in `theme.less` (but more preferably, in `init.less`). Otherwise, every time you recompile the less files, this change will be overwritten.
@@ -132,7 +126,9 @@ Less offers a variety of compilation methods, including applications for both Wi
 
 ## Testing Style Editor with Your Theme 
 
-If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.<br />
-(For example: <NOBR>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`</nobr>)
+If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.
+
+(For example: <nobr>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`</nobr>)
+
 
 This will enable [Developer Mode](#) for your store, which also enables Blueprint and other features for theme developers. You can [use Blueprint](#) as a basis for creating new themes.

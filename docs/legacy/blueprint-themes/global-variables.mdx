@@ -1264,7 +1264,7 @@ The list below is sorted by the number of times that the Blueprint base theme re
 | `%%GLOBAL_ProductQty%%` | . |
 | `%%GLOBAL_ProductCustomFields%%` | You can use the %%GLOBAL_ProductCustomFields%% variable in any template file where you can use %%GLOBAL_ProductPrice%%. (Namely, in template files that render a particular panel's individual items. Examples are: Snippets/CategoryProductsItem.html, for category pages; or Snippets/HomeFeaturedProductsItem.html, for the Featured Products panel.) Once %%GLOBAL_ProductCustomFields%% is added, it will render the entire table of custom fields. To incorporate this variable into faceted search, we recommend adding the following code to Panels/FacetedSearchProductGrid.html:
 | |Once %%GLOBAL_ProductCustomFields%% is added, it will render the entire table of custom fields. To incorporate this variable into faceted search, we recommend adding the following code to Panels/FacetedSearchProductGrid.html:
-| |<pre>{{#each product.custom_fields}}
-| |   {{ id }} : {{ name }} : {{ value }}
-| |{{/each}} </pre>|
+| | `{{#each product.custom_fields}}`
+| |  `{{ id }} : {{ name }} : {{ value }}`
+| | `{{/each}}` |
         
