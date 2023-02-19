@@ -37,9 +37,10 @@ An app that functions correctly with a store's multi-channel product catalog and
 
 4. Customers synced to the app should include correct channel access permissions within the app. If your app creates any new customers, it should be able to assign them to one or more channels. Read more about [customers and channels](/api-docs/multi-storefront/api-guide#customers). Customer groups synced to the app should also include correct channel assignments. If your app creates any new customer groups, it should be able to assign them to one or more channels.
 
-<!-- theme: info -->
-> #### Price lists
-> Price lists have been substantially upgraded to support multi-channel sales. Read more about [channel-aware price lists](/api-docs/multi-storefront/api-guide#price-lists). 
+<Callout type="info">
+#### Price lists
+Price lists have been substantially upgraded to support multi-channel sales. Read more about [channel-aware price lists](/api-docs/multi-storefront/api-guide#price-lists).
+</Callout> 
 
 ## Storefront content
 
