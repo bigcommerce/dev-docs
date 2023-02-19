@@ -19,8 +19,10 @@ The steps in this tutorial assume that you are familiar with BigCommerce’s Wid
 
 To create a widget, you first need to create a template for it. To [create a widget template](/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/v3/content/widget-templates`. 
 
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```http
+```http filename="Example request: Create a widget template" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/widget-templates
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -71,12 +73,11 @@ Accept: application/json
   "template": "<div style=\"text-align:center\">\n<h1>{{_.data.site.product.name}}</h1>\n<div>\n<img src=\"{{_.data.site.product.defaultImage.url}}\">\n</div>\n<div>\n<p>${{_.data.site.product.prices.price.value}}</p>\n</div>\n</div>"
 }
 ```
+</Tab>
+<Tab>
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) -->
 
-**[Response:](/api-reference/store-management/widgets/widget-template/createwidgettemplate#responses)**
-
-```json
+```json showLineNumbers copy
 {
   "data": {
     "channel_id": 1,
@@ -134,6 +135,8 @@ Accept: application/json
   "meta": {}
 }
 ```
+</Tab>
+</Tabs>
 
 |Property|Type|Description|
 |-|-|-|
@@ -147,11 +150,10 @@ Accept: application/json
 The `storefront_api_query` field allows you to query store data that widgets can use. The widget configuration provides the values for the `storefront_api_query` parameters.
 For example, the `$productId` parameter comes from the widget configuration when a user selects a product. The `mappings` object from the widget template schema `settings` tells the widget to map the value of the widget configuration’s `productId` setting to the GraphQL parameter called `productId`.
 
-<!-- theme: info -->
-> #### Note
-> * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
-> * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
-
+<Callout type="info">
+  * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
+  * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
+</Callout>
 
 
 ## Place the widget using Page Builder
@@ -172,7 +174,7 @@ Alternatively, you can send a `GET` request to [`/v3/content/widgets`](/api-refe
 
 The [response](/api-reference/store-management/widgets/widget/getwidget#responses) should be similar to the following example:
 
-```json
+```json showLineNumbers copy
 
 {
   "data": [
@@ -252,15 +254,15 @@ The [response](/api-reference/store-management/widgets/widget/getwidget#response
 }
 ```
 
-<!-- theme: info -->
-> #### Note
-> The value of the `productId` inside of the `widget_configuration` object is mapped to the `productId` parameter of the `storefront_api_query_params` object.
+<Callout type="info">
+  The value of the `productId` inside of the `widget_configuration` object is mapped to the `productId` parameter of the `storefront_api_query_params` object.
+</Callout>
 
 ## Place the widget using the API
 
 It is also possible to place widgets programmatically using the API. First, [create a widget](/api-reference/store-management/widgets/widget/createwidget) by sending a `POST` request to `/v3/content/widgets`.
 
-```http
+```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/widgets
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -272,13 +274,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget/createwidget#requestrunner) -->
-
 Take note of the widget's `uuid` returned in the [response](/api-reference/store-management/widgets/widget/createwidget#responses). You will need the widget's `uuid` to [create a placement](/api-reference/store-management/widgets/placement/createplacement) for your widget.
 
 
 **Response:**
-```json
+```json showLineNumbers copy
 {
   "data": {
     "uuid": "{{WIDGET_UUID}}",
@@ -289,7 +289,7 @@ Take note of the widget's `uuid` returned in the [response](/api-reference/store
 
 To [create a placement](/api-reference/store-management/widgets/placement/createplacement), send a `POST` request to `/v3/content/placements`.
 
-```http
+```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/placements
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -303,19 +303,16 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/placement/createplacement#requestrunner) -->
 
 For a list of accepted `template_file` values, see [create a placement](/api-reference/storefront/widgets-api/placement/createplacement).
 
 To [get a list of theme regions](/api-reference/storefront/widgets-api/regions/getcontentregions) for the `region` property, send a `GET` request to `/v3/content/regions?template_file={{TEMPLATE_FILE}}`.
 
-```http
+```http showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/regions?template_file={{TEMPLATE_FILE}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner) -->
 
 ## Related resources
 
