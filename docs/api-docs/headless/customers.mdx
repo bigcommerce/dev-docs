@@ -59,7 +59,9 @@ To address this need, BigCommerce provides the [Current Customers API](/api-docs
 
 ## Surfacing customer group pricing
 
-When querying the GraphQL Storefront API, customer-specific pricing will be reflected in query results if the customer is first logged in using the [customer login mutation](https://next.stoplight.io/bigcommerce/bigcommerce-dev-docs/version%2F1.3/05-headless-customers.md#client-side-graphql-customer-login) or a [customer impersonation token](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
+When querying the GraphQL Storefront API, customer-specific pricing will be reflected in query results if the customer is first logged in using the [customer login mutation](#) or a [customer impersonation token](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
+
+{/* https://next.stoplight.io/bigcommerce/bigcommerce-dev-docs/version%2F1.3/05-headless-customers.md#client-side-graphql-customer-login */}
 
 For server-side REST implementations, you can use the [Pricing API](/api-reference/store-management/pricing) to [get prices](/api-reference/store-management/pricing/products/get-prices) for a particular customer group.
 
