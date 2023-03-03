@@ -2,7 +2,7 @@
 
 
 
-This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
+This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
 
 ## Commands overview
 
@@ -89,12 +89,12 @@ stencil start --open # opens live theme preview in default browser
 
 <!-- theme: info -->
 > #### --theme-editor and --theme-editor-port [port]:
-> BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](/stencil-docs/page-builder/page-builder-overview) instead.
+> BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/page-builder-overview) instead.
 &nbsp;
 
 <!-- theme: warning -->
 > #### Authentication errors
-> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
+> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/live-previewing-a-theme#serving-a-live-preview).
 
 ## stencil bundle
 
@@ -193,5 +193,5 @@ stencil release [OPTIONS]
 ## Resources
 
 ### Related Articles
-* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-* [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup)
+* [Authorizing and Initializing the CLI](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil)
+* [Troubleshooting Your Setup](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/troubleshooting-your-setup)
