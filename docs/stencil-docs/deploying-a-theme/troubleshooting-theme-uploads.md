@@ -28,10 +28,10 @@ Custom theme uploads must meet these restrictions:
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
 | TR-902 | Two or more theme variations defined in the contained config.json file share an external ID. All external IDs must be unique. | 
-| TR-1000 | There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
-| TR-1001 | The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
-| TR-1400 | There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>. |
-| TR-1401 | There was a database validation error when saving <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a> to the database. |
+| TR-1000 | There was a problem processing the contained [schema.json](https://github.com/bigcommerce/cornerstone/blob/master/schema.json) file. |
+| TR-1001 | The theme is missing its required [schema.json](https://github.com/bigcommerce/cornerstone/blob/master/schema.json) file. |
+| TR-1400 | There was a problem processing template [front matter](https://bigcommerce-dev-center.netlify.app/stencil-docs/storefront-customization/using-front-matter). |
+| TR-1401 | There was a database validation error when saving [front matter](https://bigcommerce-dev-center.netlify.app/stencil-docs/storefront-customization/using-front-matter) to the database. |
 | TR-1500 | There was a problem uploading your files due to multi-threading (multiple simultaneous uploads). Please try again. |
 | TR-1600 | There was a temporary problem on our system. Please try again. |
 | TR-1601 | There was a problem with processing screenshots. |
@@ -48,7 +48,7 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 | (These messages do not have numeric codes) |
 | Issue in processing this theme's thumbnail screenshot (`composed_image`). |
 | Issue in processing this theme's full-size screenshot (`desktop_screenshot`). |
-| Issue in processing this theme's mobile [screenshot](/stencil-docs/stencil-theme-editor/config-json-metadata) (`mobile_screenshot`). |
+| Issue in processing this theme's mobile [screenshot](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/defining-global-styles#configuration-file) (`mobile_screenshot`). |
 | Missing file: This theme does not support the Theme Editor, as it is missing its required `[schema.json]` file. |
 | One or more of this theme's screenshots are not image files. |
 | Theme is missing a valid thumbnail image (`composed_image`). |
