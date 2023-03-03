@@ -212,5 +212,5 @@ A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prere
 ## Resources
 
 ### Related articles
-* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-* [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands)
+* [Authorizing and Initializing the CLI](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil)
+* [Stencil CLI Options and Commands](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/stencil-cli-options-and-commands)
