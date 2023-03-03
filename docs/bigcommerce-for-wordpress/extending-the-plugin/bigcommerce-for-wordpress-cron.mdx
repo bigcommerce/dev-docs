@@ -1,4 +1,4 @@
-# BigCommerce for WordPress Cron
+# Creating Reliable Cron Jobs
 
 This document provides a general description for WP-Cron and how Server Cron can be used to improve WP-Cron's reliability.
 
@@ -55,7 +55,7 @@ The following example is for HostGator, but you can also use it for any other ho
 ```shell filename="Create a cPanel cron job" copy
 wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ```
-6. Click **Add new cron job** to save the job
+6. Click **Add new cron job** to save the job.
 
 <Callout type="info">
   #### Important note
@@ -73,4 +73,4 @@ The following is the basic set of commands required to set cron jobs with cronta
 ```shell filename="Create cron job with SSH" copy
 */5 * * * * wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ```
-4. Save and exit from crontab
+4. Save and exit from crontab.
