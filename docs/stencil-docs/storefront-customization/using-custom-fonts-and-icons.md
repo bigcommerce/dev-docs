@@ -3,7 +3,7 @@
 <!-- theme: warning -->
 > #### Custom fonts unavailable on Page Builder
 > * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
-> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
+> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/third-party-widgets).
 
 
 
@@ -94,7 +94,7 @@ Files that do not contain font-overriding CSS code will use the CSS settings in 
 
 ## Sass stylesheet support for theme fonts
 
-To support Page Builder, your theme's Sass stylesheet must call [Stencil's custom Sass functions](/stencil-docs/storefront-customization/custom-sass-functions) to transform fonts specified in the theme's `config.json` file. You must call these functions on each `config.json` font key whose value you want to make available to Sass variables.
+To support Page Builder, your theme's Sass stylesheet must call [Stencil's custom Sass functions](https://bigcommerce-dev-center.netlify.app/stencil-docs/storefront-customization/custom-sass-functions) to transform fonts specified in the theme's `config.json` file. You must call these functions on each `config.json` font key whose value you want to make available to Sass variables.
 
 The default Stencil theme includes these function calls in the following stylesheet
 
@@ -172,7 +172,7 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 ## Resources
 
 ### Additional resources
-* [Stencil Custom Sass Functions](/stencil-docs/storefront-customization/custom-sass-functions)
+* [Stencil Custom Sass Functions](https://bigcommerce-dev-center.netlify.app/stencil-docs/storefront-customization/custom-sass-functions)
 * [Custom Icons Video Tutorial](//youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce YouTube)
 * [Custom Fonts Video Tutorial](//youtube.com/watch/-w7Hbn_p_pw) (BigCommerce YouTube)
 * [Google Fonts](https://fonts.google.com/) (Google)
