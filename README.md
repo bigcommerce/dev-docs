@@ -1,6 +1,6 @@
 # BigCommerce Developer Documentation
 
-This repository contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/), which includes [API Docs](https://developer.bigcommerce.com/docs), [Theme Docs](https://developer.bigcommerce.com/stencil-docs), [BigCommerce for WordPress](https://developer.bigcommerce.com/bigcommerce-for-wordpress), and [Legacy Docs](https://developer.bigcommerce.com/legacy).
+This repository contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/), which includes [API Docs](https://developer.bigcommerce.com/docs), [Theme Docs](https://bigcommerce-dev-center.netlify.app/stencil-docs/overview), [BigCommerce for WordPress](https://developer.bigcommerce.com/bigcommerce-for-wordpress), and [Legacy Docs](https://developer.bigcommerce.com/legacy).
 
 Other repositories that contain markdown files and static assets that appear on [developer.bigcommerce.com](https://developer.bigcommerce.com/) include [theme-context-object-schemas](https://github.com/bigcommerce/theme-context-object-schemas/) for [Theme Objects](https://developer.bigcommerce.com/theme-objects) and [api-specs](https://github.com/bigcommerce/api-specs) for [API Reference](https://developer.bigcommerce.com/api-reference).
 
