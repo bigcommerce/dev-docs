@@ -55,7 +55,7 @@ BigCommerce Stencil themes utilize YAML front matter on template pages. Front ma
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 
-See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
+See our [Front Matter Reference](https://bigcommerce-dev-center.netlify.app/stencil-docs/storefront-customization/using-front-matter) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
 
 ```yml title="YAML Front Matter home.html, Cornerstone theme" lineNumbers
