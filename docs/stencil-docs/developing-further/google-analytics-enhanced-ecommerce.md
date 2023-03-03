@@ -13,10 +13,10 @@ Cornerstone versions 2.6.0+ will have data attributes already included in the th
 
 
 ### Downloading a theme
-Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
 
 
-If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
 
 <!-- theme: info -->
 > #### Note 
@@ -28,7 +28,7 @@ If you would like to implement data attributes on your custom theme and do not a
 ### Prerequisites
 * [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
 * [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
-* [Cornerstone theme installed](/stencil-docs/getting-started/about-stencil#cornerstone)
+* [Cornerstone theme installed](https://bigcommerce-dev-center.netlify.app/stencil-docs/getting-started/about-stencil#cornerstone)
 
 ### Include the Enhanced ECommerce property
 
