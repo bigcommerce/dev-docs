@@ -14,7 +14,7 @@ Merchants commonly request developers modify the default content of invoices in 
 
 ## Email invoice template
 
-See the article [Customizing Emails](/stencil-docs/developing-further/customizing-emails) for editing merchant-facing email templates.
+See the article [Customizing Emails](https://bigcommerce-dev-center.netlify.app/stencil-docs/additional-customization/customizing-invoices) for editing merchant-facing email templates.
 
 ## Merchant printable invoice
 
@@ -75,7 +75,7 @@ Use this invoice when a store receives an order from a shipping address in a cou
 ## Resources
 
 ### Related articles
-* [Shrinking a Theme by Excluding Static Assets Using WebDAV](/stencil-docs/prepare-and-upload-a-theme/shrinking-your-theme)
+* [Shrinking a Theme by Excluding Static Assets Using WebDAV](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/checking-a-themes-size#shrinking-a-theme)
 * [Blueprint Theme Email Templates](/legacy/blueprint-themes/blueprint-email-templates)
 * [Uploading and Linking to a File in Your Store](https://support.bigcommerce.com/s/article/How-do-I-add-and-link-to-a-file-in-my-store#upload-a-file) (Knowledge Base)
 * [Editing and Printing Invoices](https://support.bigcommerce.com/s/article/Invoices#custom) (Knowledge Base)
