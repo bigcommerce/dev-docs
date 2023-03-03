@@ -1,6 +1,6 @@
 # Handlebars Helpers Reference
 
-This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
@@ -203,7 +203,7 @@ In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` dir
 
 #### CDN custom endpoints
 
-You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
+You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing) when bundling the theme for upload to BigCommerce.
 
 You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
