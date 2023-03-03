@@ -117,5 +117,5 @@ For details on preparing screenshots that enable merchants to preview each varia
 
 ### Related articles
 * [Checking a Theme's Size](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/checking-a-themes-size)
-* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-image)
+* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images)
 * [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing)
