@@ -22,7 +22,7 @@ We have provided a [sample checkout app](https://github.com/bigcommerce/checkout
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
-* Theme should be setup for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
+* Theme should be setup for [local development](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
 
 ## Installing the Checkout JS SDK
 
@@ -198,7 +198,7 @@ Build out your custom checkout page by entering your HTML into the `checkout.htm
 * [Checkout SDK Source Code](https://github.com/bigcommerce/checkout-sdk-js) (BigCommerce GitHub)
 
 ## Related Articles
-* [Authorizing and Initializing the CLI](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil)
+* [Authorizing and Initializing the CLI](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil)
 
 ## Additonal Resources
 * [Promise Polyfill]( https://github.com/stefanpenner/es6-promise) (GitHub)
