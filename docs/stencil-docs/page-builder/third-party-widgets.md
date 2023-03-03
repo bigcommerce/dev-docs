@@ -4,7 +4,7 @@
 
 A third-party widget is a configurable, reusable component created and maintained by developers outside of BigCommerce. You can use third-party widgets to display custom content in a Stencil storefront. 
 
-This article outlines the three main steps involved in using third-party widgets with [Page Builder](/stencil-docs/page-builder/page-builder-overview).
+This article outlines the three main steps involved in using third-party widgets with [Page Builder](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/page-builder-overview).
 
 ## Creating third-party widgets
 
