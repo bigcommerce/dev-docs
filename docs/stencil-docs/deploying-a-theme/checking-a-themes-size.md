@@ -9,7 +9,7 @@
 
 </div> 
 
-Your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
+Your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing).
 
 A few themes might exceed the 50 MB limit. If this is the case, you have two options:
 * Shrink Your Theme with the help of WebDAV
@@ -40,7 +40,7 @@ will build the URL transformed below:
 
 On your local machine, move the large static assets to a location where the `stencil bundle` command will ignore them. This can be a location outside your theme's directory, or it can be the `assets/cdn/` subdirectory, which `stencil bundle` excludes from bundling. Separating these assets is necessary to exclude them from the next step.
 
-Run or re-run the `stencil bundle` command from inside your streamlined <theme‑name> directory. Once your resulting `.zip` file is 50 MB or smaller, you are ready to [upload it to BigCommerce](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
+Run or re-run the `stencil bundle` command from inside your streamlined <theme‑name> directory. Once your resulting `.zip` file is 50 MB or smaller, you are ready to [upload it to BigCommerce](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -121,12 +121,12 @@ Then, as you develop your theme, reference each of these assets using Stencil's 
 
 _**Note:** The presumed WebDAV root directory is `/content/`. In this example, the `image.jpg` file had been uploaded to the WebDAV `/content/` directory. The presumed local directory for other CDNs is `assets/`, so you can omit that path when referencing its contained files or subdirectories._
 
-When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
+When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing).
 
 ## Resources
 
 ### Related Articles
-* [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)
-* [Naming Your Theme and Theme Variations](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/naming-your-theme)
-* [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing)
+* [Naming Your Theme and Theme Variations](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/naming-your-theme)
+* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images)
 * [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual) (BigCommerce Knowledge Base)
