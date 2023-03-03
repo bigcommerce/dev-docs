@@ -1,23 +1,10 @@
 # Multi-Channel Capabilities
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Enabling Multiple Channels](#enabling-multiple-channels)
-- [Switching Channels](#switching-channels)
-- [Plugin Example](#plugin-example)
-- [Step 1: Setup Directory Structure](#step-1-setup-directory-structure)
-- [Step 2: Connect Channels](#step-2-connect-channels)
-- [Step 2: Add the Plugin Code](#step-2-add-the-plugin-code)
-- [Developing Further](#developing-further)
-- [FAQ](#faq)
-- [Resources](#resources)
-
-</div>
 
 Since version `3.1.0`, BigCommerce for WordPress is capable of managing multiple channels (and displaying different product listings for each channel) from within a single WordPress site. This makes it possible to have multiple storefronts on a single WordPress instance with BigCommerce serving as headless commerce back-end.
 
-This article explains how to enable and make use of BigCommerce for WordPress's multi-channel capabilities. The first two sections briefly note the the filters required to enable and use the functionality; then, in [Plugin Example](#plugin-example), a more in-depth demonstration with example code is provided. For longer discussion on multi-storefront use cases and additional examples, see [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) on our [Developer Blog](https://medium.com/bigcommerce-developer-blog)
+This article explains how to enable and make use of BigCommerce for WordPress's multi-channel capabilities. The first two sections briefly note the filters required to enable and use the functionality; then, in [Plugin Example](#plugin-example), a more in-depth demonstration with example code is provided. For longer discussion on multi-storefront use cases and additional examples, see [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) on our [Developer Blog](https://medium.com/bigcommerce-developer-blog)
 
 ## Enabling Multiple Channels
 
@@ -72,18 +59,11 @@ Once finished, the directory structure should look as follows:
 │    |   |   └── query-string-region-activation.php
 |    |   ├── ...
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * For more information on editing WordPress and plugin files, see [Editing Files](https://wordpress.org/support/article/editing-files/) (wordpress.org).
 
-</div>
-</div>
-</div>
+
 
 ## Step 2: Connect Channels
 
@@ -95,18 +75,11 @@ In the example screenshot above, we've created and connected two channels:
 1. a `US` channel with `term_id` `32` (primary), and
 1. a `UK` channel with `term_id` `31`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * The `term_id`s for your channels will probably be different
 
-</div>
-</div>
-</div>
+
 
 ## Step 2: Add the Plugin Code
 
@@ -150,19 +123,12 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * replace `31` in `get_term()` above with the `term_id` of your channel
 > * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
 
-</div>
-</div>
-</div>
+
 
 Here's what's happening in the example code:
 1. First enable multi-channel capabilities with `add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );`

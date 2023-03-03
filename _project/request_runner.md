@@ -1,12 +1,6 @@
 # Request Runner
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Adding a Button](#adding-a-button)
-- [Demo Buttons](#demo-buttons)
-
-</div>
 
 This page demos this Request Runner.
 

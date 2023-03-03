@@ -1,16 +1,6 @@
 # Anatomy of a Theme
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Directory Structure](#directory-structure)
-- [Images](#images)
-- [Layouts](#layouts)
-- [Panels](#panels)
-- [Snippets](#snippets)
-- [Styles](#styles)
-
-</div> 
+ 
 
 Themes are built using a powerful template system that enables designers and developers familiar with CSS and HTML to modify the presentation and structure of a BigCommerce store.
 

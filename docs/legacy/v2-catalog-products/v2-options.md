@@ -1,30 +1,13 @@
 # Product Options
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Options](#options)
-- [List Product Options](#list-product-options)
-- [Get a Product Option](#get-a-product-option)
-
-</div> 
-
 ## Options 
 
 Shared attributes that control value facets on a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
 
 ### Options Object – Properties 
 

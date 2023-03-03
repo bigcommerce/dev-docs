@@ -1,12 +1,6 @@
 # Add reCAPTCHA V2
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [How to Upgrade](#how-to-upgrade)
-- [Resources](#resources)
-
-</div> 
+ 
 
 reCAPTCHA v1 was deprecated as of March 31, 2018. To deter spam submission through storefront forms, BigCommerce now supports Google reCAPTCHA v2 challenges, to distinguish human customers/visitors from automated bots. We recommend that all storefront themes take advantage of this upgraded bot detection.
 
@@ -20,7 +14,7 @@ To add reCAPTCHA v2 support to a theme, you will need to update script reference
 * [{theme-name}templates/components/products/modals/writeReview.html](https://github.com/bigcommerce/cornerstone/pull/951/files#diff-945a5d7f1563068188ae39df568cfd43)
 * [{theme-name}/templates/components/pages/contact-us-form.html](https://github.com/bigcommerce/cornerstone/pull/951/files#diff-5351402159301e1c225752f03d9f1f8e)
 
-See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951) in the Cornerstone Github Repository to see differentials for each file that needs to be modified.
+See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951) in the Cornerstone GitHub Repository to see differentials for each file that needs to be modified.
 
 It is possible to add reCaptcha to the Login template. See the [Forms object](/stencil-docs/reference-docs/) for details.
 

@@ -1,22 +1,12 @@
 # Checkout/Confirmation Injection Options
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Adding Storewide Styles](#adding-storewide-styles)
-- [Applying Storewide Header](#applying-storewide-header)
-- [Applying Storewide Scripts](#applying-storewide-scripts)
-- [Adding Trust Seals](#adding-trust-seals)
-- [Checkout App Injection](#checkout-app-injection)
-- [Resources](#resources)
-
-</div>
 
 ## Adding Storewide Styles
 
 A prerequisite for the next two options is to add themewide styles to your Checkout or Order Confirmation page. To do so, add this statement:
 
-`{{{stylesheet '/assets/css/theme.css'}}}`
+`{{{stylesheet '/assets/css/theme.scss'}}}`
 
 ...before this statement, which is already present at the head of each template:
 
@@ -147,7 +137,7 @@ The following sections present examples of scripts that inject popular apps into
 
 ### Olark Live Chat
 
-As an example of injecting an app from the BigCommerce Apps Marketplace, you could enable the Olark Live Chat app on either page by by using the script manager or our new Scripts API:
+As an example of injecting an app from the BigCommerce App Marketplace, you could enable the Olark Live Chat app on either page by using the script manager or our new Scripts API:
 
 ```js
 <!-- begin olark code -->
@@ -246,7 +236,7 @@ loadaddrexx();
 ## Resources
 
 ### Related Endpoints
-* [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api)
+* [Scripts API](/api-reference/storefront/content-scripts-api)
 
 ### Related Articles
 * [Adding a GeoTrust SSL Seal to Your Store's Footer](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer) (BigCommerce Knowledge Base)

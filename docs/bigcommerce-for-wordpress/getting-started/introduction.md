@@ -1,13 +1,8 @@
 
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # Introduction
-<div class="otp" id="no-index">
 
-### On This Page
-- [How It Works](#how-it-works)
-
-</div>
 
 BigCommerce for WordPress allows you to power content-driven WordPress storefronts with the ecommerce functionality of BigCommerce. Product data is pulled into WordPress as a custom post type, giving you the freedom to embed products in posts and pages to create a tailored shopping experience. The plugin utilizes the full suite of BigCommerce APIs, allowing shoppers to seamlessly complete a purchase end-to-end on WordPress.
 
@@ -36,7 +31,9 @@ to
 
 Then, edit `wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php` to override the default content.
 
-**Note**: Most templates are used for rendering content inside of the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
+<!-- theme: info -->
+> #### Note 
+> Most templates are used for rendering content inside the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
 
 ### Shopper Experience
 
@@ -45,7 +42,7 @@ When a shopper proceeds to checkout, they land on the BigCommerce checkout page 
 
 ### Channels
 
-Channels allow you to manage products in BigCommerce and sell them on other storefronts, like one or more WordPress sites, or in marketplaces, like Amazon and Facebook. A key concept is that the products listed on other channels are managed centrally from your BigCommerce store, so inventory is tracked neatly across all channels. This means that if all of your product ends up being sold through Amazon, your Facebook store will also be sold out.
+Channels allow you to manage products in BigCommerce and sell them on other storefronts, like one or more WordPress sites, or in marketplaces, like Amazon and Facebook by Meta. A key concept is that the products listed on other channels are managed centrally from your BigCommerce store, so inventory is tracked neatly across all channels. This means that if all of your product ends up being sold through Amazon, your Facebook by Meta store will also be sold out.
 
 ### WordPress as a Channel
 

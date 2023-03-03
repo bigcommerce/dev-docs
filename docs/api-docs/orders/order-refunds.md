@@ -1,67 +1,68 @@
 # Order Refunds
 
-The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the the application possible without requiring merchants to return to their BigCommerce Control Panel.
 
-The first section of this article is a brief walkthrough of a refund example. Subsequent sections provide detailed information about refund request objects and batching.
 
----
-## Refund Endpoints
+[Order V3](/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 
-The Order API has two refund endpoints that handle processing refunds on a single order at a time.
+This article provides an overview of Order's V3 refund capabilities and includes a step-by-step example for creating a [single order refund](#single-order-refund-example).
 
-|Endpoint|Operations|Reference|
-|---|---|---|
-|`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)
-|`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)
-|`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for order ID `{id}`.|[Get Refunds For Order](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getorderrefunds)
-|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getrefunds)
+## Single order refund example
 
-## Single Order Refund Example
+Refunding an order consists of two API requests.
 
-Refunding a single order consists of two `POST` requests:
-1. `/orders/{id}/payment_actions/refund_quotes` to calculate amounts and get available payment methods
-2. `/orders/{id}/payment_actions/refunds` to create the refund
+|Request|Operation|Endpoint|Description|
+|-|-|-|-|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/api-reference/store-management/order-transactions/order-refunds/postrefundquote)|Calculate amounts and get payment methods|
+|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
 
-This refund example uses an order with the following properties:
+The example requests in this article use an order with the following properties:
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
 
-The refunded amount will include the shipping, tax, and product cost, a total of `$20.83`.
+The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote). Then, we will [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund) using the information contained in the [create refund quote response](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses).
 
-To refund the cost, we will create a refund quote. Then, we will create a refund using information from the quote.
-
-### Get Refund Quote
+## Creating refund quotes
 
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
-**Request**
-```json
+To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "items": [
     {
-      "item_type": "PRODUCT",
-      "item_id": 8,
-      "quantity": 1,
-      "reason": "Testing the Refund API!"
+      "item_type": "PRODUCT",  // Refund a product
+      "item_id": 8,            // Order product ID
+      "quantity": 1,           // Quantity to refund
     },
     {
-      "item_type": "SHIPPING",
-      "item_id": 9,
-      "amount": 10,
-      "reason": "Testing the Refund API!"
+      "item_type": "SHIPPING", // Refund shipping
+      "item_id": 9,            // Order address ID
+      "amount": 10,            // Amount to refund
+    },
+    {
+      "item_type": "ORDER",    // Tax-exempt order level refund
+      "item_id": 9,            // Order ID
+      "amount": 1,             // Amount to refund
     }
   ]
 }
 ```
 
->The `item_id` used in the request is the [Order Product](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts) `id` obtained by sending a `GET` request to `/orders/{order_id}/products`.
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) -->
 
-**Response**
+**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
+
 ```json
 {
   "data": {
-    "total_refund_amount": 20.83,
+    "total_refund_amount": 21.83,
     "total_refund_tax_amount": 0.83,
     "rounding": 0,
     "adjustment": 0,
@@ -72,66 +73,65 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
         {
           "provider_id": "braintree",
           "provider_description": "Store Credit",
-          "amount": 20.83,
+          "amount": 21.83,
           "offline": false,
           "offline_provider": false,
           "offline_reason": ""
         }
       ],
-      [
-        {
-          "provider_id": "testgateway",
-          "provider_description": "Test Payment Gateway",
-          "amount": 20.83,
-          "offline": false,
-          "offline_provider": false,
-          "offline_reason": ""
-        }
-      ]
+      ...
     ]
   },
   "meta": {}
 }
-=======
-      ]
-  },
-  "meta": {}
-}
-
->>>>>>> f5d5d94535ed33f87461392704bd72b1394cdac0
 ```
 
-### Create the Refund
+<!-- theme: info -->
+> #### Note
+> * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
+> * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
 
-Use the `provider_id`, the amount and items from the refund quote, to create the refund:
+## Creating a refund
 
-**Request**
+Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
 
-```json
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "items": [
     {
-      "item_id": 8,
-      "item_type": "PRODUCT",
-      "quantity": 1
+      "item_type": "PRODUCT",  // Refund a product
+      "item_id": 8,            // Order product ID
+      "quantity": 1            // Quantity to refund
     },
     {
-      "item_id": 9,
-      "item_type": "SHIPPING",
-      "amount": 10
+      "item_type": "SHIPPING", // Refund shipping
+      "item_id": 9,            // Order address ID
+      "amount": 10             // Amount to refund
+    },
+    {
+      "item_type": "ORDER",   // Tax-exempt order level refund
+      "item_id": 123,         // Order ID
+      "amount": 1,            // Amount to refund
     }
   ],
   "payments": [
     {
       "provider_id": "braintree",
-      "amount": 20.83,
+      "amount": 21.83,
       "offline": false
     }
   ]
 }
-```  
+```
 
-**Response**
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
+
+**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
 
 ```json
 {
@@ -173,11 +173,97 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
 }
 ```
 
-## Offline Order Refunds
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
 
-Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds can not be refunded directly back to the payment source through the BigCommerce Order Refund API.
+## Creating order level refunds
+
+To refund a tax-exempt custom amount at the order level, set `item_type` to `ORDER` and specify the `amount` to refund.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "order_id": 1234,
+  "items": [
+    {
+      "item_type": "ORDER", // Refund a tax-exempt custom amount
+      "item_id": 1234,      // Order ID
+      "amount": 1,          // Amount to refund
+    }
+  ],
+  "payments": [...]
+}
+```
+
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
+
+## Refunding shipping and handling
+
+To refund shipping or handling, set `item_type` to `SHIPPING` or `HANDLING` and specify the `amount` to refund.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "order_id": 1234,
+  "items": [
+    {
+      "item_type": "SHIPPING", // Refund shipping
+      "item_id": 456,          // Order address ID
+      "amount": 1,             // Amount to refund
+    }
+  ],
+  "payments": [...]
+}
+```
+
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
+
+## Refunding products and gift wrapping
+
+To refund a product or gift wrapping, set `item_type` to `PRODUCT` or `GIFT_WRAPPING` and specify the `quantity` to refund.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "order_id": 1234,
+  "items": [
+    {
+      "item_type": "PRODUCT",       // Refund a product
+      "item_id": 1234,              // Order product ID
+      "quantity": 1,                // Quantity to refund
+    },
+    {
+      "item_type": "GIFT_WRAPPING", // Refund gift wrapping
+      "item_id": 1234,              // Order product ID
+      "quantity": 1,                // Quantity to refund
+    }
+  ],
+  "payments": [...]
+}
+```
+
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
+
+## Offline order refunds
+
+Payments collected outside of BigCommerce can be marked as offline when creating a refund. Marking payments as offline is a way to keep track of which portions of an order you refunded. However, no funds were collected. If you did not receive payment using BigCommerce, then the funds can not be refunded directly to the payment source using BigCommerce's refund endpoints.
 
 ## FAQ
+
+**Is it possible to create a refund without using an item from the order?**
+
+Yes. Set `item_type` to `ORDER` and specify an `amount` to refund. For more information, see [create order level refunds](#creating-order-level-refunds).
 
 **Can I just skip creating the quote and go straight to processing a refund?**
 
@@ -193,20 +279,30 @@ Use the V2 Orders Endpoint to get the required ID:
   - `HANDLING` -- Order Address ID
   - `ORDER` -- Order ID
 
-**Will this trigger an email to the merchant?**
+**Will this trigger an email to the shopper?**
 
-Yes, if the store is configured to send an email when an order status changes to _Refunded_ or _Partially Refunded_.
+Yes, if you configure the store to send an email when an order status changes to _Refunded_ or _Partially Refunded_.
 
 **How do I get a list of  `provider_id`s?**
 
-The `provider_id`s are only exposed as part of POST Refund Quote.
+The POST Refund Quote exposes `provider_id`s.
 
 **Will a refunded item be returned to inventory?**
 
-No, items refunded via API will not be returned to inventory. You can either update the inventory directly on the product's page or use the [Control Panel](https://support.bigcommerce.com/s/article/Inventory-Tracking#levels) to change the inventory.
+No, you cannot return items to inventory that you refunded via API. You can either update the inventory directly on the product's page or use the [Control Panel](https://support.bigcommerce.com/s/article/Inventory-Tracking#levels) to change the inventory.
 
 ## Troubleshooting
 
-* Before a refund can be issued, the order must have already been paid.
-* If a payment gateway is used, it must support refunds. For a list of payment gateways that support refunds through BigCommerce, see the Supported Payment Gateways section in [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
-* If a payment gateway is used, Payments must be settled. Some gateways require a certain amount of time to pass before refunds can be processed.
+* You must receive payment of the order before you can issue a refund.
+* If you use a payment gateway, it must support refunds. For a list of payment gateways that support refunds through BigCommerce, see the Supported Payment Gateways section in [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
+* If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before you can process refunds.
+
+## Related resources
+
+### Articles
+* [Orders Overview](/api-docs/store-management/orders)
+* [Order Webhook Events](/api-docs/store-management/webhooks/webhook-events#orders)
+
+### Endpoints
+* [Orders V2 Reference](/api-reference/store-management/orders)
+* [Orders V3 Reference](/api-reference/store-management/order-transactions)

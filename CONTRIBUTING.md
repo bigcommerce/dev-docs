@@ -5,7 +5,7 @@
 - [Editing Using Stoplight Studio](#editing-using-stoplight-studio)
 - [Commit Messages](#commit-messages)
 - [Style Guides](#style-guides)
-- [Linting &amp; Spell Checking](#linting-amp-spell-checking)
+- [Linting &amp; Spell Checking](#linting--spell-checking)
 - [Contributing to Other Projects](#contributing-to-other-projects)
 
 Thanks for showing interest in contributing!

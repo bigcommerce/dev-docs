@@ -1,29 +1,18 @@
 # GraphQL Storefront API Example Queries
 
-<div class="otp" id="no-index">
 
-### On this Page
 
-- [Get a Customer's Details](#get-a-customers-details)
-- [Get First Three Levels of Category Tree](#get-first-three-levels-of-category-tree)
-- [Get Category and Children by URL](#get-category-and-children-by-url)
-- [Get Multiple Objects by URL](#get-multiple-objects-by-url)
-- [Get Product's Images at Different Resolutions](#get-products-images-at-different-resolutions)
-- [Get A Single Product](#get-a-single-product)
-- [Get Variant Details as a Product Object](#get-variant-details-as-a-product-object)
-- [Get Product Option Details by Product ID](#get-product-option-details-by-product-id)
-- [Get Refined Product Object for Given Options](#get-refined-product-object-for-given-options)
-- [Get Product Swatch Option Values](#get-product-swatch-option-values)
+Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
-</div>
+<!-- theme: warning -->
+> #### Note
+> * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
 
-Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
-<a id="get-a-customers-details" class="devdocsAnchor"></a>
 
-## Get a Customer's Details
+## Get a customer's details
 
-```javascript
+```graphql title="Example query: Get a customer's details" lineNumbers
 query CustomerAttributes {
   customer {
     firstName
@@ -48,9 +37,9 @@ query CustomerAttributes {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get First Three Levels of Category Tree
+## Get first three levels of category tree
 
-```javascript
+```graphql title="Example query: Get first three levels of category tree" lineNumbers
 query CategoryTree3LevelsDeep {
   site {
     categoryTree {
@@ -74,9 +63,9 @@ fragment CategoryFields on CategoryTreeItem {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=categoryTree" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Category and Children by URL
+## Get category and products within by URL
 
-```javascript
+```graphql title="Example query: Get category and products within by URL" lineNumbers
 query CategoryByUrl {
   site {
     route(path: "/shop-all/") {
@@ -129,9 +118,9 @@ fragment PriceFields on Money {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Multiple Objects by URL
+## Look up an object by URL
 
-```js
+```graphql title="Example query: Look up an object by URL" lineNumbers
 query LookUpUrl {
   site {
     route(path: "/shop-all/") {
@@ -170,9 +159,9 @@ query LookUpUrl {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Product's Images at Different Resolutions
+## Get product images at different resolutions
 
-```js
+```graphql title="Example query: Get product images at different resolutions" lineNumbers
 query SrcsetImages {
   site {
     product(entityId: 123) {
@@ -193,9 +182,9 @@ query SrcsetImages {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=productImages" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get A Single Product
+## Get a product
 
-```js
+```graphql title="Example query: Get a product" lineNumbers
 query SingleProduct {
   site {
     products (entityIds: [4917]) {
@@ -219,9 +208,9 @@ query SingleProduct {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Variant Details as a Product Object
+## Get variant details as a product object
 
-```js
+```graphql title="Example query: Get variant details as a product object" lineNumbers
 query VariantById {
   site {
     product(variantEntityId: 27098) {
@@ -263,40 +252,35 @@ fragment DimensionFields on Measurement {
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
-</div>
-</div>
-</div>
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Product Option Details by Product ID
+## Get product option details by product ID
 
-```js
+```graphql title="Example query: Get product option details by product ID" lineNumbers
 query SeveralProductsByID {
   site {
     products(entityIds: [1, 2, 3]) {
       edges {
         node {
           name
-          options {
+          productOptions {
             edges {
               node {
                 entityId
                 displayName
                 isRequired
-                values {
-                  edges {
-                    node {
-                      entityId
-                      label
+                ... on MultipleChoiceOption {
+                  values {
+                    edges {
+                      node {
+                        entityId
+                        label
+                      }
                     }
                   }
                 }
@@ -312,9 +296,9 @@ query SeveralProductsByID {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=productOptions" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Refined Product Object for Given Options
+## Get refined product object for given options
 
-```js
+```graphql title="Example query: Get refined product object for given options" lineNumbers
 query ProductsWithOptionSelections {
   site {
     product123: product(
@@ -344,15 +328,14 @@ fragment ProductFields on Product {
     url(width: 1000)
   }
   sku
-  availability
 }
 ```
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Product Swatch Option Values
+## Get product swatch option values
 
-```js
+```graphql title="Example query: Get product swatch option values" lineNumbers
 query {
   site {
     products (first: 3) {

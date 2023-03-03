@@ -1,0 +1,99 @@
+# Installing a Custom Checkout
+
+You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and install a custom checkout via the control panel.
+
+This article will address using both [Open Source Checkout](https://github.com/bigcommerce/checkout-js) and [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) powered checkouts.
+
+## Obtaining the JavaScript loader file
+Custom checkouts must have a single JS loader file. The first step to using a custom checkout is generating this file. The loader file must be responsible for the following:
+
+* Loading all the required assets, including all CSS files no matter the location
+* Running the app
+
+## Developing a custom checkout
+
+If you wish to customize a checkout, follow the steps below:
+
+1. Please get in touch with support to prevent the CSS of default checkout from overriding the CSS of custom checkout. 
+2. Enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure there is a single source of truth for handling styles. NOTE: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
+
+### Packaging custom checkouts with Open Source Checkout
+
+If using Open Source Checkout, you can generate the loader file by following these steps:
+
+1. Navigate and locate the Open Source Checkout folder using the terminal, and run `npm ci` to download dependencies
+2. Run `npm run build` to generate a `/dist/` folder with all the files
+
+When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom checkout. More details are below.
+
+### Properties available on the checkout page
+When a store uses custom checkout, some properties are attached to the `window.checkoutConfig` object on the checkout page. These properties are:
+
+* `containerId`: ID of the HTML component where you load the checkout app.
+* `orderId`: If present, it means we should render an order confirmation page for the given order ID.
+* `checkoutId`: If present, the ID of the active checkout. You can't have both `orderId` and `checkoutId`.
+* `publicPath`: If present, the public URL of the custom checkout file's directory.
+
+To use the data exposed in the window object, include relevant code in your loader file. Here is an example of this code :
+
+```js
+ReactDOM.render(
+  <Checkout checkoutId={ window.checkoutConfig.checkoutId } />,
+  document.getElementById(window.checkoutConfig.containerId)
+);
+```
+
+## Hosting a custom checkout
+
+You will need to host the custom checkout file online so it can be served by the store. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine.
+
+### Using WebDAV to host a custom checkout
+
+You can upload a custom checkout to your store's server using WebDAV. The instructions to upload the `/dist` folder to the BigCommerce server using WebDav are below:
+
+1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client. For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page.
+2. From your active MSF-enabled store control panel, navigate to **Settings** > **Advanced** > **File access (WebDAV)**.
+    - To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+    - To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+3. From Cyberduck, enter the `/content` folder and create a new folder named *checkout*.
+4. Navigate into the `/dist` folder in your checkout project.
+5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
+
+## Installing custom checkouts  
+
+You can install a custom checkout on a store in the following two ways:
+
+* [Install using the control panel](#install-using-the-control-panel)
+* [Install using the V3 Checkout API](#install-using-the-V3-checkout-API)
+
+
+### Install using the control panel
+To install a custom checkout on a store, follow these steps:
+
+1. Navigate to **Settings** > **Advanced** > **Checkout** in your active MSF-enabled store's control panel.
+2. Under **Checkout Type**, select **Custom Checkouts**.
+3. Type the following in the **Script URL** field, replacing <version> with the latest version number generated by running the `npm run release:alpha` command:
+  ```
+  webdav:checkout/auto-loader-<version>.js
+  ```
+  NOTES:
+  
+  *Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
+  
+  *It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
+  
+  ![custom-checkout-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/custom-checkout-01.png "Custom Checkout")
+ 
+4. Click the **Save** button at the bottom of the page.
+5. Navigate to your live storefront to view your new custom checkout.
+
+### Install using the V3 Checkout API
+
+To install a custom checkout on a store, use the [Update Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) endpoint to install the loader file.
+  
+## Related resources
+
+### Articles
+- [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk)
+- [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
+- [Installing Custom Checkouts in the Control Panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel)

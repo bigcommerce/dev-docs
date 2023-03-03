@@ -1,235 +1,188 @@
-# Widgets Tutorial
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-	  <li><a href="#widget-tutorial_prerequisites">Prerequisites</a></li>
-        <li><a href="#widget-tutorial_add-a-region">Add a Region</a></li>
-        <li><a href="#widget-tutorial_create-widget-template">Create a Widget Template</a></li>
-        <li><a href="#widget-tutorial_create-widget">Create a Widget</a></li>
-        <li><a href="#widget-tutorial_create-placement">Create the Placement</a></li>
-    		<li><a href="#widget-tutorial_reuse-widget-template">Reuse the Widget</a></li>
-	</ul>
-</div>
+# Create and Place a Widget
 
-In this tutorial, we will cover:
-* Creating a Region
-* Creating a Widget Template
-* Creating a Widget
-* Placing the Widget
 
-This tutorial assumes knowledge of [Widgets](/api-docs/storefront/widgets/widgets-overview). 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-### Cornerstone Theme
-> The instructions below use the Cornerstone Theme. Your theme may differ.
+BigCommerce's [Widgets API](/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
 
-</div>
-</div>
-</div>
+In this tutorial, you will create a [widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-tutorial-01.gif) (GitHub) that displays a row of three images and place that widget in a designated region on a category page of BigCommerce's [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
-<a id="widget-tutorial_prerequisites"></a>
+###  Prerequisites
 
-##  Prerequisites:
-* Stencil Theme. This tutorial uses Cornerstone.
-* Scopes  
-The following Oauth scopes are required:
-	* [Content](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to Modify
-* Image URL. If you don’t have one, there is an example in the tutorial.
-* Category Page ID. A [GET Categories](/api-reference/catalog/catalog-api/category/getcategories) request will returns a list of category IDs.
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
+* API `access_token` with `content modify` scope.
+* Knowledge of the [Widgets API](/api-docs/storefront/widgets/widgets-overview).
 
-To follow along we have created a Postman collection.
+To edit and preview theme files locally, we recommend using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce's powerful theme development and deployment tool.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/068117f7cbf510527e49)
+## Create a region
 
-We will be making a widget that shows three images, with a hover effect and each image linking out to a different location. 
+For a widget to appear on a store's page, you have to place it in a region. Regions are added and removed at the file level by editing a page's template. 
 
-<!--
-    title: #### Category Page Widget
+Let's start by adding a new region called `category_header_banner` to your store's category page template. You will use this region to position your widget later.
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416
--->
-
-![#### Category Page Widget
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416 "#### Category Page Widget
-")
-
-## Add a Region
-In <span class="fp">templates/pages/category.html</span>, add `{{{region name="category_header_banner"}}}` below the page heading: 
+In `templates/pages/category.html`, add a new region `{{{region name="category_header_banner"}}}` below the page heading.
 
 ```html
-<!-- ... -->
 {{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}
+    <h1 class="page-heading">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
 {{/unless}}
-
+<!-- Add category_header_banner region -->
+{{{region name="category_header_banner"}}}
+<!-- End of Add category_header_banner region -->
 {{{category.description}}}
-<!-- ... -->
-<div class="page">
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
+If you are using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundle your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands) article.
+
 <!-- theme: info -->
-> Regions can only be added to files under pages/templates, including subfolders.
+> #### Note
+> * You can add regions to templates in the [`templates/pages/`](/stencil-docs/storefront-customization/directory-structure) folder.
+> * To edit theme files locally, use [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil).
+> * To edit theme files in the control panel, use [Page Builder](https://support.bigcommerce.com/s/article/Stencil-Themes#edit).
 
-</div>
-</div>
-</div>
 
-To check the region was added successfully, use [Get Content Regions](/api-reference/storefront/widgets-api/regions/getcontentregions):
 
-**`GET`** `https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions`
+### Verify region creation
 
-<!--
-title: "Sample Response"
-subtitle: "Get Content Regions"
-lineNumbers: true
--->
+To verify region creation, send a `GET` request to [`/v3/content/regions?template_file=pages/category`](/api-reference/storefront/widgets-api/regions/getcontentregions). Make sure to specify the  `template_file=pages/category` query string parameter to get the category template's regions.
+
+```http
+GET /stores/{{STORE_HASH}}/v3/content/regions?template_file=pages/category
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+```
+
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner) -->
+
+Look for the region's name in the response.
 
 ```json
 {
-"data": [
+  "data": [
     {
-        "name": "header_bottom"
+      "name": "header_bottom"
     },
     {
-        "name": "category_header_banner"
+      "name": "category_below_header"
+    },
+    {
+      "name": "category_header_banner"
     }
-],
-"meta": {}
+  ],
+  "meta": {}
 }
 ```
 
-## Create a Widget Template
+## Create a widget template
 
-Widget Templates are the reusable piece of structure. In this walkthrough we are creating a header image. `image_source` is set using handlebars so the header image can be changed every time the template is reused. The template also takes advantage of conditional logical with `#each images`. Instead of creating a template with three lines of code for each image, one line can loop through each image provided. 
+Widgets derive from widget templates. Before you can create a widget, you must first create its template. To do so, send a `POST` request to [`/v3/content/widget-templates`](/api-reference/storefront/widgets-api/widget-template/createwidgettemplate).
 
-* name -- Name of the widget template (required)
-* template -- Html to create the widget template (required)
+```http
+POST /stores/{{store_hash}}/v3/content/widget-templates
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-In the response the Widget Template UUID returned. Make note of it for use later when creating the Widget.
-
-**Example Create Widget Template**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
-
-```json
 {
   "name": "Header Images",
   "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}"
 }
 ```
 
-<!--
-title: "Sample Response "
-subtitle: "Create Widget Template"
-lineNumbers: true
--->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) -->
 
-**Example Response Create Widget Template**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
+**Response:**
 
 ```json
 {
-    "data": {
-        "uuid": "3a1b0044-c9b3-47d3-9929-01ab0c20243b",
-        "name": "Header Images",
-        "schema": [],
-        "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
-        "date_created": "2019-02-25T18:35:04.904Z",
-        "date_modified": "2019-02-25T18:35:04.904Z",
-        "kind": "custom"
-    },
-    "meta": {}
+  "data": {
+    "channel_id": 1,
+    "client_rerender": false,
+    "current_version_uuid": "c48b131a-ae9d-4767-b5d6-63d9e43bcf75",
+    "date_created": "2020-11-03T18:51:22.877Z",
+    "date_modified": "2020-11-03T18:51:22.877Z",
+    "icon_name": "default",
+    "kind": "custom",
+    "name": "Header Images",
+    "schema": [],
+    "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
+    "uuid": "{your-widget-template-uuid}"
+  },
+  "meta": {}
 }
 ```
 
-## Create a Widget
+<!-- theme: info -->
+> #### Note
+> * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
+> * Multiple widgets can use the same widget template.
 
-Here, we will use the Widget Template to add the links and the images. There are many ways to use widget templates and we will go over just one. For more examples, see [Code Samples](/api-docs/storefront/widgets/widgets-code-samples). 
 
-* name -- Something short and descriptive. (required)
-* description -- a longer explanation if needed (not required)
-* widget_configuration -- Based on the original widget_template configuration and can vary by the widget created.
-	* image_source -- Since this is the handlebar placeholder, it requires an image value.
-* widget_template_uuid -- UUID from the Widget Template response.
 
-For widget_configuration `images is the top level array, with `image_url` and `image_source` for each object. There are three images in this example since the width of each was set to 33.3%.
+## Create a widget
 
-In the response the Widget UUID is returned. Make note of it for use later when creating the Placement.
+To create a widget, use the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the `widget_template_uuid` placeholder value with your template's `uuid`.
 
-<!--
-title: "Sample Response"
-subtitle: "Create a Widget"
-lineNumbers: true
--->
 
-**Example Create a Widget**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widgets`
+```http
+POST /stores/{{STORE_HASH}}/v3/content/widgets
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-```json
 {
-    "data": {
-        "uuid": "a8940709-5655-4401-a341-62c44e3180b2",
-        "name": "Header Images",
-        "widget_configuration": {
-            "images": [
-                {
-                    "image_url": "{where-the-image-should-link-to}",
-                    "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on"
-                },
-                {
-                    "image_url": "{where-the-image-should-link-to}",
-                    "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on"
-                },
-                {
-                    "image_url": "{where-the-image-should-link-to}",
-                    "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on"
-                }
-            ],
-            "_": {
-                "id": "a8940709-5655-4401-a341-62c44e3180b2"
-            }
-        },
-        "widget_template": {
-            "uuid": "3a1b0044-c9b3-47d3-9929-01ab0c20243b",
-            "name": "Header Images",
-            "schema": [],
-            "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
-            "date_created": "2019-02-25T18:35:04.904Z",
-            "date_modified": "2019-02-25T18:35:04.904Z",
-            "kind": "custom"
-        },
-        "date_created": "2019-02-25T18:36:45.238Z",
-        "date_modified": "2019-02-25T18:36:45.238Z",
-        "description": ""
-    },
-    "meta": {}
+  "name": "Header Images",
+  "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
+  "widget_configuration": {
+  	"images": [{
+  	"image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on"
+  	},
+  	{
+  	"image_source":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on"
+  },
+  {
+  "image_source":
+  	"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on"
+	}
+  ]
+  },
+  "widget_template_uuid":"{your-widget-template-uuid}"
 }
 ```
 
-## Create the Placement
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget/createwidget#requestrunner) -->
 
-Placement defines the page and region where the widget should appear. Remember that [Placements](/api-docs/storefront/widgets/widgets-overview#widgets_placements) can either lead to a Layout or they can be used on their own. In this walkthrough we will use Layouts. 
+| Property | Description |
+|---|---|
+| `name` | widget name displayed to user (required) |
+| `description` | widget description displayed to user (optional) |
+| `template` | widget's template; overrides `widget_template_uuid` template |
+| `widget_configuration` | data for Handlebars context |
+| `widget_template_uuid` | default template `uuid` |
 
-* widget_uuid -- UUID of the Widget
-* entity_id -- The page, category, brand or product ID the widget should appear on
-* sort_order -- If there is more than one Widget on a page, use the sort order to control the order they are displayed
-* region -- region the template will show. It should match the template file
-* template_file -- template file the region was added to
-* status -- if the widget is active or inactive
+<!-- theme: info -->
+> #### Note
+> * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
 
-If you wanted to see the results of the Widget without a layout, use the Placement without the layout code sample below. If you would like to learn more about Layouts use the Create Placement code sample below. 
 
-**Example Create a Placement**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/placements`
 
-```json
+## Create a placement
+
+In the control panel UI, users can drag and drop widgets to place them in a region on a page. For this tutorial, we will use the Widgets API to place the widget programmatically. 
+
+To place your widget in the `category_header_banner` region of a category page, send a `POST` request to [`/v3/content/placements`](/api-reference/storefront/widgets-api/placement/createplacement).
+
+```http
+POST /stores/{{store_hash}}/v3/content/placements
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "widget_uuid": "{your-widget-uuid}",
   "entity_id": "{your-category-id}",
@@ -240,83 +193,135 @@ If you wanted to see the results of the Widget without a layout, use the Placeme
 }
 ```
 
-<!--
-title: "Sample Response"
-subtitle: "Create Placement"
-lineNumbers: true
--->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/placement/createplacement#requestrunner) -->
 
-**Example Response Create Placement**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/placements`
+| Property | Description |
+|---|---|
+| `widget_uuid` | UUID of the widget |
+| `entity_id` |  page, category, brand, or product ID |
+| `sort_order` | widget placement order |
+| `region` | region to place the widget in |
+| `template_file` | template file to target|
+| `status` | active or inactive |
+
+`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`; the widget will appear on all category pages.
+
+## Create a custom template placement
+
+It is possible to place a widget on a custom template. Just like with other pages, you must first add a region and then create a placement for your widget as described in [Create a region](#create-a-region) and [Create a placement](#create-a-placement) steps, respectively. 
+
+In this section, you will create a custom category template which you can then use to place your widget.
+
+1. In the `/templates/pages` folder, create a `/custom/category` folder and add a `custom-category.html` file.
+
+![Custom Template 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-custom-template-01.png "Custom Template 01")
+
+2. Add template content and a new region. (You can copy the content from `category.html`.)
+
+3. Open the `config.stencil.json` file and update the `custom-category.html` property. The URL you define in `config.stencil.json` will be used for category mapping.
 
 ```json
 {
-    "data": {
-        "uuid": "bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08",
-        "template_file": "pages/category",
-        "region": "",
-        "sort_order": 0,
-        "entity_id": "21",
-        "status": "active",
-        "widget": {
-            "uuid": "a8940709-5655-4401-a341-62c44e3180b2",
-            "name": "Header Images",
-            "widget_configuration": {
-                "images": [
-                    {
-                        "image_url": "{where-the-image-should-link-to}",
-                        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on"
-                    },
-                    {
-                        "image_url": "{where-the-image-should-link-to}",
-                        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on"
-                    },
-                    {
-                        "image_url": "{where-the-image-should-link-to}",
-                        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on"
-                    }
-                ],
-                "_": {
-                    "id": "a8940709-5655-4401-a341-62c44e3180b2"
-                }
-            },
-            "widget_template": {
-                "uuid": "3a1b0044-c9b3-47d3-9929-01ab0c20243b",
-                "name": "Header Images",
-                "schema": [],
-                "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
-                "date_created": "2019-02-25T18:35:04.904Z",
-                "date_modified": "2019-02-25T18:35:04.904Z",
-                "kind": "custom"
-            },
-            "date_created": "2019-02-25T18:36:45.238Z",
-            "date_modified": "2019-02-25T18:36:45.238Z",
-            "description": ""
-        },
-        "date_created": "2019-02-25T18:37:10.658Z",
-        "date_modified": "2019-02-25T18:37:10.658Z"
+  "customLayouts": {
+    "brand": {},
+    "category": {
+      "custom-category.html": "/custom-widget-templates/"
     },
-    "meta": {}
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "{STORE URL}",
+  "port": "3000"
 }
-
 ```
 
-## Reuse the Widget Template
+If using Stencil CLI, push and apply your changes.
 
-Now that the Widget Template has been created it can be reused on a different page again. 
+4. To create a new category using the [Catalog API](/api-reference/store-management/catalog), send a `POST` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/createcategory). Use the URL defined in the `config.stencil.json` category mapping. In our example, it is `/custom-widget-templates/`.
 
-To reuse the Widget Template:
-* Choose where to display the widget by either creating a [Region](/api-reference/storefront/widgets-api/regions/getcontentregions) or use and existing one
-* Decide if the Widget should appear on all pages or if it should use an `entity_id`
-* Get the [Widget Template ID](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates)
-* [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
-* [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
+```http
+POST /stores/{{store_hash}}/v3/catalog/categories
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-## Resources
+{
+  "custom_url": {
+    "is_customized": false,
+    "url": "/custom-widget-templates/"
+  },
+  "default_product_sort": "use_store_settings",
+  "description": "<p>Custom category</p>",
+  "is_visible": true,
+  "layout_file": "custom-category.html",
+  "name": "Custom Category",
+  "sort_order": 1,
+  "parent_id": 0
+}
+```
 
-### Related Endpoints
-* [Widgets API](/api-reference/storefront/widgets-api)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/category/createcategory#requestrunner) -->
 
-### Related Articles
-* [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
-* [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
+5. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
+
+## Create a user interface
+
+BigCommerce's [Page Builder](/stencil-docs/page-builder/page-builder-overview) tool allows you to customize different style elements of your theme in the store's control panel. You can use Page Builder to configure and place widgets onto pages to tailor your storefront. To make your widget compatible with Page Builder, add custom configuration settings to the widget template by including the `schema` property in the [create widget template](#create-a-widget-template) request. 
+
+The following is an example of a widget template compatible with Page Builder.
+
+```json
+{
+   "name":"Header Images",
+   "template":"{{#each images}}<a href='{{link}}'><img src={{imageUrl.src}} style='width:33.3%'/></a>{{/each}}",
+   "schema":[
+      {
+         "type":"array",
+         "label":"Images",
+         "id":"images",
+         "defaultCount":3,
+         "entryLabel":"Image",
+         "thumbnail":"imageUrl.src",
+         "schema":[
+            {
+               "type":"tab",
+               "label":"Content",
+               "sections":[
+                  {
+                     "settings":[
+                        {
+                           "type":"imageManager",
+                           "id":"imageUrl",
+                           "default":{
+                              "src":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on",
+                              "type":"IMAGE_MANAGER"
+                           }
+                        },
+                        {
+                           "label":"Link",
+                           "type":"input",
+                           "id":"link",
+                           "default":"#"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+```
+
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/widget-template/createwidgettemplate#requestrunner) -->
+
+To learn more about Page Builder, see [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview).
+
+## Related resources
+
+### Articles
+
+* [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder)
+* [Widgets Overview](/api-docs/store-management/widgets/overview)
+* [Widgets Code Samples](/api-docs/store-management/widgets/samples)

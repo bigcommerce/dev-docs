@@ -1,30 +1,14 @@
 # Checkout Styling
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Customization Options/Restrictions](#customization-optionsrestrictions)
-- [Configuring the Desktop Viewport](#configuring-the-desktop-viewport)
-- [Deploying Custom CSS](#deploying-custom-css)
-- [Classes Provided](#classes-provided)
-- [CSS Skeleton](#css-skeleton)
-
-</div> 
+ 
 
 To support stores that enable BigCommerce's Optimized One-Page Checkout feature, you can customize the Optimized Checkout page's styling within your theme. You do this by adding custom CSS to the `optimized-checkout-webdav.css` template file that we provide. You can copy the CSS [below](#css-skeleton).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--success">
-<div class="HubBlock-content">
-    
 <!-- theme: success -->
-
-### Function Names
+> #### Function Names
 > Although you will see references to "Stencil" functions throughout this template file's CSS, this version of the CSS is designed to be fully compatible with Blueprint themes.
 
-</div>
-</div>
-</div>
+
 
 ## Customization Options/Restrictions 
 
@@ -36,23 +20,8 @@ The structure and class naming are reserved because each class here maps to mult
 
 Within the CSS file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
-
-// TODO:
-// Configure media query to be 'desktop' breakpoint size
-// --
+```css title="Configure media query to be 'desktop' breakpoint size" lineNumbers
 @media (min-width: 801px) {
     text-align: stencilString("optimizedCheckout-logo-position");
 }
@@ -64,7 +33,7 @@ For other customization options, please see the class descriptions [below](#clas
 
 To deploy your custom CSS to a BigCommerce store, you will need to upload your `optimized-checkout-webdav.css` file (once customized) via WebDAV. 
 
-For a general overview of the process, please see [this support article](https://support.bigcommerce.com/articles/Public/Accessing-and-Customizing-Template-Files/). Place your customized `optimized-checkout-webdav.css` file directly within WebDAV's `/content/` folder.
+For a general overview of the process, please see [this support article](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-template). Place your customized `optimized-checkout-webdav.css` file directly within WebDAV's `/content/` folder.
 
 For details on interacting with WebDAV, please see [this article](https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav).
 
@@ -91,19 +60,7 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 
 You can copy and modify the template `optimized-checkout-webdav.css` file's current contents directly from this documentation, below: 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="optimized-checkout-webdav.css" lineNumbers
 /* 
 // =============================================================================
 // Stencil Checkout - Customize the Optimized Single-Page Checkout experience

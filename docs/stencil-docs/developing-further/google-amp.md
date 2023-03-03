@@ -1,14 +1,8 @@
 # Google AMP
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Implementing AMP](#implementing-amp)
-- [Location of AMP Files](#location-of-amp-files)
-- [Local Testing](#local-testing)
-- [Resources](#resources)
-
-</div> 
+<!-- theme: warning -->
+> ### Warning
+> Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
 
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
@@ -18,19 +12,11 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 - Google AMP has a positive effect on your store’s Search Engine Optimization (SEO).
 - AMP websites are more accessible in search results.
 
-The article will walk you through enabling Google AMP pages in your theme. 
+The article will walk you through enabling Google AMP pages in your theme.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:info  -->
-#### Cornerstone
+<!-- theme: info -->
+> #### Cornerstone
 > This example uses Cornerstone.
-
-</div>
-</div>
-</div>
 
 ## Implementing AMP
 
@@ -46,46 +32,19 @@ Ensure the Google Analytics ID has been added in the control panel. This is what
 
 In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template files replace `theme_settings` with `settings`.
 
-Example: In `layout/amp.html` (referenced below) replace `theme_settings.amp_analytics_id` with
-`settings.amp_analytics_id`.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">templates/layout/amp.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "templates/layout/amp.html"
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```handlebars title="Example replacement of amp_analytics_id property templates/layout/amp.html" lineNumbers
 {{{snippet 'htmlhead'}}}
-         <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-         <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-			  {{#if settings.amp_analytics_id}}
-         			<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-         {{/if}}
-         {{#block "amp-scripts"}}{{/block}}
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    {{#if settings.amp_analytics_id}}
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    {{/if}}
+    {{#block "amp-scripts"}}{{/block}}
 ```
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">config.json</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "config.json"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Ensure google_amp appears in the 'features' array config.json" lineNumbers
   "features": [
       "fully_responsive",
       "mega_navigation",
@@ -119,7 +78,7 @@ If you are having any implementation issues, review the [full Pull Request #964]
 In versions 1.6.0+ of Cornerstone, there are a few key file locations where the AMP information is located:
 
 * Base AMP layout template is located in [templates/layout/amp.html](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
-* The files for Google AMP are located in [/templates/pages/amp](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages/amp). This is where `product.html` and `category.html` are located. (Note: there may be other files in this folder, but the product and category pages are the only one pages that currently support Google AMP).
+* The files for Google AMP are located in [/templates/pages/amp](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages/amp). This is where `product.html` and `category.html` are located. (Note: There may be other files in this folder, but the product and category pages are the only pages that currently support Google AMP).
 * The CSS is located in [templates/components/amp/css](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/amp/css).
 
 After the Google Analytics ID has been added via Control Panel, you can toggle AMP on the product and category pages using the [settings](https://support.bigcommerce.com/articles/Public/Google-AMP?_ga=2.205799699.1406470381.1541441523-967431010.1523308107) there.

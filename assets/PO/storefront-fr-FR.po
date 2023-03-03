@@ -1,0 +1,578 @@
+# entity_escaping_strategy = propagate
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-10-06T16:43:04+00:00\n"
+"PO-Revision-Date: 2020-10-06T16:43:04+00:00\n"
+"Language: fr-FR\n"
+
+msgid ""
+"The coupon code you entered couldn't be applied to any items in your order."
+msgstr ""
+"Le code promotionnel que vous avez saisi n'a pas pu être appliqué aux "
+"articles de votre commande."
+
+msgid ""
+"There was an error updating your billing address. Please check all fields "
+"are correct and try again."
+msgstr ""
+"Une erreur est survenue lors de la mise à jour de votre adresse de "
+"facturation. Veuillez vérifier que tous les champs sont corrects et "
+"réessayer."
+
+msgid "My Account"
+msgstr "Mon compte"
+
+msgid "You have requested an invalid product download. Please try again."
+msgstr ""
+"Vous avez demandé le téléchargement d'un produit non valide. Veuillez "
+"réessayer."
+
+msgid "This download has expired."
+msgstr "Ce téléchargement a expiré."
+
+msgid "Product Downloads"
+msgstr "Téléchargements de produits"
+
+msgid "Files for %s"
+msgstr "Documents pour %s"
+
+msgid "The files available for %s are listed below."
+msgstr "Veuillez trouver ci-dessous les documents disponibles pour %s."
+
+msgid "Your account details have been updated."
+msgstr "Les informations de votre compte ont été mises à jour."
+
+msgid "Something went wrong trying to update your details. Please try again."
+msgstr ""
+"Une erreur s'est produite lors de la mise à jour de vos informations. "
+"Veuillez réessayer."
+
+msgid "Please type in your current password."
+msgstr "Veuillez saisir votre mot de passe actuel."
+
+msgid "My Wish List"
+msgstr "Ma liste d'envies"
+
+msgid "The item has been added to your wish list."
+msgstr "L'article a été ajouté à votre liste d'envies."
+
+msgid "All prices are in <span title='%s'>%s</span>"
+msgstr "Tous les prix sont exprimés en <span title='%s'>%s</span>"
+
+msgid ""
+"Your order does not meet the minimum total for this coupon code to be "
+"applied. Please spend another {amountDiff} first."
+msgstr ""
+"Votre commande n'atteint pas le montant total minimum pour que ce code "
+"promotionnel puisse être appliqué. Il vous manque {amountDiff}."
+
+msgid ""
+"We don't have enough {product} stock on hand for the quantity you selected. "
+"Please try again."
+msgstr ""
+"Notre stock de {product} est inférieur à la quantité que vous avez "
+"sélectionnée. Veuillez réessayer."
+
+msgid "Promotion is inactive"
+msgstr "La promotion n'est pas active"
+
+msgid "This promotion cannot be applied with the selected currency"
+msgstr "Cette promotion ne peut pas être appliquée avec la devise sélectionnée"
+
+msgid "You are not in the customer group the promotion targets"
+msgstr "Vous ne faites pas partie du groupe de clients visé par la promotion"
+
+msgid "You do not meet the minimum order requirement for the promotion"
+msgstr ""
+"Vous n'avez pas atteint le minimum de commande requis pour cette promotion"
+
+msgid "Shipping address is required for the promotion"
+msgstr "L'adresse de livraison est nécessaire pour que la promotion s'applique"
+
+msgid "The promotion can not be used in order with multiple shipping addresses"
+msgstr ""
+"La promotion ne peut pas être utilisée pour une commande avec plusieurs "
+"adresses de livraison"
+
+msgid "The promotion can not be applied for this shipping address"
+msgstr "La promotion n'est pas valable pour cette adresse de livraison"
+
+msgid "Something went wrong"
+msgstr "Une erreur s'est produite"
+
+msgid "The coupon code you entered has been disabled so it can't be used."
+msgstr ""
+"Le code promotionnel que vous avez saisi a été désactivé et ne peut donc pas "
+"être utilisé."
+
+msgid "The coupon code you entered expired on %s so it can't be used."
+msgstr ""
+"Le code promotionnel que vous avez saisi a expiré le %s et ne peut donc pas "
+"être utilisé."
+
+msgid "The coupon code you entered has already expired so it can't be used."
+msgstr ""
+"Le code promotionnel que vous avez saisi a expiré et ne peut donc pas être "
+"utilisé."
+
+msgid "Coupon code can not be found"
+msgstr "Le code promotionnel est introuvable"
+
+msgid "This promotion can not be used in conjunction with other promotions"
+msgstr "Cette promotion ne peut pas être combinée avec d'autres promotions"
+
+msgid "unknown"
+msgstr "inconnu"
+
+msgid ""
+"Unfortunately this product is no longer for sale so it cannot be reordered."
+msgstr ""
+"Ce produit n'est malheureusement plus en vente et ne peut donc pas être "
+"commandé à nouveau."
+
+msgid "This product cannot be reordered because it's out of stock."
+msgstr ""
+"Ce produit ne peut pas être commandé à nouveau car il est en rupture de "
+"stock."
+
+msgid "Please select a file for the {displayName} option."
+msgstr "Veuillez sélectionner un fichier pour l'option {displayName}."
+
+msgid "Unfortunately this product is not available for purchase."
+msgstr "Ce produit n'est malheureusement pas disponible à l'achat."
+
+msgid ""
+"The inventory level for the following product is below what you ordered, so "
+"we could not proceed with the checkout: {productName}"
+msgstr ""
+"Le niveau de stock de ce produit est inférieur à la quantité que vous avez "
+"commandée, nous n'avons donc pas pu procéder au paiement : {productName}"
+
+msgid "The coupon has been removed from your cart."
+msgstr "Le code promotionnel a été retiré de votre panier."
+
+msgid "Forgot Password"
+msgstr "Mot de passe oublié"
+
+msgid "Create Account"
+msgstr "Créer un compte"
+
+msgid "Your Account Has Been Created"
+msgstr "Votre compte a été créé"
+
+msgid "Sign in"
+msgstr "Se connecter"
+
+msgid ""
+"If the entered email address is associated with this store, you will receive "
+"a password reset email. If you don't receive this e-mail, please check your "
+"junk mail folder or contact us for further assistance."
+msgstr ""
+"Si l'adresse e-mail saisie est associée à un compte sur ce site, vous "
+"recevrez un e-mail de réinitialisation du mot de passe. Si vous ne recevez "
+"pas cet e-mail, veuillez vérifier vos courriers indésirables ou nous "
+"contacter pour obtenir de l'aide."
+
+msgid ""
+"The link you were given in the Request Password email is invalid. Please "
+"request another new password to receive a new link."
+msgstr ""
+"Le lien que vous avez reçu dans l'email de réinitialisation du mot de passe "
+"n'est pas valide. Veuillez refaire une demande de réinitialisation du mot de "
+"passe pour recevoir un nouveau lien."
+
+msgid ""
+"An internal error occurred while trying to change your password. Please try "
+"again."
+msgstr ""
+"Une erreur interne s'est produite lors de la modification de votre mot de "
+"passe. Veuillez réessayer."
+
+msgid "Sorry, your passwords do not match. Please try again."
+msgstr "Désolé, les mots de passe ne correspondent pas. Veuillez réessayer."
+
+msgid ""
+"Passwords must be at least 7 characters and contain both alphabetic and "
+"numeric characters."
+msgstr ""
+"Votre mot de passe doit comporter au moins 7 caractères et au moins un "
+"chiffre et une lettre."
+
+msgid "You need to sign in to access this page."
+msgstr "Vous devez vous connecter pour accéder à cette page."
+
+msgid "Your password has been successfully updated."
+msgstr "Votre mot de passe a bien été mis à jour."
+
+msgid "Please type in a valid email address, such as joe@example.com"
+msgstr "Veuillez saisir une adresse e-mail valide, telle que jean@exemple.fr"
+
+msgid ""
+"Too many requests made when trying to send password-less login, please try "
+"again later."
+msgstr ""
+"Vous avez effectué trop de demandes en essayant de vous connecter sans mot "
+"de passe, veuillez réessayer plus tard."
+
+msgid "Email failed to send, please try again later."
+msgstr "L'e-mail n'a pas pu être envoyé, veuillez réessayer plus tard."
+
+msgid ""
+"You left some items from a previous cart. We have added those items to your "
+"current cart."
+msgstr ""
+"Vous avez laissé des articles dans votre panier précédent. Nous avons ajouté "
+"ces articles à votre panier actuel."
+
+msgid "The captcha you entered is incorrect. Please try again."
+msgstr "Le captcha que vous avez saisi est incorrect. Veuillez réessayer."
+
+msgid ""
+"Your email address or password is incorrect. Please try again. If you've "
+"forgotten your sign in details, just click the 'Forgot your password?' link "
+"below."
+msgstr ""
+"Votre adresse e-mail ou votre mot de passe est incorrect. Veuillez "
+"réessayer. Si vous avez oublié vos identifiants de connexion, cliquez sur le "
+"lien « Mot de passe oublié ? » ci-dessous."
+
+msgid ""
+"You must reset your password before you may log in again. Please check your "
+"email at :email to reset your password"
+msgstr ""
+"Vous devez réinitialiser votre mot de passe avant de pouvoir vous connecter "
+"à nouveau. Veuillez consulter la boîte de réception de :email pour "
+"réinitialiser votre mot de passe."
+
+msgid ""
+"Due to excessive login attempts, please wait %s seconds before attempting to "
+"log in again."
+msgstr ""
+"En raison d'un nombre excessif de tentatives de connexion, veuillez attendre "
+"%s secondes avant de réessayer de vous connecter."
+
+msgid "You cannot create an account at this time."
+msgstr "Vous ne pouvez pas créer de compte pour le moment."
+
+msgid "Click here to continue."
+msgstr "Cliquez ici pour continuer."
+
+msgid "Click here to continue shopping"
+msgstr "Cliquez ici pour continuer vos achats"
+
+msgid "The email address %s is already in use. Please enter a different one."
+msgstr "L'adresse e-mail %s est déjà utilisée. Veuillez en saisir une autre."
+
+msgid ""
+"Please type in a valid phone number containing at least 3 numbers. The only "
+"special characters allowed are: :allowedchars"
+msgstr ""
+"Veuillez saisir un numéro de téléphone valide contenant au moins 3 chiffres. "
+"Les seuls caractères spéciaux autorisés sont : :allowedchars"
+
+msgid "Your passwords don't match."
+msgstr "Les mots de passe ne correspondent pas."
+
+msgid ""
+"An internal error occurred while trying to create your account. Please try "
+"again."
+msgstr ""
+"Une erreur interne s'est produite lors de la création de votre compte. "
+"Veuillez réessayer."
+
+msgid ""
+"<a href='%s/login.php' onclick='%s'>Sign in</a> or <a href='%s/login.php?"
+"action=logout' onclick='%s'>sign out</a>"
+msgstr ""
+"<a href='%s/login.php' onclick='%s'>Se connecter</a> ou <a href='%s/login."
+"php?action=logout' onclick='%s'>se déconnecter</a>"
+
+msgid ""
+"<a href='%s/login.php' onclick='%s'>Sign in</a> or <a href='%s/login.php?"
+"action=create_account' onclick='%s'>Create an account</a>"
+msgstr ""
+"<a href='%s/login.php' onclick='%s'>Se connecter</a> ou <a href='%s/login."
+"php?action=create_account' onclick='%s'>Créer un compte</a>"
+
+msgid "You've been logged out of your account successfully."
+msgstr "Vous avez bien été déconnecté(e)."
+
+msgid "Token is missing."
+msgstr "Jeton manquant."
+
+msgid ""
+"Sign in failed. The provided token has expired or already been used. Please "
+"try again."
+msgstr ""
+"La tentative de connexion a échoué. Le jeton saisi a expiré ou a déjà été "
+"utilisé. Veuillez réessayer."
+
+msgid "Please choose a valid amount for this gift certificate."
+msgstr "Veuillez choisir un montant valide pour ce chèque-cadeau."
+
+msgid "Please enter a valid amount for this gift certificate."
+msgstr "Veuillez saisir un montant valide pour ce chèque-cadeau."
+
+msgid ""
+"Please enter an amount between the minimum and maximum gift certificate "
+"value."
+msgstr ""
+"Veuillez indiquer un montant compris entre la valeur minimale et la valeur "
+"maximale du chèque-cadeau."
+
+msgid ""
+"Please enter the name of the person you wish to send this gift certificate "
+"to."
+msgstr "Veuillez saisir le nom du destinataire de ce chèque-cadeau."
+
+msgid ""
+"Please enter a valid email address for the person you wish to send this gift "
+"certificate to."
+msgstr ""
+"Veuillez saisir une adresse e-mail valide pour le destinataire de ce chèque-"
+"cadeau."
+
+msgid "Please enter your name."
+msgstr "Veuillez saisir votre nom."
+
+msgid "Please enter your email address."
+msgstr "Veuillez saisir votre adresse e-mail."
+
+msgid "Please enter a shorter message for your gift certificate."
+msgstr "Veuillez saisir un message moins long pour votre chèque-cadeau."
+
+msgid "Please select a theme for your gift certificate."
+msgstr "Veuillez sélectionner un thème pour votre chèque-cadeau."
+
+msgid "Cannot purchase a Gift Certificate using a Gift Certificate"
+msgstr ""
+"Vous ne pouvez pas acheter de chèque-cadeau en utilisant un chèque-cadeau."
+
+msgid "Your gift certificate has been updated successfully."
+msgstr "Votre chèque-cadeau a bien été mis à jour."
+
+msgid "Your gift certificate has been generated and saved in your cart."
+msgstr "Votre chèque-cadeau a été créé et enregistré dans votre panier."
+
+msgid "The selected product combination doesn't exist."
+msgstr "L'assortiment de produits sélectionné n'existe pas."
+
+msgid "Please enter a valid product quantity."
+msgstr "Veuillez saisir une quantité valide."
+
+msgid "Please enter a title, text and rating for your review."
+msgstr "Veuillez saisir un titre, un texte et une note pour votre avis."
+
+msgid ""
+"You are only allowed to post :number product review every :duration. Please "
+"try again later."
+msgstr ""
+"Vous ne pouvez publier que :number avis tous les :duration. Veuillez "
+"réessayer plus tard."
+
+msgid "The email you entered is incorrect. Please type it again."
+msgstr ""
+"L'adresse e-mail que vous avez saisie est incorrect. Veuillez réessayer."
+
+msgid "An internal error occurred while trying to save your review."
+msgstr ""
+"Une erreur interne s'est produite lors de l'enregistrement de votre avis."
+
+msgid "Your review was saved and is shown below."
+msgstr "Votre avis a été enregistré et est affiché ci-dessous."
+
+msgid "Your review was saved and is pending approval."
+msgstr "Votre avis a été enregistré et est en attente de vérification."
+
+msgid "Only customers who have purchased this item can review it."
+msgstr "Seuls les clients qui ont acheté cet article peuvent donner leur avis."
+
+msgid "Oops..."
+msgstr "Oups..."
+
+msgid "Please enter your name and email address before submitting this form."
+msgstr ""
+"Veuillez saisir votre nom et votre adresse e-mail avant d'envoyer ce "
+"formulaire."
+
+msgid ""
+"Sorry, your request could not be processed as it contained an invalid "
+"security token. Please refresh and try again."
+msgstr ""
+"Désolé, votre demande n'a pas pu être traitée car elle contenait un jeton de "
+"sécurité non valide. Veuillez actualiser et réessayer."
+
+msgid "Newsletter Subscription"
+msgstr "Abonnement à la newsletter"
+
+msgid "Please enter a valid email address, such as john@example.com."
+msgstr "Veuillez saisir une adresse e-mail valide, telle que jean@exemple.fr."
+
+msgid "The email address %s is already subscribed to receive our newsletter."
+msgstr "L'adresse e-mail %s est déjà abonnée à la newsletter."
+
+msgid "Thanks for Subscribing!"
+msgstr "Merci pour votre abonnement !"
+
+msgid ""
+"Thank you for joining our mailing list. You'll be sent the next issue of our "
+"newsletter shortly."
+msgstr ""
+"Merci d'avoir rejoint notre liste de diffusion. Vous recevrez bientôt le "
+"prochain numéro de notre newsletter."
+
+msgid "Continue"
+msgstr "Continuer"
+
+msgid ""
+"The gift certificate you entered couldn't be applied to any items in your "
+"order."
+msgstr ""
+"Le chèque-cadeau que vous avez saisi n'a pas pu être appliqué aux articles "
+"de votre commande."
+
+msgid "The gift certificate {code} does not exist"
+msgstr "Le chèque-cadeau {code} n'existe pas"
+
+msgid "Please enter a valid zip code/postcode or state."
+msgstr "Veuillez saisir un code postal ou une région valide."
+
+msgid "Please select a valid state."
+msgstr "Veuillez sélectionner une région valide."
+
+msgid "Please enter a valid zip code/postcode."
+msgstr "Veuillez saisir un code postal valide."
+
+msgid ""
+"Unfortunately one or more items in your cart can't be shipped to your "
+"location. Please choose a different delivery address."
+msgstr ""
+"Malheureusement, au moins un des articles de votre panier ne peut pas être "
+"livré à votre adresse. Veuillez choisir une autre adresse de livraison."
+
+msgid "Unable to retrieve shipping quote. Please try again or contact support."
+msgstr ""
+"Impossible de récupérer le devis de livraison. Veuillez réessayer ou "
+"contacter le service d'assistance."
+
+msgid "Passwords must be at least :length characters and contain: "
+msgstr "Votre mot de passe doit comporter au moins :length caractères et : "
+
+msgid "lower case letters"
+msgstr "des lettres minuscules"
+
+msgid "upper case letters"
+msgstr "des lettres majuscules"
+
+msgid "at least :numbers "
+msgstr "au moins :numbers "
+
+msgid "at least :specialchars "
+msgstr "au moins :specialchars "
+
+msgid ""
+"{merchantName} ACTS LIKE A BROKER AND OFFERS CREDIT FROM PAYPAL CREDIT.\n"
+"PAYPAL CREDIT IS A TRADING NAME OF PAYPAL (Europe) S.À.R.L. ET CIE, S.C.A., "
+"22-24 BOULEVARD ROYAL L-2449, LUXEMBOURG"
+msgstr ""
+"{merchantName} JOUE LE RÔLE D'INTERMÉDIAIRE ET PROPOSE DU CRÉDIT À PARTIR DE "
+"PAYPAL CREDIT.\n"
+"PAYPAL CREDIT EST UNE APPELLATION COMMERCIALE DE PAYPAL (Europe) S.À.R.L. ET "
+"CIE, S.C.A., 22-24 BOULEVARD ROYAL L-2449, LUXEMBOURG"
+
+msgid "Add payment method"
+msgstr "Ajouter un mode de paiement"
+
+msgid "Address Book"
+msgstr "Carnet d'adresses"
+
+msgid "Address Form"
+msgstr "Formulaire d'adresse"
+
+msgid "Your Orders"
+msgstr "Vos commandes"
+
+msgid "Order #{id}"
+msgstr "Commande n° {id}"
+
+msgid "Files"
+msgstr "Documents"
+
+msgid "Account Details"
+msgstr "Informations du compte"
+
+msgid "Edit Payment Method"
+msgstr "Modifier le mode de paiement"
+
+msgid "Your Messages"
+msgstr "Vos messages"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Reset Password"
+msgstr "Réinitialiser le mot de passe"
+
+msgid "Create New Return"
+msgstr "Créer un nouveau retour"
+
+msgid "Your Account"
+msgstr "Votre compte"
+
+msgid "Payment Methods"
+msgstr "Modes de paiement"
+
+msgid "Recently Viewed Items"
+msgstr "Articles récemment consultés"
+
+msgid "Your Returns"
+msgstr "Vos retours"
+
+msgid "Return Saved"
+msgstr "Retour enregistré"
+
+msgid "New Wishlist"
+msgstr "Nouvelle liste d'envies"
+
+msgid "Edit Wishlist"
+msgstr "Modifier la liste d'envies"
+
+msgid "Your Wishlists"
+msgstr "Vos listes d'envies"
+
+msgid "All Brands"
+msgstr "Toutes les marques"
+
+msgid "Your Cart"
+msgstr "Votre panier"
+
+msgid "Compare Products"
+msgstr "Comparer les produits"
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "Gift Certificates"
+msgstr "Chèques-cadeaux"
+
+msgid "Search"
+msgstr "Rechercher"
+
+msgid "Sitemap"
+msgstr "Plan du site"
+
+msgid "View Wishlist"
+msgstr "Voir la liste d'envies"
+
+msgid "View Shared Wishlist"
+msgstr "Voir la liste d'envies partagée"
+
+msgid "Home"
+msgstr "Accueil"

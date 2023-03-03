@@ -1,40 +1,19 @@
-# Multi Language Checkout
+# Multi-Language Checkout
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Multi-Language Setup](#multi-language-setup)
-- [Browsing Hidden Translation Keys](#browsing-hidden-translation-keys)
-- [Adding Your Own Translation Values](#adding-your-own-translation-values)
-- [Localized Country and State Names](#localized-country-and-state-names)
-- [Limits on Translation](#limits-on-translation)
-- [Resources](#resources)
 
-</div> 
 
-## Multi-Language Setup
+## Multi-language setup
 
-In the Cornerstone theme, both the Optimized One-Page Checkout and the [order confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) pages contain [Handlebars`{{lang}}`](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang) statements to facilitate translation. The `{{lang}}` statements enable automatic rendering of their parameters into languages that shoppers have selected in their browser preferences.
+Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel. Checkout has been pre-translated into English, French, German, Italian, Norwegian, Portugese, Spanish, Swedish, Danish, and Dutch. See [Resources](/stencil-docs/localization/localizing-stores#resources) to download the supported language files. You can override the pre-translations by providing the xx.json file for the language you want to override.
 
-In the [default checkout page template (cornerstone/templates/pages/checkout.html)](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html), one example that you can directly view is the page header:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">checkout.html</div>
-    </div><div class="HubBlock-header-subtitle">{{lang}} statement in page header</div>
-</div>
-
-<!--
-title: "checkout.html"
-subtitle: "{{lang}} statement in page header"
-lineNumbers: true
--->
+The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
 ```html
 {{#partial "head"}}
 
 {{{ checkout.checkout_head }}}
-{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{{ stylesheet '/assets/css/optimized-checkout.scss' }}}
 {{ getFontsCollection }}
 
 <script type="text/javascript">
@@ -48,7 +27,7 @@ lineNumbers: true
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}
@@ -68,66 +47,58 @@ lineNumbers: true
 {{/partial}}
 
 {{> layout/empty}}
-
 ```
 
-## Browsing Hidden Translation Keys
+## Browsing hidden translation keys
+BigCommerce exposes only part of the checkout page's structure through the local checkout template. For security purposes, and to offer all stores new checkout features simultaneously, most checkout content is hidden.
 
-BigCommerce exposes only part of the checkout page's structure through the local template referenced above. For security purposes – and also to offer all stores new checkout features simultaneously – most checkout content is hidden.
+This hidden content includes additional key-value pairs that support translation. You can see all the available keys with their default English-language values in the [Optimized Checkout](https://github.com/bigcommerce/checkout-js/blob/master/packages/core/src/app/locale/translations/en.json) JSON file.
 
-This hidden content includes many more key/value pairs that support translation. However, you can see all the available keys with their default English-language values in the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip)
+## Adding your own translation values
 
-## Adding Your Own Translation Values
+You can provide values for all of the checkout's supported translation keys even without direct access to the hidden parts of the checkout template. Here is how:
 
-You can provide values for all of checkout's supported translation keys – for all the languages you want to support – even without direct access to the hidden parts of the checkout template. Here is how:
-
-1. Download and unzip a local copy of the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip), also linked above in [Browsing Hidden Translation Keys](/stencil-docs/localization/translation-keys).
-
-2. Copy and paste the whole file's contents into your theme's `en.json` file and into the `.json` file for each language you want to translate your checkout page's text. To see requirements for naming and deploying these translation files, please this documentation's [Internationalization section](/stencil-docs/internationalization-and-localization/).
-
-3. Replace the keys' values with appropriate phrases in each file's target language.
-
-## Localized Country and State Names
-
-In the Optimized One-Page Checkout page's `Shipping Address` and `Billing Address` fields, BigCommerce currently provides automatic translation of drop-down lists' displayed `Country` and `State` names into 12 supported languages. Here are the steps for enabling this translation:
-
-1. As for the translation options described above, you must enable Optimized One-Page Checkout.
-
-2. Within your `lang/` subdirectory, you must provide a `xx.json` file with the appropriate two-letter prefix for one or more of the `Supported Languages` in the Naming Requirements table below. (The naming conventions we follow are explained on this page.)
-
-3. We recommend that you populate that file with the checkout-specific keys/values covered above at Adding Your Own Translation Values. This is not strictly necessary to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding Address sections. You do not need to provide any keys/values for the Country/State names, whose translations are predefined within the BigCommerce platform.
-
-4. As with the translation options described above, the storefront will automatically display the translated `Country/State` names to visitors who have selected one of the supported languages in their browser's locale preferences.
-
-### Country/State Translation – Naming Requirements
-
-BigCommerce Optimized One-Page Checkout will currently translate displayed `Country/State` names if your Stencil theme includes `.../lang/xx.json` files named as shown below.
+1. Download checkout's [en.json](https://github.com/bigcommerce/checkout-js/blob/master/packages/core/src/app/locale/translations/en.json) file (GitHub).
+2. Copy and paste the file's contents into your theme's `en.json` file.
+3. Copy and paste the file's contents into each of the corresponding `json` files for the other languages you support. For naming requirements, see [Translation Keys](/stencil-docs/localization/translation-keys#the-schema).
 
 | Supported Language | Required Translation File Name |
 |-|-|
-|  German | `de.json` |
-| Spanish | `es.json` |
+| Danish | `da.json`   |
+| Dutch  | `nl.json`   |
+| English | `en.json`  |
 | French | `fr.json` |
-| Hindi | `hi.json` |
+| German | `de.json` |
 | Italian | `it.json` |
-| Japanese | `ja.json` |
-| Korean | `ko.json` |
-| Dutch | `nl.json` |
-| Punjabi | `pa.json` |
-| Tamil | `ta.json` |
-| Chinese Simplified | `zh-TW.json` |
-| Chinese Traditional | `zh.json` |
+| Norwegian| `no.json`|
+| Portuguese| `pt.json`|
+| Portuguese (Brazil)| `pt-BR.json`|
+| Spanish (Argentina) | `es-AR.json` |
+| Spanish (Chile) | `es-CL.json` |
+| Spanish (Columbia) | `es-CO.json` |
+| Spanish (Latin America & Caribbean) | `es-419.json` |
+| Spanish (Mexico)| `es-MX.json` |
+| Spanish (Peru)| `es-PE.json` |
+| Spanish (Spain)| `es.json` |
+| Swedish | `sv.json`|
 
-## Limits on Translation
+4. Replace the values with appropriate phrases in each file's target language.
 
-* Your theme's content will translate only to the extent that you have created JSON files in your `lang/` subdirectory for each language that you choose to support, and have included key/value pairs for the parameters (beyond `Country/State`) that you choose to translate.
+## Localized country and state names
 
-* Stencil's multi-language capabilities are currently limited to these specific strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database – for example, products' names.
+BigCommerce's Optimized One-Page Checkout will translate displayed **Country/State** names into supported languages. To take advantage of this functionality, enable Optimized One-Page Checkout on your store. You do not need to provide any keys-values for the **Country/State** names already translated within the BigCommerce platform. As with the translation options described above, the storefront will automatically display the translated **Country/State** names based on the default storefront language defined in the control panel.
 
-* Within these limitations, if you intend to do business internationally, we recommend that you specify appropriate alternate-language strings for key parts of your storefront, product catalog, and checkout. Doing so will make browsing, purchasing, and payment easier for users in your target market(s). For an overview of all localization options, please see [Localizing Stores](/stencil-docs/internationalization-and-localization/localizing-stores).
+## Limits on translation
+
+* The translation of your theme's content consists of the language JSON files in your `lang` subdirectory and the key-value pairs for the parameters (beyond **Country/State**) that you choose to translate. 
+
+
+* Stencil's multi-language capabilities are limited to the strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database; for example, products' names.
+
+* Within these limitations, if you intend to do business internationally, we recommend that you specify appropriate alternate-language strings for key parts of your storefront, product catalog, and checkout. Doing so will make browsing, purchasing, and payment easier for users in your target market(s). For an overview of all localization options, see [Localizing Stores](/stencil-docs/localization/localizing-stores).
 
 ## Resources
 
-### Sample Apps
+### Additional resources
 
-* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (Bigcommerce Github)
+* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (Bigcommerce GitHub)
