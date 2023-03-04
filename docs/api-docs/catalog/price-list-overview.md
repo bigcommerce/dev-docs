@@ -8,7 +8,7 @@ A price list allows you to populate different versions of catalog pricing and as
 
 You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
 
-Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
+Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](https://bigcommerce-dev-center.netlify.app/theme-objects/schemas).
 
 
 ### OAuth scopes
