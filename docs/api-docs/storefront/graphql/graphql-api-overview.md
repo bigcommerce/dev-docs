@@ -4,13 +4,13 @@
 > #### Early access
 > The GraphQL Storefront API is in early access and is feature-incomplete. It will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience. As new features are added to the API, we'll announce them in our [Developer Changelog](/changelog#labels/storefront-api).
 
-BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://bigcommerce-dev-center.netlify.app/theme-objects/schemas) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
+BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](/theme-objects/schemas) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
 
 * Access product options, variations, and custom fields for any product from any page
 * Request any product's images at any resolution
 * Ask for customer details such as name, email address, and attributes (if logged in)
 * Look up objects (e.g. categories or brands) by URL, and fetch their details
-* Build front-end applications on top of a BigCommerce [Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/getting-started/about-stencil) theme or on a remote site
+* Build front-end applications on top of a BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil) theme or on a remote site
 
 
 Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
