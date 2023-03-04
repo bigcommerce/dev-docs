@@ -295,5 +295,5 @@ Difference between Default Price and MSRP (*Default Price - MSRP)*|`{{ product.p
 
 ### Related Articles
 
-* [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties)
+* [Theme Objects](https://bigcommerce-dev-center.netlify.app/theme-objects/schemas)
 * [Adding a Product](https://support.bigcommerce.com/s/article/Adding-Products-v3#product-details) (BigCommerce Knowledge Base)
