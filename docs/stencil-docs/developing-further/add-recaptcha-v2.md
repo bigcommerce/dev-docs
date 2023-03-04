@@ -16,7 +16,7 @@ To add reCAPTCHA v2 support to a theme, you will need to update script reference
 
 See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951) in the Cornerstone GitHub Repository to see differentials for each file that needs to be modified.
 
-It is possible to add reCaptcha to the Login template. See the [Forms object](/stencil-docs/reference-docs/) for details.
+It is possible to add reCaptcha to the Login template. See the [Forms object](https://bigcommerce-dev-center.netlify.app/theme-objects/overview) for details.
 
 ## Resources
 
