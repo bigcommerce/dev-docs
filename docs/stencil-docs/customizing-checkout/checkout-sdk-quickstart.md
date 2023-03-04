@@ -14,7 +14,7 @@ This tutorial will walk you through the first steps of building a custom checkou
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
-* Theme should be setup for [local development](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
+* Theme should be setup for [local development](/stencil-docs/stencil-cli/installing-stencil).
 
 
 ## Installing the Checkout JS SDK
@@ -65,5 +65,5 @@ On the checkout page, you will see the script, the checkout ID on the screen, an
 * [Checkout SDK Source Code](https://github.com/bigcommerce/checkout-sdk-js) (BigCommerce GitHub)
 
 ## Related articles
-* [Installling Stencil CLI](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil)
+* [Installling Stencil CLI](/stencil-docs/stencil-cli/installing-stencil)
 
