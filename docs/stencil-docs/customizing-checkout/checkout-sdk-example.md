@@ -10,7 +10,7 @@ This tutorial demonstrates how to implement a custom checkout built with React o
 
 ### Prerequisites
 
-Stencil CLI is required to begin this walkthrough. For installation instructions, see [Installing Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
+Stencil CLI is required to begin this walkthrough. For installation instructions, see [Installing Stencil](/stencil-docs/stencil-cli/installing-stencil).
 
 ## Implementing React Checkout in Cornerstone
 
