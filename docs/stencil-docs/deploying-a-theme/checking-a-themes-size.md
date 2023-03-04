@@ -1,7 +1,7 @@
 # Checking a Theme's Size
 
  
-Ideally, your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing).
+Ideally, your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme](/stencil-docs/deployment/bundling-and-pushing).
 
 If your theme exceeds the 50 MB limit, you have two options:
 
@@ -79,12 +79,12 @@ As you develop your theme, reference each of these assets using Stencil's `{{cdn
 
 
 
-When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing).
+When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](/stencil-docs/deployment/bundling-and-pushing).
 
 ## Resources
 
 ### Related Articles
-* [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing)
-* [Naming Your Theme and Theme Variations](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/naming-your-theme)
-* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](/stencil-docs/deployment/bundling-and-pushing)
+* [Naming Your Theme and Theme Variations](/stencil-docs/deployment/naming-your-theme)
+* [Preparing Thumbnail Images](/stencil-docs/deployment/preparing-thumbnail-images)
 * [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual) (BigCommerce Knowledge Base)
