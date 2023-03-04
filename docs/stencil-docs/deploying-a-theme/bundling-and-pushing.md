@@ -9,7 +9,7 @@ If you have customized a theme originally downloaded from the BigCommerce Theme 
 
 Follow the link for your scenario:
 
-If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/installing-stencil).
+If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/stencil-cli/installing-stencil).
 
 
 <!-- theme: warning -->
@@ -31,7 +31,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 
 
-Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
+Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/stencil-docs/stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
 
 
 ### Bundle only
@@ -45,7 +45,7 @@ The `bundle` command will notify you of its progress and completion, as well as 
 
 
 
-Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a size that's manageable for upload to BigCommerce:
+Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](/stencil-docs/deployment/bundling-and-pushing). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a size that's manageable for upload to BigCommerce:
 
 
 * [Shrinking Your Theme by Excluding Static Assets (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual)
@@ -55,7 +55,7 @@ Check the resulting `.zip` file's size before you proceed. The zipped bundle sho
 
 The `stencil push` command is available only for themes that you have successfully initialized using a [Stencil CLI token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (with `Themes: modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
-For further requirements and usage details, please see the _Command-Line Upload_ in [Pushing Your Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing#pushing-your-theme) below.
+For further requirements and usage details, please see the _Command-Line Upload_ in [Pushing Your Theme](/stencil-docs/deployment/bundling-and-pushing#pushing-your-theme) below.
 
 For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's Size_ above.
 
@@ -80,7 +80,7 @@ To upload your theme to a store using the BigCommerce Control Panel, first use `
 
 For the Control Panel's upload steps, see the [Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) article in our Knowledge Base.
 
-For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/troubleshooting-your-setup).
+For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads](/stencil-docs/stencil-cli/troubleshooting-your-setup).
 
 
 ### Command line upload
@@ -150,12 +150,12 @@ If you are certain of your selections, you can press **Enter** to delete the the
 ## Other bundling or upload errors
 
 
-For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](https://bigcommerce-dev-center.netlify.app/stencil-docs/stencil-cli/troubleshooting-your-setup).
+For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](/stencil-docs/stencil-cli/troubleshooting-your-setup).
 
 ## Resources
 
 ### Related Articles
-* [Naming Your Theme and Theme Variations](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/naming-your-theme#naming-your-theme)
-* [Checking a Theme's Size](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/checking-a-themes-size)
-* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images)
+* [Naming Your Theme and Theme Variations](/stencil-docs/deployment/naming-your-theme#naming-your-theme)
+* [Checking a Theme's Size](/stencil-docs/deployment/checking-a-themes-size)
+* [Preparing Thumbnail Images](/stencil-docs/deployment/preparing-thumbnail-images)
 
