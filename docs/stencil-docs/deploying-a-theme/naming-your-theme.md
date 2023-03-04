@@ -87,7 +87,7 @@ Try inserting your custom variation into the `variations` object of Cornerstone'
 ## Changing a theme variation's font family
 
 
-To learn more about defining variations, see [Defining Global Styles](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/defining-global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
+To learn more about defining variations, see [Defining Global Styles](/stencil-docs/page-builder/defining-global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
 
 The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
 
@@ -106,7 +106,7 @@ The following example shows how to set the body font of a theme variation to a s
 ## Preparing a variation's thumbnails
 
 
-For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images).
+For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/deployment/preparing-thumbnail-images).
 
 <!-- theme: info -->
 > #### Using Stencil CLI to change variations
@@ -116,6 +116,6 @@ For details on preparing screenshots that enable merchants to preview each varia
 ## Resources
 
 ### Related articles
-* [Checking a Theme's Size](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/checking-a-themes-size)
-* [Preparing Thumbnail Images](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/preparing-thumbnail-images)
-* [Bundling and Pushing a Theme](https://bigcommerce-dev-center.netlify.app/stencil-docs/deployment/bundling-and-pushing)
+* [Checking a Theme's Size](/stencil-docs/deployment/checking-a-themes-size)
+* [Preparing Thumbnail Images](/stencil-docs/deployment/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](/stencil-docs/deployment/bundling-and-pushing)
