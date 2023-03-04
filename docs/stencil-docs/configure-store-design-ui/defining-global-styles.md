@@ -14,7 +14,7 @@ You can manage your theme's front-end components by configuring its `config.json
 * Defines variations included in your theme.
 
 
-For a list of all available keys and values in `config.json`, see [Theme Objects](https://bigcommerce-dev-center.netlify.app/theme-objects/config-json).
+For a list of all available keys and values in `config.json`, see [Theme Objects](/theme-objects/config-json).
 
 ## Requirements and restrictions
 
