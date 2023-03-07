@@ -46,7 +46,7 @@ These components can dramatically accelerate the development process by providin
 
 ## Creating a channel
 
-After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/api-reference/store-management/channels/channels/createchannel).
+After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/docs/rest-management/channels#create-a-channel).
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -78,7 +78,7 @@ Accept: application/json
 
 Once created, channels show up in the product list within the control panel so the merchant can choose which products should be available on it. The orders list is updated to include a filter to show which orders came in from the channel. The value of the `name` property is displayed to the merchant in the control panel.
 
-[View reference documentation for the Create a Channel request](/api-reference/store-management/channels/channels/createchannel).
+[View reference documentation for the Create a Channel request](/docs/rest-management/channels#create-a-channel).
 
 <Callout type="info">
   - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
@@ -198,7 +198,7 @@ Importing customer and order data allows the merchant to import the sales histor
 To import or export customer and order data, integrate the following endpoints:
 
 - [`/v3/customers`](/api-reference/store-management/customers-v3)
-- [`/v2/orders`](/api-reference/orders/orders-api)
+- [`/v2/orders`](docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
@@ -233,7 +233,7 @@ To ensure that BigCommerce merchants are able to continue using their existing c
 To do this, integrate the following endpoints:
 
 - [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/createproduct)
-- [`/v2/orders`](/api-reference/orders/orders-api)
+- [`/v2/orders`](docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 

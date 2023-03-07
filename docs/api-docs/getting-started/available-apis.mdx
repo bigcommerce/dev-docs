@@ -50,7 +50,7 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 
 ## V3 REST API
 
-Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](/api-reference/cart-checkout/server-server-cart-api) and [checkouts](/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
+Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](/docs/rest-management/carts) and [checkouts](/docs/rest-management/checkouts) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
 * Most tasks can be performed with fewer API calls (for example, a product with variants and custom fields can be created in a single request)
 * Each **V3** resource includes a `meta` object, simplifying pagination
 * **V3** Brands, Categories, Products, and Product Variants expose a [metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) resource for use by developers to store custom data.
@@ -63,12 +63,12 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
+|  [Carts](/docs/rest-management/carts) | Create and manage store carts headlessly | `/carts` |
 |  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
-|  [Channels](/api-reference/store-management/channels/channels) | Create and manage catalog listings and channels | `/channels` |
-|  [Checkouts](/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
+|  [Channels](/docs/rest-management/channels#create-a-channel) | Create and manage catalog listings and channels | `/channels` |
+|  [Checkouts](/docs/rest-storefront/checkouts) | Create checkouts headlessly | `/checkouts` |
 |  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
@@ -150,8 +150,8 @@ BigCommerce's **Storefront API** is a client API that exposes storefront data to
 
 |  Resource                                                                                                        | Description                               | Endpoint                            |
 |------------------------------------------------------------------------------------------------------------------|-------------------------------------------|-------------------------------------|
-| [Storefront Carts](/api-reference/cart-checkout/storefront-cart-api)            | Create and get carts                      | `/carts`             |
-| [Storefront Checkouts](/api-reference/cart-checkout/storefront-checkout-api)    | Create and get checkouts on the front-end | `/checkouts`         |
+| [Storefront Carts](/docs/rest-storefront/carts)            | Create and get carts                      | `/carts`             |
+| [Storefront Checkouts](/docs/rest-management/checkouts)    | Create and get checkouts on the front-end | `/checkouts`         |
 | [Storefront Orders](/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
 
 **Additional Information:** [Storefront Cart and Checkout Overview](/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis) |

@@ -39,7 +39,7 @@ The following webhook events fire in response to actions that govern a store's s
 | Name / Scope          | Description | Corresponding Endpoint |
 |:----------------------|:------------|:---------|
 | `store/channel/*`       | Subscribes to all store/channel events | not applicable |
-| `store/channel/created` | Fires when a channel is created using the control panel or the API | [Create a channel](/api-reference/store-management/channels/channels/createchannel) |
+| `store/channel/created` | Fires when a channel is created using the control panel or the API | [Create a channel](/docs/rest-management/channels#create-a-channel) |
 | `store/channel/updated` | Fires when a channel is updated using the control panel or the API | [Update a channel](/api-reference/store-management/channels/channels/updatechannel) |
 
 
@@ -290,8 +290,8 @@ The following page-related webhook events fire in response to actions that affec
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/page/created`             | Fires on creation of a page associated with the specified channel.        | [Create pages](/api-reference/store-management/pages/pages/createpages) |
-| `store/channel/{channel_id}/page/updated`             | Fires on update of a page associated with the specified channel. | [Update pages](/api-reference/store-management/pages/pages/updatepages) |
+| `store/channel/{channel_id}/page/created`             | Fires on creation of a page associated with the specified channel.        | [Create pages](/docs/rest-content/pages#create-pages) |
+| `store/channel/{channel_id}/page/updated`             | Fires on update of a page associated with the specified channel. | [Update pages](/docs/rest-content/pages#update-pages) |
 
 
 Web pages payload objects take the form that follows:
@@ -317,7 +317,7 @@ The following price list assignment webhook event fires in response to price lis
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/priceList/assignment/updated`       | Fires when a price list assignment is assigned, reassigned, or unassigned. | [Create price list assignments](/api-reference/store-management/price-lists/price-lists/createpricelist ) |
+| `store/priceList/assignment/updated`       | Fires when a price list assignment is assigned, reassigned, or unassigned. | [Create price list assignments](/docs/rest-management/price-lists#create-a-price-list) |
 
 
 Price list assignment payload objects take the form that follows:
@@ -344,10 +344,10 @@ The following product assignment webhook events fire in response to actions that
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
-| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
-| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignments) |
-| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments) |
+| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/docs/rest-management/catalog/products-channel-assignments#create-products-channel-assignments) |
+| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/docs/rest-management/catalog/products-channel-assignments#delete-products-channel-assignments) |
+| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/docs/rest-management/catalog/products-category-assignments#create-products-category-assignments.) |
+| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/docs/rest-management/catalog/products-category-assignments#delete-products-category-assignments) |
 
 Product assignment payload objects take the form that follows:
 
@@ -371,7 +371,7 @@ The following routes webhook events fire in response to actions that affect a sp
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/settings/route/updated` | Fires on update of any route associated with the specified channel. | [Update site's routes](/api-reference/store-management/sites/site-routes/putsitessiteidroutes) or [Update a site route](/api-reference/store-management/sites/site-routes/put-site-route) |
+| `store/channel/{channel_id}/settings/route/updated` | Fires on update of any route associated with the specified channel. | [Update site's routes](/docs/rest-management/sites/site-routes#update-a-site’s-routes) or [Update a site route](/docs/rest-management/sites/site-routes#update-a-site-route) |
 
 Routes payload objects take the form that follows:
 
@@ -396,8 +396,8 @@ The following scripts webhook events fire in response to actions that affect a s
 
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/script/created`       | Fires on creation of any script associated with the specified channel. | [Create a script](/api-reference/store-management/scripts/scripts/createscript) |
-| `store/channel/{channel_id}/script/updated`       | Fires on update of any script associated with the specified channel. | [Update a script](/api-reference/store-management/scripts/scripts/updatescript) |
+| `store/channel/{channel_id}/script/created`       | Fires on creation of any script associated with the specified channel. | [Create a script](/docs/rest-management/scripts#create-a-script) |
+| `store/channel/{channel_id}/script/updated`       | Fires on update of any script associated with the specified channel. | [Update a script](/docs/rest-management/scripts#update-a-script) |
 
 
 Scripts payload objects take the form that follows:
@@ -424,20 +424,20 @@ The following settings webhook events fire in response to actions that affect a 
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/settings/*`   | Fires when subscribed to all settings updates for the specified channel. | not applicable |
 | `store/channel/{channel_id}/settings/currency/updated` | Fires when currency associated with the specified channel is updated. | not applicable |
-| `store/channel/{channel_id}/settings/profile/updated`    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
-| `store/channel/{channel_id}/settings/logo/updated`    | Fires when any of the global logo settings are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
+| `store/channel/{channel_id}/settings/profile/updated`    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/docs/rest-management/settings/store-profile#update-store-profile-settings) |
+| `store/channel/{channel_id}/settings/logo/updated`    | Fires when any of the global logo settings are updated.| [Update store logo settings](/docs/rest-management/settings/logo#update-store-logo-settings) |
 | `store/channel/{channel_id}/settings/logo/image/updated`  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
 | `store/channel/{channel_id}/settings/favicon/image/updated`  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
-| `store/channel/{channel_id}/settings/checkout/updated` | Fires when checkout settings that affect a specified channel are updated. | [Update channel cart settings](/api-reference/store-management/carts/cart-settings/updatechannelcartsettings) |
-| `store/channel/{channel_id}/settings/SEO/updated` | Fires when SEO settings that affect the specified channel are updated. | [Update storefront SEO settings](/api-reference/store-management/settings/storefront-seo/putsettingsstorefrontseo) |
-| `store/channel/{channel_id}/settings/robots/updated` | Fires when search engine robot settings that affect the specified channel are updated. | [Update robots.txt settings](/api-reference/store-management/settings/storefront-robotstxt/putsettingsstorefrontrobotstxt) |
-| `store/channel/{channel_id}/settings/category/updated` | Fires when category settings that affect the specified channel are updated. | [Update storefront category settings](/api-reference/store-management/settings/storefront-category/putsettingsstorefrontcategory) |
-| `store/channel/{channel_id}/settings/product/updated` | Fires when product settings that affect the specified channel are updated. | [Update storefront product settings](/api-reference/store-management/settings/storefront-product/updatestorefrontproductsettings) |
-| `store/channel/{channel_id}/settings/catalog/updated` | Fires when catalog settings that affect the specified channel are updated. | [Update catalog settings](/api-reference/store-management/settings/catalog/putcatalogsettings) |
-| `store/channel/{channel_id}/settings/security/updated` | Fires when security settings that affect the specified channel are updated. | [Update storefront security settings](/api-reference/store-management/settings/storefront-security/putsettingsstorefrontsecurity) |
-| `store/channel/{channel_id}/settings/searchContextFilters/updated` | Fires when search context filters that affect the specified channel are updated. | [Upsert Contextual Filters](/api-reference/store-management/settings/search-filters/upsertcontexts) |
-| `store/channel/{channel_id}/settings/defaultCustomerGroup/updated` | Fires when the default customer group associated with the specified channel is updated. | [Update a customer group](/api-reference/store-management/customers-v2/customer-groups/updateacustomergroup) |
-| `store/channel/{channel_id}/settings/customerPrivacy/updated` | Fires when customer privacy settings that affect the specified channel are updated. | [Update customer settings per channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelput) |
+| `store/channel/{channel_id}/settings/checkout/updated` | Fires when checkout settings that affect a specified channel are updated. | [Update channel cart settings](/docs/rest-management/carts/carts-settings#update-channel-cart-settings) |
+| `store/channel/{channel_id}/settings/SEO/updated` | Fires when SEO settings that affect the specified channel are updated. | [Update storefront SEO settings](/docs/rest-management/settings/storefront-seo#update-storefront-seo-settings) |
+| `store/channel/{channel_id}/settings/robots/updated` | Fires when search engine robot settings that affect the specified channel are updated. | [Update robots.txt settings](/docs/rest-management/settings/storefront-robotstxt#update-robots.txt-settings) |
+| `store/channel/{channel_id}/settings/category/updated` | Fires when category settings that affect the specified channel are updated. | [Update storefront category settings](/docs/rest-management/settings/storefront-category#update-storefront-category-settings) |
+| `store/channel/{channel_id}/settings/product/updated` | Fires when product settings that affect the specified channel are updated. | [Update storefront product settings](/docs/rest-management/settings/storefront-product#update-storefront-product-settings) |
+| `store/channel/{channel_id}/settings/catalog/updated` | Fires when catalog settings that affect the specified channel are updated. | [Update catalog settings](/docs/rest-management/settings/catalog#update-catalog-settings) |
+| `store/channel/{channel_id}/settings/security/updated` | Fires when security settings that affect the specified channel are updated. | [Update storefront security settings](/docs/rest-management/settings/storefront-security#update-storefront-security-settings) |
+| `store/channel/{channel_id}/settings/searchContextFilters/updated` | Fires when search context filters that affect the specified channel are updated. | [Upsert Contextual Filters](/docs/rest-management/settings/search-filters#upsert-contextual-filters) |
+| `store/channel/{channel_id}/settings/defaultCustomerGroup/updated` | Fires when the default customer group associated with the specified channel is updated. | [Update a customer group](/docs/rest-management/customers-v2/customer-groups#update-a-customer-group) |
+| `store/channel/{channel_id}/settings/customerPrivacy/updated` | Fires when customer privacy settings that affect the specified channel are updated. | [Update customer settings per channel](/docs/rest-management/customers/customer-settings-channel#update-customer-settings-per-channel) |
 
 Settings payload objects take the form that follows:
 
@@ -460,7 +460,7 @@ The following sites webhook events fire in response to actions that affect a sit
 
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/settings/site/updated`       | Fires when a site associated with the specified channel is updated, created, or deleted. | [Update a channel site](/api-reference/store-management/channels/channel-site/put-channel-site), [Update a site](/api-reference/store-management/sites/sites/put-site), [Create a channel site](/api-reference/store-management/channels/channel-site/postchannelsite), [Create a site](/api-reference/store-management/sites/sites/post-site), [Delete a channel site](/api-reference/store-management/channels/channel-site/deletechannelschannelidsite), or [Delete a site](/api-reference/store-management/sites/sites/delete-site) |
+| `store/channel/{channel_id}/settings/site/updated`       | Fires when a site associated with the specified channel is updated, created, or deleted. | [Update a channel site](/docs/rest-management/channels/channel-site#update-a-channel-site), [Update a site](/docs/rest-management/sites#update-a-site), [Create a channel site](/docs/rest-management/channels/channel-site#create-a-channel-site), [Create a site](/docs/rest-management/sites#create-a-site), [Delete a channel site](/docs/rest-management/channels/channel-site#delete-a-channel-site), or [Delete a site](/docs/rest-management/sites#delete-a-site) |
 
 Site payload objects take the form that follows:
 

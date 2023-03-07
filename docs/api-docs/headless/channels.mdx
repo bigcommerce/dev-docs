@@ -8,7 +8,7 @@ This section demonstrates how to create a channel and a channel site for a headl
 
 Before you can display products on a headless storefront, you need to create a channel and a channel site for that storefront. A **channel** is essentially a sales platform such as a headless storefront, a marketplace, or a POS system. A **site** is a domain that links a headless storefront to a sales channel.
 
-You can create both using the [Channels API](/api-reference/store-management/channels).
+You can create both using the [Channels API](/docs/rest-management/channels).
 
 1. Start by sending a `POST` request to the `/channels` endpoint to create a channel for your headless platform. Retrieve the channel ID returned in the response. You will use it to create a channel site and authenticate cross-origin requests.
 2. Pass that channel ID in a `POST` request to `/channels/{channel_id}/site` to create a site for the provided channel.
