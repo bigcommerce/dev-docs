@@ -28,7 +28,7 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
 <Callout type="info">
-  For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
+  For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/docs/rest-storefront/checkouts/checkout-consignments#create-a-consignment) documentation.
   The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
 </Callout>
   
@@ -45,7 +45,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](/a
 </Callout>
 
 
-The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
+The [Create a consignment endpoint](/docs/rest-storefront/checkouts/checkout-consignments#create-a-consignment) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
 The following is an example `POST` request for creating two consignments. Append `include=consignment.available_shipping_options` to the endpoint so that you will have the information to select one of them in the next step.
 
@@ -120,17 +120,17 @@ Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form,
 
 ## Updating a consignment
 
-The [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
+The [Update a consignment endpoint](/docs/rest-storefront/checkouts/checkout-consignments#update-a-consignment) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
 
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
 <Callout type="warning">
-  You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+  You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment).
 </Callout>
 
 
 
-The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).
+The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout).
 
 ```http filename="Example request: Update a consignment" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
@@ -153,5 +153,5 @@ Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` a
 
 ## Related documentation
 
-* [Server-to-Server Checkout API Reference](/api-reference/store-management/checkouts)
-* [Storefront Checkout API Reference](/api-reference/storefront/checkouts)
+* [Server-to-Server Checkout API Reference](/docs/rest-management/checkouts)
+* [Storefront Checkout API Reference](/docs/rest-storefront/checkouts)

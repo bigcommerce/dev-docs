@@ -165,7 +165,7 @@ To trigger the abandoned cart recovery sequence, the cart must be associated wit
 
 The following example demonstrates how a headless storefront can recover abandoned cart details without relying on Optimized One-Page Checkout.
 
-1. Link your headless storefront to your sales channel by sending a `POST` request to the [Create a Site](/api-reference/store-management/sites/sites/post-site) endpoint.
+1. Link your headless storefront to your sales channel by sending a `POST` request to the [Create a Site](/docs/rest-management/sites#create-a-site) endpoint.
 
    ```http filename="Example request: Create a site" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
@@ -179,7 +179,7 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-2. Using the [Site Routes](/api-reference/store-management/sites/site-routes/post-site-route) endpoint, create a `recover_abandoned_cart` route.
+2. Using the [Site Routes](/docs/rest-management/sites/site-routes#create-a-site-route) endpoint, create a `recover_abandoned_cart` route.
 
    ```http filename="Example request: Create a site route" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
@@ -196,7 +196,7 @@ The following example demonstrates how a headless storefront can recover abandon
 
 ### Create cart with customer
 
-1. To create a customer, send a `POST` request to the [Create Customers](/api-reference/store-management/customers-v3/customers/customerspost) endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account optimized to receive Abandoned Cart Saver emails.
+1. To create a customer, send a `POST` request to the [Create Customers](/docs/rest-management/customers#create-customers) endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account optimized to receive Abandoned Cart Saver emails.
 
    ```http filename="Example request: Create customers" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
@@ -232,7 +232,7 @@ The following example demonstrates how a headless storefront can recover abandon
    ]
    ```
 
-2. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart. Include the customer ID and channel ID in the request body so that the URL inserted in transactional emails contains the correct site and routes.
+2. Send a `POST` request to the [Create a Cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint to create a cart. Include the customer ID and channel ID in the request body so that the URL inserted in transactional emails contains the correct site and routes.
 
    ```http filename="Example request: Create a cart" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
@@ -280,7 +280,7 @@ The following example demonstrates how a headless storefront can recover abandon
 
 ### Create cart with guest customer
 
-1. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart.
+1. Send a `POST` request to the [Create a Cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint to create a cart.
 
    ```http filename="Example request: Create a cart" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
@@ -299,7 +299,7 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-2. Send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint to add checkout billing address. Include the email address in the request body so that the abandoned cart saver notification could be triggered.
+2. Send a `POST` request to the [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint to add checkout billing address. Include the email address in the request body so that the abandoned cart saver notification could be triggered.
 
    ```http filename="Example request: Add checkout billing address" showLineNumbers copy
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/billing-address
