@@ -2,7 +2,7 @@
 
 BigCommerce offers two types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: store management credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
 
-In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
 
 ## API accounts
 
@@ -23,7 +23,7 @@ In addition to the [API account components](#api-accounts) in the preceding sect
 * the **client name** is a label for your convenience, and it doesn't accompany requests;
 * the **API path** is the URL to which you make requests. The API path won't change, but it will have `/v3/` or `/v2/` appended to it, depending on the current version for the endpoint you're querying.
 
-Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
+Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authentication and Example Requests](/api-docs/getting-started/authentication) and consult the documentation for the API you want to use.
 
 <Callout type="error">
   #### Be careful with client secrets
@@ -57,7 +57,7 @@ To delete a store API account, consult our Knowledge Base article on [Deleting a
 
 You can [create app API accounts](#obtaining-app-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
-Some APIs use app API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+Some APIs use app API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
 
 For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
@@ -87,7 +87,7 @@ To delete an app API account, consult our article on [Managing Apps in the Devel
 
 ## Choosing the right kind of API account
 
-Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication](/api-docs/getting-started/authentication) article.
+Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article.
 
 | API or Use Case | App API Account | Store API Account |
 |:----------------|:---------------:|:-----------------:|
@@ -192,7 +192,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/api-reference/store-management/channels/channel-listings/listchannellistings) |
 
 ## Resources
-* [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
+* [Authentication and Example Requests](/api-docs/getting-started/authentication)
 * [Guide to Building Apps](/api-docs/apps/guide/intro)
 * [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
 * [API Status Codes](/api-docs/getting-started/api-status-codes)
