@@ -1,6 +1,6 @@
 # Managing Store Configuration
 
-[Settings API reference documentation](/api-reference/store-management/settings)
+[Settings API reference documentation](/docs/rest-management/shipping)
 
 BigCommerce's Settings APIs can manage many of the configuration settings that are exposed to merchants in their store control panel, such as the store's name and contact information, SEO settings, and search filters.
 

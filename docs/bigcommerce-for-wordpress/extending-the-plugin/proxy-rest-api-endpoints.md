@@ -19,10 +19,10 @@ By default, GET requests under `/catalog` are cached for ten minutes in the obje
 |[`/catalog/products/[product-id]/images/(*)`](/api-reference/catalog/catalog-api/product-images/getproductimages)|Fetch images associated with a product|`GET`|date_modified
 |[`/catalog/products/[product-id]/reviews(/*)`](/api-reference/catalog/catalog-api/product-reviews/getproductreviews)|Fetch reviews associated with a product|`GET`|date_created, date_modifed, date_reviewed, email, status (**note: reviews are filtered out if status is not `approved`**)
 |[`/catalog/categories(/*)`](/api-reference/catalog/catalog-api/category/getcategories)|Fetch category listings or individual categories by ID|`GET`|views
-|[Additional `/catalog` endpoints](/api-reference/catalog/catalog-api)| See BigCommerce API docs |`GET`
+|[Additional `/catalog` endpoints](/docs/rest-management/catalog)| See BigCommerce API docs |`GET`
 |`/channels(/*)`|BigCommerce channels endpoints|`GET`
 |`/channels/[channel-id]/site`||`GET`|
-|[`/carts`](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)|Creates a cart]|`POST`, `PUT`
+|[`/carts`](/docs/rest-management/carts/carts-single#get-a-cart)|Creates a cart]|`POST`, `PUT`
 |[`/carts/[cart-id]`](/api-reference/cart-checkout/server-server-cart-api/cart/getacart)|Fetch, update, and delete a cart by cart ID|`GET`, `POST`, `PUT`, `DELETE`|
-|[`/carts/[cart-id]/items(/[item-id])`](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)|Create, update, and delete cart items|`POST`, `PUT`, `DELETE`|
+|[`/carts/[cart-id]/items(/[item-id])`](/docs/rest-management/carts/carts-single#get-a-cart)|Create, update, and delete cart items|`POST`, `PUT`, `DELETE`|
 |[`/carts/[cart-id]/redirect_urls/`](/api-reference/cart-checkout/server-server-cart-api/cart-redirect-urls/createcartredirecturl)|Fetch a cart's redirect URLs|`POST`, `PUT`|

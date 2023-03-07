@@ -78,7 +78,7 @@ The checkout type determines which payment methods and checkout customizations a
 
 **Redirected Checkout** unlocks the full checkout experience of BigCommerce, including hosted wallets and ability to customize the checkout layout through the Stencil framework and Checkout SDK. To make the hand off from WordPress to BigCommerce seamless, set up a subdomain such as checkout.your-domain.com. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
 
-Note that in either case, the links within checkout, such as **Register Account** and **Edit Cart**, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](/api-reference/cart-checkout/sites-routes-api). 
+Note that in either case, the links within checkout, such as **Register Account** and **Edit Cart**, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](/docs/rest-management/sites). 
 
 ### Enable user registration on WordPress
 

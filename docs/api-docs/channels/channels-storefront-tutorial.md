@@ -15,7 +15,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/docs/rest-management/channels#create-a-channel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -39,13 +39,13 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/channels#create-a-channel) -->
 
-[View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
+[View reference documentation for this request](/docs/rest-management/channels#create-a-channel).
 
 ## Specifying the platform
 
-Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
+Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/docs/rest-management/channels#create-a-channel).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -61,7 +61,7 @@ Accept: application/json
   }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/channels#create-a-channel) -->
 
 ### Accepted values
 
@@ -76,7 +76,7 @@ Accept: application/json
 
 ## Configuring UI sections
 
-Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
+Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/docs/rest-management/channels/channel-menus#create-channel-menus).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -110,7 +110,7 @@ The following protected sections are provided by BigCommerce:
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | `Currencies`          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
+Include protected sections in the [create channel menus request](/docs/rest-management/channels/channel-menus#create-channel-menus) to display BigCommerce-provided channel-specific settings pages.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -138,7 +138,9 @@ Include the `storefront_settings` [protected section](#protected-ui-sections) in
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
-Read channel specific storefront settings using the [Settings API](/api-reference/store-management/settings). For example, to [get storefront category settings](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
+Read channel specific storefront settings using the [Settings API](/docs/rest-management/settings. For example, to [get storefront category settings](/docs/rest-management/settings/storefront-category#get-storefront-category-settings), send a `GET` request to `/v3/settings/storefront/category`.
+
+
 
 ```http
 GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
@@ -148,7 +150,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/settings/storefront-category#get-storefront-category-settings) -->
 
 **Response:**
 
@@ -163,7 +165,7 @@ Accept: application/json
 }
 ```
 
-[View the settings API Reference](/api-reference/store-management/settings).
+[View the settings API Reference](/docs/rest-management/settings.
 
 ## Currencies settings
 
@@ -171,7 +173,7 @@ Include the `currencies` [protected section](#protected-ui-sections) in the Chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
-You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/docs/rest-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/docs/rest-management/channels/channel-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
@@ -180,7 +182,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/channels/channel-currency-assignments#get-channel-currency-assignments) -->
 
 **Response:**
 
@@ -195,7 +197,7 @@ Accept: application/json
 }
 ```
 
-[View the Channels API reference](/api-reference/store-management/channels).
+[View the Channels API reference](/docs/rest-management/channels).
 
 ## Notification settings
 
@@ -213,5 +215,5 @@ Include the `notifications` [protected section](#protected-ui-sections) in the C
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/store-management/channels)
-- [Settings API Reference](/api-reference/store-management/settings)
+- [Channels API Reference](/docs/rest-management/channels)
+- [Settings API Reference](/docs/rest-management/settings

@@ -18,7 +18,7 @@ BigCommerce does not dynamically convert currency. To convert, the merchant will
 ## Currencies
 
 **Details:**
-* There was a new field added to [/v2/currencies](/api-reference/store-management/currency-api):
+* There was a new field added to [/v2/currencies](/docs/rest-management/currencies):
   * `is_transactional` - Boolean indicating if the currency is transactional or not; false means display only currency.
 
 **Example:**
@@ -146,10 +146,10 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ## S-2-S Cart and Checkout
 
-You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
+You can set up the cart currency when creating a [Server to Server Cart](/docs/rest-management/carts/carts-single#get-a-cart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
 
 **Example POST Create a Cart** 
-*[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
+*[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/docs/rest-management/carts/carts-single#get-a-cart)*
 
 ```json
 {

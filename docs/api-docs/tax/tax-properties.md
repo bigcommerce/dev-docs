@@ -210,7 +210,7 @@ HTTP 204 No content
 
 ## Product tax properties 
 
-After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. 
+After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/docs/rest-management/catalog/products#get-all-products) endpoint. 
 
 You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume. 
 
@@ -446,4 +446,4 @@ BigCommerce also sends product tax properties to [commit](/api-reference/provide
 - [Create a tax adjustment](/api-reference/providers/tax-provider-api/tax-provider/adjust)
 
 ### Catalog reference
-- [Get all products](/api-reference/store-management/catalog/products/getproducts)
+- [Get all products](/docs/rest-management/catalog/products#get-all-products)

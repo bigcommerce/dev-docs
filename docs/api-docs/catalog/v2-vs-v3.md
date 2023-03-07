@@ -103,6 +103,6 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 
 ### Endpoints
 * [V3 Catalog: Get Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules/getcomplexrules)
-* [V3 Catalog: Get Product Variant Options](/api-reference/store-management/catalog/product-variant-options/getoptions)
-* [V3 Catalog: Get Product Modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifiers)
-* [V3 Catalog: Get Product Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid)
+* [V3 Catalog: Get Product Variant Options](/docs/rest-management/catalog/product-variant-options#get-all-product-variant-options)
+* [V3 Catalog: Get Product Modifiers](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers)
+* [V3 Catalog: Get Product Variants](/docs/rest-management/catalog/product-variants#get-a-product-variant)

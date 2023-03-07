@@ -9,7 +9,7 @@ The Order Shipments resource creates a shipment for an order. You can specify th
 
 ## Checkout APIs
 
-The [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api) and [Server-to-Server Checkout APIs](/api-reference/cart-checkout/server-server-checkout-api) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
+The [Storefront Checkout](/docs/rest-management/checkouts) and [Server-to-Server Checkout APIs](/docs/rest-storefront/checkouts) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
 
 However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
 
@@ -37,7 +37,7 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 * [Orders API Overview](/api-docs/orders/orders-api-overview)
 
 ### Endpoints
-* [Storefront Checkouts API](/api-reference/cart-checkout/storefront-checkout-api)
-* [Server-to-Server Checkouts API](/api-reference/cart-checkout/server-server-checkout-api)
+* [Storefront Checkouts API](/docs/rest-management/checkouts)
+* [Server-to-Server Checkouts API](/docs/rest-storefront/checkouts)
 * [Order Shipping Addresses](/api-reference/store-management/orders/order-shipping-addresses/)
-* [Shipping v2](/api-reference/store-management/shipping-api)
+* [Shipping v2](/docs/rest-management/shipping-v2)

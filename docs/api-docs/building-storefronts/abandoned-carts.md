@@ -63,7 +63,7 @@ You can locate your channel ID by:
 
 **or**
 
-- sending a `GET` request to the [Get All Channels](/api-reference/store-management/channels/channels/listchannels) endpoint.
+- sending a `GET` request to the [Get All Channels](/docs/rest-management/channels#get-all-channels) endpoint.
 
 To create a `recover_abandoned_cart` site route, send a `POST` request to the [Create a Site Route](/api-reference/store-management/sites/site-routes/post-site-route) endpoint.
 
@@ -131,7 +131,7 @@ The response will contain the corresponding cart ID.
 }
 ```
 
-To retrieve the cart details, send a `GET` request to the [Get a Cart](/api-reference/store-management/carts/cart/getacart) endpoint.
+To retrieve the cart details, send a `GET` request to the [Get a Cart](/docs/rest-storefront/carts#get-a-cart) endpoint.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts/{cartId}
@@ -141,13 +141,13 @@ Accept: application/json
 
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/getacart#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-storefront/carts#get-a-cart) -->
 
 The response will contain the cart details.
 
 ## Implementing cart recovery on headless storefronts
 
-To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](/api-reference/store-management/customers-v3) and [Carts](/api-reference/store-management/carts) APIs to initiate the abandoned cart recovery sequence.
+To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](/docs/rest-management/customers) and [Carts](/api-reference/store-management/carts) APIs to initiate the abandoned cart recovery sequence.
 
 The following example demonstrates how a headless storefront can recover abandoned cart details without relying on Optimized One-Page Checkout.
 

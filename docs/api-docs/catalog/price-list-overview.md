@@ -4,7 +4,7 @@
 ## What is a price list?
 
 
-A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
+A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/docs/rest-management/customers-v2). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
 
 You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
 
@@ -88,7 +88,7 @@ Content-Type: application/json
 
 The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments (Facebook, Amazon, Instagram, eBay, etc). 
 
-See [Channels, Sites, and Routes](/api-reference/store-management/channels) for further documentation.
+See [Channels, Sites, and Routes](/docs/rest-management/channels) for further documentation.
 
 ```http title="Example request: Create a price list assignment" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments

@@ -15,10 +15,10 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 
 | Name | Description |
 | -- | -- |
-| [Storefront Orders](/api-reference/orders/storefront-orders-api) | Retrieve order information from the Order Confirmation page using JavaScript |
+| [Storefront Orders](/docs/rest-storefront/orders) | Retrieve order information from the Order Confirmation page using JavaScript |
 | [Server to Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) | Create an order from an existing checkout |
-| [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
-| [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
+| [Orders API](/docs/rest-management/orders) | Create and manage orders. Can manage orders created via API or the Control Panel |
+| [Order Transactions](/docs/rest-management/transactions) | Get transaction information for existing orders. Read Only Endpoint |
 
 ##  Storefront Orders API
 The Storefront Orders API allows you to return information about a just-placed order on the order confirmation page. You can interact with the Storefront Orders API using an app or a browser API.
@@ -50,7 +50,7 @@ The Server-to-Server Checkout API allows you to create a checkout programmatical
 * Create an order from an existing checkout
 
 ## Orders API
-The Orders API allows you to create an order without first creating a cart and checkout. It also allows you to manage an order's billing address, products, coupons, and taxes. See [Orders API](/api-reference/orders/orders-api) for a complete list of methods.
+The Orders API allows you to create an order without first creating a cart and checkout. It also allows you to manage an order's billing address, products, coupons, and taxes. See [Orders API](/docs/rest-management/orders) for a complete list of methods.
 
 ### When to use:
 * Create an order and bypass creating a cart and checkout

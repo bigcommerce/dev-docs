@@ -2,7 +2,7 @@
 
 
 
-The [Settings API](/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
+The [Settings API](/docs/rest-management/shipping) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
 You can use the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
 Additionally, the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
@@ -18,7 +18,7 @@ This article demonstrates how to use [Contextual Filters](/api-reference/store-m
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `information & settings modify` scope.
-* Knowledge of the [Settings API](/api-reference/store-management/settings).
+* Knowledge of the [Settings API](/docs/rest-management/shipping).
 * Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
 <!-- theme: info -->
@@ -194,7 +194,7 @@ The filters returned from completing this `GET` request are the filters availabl
 
 <!-- theme: info -->
 > #### Note
-> To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/getcategories).
+> To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/docs/rest-management/catalog/category#get-all-categories).
 
 
 
@@ -371,5 +371,5 @@ You can also view the changes on the storefront.
 * [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
 
 ### Endpoints
-* [Settings API](/api-reference/store-management/settings)
-* [Get All Categories](/api-reference/store-management/catalog/category/getcategories)
+* [Settings API](/docs/rest-management/shipping)
+* [Get All Categories](/docs/rest-management/catalog/category#get-all-categories)

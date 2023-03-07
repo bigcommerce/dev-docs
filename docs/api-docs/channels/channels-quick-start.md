@@ -88,4 +88,4 @@ Accept: application/json
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/store-management/channels)
+- [Channels API Reference](/docs/rest-management/channels)

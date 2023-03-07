@@ -15,7 +15,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](/a
 
 ## Products overview
 
-[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
+[Products](/docs/rest-management/catalog/products#get-all-products) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
 
 
 Products can be physical or digital:
@@ -53,7 +53,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/catalog/products#create-a-product) -->
 
 ## Creating products with variant options
 
@@ -97,7 +97,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/catalog/products#create-a-productr) -->
 
 <!-- theme: info -->
 > #### Note
@@ -132,7 +132,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/docs/rest-management/catalog/products#create-a-product) -->
 
 <!-- theme: info -->
 > #### Note
@@ -268,7 +268,7 @@ Currency display settings allow for more than four decimal places. In such cases
 
 ## Adding product metafields
 
-[Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
+[Metafields](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
 To add metafields to a product, send a `PUT` request to `/v3/catalog/products/{{product_id}}/metafields`.
@@ -329,7 +329,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variant options
 
-[Variant options](/api-reference/store-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+[Variant options](/docs/rest-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a variant option; red, orange, and green are variant option values.
@@ -347,7 +347,7 @@ This example results in selecting a combination of small and red on the storefro
 * Product pick list
 * Product pick list with images
 * Will automatically generate variants when created in the control panel
-* Are auto-generated from variants when you create a product with variants using the [Products](/api-reference/store-management/catalog/products/createproduct) endpoint
+* Are auto-generated from variants when you create a product with variants using the [Products](/docs/rest-management/catalog/products#create-a-product) endpoint
 
 ### Variant options example
 
@@ -365,7 +365,7 @@ This example results in selecting a combination of small and red on the storefro
 
 <!-- theme: info -->
 > #### Create a variant option
-> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint.
 
 ### Create variant options
 
@@ -406,7 +406,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variants
 
-[Variants](/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
+[Variants](/docs/rest-management/catalog/product-variants#get-a-product-variant) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
@@ -430,9 +430,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Creating variants
 
 You can create variants in two ways:
-* From existing variant options, using [Create a Product Variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+* From existing variant options, using [Create a Product Variant](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint.
 
-* By adding variants with options and SKUs, using [Create a Product](/api-reference/store-management/catalog/products/createproduct) endpoint.
+* By adding variants with options and SKUs, using [Create a Product](/docs/rest-management/catalog/products#create-a-product) endpoint.
 
 
 The example below will go over using existing variant options to create the variants.
@@ -582,7 +582,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Modifier options
 
-[Modifier options](/api-reference/store-management/catalog/product-modifiers/getmodifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
+[Modifier options](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
 * A checkbox to add shipping insurance
 * Text to be engraved on the product
 * A selected color for an unfinished product before it’s shipped
@@ -828,7 +828,7 @@ For general information on brands and their use cases, see [Managing Brands](htt
 
 ## Categories
 
-[Categories](/api-reference/store-management/catalog/category/getcategories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
+[Categories](/docs/rest-management/catalog/category#get-all-categories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
 
 BigCommerce's V3 REST API does not require products to be associated with a category during creation. You can add new products to a catalog without a category, which can be assigned later if desired. A store's category can contain multiple products or no products at all and still be valid. 
 

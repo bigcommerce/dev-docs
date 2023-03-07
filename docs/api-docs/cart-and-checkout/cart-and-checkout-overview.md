@@ -133,7 +133,7 @@ We will go over common Storefront Cart and Checkout as well as Server-to-Server 
 ***Resolution:***
 Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants at all. To learn more about options and modifiers, see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
 
-To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
+To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-management/carts/carts-single#get-a-cart) without the `variant_id`.
 
 
 ```json title="Single modifier" lineNumbers
@@ -298,7 +298,7 @@ To get the correct `option_id`, make a request to [Get Products](/api-reference/
 * The modifierID is incorrect.
 
 **Resolution:**
-To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
+To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-storefront/carts#create-a-cart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
 ```json title="Create cart optionId and optionValue" lineNumbers
 {
@@ -390,10 +390,10 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 * [Working with the Storefront Cart and Checkout](/api-docs/cart-and-checkout/working-sf-apis)
 
 ### Endpoints
-* [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
-* [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
-* [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api)
-* [Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api)
+* [Storefront Cart](/docs/rest-storefront/carts)
+* [Storefront Checkout](/docs/rest-management/checkouts)
+* [Server-to-Server Cart](/docs/rest-management/carts)
+* [Server-to-Server Checkout](/docs/rest-storefront/checkouts)
 
 ### Webhooks
 * [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)

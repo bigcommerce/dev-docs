@@ -2,7 +2,7 @@
  
 
 <!-- theme: danger -->
-> It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
+> It is recommended to use the new [Catalog Products](/docs/rest-management/catalog).
 
 ## Products
 A product object represents a saleable item in the catalog.

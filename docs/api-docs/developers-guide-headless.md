@@ -44,22 +44,22 @@ Need code up a custom storefront but don't want to start from scratch? Kick-star
 Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
 
 * [Create storefront channels with the Channels API](/api-docs/channels/quick-start).
-* [Manage sites and routes for headless storefronts with the sites and routes API](/api-reference/store-management/sites).
-* [Manage 301 redirects for one or more storefronts with Redirects V3 API](/api-reference/store-management/redirects)
-* [Create storefront specific product listings with the Channels API](/api-reference/store-management/channels).
+* [Manage sites and routes for headless storefronts with the sites and routes API](/docs/rest-management/sites).
+* [Manage 301 redirects for one or more storefronts with Redirects V3 API](/docs/rest-management/redirects)
+* [Create storefront specific product listings with the Channels API](/docs/rest-management/channels).
 * [Query storefront data with GraphQL](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
-* [Create carts with the Server-to-Server Carts API](/api-reference/cart-checkout/server-server-cart-api).
-* [Fetch and display abandoned cart information using the Abandoned Carts API](/api-reference/cart-checkout/s2s-abandoned-carts).
-* [Create and manage shopper wishlists with the Wislists API](/api-reference/store-management/wishlists)
-* [Manage product data with the Catalog API](/api-reference/catalog/catalog-api).
+* [Create carts with the Server-to-Server Carts API](/docs/rest-management/carts).
+* [Fetch and display abandoned cart information using the Abandoned Carts API](/docs/rest-management/abandoned-carts).
+* [Create and manage shopper wishlists with the Wislists API](/docs/rest-management/wishlists)
+* [Manage product data with the Catalog API](/docs/rest-management/catalog).
 * [Embed BigCommerce's checkout in an iFrame with Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
-* [Redirect to BigCommerce's hosted checkout using the Server-to-Server Checkout API](/api-reference/cart-checkout/server-server-checkout-api)
+* [Redirect to BigCommerce's hosted checkout using the Server-to-Server Checkout API](/docs/rest-storefront/checkouts)
 * [Create custom BigCommerce hosted checkout pages from scratch using Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk-quickstart).
 * [Create a custom BigCommerce hosted checkout from a fork of BigCommerce's Checkout-JS](https://github.com/bigcommerce/checkout-js).
-* [Build a custom checkout experience from scratch using the Server-to-Server Checkout API](/api-reference/cart-checkout/server-server-checkout-api).
+* [Build a custom checkout experience from scratch using the Server-to-Server Checkout API](/docs/rest-storefront/checkouts).
 * [Restyle the BigCommerce hosted checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout).
-* [Process payments using the Payments API](/api-reference/payments/payments-process-payments).
+* [Process payments using the Payments API](/docs/rest-payments/methods).
 * [Manage orders with Orders V2 and V3 APIs](/api-docs/store-management/orders).
 * [Use webhooks to get notified when specific events occur in BigCommerce](/api-docs/store-management/webhooks/overview).
 
@@ -80,7 +80,7 @@ Use BigCommerce as the back-end for several stores. By placing an application la
 
 ## Catalog Management
 
-Using the [Catalog API](/api-reference/catalog/catalog-api) you can return product data to your product details page and product listing page.
+Using the [Catalog API](/docs/rest-management/catalog) you can return product data to your product details page and product listing page.
 
 ### Sync the catalog
 
@@ -96,7 +96,7 @@ If you prefer working with a local copy of your data, but want to make sure that
 
 ## Cart management
 
-Use the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api) to create carts for existing customers and guest customers.
+Use the [Server to Server Cart API](/docs/rest-management/carts) to create carts for existing customers and guest customers.
 
 ### Guest Cart
 
@@ -108,7 +108,7 @@ Using a CMS is a good way to offer a custom shopper experience without needing b
 
 ## Checkout management
 
-Use the [Checkout API](/api-reference/cart-checkout/server-server-checkout-api) to move the cart to checkout and turn an existing checkout into an order.
+Use the [Checkout API](/docs/rest-storefront/checkouts) to move the cart to checkout and turn an existing checkout into an order.
 
 ### Redirect to a BigCommerce checkout
 
@@ -116,7 +116,7 @@ When creating a cart, there is an optional query to create a redirect URL. Use t
 
 If you are using the hosted checkout option, shoppers will be able to navigate to other pages of the store. Here's a few methods to prevent this:
 
-1. Use BigCommerce's [Sites and Routes API](/api-reference/cart-checkout/sites-routes-api) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
+1. Use BigCommerce's [Sites and Routes API](/docs/rest-management/sites) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
 2. Hide non essential pages by removing the back links in Cart and Checkout
 3. Add a JavaScript redirect on all pages (except `/checkout`) that redirects to the non-BigCommerce storefront
 4. Wrap all content in the theme's layouts in a conditional that only renders the BC storefront if certain conditions are met (like an admin customer group, for example), and redirect to the non-BigCommerce storefront otherwise.
@@ -132,17 +132,17 @@ If you need complete control over the checkout page, you have the option to buil
 
 ### Associate cart with a customer
 
-If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api) is used since it allows for the front end to be bypassed when creating a cart.
+If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](/docs/rest-management/carts) is used since it allows for the front end to be bypassed when creating a cart.
 
 When a cart is created, your app should store the `cart_id`.  The `cart_id` is used to generated a `redirect_url`. Using the [Customer Login API](/api-docs/storefront/customer-login-api) set the `redirect_to` parameter as the generated cart or checkout redirect url. This will both log the customer in and show them either the cart or checkout depending on which url was used.  To make sure the cart is matched to the right customer you should compare the entered email address to what is the store’s database.
 
-To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](/api-reference/customer-subscribers/v3-customers-api). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
+To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](/docs/rest-management/customers). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
 
 ### Creating a new customer
 
-Our WordPress plugin uses the approach of using the Customer API to [validate the password](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) against what is stored in BigCommerce.
+Our WordPress plugin uses the approach of using the Customer API to [validate the password](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) against what is stored in BigCommerce.
 
-If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](/api-reference/customer-subscribers/v3-customers-api).
+If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](/docs/rest-management/customers).
 
 ## Sample integration
 
@@ -190,10 +190,10 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 
 ### Creating orders from a cart
 
-1.  Create a [Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) with a redirect url
+1.  Create a [Cart](/docs/rest-management/carts/carts-single#get-a-cart) with a redirect url
 	1.  Add the Customer ID or leave blank if shopper is a guest
 	2.  Add Line Items or Custom Line Items
-2.  Add a [Billing Address](/api-reference/cart-checkout/server-server-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) to the [Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) changing it to a Checkout
+2.  Add a [Billing Address](/api-reference/cart-checkout/server-server-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) to the [Cart](/docs/rest-management/carts/carts-single#get-a-cart) changing it to a Checkout
 3.  Add a [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to Checkout with the line items and the `consignments.available_shipping_options` query
 4. Update each [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) with the chosen shipping option from the Add Consignment response.
 5.  Create the Order by sending a request to [Create Order](/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder)
@@ -203,7 +203,7 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 
 ### Create an Order Directly
 
-1.  Send a request /POST request to [Orders](/api-reference/orders/orders-api/orders/createanorder)
+1.  Send a request /POST request to [Orders](/docs/rest-management/orders#create-an-order)
 	1. Make sure the `status_id` is 0
 	2.  Add the Customer ID or leave blank if the shopper is a guest
 	3. Add Line Items or Custom Line Items
@@ -236,13 +236,13 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 - [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security)
 
 ### Endpoints
-- [Catalog API](/api-reference/catalog/catalog-api)
-- [Server to Server Checkout API](/api-reference/cart-checkout/server-server-checkout-api)
-- [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api)
-- [Orders API](/api-reference/orders/orders-api)
-- [Payments API](/api-reference/payments)
-- [Customers API](/api-reference/customer-subscribers/v3-customers-api)
-- [Validate Customer Password](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword)
+- [Catalog API](/docs/rest-management/catalog)
+- [Server to Server Checkout API](/docs/rest-storefront/checkouts)
+- [Server to Server Cart API](/docs/rest-management/carts)
+- [Orders API](/docs/rest-management/orders)
+- [Payments API](/docs/rest-payments)
+- [Customers API](/docs/rest-management/customers)
+- [Validate Customer Password](/docs/rest-management/customers-v2/customer-passwords#validate-a-password)
 
 ### Tools
 - [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)

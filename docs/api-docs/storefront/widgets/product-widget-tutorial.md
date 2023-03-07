@@ -326,4 +326,4 @@ Accept: application/json
 * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
 
 ### Endpoints 
-* [Widgets API](/api-reference/store-management/widgets)
+* [Widgets API](/docs/rest-content/widgets)

@@ -29,7 +29,7 @@ For example:
 
 It is important to note that when you use the hosted checkout option the shoppers are able to navigate to other pages of your store. The following are some of the methods to prevent this.
 
-1. Use the [Sites and Routes API](/api-reference/store-management/sites) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
+1. Use the [Sites and Routes API](/docs/rest-management/sites) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
 2. Hide non-essential pages by removing the back links on cart and checkout pages.
 3. Add a JavaScript redirect on all pages (except `/checkout`) that redirects to the non-BigCommerce storefront.
 4. Wrap all content in the theme's layouts in a conditional that only renders the BigCommerce storefront if certain conditions are met (an admin customer group, for example), and redirect to the non-BigCommerce storefront otherwise.

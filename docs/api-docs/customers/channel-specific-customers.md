@@ -55,7 +55,7 @@ Now that you have seen how channel settings affect customer login access, we wil
 
 #### Determine if a channel allows for global customer login
 
-You can get a list of your store's channels by sending a `GET` request to the `/v3/channels` endpoint. For more information on how to retrieve this list, see [Get All Channels](/api-reference/store-management/channels/channels/listchannels). Once you receive a server response, note the returned `id`s as you will use them in some of the following sections.
+You can get a list of your store's channels by sending a `GET` request to the `/v3/channels` endpoint. For more information on how to retrieve this list, see [Get All Channels](/docs/rest-management/channels#get-all-channels). Once you receive a server response, note the returned `id`s as you will use them in some of the following sections.
 
 Now that you have the `channel_id` value for one or more channels, we can determine if a channel allows for global customer login. Send a `GET` request to `/v3/customers/settings/channels/{channel_id}` using the `id` retrieved in the previous step for the `{channel_id}` segment of the path.
 

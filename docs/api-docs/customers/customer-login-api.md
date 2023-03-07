@@ -70,7 +70,7 @@ The beginning of this tutorial focuses on manually creating a token using the de
 
 ### Create JWT using the debugger tool
 
-To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/api-reference/store-management/customers-v3). 
+To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/docs/rest-management/customers). 
 
 1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
 
@@ -226,4 +226,4 @@ To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/
 
 ### Endpoints
 * [Customer Login SSO](/api-reference/storefront/customer-login-sso)
-* [Customers V3](/api-reference/store-management/customers-v3)
+* [Customers V3](/docs/rest-management/customers)

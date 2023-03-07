@@ -8,7 +8,7 @@ If the cart is associated with the shopper's channel and the relationship betwee
 
 ## Categories
 
-[Categories API reference documentation](/api-reference/store-management/catalog/category/getcategories)
+[Categories API reference documentation](/docs/rest-management/catalog/category#get-all-categories)
 
 Previously, a store had a collection of categories that were organized in a tree structure. This collection of categories has been abstracted from the store and converted into the store's first **category tree**. You can create multiple category trees, each of which you can assign to a storefront or other sales channel.
 
@@ -30,7 +30,7 @@ If your application interacts with shoppers, you may be able to use the [GraphQL
 
 ## Customers
 
-[Customers API documentation](/api-reference/store-management/customers-v3)
+[Customers API documentation](/docs/rest-management/customers)
 
 Each customer account has an `origin_channel_id` that references the channel on which it was created. Email addresses must be unique within each **channel**, rather than within the store. This means that a single email address can exist two (or more) times in one store: associated with two Customer IDs on two different channels.
 
@@ -121,7 +121,7 @@ Going forward, we recommend that you use the query parameters on each Widgets AP
 
 ![redirects-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/redirects-diagram.webp)
 
-[Redirects API documentation](/api-reference/store-management/redirects)
+[Redirects API documentation](/docs/rest-management/redirects)
 
 Redirects are associated with a particular site. Any redirects that were created previously have been assigned to the default site, the ID of which is `1000` for each merchant store.
 

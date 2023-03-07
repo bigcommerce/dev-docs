@@ -148,11 +148,11 @@ Use the `query_path` value passed to the app's control panel iFrame to render th
 
 ### Endpoints
 
-- [Channels API](/api-reference/store-management/channels)
-- [Settings API](/api-reference/store-management/settings)
+- [Channels API](/docs/rest-management/channels)
+- [Settings API](/docs/rest-management/shipping)
 
 - [Building Apps](/api-docs/apps/guide/intro)
 - [Building Channels](/api-docs/channels/guide/overview)
-- [Channels API Reference](/api-reference/store-management/channels)
-- [Settings API Reference](/api-reference/store-management/settings)
+- [Channels API Reference](/docs/rest-management/channels)
+- [Settings API Reference](/docs/rest-management/shipping)
 - [Find an App's ID](/api-docs/apps/tutorials/id)

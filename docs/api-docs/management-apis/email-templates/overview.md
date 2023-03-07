@@ -90,7 +90,7 @@ Accept: application/json
 
 ## Overrides
 
-Pass in a [channel's](/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
+Pass in a [channel's](/docs/rest-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email?channel_id=123

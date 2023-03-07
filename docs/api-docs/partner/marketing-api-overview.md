@@ -111,4 +111,4 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Resources
 
 ### Related endpoints
-- [Marketing API](/api-reference/store-management/marketing)
+- [Marketing API](/docs/rest-content/marketing)

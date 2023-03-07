@@ -8,10 +8,10 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 
 All Partners:
 
-- Uses [Channels API](/api-reference/store-management/channels).
+- Uses [Channels API](/docs/rest-management/channels).
 
 - [Creates a channel](/api-reference/store-management/channels/channels/createchannel) upon app installation.
-- Reads and updates channel status using the [Channels API](/api-reference/store-management/channels) endpoints.
+- Reads and updates channel status using the [Channels API](/docs/rest-management/channels) endpoints.
 
 - Follows requirements for specific channel type
 
@@ -36,13 +36,13 @@ Select Partners:
 
 All Partners:
 
-- Must use [Sites and Routes API](/api-reference/cart-checkout/sites-routes-api) so that links generated within BigCommerce, such as "view storefront" and links sent in transactional emails to shoppers, will use the headless storefront's correct URL.
+- Must use [Sites and Routes API](/docs/rest-management/sites) so that links generated within BigCommerce, such as "view storefront" and links sent in transactional emails to shoppers, will use the headless storefront's correct URL.
 
 ## Marketplaces and marketing
 
 All Partners:
 
-- Must use [Listings API](/api-reference/store-management/channels), if supporting per product listings.
+- Must use [Listings API](/docs/rest-management/channels), if supporting per product listings.
 
 <!-- theme: info -->
 > #### Note
@@ -64,5 +64,5 @@ All Partners:
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/store-management/channels)
-- [Sites and Rites API Reference](/api-reference/cart-checkout/sites-routes-api)
+- [Channels API Reference](/docs/rest-management/channels)
+- [Sites and Rites API Reference](/docs/rest-management/sites)

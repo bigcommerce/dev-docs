@@ -28,7 +28,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   The dashboard and callback URLs for your app should operate strictly over HTTPS using a valid SSL certificate.
 -   Apps should offer [multi-user support](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_multi-user-support) so that permissions for the app can be distributed by the store owner to additional users, from the BigCommerce control panel.
 -   Any apps that process transactions or handle credit card data will need to pass a PCI Compliance review with our Security team, and also be compatible with our Optimized One-Page Checkout.
--   Avoid copy/paste for storefront code - use the [Scripts API](/api-reference/storefront/content-scripts-api) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
+-   Avoid copy/paste for storefront code - use the [Scripts API](/docs/rest-management/scripts) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
 -   If your app requires payment, you’ll need to collect payment from the user within your app. See Pricing & Categorization under App Summary for more information.
 
 ## Installation
@@ -46,7 +46,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 
 ## Recommendations
 
--   Have a form to fill out for new users? We recommend auto-filling user input fields with data from the [Store Information API resource](/api-reference/store-management/store-information-api), which already contains much of the info you might need from a new user.
+-   Have a form to fill out for new users? We recommend auto-filling user input fields with data from the [Store Information API resource](/docs/rest-management/store-information), which already contains much of the info you might need from a new user.
 -   No account approval process needed for your app? Consider automatically generating accounts for stores that install your app and don’t match an existing store in your database.
 -   Require login on launch? Use the information in the BigCommerce payload to your callback URL to authenticate the user without asking for a username and password each time.
 -   Want to share user testimonials? Add a link to your full case study in the Case Studies field, with a title and short description.
@@ -266,8 +266,8 @@ At this point you make sure the information has been filled out completely and t
 
 ## Resources
 ### Related Endpoints
-* [Store Information API resource](/api-reference/store-management/store-information-api)
-* [Scripts API](/api-reference/storefront/content-scripts-api)
+* [Store Information API resource](/docs/rest-management/store-information)
+* [Scripts API](/docs/rest-management/scripts)
 
 ### Related Articles
 * [Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps)

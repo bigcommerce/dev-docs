@@ -159,7 +159,7 @@ To support these workflows from a UI perspective, you may need to include the fo
 - Button
 - Spinner
 
-For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/api-reference/catalog/catalog-api).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/docs/rest-management/catalog).
 
 ## Creating listings
 
@@ -209,8 +209,8 @@ Importing customer and order data allows the merchant to import the sales histor
 
 To import or export customer and order data, integrate the following endpoints:
 
-- [`/v3/customers`](/api-reference/store-management/customers-v3)
-- [`/v2/orders`](/api-reference/orders/orders-api)
+- [`/v3/customers`](/docs/rest-management/customers)
+- [`/v2/orders`](/docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
@@ -246,7 +246,7 @@ To ensure that BigCommerce merchants are able to continue using their existing c
 To do this, integrate the following endpoints:
 
 - [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/createproduct)
-- [`/v2/orders`](/api-reference/orders/orders-api)
+- [`/v2/orders`](/docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
 
@@ -266,7 +266,7 @@ Accept: application/json
 <!-- theme: info -->
 > #### Note
 > - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0`, the value used for guest shoppers.
-> - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/api-reference/store-management/catalog/products/getproducts).
+> - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/docs/rest-management/catalog/products#get-all-products).
 
 
 
@@ -292,7 +292,7 @@ To leverage customer groups in your app, integrate the following endpoints:
 
 ### Price lists
 
-[Price lists](/api-reference/store-management/price-lists) are used to create variant-level price overrides that can be assigned to specific [customer groups](/api-reference/store-management/customers-v2/customer-groups). To make use of price lists, integrate the following endpoints:
+[Price lists](/docs/rest-management/price-lists) are used to create variant-level price overrides that can be assigned to specific [customer groups](/api-reference/store-management/customers-v2/customer-groups). To make use of price lists, integrate the following endpoints:
 
 - [`{base url}/v3/pricelists`](/api-reference/store-management/price-lists/price-lists)
 - [`{base url}/v3/pricelists/{pricelist id}/records`](/api-reference/store-management/price-lists/price-lists-records)

@@ -65,7 +65,7 @@ Global objects and properties are common components shared across the entire Big
 
 ## Cart
 
-**Description:** Returns the ID of the cart if one exists. To return more cart information use the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api). 
+**Description:** Returns the ID of the cart if one exists. To return more cart information use the [Storefront Cart API](/docs/rest-storefront/carts). 
 
 **Handlebars Expression:** `{{cart_id}}`
 

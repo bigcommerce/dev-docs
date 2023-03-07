@@ -19,11 +19,11 @@ For this tutorial, set the credentials option to `same-origin` and the content-t
 
 ## Storefront Cart
 
-The first part of this tutorial will cover using the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) to create a cart, add a line item, and delete a line item directly from the storefront.
+The first part of this tutorial will cover using the [Storefront Cart API](/docs/rest-storefront/carts) to create a cart, add a line item, and delete a line item directly from the storefront.
 
 ### Create a cart
 
-You can create a cart by sending a POST request to the [Create Cart](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) endpoint.
+You can create a cart by sending a POST request to the [Create Cart](/docs/rest-storefront/carts#create-a-cart) endpoint.
 
 
 We will create the `createCart()` helper function to accomplish this POST request. Copy and execute the code below to create the function.
@@ -415,7 +415,7 @@ deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
 
 ## Storefront Checkout
 
-In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api) for more information.
+In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [Storefront Checkout](/docs/rest-management/checkouts) for more information.
 
 Before proceeding, make sure you have added two different line items to your cart.
 
@@ -1031,5 +1031,5 @@ Make sure you have at least one item in your cart. Removing all items deletes th
 - [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919)
 
 ### Endpoints
-- [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
-- [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
+- [Storefront Cart](/docs/rest-storefront/carts)
+- [Storefront Checkout](/docs/rest-management/checkouts)
