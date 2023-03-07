@@ -131,7 +131,7 @@ Using the Payment Processing API, developers can programmatically process paymen
 
 |  Resource               | Description                              | Endpoint                            |
 |-------------------------|------------------------------------------|-------------------------------------|
-|  [Payment Processing](/api-reference/payments/payments-process-payments) | Process payments on orders and checkouts | `payments.bigcommerce.com/payments` |
+|  [Payment Processing](/docs/rest-payments/methods) | Process payments on orders and checkouts | `payments.bigcommerce.com/payments` |
 
 In addition to the payment processing API's `/payments` endpoint, there are two **v3** API endpoints related to payment processing. The first (`/v3/payments/access_tokens`) is required to retrieve a payment access token for authenticating requests against `payments.bigcommerce.com`. Requests to the second endpoint (`/v3/payments/methods`) are optional, and can be used to retrieve an order's accepted payment methods, when necessary.
 
@@ -293,7 +293,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |-|-|
 |`/v2/brands`| [`/v3/catalog/brands`](/api-reference/catalog/catalog-api/brands/getbrands)|
 |`/v2/categories`| [`/v3/catalog/categories`](/api-reference/catalog/catalog-api/category/getcategories)|
-|`/v2/customers`| [`/v3/customers`](/api-reference/customer-subscribers/v3-customers-api)|
+|`/v2/customers`| [`/v3/customers`](/docs/rest-management/customers)|
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
 |`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](/legacy/v2-products/v2-v3) for more information.|
 |`/v2/products `| [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/getproducts)|

@@ -134,7 +134,7 @@ We will go over common Storefront Cart and Checkout as well as Server-to-Server 
 ***Resolution:***
 Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants at all. To learn more about options and modifiers, see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
 
-To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
+To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-management/carts/carts-single#create-a-cart) without the `variant_id`.
 
 
 ```json filename="Single modifier" showLineNumbers copy
@@ -199,7 +199,7 @@ To add a product with both an option and a modifier associated with it, use the 
 When a required product modifier is missing. A product can have a modifier that is not required. In those cases, you can add the product to the cart without the modifier.
 
 ***Resolution:***
-Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) or [Get Modifier](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`.
+Use the [Get Products](/docs/rest-management/catalog/products#get-all-products) or [Get Modifier](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`.
 
 To create a cart with a product modifier:
 
@@ -229,7 +229,7 @@ This error can return when the customer ID of a cart has changed.
 ***Resolution:***
 You can link the customer ID to discounts and pricing available to that customer. However, if coupons, discounts, taxes, or shipping changes, anything that affects the cart price is invalidated. 
 
-A better option is to create a cart with the `customer_id` as part of the request body and use the [Get Customers](/api-reference/customer-subscribers/customers-api/customers/getallcustomers) endpoint to get the `customer_id`.
+A better option is to create a cart with the `customer_id` as part of the request body and use the [Get Customers](/docs/rest-management/customers-v2#get-all-customers) endpoint to get the `customer_id`.
 
 To create a cart with a `customer_id`:
 
@@ -252,7 +252,7 @@ To create a cart with a `customer_id`:
 ***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
 
 ***Resolution:***
-To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
+To get the variant ID use the [Get Products](/docs/rest-management/catalog/products#get-a-product) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
 To create a cart with a variant ID:
 
 ```json filename="Create cart with variant ID" showLineNumbers copy
