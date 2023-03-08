@@ -152,7 +152,7 @@ The following table lists the APIs that use the `Authorization` header, along wi
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
 | [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | store | `Bearer {{TOKEN}}` |
-| [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | app or store | `PAT {{TOKEN}}` |
+| [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) | [Process a payment](/docs/rest-payments/processing/process-payment#process-payment) | app or store | `PAT {{TOKEN}}` |
 
 To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the OAuth scopes you need to make your target request. 
 

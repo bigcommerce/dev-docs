@@ -179,7 +179,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-1. To process a payment for an order, you will need to make a call to the Payments API which requires an access token. To generate an access token, send a `POST` request to the [Create Payment Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint. 
+1. To process a payment for an order, you will need to make a call to the Payments API which requires an access token. To generate an access token, send a `POST` request to the [Create Payment Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) endpoint. 
 
 ```http filename="Example request: Create payment access token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens
@@ -196,9 +196,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
 
-Make a note of the access token `id`. This token is required in subsequent payment request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint.
+Make a note of the access token `id`. This token is required in subsequent payment request to the [Process Payment](/docs/rest-payments/processing/process-payment#process-payment) endpoint.
 
-1. Send a `POST` request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Create Payment Access Token (step two). To learn more, see [Stored cards](/api-docs/store-management/payment-processing#stored-cards).
+1. Send a `POST` request to the [Process Payment](/docs/rest-payments/processing/process-payment#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Create Payment Access Token (step two). To learn more, see [Stored cards](/api-docs/store-management/payment-processing#stored-cards).
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -241,9 +241,9 @@ Make a note of the access token `id`. This token is required in subsequent payme
 
 If a shopper does not have a payment method saved on file, you can process a payment using a credit card. There are two steps to this method:
 
-1. Send a `POST` request to the [Create Payment Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint to get the authorization token that needs to be passed in the header when processing the payment.
+1. Send a `POST` request to the [Create Payment Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment.
 
-2. Send a `POST` request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/api-docs/store-management/payment-processing#credit-cards).
+2. Send a `POST` request to the [Process Payment](/docs/rest-payments/processing/process-payment#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/api-docs/store-management/payment-processing#credit-cards).
 
 ```json filename="Example response: Process payment" showLineNumbers copy
 {

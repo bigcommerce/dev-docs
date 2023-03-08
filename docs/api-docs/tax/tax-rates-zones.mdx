@@ -2,7 +2,7 @@
 
 [Tax rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) are percentages a store uses to calculate taxes due for products and services. Tax zones are geographic regions defined in a store. [Tax zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) allow you to apply different tax rates to different customer groups and locations. All the tax rates and zones you configure for a store are available on each storefront.
 
-This guide demonstrates how to use the Tax Rates and Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) for a store. For more information, see the [Tax Rates and Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
+This guide demonstrates how to use the Tax Rates and Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) for a store. For more information, see the [Tax Rates and Zones API Reference](/docs/rest-management/tax-rates-and-zones).
 
 ## Tax zones
 
@@ -21,7 +21,7 @@ You can further narrow the scope of a zone by specifying one or more customer gr
 
 ### Create tax zones
 
-To add tax zones to a store, send a request to the [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) endpoint. The following example creates a subdivision-based zone.
+To add tax zones to a store, send a request to the [Create tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#create-tax-zones) endpoint. The following example creates a subdivision-based zone.
 
 The response includes an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
@@ -113,7 +113,7 @@ The response includes an `id` for each tax zone. Use the `id` to get, update, or
 
 ### Update tax zones
 
-To modify a tax zone, send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint. In the request body, specify the `id` of the zones you want to update. The request updates only the fields for which you supply values.
+To modify a tax zone, send a request to the [Update tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#update-tax-zones) endpoint. In the request body, specify the `id` of the zones you want to update. The request updates only the fields for which you supply values.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -193,7 +193,7 @@ To modify a tax zone, send a request to the [Update tax zones](/api-reference/st
 
 ### Get tax zones
 
-[Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) returns all tax zones by default. To return select tax zones, include the `id:in` query parameter.
+[Get tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#get-tax-zones) returns all tax zones by default. To return select tax zones, include the `id:in` query parameter.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -249,7 +249,7 @@ To modify a tax zone, send a request to the [Update tax zones](/api-reference/st
 
 ### Delete tax zones
 
-To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
+To delete tax zones, send a request to the [Delete tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -272,7 +272,7 @@ After creating a zone, you can add rates to the zone. You can add multiple rates
 
 ### Create tax rates
 
-To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and the associated tax zone. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+To create tax rates, send a request to the [Create tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and the associated tax zone. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#get-tax-zones) endpoint.
 
 The response includes an `id` for each tax rate. Use the tax rate `id` to get, update, or delete the associated tax rate.
 
@@ -333,7 +333,7 @@ The response includes an `id` for each tax rate. Use the tax rate `id` to get, u
 
 ### Update tax rates
 
-To update tax rates, send a request to the [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates) endpoint. In the request body, specify the `id` of the rates you want to update. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+To update tax rates, send a request to the [Update tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#update-tax-rates) endpoint. In the request body, specify the `id` of the rates you want to update. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#get-tax-zones) endpoint.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -389,7 +389,7 @@ To update tax rates, send a request to the [Update tax rates](/api-reference/sto
 
 ### Get tax rates
 
-To get tax rates, send a request to the [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates) endpoint. To get the tax rates for a subset of zones, pass a comma-separated string of the tax zone `id`s using the `tax_zone_id:in` query parameter.
+To get tax rates, send a request to the [Get tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#get-tax-rates) endpoint. To get the tax rates for a subset of zones, pass a comma-separated string of the tax zone `id`s using the `tax_zone_id:in` query parameter.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -428,7 +428,7 @@ To get tax rates, send a request to the [Get tax rates](/api-reference/store-man
 
 ### Delete tax rates
 
-To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint. Use the `id:in` query parameter to specify the tax rates you want to delete.
+To delete tax rates, send a request to the [Delete tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#delete-tax-rates) endpoint. Use the `id:in` query parameter to specify the tax rates you want to delete.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -447,16 +447,16 @@ To delete tax rates, send a request to the [Delete tax rates](/api-reference/sto
 
 ## Resources
 
-- [Tax Rates and Zones API Reference](/api-reference/store-management/tax-rates-and-zones)
+- [Tax Rates and Zones API Reference](/docs/rest-management/tax-rates-and-zones)
 
 ### Tax Zones reference
-- [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones)
-- [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones)
-- [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones)
-- [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones)
+- [Create tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#create-tax-zones)
+- [Update tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#update-tax-zones)
+- [Get tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#get-tax-zones)
+- [Delete tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#delete-tax-zones)
 
 ### Tax Rates reference
-- [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates)
-- [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates)
-- [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates)
-- [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates)
+- [Create tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#create-tax-rates)
+- [Update tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#update-tax-rates)
+- [Get tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#get-tax-rates)
+- [Delete tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#delete-tax-rates)

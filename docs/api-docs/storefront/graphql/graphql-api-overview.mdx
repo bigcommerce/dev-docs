@@ -26,7 +26,7 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 To see the GraphQL Storefront API in action, checkout the [Bootstrap + Vanilla JS GraphQL Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information using the GraphQL Storefront API.
 
-Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/api-reference/store-management/tokens/api-token/createtoken) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
 
 
 For a full list of examples, see the [GraphQL Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
@@ -102,7 +102,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL Storefront API token](/api-reference/store-management/tokens/api-token/createtoken) REST endpoint to request JWT-style bearer tokens that authenticate cross-origin requests to the GraphQL Storefront API. Consult the endpoint's documentation to determine what OAuth scopes it requires. In addition, ensure that the API account you use for the following request has sufficient permissions to make your GraphQL queries. **Your JWT will have the same OAuth scopes as the REST API account that creates it.** 
+Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT-style bearer tokens that authenticate cross-origin requests to the GraphQL Storefront API. Consult the endpoint's documentation to determine what OAuth scopes it requires. In addition, ensure that the API account you use for the following request has sufficient permissions to make your GraphQL queries. **Your JWT will have the same OAuth scopes as the REST API account that creates it.** 
 
 <Tabs items={['Request', 'Response']}>
 <Tab>

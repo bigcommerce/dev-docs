@@ -131,7 +131,7 @@ Include the `storefront_settings` [protected section](#protected-ui-sections) in
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
-Read channel specific storefront settings using the [Settings API](/api-reference/store-management/settings). For example, to [get storefront category settings](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
+Read channel specific storefront settings using the [Settings API](/docs/rest-management/settings). For example, to [get storefront category settings](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -161,7 +161,7 @@ Read channel specific storefront settings using the [Settings API](/api-referenc
   </Tab>
 </Tabs>
 
-[View the settings API Reference](/api-reference/store-management/settings).
+[View the settings API Reference](/docs/rest-management/settings).
 
 ## Currencies settings
 
@@ -169,7 +169,7 @@ Include the `currencies` [protected section](#protected-ui-sections) in the Chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
-You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/docs/rest-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -217,4 +217,4 @@ Include the `notifications` [protected section](#protected-ui-sections) in the C
 ### Endpoints
 
 - [Channels API Reference](/docs/rest-management/channels)
-- [Settings API Reference](/api-reference/store-management/settings)
+- [Settings API Reference](/docs/rest-management/settings)

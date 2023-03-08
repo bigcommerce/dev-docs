@@ -51,7 +51,7 @@ Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and to
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 * [Create carts with the Server-to-Server Carts API](/docs/rest-management/carts).
 * [Fetch and display abandoned cart information using the Abandoned Carts API](/docs/rest-management/abandoned-carts).
-* [Create and manage shopper wishlists with the Wislists API](/api-reference/store-management/wishlists)
+* [Create and manage shopper wishlists with the Wislists API](/docs/rest-management/wishlists)
 * [Manage product data with the Catalog API](/docs/rest-management/catalog).
 * [Embed BigCommerce's checkout in an iFrame with Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
 * [Redirect to BigCommerce's hosted checkout using the Server-to-Server Checkout API](/docs/rest-storefront/checkouts)
@@ -116,7 +116,7 @@ When creating a cart, there is an optional query to create a redirect URL. Use t
 
 If you are using the hosted checkout option, shoppers will be able to navigate to other pages of the store. Here's a few methods to prevent this:
 
-1. Use BigCommerce's [Sites and Routes API](/api-reference/cart-checkout/sites-routes-api) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
+1. Use BigCommerce's [Sites and Routes API](/docs/rest-management/sites) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
 2. Hide non essential pages by removing the back links in Cart and Checkout
 3. Add a JavaScript redirect on all pages (except `/checkout`) that redirects to the non-BigCommerce storefront
 4. Wrap all content in the theme's layouts in a conditional that only renders the BC storefront if certain conditions are met (like an admin customer group, for example), and redirect to the non-BigCommerce storefront otherwise.

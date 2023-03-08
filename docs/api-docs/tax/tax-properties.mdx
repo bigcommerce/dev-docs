@@ -112,7 +112,7 @@ Send a request to the [Update tax properties](/api-reference/store-management/ta
 
 ### Get tax properties
 
-This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
+This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/docs/rest-management/tax-properties#get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -163,7 +163,7 @@ This endpoint supports batch operations. You can get all the tax properties in y
 
 ### Delete tax properties
 
-To delete tax properties, send a request to the [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties) endpoint and use the `id:in` query parameter to specify the tax properties you want to delete.
+To delete tax properties, send a request to the [Delete tax properties](/docs/rest-management/tax-properties#delete-tax-properties) endpoint and use the `id:in` query parameter to specify the tax properties you want to delete.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -194,7 +194,7 @@ You can add multiple tax properties to a single product. The following example s
 
 ### Update product with tax properties
 
-To attach tax properties to a product, send a request to the [Update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties) endpoint. Use the same endpoint to modify a product's existing tax properties.
+To attach tax properties to a product, send a request to the [Update product tax properties](/docs/rest-management/tax-properties/product-tax-properties#update-product-tax-properties) endpoint. Use the same endpoint to modify a product's existing tax properties.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -260,7 +260,7 @@ To attach tax properties to a product, send a request to the [Update product tax
 
 ### Get product tax properties 
 
-To get the tax properties attached to a product, send a request to the [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties) endpoint and use the `product_id:in` query parameter. 
+To get the tax properties attached to a product, send a request to the [Get product tax properties](/docs/rest-management/tax-properties/product-tax-properties#get-product-tax-properties) endpoint and use the `product_id:in` query parameter. 
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -314,7 +314,7 @@ To get the tax properties attached to a product, send a request to the [Get prod
   This endpoint removes **all** tax properties from a given product.
 </Callout>
 
-To remove tax properties from a product, send a request to the [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties) endpoint and use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
+To remove tax properties from a product, send a request to the [Delete product tax properties](/docs/rest-management/tax-properties/product-tax-properties#delete-product-tax-properties) endpoint and use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
 
 
 <Tabs items={[`Request`, `Response`]}>
@@ -335,7 +335,7 @@ To remove tax properties from a product, send a request to the [Delete product t
 
 ## Tax Quotes
 
-BigCommerce sends product tax properties to request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. The requests include tax properties for each item in a consignment. 
+BigCommerce sends product tax properties to request [tax estimates](/docs/apps-api/tax#estimate-taxes) from a provider. The requests include tax properties for each item in a consignment. 
 
 The following request uses the Tax Provider API:
 
@@ -377,27 +377,27 @@ Accept: application/json
   ...
 }
 ```
-BigCommerce also sends product tax properties to [commit](/api-reference/providers/tax-provider-api/tax-provider/commit) and [adjust tax quotes](/api-reference/providers/tax-provider-api/tax-provider/adjust). 
+BigCommerce also sends product tax properties to [commit](/docs/apps-api/tax#commit-tax-quote) and [adjust tax quotes](/docs/apps-api/tax#adjust-tax-quote). 
 
 ## Resources 
-- [Tax Properties API Reference](/api-reference/store-management/tax-properties)
-- [Tax Provider API Reference](/api-reference/providers/tax-provider-api)
+- [Tax Properties API Reference](/docs/rest-management/tax-properties)
+- [Tax Provider API Reference](/docs/apps-api/tax)
 
 ### Tax Properties reference
-- [Create tax properties](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties)
-- [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties)
-- [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties)
-- [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties)
+- [Create tax properties](/docs/rest-management/tax-properties#create-tax-properties)
+- [Get tax properties](/docs/rest-management/tax-properties#get-tax-properties)
+- [Update tax properties](/docs/rest-management/tax-properties#update-tax-properties)
+- [Delete tax properties](/docs/rest-management/tax-properties#delete-tax-properties)
 
 ### Product Tax Properties reference
-- [Create and update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties)
-- [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties)
-- [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties)
+- [Create and update product tax properties](/docs/rest-management/tax-properties/product-tax-properties#update-product-tax-properties)
+- [Get product tax properties](/docs/rest-management/tax-properties/product-tax-properties#get-product-tax-properties)
+- [Delete product tax properties](/docs/rest-management/tax-properties/product-tax-properties#delete-product-tax-properties)
 
 ### Tax Provider reference
-- [Create a tax estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate)
-- [Create a tax commit](/api-reference/providers/tax-provider-api/tax-provider/commit)
-- [Create a tax adjustment](/api-reference/providers/tax-provider-api/tax-provider/adjust)
+- [Create a tax estimate](/docs/apps-api/tax#estimate-taxes)
+- [Create a tax commit](/docs/apps-api/tax#commit-tax-quote)
+- [Create a tax adjustment](/docs/apps-api/tax#adjust-tax-quote)
 
 ### Catalog reference
 - [Get all products](/docs/rest-management/catalog/products#get-all-products)

@@ -155,7 +155,7 @@ For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api
 
 Whether importing or exporting the catalog, you will need to create listings for products shared between the channel and BigCommerce. Any products imported to BigCommerce or exported to the channel must have a corresponding listing to support the listing being managed separately from the base catalog product.
 
-To [create channel listings](/api-reference/store-management/channels/channel-listings/createchannellistings), send a `POST` request to `/v3/channels/{{CHANNEL_ID}}/listings`:
+To [create channel listings](/docs/rest-management/channels/channel-listings#create-channel-listings), send a `POST` request to `/v3/channels/{{CHANNEL_ID}}/listings`:
 
 ```http filename="Example request: Create channel listings" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
@@ -232,7 +232,7 @@ To ensure that BigCommerce merchants are able to continue using their existing c
 
 To do this, integrate the following endpoints:
 
-- [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/createproduct)
+- [`/v3/catalog/products`](/docs/rest-management/catalog/products#create-a-product)
 - [`/v2/orders`](docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.

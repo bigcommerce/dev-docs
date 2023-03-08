@@ -1,6 +1,6 @@
 # Orders Overview
 
-This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](docs/rest-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](docs/rest-management/orders) exposes endpoints for [creating](/docs/rest-management/orders#create-an-order), [reading](/docs/rest-management/orders#get-all-orders), [updating](/docs/rest-management/orders#update-an-order), and [deleting](/docs/rest-management/orders#delete-all-orders) orders; it also includes endpoints for managing [order shipments](/docs/rest-management/orders/order-shipments#delete-order-shipments) and [order shipping addresses](/docs/rest-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](docs/rest-management/transactions#get-transactions) and [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 
@@ -8,11 +8,11 @@ This article introduces BigCommerce's [Orders V2](/api-reference/store-managemen
 * Access token for [API authentication](/api-docs/getting-started/authentication/api-accounts) with the following [scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
   * Orders - **modify**
   * Products - **read-only**
-* [Product](/api-reference/catalog/catalog-api/products/createproduct) with [variants](/api-reference/store-management/catalog/product-variants/createvariant).
+* [Product](/docs/rest-management/catalog/products#create-a-product) with [variants](/docs/rest-management/catalog/product-variants#create-a-product-variant).
 
 ## Creating an order
 
-To [create an order](/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
+To [create an order](/docs/rest-management/orders#create-an-order), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
 ```http filename="Example request: Create an order" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -44,13 +44,13 @@ Accept: application/json
 ```
 
 <Callout type= "info">
-  * The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
+  * The example above contains the minimum required fields for a [create order](/docs/rest-management/orders#create-an-order) request.
   * The product ordered is a *custom* product; custom products do not exist in the catalog.
 </Callout>
 
 ## Changing order status
 
-Specify [order status](/docs/rest-management/orders/order-status#get-all-order-statuses) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
+Specify [order status](/docs/rest-management/orders/order-status#get-all-order-statuses) by including the `status_id` property in the [create order](/docs/rest-management/orders#create-an-order) request. To [update an order](/docs/rest-management/orders#update-an-order) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
 
 ```http filename="Example request: Change order status" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}
@@ -100,7 +100,7 @@ Accept: application/json
 
 ## Specifying order customer
 
-Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
+Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/docs/rest-management/orders#create-an-order) request.
 
 ```http filename="Example request: Specify order customer" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -130,7 +130,7 @@ Accept: application/json
 
 ## Including shipping addresses
 
-Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
+Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/docs/rest-management/orders#create-an-orderr) request.
 
 ```http filename="Example request: add shipping addresses" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -166,7 +166,7 @@ Accept: application/json
 
 ## Adding products
 
-Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/api-reference/store-management/orders/orders/createanorder) endpoint.
+Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/docs/rest-management/orders#create-an-order) endpoint.
 
 ```http filename="Example request: Add products" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -244,7 +244,7 @@ Accept: application/json
 
 <Callout type= "info">
   * Custom products do not get added to the catalog.
-  * If the product's price is not specified in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+  * If the product's price is not specified in the [create order](/docs/rest-management/orders#create-an-order) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
   * Marketing promotions currently do not apply to orders created with the Orders API.
   * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
   * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
@@ -438,13 +438,13 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 <Callout type= "info">
   * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
   * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
-  * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
+  * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/docs/rest-management/orders#update-an-order).
   * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created with the API.
 </Callout>
 
 ## Getting order transactions
 
-To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/order-transactions/transactions/gettransactions#responses).
+To [get order transactions](docs/rest-management/transactions#get-transactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/order-transactions/transactions/gettransactions#responses).
 <Tabs items={['Request', 'Response']}>
   <Tab>
     ```http filename="Example request: Get order transactions" showLineNumbers copy
@@ -563,7 +563,7 @@ Not at this time. If you create an order either in the control panel or by API, 
 ### Endpoints
 
 * [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
-* [Orders v2](/api-reference/store-management/orders)
+* [Orders v2](docs/rest-management/orders)
 * [Orders v3](/docs/rest-management/transactions)
 
 ### Webhooks
