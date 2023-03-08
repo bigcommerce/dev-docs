@@ -140,7 +140,7 @@ Content-Type: application/json
   * The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
 </Callout>
 
-Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
+Only use the [Revoke a token](/docs/storefront-auth/tokens#revoke-a-token) endpoint to revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
 
 ### Authenticating with an auto-generated Stencil token
 
@@ -163,7 +163,7 @@ fetch('/graphql', {
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/docs/storefront-auth/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -593,7 +593,7 @@ Use the channel's permanent URL in the following form: `https://store-STOREHASH-
 
 For example, if your store hash is `abc123` and your channel ID is `456`, the channel's permanent URL is `https://store-abc123-456.mybigcommerce.com/graphql`. 
 
-To expose a channel's permanent URL, [create a site](/api-reference/store-management/sites/sites/post-site) for the channel.
+To expose a channel's permanent URL, [create a site](/docs/rest-management/sites#create-a-site) for the channel.
 
 <Callout type="info">
   When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, the server will reject your requests. See this article's section on [Creating a token](#creating-a-token).

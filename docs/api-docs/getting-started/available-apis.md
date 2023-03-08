@@ -42,11 +42,11 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 |  [Payment Methods](/docs/rest-payments/methods) | Create / manage enabled payment methods | `/payments/methods` |
 |  [Redirects](/docs/rest-content/store-content/redirects) | Create / manage URL redirects | `/redirects` |
 |  [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
-|  [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method) | Create / manage shipping methods | `/shipping` |
+|  [Shipping Methods](/docs/rest-management/shipping-v2/shipping-method) | Create / manage shipping methods | `/shipping` |
 |  [Shipping Zones](/docs/rest-management/shipping-v2/shipping-zones) | Create / manage shipping Zones | `/shipping` |
 |  [Store Information](/docs/rest-management/store-information) | Create / manage metadata | `/store` |
 |  [Tax Class](/docs/rest-management/tax-classes) | Get available tax classes | `/tax_classes` |
-|  [Time Zone](/api-reference/store-management/store-information-api/time-zone) | Get system timestamp | `/time` |
+|  [Time Zone](/docs/rest-management/store-information#get-system-timestamp) | Get system timestamp | `/time` |
 
 ## V3 REST API
 

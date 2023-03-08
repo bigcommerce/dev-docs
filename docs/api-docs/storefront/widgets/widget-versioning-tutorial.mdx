@@ -17,7 +17,7 @@ This article documents how to use [widget versioning](/api-docs/store-management
 
 ## Create a widget template
 
-To create a widget template, send a `POST` request to [`v3/content/widget-templates`](/api-reference/store-management/widgets/widget-template/createwidgettemplate).
+To create a widget template, send a `POST` request to [`v3/content/widget-templates`](/docs/rest-content/widgets/widget-template#create-a-widget-template).
 
 ```http filename="Example request: Create a widget template" showLineNumbers copy
 POST /stores/{{store_hash}}/v3/content/widget-templates
@@ -117,9 +117,9 @@ Look for `version_uuid` and `current_version_uuid` in the response. The widget's
 
 ### Place the widget
 
-You can place the widget on the storefront by [creating a placement](/api-reference/store-management/widgets/placement/createplacement). The following example uses the `home_below_featured_products` region. To get a list of all available regions, send a `GET` request to [`v3/content/regions`](/api-reference/store-management/widgets/regions/getcontentregions).
+You can place the widget on the storefront by [creating a placement](/docs/rest-content/widgets/placement#create-a-placement). The following example uses the `home_below_featured_products` region. To get a list of all available regions, send a `GET` request to [`v3/content/regions`](/docs/rest-content/widgets/regions#get-theme-regions).
 
-To place your widget, send a `POST` request to [`/v3/content/placements`](/api-reference/store-management/widgets/placement/createplacement). 
+To place your widget, send a `POST` request to [`/v3/content/placements`](/docs/rest-content/widgets/placement#create-a-placement). 
 
 ```http filename="Example request: Place a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/placements

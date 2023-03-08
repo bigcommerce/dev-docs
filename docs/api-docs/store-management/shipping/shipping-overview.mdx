@@ -1,7 +1,7 @@
 # Shipping
 
 
-You can create shipments from orders, and it is possible to create multiple shipments from a single order. A [shipment](/api-reference/orders/orders-api/order-shipments/createordershipments) represents a grouping of order line items that you can ship to a customer. 
+You can create shipments from orders, and it is possible to create multiple shipments from a single order. A [shipment](/docs/rest-management/orders/order-shipments#create-order-shipment) represents a grouping of order line items that you can ship to a customer. 
 
 The V2 Shipping API allows you to manage shipping zones, shipping methods, and shipping carrier connections.
 
@@ -17,17 +17,17 @@ A checkout will always have one consignment assigned to it, which is the first s
 
 ## Order shipping addresses
 
-The [Order Shipping Addresses](/api-reference/store-management/orders/order-shipping-addresses/) endpoint allows you to view the shipping addresses on an order. An order can have more than one shipping address.
+The [Order Shipping Addresses](/docs/rest-management/orders/order-shipping-addresses) endpoint allows you to view the shipping addresses on an order. An order can have more than one shipping address.
 
 ## Shipping zone and shipping methods
 
-You can configure [shipping zones](/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and with which [shipping methods](/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
+You can configure [shipping zones](/docs/rest-management/shipping-v2/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and with which [shipping methods](/docs/rest-management/shipping-v2/shipping-method) should be available in each geographic region.
 
 An example of a shipping zone might be North America. Within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
 
 ## Real-time carriers
 
-BigCommerce offers native integrations with many real-time shipping carriers such as UPS, FedEx, and USPS. The [Shipping Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier) resource allows you to connect an account for one of our natively supported shipping carrier integrations.
+BigCommerce offers native integrations with many real-time shipping carriers such as UPS, FedEx, and USPS. The [Shipping Carrier Connection](/docs/rest-management/shipping-v2/shipping-carrier) resource allows you to connect an account for one of our natively supported shipping carrier integrations.
 
 For a list of all supported carriers, see [Real-Time Quote Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method?language=en_US#providers).
 
@@ -39,5 +39,5 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 ### Endpoints
 * [Storefront Checkouts API](/docs/rest-management/checkouts)
 * [Server-to-Server Checkouts API](/docs/rest-storefront/checkouts)
-* [Order Shipping Addresses](/api-reference/store-management/orders/order-shipping-addresses/)
-* [Shipping v2](/api-reference/store-management/shipping-api)
+* [Order Shipping Addresses](/docs/rest-management/orders/order-shipping-addresses)
+* [Shipping v2](/docs/rest-management/shipping-v2)

@@ -90,7 +90,7 @@ A tax provider is ready to establish a connection with the Tax Provider API when
 * During the OAuth flow the app requested the merchant to authorize read and write permissions on the Information and Settings API scopes (see [Installing the app](#installing-the-app)).
 * During the OAuth flow the `client_id` and `access_token` was received and stored by the tax provider (see [Installing the app](#installing-the-app)).
 
-For context, the [Tax Provider API Connection endpoints](/api-reference/store-management/tax) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
+For context, the [Tax Provider API Connection endpoints](/docs/apps-api/tax-app-connection) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
 
 If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from merchants. Learn more about designing the app UI [here](/api-docs/apps/guide/ui).
 
@@ -143,7 +143,7 @@ Estimate calls will also be made in the control panel when using flows like the 
 
 When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in an active MSF-enabled BigCommerce control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
 
-[View the Estimate Taxes API reference](/api-reference/providers/tax-provider-api/tax-provider/estimate).
+[View the Estimate Taxes API reference](/docs/apps-api/tax#estimate-taxes).
 
 ## Document submission
 
@@ -153,7 +153,7 @@ Supporting document submission is optional. However, tax providers wishing to su
 
 If document submission is supported, navigate to **Settings > Setup > Tax > _TaxProviderName_** in an active MSF-enabled control panel and ensure the **Submit Order Data** checkbox is checked.
 
-[View the Commit Tax Quote API reference](/api-reference/providers/tax-provider-api/tax-provider/commit).
+[View the Commit Tax Quote API reference](/docs/apps-api/tax#commit-tax-quote).
 
 ## Testing
 

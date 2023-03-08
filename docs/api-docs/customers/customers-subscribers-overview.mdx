@@ -85,7 +85,7 @@ The V2 Customers API is comprised of customers, customer addresses, and customer
 
 [Customer addresses](/docs/rest-management/customers-v2/customer-addresses) consist of a customer's address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer groups](/api-reference/store-management/customers-v2/customer-groups/) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
+[Customer groups](/docs/rest-management/customers-v2/customer-groups) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
 
 ## Differences between V2 and V3 Customers APIs
 
@@ -155,7 +155,7 @@ Accept: application/json
 
 ### Upsert
 
-You can use the V3 Customers API [Upsert Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values/customersattributevaluesput) operation to upsert form field values and customer attributes. Upsert looks for a match to the existing record and makes an update if there is one. If there is no match, it creates a new record.
+You can use the V3 Customers API [Upsert Customer Attribute Values](/docs/rest-management/customers/customer-attribute-values#upsert-customer-attribute-values) operation to upsert form field values and customer attributes. Upsert looks for a match to the existing record and makes an update if there is one. If there is no match, it creates a new record.
 
 ### Authentication object
 
@@ -164,7 +164,7 @@ The V3 Customers API offers two ways to set a customer's password:
 - You can set a new password under the `authentication > new_password` object in a `PUT` or `POST` request.
 - To prompt a customer to reset their password, set `force_password_reset` to `true` under `authentication > new_password` object in a `PUT` or `POST` request.
 
-[Password confirmation](/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [validation](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) are still available under the V2 Customers API.
+[Password confirmation](/docs/rest-management/subscribers#create-a-subscriber) and [validation](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) are still available under the V2 Customers API.
 
 ## Subscribers API
 
@@ -193,10 +193,10 @@ Password validation is only available on the V2 Customers API at this time. We r
 *[Current Customer API](/api-docs/storefront/current-customer-api)
 *[Customers V3 API](/docs/rest-management/customers)
 *[Customer Groups](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) (Customers V2 API)
-*[Password Validation](/api-reference/store-management/customers-v2/customer-passwords/validatecustomerpassword) (Customers V2 API)
-*[Password Confirmation](/api-reference/store-management/customers-v2/customers/createanewcustomer) (Customers V2 API)
-*[Storefront Subscriptions](/api-reference/storefront/storefront-subscriptions)
-*[Subscribers API](/api-reference/store-management/subscribers)
+*[Password Validation](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) (Customers V2 API)
+*[Password Confirmation](/docs/rest-management/customers-v2#create-a-new-customer) (Customers V2 API)
+*[Storefront Subscriptions](/docs/rest-storefront/subscriptions)
+*[Subscribers API](/docs/rest-management/subscribers)
 
 ### Webhooks
 
