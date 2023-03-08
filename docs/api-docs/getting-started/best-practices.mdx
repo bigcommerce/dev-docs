@@ -132,7 +132,7 @@ You might wish to increase the amount of work your application can do in a given
 * Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Seconds`, and then self-throttling to that rate.
 
 <Callout type="warning">
-  Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
+  Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
 </Callout>
 
 ### Making requests with the Storefront Cart API 

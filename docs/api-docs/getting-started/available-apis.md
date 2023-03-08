@@ -92,8 +92,8 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Product Variant Metafields](/docs/rest-management/catalog/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
 |  [Product Option Values](/docs/rest-management/catalog/product-variant-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
 |  [Product Options](/docs/rest-management/catalog/product-variant-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
-|  [Product Variants](/api-reference/catalog/catalog-api/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
-|  [Product Videos](/api-reference/catalog/catalog-api/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
+|  [Product Variants](/docs/rest-management/catalog/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
+|  [Product Videos](/docs/rest-management/catalog/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
 |  [Redirects](/docs/rest-management/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
 |  [Scripts](/docs/rest-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](/docs/rest-management/sites) | Manage sites and routing for headless storefronts | `/sites` |
@@ -152,7 +152,7 @@ BigCommerce's **Storefront API** is a client API that exposes storefront data to
 |------------------------------------------------------------------------------------------------------------------|-------------------------------------------|-------------------------------------|
 | [Storefront Carts](/docs/rest-storefront/carts)            | Create and get carts                      | `/carts`             |
 | [Storefront Checkouts](/docs/rest-management/checkouts)    | Create and get checkouts on the front-end | `/checkouts`         |
-| [Storefront Orders](/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
+| [Storefront Orders](/docs/rest-storefront/orders)             | Get order data after order is placed      | `/orders`            |
 
 **Additional Information:** [Storefront Cart and Checkout Overview](/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis) |
 

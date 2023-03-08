@@ -39,7 +39,7 @@ Now that you have transformed your headless cart into a checkout, you need to ad
 
 **Step 1: Add a new consignment to the checkout**
 
-Send a `POST` request to the [Add Consignment to Checkout](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
+Send a `POST` request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
 
 ```http filename="Example request: Add Consignment to checkout" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
@@ -118,7 +118,7 @@ The response will contain an array of `available_shipping_options`. You will use
 **Step 2: Update the consignment**
 
 Use one of the available shipping options to update the consignment you created in Step 1.
-Send a `PUT` request to the [Update Checkout Consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) endpoint.
+Send a `PUT` request to the [Update Checkout Consignment](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) endpoint.
 
 ```http filename="Example request: Update checkout consignment" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
@@ -134,7 +134,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Creating an order
 
-Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint. The order status will be set to incomplete.
+Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status will be set to incomplete.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>

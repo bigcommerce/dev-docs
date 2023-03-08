@@ -4,10 +4,10 @@
 
 The [Settings API](/docs/rest-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
-You can use the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
-Additionally, the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
+You can use the [Contextual Filters](/docs/rest-management/settings/search-filters#get-contextual-filters) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
+Additionally, the [Contextual Filters](/docs/rest-management/settings/search-filters#get-contextual-filters) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
 
-This article demonstrates how to use [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) to configure filters that appear on a particular category page.
+This article demonstrates how to use [Contextual Filters](/docs/rest-management/settings/search-filters#get-contextual-filters) to configure filters that appear on a particular category page.
 
 ### Limitations
 
@@ -34,7 +34,7 @@ There are two ways to retrieve your store's currently active storefront filters:
 * Settings API
 * The store's control panel
 
-To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](/api-reference/store-management/settings/search-filters/getenabled).
+To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](/docs/rest-management/settings/search-filters#get-enabled-filters).
 
 The response will contain all of the filters currently active on your store.
 
@@ -98,7 +98,7 @@ To access **Storefront Filters** in the control panel, go to **Products**   **Pr
 
 The list of available storefront filters is derived from the product information in the catalog. You create new available filters by changing the product information in your catalog, such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
-To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](/api-reference/store-management/settings/search-filters/getavailable).
+To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](/docs/rest-management/settings/search-filters#get-available-filters).
 
 <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -143,7 +143,7 @@ To retrieve all available storefront filters, send a `GET` request to [`/v3/sett
 
 ## View available category-level filters
 
-To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](/api-reference/store-management/settings/search-filters/getavailable). Currently, the Settings API only supports the default `channel_id` of 1.
+To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](/docs/rest-management/settings/search-filters#get-available-filters). Currently, the Settings API only supports the default `channel_id` of 1.
 
 <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -213,7 +213,7 @@ The filters returned from completing this `GET` request are the filters availabl
 
 ## View contextual filters
 
-To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](/api-reference/store-management/settings/search-filters/getcontexts) specifying the `category_id` query parameter.
+To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](/docs/rest-management/settings/search-filters#get-contextual-filters) specifying the `category_id` query parameter.
 
 The response will contain the category's existing contextual overrides. 
 
@@ -288,7 +288,7 @@ The order and names of returned filters should match the filters listed under **
 
 ## Configure contextual filters
 
-Using the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint, you can configure available category-level filters. To test it out, update some of your category's properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](/api-reference/store-management/settings/search-filters/upsertcontexts).
+Using the [Contextual Filters](/docs/rest-management/settings/search-filters#get-contextual-filters) endpoint, you can configure available category-level filters. To test it out, update some of your category's properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](/docs/rest-management/settings/search-filters#upsert-contextual-filters).
 
 ```http filename="Example request: Upsert contextual filters" showLineNumbers copy
 PUT /stores/{{STORE_HASH}}/v3/settings/search/filters/contexts

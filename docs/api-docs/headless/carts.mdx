@@ -157,7 +157,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 
 ### Using the Create a cart redirect URL endpoint
 
-To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response for the `cartId` path parameter.
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/cart-redirect-urls#create-cart-redirect-url) endpoint. Use the `id` returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response for the `cartId` path parameter.
 
 ```http filename="Create cart redirect URL" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls

@@ -100,7 +100,7 @@ Accept: application/json
 
 ## Specifying order customer
 
-Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/docs/rest-management/orders#create-an-order) request.
+Specify the [customer](/docs/rest-management/customers-v2#get-all-customers) by including a `customer_id` in the [create order](/docs/rest-management/orders#create-an-order) request.
 
 ```http filename="Example request: Specify order customer" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -130,7 +130,7 @@ Accept: application/json
 
 ## Including shipping addresses
 
-Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/docs/rest-management/orders#create-an-orderr) request.
+Add [shipping addresses](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) by including a [shipping_address array](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) in the [create order](/docs/rest-management/orders#create-an-orderr) request.
 
 ```http filename="Example request: add shipping addresses" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -166,7 +166,7 @@ Accept: application/json
 
 ## Adding products
 
-Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/docs/rest-management/orders#create-an-order) endpoint.
+Specify [products from the catalog](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) by including a [products array](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) in a `POST` request to the [create order](/docs/rest-management/orders#create-an-order) endpoint.
 
 ```http filename="Example request: Add products" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -201,7 +201,7 @@ Accept: application/json
 }
 ```
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-management/catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses).
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-management/catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/docs/rest-management/catalog/product-variants#get-a-product-variant).
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get product variants" showLineNumbers copy
@@ -348,7 +348,7 @@ Accept: application/json
 
 ## Getting shipping quotes
 
-To [get shipping quotes](/docs/rest-management/orders/order-shipping-addresses-quotes#get-order-shipping-quotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses). 
+To [get shipping quotes](/docs/rest-management/orders/order-shipping-addresses-quotes#get-order-shipping-quotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/docs/rest-management/orders/order-shipping-addresses-quotes#get-order-shipping-quotes#responses). 
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get shipping quotes" showLineNumbers copy
@@ -378,7 +378,7 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 ## Getting order taxes
 
-To [get order taxes](/docs/rest-management/orders/order-taxes#get-all-order-taxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-taxes/getordertaxes#responses).
+To [get order taxes](/docs/rest-management/orders/order-taxes#get-all-order-taxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/docs/rest-management/orders/order-taxes#get-all-order-taxes).
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -444,7 +444,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 ## Getting order transactions
 
-To [get order transactions](docs/rest-management/transactions#get-transactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/order-transactions/transactions/gettransactions#responses).
+To [get order transactions](docs/rest-management/transactions#get-transactions), send the following `GET` request. See the example response that follows, or consult the [response schema](docs/rest-management/transactions#get-transactions).
 <Tabs items={['Request', 'Response']}>
   <Tab>
     ```http filename="Example request: Get order transactions" showLineNumbers copy
@@ -496,7 +496,7 @@ To [get order transactions](docs/rest-management/transactions#get-transactions),
 
 ## Handling refunds
 
-[Orders V3](/docs/rest-management/transactions) exposes endpoints for managing [order refunds](/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
+[Orders V3](/docs/rest-management/transactions) exposes endpoints for managing [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
 
 ## Calculating totals
 
@@ -562,7 +562,7 @@ Not at this time. If you create an order either in the control panel or by API, 
 
 ### Endpoints
 
-* [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
+* [Storefront Orders](/docs/rest-storefront/orders)
 * [Orders v2](docs/rest-management/orders)
 * [Orders v3](/docs/rest-management/transactions)
 

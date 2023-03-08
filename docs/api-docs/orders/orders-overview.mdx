@@ -100,7 +100,7 @@ Accept: application/json
 
 ## Specifying order customer
 
-Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/docs/rest-management/orders#create-an-order) request.
+Specify the [customer](/docs/rest-management/customers#get-all-customers) by including a `customer_id` in the [create order](/docs/rest-management/orders#create-an-order) request.
 
 ```http filename="Example request: Specify order customer" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -130,7 +130,7 @@ Accept: application/json
 
 ## Including shipping addresses
 
-Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/docs/rest-management/orders#create-an-order) request.
+Add [shipping addresses](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) by including a [shipping_address array](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) in the [create order](/docs/rest-management/orders#create-an-order) request.
 
 ```http filename="Example request: add shipping addresses" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -166,7 +166,7 @@ Accept: application/json
 
 ## Adding products
 
-Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/docs/rest-management/orders#create-an-order) endpoint.
+Specify [products from the catalog](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) by including a [products array](/docs/rest-management/orders/order-shipping-addresses#update-a-shipping-address) in a `POST` request to the [create order](/docs/rest-management/orders#create-an-order) endpoint.
 
 ```http filename="Example request: Add products" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -201,7 +201,7 @@ Accept: application/json
 }
 ```
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-management/catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses).
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-management/catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/docs/rest-management/catalog/product-variants#get-a-product-variant).
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get product variants" showLineNumbers copy
@@ -286,7 +286,7 @@ Accept: application/json
 |`comments`|Optional comments|
 |`order_address_id`| Obtain with [Get Order Shipping Address](/docs/rest-management/orders/order-shipping-addresses#get-order-shipping-addresses)|
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/docs/rest-management/orders/order-shipments#create-order-shipment) for accepted values|
-|`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`
+|`items.order_product_id`|Obtain with [Get Order Products](/docs/rest-management/orders/order-products#list-order-products). For non-variant products, use the `id`
 
 <Callout type= "info">
   * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
@@ -344,11 +344,11 @@ Accept: application/json
 |-|-|
 |`order_address_id`|Obtain with [Get Order Shipping Address](/docs/rest-management/orders/order-shipping-addresses#get-order-shipping-addresses)|
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/docs/rest-management/orders/order-shipments#create-order-shipment) for accepted values|
-|`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`|
+|`items.order_product_id`|Obtain with [Get Order Products](/docs/rest-management/orders/order-products#list-order-products). For non-variant products, use the `id`|
 
 ## Getting shipping quotes
 
-To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses). 
+To [get shipping quotes](/docs/rest-management/orders/order-shipping-addresses-quotes#get-order-shipping-quotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/docs/rest-management/orders/order-shipping-addresses-quotes#get-order-shipping-quotes). 
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get shipping quotes" showLineNumbers copy
@@ -378,7 +378,7 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 ## Getting order taxes
 
-To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-taxes/getordertaxes#responses). 
+To [get order taxes](/docs/rest-management/orders/order-taxes#get-all-order-taxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/docs/rest-management/orders/order-taxes#get-all-order-taxes). 
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -409,7 +409,7 @@ To [get order taxes](/api-reference/store-management/orders/order-taxes/getorder
     ```
   </Tab>
 </Tabs>
-The response's [order tax object](/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
+The response's [order tax object](/docs/rest-management/orders/order-taxes#get-all-order-taxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
 
 ```json filename="Example response detail: Tax object from get order taxes" showLineNumbers copy
 [
