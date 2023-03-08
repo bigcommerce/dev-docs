@@ -69,7 +69,7 @@ Accept: application/json
 
 ## Configuring UI sections
 
-Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
+Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/docs/rest-management/channels/channel-menus#create-channel-menus).
 
 ```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -103,7 +103,7 @@ The following protected sections are provided by BigCommerce:
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | `Currencies`          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
+Include protected sections in the [create channel menus request](/docs/rest-management/channels/channel-menus#create-channel-menus) to display BigCommerce-provided channel-specific settings pages.
 
 ```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -131,7 +131,7 @@ Include the `storefront_settings` [protected section](#protected-ui-sections) in
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
-Read channel specific storefront settings using the [Settings API](/docs/rest-management/settings). For example, to [get storefront category settings](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
+Read channel specific storefront settings using the [Settings API](/docs/rest-management/settings). For example, to [get storefront category settings](/docs/rest-management/settings/storefront-category#get-storefront-category-settings), send a `GET` request to `/v3/settings/storefront/category`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -169,7 +169,7 @@ Include the `currencies` [protected section](#protected-ui-sections) in the Chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
-You can manage channel specific currency settings using the Channel API [Currency Assignments](/docs/rest-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/docs/rest-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/docs/rest-management/channels/channel-currency-assignments#get-channel-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>

@@ -165,7 +165,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
 > * A product can have only one thumbnail image at a time.
 > * If only one image is on the product, it becomes both the thumbnail and the main product image.
-> * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
+> * You can also add images to [variants](/docs/rest-management/catalog/product-variants#get-a-product-variant).
 
 
 
@@ -213,7 +213,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
@@ -285,8 +284,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "resource_id": 131
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
@@ -397,7 +394,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/createoption#requestrunner) -->
 
 ## Variants
 
@@ -493,7 +489,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 > #### Note
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
-> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
+> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/docs/rest-management/catalog/products#create-a-product) endpoint during product creation.
 
 
 
@@ -636,7 +632,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner) -->
 
 
 **Response:**
@@ -776,8 +771,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   ]
 }
 ```
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-complex-rules/updatecomplexrule#requestrunner) -->
-
 ### Troubleshooting: 422 Errors
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 error.
@@ -840,8 +833,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "is_visible": true
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/category/createcategory#requestrunner) -->
 
 ### Category tree
 

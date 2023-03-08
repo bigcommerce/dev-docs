@@ -10,7 +10,7 @@ Tax providers may sometimes need multiple inputs that can vary between different
   In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
 </Callout>
 
-This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/docs/apps-api/tax). 
+This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/docs/rest-management/tax-properties) and the [Tax Provider API Reference](/docs/apps-api/tax). 
 
 ## Tax properties
 
@@ -18,7 +18,7 @@ Tax properties rely on `code`s specific to third-party tax providers. Consult a 
 
 ### Create tax properties
 
-First, use the [Create tax properties](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint to add tax properties to the store. This requires the tax provider's `code` and a `display_name` that shoppers may see, depending on your theme, settings, and jurisdiction.  Optionally, you can add a description.
+First, use the [Create tax properties](/docs/rest-management/tax-properties#create-tax-properties) endpoint to add tax properties to the store. This requires the tax provider's `code` and a `display_name` that shoppers may see, depending on your theme, settings, and jurisdiction.  Optionally, you can add a description.
 
 The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
@@ -73,7 +73,7 @@ The response provides an `id` for each tax property. Use the `id` to get, update
 
 ### Update tax properties
 
-Send a request to the [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties) endpoint to modify a tax property's `code`, `display_name`, or `description`. The request updates only fields that you specify.   
+Send a request to the [Update tax properties](/docs/rest-management/tax-properties#update-tax-properties) endpoint to modify a tax property's `code`, `display_name`, or `description`. The request updates only fields that you specify.   
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>

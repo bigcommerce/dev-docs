@@ -26,7 +26,7 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 
 |  Resources | Description | Endpoint |
 | --- | --- | --- |
-|  [Banners](/docs/rest-content/marketing#banners) | Create / manage banners | `/banners` |
+|  [Banners](/docs/rest-content/marketing/banners) | Create / manage banners | `/banners` |
 |  [Blog Posts](/docs/rest-content/store-content/blog-posts) | Create / manage blog posts | `/blog/posts` |
 |  [Blog Tags](/docs/rest-content/store-content/blog-tags) | Create / manage blog tags | `/blog/tags` |
 |  [Coupons](/docs/rest-content/marketing/coupons) | Create / manage coupons | `/coupons` |
@@ -37,14 +37,14 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 |  [Customers Validate Password](/docs/rest-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
 |  [Countries](/docs/rest-management/geography/countries) | List of states, provinces, and countries | `/countries` |
 |  [Gift Certificates](/docs/rest-content/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
-|  [Orders](docs/rest-management/orders) | Create / manage orders | `/orders` |
-|  [Pages](/docs/rest-content/store-content/pages#create-a-page) | Create / manage content pages | `/pages` |
-|  [Payment Methods](/api-reference/payments/payment-methods-api/payment-methods) | Create / manage enabled payment methods | `/payments/methods` |
+|  [Orders](/docs/rest-management/orders) | Create / manage orders | `/orders` |
+|  [Pages](/docs/rest-content/store-content/pages) | Create / manage content pages | `/pages` |
+|  [Payment Methods](/docs/rest-payments/methods) | Create / manage enabled payment methods | `/payments/methods` |
 |  [Redirects](/docs/rest-content/store-content/redirects) | Create / manage URL redirects | `/redirects` |
-|  [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
+|  [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
 |  [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method) | Create / manage shipping methods | `/shipping` |
-|  [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones) | Create / manage shipping Zones | `/shipping` |
-|  [Store Information](/api-reference/store-management/store-information-api/store-information) | Create / manage metadata | `/store` |
+|  [Shipping Zones](/docs/rest-management/shipping-v2/shipping-zones) | Create / manage shipping Zones | `/shipping` |
+|  [Store Information](/docs/rest-management/store-information) | Create / manage metadata | `/store` |
 |  [Tax Class](/docs/rest-management/tax-classes) | Get available tax classes | `/tax_classes` |
 |  [Time Zone](/api-reference/store-management/store-information-api/time-zone) | Get system timestamp | `/time` |
 
@@ -61,51 +61,51 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
 |  [Brand Images](/docs/rest-management/catalog/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
-|  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
+|  [Brand Metafields](/docs/rest-management/catalog/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/docs/rest-management/catalog/brands) | Create and manage brands | `/catalog/brands` |
 |  [Carts](/docs/rest-management/carts) | Create and manage store carts headlessly | `/carts` |
 |  [Categories](/docs/rest-management/catalog/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](/docs/rest-management/catalog/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
-|  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
-|  [Channels](/docs/rest-management/channels#create-a-channel) | Create and manage catalog listings and channels | `/channels` |
+|  [Category Metafields](/docs/rest-management/catalog/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
+|  [Channels](/docs/rest-management/channels) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](/docs/rest-storefront/checkouts) | Create checkouts headlessly | `/checkouts` |
-|  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
-|  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
-|  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create and manage customer form field values | `/customers/form-field-values` |
-|  [Customers](/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
+|  [Customer Addresses](/docs/rest-management/customers-v2/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
+|  [Customer Attribute Values](/docs/rest-management/customers/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
+|  [Customer Attributes](/docs/rest-management/customers/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
+|  [Customer Form Field Values](/docs/rest-management/customers/customer-form-field-values) | Create and manage customer form field values | `/customers/form-field-values` |
+|  [Customers](/docs/rest-management/customers/customer-form-field-values) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](/docs/rest-management/transactions) | View order payment information | `/orders/{id}/transactions` |
-|  [Payment Processing Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
-|  [Payment Processing Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token) | Get an access token for payment processing | `/payments/accsess_tokens` |
-|  [Price List Records](/api-reference/store-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
-|  [Price Lists](/api-reference/store-management/price-lists/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
+|  [Payment Processing Methods](/docs/rest-payments/methods) | Get order payment methods for processing | `/payments/methods` |
+|  [Payment Processing Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) | Get an access token for payment processing | `/payments/accsess_tokens` |
+|  [Price List Records](/docs/rest-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
+|  [Price Lists](/docs/rest-management/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
 |  [Products](/docs/rest-management/catalog/products) | Create and manage products | `/catalog/products` |
-|  [Product Bulk Pricing Rules](/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/bulk-pricing-rules` |
-|  [Product Complex Rules](/api-reference/catalog/catalog-api/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
-|  [Product Custom Fields](/api-reference/catalog/catalog-api/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
-|  [Product Images](/api-reference/catalog/catalog-api/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
-|  [Product Metafields](/api-reference/catalog/catalog-api/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
-|  [Product Modifier Images](/api-reference/catalog/catalog-api/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
-|  [Product Modifier Values](/api-reference/catalog/catalog-api/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
-|  [Product Modifiers](/api-reference/catalog/catalog-api/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
-|  [Product Reviews](/api-reference/catalog/catalog-api/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
-|  [Product Variant Metafields](/api-reference/catalog/catalog-api/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
-|  [Product Option Values](/api-reference/catalog/catalog-api/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
-|  [Product Options](/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
+|  [Product Bulk Pricing Rules](/docs/rest-management/catalog/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/bulk-pricing-rules` |
+|  [Product Complex Rules](/docs/rest-management/catalog/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
+|  [Product Custom Fields](/docs/rest-management/catalog/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
+|  [Product Images](/docs/rest-management/catalog/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
+|  [Product Metafields](/docs/rest-management/catalog/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
+|  [Product Modifier Images](/docs/rest-management/catalog/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
+|  [Product Modifier Values](docs/rest-management/catalog/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
+|  [Product Modifiers](/docs/rest-management/catalog/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
+|  [Product Reviews](/docs/rest-management/catalog/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
+|  [Product Variant Metafields](/docs/rest-management/catalog/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
+|  [Product Option Values](/docs/rest-management/catalog/product-variant-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
+|  [Product Options](/docs/rest-management/catalog/product-variant-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
 |  [Product Variants](/api-reference/catalog/catalog-api/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
 |  [Product Videos](/api-reference/catalog/catalog-api/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
 |  [Redirects](/docs/rest-management/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
-|  [Scripts](/docs/rest-management/scripts#create-a-script) | Add client-side code to a store | `/content/scripts` |
+|  [Scripts](/docs/rest-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](/docs/rest-management/sites) | Manage sites and routing for headless storefronts | `/sites` |
 |  [Storefront API Token](/docs/storefront-auth/tokens#create-a-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
-|  [Storefront Customer Impersonation Token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
+|  [Storefront Customer Impersonation Token](/docs/storefront-auth/tokens#customer-impersonation-tokens) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
 |  [Subscribers](/docs/rest-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
 |  [Themes](/docs/rest-content/themes) | Create and manage store theme's | `/themes` |
-|  [Variants](/docs/rest-management/catalog/product-variants) | Get and update all variants | `/catalog/variants` |
-|  [Webhooks](/docs/webhooks/overview) | Manage store Webhooks | `/hooks` |
+|  [Variants](/docs/rest-management/catalog/variants) | Get and update all variants | `/catalog/variants` |
+|  [Webhooks](/docs/webhooks/webhooks) | Manage store Webhooks | `/hooks` |
 |  [Widgets](/docs/rest-content/widgets) | Create and manage store widgets | `/content/widgets` |
-|  [Widgets Placements](/docs/rest-content/widgets/placement) | Place, move, and remove store widgets | `/content/placements` |
-|  [Widgets Regions](/docs/rest-content/widgets/regions) | Get list of regions widgets can be placed for a specified template file | `/content/regions` |
+|  [Widgets Placements](/docs/rest-content/widgets#placements) | Place, move, and remove store widgets | `/content/placements` |
+|  [Widgets Regions](/docs/rest-content/widgets#regions) | Get list of regions widgets can be placed for a specified template file | `/content/regions` |
 |  [Widgets Templates](/docs/rest-content/widgets/widget-template) | Create and manage widget templates | `/content/widget-templates` |
 |  [Wishlist](/docs/rest-management/wishlists) | Create and manage customer wishlists | `/wishlists` |
 
@@ -119,7 +119,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
-|  [Webhooks](/docs/webhooks/overview) | Manage store Webhooks | `/hooks` |
+|  [Webhooks](/docs/webhooks/webhooks) | Manage store Webhooks | `/hooks` |
 
 **Additional Information**: [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
@@ -152,7 +152,7 @@ BigCommerce's **Storefront API** is a client API that exposes storefront data to
 |------------------------------------------------------------------------------------------------------------------|-------------------------------------------|-------------------------------------|
 | [Storefront Carts](/docs/rest-storefront/carts)            | Create and get carts                      | `/carts`             |
 | [Storefront Checkouts](/docs/rest-management/checkouts)    | Create and get checkouts on the front-end | `/checkouts`         |
-| [Storefront Orders](/docs/rest-storefront/orders)             | Get order data after order is placed      | `/orders`            |
+| [Storefront Orders](/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
 
 **Additional Information:** [Storefront Cart and Checkout Overview](/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis) |
 
@@ -204,7 +204,7 @@ Provider API references describe endpoints, responses, and requests that can be 
 
 | Provider API | Description |
 |-|-|
-|[Shipping Provider API](/api-reference/store-management/shipping-provider-api)|Allows third parties to integrate their own shipping carriers into the BigCommerce checkout and control panel.|
+|[Shipping Provider API](/docs/apps-api/shipping)|Allows third parties to integrate their own shipping carriers into the BigCommerce checkout and control panel.|
 
 **Additional Information:** [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api)
 
@@ -242,7 +242,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 |Sites and Routes|<a class="cursor-pointer" href="/api-reference/cart-checkout/sites-routes-api/BigCommerce_Channels_Listings_API.oas2.json.json" target="_blank" download="BigCommerce_Channels_Listings_API.oas2.json.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
 | Wishlists |<a class="cursor-pointer" href="/api-reference/cart-checkout/wishlists/BigCommerce_Channels_Listings_API.oas2.json" target="_blank" download="BigCommerce_Channels_Listings_API.oas2.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
 |Payment Processing Token and Methods| <a class="cursor-pointer" href="/api-reference/payments/payments-create-payment-token-api/BigCommerce_Payments_API.oas2.json" target="_blank" download="BigCommerce_Payments_API.oas2.json">BigCommerce_Payments_API.oas2.json</a> |
-| Enabled Store Payment Methods |<a class="cursor-pointer" href="/api-reference/payments/payment-methods-api/BigCommerce_Enabled_Payment_Methods_API.oas2.json" target="_blank" download="BigCommerce_Enabled_Payment_Methods_API.oas2.json">BigCommerce_Enabled_Payment_Methods_API.oas2.json</a> |
+| Enabled Store Payment Methods |<a class="cursor-pointer" href="/api-reference/payments/payment-methods-api/BigCommerce_Enabled_Payment_Methods_API.oas2.json" target="_blank" download="BigCommerce_Enabled_Payment_Methods_API.oas2.json">BigCommerce_Enabled_Payment_Methods_API.oas2.json/a> |
 |Process Payment |<a class="cursor-pointer" href="/api-reference/payments/payments-process-payments/BigCommerce_Process_Payment_API.oas2.json" target="_blank" download="BigCommerce_Process_Payment_API.oas2.json">BigCommerce_Process_Payment_API.oas2.json</a> |
 |Geography |<a class="cursor-pointer" href="/api-reference/store-management/geography-api/BigCommerce_Geography_API.oas2.json" target="_blank" download="BigCommerce_Geography_API.oas2.json">BigCommerce_Geography_API.oas2.json</a> |
 |Currencies |<a class="cursor-pointer" href="/api-reference/store-management/currency-api/BigCommerce_Currency_API.oas2.json" target="_blank" download="BigCommerce_Currency_API.oas2.json">BigCommerce_Currency_API.oas2.json</a> |
@@ -291,21 +291,21 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 
 |Endpoint|Alternative |
 |-|-|
-|`/v2/brands`| [`/v3/catalog/brands`](/api-reference/catalog/catalog-api/brands/getbrands)|
-|`/v2/categories`| [`/v3/catalog/categories`](/api-reference/catalog/catalog-api/category/getcategories)|
+|`/v2/brands`| [`/v3/catalog/brands`](/docs/rest-management/catalog/brands#get-all-brands)|
+|`/v2/categories`| [`/v3/catalog/categories`](/docs/rest-management/catalog/category#get-all-categories)|
 |`/v2/customers`| [`/v3/customers`](/docs/rest-management/customers)|
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
 |`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](/legacy/v2-products/v2-v3) for more information.|
-|`/v2/products `| [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/getproducts)|
-|`/v2/redirects/`|[`/v3/storefront/redirects`](/api-reference/storefront/redirects)|
+|`/v2/products `| [`/v3/catalog/products`](/docs/rest-management/catalog/products)|
+|`/v2/redirects/`|[`/v3/storefront/redirects`](/docs/rest-content/store-content/redirects)|
 
 **V2 Sunsets**
 
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
+|`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](/docs/rest-management/customers#delete-customers)|
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
-|`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](/api-reference/catalog/catalog-api/products/deleteproducts)|
+|`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`]/docs/rest-management/catalog/products#delete-products)|
 
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
@@ -313,7 +313,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 **V3 Sunsets**
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](/docs/rest-management/channels#get-all-channels) `status` property
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](/docs/rest-management/channels) `status` property
 
 
 **Additional Information:** [V2 versus V3 API](/legacy/v2-products/v2-v3#Whats-not-in-V3)

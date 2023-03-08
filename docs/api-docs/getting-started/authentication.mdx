@@ -151,7 +151,7 @@ The following table lists the APIs that use the `Authorization` header, along wi
 
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
-| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | store | `Bearer {{TOKEN}}` |
+| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
 | [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) | [Process a payment](/docs/rest-payments/processing/process-payment#process-payment) | app or store | `PAT {{TOKEN}}` |
 
 To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the OAuth scopes you need to make your target request. 
@@ -431,7 +431,7 @@ The following table describes the authentication characteristics of our REST Pro
 
 | API description | API reference | Configuration reference | Associated API account | Authentication method |
 |:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
-| [Shipping Provider API](/api-docs/providers/shipping) | [Shipping Provider Reference](/api-reference/providers/shipping-provider-api) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection) | implemented in an app | developer-defined request body keys | 
+| [Shipping Provider API](/api-docs/providers/shipping) | [Shipping Provider Reference](/api-docs/provider-apis/shipping-provider-api) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys | 
 | [Tax Provider API](/api-docs/providers/tax) | [Tax Provider Reference](/docs/apps-api/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
 
 In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer. 

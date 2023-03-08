@@ -11,7 +11,7 @@ In this article, we will review the components that make up a widget.
 
 ## Regions
 
-[Regions](/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](/docs/rest-content/widgets/regions#get-theme-regions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Partner%20Information/widgets-overview-03.png "Content Region")
 
@@ -35,7 +35,7 @@ To create a global region, add the `--global` suffix to the region name as shown
 
 ## Widget templates
 
-[Widget templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates which define the structure of the widget on a page. You can use built-in Handlebars helpers such as `{{if}}` and `{{each}}` to add conditional logic to a widget template. 
+[Widget templates](/docs/rest-content/widgets/widget-template#get-all-widget-templates) are reusable Handlebars-enabled HTML templates which define the structure of the widget on a page. You can use built-in Handlebars helpers such as `{{if}}` and `{{each}}` to add conditional logic to a widget template. 
 
 You can reuse widget templates to build multiple widgets.
 
@@ -187,18 +187,18 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
 ### Update a widget template 
 
-To update a widget template without impacting existing widgets, set the `create_new_version` property to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new widget template version, but it will not impact the widgets created before the update. 
+To update a widget template without impacting existing widgets, set the `create_new_version` property to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](/docs/rest-content/widgets/widget-template#update-a-widget-template). This will create a new widget template version, but it will not impact the widgets created before the update. 
 
 Updating the widget template with `create_new_version` set to `true` will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`.
 
 <Callout type="info">
-  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
+  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/docs/rest-content/widgets/widget-template#update-a-widget-template). 
 </Callout>
 
 
 ## Placements
 
-[Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where you place widgets and in what order.
+[Placements](/docs/rest-content/widgets/placement#create-a-placement) determine the region where you place widgets and in what order.
 
 Currently, placements can exist on the following pages:
 

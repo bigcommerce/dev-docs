@@ -6,7 +6,7 @@ To learn more about sales channels, see the [Channels Overview](/api-docs/channe
 
 ## Creating a webhook
 
-To create a webhook, send a request to the [Create a webhook](/api-reference/store-management/webhooks/webhooks/createwebhooks) endpoint. Follow the process described in the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook), and include a `channel_id` where indicated to subscribe to that channel's events.
+To create a webhook, send a request to the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint. Follow the process described in the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook), and include a `channel_id` where indicated to subscribe to that channel's events.
 
 ```http filename="Example request: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
@@ -40,7 +40,7 @@ The following webhook events fire in response to actions that govern a store's s
 |:----------------------|:------------|:---------|
 | `store/channel/*`       | Subscribes to all store/channel events | not applicable |
 | `store/channel/created` | Fires when a channel is created using the control panel or the API | [Create a channel](/docs/rest-management/channels#create-a-channel) |
-| `store/channel/updated` | Fires when a channel is updated using the control panel or the API | [Update a channel](/api-reference/store-management/channels/channels/updatechannel) |
+| `store/channel/updated` | Fires when a channel is updated using the control panel or the API | [Update a channel](/docs/rest-management/channels#update-a-channel) |
 
 
 Channel event payloads take the form that follows:
@@ -80,7 +80,7 @@ The following cart webhook events fire in response to actions that affect carts 
 | `store/channel/{channel_id}/cart/*`            | Fires on all cart changes associated with the specified channel. | not applicable |
 | `store/channel/{channel_id}/cart/created`      | Fires on creation of a new cart associated with the specified channel. | [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart)  |
 | `store/channel/{channel_id}/cart/updated`      | Fires on update of a cart associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/cart/deleted`      | Fires on deletion of a cart associated with the specified channel. | [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) |
+| `store/channel/{channel_id}/cart/deleted`      | Fires on deletion of a cart associated with the specified channel. | [Delete a cart](/docs/rest-management/carts/carts-single#delete-a-cart) |
 | `store/channel/{channel_id}/cart/couponApplied` | Fires when a new coupon code associated with the specified channel is applied to a cart. | not applicable  |
 | `store/channel/{channel_id}/cart/abandoned`    | Fires when a cart associated with the specified channel is abandoned.  | not applicable |
 | `store/channel/{channel_id}/cart/converted`    | Fires when a cart associated with the specified channel is converted into an order. | not applicable |
@@ -108,9 +108,9 @@ The following cart line item webhook events fire in response to actions that aff
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/cart/lineItem/*`       | Fires on all cart line item changes associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/cart/lineItem/created`      | Fires when a new item is added to a cart associated with the specified channel. | [Add cart line items](/api-reference/store-management/carts/cart-items/addcartlineitem) |
-| `store/channel/{channel_id}/cart/lineItem/updated`      | Fires when an item's quantity or product options change in a cart associated with the specified channel.  | [Update Cart Line Item](/api-reference/store-management/carts/cart-items/updatecartlineitem) |
-| `store/channel/{channel_id}/cart/lineItem/deleted`      | Fires when items are deleted from any cart associated with the specified channel. | [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) |
+| `store/channel/{channel_id}/cart/lineItem/created`      | Fires when a new item is added to a cart associated with the specified channel. | [Add cart line items](/docs/rest-management/carts/cart-items#add-cart-line-items) |
+| `store/channel/{channel_id}/cart/lineItem/updated`      | Fires when an item's quantity or product options change in a cart associated with the specified channel.  | [Update Cart Line Item](/docs/rest-management/carts/cart-items#update-cart-line-item) |
+| `store/channel/{channel_id}/cart/lineItem/deleted`      | Fires when items are deleted from any cart associated with the specified channel. | [Delete cart line item](/docs/rest-management/carts/cart-items#delete-cart-line-item) |
 
 Cart line items payload objects take the form that follows:
 
@@ -136,9 +136,9 @@ The following categories webhook events fire in response to actions that affect 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/category/*`            | Fires when subscribed to all category events for categories associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/api-reference/store-management/catalog/categories-batch/createcategories) |
-| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/api-reference/store-management/catalog/categories-batch/updatecategories)  |
-| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/api-reference/store-management/catalog/categories-batch/deletecategories)|
+| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/docs/rest-management/catalog/categories-batch#create-categories) |
+| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/docs/rest-management/catalog/categories-batch#update-categories)  |
+| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/docs/rest-management/catalog/categories-batch#delete-categories)|
 
 Categories payload objects take the form that follows:
 
@@ -161,7 +161,7 @@ The following category tree webhook event fires in response to actions that affe
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/api-reference/store-management/catalog/category-trees/upsertcategorytrees) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
+| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/docs/rest-management/catalog/category-trees#upsert-category-trees) or [Delete category trees](docs/rest-management/catalog/category-trees#delete-category-trees) |
 
 
 Category tree payload objects take the form that follows:
@@ -186,7 +186,7 @@ The following customers webhook event fires in response to customer changes:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/customer/channel/login/access/updated` | Fires on update of any customer's login access. | [Update a customer](/api-reference/store-management/customers-v2/customers/updateacustomer) |
+| `store/customer/channel/login/access/updated` | Fires on update of any customer's login access. | [Update a customer](/docs/rest-management/customers-v2#update-a-customer) |
 
 Customers payload objects take the form that follows:
 
@@ -211,10 +211,10 @@ The following emails webhook events fire in response to actions that affect a sp
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/settings/emailStatus/updated`        | Fires when an email status is updated per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
-| `store/channel/{channel_id}/settings/emailStatus/deleted`        | Fires when an email status was deleted per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
-| `store/channel/{channel_id}/email/templates/updated`        | Fires when an email template is updated per a specified channel. | [Update a template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate) |
-| `store/channel/{channel_id}/email/templates/deleted`        | Fires when an email template was deleted per a specified channel. | [Delete email template override](/api-reference/store-management/email-templates/email-templates/deleteemailtemplateoverride) |
+| `store/channel/{channel_id}/settings/emailStatus/updated`        | Fires when an email status is updated per a specified channel. | [Update transactional email settings](/docs/rest-management/settings/email-statuses#update-transactional-email-settings) |
+| `store/channel/{channel_id}/settings/emailStatus/deleted`        | Fires when an email status was deleted per a specified channel. | [Update transactional email settings](/docs/rest-management/settings/email-statuses#update-transactional-email-settings) |
+| `store/channel/{channel_id}/email/templates/updated`        | Fires when an email template is updated per a specified channel. | [Update a template](/docs/rest-content/abandoned-cart-emails#update-an-email-template) |
+| `store/channel/{channel_id}/email/templates/deleted`        | Fires when an email template was deleted per a specified channel. | [Delete email template override](/docs/rest-content/abandoned-cart-emails#delete-email-template) |
 
 
 Emails payload objects take the form that follows:
@@ -237,8 +237,8 @@ The following notifications webhook events fire in response to actions that affe
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/notifications/abandonedCart/updated`        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) 
-| `store/channel/{channel_id}/notifications/inventory/updated`        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
+| `store/channel/{channel_id}/notifications/abandonedCart/updated`        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) 
+| `store/channel/{channel_id}/notifications/inventory/updated`        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/docs/rest-management/settings/inventory-notifications#update-inventory-notifications-settings) |
 
 Notifications payload objects take the form that follows:
 
@@ -262,7 +262,7 @@ The following orders webhook events fire in response to actions that affect a sp
 | `store/channel/{channel_id}/order/*`                  | Fires on all order events associated with the specified channel. | not applicable |
 | `store/channel/{channel_id}/order/created`            | Fires when an order associated with the specified channel is created. | [Create an order](/docs/rest-management/orders#create-an-order) |
 | `store/channel/{channel_id}/order/updated`            | Fires when an order associated with the specified channel is updated. | [Update an order](/docs/rest-management/orders#update-an-order) |
-| `store/channel/{channel_id}/order/archived`           | Fires when an order associated with the specified channel is archived. | [Archive an order](/api-reference/store-management/orders/orders/deleteanorder) |
+| `store/channel/{channel_id}/order/archived`           | Fires when an order associated with the specified channel is archived. | [Archive an order](/docs/rest-management/orders#archive-an-order) |
 | `store/channel/{channel_id}/order/statusUpdated`        | Fires when the status of an order associated with the specified channel is updated. | not applicable |
 | `store/channel/{channel_id}/order/message/created`      | Fires when an order message for an order associated with the specified channel is created using the control panel or the API | not applicable  |
 | `store/channel/{channel_id}/order/refund/created`       | Fires when a refund is created for all or part of an order associated with the specified channel | not applicable |
