@@ -8,7 +8,7 @@ If the cart is associated with the shopper's channel and the relationship betwee
 
 ## Categories
 
-[Categories API reference documentation](/api-reference/store-management/catalog/category/getcategories)
+[Categories API reference documentation](/docs/rest-management/catalog/category#get-all-categories)
 
 Previously, a store had a collection of categories that were organized in a tree structure. This collection of categories has been abstracted from the store and converted into the store's first **category tree**. You can create multiple category trees, each of which you can assign to a storefront or other sales channel.
 
@@ -30,13 +30,13 @@ If your application interacts with shoppers, you may be able to use the [GraphQL
 
 ## Customers
 
-[Customers API documentation](/api-reference/store-management/customers-v3)
+[Customers API documentation](/docs/rest-management/customers)
 
 Each customer account has an `origin_channel_id` that references the channel on which it was created. Email addresses must be unique within each **channel**, rather than within the store. This means that a single email address can exist two (or more) times in one store: associated with two Customer IDs on two different channels.
 
 ## Orders
 
-[Orders API reference documentation](/api-reference/store-management/order-transactions)
+[Orders API reference documentation](/docs/rest-management/transactions)
 
 For applications that deal with order management, it is now crucial to include the `channel_id` as part of the order object. Among other benefits, linking each order to a channel will make it easier to sort, categorize, and filter orders by the storefront or other sales channel in which they were placed. You will also avoid accidentally having [an order associated with the default channel](/api-docs/multi-storefront/overview#backwards-compatibility), which may confuse shoppers by exposing store configuration details that do not apply to their channel.
 
@@ -44,7 +44,7 @@ Similarly, if your application is shopper-facing and deals with orders, it's imp
 
 ## Price lists
 
-[Price List Assignments API documentation](/api-reference/catalog/pricelists-api/price-lists-assignments/getlistofpricelistassignments)
+[Price List Assignments API documentation](/docs/rest-management/price-lists/price-lists-assignments#get-price-list-assignments)
 
 Previously, price lists assignments were made with the V2 Customer Groups API. Price lists could only be assigned to customer groups.
 
@@ -72,19 +72,19 @@ It is important to understand the difference between assigning a product to a ca
 
 ![products-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/products-diagram.webp)
 
-If your app provides merchants with a sales channel, such as an integration with a third-party marketplace, we recommend that you check the merchant's catalog to determine their existing channel assignments. This will help your app understand and communicate with the merchant about which products the integration's channel is currently permitted to offer for sale. For extended product information relevant to your channel, consult the [Channel Listings API](/api-reference/store-management/channels/channel-listings/listchannellistings).
+If your app provides merchants with a sales channel, such as an integration with a third-party marketplace, we recommend that you check the merchant's catalog to determine their existing channel assignments. This will help your app understand and communicate with the merchant about which products the integration's channel is currently permitted to offer for sale. For extended product information relevant to your channel, consult the [Channel Listings API](/docs/rest-management/channels/channel-listings#get-channel-listings).
 
 If your application interacts with shoppers, you can use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to get the correct product availability and data for a given shopper in real time.
 
 ### The nuances of channel assignments
 
-Use the [Channel Assignments API](/api-reference/store-management/catalog/products-channel-assignments/getproductchannelassignments) to create and manage product assignments for [storefronts and other sales channels](/api-docs/multi-storefront/overview#channels).
+Use the [Channel Assignments API](/docs/rest-management/catalog/products-channel-assignments#get-products-channel-assignments) to create and manage product assignments for [storefronts and other sales channels](/api-docs/multi-storefront/overview#channels).
 
 A product assigned to a storefront channel can be sold on that channel, discovered in search, and accessed by direct link, unless that storefront's settings otherwise disable direct links. 
 
 Removing a product from a channel will make that product unavailable on the given channel. The product will remain categorized, but it will not be available using category filters, search, or direct link.
 
-Removing a product from a category does not remove it from the channel. Use the [Channel Assignments API](/api-reference/store-management/catalog/products-channel-assignments/getproductchannelassignments) to revoke channel assignments.
+Removing a product from a category does not remove it from the channel. Use the [Channel Assignments API](/docs/rest-management/catalog/products-channel-assignments#get-products-channel-assignments) to revoke channel assignments.
 
 Removing a product from one or all of a channel's categories without revoking the channel assignment will remove the product from the category views and filters, but shoppers will still be able to access the product by search or direct link. This may be useful for sales campaigns that send shoppers a direct link to purchase a specific product.
 
@@ -96,7 +96,7 @@ Scripts are associated with a particular site. Any scripts that were created pre
 
 ![scripts-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/scripts-diagram.webp)
 
-[Scripts API reference documentation](/api-reference/store-management/scripts)
+[Scripts API reference documentation](/docs/rest-management/scripts)
 
 From a UX perspective, you may wish to make it clear to merchants who are setting up your app that they must explicitly select one or more storefront sites on which to install your app's storefront functionality. You should also provide ways to remove your scripts from each site and install your scripts on any new sites the merchant creates in the future.
 
@@ -106,7 +106,7 @@ Pages are associated with a particular site. Any pages that were created previou
 
 ![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
 
-[Pages API reference documentation](/api-reference/store-management/pages/pages/getpages)
+[Pages API reference documentation](/docs/rest-content/pages#get-pages)
 
 The new V3 Pages API services multi-storefront use cases and provides several of the efficiency benefits that V3 APIs offer in comparison with their V2 equivalents. The V3 Pages API has `site_id` as a required parameter.
 
@@ -132,7 +132,7 @@ If your application reads redirects-related data, be sure to filter by the appro
 
 ### Themes
 
-Previously, the [Activate store theme](/api-reference/store-management/themes/theme-actions/activatestoretheme) endpoint accepted a `variation_id` and a `which` value. This has changed.
+Previously, the [Activate store theme](/docs/rest-content/themes/theme-actions#activate-a-theme) endpoint accepted a `variation_id` and a `which` value. This has changed.
 
 Because we now support installing different themes and/or theme configurations for each storefront, you must supply a `variation_id` and `configuration_id` for the theme configuration you want to apply, as well as a `site_id` or `channel_id` for the target storefront. The `which` value is not supported for multi-storefront installations.
 
@@ -142,7 +142,7 @@ The `configuration_id` is the same as a configuration's `uuid`, returned in the 
 </Callout>
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
-[Themes API documentation](/api-reference/store-management/themes)
+[Themes API documentation](/docs/rest-content/themes)
 
 To understand which theme is active for a particular site, you can check the [Get active theme](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme) endpoint.
 
@@ -152,16 +152,16 @@ Themes themselves remain "global" to the store, but each theme now exposes a lis
 #### Themes API roadmap
 Our Themes API roadmap includes the following: 
 * Exposing an endpoint to create a new theme configuration
-* Adding a `download_url` query parameter to the [Get all themes](/api-reference/store-management/themes/themes/getstorethemes) endpoint
+* Adding a `download_url` query parameter to the [Get all themes](/docs/rest-content/themes#get-all-themes) endpoint
 </Callout>
 
-Currently, you can use the [Download a theme](/api-reference/store-management/themes/theme-actions/downloadtheme) endpoint to download a theme. This will create a download job. 
+Currently, you can use the [Download a theme](/docs/rest-content/themes/theme-actions#download-a-theme) endpoint to download a theme. This will create a download job. 
 
-Because each theme can define its own configuration, the response from the [Get theme configurations](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) endpoint may differ for each theme. Valid configurations match the theme's schema. You can use the [Validate theme configurations](/api-reference/store-management/themes/theme-configurations/postthemesuuidconfigurationsvalidate) endpoint to validate a potential configuration against the theme's schema.
+Because each theme can define its own configuration, the response from the [Get theme configurations](/docs/rest-content/themes/theme-configurations#get-theme-configuration) endpoint may differ for each theme. Valid configurations match the theme's schema. You can use the [Validate theme configurations](/docs/rest-content/themes/theme-configurations#validate-theme-configuration) endpoint to validate a potential configuration against the theme's schema.
 
 ### Subscribers
 
-[Subscribers API documentation](/api-reference/store-management/subscribers)
+[Subscribers API documentation](/docs/rest-management/subscribers)
 
 Each subscriber now has an `origin_channel_id` property that identifies the channel on which the subscriber consented to receive a newsletter. When not supplied, the `origin_channel_id` will default to `1`. To comply with electronic consent and privacy regulations, we recommend that your implementation specify the `origin_channel_id` for every subscriber.
 

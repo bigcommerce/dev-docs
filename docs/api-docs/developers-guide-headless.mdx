@@ -50,7 +50,7 @@ Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and to
 * [Query storefront data with GraphQL](/docs/graphql-storefront).
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 * [Create carts with the Server-to-Server Carts API](/docs/rest-management/carts).
-* [Fetch and display abandoned cart information using the Abandoned Carts API](/api-reference/cart-checkout/s2s-abandoned-carts).
+* [Fetch and display abandoned cart information using the Abandoned Carts API](/docs/rest-management/abandoned-carts).
 * [Create and manage shopper wishlists with the Wislists API](/api-reference/store-management/wishlists)
 * [Manage product data with the Catalog API](/docs/rest-management/catalog).
 * [Embed BigCommerce's checkout in an iFrame with Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
@@ -140,7 +140,7 @@ To populate the `customer_id` on the cart with the correct data, use the email a
 
 ### Creating a new customer
 
-Our WordPress plugin uses the approach of using the Customer API to [validate the password](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) against what is stored in BigCommerce.
+Our WordPress plugin uses the approach of using the Customer API to [validate the password](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) against what is stored in BigCommerce.
 
 If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](/docs/rest-management/customers).
 
@@ -194,17 +194,17 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 1.  Create a [Cart](/docs/rest-management/carts/carts-single#create-a-cart) with a redirect url
 	1.  Add the Customer ID or leave blank if shopper is a guest
 	2.  Add Line Items or Custom Line Items
-2.  Add a [Billing Address](/api-reference/cart-checkout/server-server-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) to the [Cart](/docs/rest-management/carts/carts-single#create-a-cart) changing it to a Checkout
-3.  Add a [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to Checkout with the line items and the `consignments.available_shipping_options` query
-4. Update each [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) with the chosen shipping option from the Add Consignment response.
-5.  Create the Order by sending a request to [Create Order](/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder)
+2.  Add a [Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) to the [Cart](/docs/rest-management/carts/carts-single#create-a-cart) changing it to a Checkout
+3.  Add a [Consignment](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkoutt) to Checkout with the line items and the `consignments.available_shipping_options` query
+4. Update each [Consignment](/docs/rest-management/checkouts/checkout-consignments) with the chosen shipping option from the Add Consignment response.
+5.  Create the Order by sending a request to [Create Order](/docs/rest-management/checkouts/checkout-orders#create-an-order)
 	1.  Returns an `order_id`
 	2. Order is created in `incomplete` status
 6.  Take a Payment for the Order using one of the two methods below
 
 ### Create an Order Directly
 
-1.  Send a request /POST request to [Orders](/api-reference/orders/orders-api/orders/createanorder)
+1.  Send a request /POST request to [Orders](/docs/rest-management/orders#create-an-order)
 	1. Make sure the `status_id` is 0
 	2.  Add the Customer ID or leave blank if the shopper is a guest
 	3. Add Line Items or Custom Line Items
@@ -213,12 +213,12 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 	6. Create a custom shipping quote
 2.  Take a Payment for the Order using one of the two methods below
 3.  Vaulted Card -- The shopper has saved a credit card
-	1. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
-	2.  [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	3.  [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	1. [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods)
+	2.  [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)
+	3.  [Process Payment](/docs/rest-payments/processing/process-payment#process-payment)
 4.  Credit Card -- The shopper has not saved a credit card
-	1. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	1. [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)
+	2. [Process Payment](/docs/rest-payments/processing/process-payment#process-payment)
 
 ## Related resources
 
@@ -241,9 +241,9 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 - [Server to Server Checkout API](/docs/rest-storefront/checkouts)
 - [Server to Server Cart API](/docs/rest-management/carts)
 - [Orders API](docs/rest-management/orders)
-- [Payments API](/api-reference/payments)
+- [Payments API](/api-docs/store-management/payments-api-overview)
 - [Customers API](/docs/rest-management/customers)
-- [Validate Customer Password](/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword)
+- [Validate Customer Password](/docs/rest-management/customers-v2/customer-passwords#validate-a-password)
 
 ### Tools
 - [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)

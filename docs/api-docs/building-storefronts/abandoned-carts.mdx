@@ -30,7 +30,7 @@ The Abandoned Cart Saver will trigger under the following circumstances:
 
 The Abandoned Cart Saver email link points to the Stencil storefront (channel ID 1) by default. To point the Abandoned Cart Saver email link to your headless storefront, you need to set up a `recover_abandoned_cart` site route.
 
-This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](/api-reference/store-management/channels/channel-site/get-channel-site) endpoint.
+This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](/docs/rest-management/channels/channel-site#get-a-channel-site) endpoint.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -112,7 +112,7 @@ To test the route creation, send a `GET` request to the [Get a Site's Routes](/a
 
 ## Leveraging the Abandoned Carts API
 
-The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](/api-reference/store-management/carts).
+The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](/docs/rest-management/carts).
 
 **Abandoned Cart Saver email link example**:
 
@@ -161,7 +161,7 @@ The response will contain the cart details.
 
 ## Implementing cart recovery on headless storefronts
 
-To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](/api-reference/store-management/customers-v3) and [Carts](/api-reference/store-management/carts) APIs to initiate the abandoned cart recovery sequence.
+To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](/docs/rest-management/customers) and [Carts](/docs/rest-management/carts) APIs to initiate the abandoned cart recovery sequence.
 
 The following example demonstrates how a headless storefront can recover abandoned cart details without relying on Optimized One-Page Checkout.
 

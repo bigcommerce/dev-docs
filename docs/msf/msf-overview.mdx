@@ -29,7 +29,7 @@ A channel is defined by the following:
   * `custom`
 * A `platform`, which indicates the platform on which shoppers primarily use the channel
 
-Consult the [Channels API documentation](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) for more information on valid combinations of `type` and `platform`. For example, a BigCommerce-hosted Stencil storefront has a type of `storefront` and a platform of `bigcommerce`.
+Consult the [Channels API documentation](/docs/rest-management/channels#create-a-channel) for more information on valid combinations of `type` and `platform`. For example, a BigCommerce-hosted Stencil storefront has a type of `storefront` and a platform of `bigcommerce`.
 
 Each BigCommerce store is provisioned with one channel out of the box, intended for its first Stencil storefront. The ID of this channel is `1` for all BigCommerce stores. This channel may also be referred to as the "default channel", and it cannot be deleted. 
 
@@ -59,7 +59,7 @@ To learn more about upgrading your application to support multi-storefront funct
 
 ## Settings & Configuration
 
-[Settings API Documentation](/api-reference/store-management/settings)
+[Settings API Documentation](/docs/rest-management/settings)
 
 The Settings APIs now allow your app to read and write many important elements of the store's configuration, both globally and on a per-channel basis. If your application manages settings, you can use these endpoints to enable merchants to configure different settings for different channels. You may also wish to read and respect any merchant-configured settings that control details of your application's behavior.
 

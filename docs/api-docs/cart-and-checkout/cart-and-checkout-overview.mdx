@@ -252,7 +252,7 @@ To create a cart with a `customer_id`:
 ***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
 
 ***Resolution:***
-To get the variant ID use the [Get Products](/docs/rest-management/catalog/products#get-a-product) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
+To get the variant ID use the [Get Products](/docs/rest-management/catalog/products#get-a-product) endpoint or the [Get Variants](/docs/rest-management/catalog/product-variants#get-a-product-variant) endpoint.
 To create a cart with a variant ID:
 
 ```json filename="Create cart with variant ID" showLineNumbers copy
@@ -271,7 +271,7 @@ To create a cart with a variant ID:
 The `option_id` is incorrect.
 
 ***Resolution:***
-To get the correct `option_id`, make a request to [Get Products](/api-reference/catalog/catalog-api/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
+To get the correct `option_id`, make a request to [Get Products](/docs/rest-management/catalog/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
 
 ```json filename="Create cart option ID" showLineNumbers copy
 {
@@ -299,7 +299,7 @@ To get the correct `option_id`, make a request to [Get Products](/api-reference/
 * The modifierID is incorrect.
 
 **Resolution:**
-To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
+To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-storefront/carts#create-a-cart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
 ```json filename="Create cart optionId and optionValue" showLineNumbers copy
 {
@@ -363,7 +363,7 @@ When you add less than a product’s minimum required purchase or more than the 
 
 
 ***Resolution:***
-Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/docs/rest-management/catalog/products#get-a-product) endpoint.
 
 
 ### Internal Server Error [500]
@@ -374,16 +374,16 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 Trying to edit a cart that does not exist.
 
 ***Resolution:***
-Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint for the current available session cart.
+Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/docs/rest-storefront/carts#get-a-cart) endpoint for the current available session cart.
 
 
 *Storefront Cart API*
 
 ***Issue:***
-When you add less than a product’s minimum required purchase or more than the maximum allowed purchase to a cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint to check for min/max purchase restrictions.
+When you add less than a product’s minimum required purchase or more than the maximum allowed purchase to a cart. Use the [Get Product](/docs/rest-management/catalog/products#get-a-product) endpoint to check for min/max purchase restrictions.
 
 ***Resolution:***
-Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
+Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/docs/rest-management/catalog/products#get-a-product) endpoint.
 
 ## Related resources
 

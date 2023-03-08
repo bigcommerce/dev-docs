@@ -1,6 +1,6 @@
 # Orders Overview
 
-This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/api-reference/store-management/order-transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/api-reference/store-management/order-transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 
@@ -50,7 +50,7 @@ Accept: application/json
 
 ## Changing order status
 
-Specify [order status](/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
+Specify [order status](/docs/rest-management/orders/order-status#get-all-order-statuses) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
 
 ```http filename="Example request: Change order status" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}
@@ -63,7 +63,7 @@ Accept: application/json
 }
 ```
 
-To [get a list of order statuses](/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
+To [get a list of order statuses](/docs/rest-management/orders/order-status#get-all-order-statuses), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get order statuses" showLineNumbers copy
@@ -496,7 +496,7 @@ To [get order transactions](/api-reference/store-management/order-transactions/t
 
 ## Handling refunds
 
-[Orders V3](/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
+[Orders V3](/docs/rest-management/transactions) exposes endpoints for managing [order refunds](/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
 
 ## Calculating totals
 
@@ -564,7 +564,7 @@ Not at this time. If you create an order either in the control panel or by API, 
 
 * [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
 * [Orders v2](/api-reference/store-management/orders)
-* [Orders v3](/api-reference/store-management/order-transactions)
+* [Orders v3](/docs/rest-management/transactions)
 
 ### Webhooks
 
