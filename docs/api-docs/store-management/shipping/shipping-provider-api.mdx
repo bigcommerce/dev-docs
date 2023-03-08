@@ -25,7 +25,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Single-carrier versus multi-carrier apps
 
-You can only associate one registered shipping carrier with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers. 
+You can only associate one registered shipping carrier with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers.
 
 BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference is how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
@@ -43,7 +43,7 @@ When your app is complete, it will be listed in our carrier registry, so that yo
 
 ### Register your app
 
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID.
 
 ![App ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app%20id.png "App ID")
 
@@ -60,7 +60,7 @@ Please include the following information:
 - Your app's ID
 - Your email
 - A description of the app
-- [Your service URLs](#your-service-urls) 
+- [Your service URLs](#your-service-urls)
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
 
 ## Before development
@@ -103,7 +103,7 @@ In the case of errors, include human-readable error messages in the response pay
 
 ## Developing the app
 
-To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click).
 
 Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
@@ -225,7 +225,6 @@ Whenever shipping rates are required, BigCommerce checks its internal cache for 
 
 ```http filename="Example request: Shipping rates" showLineNumbers copy
 POST https://example.com/rate
-X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
