@@ -1,6 +1,6 @@
 # Orders Overview
 
-This article introduces BigCommerce's [Orders V2](docs/rest-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](docs/rest-management/orders) exposes endpoints for [creating](/docs/rest-management/orders#create-an-order), [reading](/docs/rest-management/orders#get-all-orders), [updating](/docs/rest-management/orders#update-an-order), and [deleting](/docs/rest-management/orders#delete-all-orders) orders; it also includes endpoints for managing [order shipments](/docs/rest-management/orders/order-shipments#delete-order-shipments) and [order shipping addresses](/docs/rest-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](docs/rest-management/transactions#get-transactions) and [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](/docs/rest-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](/docs/rest-management/orders) exposes endpoints for [creating](/docs/rest-management/orders#create-an-order), [reading](/docs/rest-management/orders#get-all-orders), [updating](/docs/rest-management/orders#update-an-order), and [deleting](/docs/rest-management/orders#delete-all-orders) orders; it also includes endpoints for managing [order shipments](/docs/rest-management/orders/order-shipments#delete-order-shipments) and [order shipping addresses](/docs/rest-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](/docs/rest-management/transactions#get-transactions) and [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 
@@ -444,7 +444,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 ## Getting order transactions
 
-To [get order transactions](docs/rest-management/transactions#get-transactions), send the following `GET` request. See the example response that follows, or consult the [response schema](docs/rest-management/transactions#get-transactions).
+To [get order transactions](/docs/rest-management/transactions#get-transactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/docs/rest-management/transactions#get-transactions).
 <Tabs items={['Request', 'Response']}>
   <Tab>
     ```http filename="Example request: Get order transactions" showLineNumbers copy
@@ -563,7 +563,7 @@ Not at this time. If you create an order either in the control panel or by API, 
 ### Endpoints
 
 * [Storefront Orders](/docs/rest-storefront/orders)
-* [Orders v2](docs/rest-management/orders)
+* [Orders v2](/docs/rest-management/orders)
 * [Orders v3](/docs/rest-management/transactions)
 
 ### Webhooks
