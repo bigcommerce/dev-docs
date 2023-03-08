@@ -258,7 +258,7 @@ Accept: application/json
 
 ## Syncing gift card balances
 
-[Gift certificate](/api-reference/marketing/marketing-api/gift-certificates/) endpoints can be leveraged to sync BigCommerce gift certificates with gift cards purchased in store. When a gift card is used in person, the associated gift certificate in BigCommerce should be updated by changing the certificate's `balance` value.
+[Gift certificate](/docs/rest-content/marketing/gift-certificates) endpoints can be leveraged to sync BigCommerce gift certificates with gift cards purchased in store. When a gift card is used in person, the associated gift certificate in BigCommerce should be updated by changing the certificate's `balance` value.
 
 The same general process should take place when the gift certificate is used online. The remaining balance should be updated for the associated gift card in the external channel.
 
@@ -280,9 +280,9 @@ To leverage customer groups in your app, integrate the following endpoints:
 
 [Price lists](/docs/rest-management/price-lists) are used to create variant-level price overrides that can be assigned to specific [customer groups](/docs/rest-management/customers-v2/customer-groups). To make use of price lists, integrate the following endpoints:
 
-- [`{base url}/v3/pricelists`](/api-reference/store-management/price-lists/price-lists)
-- [`{base url}/v3/pricelists/{pricelist id}/records`](/api-reference/store-management/price-lists/price-lists-records)
-- [`{base url}/v3/pricelists/assignments`](/api-reference/store-management/price-lists/price-lists-assignments)
+- [`{base url}/v3/pricelists`](/docs/rest-management/price-lists#price-lists)
+- [`{base url}/v3/pricelists/{pricelist id}/records`](/docs/rest-management/price-lists/price-lists-records)
+- [`{base url}/v3/pricelists/assignments`](/docs/rest-management/price-lists/price-lists-assignments)
 
 ## Handling notifications
 

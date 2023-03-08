@@ -11,7 +11,7 @@ This article explains how to use the Carts API to create and manage carts. It al
 
 The [Carts API](/docs/rest-management/carts) lets you create carts for both existing and guest customers.
 
-To create a cart, send a request to the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint.
+To create a cart, send a request to the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint.
 
 ```http filename="Create a cart" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
@@ -157,7 +157,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 
 ### Using the Create a cart redirect URL endpoint
 
-To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response for the `cartId` path parameter.
 
 ```http filename="Create cart redirect URL" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
@@ -178,7 +178,7 @@ The response will contain `cart_url` and `checkout_url` properties. Use these UR
 
 ### Using Create a cart with the include query parameter
 
-It is possible to generate a redirect URL when creating a cart using the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
+It is possible to generate a redirect URL when creating a cart using the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
 ```http filename="Create a cart" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
@@ -193,7 +193,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Signing customers in before redirecting
 
-Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
+Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
 
 <Callout type="info">
   #### API account notes

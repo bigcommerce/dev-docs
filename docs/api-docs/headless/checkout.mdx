@@ -6,7 +6,7 @@ This section covers checkout options available to headless storefronts.
 
 ## Redirecting to the BigCommerce checkout
 
-You can redirect a customer to the BigCommerce hosted checkout page when creating a cart by appending the `include=redirect_urls` query parameter to the request URL of the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
+You can redirect a customer to the BigCommerce hosted checkout page when creating a cart by appending the `include=redirect_urls` query parameter to the request URL of the [Create a Cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint.
 
 ```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts?include=redirect_urls

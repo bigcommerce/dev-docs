@@ -66,7 +66,7 @@ You can use [Page Builder](https://support.bigcommerce.com/s/article/Page-Builde
 
 In this tutorial, you will create and place a widget programmatically. To place your widget using Page Builder, drag and drop the widget template from the left pane onto the page.
 
-To create a widget using the Widgets API, send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget). Replace the `widget_template_uuid` placeholder with the `uuid` from the [previous step](#create-a-widget-template).
+To create a widget using the Widgets API, send a `POST` request to [`/v3/content/widgets`](/docs/rest-content/widgets/widget#create-a-widget). Replace the `widget_template_uuid` placeholder with the `uuid` from the [previous step](#create-a-widget-template).
 
 ```http filename="Example request: Create a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/widgets
@@ -187,7 +187,7 @@ You will notice that `current_version_uuid` has changed and is now different fro
 
 All widgets created after the update will be based on the most current version. Let's create another widget to test this functionality. 
 
-Send a `POST` request to [`/v3/content/widgets`](/api-reference/storefront/widgets-api/widget/createwidget) replacing the `widget_template_uuid` placeholder with your widget template `uuid`.
+Send a `POST` request to [`/v3/content/widgets`](/docs/rest-content/widgets/widget#create-a-widget) replacing the `widget_template_uuid` placeholder with your widget template `uuid`.
 
 ```http filename="Example request: Create a widget" showLineNumbers copy
 POST /stores/{{STORE_HASH}}/v3/content/widgets

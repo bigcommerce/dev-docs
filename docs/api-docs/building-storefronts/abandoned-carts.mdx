@@ -108,17 +108,17 @@ To create a `recover_abandoned_cart` site route, send a `POST` request to the [C
   </Tab>
 </Tabs>
 
-To test the route creation, send a `GET` request to the [Get a Site's Routes](/api-reference/store-management/sites/site-routes/index-site-routes) endpoint. The response will contain all of the routes associated with your headless storefront's domain.
+To test the route creation, send a `GET` request to the [Get a Site's Routes](/docs/rest-management/sites/site-routes#get-a-site%E2%80%99s-routes) endpoint. The response will contain all of the routes associated with your headless storefront's domain.
 
 ## Leveraging the Abandoned Carts API
 
-The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](/docs/rest-management/carts).
+The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](/docs/rest-management/abandoned-carts#get-an-abandoned-cart) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](/docs/rest-management/carts).
 
 **Abandoned Cart Saver email link example**:
 
 `http://commerce-zr8y-teststore-bigcommerce.vercel.app/my-abandoned-cart-page/?t=305c6c15f6f0a3c0929770a538cf1ff7`
 
-To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) endpoint.
+To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](/docs/rest-management/abandoned-carts#get-an-abandoned-cart) endpoint.
 
 The response will contain the corresponding cart ID.
 
@@ -148,7 +148,7 @@ The response will contain the corresponding cart ID.
   </Tab>
 </Tabs>
 
-To retrieve the cart details, send a `GET` request to the [Get a Cart](/api-reference/store-management/carts/cart/getacart) endpoint.
+To retrieve the cart details, send a `GET` request to the [Get a Cart](/docs/rest-management/carts/carts-single#get-a-cart) endpoint.
 
 ```http filename="Example request: Get a cart" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts/{cartId}

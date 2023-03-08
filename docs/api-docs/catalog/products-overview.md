@@ -159,8 +159,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-images/createproductimage#requestrunner) -->
-
 <!-- theme: info -->
 > #### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
@@ -190,7 +188,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
@@ -253,7 +250,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner) -->
 
 For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
 
@@ -319,7 +315,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
@@ -487,7 +482,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/getoptions#requestrunner) -->
 
 In the above response, there are two variant options of size and color with three values each.
 
@@ -570,8 +564,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   ]
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
 
 <!-- theme: info -->
 > #### Supported types
@@ -712,7 +704,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue#requestrunner) -->
 
 ### Troubleshooting: 422 Errors
 
@@ -822,7 +813,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/brands/createbrand#requestrunner) -->
 
 For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
 

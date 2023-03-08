@@ -10,7 +10,7 @@ To successfully complete this section, you must first create a cart with a **red
 
 ### Adding a billing address
 
-You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint. Your `checkoutId` will correspond with the cart `id` returned in response to [Create a Cart](/api-reference/store-management/carts/cart/createacart).
+You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a `POST` request to the [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint. Your `checkoutId` will correspond with the cart `id` returned in response to [Create a Cart](/docs/rest-management/carts/carts-single#create-a-cart).
 
 ```http filename="Example request: Add checkout billing address" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address

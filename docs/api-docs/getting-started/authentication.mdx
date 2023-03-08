@@ -32,7 +32,7 @@ The `X-Auth-Token` header uses access tokens to authenticate requests. [Create a
 
 For a request to succeed, the access token's API account must have permission to receive the response. Configure your API account with the minimum set of OAuth scopes that your implementation needs. 
 
-To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/api-reference/store-management/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/docs/rest-content/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 #### X-Auth-Token header example requests
 
@@ -432,7 +432,7 @@ The following table describes the authentication characteristics of our REST Pro
 | API description | API reference | Configuration reference | Associated API account | Authentication method |
 |:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
 | [Shipping Provider API](/api-docs/providers/shipping) | [Shipping Provider Reference](/api-reference/providers/shipping-provider-api) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection) | implemented in an app | developer-defined request body keys | 
-| [Tax Provider API](/api-docs/providers/tax) | [Tax Provider Reference](/api-reference/providers/tax-provider-api) | [Update a tax provider connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
+| [Tax Provider API](/api-docs/providers/tax) | [Tax Provider Reference](/docs/apps-api/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
 
 In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer. 
 
