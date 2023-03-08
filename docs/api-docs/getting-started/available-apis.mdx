@@ -26,17 +26,17 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 
 |  Resources | Description | Endpoint |
 | --- | --- | --- |
-|  [Banners](/api-reference/store-management/marketing/banners) | Create / manage banners | `/banners` |
-|  [Blog Posts](/api-reference/store-management/store-content/blog-posts) | Create / manage blog posts | `/blog/posts` |
-|  [Blog Tags](/api-reference/store-management/store-content/blog-tags) | Create / manage blog tags | `/blog/tags` |
-|  [Coupons](/api-reference/store-management/marketing/coupons) | Create / manage coupons | `/coupons` |
-|  [Currencies](/api-reference/store-management/currency-api/currencies) | Create / manage currencies | `/currencies` |
-|  [Customer Addresses](/api-reference/store-management/customers-v2/customer-addresses) | Create / manage customer addresses | `/customers/{id}/addresses` |
-|  [Customer Groups](/api-reference/store-management/customers-v2/customer-groups) | Create / manage customer groups | `/customer_groups` |
-|  [Customers](/api-reference/store-management/customers-v2/customers) | Create / manage customers | `/customers` |
-|  [Customers Validate Password](/api-reference/store-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
-|  [Countries](/api-reference/store-management/geography-api/countries) | List of states, provinces, and countries | `/countries` |
-|  [Gift Certificates](/api-reference/store-management/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
+|  [Banners](/docs/rest-content/marketing#banners) | Create / manage banners | `/banners` |
+|  [Blog Posts](/docs/rest-content/store-content/blog-posts) | Create / manage blog posts | `/blog/posts` |
+|  [Blog Tags](/docs/rest-content/store-content/blog-tags) | Create / manage blog tags | `/blog/tags` |
+|  [Coupons](/docs/rest-content/marketing/coupons) | Create / manage coupons | `/coupons` |
+|  [Currencies](/docs/rest-management/currencies) | Create / manage currencies | `/currencies` |
+|  [Customer Addresses](/docs/rest-management/customers-v2/customer-addresses) | Create / manage customer addresses | `/customers/{id}/addresses` |
+|  [Customer Groups](/docs/rest-management/customers-v2/customer-groups) | Create / manage customer groups | `/customer_groups` |
+|  [Customers](/docs/rest-management/customers-v2) | Create / manage customers | `/customers` |
+|  [Customers Validate Password](/docs/rest-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
+|  [Countries](/docs/rest-management/geography/countries) | List of states, provinces, and countries | `/countries` |
+|  [Gift Certificates](/docs/rest-content/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
 |  [Orders](docs/rest-management/orders) | Create / manage orders | `/orders` |
 |  [Pages](/api-reference/store-management/store-content/pages) | Create / manage content pages | `/pages` |
 |  [Payment Methods](/api-reference/payments/payment-methods-api/payment-methods) | Create / manage enabled payment methods | `/payments/methods` |
@@ -60,12 +60,12 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
-|  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
+|  [Brand Images](/docs/rest-management/catalog/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
 |  [Carts](/docs/rest-management/carts) | Create and manage store carts headlessly | `/carts` |
-|  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
-|  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
+|  [Categories](/docs/rest-management/catalog/category) | Create and manage categories | `/catalog/categories` |
+|  [Category Images](/docs/rest-management/catalog/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
 |  [Channels](/docs/rest-management/channels#create-a-channel) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](/docs/rest-storefront/checkouts) | Create checkouts headlessly | `/checkouts` |
@@ -313,7 +313,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 **V3 Sunsets**
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/store-management/channels/channels/listchannels) `status` property
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](/docs/rest-management/channels#get-all-channels) `status` property
 
 
 **Additional Information:** [V2 versus V3 API](/legacy/v2-products/v2-v3#Whats-not-in-V3)
