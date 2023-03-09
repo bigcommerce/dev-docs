@@ -6,7 +6,7 @@ This article provides an overview of the authentication schemes that our APIs us
 
 Regardless of the subject API's authentication scheme, BigCommerce **API accounts** play a role in every authenticated request to our servers.
 
-Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/authentication/rest-api-authentication#choosing-the-right-kind-of-api-account) in our API accounts article.
+Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/api-accounts#choosing-the-right-kind-of-api-account) in our API accounts article.
 
 ## Stable tokens
 
@@ -18,12 +18,12 @@ The following sections describe the two authentication schemes we use that rely 
 ### Access tokens
 
 <Callout type="info">
-  Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
+  Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/api-accounts#migrating-from-legacy-to-oauth).
 </Callout>
 
 Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
-The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
+The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/api-accounts#api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
 <Callout type="info">
   #### The X-Auth-Client header is deprecated
@@ -32,7 +32,7 @@ The `X-Auth-Token` header uses access tokens to authenticate requests. [Create a
 
 For a request to succeed, the access token's API account must have permission to receive the response. Configure your API account with the minimum set of OAuth scopes that your implementation needs. 
 
-To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/docs/rest-content/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/docs/rest-content/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
 
 #### X-Auth-Token header example requests
 
@@ -439,7 +439,7 @@ In the Tax Provider API `Authorization` header, the username and password belong
 ## Resources
 
 ### Related articles
-* [Creating API Accounts](/api-docs/getting-started/authentication/api-accounts)
-* [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+* [Creating API Accounts](/api-docs/getting-started/api-accounts)
+* [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes)
 {/* <!-- jwts in apps, graphql storefront playground --> */}
 
