@@ -28,10 +28,10 @@ Discounts | When a shopper meets certain criteria or takes certain actions to au
 * [Cart](/api-docs/store-managment/webhooks/events#carts)
 
 ### Related endpoints
-* [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) 
-* [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api)
-* [Price Lists API](/api-reference/catalog/pricelists-api)
-* [Catalog API](/api-reference/catalog/catalog-api)
+* [Storefront Cart API](/docs/rest-storefront/carts) 
+* [Server to Server Cart API](/docs/rest-management/carts)
+* [Price Lists API](/docs/rest-management/price-lists)
+* [Catalog API](/docs/rest-management/catalog)
 
 ### Related resources
 * [Price Lists](/api-docs/catalog/price-list-overview)

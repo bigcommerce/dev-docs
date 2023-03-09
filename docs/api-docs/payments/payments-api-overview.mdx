@@ -1,6 +1,6 @@
 # Payments API
 
-The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](/api-reference/store-management/checkouts) endpoint or the [V2 Orders](/api-reference/store-management/orders/orders/createanorder) endpoint.
+The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Store Management Checkouts API](/docs/rest-storefront/checkouts) endpoint or the [Orders API](/docs/rest-management/orders#create-an-order).
 
 Process payments by making a sequence of requests to the following two API endpoints:
 * Create a payment token:  `https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens`
@@ -8,8 +8,8 @@ Process payments by making a sequence of requests to the following two API endpo
 
 <Callout type="info">
 #### Required OAuth scopes
-Consult the [Payments API Reference](/api-reference/store-management/payment-processing) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/authentication/api-accounts) needs.
-Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+Consult the [Payments API Reference](/docs/rest-payments/processing/process-payment) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/api-accounts) needs.
+Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
 </Callout>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
@@ -85,9 +85,9 @@ To learn more about the BigCommerce-compatible features of these gateways, see [
 
 There are three steps to using a stored card or PayPal account to make a payment.
 
-1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
-2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
-3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
+1. [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods)
+2. [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)
+3. [Process Payment](/docs/rest-payments/processing/process-payment#process-payment)
 
 Before starting development, you should verify that the store and payment gateway are both able to make charges to stored payment instruments.
 
@@ -108,9 +108,9 @@ Use the active MSF-enabled store's control panel to enable charging stored credi
 
 There are three steps to using a stored card or PayPal account to make a payment.
 
-1. Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
+1. Make a call to [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
 
-This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
+This token is the same as `payment_instrument_token` from [Get Transactions](/docs/rest-management/transactions).
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -221,7 +221,7 @@ Accept: application/json
 Make a note of the `token` for the target payment method to use as part of processing the payment in the request body.
 
 
-2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+2. Make a request to [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -254,7 +254,7 @@ Accept: application/json
 </Tab>
 </Tabs>
 
-3. To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+3. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing/process-payment#process-payment). You will need several values retrieved with the [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
 <Callout type="info">
 #### Authorization header
@@ -327,15 +327,15 @@ In the case of store credit and gift certificates:
 
 <Callout type="info">
 #### List stored instruments
-Use the [Get Stored Instruments](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-stored-instruments/liststoredinstruments) endpoint to list all available stored instruments for a customer.
+Use the [Get Stored Instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments) endpoint to list all available stored instruments for a customer.
 </Callout>
 
 ## Credit cards
 
 There are two steps to using a credit card to make a payment.
 
-1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
-2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+1. [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)
+2. [Process Payment](/docs/rest-payments/processing/process-payment#process-payment)
 
 The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
 
@@ -346,7 +346,7 @@ Attempting to process a payment through the API using the full credit card infor
 </Callout>
 
 ### Create an access token
-1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+1. Make a request to [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -381,7 +381,7 @@ Accept: application/json
 
 ### Process the payment
 
-2. To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values from the customer's credit card. All the example request body values are required.  If any of these values are incorrect, you may be unable to process the payment. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+2. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing/process-payment#process-payment). You will need several values from the customer's credit card. All the example request body values are required.  If any of these values are incorrect, you may be unable to process the payment. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
 <Callout type="info">
 #### Authorization header
@@ -553,7 +553,7 @@ The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment 
 
 The following diagram shows how the `payment_access_token` interacts with BigCommerce API and BigCommerce payments.
 
-You can create orders using the [Server to Server API Endpoints](/api-reference/store-management/checkouts/checkout-orders/createanorder) or [Orders API](/api-reference/store-management/orders).
+You can create orders using the [Server to Server API Endpoints](/docs/rest-management/checkouts/checkout-orders#create-an-order) or [Orders API](/docs/rest-management/orders).
 
 ![Sample App Diagram](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
 
@@ -566,10 +566,10 @@ You can create orders using the [Server to Server API Endpoints](/api-reference/
 | `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
 | `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br /> Reach out to the payment gateway to check that the information is correct. |
 | `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
-| `30003` | Order could not be found. | The order does not exist. <br /> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/api-reference/store-management/orders/orders/getallorders) |
+| `30003` | Order could not be found. | The order does not exist. <br /> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/docs/rest-management/orders#get-all-orders) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br /> Recreate the order <br /> Ensure the store settings for taxes and discounts are setup correctly|
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br /> * `expiry_month` is two digits<br />* `expiry_year` is four digits |
-| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) to see available vaulted cards |
+| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods) to see available vaulted cards |
 | `30100` | Payment access token could not be created. | N/A|N/A|
 | `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in **Incomplete** Status with a `status_id:0`. <br />  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an **Incomplete** status will return this error. |
 | `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br />The token provided was incorrect. | Check that the shopper information provided is correct.<br />Make sure the token in the authorization header field is correct. |
@@ -629,9 +629,9 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 
 
 ### Endpoints
-* [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
-* [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
-* [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+* [Create Access Token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)
+* [Get Payment Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods)
+* [Process Payment](/docs/rest-payments/processing/process-payment#process-payment)
 
 ### Webhooks
 * [Carts](/api-docs/store-management/webhooks/webhook-events#carts)

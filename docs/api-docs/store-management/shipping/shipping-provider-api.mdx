@@ -15,7 +15,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth](/api-docs/getting-started/api-accounts#oauth-scopes) scopes: `Information and Settings`
 * BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
 
 
@@ -81,7 +81,7 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/apps-api/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/apps-api/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -428,8 +428,8 @@ The carrier registration process described in the [Sign up](#sign-up) section pr
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](/docs/rest-management/catalog/product-metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](/docs/rest-management/catalog/product-variants-metafields)
 
 ## Submitting the app
 
@@ -483,10 +483,10 @@ No, you can only publish one app at a time. The others can be for use as testing
 
 ### Endpoints
 
-- [Shipping Providers](/api-reference/providers/shipping-provider-api)
-- [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
-- [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+- [Shipping Providers](/api-docs/provider-apis/shipping-provider-api)
+- [Shipping Zones](/docs/rest-management/shipping-v2/shipping-zones)
+- [Shipping Methods](/docs/rest-management/shipping-v2/shipping-method)
+- [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier)
 
 ### Webhooks
 

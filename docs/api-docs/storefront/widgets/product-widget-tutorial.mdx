@@ -9,7 +9,7 @@ In this tutorial, we will walk you through the process of creating a product wid
 ## Prerequisites
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
-* API OAuth [access token](/api-docs/getting-started/authentication/api-accounts) with the OAuth **Content** scope set to **modify**.
+* API OAuth [access token](/api-docs/getting-started/api-accounts) with the OAuth **Content** scope set to **modify**.
 * Understanding of [widgets](/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](/api-docs/store-management/widgets/overview).
 * Familiarity with [Page Builder](/stencil-docs/page-builder/page-builder-overview).
 
@@ -17,7 +17,7 @@ The steps in this tutorial assume that you are familiar with BigCommerce’s Wid
 
 ## Create the widget template
 
-To create a widget, you first need to create a template for it. To [create a widget template](/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/v3/content/widget-templates`. 
+To create a widget, you first need to create a template for it. To [create a widget template](/docs/rest-content/widgets/widget-template#create-a-widget-template), send a `POST` request to `/v3/content/widget-templates`. 
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -166,13 +166,13 @@ Drag and drop the widget onto the desired page, select a product from the produc
 
 ![Product widget preview](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/product-widget-02.png "Product widget preview")
 
-Doing so creates a [widget](/api-reference/store-management/widgets/widget/createwidget) and a [widget placement](/api-reference/store-management/widgets/placement/createplacement). For more information on placing and configuring widgets in the control panel, see [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) in the Help Center.
+Doing so creates a [widget](/docs/rest-content/widgets/widget#create-a-widget) and a [widget placement](/docs/rest-content/widgets/placement#create-a-placement). For more information on placing and configuring widgets in the control panel, see [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) in the Help Center.
 
-To view the widget's data, retrieve the widget's ID by accessing its `data-widget-id` attribute in the browser's developer tools, then pass it in a `GET` request to [`/v3/content/widgets/{uuid}`](/api-reference/store-management/widgets/widget/getwidget).
+To view the widget's data, retrieve the widget's ID by accessing its `data-widget-id` attribute in the browser's developer tools, then pass it in a `GET` request to [`/v3/content/widgets/{uuid}`](/docs/rest-content/widgets/widget#get-a-widget).
 
-Alternatively, you can send a `GET` request to [`/v3/content/widgets`](/api-reference/store-management/widgets/widget/getwidgets), passing your `widget_template_uuid` as a query parameter.
+Alternatively, you can send a `GET` request to [`/v3/content/widgets`](/docs/rest-content/widgets/widget#get-all-widgets), passing your `widget_template_uuid` as a query parameter.
 
-The [response](/api-reference/store-management/widgets/widget/getwidget#responses) should be similar to the following example:
+The [response](/docs/rest-content/widgets/widget#get-a-widget) should be similar to the following example:
 
 ```json showLineNumbers copy
 
@@ -260,7 +260,7 @@ The [response](/api-reference/store-management/widgets/widget/getwidget#response
 
 ## Place the widget using the API
 
-It is also possible to place widgets programmatically using the API. First, [create a widget](/api-reference/store-management/widgets/widget/createwidget) by sending a `POST` request to `/v3/content/widgets`.
+It is also possible to place widgets programmatically using the API. First, [create a widget](/docs/rest-content/widgets/widget#create-a-widget) by sending a `POST` request to `/v3/content/widgets`.
 
 ```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/widgets
@@ -274,7 +274,7 @@ Accept: application/json
 }
 ```
 
-Take note of the widget's `uuid` returned in the [response](/api-reference/store-management/widgets/widget/createwidget#responses). You will need the widget's `uuid` to [create a placement](/api-reference/store-management/widgets/placement/createplacement) for your widget.
+Take note of the widget's `uuid` returned in the [response](/docs/rest-content/widgets/widget#create-a-widget). You will need the widget's `uuid` to [create a placement](/docs/rest-content/widgets/widget#create-a-widget) for your widget.
 
 
 **Response:**
@@ -287,7 +287,7 @@ Take note of the widget's `uuid` returned in the [response](/api-reference/store
 }
 ```
 
-To [create a placement](/api-reference/store-management/widgets/placement/createplacement), send a `POST` request to `/v3/content/placements`.
+To [create a placement](/docs/rest-content/widgets/placement#create-a-placement), send a `POST` request to `/v3/content/placements`.
 
 ```http showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/placements
@@ -304,9 +304,9 @@ Accept: application/json
 ```
 
 
-For a list of accepted `template_file` values, see [create a placement](/api-reference/storefront/widgets-api/placement/createplacement).
+For a list of accepted `template_file` values, see [create a placement](/docs/rest-content/widgets/widget#create-a-widget).
 
-To [get a list of theme regions](/api-reference/storefront/widgets-api/regions/getcontentregions) for the `region` property, send a `GET` request to `/v3/content/regions?template_file={{TEMPLATE_FILE}}`.
+To [get a list of theme regions](/docs/rest-content/widgets/regions#get-theme-regions) for the `region` property, send a `GET` request to `/v3/content/regions?template_file={{TEMPLATE_FILE}}`.
 
 ```http showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/regions?template_file={{TEMPLATE_FILE}}
@@ -323,4 +323,4 @@ Accept: application/json
 * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
 
 ### Endpoints 
-* [Widgets API](/api-reference/store-management/widgets)
+* [Widgets API](/docs/rest-content/widgets)

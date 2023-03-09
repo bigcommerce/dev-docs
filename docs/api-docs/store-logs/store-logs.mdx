@@ -4,11 +4,11 @@ The Store Logs API allows merchants to track events in their store. Each event c
 
 The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to order statuses. You can retrieve an entry for 365 days after its timestamp. 
 
-This guide demonstrates how to use the Store Logs API. For more info, see the [Store Logs API reference](/api-reference/store-management/store-logs). 
+This guide demonstrates how to use the Store Logs API. For more info, see the [Store Logs API reference](/docs/rest-management/store-logs#get-system-logs). 
 
 ## Get store logs
 
-Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API responds with the earliest 20 entries. The response orders the entries chronologically, from earliest to latest.
+Send a request to the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint. The API responds with the earliest 20 entries. The response orders the entries chronologically, from earliest to latest.
 
 ### Filter by log ID
 
@@ -72,7 +72,7 @@ Accept: application/json
 
 ### Filter by type 
 
-The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. For a list of log types, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint reference. 
+The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. For a list of log types, see the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint reference. 
 
 The following example retrieves shipping entries:
 
@@ -181,7 +181,7 @@ Accept: application/json
 
 ### Filter by severity 
 
-Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint reference.
+Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint reference.
 
 The following example retrieves notices, which have a `severity` of `2`:
 
@@ -240,7 +240,7 @@ Accept: application/json
 
 ### Filter with pagination
 
-As stated at the beginning of the section, the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint returns the **earliest** 20 entries by default. To retrieve newer or differently grouped subsets of entries, use a combination of the `page` and `limit` query parameters. 
+As stated at the beginning of the section, the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint returns the **earliest** 20 entries by default. To retrieve newer or differently grouped subsets of entries, use a combination of the `page` and `limit` query parameters. 
 
 The following example requests page two with two entries per page, which returns the third and fourth oldest entries:  
 
@@ -300,8 +300,8 @@ Accept: application/json
 
 
 ## Resources
-- [Store Logs API Reference](/api-reference/store-management/store-logs)
+- [Store Logs API Reference](/docs/rest-management/store-logs#get-system-logs)
 - [Store Logs Support Article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
 
 ### Endpoint reference
-- [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs)
+- [Get system logs](/docs/rest-management/store-logs#get-system-logs)

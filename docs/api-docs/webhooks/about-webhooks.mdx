@@ -6,11 +6,11 @@ Webhooks notify applications when specific events occur on a BigCommerce store. 
 * a product's inventory changes
 * an item is added to a shopper's cart
 
-This article is an overview of webhook behavior on BigCommerce. For webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For webhook event reference, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events). For a step-by-step tutorial on creating webhooks for certain store events, see [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
+This article is an overview of webhook behavior on BigCommerce. For webhook API reference, see [API Reference > Webhooks](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook). For webhook event reference, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events). For a step-by-step tutorial on creating webhooks for certain store events, see [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
 
 ## Creating a webhook
 
-To create a webhook, send a `POST` request to the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
+To create a webhook, send a `POST` request to the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
 
 ```http filename="Example request: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
@@ -68,7 +68,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-You can then make a request to the [Get an order](/api-reference/store-management/orders/orders/getanorder) endpoint to obtain full order details.
+You can then make a request to the [Get an order](/docs/rest-management/orders#get-an-order) endpoint to obtain full order details.
 
 For more information on specific webhook events and their payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
@@ -110,7 +110,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 | Retries after 50400 seconds |
 | Retries after 86400 seconds |
 
-After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active` back to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint.
+After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active` back to `true` using the [Update a webhook](/docs/webhooks/webhooks/manage-webhooks-single#update-a-webhook) endpoint.
 
 <Callout type="info">
   * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blocklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
@@ -124,7 +124,7 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
 
 <Callout type="info">
-  You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/api-reference/store-management/webhooks/webhooks/deleteawebhook).
+  You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/docs/webhooks/webhooks/manage-webhooks-single#delete-a-webhook).
 </Callout>
 
 ## Security
@@ -161,7 +161,7 @@ BigCommerce will send the specified headers when making callback requests to the
 
 If your app does not return an `HTTP 200` to BigCommerce after receiving the webhook event payload, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and disables the webhook by setting the `is_active` flag to false.
 
-To see if a webhook is still active, send a request to the [Get a webhook](/api-reference/store-management/webhooks/webhooks/getwebhook) endpoint and check the value of the `is_active` property in the response.
+To see if a webhook is still active, send a request to the [Get a webhook](/docs/webhooks/webhooks/manage-webhooks-single#get-a-webhook) endpoint and check the value of the `is_active` property in the response.
 
 If you receive an email, or discover `is_active` is `false`, try the following:
 * Verify the app is responding to the callback with a `200` response.
@@ -170,9 +170,9 @@ If you receive an email, or discover `is_active` is `false`, try the following:
   * Hostname on certificate doesn't match the hostname in DNS settings
   * Key and trust stores are not configured with the required intermediate certificates
 
-Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint, so that BigCommerce starts sending event callback requests again.
+Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/docs/webhooks/webhooks/manage-webhooks-single#update-a-webhook) endpoint, so that BigCommerce starts sending event callback requests again.
 
-**No 200 response from the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint**
+**No 200 response from the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint**
 * Check TLS/SSL configuration on the computer sending the request.
 * Verify `POST` request contains the following required `HTTP` headers:
 
@@ -210,4 +210,4 @@ Below is a collection of third-party tools that can be used to aid in the develo
 * [Webhook Events](/api-docs/store-management/webhooks/webhook-events)
 
 ### Endpoints
-* [Webhooks Reference](/api-reference/store-management/webhooks)
+* [Webhooks Reference](/docs/webhooks/webhooks)

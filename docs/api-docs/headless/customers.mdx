@@ -34,7 +34,7 @@ When you use customer impersonation tokens to authenticate requests made to the 
 
 If a customer logs into your headless storefront, and then is redirected to a BigCommerce-hosted page, you can use the [Customer Login API](/api-docs/storefront/customer-login-api) to create a single sign-on experience between your headless storefront and BigCommerce. Doing so will make the redirection from the headless storefront to BigCommerce a more seamless experience for the customer.
 
-You can log a customer into an embedded checkout by setting `redirect_to` in the Customer Login JWT payload to the relative path of the `embedded_checkout_url` generated using the [Carts API](/api-reference/store-management/carts).
+You can log a customer into an embedded checkout by setting `redirect_to` in the Customer Login JWT payload to the relative path of the `embedded_checkout_url` generated using the [Carts API](/docs/rest-management/carts).
 
 **JWT payload example**
 
@@ -55,7 +55,7 @@ You can log a customer into an embedded checkout by setting `redirect_to` in the
 ## Identifying logged-in customers
 
 If a customer logs into a BigCommerce-hosted cart or checkout, then navigates back to the headless storefront, you will need to confirm the customer's identity before revealing sensitive information.
-To address this need, BigCommerce provides the [Current Customers API](/api-docs/storefront/current-customer-api) accessible via client-side JavaScript. The [Get Current Customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) endpoint returns a `JWT` (signed with your OAuth client secret) that contains customer details.
+To address this need, BigCommerce provides the [Current Customers API](/api-docs/storefront/current-customer-api) accessible via client-side JavaScript. The [Get Current Customer](/docs/storefront-auth/current-customer#get-current-customer) endpoint returns a `JWT` (signed with your OAuth client secret) that contains customer details.
 
 ## Surfacing customer group pricing
 
@@ -63,7 +63,7 @@ When querying the GraphQL Storefront API, customer-specific pricing will be refl
 
 {/* https://next.stoplight.io/bigcommerce/bigcommerce-dev-docs/version%2F1.3/05-headless-customers.md#client-side-graphql-customer-login */}
 
-For server-side REST implementations, you can use the [Pricing API](/api-reference/store-management/pricing) to [get prices](/api-reference/store-management/pricing/products/get-prices) for a particular customer group.
+For server-side REST implementations, you can use the [Pricing API](/docs/rest-management/pricing) to [get prices](/docs/rest-management/pricing/products#get-prices-batch) for a particular customer group.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
