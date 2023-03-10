@@ -1,30 +1,13 @@
-openapi: 3.0.1
+openapi: '3.0.3'
 info:
   title: Custom Template Associations
-  version: 3.0.0
+  version: ''
   description: |-
-    Efficiently associate a stencil theme's custom templates to products, categories, brands, and pages.
-
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` and `client_id` in the request headers.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/custom-template-associations
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth scopes
-
-    | UI Name | Permission | Parameter
-    |-|-|-|
-    | Themes |Read-only|`store_themes_read_only`|
-    | Themes |Manage|`store_themes_manage`|
+    Efficiently associate a stencil themeʼs custom templates to products, categories, brands, and pages.
 
     ## Creating template associations
 
-    To [associate custom templates to entities](/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations), send a `PUT` request to `/v3/storefront/custom-template-associations`.
+    To [associate custom templates to entities](/docs/rest-content/custom-template-associations#creating-template-associations), send a `PUT` request to `/v3/storefront/custom-template-associations`.
 
     ```http
     PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/custom-template-associations
@@ -42,15 +25,12 @@ info:
     ]
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations#requestrunner)
-
-    <!-- theme: info -->
     > #### Note
-    > * The allowed values for `entity_type` are `product`, `category`, `brand`, and `page`.
+    > The allowed values for `entity_type` are `product`, `category`, `brand`, and `page`.
 
     ## Getting entity IDs
 
-    Use the [Catalog API](/api-reference/store-management/catalog) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](/api-reference/store-management/catalog/products/getproducts), send a `GET` request to `/v3/catalog/products`.
+    Use the [Catalog API](/docs/rest-management/catalog) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](/docs/rest-management/catalog/products#get-all-products), send a `GET` request to `/v3/catalog/products`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -59,22 +39,18 @@ info:
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/getproducts#requestrunner)
-
-    To [get the `entity_id` for a content page](/api-reference/store-management/store-content/pages/getallpages), send a `GET` request to `/v2/pages`.
+    To [get the `entity_id` for a content page](/docs/rest-content/pages#get-pages), send a `GET` request to `/v3/pages`.
 
     ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/pages
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/pages
     X-Auth-Token: {{ACCESS_TOKEN}}
     Content-Type: application/json
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/store-content/pages/getallpages#requestrunner)
-
     ## Getting available templates
 
-    To [get available custom templates](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates) for each `entity_type`, send a `GET` request to `/v3/themes/custom-templates/{version_uuid}`.
+    To [get available custom templates](/docs/rest-content/themes/theme-custom-templates#get-custom-templates) for each `entity_type`, send a `GET` request to `/v3/themes/custom-templates/{version_uuid}`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/themes/custom-templates/{version_uuid}
@@ -82,8 +58,6 @@ info:
     Content-Type: application/json
     Accept: application/json
     ```
-
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates#requestrunner)
 
     **Response:**
 
@@ -108,7 +82,7 @@ info:
 
     ## Getting theme UUIDs
 
-    To [get the `version_uuid` for an active theme](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme), send a `GET` request to `/v3/channels/{channel_id}/active-theme`.
+    To [get the `version_uuid` for an active theme](/docs/rest-management/channels/channel-active-theme#get-a-channel-active-theme), send a `GET` request to `/v3/channels/{channel_id}/active-theme`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/active-theme
@@ -116,8 +90,6 @@ info:
     Content-Type: application/json
     Accept: application/json
     ```
-
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme#requestrunner)
 
     **Response:**
 
@@ -135,16 +107,31 @@ info:
 
     ## Additional information
 
-    * [Get Channel Active Theme](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme)
-    * [Get Available Custom Templates](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates)
-    * [Catalog API](/api-reference/store-management/catalog)
-    * [Store Content API](/api-reference/store-management/store-content)
-    * [Channels API](/api-reference/store-management/channels)
+    * [Get Channel Active Theme](/docs/rest-management/channels/channel-active-theme#get-a-channel-active-theme)
+    * [Get Available Custom Templates](/docs/rest-content/themes/theme-custom-templates#get-custom-templates)
+    * [Catalog API](/docs/rest-management/catalog)
+    * [Pages API](/docs/rest-content/pages)
+    * [Channels API](/docs/rest-management/channels)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com  
 servers:
-  - url: 'https://api.bigcommerce.com'
-    description: Production API Gateway
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Custom Template Associations
 paths:
-  '/stores/{store_hash}/v3/storefront/custom-template-associations':
+  '/storefront/custom-template-associations':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Custom Template Associations
       tags:
@@ -207,7 +194,7 @@ paths:
             type: integer
           in: query
           name: page
-          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+          description: Which page number to return, based on the page size. Used to paginate large collections.
         - schema:
             type: string
             enum:
@@ -222,8 +209,8 @@ paths:
             type: boolean
           in: query
           name: is_valid
-          description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where it's file name does not match up to an existing custom layout file in the currently active theme for the channel.
-      description: Get a collection of the store's custom template associations across all storefronts
+          description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where its file name does not match up to an existing custom layout file in the currently active theme for the channel.
+      description: Get a collection of the storeʼs custom template associations across all storefronts
       operationId: GetCustomTemplateAssociations
     put:
       summary: Upsert Custom Template Associations
@@ -237,11 +224,13 @@ paths:
               schema:
                 type: object
         '422':
-          description: Error response for batch PUT of Custom template associations. Includes the errors for each reference id.
+          description: Error response for batch PUT of Custom template associations. Includes the errors for each reference ID.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -303,12 +292,6 @@ paths:
           description: Filter associations by type
       description: Delete custom template associations. At least one query parameter must be used.
       operationId: DeleteCustomTemplateAssociations
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
 components:
   schemas:
     Error:
@@ -462,27 +445,46 @@ components:
         - entity_id
         - file_name
       x-internal: false
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
-      type: apiKey
-      in: header
       description: |-
-        ## Authentication
-
-        Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` and `client_id` in the request headers.
-
-        ```http
-        GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/custom-template-associations
-        Content-Type: application/json
-        X-Auth-Token: {{ACCESS_TOKEN}}
-        ```
-
         ### OAuth scopes
 
         | UI Name | Permission | Parameter |
-        |-|-|-|
+        |:--------|:-----------|:----------|
         | Themes |Read-only|`store_themes_read_only`|
         | Themes |Manage|`store_themes_manage`|
-security:
-  - X-Auth-Token: []
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header

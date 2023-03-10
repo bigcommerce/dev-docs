@@ -1,18 +1,24 @@
 openapi: '3.0.1'
 info:
   title: Storefront Orders
-  description: Get order data immediately after an order is placed on the storefront.
+  description: |- 
+    Get order data immediately after an order is placed on the storefront.
+
+    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+  version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
-  version: ''
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
       store_domain:
-        default: yourstore.example.com
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
 tags:
   - name: Order
 paths:
@@ -24,7 +30,6 @@ paths:
       description: |-
         Returns *Order* data. This will return order data immediately after an order is placed on the storefront.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.
@@ -264,6 +269,7 @@ components:
           description: A publicly-accessible URL for an image of this item.
         discounts:
           type: object
+          properties: {}
           description: List of discounts applied to this item. If no discount applied, empty array is returned. If discount has been applied, discount object returned.
         discountAmount:
           type: number
@@ -1061,7 +1067,4 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Order'
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

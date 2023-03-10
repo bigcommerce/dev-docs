@@ -1,26 +1,9 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Customers V2
-  contact: {}
   description: |-
     Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview). 
-    ## Authentication
-    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
-    ```http
-    GET /stores/{store_hash}/v3/catalog/summary
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {access_token}
-    ```
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-    ### OAuth Scopes
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Customers                                    | modify     | `store_v2_customers`                          |
-    | Customers                                    | read-only  | `store_v2_customers_read_only`                |
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+    
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                                   |
     |-----------------------------------------|-------------------------------------------------------------------------------|
@@ -28,6 +11,7 @@ info:
     | Customers Addresses                     | Postal address belonging to a customer.                                       |
     | Customers Groups                        | Groupings of customers who share the same level of access and discounts       |
     | Customers Validate Password             | Validate customer passwords                                                   |
+    
     ## Usage Notes
     **Customer Groups**
     * Customer Groups are only available on specific plans.
@@ -39,13 +23,23 @@ info:
     ### Related APIs / Endpoints
       [Customer Login API](/api-docs/customers/customer-login-api)
     - [Current Customer API](/api-docs/customers/current-customer-api)
-    - [Customers API (v3)](/api-reference/customer-subscribers/v3-customers-api)
-    - [Subscribers API](/api-reference/customer-subscribers/subscribers-api)
+    - [Customers API (v3)](/docs/rest-management/customers)
+    - [Subscribers API](/docs/rest-management/subscribers)
     ### Webhooks
     - [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   version: ''
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
   - X-Auth-Token: []
 tags:
@@ -54,7 +48,9 @@ tags:
   - name: Customer Addresses
   - name: Customer Passwords
 paths:
-  '/stores/{store_hash}/v2/customers':
+  '/customers':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Customers
@@ -62,23 +58,6 @@ paths:
       description: 'Returns a list of all *Customers*. Default sorting is by customer id, from lowest to highest. Optional parameters can be passed in.'
       operationId: getAllCustomers
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: first_name
           in: query
           schema:
@@ -194,21 +173,7 @@ paths:
         }
       operationId: createANewCustomer
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -254,24 +219,6 @@ paths:
       summary: Delete Customers
       description: 'By default, it deletes all *Customers*. Up to 100 customers per batch can be deleted. '
       operationId: deleteAllCustomers
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -280,7 +227,7 @@ paths:
       x-unitTests:
         - request:
             method: DELETE
-            uri: '/stores/{store_hash}/v2/customers'
+            uri: '/customers'
             headers:
               Accept: application/json
               Content-Type: application/json
@@ -302,39 +249,16 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/stores/{store_hash}/v2/customers/{customer_id}':
+  '/customers/{customer_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_id'
     get:
       tags:
         - Customers
       summary: Get a Customer
       description: Returns a single *Customer*.
       operationId: getACustomer
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Unique numeric ID of this customer.
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -389,27 +313,7 @@ paths:
         ```
       operationId: updateACustomer
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -532,60 +436,20 @@ paths:
       summary: Delete a Customer
       description: Deletes a *Customer*.
       operationId: deleteACustomer
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
       deprecated: true
-  '/stores/{store_hash}/v2/customers/count':
+  '/customers/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Customers
       summary: Get a Count of Customers
       description: 'Returns a count of all *Customers*. '
       operationId: getACountOfCustomers
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -599,7 +463,7 @@ paths:
       x-unitTests:
         - request:
             method: GET
-            uri: '/stores/{store_hash}/v2/customers/count'
+            uri: '/customers/count'
             headers:
               Accept: application/json
               Content-Type: application/json
@@ -622,7 +486,10 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/stores/{store_hash}/v2/customers/{customer_id}/validate':
+  '/customers/{customer_id}/validate':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_id'
     post:
       tags:
         - Customer Passwords
@@ -646,29 +513,7 @@ paths:
         ```
       operationId: validateCustomerPassword
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -690,7 +535,10 @@ paths:
                 success: false
       deprecated: true
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v2/customers/{customer_id}/addresses':
+  '/customers/{customer_id}/addresses':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_id'
     get:
       tags:
         - Customer Addresses
@@ -700,31 +548,6 @@ paths:
         The maximum limit is 250. If a limit isn’t provided, up to 50 `customer_addresses` are returned by default.
       operationId: getAllCustomerAddresses
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: ID of the customer
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -771,31 +594,7 @@ paths:
         *   country_iso2
       operationId: createACustomerAddress
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: ID of the customer
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -817,29 +616,6 @@ paths:
       description: 'By default, it deletes all *Customer Addresses*.'
       operationId: deleteAllCustomerAddresses
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -859,7 +635,11 @@ paths:
           description: ''
           content: {}
       deprecated: true
-  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/{customer_address_id}':
+  '/customers/{customer_id}/addresses/{customer_address_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_id'
+      - $ref: '#/components/parameters/customer_address_id'
     get:
       tags:
         - Customer Addresses
@@ -867,39 +647,6 @@ paths:
       description: Returns a *Customer Address*.
       operationId: getACustomerAddress
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_address_id
-          in: path
-          description: ID of the customer address
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: customer_id
-          in: path
-          description: 'ID of the customer '
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -933,37 +680,7 @@ paths:
         *   country_iso2
       operationId: updateACustomerAddress
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: ID of this customer
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: customer_address_id
-          in: path
-          description: ID of the customer address.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -1068,42 +785,15 @@ paths:
       summary: Delete a Customer Address
       description: Deletes a *Customer Address*.
       operationId: deletesACustomerAddress
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: customer_address_id
-          in: path
-          description: Id of the customer address.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
           content: {}
       deprecated: true
-  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/count':
+  '/customers/{customer_id}/addresses/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_id'
     get:
       tags:
         - Customer Addresses
@@ -1111,29 +801,6 @@ paths:
       description: Returns a count of addresses for a customer.
       operationId: getACountofCustomerAddresses
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_id
-          in: path
-          description: Id of the customer
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -1158,7 +825,9 @@ paths:
               example:
                 count: 27
       deprecated: true
-  '/stores/{store_hash}/v2/customer_groups':
+  '/customer_groups':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Customer Groups
@@ -1166,23 +835,6 @@ paths:
       description: 'Returns a list of *Customer Groups*. Default sorting is by customer-group id, from lowest to highest.'
       operationId: getAllCustomerGroups
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -1204,7 +856,7 @@ paths:
             type: string
         - name: is_default
           in: query
-          description: If customers who signup are added to this group by default
+          description: Whether customers who sign up are added to this group by default.
           schema:
             type: boolean
         - name: is_group_for_guests
@@ -1231,28 +883,7 @@ paths:
         * name
       operationId: createACustomerGroup
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: X-Auth-Token
-          in: header
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -1287,29 +918,14 @@ paths:
         By default, it deletes all *Customer Groups*. 
         All existing customers are unassigned from the group when it is deleted.
       operationId: deleteAllCustomerGroups
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
-  '/stores/{store_hash}/v2/customer_groups/{customer_group_id}':
+  '/customer_groups/{customer_group_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/customer_group_id'
     get:
       tags:
         - Customer Groups
@@ -1317,29 +933,6 @@ paths:
       description: Returns a *Customer Group*.
       operationId: getACustomerGroup
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_group_id
-          in: path
-          description: Id of the customer group
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Number of pages
@@ -1361,7 +954,7 @@ paths:
             type: string
         - name: is_default
           in: query
-          description: If customers who signup are added to this group by default
+          description: Whether customers who sign up are added to this group by default.
           schema:
             type: boolean
       responses:
@@ -1383,27 +976,7 @@ paths:
         Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.
       operationId: updateACustomerGroup
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_group_id
-          in: path
-          description: Id of the customer group
-          required: true
-          schema:
-            type: integer
-        - name: Accepts
-          in: header
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -1443,61 +1016,19 @@ paths:
         **Notes**
         All existing customers are unassigned from the group when it is deleted.
       operationId: deleteACustomerGroup
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: customer_group_id
-          in: path
-          description: The id of the customer group.
-          required: true
-          schema:
-            exclusiveMaximum: false
-            exclusiveMinimum: false
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
-  '/stores/{store_hash}/v2/customer_groups/count':
+  '/customer_groups/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Customer Groups
       summary: Get a Count of Customer Groups
       description: 'Returns a count of all *Customer Groups*. '
       operationId: getACountOfCustomerGroups
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -2005,19 +1536,39 @@ components:
             - residential
             - commercial
   parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
     customer_id:
       name: customer_id
       in: path
-      description: ID of the customer
+      description: Unique numeric ID of the customer.
       required: true
       schema:
+        exclusiveMaximum: false
+        exclusiveMinimum: false
         type: integer
     customer_group_id:
       name: customer_group_id
       in: path
-      description: ID of the customer group
+      description: The ID of the customer group.
       required: true
       schema:
+        exclusiveMaximum: false
+        exclusiveMinimum: false
         type: integer
     customer_address_id:
       name: customer_address_id
@@ -2025,6 +1576,8 @@ components:
       description: ID of the customer address.
       required: true
       schema:
+        exclusiveMaximum: false
+        exclusiveMinimum: false
         type: integer
     is_group_for_guests:
       name: is_group_for_guests
@@ -2034,28 +1587,28 @@ components:
         type: boolean
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
+      name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Customers | modify | `store_v2_customers` |
         |  Customers | read-only | `store_v2_customers_read_only` |
-        ### Headers
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-        ### Example
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-      name: X-Auth-Token
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

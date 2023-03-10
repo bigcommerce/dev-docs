@@ -1,78 +1,2042 @@
-type: object
 title: Handlebars Email Template Objects
+type: object
 properties:
-  Global Email Template Objects:
+  Global Email Template Object:
+    title: Global Email Template Object
     description: Data objects across all email templates.
-    allOf:
-      - $ref: ./global.yml
     type: object
-  Abandoned Cart Email Template Objects:
-    description: Abandoned cart email triggers when a shopper doesn't complete an order.
-    allOf:
-      - $ref: ./abandoned_cart_email.yml
+    properties:
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+  Abandoned Cart:
+    title: Abandoned Cart Email Template
+    description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
     type: object
-  Account Settings Edited Email Template Objects:
+    oneOf:
+      - properties:
+          notification:
+            type: array
+            items:
+              type: object
+              properties:
+                unsubscribe_link:
+                  type: string
+                checkout_link:
+                  type: string
+          coupon:
+            type: array
+            items:
+              type: object
+              properties:
+                code:
+                  type: string
+                type:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      value:
+                        type: string
+                      formatted:
+                        type: string
+                amount:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      value:
+                        type: number
+                        format: float
+                      formatted:
+                        type: string
+          cart:
+            type: array
+            items:
+              type: object
+              properties:
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '0':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            url:
+                              type: string
+                            name:
+                              type: string
+                            quantity:
+                              type: integer
+                            sku:
+                              type: string
+                            thumbnail:
+                              type: string
+                            attributes:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  '0':
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                        value:
+                                          type: string
+                                  '1':
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                        value:
+                                          type: string
+                            price:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                    format: float
+                                  formatted:
+                                    type: string
+                            type:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: integer
+                                  formatted:
+                                    type: string
+                      '1':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            url:
+                              type: string
+                            name:
+                              type: string
+                            quantity:
+                              type: integer
+                            sku:
+                              type: string
+                            thumbnail:
+                              type: string
+                            attributes:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  '0':
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                        value:
+                                          type: string
+                                  '1':
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                        value:
+                                          type: string
+                            price:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                    format: float
+                                  formatted:
+                                    type: string
+                            type:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: integer
+                                  formatted:
+                                    type: string
+          store:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                domain_name:
+                  type: string
+                logo:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      name:
+                        type: string
+                      url:
+                        type: string
+                ssl_path:
+                  type: string
+                cdn_path:
+                  type: string
+                image_directory:
+                  type: string
+                img_path:
+                  type: string
+                path_normal:
+                  type: string
+                path:
+                  type: string
+                address:
+                  type: string
+                phone_number:
+                  type: string
+                language:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      direction:
+                        type: string
+          customer:
+            type: array
+            items:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                full_name:
+                  type: string
+                email:
+                  type: string
+                group:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      name:
+                        type: string
+          misc:
+            type: array
+            items:
+              type: object
+              properties:
+                year:
+                  type: integer
+      - deprecated: true
+        properties:
+          abandoned_cart:
+            type: object
+            title: deprecated
+            deprecated: true
+            properties:
+              body:
+                type: string
+              unsubscribe_link:
+                type: string
+          store:
+            type: object
+            deprecated: true
+            properties:
+              name:
+                type: string
+              domain_name:
+                type: string
+              logo:
+                type: object
+                deprecated: true
+                properties:
+                  title:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+              ssl_path:
+                type: string
+              cdn_path:
+                type: string
+              image_directory:
+                type: string
+              img_path:
+                type: string
+              path_normal:
+                type: string
+                description: 'Path to the store (i.e., domain + protocol)'
+              path:
+                type: string
+              address:
+                type: string
+              language:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  direction:
+                    type: string
+                    description: 'Left to right or right to left, depending on the language'
+          customer:
+            type: object
+            deprecated: true
+            properties:
+              first_name:
+                type: string
+              full_name:
+                type: string
+              email:
+                type: string
+              group:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+          misc:
+            type: object
+            deprecated: true
+            properties:
+              year:
+                type: integer
+          translations:
+            type: object
+            deprecated: true
+            properties:
+              en:
+                type: object
+                properties:
+                  unsubscribe:
+                    type: string
+    examples:
+      - notification:
+          - unsubscribe_link: string
+            checkout_link: string
+        coupon:
+          - code: string
+            type:
+              - value: string
+                formatted: string
+            amount:
+              - value: 0
+                formatted: string
+        cart:
+          - products:
+              - '0':
+                  - id: 0
+                    url: string
+                    name: string
+                    quantity: 0
+                    sku: string
+                    thumbnail: string
+                    attributes:
+                      - '0':
+                          - name: string
+                            value: string
+                        '1':
+                          - name: string
+                            value: string
+                    price:
+                      - value: 0
+                        formatted: string
+                    type:
+                      - value: 0
+                        formatted: string
+                '1':
+                  - id: 0
+                    url: string
+                    name: string
+                    quantity: 0
+                    sku: string
+                    thumbnail: string
+                    attributes:
+                      - '0':
+                          - name: string
+                            value: string
+                        '1':
+                          - name: string
+                            value: string
+                    price:
+                      - value: 0
+                        formatted: string
+                    type:
+                      - value: 0
+                        formatted: string
+        store:
+          - name: string
+            domain_name: string
+            logo:
+              - title: string
+                name: string
+                url: string
+            ssl_path: string
+            cdn_path: string
+            image_directory: string
+            img_path: string
+            path_normal: string
+            path: string
+            address: string
+            phone_number: string
+            language:
+              - code: string
+                direction: string
+        customer:
+          - first_name: string
+            full_name: string
+            email: string
+            group:
+              - id: 0
+                name: string
+        misc:
+          - year: 0
+  Account Settings Edited:
+    title: Account Settings Edited Email Template
     description: Account settings email triggers when the store admin or a customer edits account settings.
-    allOf:
-      - $ref: ./account_details_changed_email.yml
     type: object
-  Password Reset Email Template Objects:
-    title: Account Reset Password Email Template
+    properties:
+      details_changed:
+        type: object
+        properties:
+          fields:
+            type: array
+            items:
+              type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              warning:
+                type: string
+              thanks:
+                type: string
+              security:
+                type: string
+              go_shopping:
+                type: string
+  Password Reset:
+    title: Password Reset Email Template
     description: Password reset email triggers when a customer resets their account password on the customer details page.
-    allOf:
-      - $ref: ./account_reset_password_email.yml
     type: object
-  Order Status Update Email Template Objects:
+    properties:
+      reset_password:
+        type: object
+        properties:
+          link:
+            type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              message:
+                type: string
+              go_shopping:
+                type: string
+  Order Status Update:
+    title: Order Status Update Email Template
     description: Order status update email triggers when the status of an order change.
-    allOf:
-      - $ref: ./combined_order_status_email.yml
     type: object
-  Account Created Email Template Objects:
-    title: Create Account Template
+    properties:
+      order:
+        type: object
+        properties:
+          id:
+            type: integer
+          new_status:
+            type: string
+            example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting Pickup, Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
+          new_formatted_status:
+            type: string
+            example: 'Shipment123, PendingOrder345, Cancelled0223222, Awaiting Payment in Store'
+          total:
+            type: object
+            properties:
+              value:
+                type: float
+              formatted:
+                type: string
+          refund:
+            type: object
+            properties:
+              value:
+                type: float
+              formatted:
+                type: string
+          date_placed:
+            type: object
+            properties:
+              value:
+                type: integer
+              formatted:
+                type: string
+          payment_method:
+            type: string
+          link:
+            type: string
+          customer_name:
+            type: string
+          downloadable_products:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                options:
+                  type: string
+                quantity:
+                  type: integer
+                link:
+                  type: string
+                thumbnail:
+                  type: string
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                sku:
+                  type: string
+                price:
+                  type: string
+                quantity:
+                  type: integer
+                thumbnail:
+                  type: string
+                brand:
+                  type: string
+          tracking:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                shipping_method:
+                  type: string
+                link:
+                  type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              details_title:
+                type: string
+              order_total:
+                type: string
+              date_placed:
+                type: string
+              payment_method:
+                type: string
+              total_refund:
+                type: string
+              products_shipped:
+                type: string
+              products_to_be_shipped:
+                type: string
+              tracking_title:
+                type: string
+              downloadable_items_title:
+                type: string
+              quantity:
+                type: string
+              download:
+                type: string
+              tracking_label:
+                type: string
+              no_tracking_numbers:
+                type: string
+              check_status:
+                type: string
+              go_shopping:
+                type: string
+  Account Created:
+    title: Account Created Email Template
     description: Account created email triggers when a customer or store admin creates their account.
-    allOf:
-      - $ref: ./create_account_email.yml
     type: object
-  Account Created Guest Email Template Objects:
-    title: Create Guest Account Template
+    properties:
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              details_title:
+                type: string
+              email_label:
+                type: string
+              password_label:
+                type: string
+              password_placeholder:
+                type: string
+              sign_in:
+                type: string
+              help:
+                type: string
+              go_shopping:
+                type: string
+  Account Created Guest:
+    title: Create Guest Account Email Template
     description: Guest account created email triggers when a customer or store admin creates a guest account.
-    allOf:
-      - $ref: ./create_guest_account_email.yml
-    type: object  
-  Gift Certificate Recipient Email Template Objects:
+    type: object
+    properties:
+      guest_account:
+        type: object
+        properties:
+          link:
+            type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              instruction:
+                type: string
+              help:
+                type: string
+              go_shopping:
+                type: string
+  Gift Certificate Recipient:
     title: Gift Certificate Email Template
     description: Gift certificate recipient email triggers when a customer purchases a gift certificate.
-    allOf:
-      - $ref: ./gift_certificate_email.yml
     type: object
-  Order Email Template Objects:
+    properties:
+      certificate:
+        type: object
+        properties:
+          code:
+            type: string
+          to_name:
+            type: string
+          to_email:
+            type: string
+          from_name:
+            type: string
+          from_email:
+            type: string
+          amount:
+            type: string
+          redeem_link:
+            type: string
+          expiry_date:
+            type: object
+            properties:
+              formatted:
+                type: string
+              value:
+                type: integer
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              expiry_info:
+                type: string
+              instruction:
+                type: string
+              attached:
+                type: string
+              warning:
+                type: string
+              go_shopping:
+                type: string
+  Order:
+    title: Order Email Template
     description: Order email triggers when a customer or store admin creates an order.
-    allOf:
-      - $ref: ./invoice_email.yml
     type: object
-  Order Notification Email Template Objects:
+    properties:
+      order:
+        type: object
+        properties:
+          id:
+            type: integer
+          customer_message:
+            type: string
+          customer_id:
+            type: integer
+          date_placed:
+            type: object
+            properties:
+              formatted:
+                type: string
+              value:
+                type: integer
+          account_order_status_url:
+            type: string
+          shipping:
+            type: object
+            properties:
+              methods:
+                type: array
+                items:
+                  type: object
+                  properties: {}
+              address:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  phone:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  company:
+                    type: string
+                  country:
+                    type: string
+                  city:
+                    type: string
+                  state:
+                    type: string
+                  zip:
+                    type: string
+                  address_lines:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                  custom_fields:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                quantity:
+                  type: integer
+                sku:
+                  type: string
+                address_lines:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                address_id:
+                  type: integer
+                options:
+                  type: object
+                  properties:
+                    Size:
+                      type: string
+                download_url:
+                  type: string
+                thumbnail:
+                  type: string
+                brand:
+                  type: string
+                event:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    date:
+                      type: object
+                      properties:
+                        value:
+                          type: integer
+                        formatted:
+                          type: string
+                price:
+                  type: object
+                  properties:
+                    value:
+                      type: float
+                    formatted:
+                      type: string
+                total:
+                  type: object
+                  properties:
+                    value:
+                      type: float
+                    formatted:
+                      type: string
+                preorder:
+                  type: object
+                  properties:
+                    is_preorder:
+                      type: boolean
+                    message:
+                      type: string
+                    date:
+                      type: object
+                      properties:
+                        value:
+                          type: integer
+                        formatted:
+                          type: string
+                attribute_lines:
+                  type: array
+                  description: A list of strings that represents product variant options.
+                  items:
+                    type: object
+                    properties: {}
+                configurable_fields:
+                  type: array
+                  description: Object array with properties name and value.
+                  items:
+                    type: object
+                    properties: {}
+          payment:
+            type: object
+            properties:
+              is_test:
+                type: boolean
+              provider_name:
+                type: string
+              offline_payment_message:
+                type: string
+              gateway_amount:
+                type: object
+                description: Price value. Provided only if the payment method is offline.
+                properties:
+                  formatted:
+                    type: string
+                  value:
+                    type: float
+          billing:
+            type: object
+            properties:
+              is_managed_by_amazon:
+                type: boolean
+              address:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  phone:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  company:
+                    type: string
+                  country:
+                    type: string
+                  city:
+                    type: string
+                  state:
+                    type: string
+                  zip:
+                    type: string
+                  address_lines:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                  custom_fields:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+          total_rows:
+            type: array
+            items:
+              type: object
+              properties:
+                label:
+                  type: string
+                price:
+                  type: object
+                  properties:
+                    value:
+                      type: float
+                    formatted:
+                      type: string
+                shipping_discounts:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+          total_cost:
+            type: object
+            properties:
+              formatted:
+                type: string
+              value:
+                type: float
+          meta:
+            type: object
+            properties:
+              mandate_url:
+                type: string
+                description: Link to the confirmation page in Stripe
+              mandate_tag:
+                type: string
+                description: Short name of the payment document
+              shipping_addresses_num:
+                type: integer
+              show_immediate_download:
+                type: boolean
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              comment_label:
+                type: string
+              order_id_line:
+                type: string
+              view_summary:
+                type: string
+              sepa:
+                type: string
+                description: A link to SEPA mandate and also receive this link embedded on email confirmation.
+              shipment_to_multiple_addresses:
+                type: string
+              shipping_immediate_download:
+                type: string
+              shipping_address_label:
+                type: string
+              immediate_download:
+                type: string
+              email:
+                type: string
+              billing_address_managed_by_amazon:
+                type: string
+              billing_address_label:
+                type: string
+              pending_payment:
+                type: string
+              how_to_pay:
+                type: string
+              pay_for_order_help:
+                type: string
+              order_total:
+                type: string
+              cart_items:
+                type: string
+              sku:
+                type: string
+              quantity:
+                type: string
+              item_price:
+                type: string
+              item_total:
+                type: string
+              payment_method:
+                type: string
+              no_payment_taken_in_test_mode:
+                type: string
+              download_files:
+                type: string
+              preorder:
+                type: string
+              download_available_after_payment:
+                type: string
+              shipped_to:
+                type: string
+              shipping_discount:
+                type: string
+              thanks_for_your_order:
+                type: string
+              your_order_contains:
+                type: string
+              shipping_method:
+                type: string
+              shipping_to_address:
+                type: string
+              your_order_will_be_shipped_by:
+                type: string
+              total_cost:
+                type: string
+              items:
+                type: string
+              total:
+                type: string
+              price:
+                type: string
+              email_address:
+                type: string
+  Order Notification:
+    title: Order Notification Email Template
     description: Order notification email triggers when a merchant or store admin adds a message to an order.
-    allOf:
-      - $ref: ./order_message_notification.yml
     type: object
-  Sign-in Link Request Email Template Objects:
+    properties:
+      notification:
+        type: object
+        properties:
+          message:
+            type: string
+          link:
+            type: string
+          subject:
+            type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              reply:
+                type: string
+              go_shopping:
+                type: string
+  Sign in Link Request:
+    title: Sign in Link Request Email Template
     description: Sign-in request email triggers when an existing customer requests passwordless login while checking out.
-    allOf:
-      - $ref: ./passwordless_login_email.yml
     type: object
-  Product Review Request Email Template Objects:
+    properties:
+      passwordless_login:
+        type: object
+        properties:
+          link:
+            type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              message:
+                type: string
+              alternatively:
+                type: string
+              login_request:
+                type: string
+              secure:
+                type: string
+              go_shopping:
+                type: string
+  Product Review Request:
     title: Product Review Email Template
     description: Product review request email triggers after a customer purchases a product.
-    allOf:
-      - $ref: ./product_review_email.yml
     type: object
-  Return Requested Email Template Objects:
-    description: Return requested email triggers after a customer's return is approved.
-    allOf:
-      - $ref: ./return_confirmation_email.yml
+    properties:
+      review:
+        type: object
+        properties:
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                sku:
+                  type: string
+                link:
+                  type: string
+                price:
+                  type: string
+                thumbnail:
+                  type: string
+          unsubscribe_link:
+            type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              instruction:
+                type: string
+              review_text:
+                type: string
+              thanks:
+                type: string
+              go_shopping:
+                type: string
+  Return Requested:
+    title: Return Requested Email Template
+    description: Return requested email triggers after a customerʼs return is approved.
     type: object
-  Return Status Change Email Template Objects:
-    description: Return status change email triggers after a customer return's status has changed.
-    allOf:
-      - $ref: ./return_status_change_email.yml
+    properties:
+      return:
+        type: object
+        properties:
+          return_id:
+            type: string
+          reason:
+            type: string
+          action:
+            type: string
+          comments:
+            type: string
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                quantity:
+                  type: integer
+                price:
+                  type: string
+                sku:
+                  type: string
+                thumbnail:
+                  type: string
+      order:
+        type: object
+        properties:
+          id:
+            type: integer
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              confirmation:
+                type: string
+              summary:
+                type: string
+              clickHere:
+                type: string
+              reason:
+                type: string
+              action:
+                type: string
+              comments:
+                type: string
+              contains:
+                type: string
+              items:
+                type: string
+              quantity:
+                type: string
+  Return Status Change:
+    description: Return status change email triggers after a customer returnʼs status has changed.
     type: object
+    title: Return Status Change Email Template
+    properties:
+      return:
+        type: object
+        properties:
+          id:
+            type: integer
+          reason:
+            type: string
+          action:
+            type: string
+          comments:
+            type: string
+          product:
+            type: object
+            properties:
+              name:
+                type: string
+              quantity:
+                type: integer
+              price:
+                type: string
+              sku:
+                type: string
+              thumbnail:
+                type: string
+          status:
+            type: object
+            properties:
+              value:
+                type: integer
+              formatted:
+                type: string
+          store_credit:
+            type: object
+            properties:
+              value:
+                type: float
+              formatted:
+                type: string
+          link:
+            type: string
+          instructions:
+            type: string
+      order:
+        type: object
+        properties:
+          id:
+            type: integer
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              title:
+                type: string
+              hello:
+                type: string
+              message:
+                type: string
+              received_credit:
+                type: string
+              details_title:
+                type: string
+              return_reason:
+                type: string
+              return_action:
+                type: string
+              return_comments:
+                type: string
+              check_status:
+                type: string
+              products_title:
+                type: string
+              quantity:
+                type: string
+              instructions_title:
+                type: string
+              go_shopping:
+                type: string

@@ -1,13 +1,19 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   version: Storefront
   title: Storefront Customers
-  description: Manage customers and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+  description: |-
+    Manage customers and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+    
+    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
       store_domain:
-        default: yourstore.example.com
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
 tags:
   - name: Customers
 paths:
@@ -16,24 +22,23 @@ paths:
       tags:
         - Customers
       description: |-
-        Creates a *Customer*.
+        Create a *Customer*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.
       responses:
         '204':
-          description: Customer succesfully created
+          description: Customer successfully created.
         '400':
-          description: Could not create customer
+          description: Could not create customer.
         '409':
-          description: There's already an account for the provided email. Please enter a different email address or sign-in.
+          description: Thereʼs already an account for the provided email. Please enter a different email address or sign in.
         '422':
-          description: Missing Required Fields
+          description: Missing Required Fields.
         '429':
-          description: Spam Protection Failed
-      summary: Creates a Customer
+          description: Spam Protection Failed.
+      summary: Create a Customer
       operationId: createACustomer
       requestBody:
         content:
@@ -60,19 +65,19 @@ components:
       properties:
         firstName:
           type: string
-          description: First name of customer
+          description: First name of customer.
         lastName:
           type: string
-          description: Last name of customer
+          description: Last name of customer.
         email:
           type: string
-          description: Email of customer
+          description: Email of customer.
         password:
           type: string
-          description: Password of customer
+          description: Password of customer.
         acceptsMarketingEmails:
           type: boolean
-          description: Has customer provided consent to receive marketing emails.
+          description: Indicates whether customer provided consent to receive marketing emails.
         customFields:
           type: array
           items:
@@ -87,7 +92,3 @@ components:
         fieldValue:
           type: string
       x-internal: false
-x-stoplight:
-  docs:
-    includeDownloadLink: false
-    showModels: false

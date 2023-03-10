@@ -1,24 +1,8 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Marketing
   description: |-
     Manage coupons, banners, and gift certificates.
-
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth Scopes
-    |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
-    |  Marketing | modify | `store_v2_marketing` |
-    |  Marketing | read-only | `store_v2_marketing_read_only` |
 
     ## Subresources
 
@@ -30,9 +14,19 @@ info:
 
     ### Gift Certificates
     Gift certificates available to offer to a store’s customers.
-  version: ""
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
 servers:
-- url: https://api.bigcommerce.com
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
 - X-Auth-Token: []
 tags:
@@ -40,7 +34,9 @@ tags:
 - name: Coupons
 - name: Gift Certificates
 paths:
-  /stores/{store_hash}/v2/coupons:
+  '/coupons':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Coupons
@@ -74,23 +70,6 @@ paths:
         ```
       operationId: getAllCoupons
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       - name: id
         in: query
         description: Optional filter param. `/api/v2/coupons?id={value}`
@@ -239,23 +218,7 @@ paths:
 
         Legacy coupon codes only work with the store's default currency. Applying a coupon with any other currency other than the store's default will result in the error: "Coupons only apply to default currency."
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -298,23 +261,6 @@ paths:
         * Deleting a coupon via this endpoint will delete the coupon but not the promotion it is attached to
       operationId: deleteAllCoupons
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       - name: id:in
         in: query
         description: Optional param to identify a comma separated list of ids for
@@ -325,31 +271,15 @@ paths:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v2/coupons/count:
+  '/coupons/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Coupons
       summary: Get a Count of Coupons
       description: Returns a count of all *Coupons* in the store.
       operationId: getACountOfCoupons
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -363,7 +293,17 @@ paths:
                     type: integer
               example:
                 count: 27
-  /stores/{store_hash}/v2/coupons/{id}:
+  '/coupons/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the coupon.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
     put:
       tags:
       - Coupons
@@ -383,31 +323,7 @@ paths:
         If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new `PUT` request.
       operationId: updateACoupon
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Id of the coupon.
-        required: true
-        schema:
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          type: number
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -447,34 +363,13 @@ paths:
       summary: Delete a Coupon
       description: Deletes a *Coupon*.
       operationId: deleteACoupon
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v2/banners:
+  '/banners':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Banners
@@ -483,23 +378,6 @@ paths:
         lowest to highest.
       operationId: getAllBanners
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       - name: min_id
         in: query
         description: Optional filter param `/api/v2/banners?min_id={value}`
@@ -579,23 +457,7 @@ paths:
         * id
       operationId: createABanner
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -628,61 +490,27 @@ paths:
       summary: Delete All Banners
       description: By default, it deletes all *Banners*.
       operationId: deleteAllBanners
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v2/banners/{id}:
+  '/banners/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the banner.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
     get:
       tags:
       - Banners
       summary: Get a Banner
       description: Returns a single *Banner*
       operationId: getABanner
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Id of the banner.
-        required: true
-        schema:
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          type: integer
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -714,31 +542,7 @@ paths:
         * id
       operationId: updateABanner
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Id of the banner.
-        required: true
-        schema:
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          type: integer
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -771,58 +575,19 @@ paths:
       summary: Delete a Banner
       description: Deletes a *Banner*.
       operationId: deleteABanner
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v2/banners/count:
+  '/banners/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Banners
       summary: Get a Count of Store Banners
       description: Returns a count of *Banners*.
       operationId: getACountOfBanners
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -836,39 +601,23 @@ paths:
                     type: integer
               example:
                 count: 27
-  /stores/{store_hash}/v2/gift_certificates/{id}:
+  '/gift_certificates/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the gift certificate.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
     get:
       tags:
       - Gift Certificates
       summary: Get a Gift Certificate
       description: Returns a single *Gift Certificate*.
       operationId: getAGiftCertificate
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Id of the gift certificate.
-        required: true
-        schema:
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          type: integer
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -904,28 +653,7 @@ paths:
         * order_id
       operationId: updateAGiftCertificate
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -962,37 +690,13 @@ paths:
       summary: Delete a Gift Certificate
       description: Deletes a *Gift Certificate*.
       operationId: deleteAGiftCertificate
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: Id of the gift certificate.
-        required: true
-        schema:
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          type: integer
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v2/gift_certificates:
+  '/gift_certificates':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Gift Certificates
@@ -1005,11 +709,6 @@ paths:
         The maximum limit is 250. If a limit isn’t provided, up to 50 gift_certificates are returned by default.
       operationId: getAllGiftCertificates
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
       - name: min_id
         in: query
         schema:
@@ -1050,18 +749,6 @@ paths:
         in: query
         schema:
           type: number
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -1138,23 +825,7 @@ paths:
         When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
       operationId: createAGiftCertificate
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -1191,22 +862,6 @@ paths:
       summary: Delete All Gift Certificates
       description: By default, it deletes all *Gift Certificates*.
       operationId: deleteAllGiftCertificates
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
@@ -1215,6 +870,23 @@ paths:
               schema:
                 type: object
 components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
   schemas:
     CouponsResource:
       title: Coupon Resource
@@ -1875,33 +1547,28 @@ components:
             expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
+      name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Marketing | modify | `store_v2_marketing` |
         |  Marketing | read-only | `store_v2_marketing_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
-      name: X-Auth-Token
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

@@ -2,12 +2,18 @@ openapi: '3.0.1'
 info:
   version: Storefront
   title: Storefront Carts
-  description: Manage cart operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+  description: |-
+    Manage cart operations and data using frontend JavaScript on BigCommerce stencil powered storefronts.
+    
+    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
       store_domain:
-        default: yourstore.example.com
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
 tags:
   - name: Cart
   - name: Cart Items
@@ -20,11 +26,11 @@ paths:
       summary: Get a Cart
       description: |-
         Returns a *Cart*.
-
-        <!-- theme: info -->
+        
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: getACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -38,10 +44,10 @@ paths:
       description: |-
         Creates a *Cart*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: createACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -73,10 +79,11 @@ paths:
       description: |-
         Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
 
-        <!-- theme: info -->
+        
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: deleteACart
       parameters:
         - name: cartId
@@ -97,10 +104,11 @@ paths:
       description: |-
         Adds a line items to the *Cart*.
 
-        <!-- theme: info -->
+
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: addCartLineItem
       parameters:
         - name: cartId
@@ -156,12 +164,13 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
-        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints.
 
-        <!-- theme: info -->
+
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: updateCartLineItem
       parameters:
         - name: cartId
@@ -232,7 +241,6 @@ paths:
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -282,7 +290,6 @@ paths:
         Promotions and gift certificates that don't apply to the new currency will be removed from your cart.
         You cannot update the cart currency if the draft order cart or the cart contains a manual discount.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -353,7 +360,6 @@ components:
     responseCartDiscounts:
       title: responseCartDiscounts
       type: array
-      x-examples: {}
       items:
         type: object
         properties:
@@ -525,7 +531,6 @@ components:
           required:
             - lineItems
             - giftCertificates
-      x-examples: {}
       type: object
       description: Cart object used in add items requests.
       x-internal: false
@@ -553,7 +558,6 @@ components:
             - lineItem
             - giftCertificates
           title: line & gift certificate items
-      x-examples: {}
       description: ''
       type: object
       x-internal: false
@@ -626,7 +630,7 @@ components:
       description: |-
         **Read Only**
 
-        This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API.
+        This will return in the Cart Response if the Cart was created using the [Store Management Carts API](/docs/rest-management/carts). A custom item can only be added to a cart using the Server to Server API.
       x-internal: false
     responseCartLineItemsDigitalItems:
       title: Item Digital
@@ -945,31 +949,32 @@ components:
               type: number
             optionSelections:
               type: array
+              description: Array of `OptionSelection` objects.
               items:
-                description: Array of `OptionSelection` objects.
-                x-examples: {}
-                anyOf:
-                  - properties:
-                      optionId:
-                        type: number
-                        description: 'ID of the option, same as the `nameId`.'
-                        example: 10
-                      optionValue:
-                        description: 'Value of the option, same as the `valueId`.'
-                        oneOf:
-                          - type: string
-                            example: Small
-                          - type: number
-                            example: 127
-                          - type: object
-                            properties:
-                              month:
-                                type: string
-                              day:
-                                type: string
-                              year:
-                                type: string
-                type: object
+                oneOf:
+                - type: object
+                  properties:
+                    optionId:
+                      type: number
+                      description: 'ID of the option, same as the `nameId`.'
+                      example: 10
+                - type: object
+                  properties:
+                    optionValue:
+                      description: 'Value of the option, same as the `valueId`.'
+                      oneOf:
+                        - type: string
+                          example: Small
+                        - type: number
+                          example: 127
+                        - type: object
+                          properties:
+                            month:
+                              type: string
+                            day:
+                              type: string
+                            year:
+                              type: string
           required:
             - productId
             - quantity
@@ -1618,7 +1623,4 @@ components:
           - lineItems.digitalItems.options
           - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
   examples: {}
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

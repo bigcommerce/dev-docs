@@ -1,13 +1,22 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
   title: Orders V3
   version: ''
   description: Manage order settings of BigCommerce stores.
-  termsOfService: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   license:
     name: ''
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
   - X-Auth-Token: []
 tags:
@@ -16,7 +25,7 @@ tags:
   - name: Transactions
   - name: Order Settings
 paths:
-  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/capture':
+  '/orders/{order_id}/payment_actions/capture':
     post:
       summary: Capture
       description: |-
@@ -26,14 +35,7 @@ paths:
         * `store_v2_transactions`
       operationId: paymentactioncapture
       parameters:
-        - name: order_id
-          in: path
-          description: ID of the order
-          required: true
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '201':
           $ref: '#/components/responses/201_Created'
@@ -52,17 +54,9 @@ paths:
       tags:
         - Payment Actions
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/void':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
+  '/orders/{order_id}/payment_actions/void':
     post:
       summary: Void
       description: |-
@@ -73,14 +67,7 @@ paths:
         * `store_v2_transactions`
       operationId: paymentactionvoid
       parameters:
-        - name: order_id
-          in: path
-          description: ID of the order
-          required: true
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '201':
           $ref: '#/components/responses/201_Created'
@@ -99,30 +86,12 @@ paths:
       tags:
         - Payment Actions
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/{order_id}/transactions':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
+  '/orders/{order_id}/transactions':
     parameters:
-      - name: order_id
-        in: path
-        description: |
-          The ID of the `Order` to which the transactions belong.
-        required: true
-        schema:
-          type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
     get:
       tags:
         - Transactions
@@ -183,25 +152,7 @@ paths:
                     type: string
                 title: Not Found
       summary: Get Transactions
-      parameters:
-        - name: order_id
-          in: path
-          description: |
-            The ID of the `Order` to which the transactions belong.
-          required: true
-          schema:
-            type: integer
-        - in: header
-          name: Accept
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
-  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refund_quotes':
+  '/orders/{order_id}/payment_actions/refund_quotes':
     post:
       summary: Create a Refund Quote
       description: |-
@@ -212,14 +163,7 @@ paths:
         * `store_v2_transactions`
       operationId: postrefundquote
       parameters:
-        - name: order_id
-          in: path
-          description: Order id
-          required: true
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -259,17 +203,9 @@ paths:
       tags:
         - Payment Actions
     parameters:
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refunds':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
+  '/orders/{order_id}/payment_actions/refunds':
     post:
       summary: Create a Refund
       description: |-
@@ -280,14 +216,7 @@ paths:
         * `store_v2_transactions`
       operationId: postrefund
       parameters:
-        - name: order_id
-          in: path
-          description: order id
-          required: true
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -415,26 +344,23 @@ paths:
         * `store_v2_orders_read_only`
         * `store_v2_orders`
       operationId: getorderrefunds
-      parameters:
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
       responses:
         '200':
           $ref: '#/components/responses/RefundCollection_Resp'
       tags:
         - Payment Actions
     parameters:
-      - name: order_id
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
+  '/orders/payment_actions/refunds/{refund_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: refund_id
         in: path
+        description: Refund ID.
         required: true
         schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/payment_actions/refunds/{refund_id}':
+          type: integer
     get:
       summary: Get a Refund
       description: Returns a refund by refund ID.
@@ -444,21 +370,9 @@ paths:
           $ref: '#/components/responses/RefundID_Response'
       tags:
         - Payment Actions
+  '/orders/payment_actions/refund_quotes':
     parameters:
-      - name: refund_id
-        in: path
-        description: Refund ID.
-        required: true
-        schema:
-          type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
       - $ref: '#/components/parameters/Accept'
-      - $ref: '#/components/parameters/Content-Type'
-  '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
     post:
       summary: Create Refund Quotes - BATCH
       description: |-
@@ -471,8 +385,7 @@ paths:
         * `store_v2_transactions`
       operationId: postrefundquotes
       parameters:
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -572,13 +485,9 @@ paths:
       tags:
         - Payment Actions
       x-private: true
+  '/orders/payment_actions/refunds':
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/payment_actions/refunds':
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get All Refunds
       description: |-
@@ -609,8 +518,6 @@ paths:
             type: array
             items:
               type: integer
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
         - in: query
           name: 'created:min'
           description: |-
@@ -662,8 +569,7 @@ paths:
         * `store_v2_transactions`
       operationId: postrefunds
       parameters:
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -704,7 +610,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
             Example 1:
               examples:
                 response:
@@ -769,7 +675,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
             Example 1:
               examples:
                 response:
@@ -798,26 +704,10 @@ paths:
       tags:
         - Payment Actions
       x-private: true
+  '/orders/{order_id}/metafields':
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/{order_id}/metafields':
-    parameters:
-      - name: order_id
-        in: path
-        description: |
-          The ID of the `Order` to which the transactions belong.
-        required: true
-        schema:
-          type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
     get:
       summary: Get Metafields
       tags:
@@ -864,6 +754,8 @@ paths:
 
         The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: createOrderMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -895,15 +787,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  '/stores/{store_hash}/v3/orders/{order_id}/metafields/{metafield_id}':
+  '/orders/{order_id}/metafields/{metafield_id}':
     parameters:
-      - name: order_id
-        in: path
-        description: |
-          The ID of the `Order` to which the transactions belong.
-        required: true
-        schema:
-          type: integer
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/OrderIdParam'
       - name: metafield_id
         in: path
         description: |
@@ -911,11 +798,6 @@ paths:
         required: true
         schema:
           type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
     get:
       summary: Get a Metafield
       tags:
@@ -947,6 +829,8 @@ paths:
 
         The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: updateOrderMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -981,7 +865,7 @@ paths:
         '204':
           description: |
             An empty response.
-  '/stores/{store_hash}/v3/orders/settings':
+  '/orders/settings':
     get:
       summary: Get Global Order Settings
       description: Returns global order settings.
@@ -996,7 +880,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -1008,6 +895,8 @@ paths:
       summary: Update Global Order Settings
       description: Updates global order settings.
       operationId: UpdateGlobalOrderSettings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Order Settings
       requestBody:
@@ -1027,8 +916,11 @@ paths:
             application/json:
               schema:
                 allOf:
+                  - type: object
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1042,26 +934,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse422'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/orders/settings/channels/{channel_id}':
+      - $ref: '#/components/parameters/Accept'
+  '/orders/settings/channels/{channel_id}':
     get:
       summary: Get Channel Order Settings
       description: Returns order settings for a specific channel.
       operationId: GetChannelOrderSettings
       tags:
         - Order Settings
-      parameters:
-        - schema:
-            type: integer
-            minimum: 1
-          in: path
-          name: channel_id
-          required: true
-          description: Channel Id
       responses:
         '200':
           description: OK
@@ -1070,7 +950,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -1085,16 +968,10 @@ paths:
 
          **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addesses and the other set to `null`.
       operationId: UpdateChannelOrderSettings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Order Settings
-      parameters:
-        - schema:
-            type: integer
-            minimum: 1
-          in: path
-          name: channel_id
-          required: true
-          description: Channel Id
       requestBody:
         content:
           application/json:
@@ -1115,7 +992,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1129,15 +1009,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse422'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
+      - $ref: '#/components/parameters/Accept'
+      - name: channel_id
         in: path
-        required: true
-      - schema:
+        schema:
           type: string
-        name: channel_id
-        in: path
+        description: Channel ID
         required: true
 components:
   schemas:
@@ -1671,15 +1548,15 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true
               title: DetailedErrors
       title: ErrorResponse
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       title: DetailedErrors
       x-internal: false
     Transaction_Post:
@@ -2257,11 +2134,10 @@ components:
       x-internal: false
     metaEmpty_Full:
       type: object
-      title: metaEmpty_Full
-      x-internal: false
-      properties:
-        meta:
-          type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     pagination_Full:
       type: object
       title: pagination_Full
@@ -2347,8 +2223,8 @@ components:
       properties:
         errors:
           type: object
-          additionalProperties:
-            type: string
+          properties: {}
+          additionalProperties: true
           title: DetailedErrors
       title: errorDetailed_Full
       x-internal: false
@@ -2455,7 +2331,7 @@ components:
             2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
             3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
 
-            >
+            
           items:
             $ref: '#/components/schemas/RefundMethod'
       x-internal: false
@@ -2612,7 +2488,7 @@ components:
                     description: |
                       Reason for refunding an item
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
     PostRefundsRequest:
       type: array
       description: Request body for batch refunds
@@ -3444,8 +3320,7 @@ components:
                 items:
                   $ref: '#/components/schemas/Refund'
               meta:
-                type: object
-                description: Meta data collection
+                $ref: '#/components/schemas/metaEmpty_Full'
     refundsBATCH_Resp:
       description: ''
       content:
@@ -3473,7 +3348,7 @@ components:
               data:
                 $ref: '#/components/schemas/RefundQuote_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/metaEmpty_Full'
     Refund_Resp:
       description: ''
       content:
@@ -3484,7 +3359,7 @@ components:
               data:
                 $ref: '#/components/schemas/Refund'
               meta:
-                type: object
+                $ref: '#/components/schemas/metaEmpty_Full'
     TransactionCollection_Resp:
       description: Response payload for the BigCommerce Order Transactions API.
       content:
@@ -3596,17 +3471,21 @@ components:
       schema:
         type: integer
     Accept:
-      in: header
       name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
     PageParam:
       name: page
       description: |
@@ -3660,34 +3539,32 @@ components:
           - desc
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
-      in: header
       name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Order Transactions | read and modify `transactions` and `payment_methods` | `store_v2_transactions` |
         |  Order Transactions | read `transactions` and `payment_methods`  | `store_v2_transactions_read_only` |
         |  Orders | read and modify `payment_methods` |`store_v2_orders`|
         |  Orders | read `payment_methods` |`store_v2_orders_read_only`|
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   examples:
     EnableMultipleOrderNotifications:
       summary: Enable order placed and forward invoice notifications
@@ -3733,7 +3610,4 @@ components:
             email_addresses: []
           forward_invoice:
             email_addresses: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

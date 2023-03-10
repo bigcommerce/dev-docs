@@ -1,44 +1,33 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Subscribers
   description: |-
     Manage subscribers.
 
-    ### OAuth Scopes
-    |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
-    |  Customers | modify | `store_v2_customers` |
-    |  Customers | read-only | `store_v2_customers_read_only` |
-
-    ### Headers
-
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-    ### Example
-
-    ```http
-    GET /stores/{store_hash}/v3/catalog/summary
-    host: api.bigcommerce.com
-    Content-Type: application/json
-    X-Auth-Token: {access_token}
-    ```
-
-    * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-  termsOfService: ""
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   license:
-    name: ""
-  version: ""
+    name: ''
+  version: ''
 servers:
-- url: https://api.bigcommerce.com
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
 - X-Auth-Token: []
 tags:
 - name: Subscribers
   description: BigCommerce Customers API Definition.
 paths:
-  /stores/{store_hash}/v3/customers/subscribers:
+  '/customers/subscribers':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Subscribers
@@ -47,11 +36,6 @@ paths:
         be passed in.
       operationId: getSubscribers
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
       - name: email
         in: query
         description: |
@@ -106,16 +90,6 @@ paths:
           list of products.
         schema:
           type: integer
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
       - name: id
         in: query
         description: Filter items by id.
@@ -152,21 +126,7 @@ paths:
         * id
       operationId: createSubscriber
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
+      - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -185,10 +145,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '409':
           description: |
             The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as email.
@@ -201,9 +158,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -228,9 +184,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -252,11 +207,6 @@ paths:
         to avoid deleting all subscribers in a store.
       operationId: deleteSubscribers
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
       - name: email
         in: query
         description: |
@@ -300,21 +250,13 @@ paths:
         schema:
           type: string
           format: date-time
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
           content: {}
-  /stores/{store_hash}/v3/customers/subscribers/{subscriber_id}:
+  '/customers/subscribers/{subscriber_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
       - Subscribers
@@ -329,21 +271,6 @@ paths:
         required: true
         schema:
           type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -356,10 +283,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '404':
           description: |
             The resource was not found.
@@ -399,21 +323,7 @@ paths:
         required: true
         schema:
           type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
+      - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -432,10 +342,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '404':
           description: |
             The resource was not found.
@@ -469,9 +376,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -526,21 +432,6 @@ paths:
         required: true
         schema:
           type: integer
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Content-Type
-        in: header
-        schema:
-          type: string
-          default: application/json
-      - name: Accept
-        in: header
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
@@ -784,11 +675,12 @@ components:
             Pagination links for the previous and next parts of the whole collection.
       description: Data about the response, including pagination and collection totals.
       x-internal: false
-    Meta:
-      title: Meta
+    OpenMeta:
+      title: Response meta
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       title: Error Response
       allOf:
@@ -814,9 +706,8 @@ components:
           errors:
             title: Detailed Errors
             type: object
-            properties:
-              additionalProperties:
-                type: string
+            properties: {}
+            additionalProperties: true
       x-internal: false
     BaseError:
       title: Base Error
@@ -857,9 +748,8 @@ components:
     DetailedErrors:
       title: Detailed Errors
       type: object
-      properties:
-        additionalProperties:
-          type: string
+      properties: {}
+      additionalProperties: true
       x-internal: false
   responses:
     subrscriberCollection_Resp:
@@ -889,10 +779,7 @@ components:
               data:
                 $ref: '#/components/schemas/subscriber_Full'
               meta:
-                title: Meta
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/OpenMeta'
   parameters:
     FilterEmailParam:
       name: email
@@ -990,44 +877,43 @@ components:
     Accept:
       name: Accept
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
+      name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Customers | modify | `store_v2_customers` |
         |  Customers | read-only | `store_v2_customers_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-      name: X-Auth-Token
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

@@ -1,50 +1,20 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Currencies
   description: |-
     Manage alternate currency display options on the storefront.
 
-    ## OAuth Scopes
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Information & Settings                       | modify     | `store_v2_information`                        |
-    | Information & Settings                       | read-only  | `store_v2_information_read_only`              |
-
-    For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
-    ## Authentication
-
-    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
-
-    ```http
-    GET /stores/{store_hash}/v3/catalog/summary
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {access_token}
-    ```
-
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
-
-    ## Available Endpoints
-    | Resource / Endpoint                     | Description                                                             |
-    |-----------------------------------------|-------------------------------------------------------------------------|
-    | Currencies                              | Create and manage store currencies and their display                    |
-
     ## Definitions
 
     | Name | Description |
     | -- | -- |
-    | Default Currency | Store's default currency is the one from which any auto-conversion of pricing (product, tax, shipping, promotions) will happen.|
+    | Default Currency | Storeʼs default currency is the one from which any auto-conversion of pricing (product, tax, shipping, promotions) will happen.|
     | Display Currency | Currency that is displayed on the storefront. This might or might not mean that shopper can actually transact in that currency. Display currency is also often called "presentment currency" in the payments industry. |
-    | Transactional Currency | Transactional currency is what currency and amount BC passes to the payment provider and the currency/amount that the shopper will be charged to their bank account. If there's a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate that will be used will be outside of BC's purview. |
-    | Settlement Currency | This is the currency in which the merchant gets paid out to their bank account. If there's a discrepancy between the currency that shopper transacts in and the currency in which merchant settles, merchant has to pay a conversion fee and the conversion rate used will be outside of BC's purview. Merchant is able to set their settlement currency through their payment provider. |
+    | Transactional Currency | Transactional currency is what currency and amount BC passes to the payment provider and the currency/amount that the shopper will be charged to their bank account. If thereʼs a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate that will be used will be outside of BCʼs purview. |
+    | Settlement Currency | This is the currency in which the merchant gets paid out to their bank account. If thereʼs a discrepancy between the currency that shopper transacts in and the currency in which merchant settles, merchant has to pay a conversion fee and the conversion rate used will be outside of BCʼs purview. Merchant is able to set their settlement currency through their payment provider. |
     |BigCommerce Conversion Rate | Any conversion rate set on BigCommerce used to convert product’s default currency pricing into a new non-default currency. Conversion rate could be static or dynamic. |
     | Static Conversion Rate | One of the two auto-converted pricing options. If a merchant manually enters a static conversion rate, then the conversion rate will remain the same until/unless merchant updates their currency settings to use a different conversion rate. The advantage of using this method is to avoid constantly fluctuating price in non-default currencies. |
-    | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, they've tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the store's default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use API to automatically update the exchange rate from their trusted source. |
+    | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, theyʼve tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the storeʼs default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use API to automatically update the exchange rate from their trusted source. |
     | Bank Conversion Rate | Conversion rate used by merchant’s or shopper’s payment or credit card provider when auto-converting from store’s transactional currency. This rate might not align to the BC conversion rate and BC has no visibility into it. |
     | Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BC conversion rate, merchant has a choice to set price per product per currency. This will be implemented through price lists. |
 
@@ -57,45 +27,39 @@ info:
     ## Resources
 
     - [How Currencies Work](/api-docs/catalog/currencies/how-currencies-work)
-    - [Price List API](/api-reference/catalog/pricelists-api)
+    - [Price List API](/docs/rest-management/price-lists)
     - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
     - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
     - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
-  version: ""
+  version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
-- url: https://api.bigcommerce.com
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
-- X-Auth-Token: []
+  - X-Auth-Token: []
 tags:
-- name: /currencies
-  description: ""
-- name: Currencies
+  - name: Currencies (Single)
+  - name: Currencies (Bulk)
 paths:
-  /stores/{store_hash}/v2/currencies:
+  /currencies:
+    parameters:
+      
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
-      - Currencies
+        - Currencies (Bulk)
       summary: Get All Currencies
       description: Returns a list of all store *Currency*.
       operationId: getAllCurrencies
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -107,7 +71,7 @@ paths:
                   $ref: '#/components/schemas/currency_Full'
     post:
       tags:
-      - Currencies
+        - Currencies (Bulk)
       summary: Create a Currency
       operationId: createACurrency
       description: |-
@@ -125,31 +89,14 @@ paths:
         * decimal_places
 
         **Read-Only Fields**
-
         * id
         * date_created
         * date_modified
 
 
-        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. To change the store's default currency via the BigCommerce control panel, please see [Managing Currencies](https://support.bigcommerce.com/articles/Public/Managing-Currencies/?q=currency&l=en_US&fs=Search&pn=1#default).
+        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. To change the storeʼs default currency in the BigCommerce control panel, please see [Managing Currencies](https://support.bigcommerce.com/articles/Public/Managing-Currencies/?q=currency&l=en_US&fs=Search&pn=1#default).
       parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -165,28 +112,10 @@ paths:
                 $ref: '#/components/schemas/currency_Full'
     delete:
       tags:
-      - Currencies
+        - Currencies (Bulk)
       summary: Delete All Currencies
       operationId: deleteAllCurrencies
       description: Deletes all non-default store currencies.
-      parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Accepts
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
@@ -194,37 +123,22 @@ paths:
             application/json:
               schema:
                 type: object
-  /stores/{store_hash}/v2/currencies/{id}:
+  /currencies/{id}:
+    parameters:
+      
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: Currency ID
+        required: true
+        schema:
+          type: string
     get:
       tags:
-      - Currencies
+        - Currencies (Single)
       summary: Get a Currency
       description: Returns a single *Currency*.
       operationId: getACurrency
-      parameters:
-      - name: id
-        in: path
-        description: Currency Id
-        required: true
-        schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '200':
           description: ""
@@ -234,7 +148,7 @@ paths:
                 $ref: '#/components/schemas/currency_Full'
     put:
       tags:
-      - Currencies
+        - Currencies (Single)
       summary: Update a Currency
       description: |-
         Updates a *Currency*.
@@ -250,29 +164,7 @@ paths:
         The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. 
       operationId: updateACurrency
       parameters:
-      - name: id
-        in: path
-        description: Currency Id
-        required: true
-        schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -289,37 +181,13 @@ paths:
       x-codegen-request-body-name: body
     delete:
       tags:
-      - Currencies
+        - Currencies (Single)
       summary: Delete a Currency
       description: |-
         Deletes a *Currency*.
 
-        If a currency's `is_default` property is set to true, this currency cannot be deleted. 
+        If a currencyʼs `is_default` property is set to true, this currency cannot be deleted. 
       operationId: deleteACurrency
-      parameters:
-      - name: id
-        in: path
-        description: Currency Id
-        required: true
-        schema:
-          type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: Content-Type
-        in: header
-        required: true
-        schema:
-          type: string
-          default: application/json
       responses:
         '204':
           description: ""
@@ -448,7 +316,8 @@ components:
         properties:
           id:
             type: integer
-            description: Id of the currency. READ-ONLY.
+            description: ID of the currency. Read only.
+            readOnly: true
             example: 2
           last_updated:
             type: string
@@ -471,6 +340,12 @@ components:
           schema:
             $ref: '#/components/schemas/currency_Full'
   parameters:
+    StoreHash:
+      name: store_hash
+      in: path
+      required: true
+      schema:
+        type: string
     Accept:
       name: Accept
       in: header
@@ -478,7 +353,7 @@ components:
       schema:
         type: string
         default: application/json
-    Content-Type:
+    ContentType:
       name: Content-Type
       in: header
       required: true
@@ -487,30 +362,27 @@ components:
         default: application/json
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
+      name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Information & Settings | modify | `store_v2_information` |
         |  Information & Settings | read-only | `store_v2_information_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-      name: X-Auth-Token
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
-

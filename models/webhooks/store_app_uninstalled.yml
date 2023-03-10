@@ -1,19 +1,23 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/app/uninstalled:
+    description: Occurs when a client store is cancelled and uninstalled from the platform.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
         type: string
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string

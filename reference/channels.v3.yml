@@ -1,33 +1,18 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   version: ''
-  contact: {}
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   title: Channels
   description: |-
-    Create and manage sales [channels](/api-docs/channels/overview), their [sites](/api-reference/store-management/channels/channel-site), and their [product listings](/api-reference/store-management/channels#channel-listings).
-
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Channel Listings                             | modify     | `store_channel_listings`                      |
-    | Channel Listings                             | read-only  | `store_channel_listings_read_only`            |
-    | Channel Settings                             | modify     | `store_channel_settings`                      |
-    | Channel Settings                             | read-only  | `store_channel_settings_read_only`            |
+    Create and manage sales [channels](/api-docs/channels/overview), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
 
     ## Channels
 
-    A [channel](/api-reference/cart-checkout/channels-listings-api/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
+    A [channel](/docs/rest-management/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
 
     ### Platform
 
@@ -72,25 +57,33 @@ info:
     |`storefront`|**Is not** `bigcommerce` |`prelaunch`, `active`, `inactive`, `archived`, `deleted` 
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
 
-    <!-- theme: warning -->
-    > #### Note
-    > * A Channel with `deleted` status can be restored within 90 days after deleting by contacting BigCommerce support team. Once the 90 days grace period is over, the Channel `status` will become `terminated`.
-    > * The `terminated` status is read-only. `terminated` channels cannot be restored.
+    > #### Warning
+    > * You can restore a Channel with `deleted` status within **90 days** after deletion by contacting the BigCommerce support team. After the 90-days grace period is over, the Channel `status` will become `terminated`.
+    > * The `terminated` status is read-only. Channels with a `status` of `terminated` **cannot** be restored.
 
     ## Channel listings
 
-    [Channel listings](/api-reference/store-management/channels/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
+    [Channel listings](/docs/rest-management/channels/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
 
     ## Channel site
 
-    A [Channel site](/api-reference/store-management/channels/channel-site) refers to the domain associated with a channel.
+    A [Channel site](/docs/rest-management/channels/channel-site) refers to the domain associated with a channel.
 
     ## Resources
 
-    * [Sites and Routes API Reference](/api-reference/cart-checkout/sites-routes-api)
+    * [Sites and Routes API Reference](/docs/rest-management/sites)
     * [Building Channels Overview](/api-docs/channels/overview)
     * [Building Channel Apps](/api-docs/channels/building-channel-apps)
     * [Channels Toolkit Reference](/api-docs/channels/channels-toolkit-reference)
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
 tags:
   - name: Channels
   - name: Channel Active Theme
@@ -101,7 +94,9 @@ tags:
   - name: Channel Menus
   - name: Channel Metafields
 paths:
-  '/stores/{store_hash}/v3/channels':
+  '/channels':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Channels
@@ -134,6 +129,8 @@ paths:
       tags:
         - Channels
       summary: Create a Channel
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: createChannel
       description: Creates a *Channel*.
       requestBody:
@@ -150,26 +147,10 @@ paths:
           $ref: '#/components/responses/single_channel_without_currencies_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_channel_data_resp'
+  '/channels/{channel_id}':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/channels/{channel_id}':
-    parameters:
-      - name: channel_id
-        description: The ID of a channel
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
         - Channels
@@ -187,6 +168,8 @@ paths:
       tags:
         - Channels
       summary: Update a Channel
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: updateChannel
       description: |-
         Updates a *Channel*.
@@ -224,7 +207,10 @@ paths:
           $ref: '#/components/responses/duplicate_channel_resp'
         '422':
           $ref: '#/components/responses/invalid_channel_update_field_resp'
-  '/stores/{store_hash}/v3/channels/{channel_id}/active-theme':
+  '/channels/{channel_id}/active-theme':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
         - Channel Active Theme
@@ -233,25 +219,14 @@ paths:
       description: |-
         Returns details of the theme active on the specified channel.
         Does not support active Blueprint (legacy) themes.
-      parameters:
-        - $ref: '#/components/parameters/channel_id_path_param'
       responses:
         '200':
           $ref: '#/components/responses/channel_active_theme_resp'
         '404':
           $ref: '#/components/responses/active_theme_not_found_resp'
+  '/channels/currency-assignments':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: channel_id
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/channels/currency-assignments':
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Channel Currency Assignments
@@ -264,6 +239,8 @@ paths:
     post:
       tags:
         - Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       summary: Create Multiple Channels Currency Assignments
       operationId: createMultipleChannelsCurrencyAssignments
       description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
@@ -285,6 +262,8 @@ paths:
       tags:
         - Channel Currency Assignments
       summary: Update Multiple Channels Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: updateMultipleChannelsCurrencyAssignments
       description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
       requestBody:
@@ -301,26 +280,10 @@ paths:
           $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
+  '/channels/{channel_id}/currency-assignments':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/channels/{channel_id}/currency-assignments':
-    parameters:
-      - name: channel_id
-        description: The ID of a channel
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
         - Channel Currency Assignments
@@ -336,6 +299,8 @@ paths:
       tags:
         - Channel Currency Assignments
       summary: Create Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: createSingleChannelCurrencyAssignments
       description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
       requestBody:
@@ -356,6 +321,8 @@ paths:
       tags:
         - Channel Currency Assignments
       summary: Update Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: updateSingleChannelCurrencyAssignments
       description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
       requestBody:
@@ -383,20 +350,10 @@ paths:
           $ref: '#/components/responses/delete_currency_assignments_resp'
         '404':
           $ref: '#/components/responses/channel_not_found_resp'
-  '/stores/{store_hash}/v3/channels/{channel_id}/listings':
+  '/channels/{channel_id}/listings':
     parameters:
-      - name: channel_id
-        description: The ID of a channel
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
         - Channel Listings
@@ -424,6 +381,8 @@ paths:
       tags:
         - Channel Listings
       summary: Create Channel Listings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: createChannelListings
       description: Creates one or more *Channel Listings* for a specific channel.
       requestBody:
@@ -446,6 +405,8 @@ paths:
       tags:
         - Channel Listings
       summary: Update Channel Listings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: updateChannelListings
       description: |-
         Updates one or more *Channel Listings* for a specific channel.
@@ -473,27 +434,11 @@ paths:
           $ref: '#/components/responses/single_and_multiple_listings_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_put_resp'
-  '/stores/{store_hash}/v3/channels/{channel_id}/listings/{listing_id}':
+  '/channels/{channel_id}/listings/{listing_id}':
     parameters:
-      - name: channel_id
-        description: The ID of a channel
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: listing_id
-        description: The ID of a channel listing.
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+      - $ref: '#/components/parameters/listing_id_path_param'
     get:
       tags:
         - Channel Listings
@@ -505,26 +450,18 @@ paths:
           $ref: '#/components/responses/single_listing_resp'
         '404':
           $ref: '#/components/responses/listing_not_found_resp'
-  '/stores/{store_hash}/v3/channels/{channel_id}/site/checkout-url':
+  '/channels/{channel_id}/site/checkout-url':
     parameters:
-      - name: channel_id
-        description: The ID of a channel
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     put:
       summary: Upsert a Site's Checkout URL
       tags:
         - Channel Site Checkout Url
       description: Creates or updates (upserts) a site's checkout URL
       operationId: putCheckoutUrl
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -597,7 +534,7 @@ paths:
     delete:
       summary: Delete a Site's Checkout URL
       operationId: delete-checkout-url
-      description: 'Deletes a site''s checkout URL. After deletion, a shared checkout URL is used.'
+      description: Deletes a siteʼs checkout URL. After deletion, a shared checkout URL is used.
       tags:
         - Channel Site Checkout Url
       responses:
@@ -610,9 +547,13 @@ paths:
                 properties:
                   data:
                     type: object
+                    properties: {}
                   meta:
-                    type: object
-  '/stores/{store_hash}/v3/channels/{channel_id}/site':
+                    $ref: '#/components/schemas/EmptyMeta'
+  '/channels/{channel_id}/site':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       summary: Get a Channel Site
       description: |
@@ -620,12 +561,6 @@ paths:
 
         Returns site data for the specified channel.
       operationId: get-channel-site
-      parameters:
-        - name: channel_id
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           $ref: '#/components/responses/site_Resp'
@@ -636,6 +571,8 @@ paths:
         '200':
           $ref: '#/components/responses/site_Resp'
       summary: Update a Channel Site
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: put-channel-site
       requestBody:
         content:
@@ -648,22 +585,13 @@ paths:
       tags:
         - Channel Site
       description: Updates a site for provided channel.
-    parameters:
-      - name: channel_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
     post:
       responses:
         '200':
           $ref: '#/components/responses/site_Resp'
       summary: Create a Channel Site
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: postChannelSite
       requestBody:
         content:
@@ -691,23 +619,15 @@ paths:
       tags:
         - Channel Site
       summary: Delete a Channel Site
-  '/stores/{store_hash}/v3/channels/{channel_id}/channel-menus':
+  '/channels/{channel_id}/channel-menus':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       summary: Get Channel Menus
       description: |
         Returns list of Control Panel side navigation menus for a channel.
       operationId: get-channel-menus
-      parameters:
-        - name: channel_id
-          in: path
-          required: true
-          schema:
-            type: string
-        - schema:
-            type: string
-          name: store_hash
-          in: path
-          required: true
       responses:
         '200':
           $ref: '#/components/responses/channel_menus_Resp'
@@ -720,16 +640,7 @@ paths:
       summary: Create Channel Menus
       operationId: postChannelMenus
       parameters:
-        - name: channel_id
-          in: path
-          required: true
-          schema:
-            type: string
-        - schema:
-            type: string
-          name: store_hash
-          in: path
-          required: true
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -751,8 +662,7 @@ paths:
                   data:
                     type: integer
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/EmptyMeta'
                 x-examples:
                   example-1:
                     data: 1
@@ -762,30 +672,10 @@ paths:
       tags:
         - Channel Menus
       summary: Delete Channel Menus
-      parameters:
-        - name: channel_id
-          in: path
-          required: true
-          schema:
-            type: string
-        - schema:
-            type: string
-          name: store_hash
-          in: path
-          required: true
-    parameters: []
-  '/stores/{store_hash}/v3/channels/{channel_id}/metafields':
+  '/channels/{channel_id}/metafields':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: channel_id
-        in: path
-        required: true
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
     get:
       summary: Get Channel Metafields
       tags:
@@ -803,6 +693,8 @@ paths:
       description: Returns a list of metafields on a channel. Optional filter parameters can be passed in.
     post:
       summary: Create a Channel Metafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: post-channels-channel_id-metafields
       responses:
         '200':
@@ -819,21 +711,13 @@ paths:
         Creates a channel metafield.
 
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, channel, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
-  '/stores/{store_hash}/v3/channels/{channel_id}/metafields/{metafield_id}':
+  '/channels/{channel_id}/metafields/{metafield_id}':
     parameters:
-      - schema:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+      - name: metafield_id
+        schema:
           type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: channel_id
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: metafield_id
         in: path
         required: true
     get:
@@ -847,6 +731,8 @@ paths:
       description: Returns a single channel metafield.
     put:
       summary: Update a Channel Metafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: put-channels-channel_id-metafields-metafield_id
       responses:
         '200':
@@ -872,19 +758,24 @@ paths:
       tags:
         - Channel Metafields
       description: Deletes a single channel metafield.
-security:
-  - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
-servers:
-  - url: 'https://api.bigcommerce.com'
-    variables:
-      store_hash:
-        default: store_hash
 components:
   parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
     PageParam:
       name: page
       description: |
@@ -984,7 +875,7 @@ components:
             - storefront
     platform_in:
       name: 'platform:in'
-      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](/api-reference/store-management/channels#platform).'
+      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](/docs/rest-management/channels#platform).'
       in: query
       required: false
       schema:
@@ -1068,7 +959,7 @@ components:
           format: int64
     channel_id_path_param:
       name: channel_id
-      description: The ID of a channel
+      description: The ID of a channel.
       in: path
       required: true
       schema:
@@ -1678,7 +1569,7 @@ components:
       value:
         data:
           - id: 1
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/bigcommerce_icon.svg'
             is_listable_from_ui: true
             is_visible: true
             date_created: '2021-05-07T14:54:51Z'
@@ -1689,7 +1580,7 @@ components:
             name: Test Store
             status: prelaunch
           - id: 664179
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/amazon.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/amazon_icon.svg'
             is_listable_from_ui: true
             is_visible: true
             date_created: '2021-05-10T20:32:40Z'
@@ -1700,7 +1591,7 @@ components:
             name: Amazon
             status: connected
           - id: 667159
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
             is_listable_from_ui: false
             is_visible: true
             date_created: '2021-05-13T15:41:39Z'
@@ -1733,7 +1624,7 @@ components:
       value:
         data:
           id: 667159
-          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/eBay.svg'
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/ebay_icon.png'
           is_listable_from_ui: false
           is_visible: true
           date_created: '2021-05-13T15:41:39Z'
@@ -1756,7 +1647,7 @@ components:
       value:
         data:
           id: 667159
-          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
           is_listable_from_ui: false
           is_visible: true
           date_created: '2021-05-13T15:41:39Z'
@@ -2105,13 +1996,12 @@ components:
           group_id: Group id (0) for store (1001808665) cannot be less than or equal to zero!
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
-      in: header
       name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Channel Listings | modify | `store_channel_listings` |
         |  Channel Listings | read-only | `store_channel_listings_read_only` |
         |  Channel Settings | modify | `store_channel_settings` |
@@ -2119,23 +2009,21 @@ components:
         |  Sites & Routes | modify | `store_sites` |
         |  Sites & Routes | read-only | `store_sites_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     ChannelId:
       type: integer
@@ -2280,7 +2168,7 @@ components:
       x-internal: false
     ChannelStatus:
       type: string
-      description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/api-reference/store-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
+      description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/docs/rest-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
       enum:
         - active
         - prelaunch
@@ -2302,7 +2190,7 @@ components:
         example-1: string
     ChannelType:
       type: string
-      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
+      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](/docs/rest-management/channels#status).'
       enum:
         - pos
         - marketplace
@@ -2311,7 +2199,7 @@ components:
       x-internal: false
     ChannelPlatform:
       type: string
-      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
+      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](/docs/rest-management/channels#status).'
       x-internal: false
     ChannelDateCreated:
       type: string
@@ -2412,11 +2300,11 @@ components:
       properties:
         app:
           type: object
-          description: 'A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel''s user interface in the control panel.'
+          description: 'A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
           properties:
             id:
               type: integer
-              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you''re building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''s ID](/api-docs/apps/tutorials/id).'
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/api-docs/apps/tutorials/id).'
             sections:
               type: array
               description: 'Sections are now deprecated under config_meta. The new /channel-menus endpoints should be used instead. If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -2808,8 +2696,10 @@ components:
       x-internal: false
     EmptyMeta:
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      title: Empty meta response.
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     pagination_Full:
       type: object
       description: |
@@ -2914,7 +2804,7 @@ components:
           enum:
             - dedicated
             - shared
-          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
+          description: 'Indicates if a private/dedicated SSL is installed on this site, or if itʼs using shared SSL.'
         urls:
           type: array
           description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
@@ -3034,8 +2924,6 @@ components:
       x-internal: false
     metafield_Post:
       title: metafield_Post
-      x-stoplight:
-        id: gvfymy3yuc101
       type: object
       description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
@@ -3098,8 +2986,6 @@ components:
         - permission_set
     metafield_Put:
       title: metafield_Put
-      x-stoplight:
-        id: 5gl48f06wgr1v
       type: object
       description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
@@ -3155,3 +3041,4 @@ components:
           description: |
             Description for the metafield.
           example: Location in the warehouse
+

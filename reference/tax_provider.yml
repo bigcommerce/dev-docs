@@ -1,16 +1,21 @@
-openapi: 3.1.0
+openapi: '3.0.3'
 info:
   title: Tax Provider API
   version: '1.0'
-  contact: {}
-  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
+  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](/docs/apps-api/tax#estimate-taxes), [adjust](/docs/apps-api/tax#adjust-tax-quote), [commit](/docs/apps-api/tax#commit-tax-quote), and [void](/docs/apps-api/tax#void-tax-quote) operations. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 tags:
   - name: Tax Provider
 servers:
-  - url: 'https://{your_server}'
+  - url: 'https://{app_domain}'
     variables:
-      your_server:
-        default: store.example.com
+      app_domain:
+        default: your_app.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of your appʼs server.'
 paths:
   /estimate:
     post:
@@ -47,141 +52,136 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/request-quote'
+            examples:
+              example:
+                value:
+                  id: 3f0c857e-2c55-443e-a89b-c3c4d8a29605
+                  currency_code: USD
+                  customer:
+                    customer_id: '0'
+                    customer_group_id: '0'
+                    taxability_code: ''
+                  transaction_date: '2019-08-13T03:17:37+00:00'
+                  documents:
+                    - id: 5d522b889d3d9
+                      billing_address:
+                        line1: ''
+                        line2: ''
+                        city: ''
+                        region_name: ''
+                        region_code: ''
+                        country_name: ''
+                        country_code: ''
+                        postal_code: ''
+                        company_name: ''
+                        type: RESIDENTIAL
+                      destination_address:
+                        line1: ''
+                        line2: ''
+                        city: Van Wert
+                        region_name: Ohio
+                        region_code: OH
+                        country_name: United States
+                        country_code: US
+                        postal_code: '45892'
+                        company_name: ''
+                        type: RESIDENTIAL
+                      origin_address:
+                        line1: 2139 W ANDERSON LN
+                        line2: ''
+                        city: AUSTIN
+                        region_name: Texas
+                        region_code: TX
+                        country_name: United States
+                        country_code: US
+                        postal_code: '78757'
+                        company_name: ''
+                        type: COMMERCIAL
+                      shipping:
+                        id: 5d522b889d3d9
+                        item_code: Flat Rate
+                        name: 'Shipping to Van Wert, United States 45891'
+                        price:
+                          amount: 10
+                          tax_inclusive: false
+                        quantity: 1
+                        tax_class:
+                          code: ''
+                          class_id: '6'
+                          name: Shipping
+                        tax_exempt: false
+                        type: shipping
+                      handling:
+                        id: 5d522b889d3d9
+                        item_code: Flat Rate
+                        name: 'Handling for Van Wert, United States 45891'
+                        price:
+                          amount: 0
+                          tax_inclusive: false
+                        quantity: 1
+                        tax_class:
+                          code: ''
+                          class_id: '6'
+                          name: Handling
+                        tax_exempt: false
+                        type: handling
+                      items:
+                        - id: 088c7465-e5b8-4624-a220-0d9faa82e7cb
+                          item_code: ABS
+                          name: '[Sample] Able Brewing System'
+                          price:
+                            amount: 450
+                            tax_inclusive: false
+                          quantity: 2
+                          tax_class:
+                            code: ''
+                            class_id: '0'
+                            name: Default Tax Class
+                          tax_exempt: false
+                          type: item
+                          wrapping:
+                            id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                            item_code: ''
+                            name: 'Wrapping: [Sample] Canvas Laundry Cart'
+                            price:
+                              amount: 5
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Wrapping
+                            tax_exempt: false
+                            type: wrapping
+                        - id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                          item_code: CLC
+                          name: '[Sample] Canvas Laundry Cart'
+                          price:
+                            amount: 200
+                            tax_inclusive: false
+                          quantity: 1
+                          tax_class:
+                            code: ''
+                            class_id: '0'
+                            name: Default Tax Class
+                          tax_exempt: false
+                          type: item
+                          wrapping:
+                            id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                            item_code: ''
+                            name: 'Wrapping: [Sample] Canvas Laundry Cart'
+                            price:
+                              amount: 5
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Wrapping
+                            tax_exempt: false
+                            type: wrapping
         description: 'Estimates may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** function on the **Cart** page is not expected to provide any billing address data, but the tax provider will still be expected to return a valid estimate.'
         required: true
-        x-examples:
-          application/json:
-            id: 3f0c857e-2c55-443e-a89b-c3c4d8a29605
-            currency_code: USD
-            customer:
-              customer_id: '0'
-              customer_group_id: '0'
-              taxability_code: ''
-            transaction_date: '2019-08-13T03:17:37+00:00'
-            documents:
-              - id: 5d522b889d3d9
-                billing_address:
-                  line1: ''
-                  line2: ''
-                  city: ''
-                  region_name: ''
-                  region_code: ''
-                  country_name: ''
-                  country_code: ''
-                  postal_code: ''
-                  company_name: ''
-                  type: RESIDENTIAL
-                destination_address:
-                  line1: ''
-                  line2: ''
-                  city: Van Wert
-                  region_name: Ohio
-                  region_code: OH
-                  country_name: United States
-                  country_code: US
-                  postal_code: '45892'
-                  company_name: ''
-                  type: RESIDENTIAL
-                origin_address:
-                  line1: 2139 W ANDERSON LN
-                  line2: ''
-                  city: AUSTIN
-                  region_name: Texas
-                  region_code: TX
-                  country_name: United States
-                  country_code: US
-                  postal_code: '78757'
-                  company_name: ''
-                  type: COMMERCIAL
-                shipping:
-                  id: 5d522b889d3d9
-                  item_code: Flat Rate
-                  item_reference: '12345678'
-                  name: 'Shipping to Van Wert, United States 45891'
-                  price:
-                    amount: 10
-                    tax_inclusive: false
-                  quantity: 1
-                  tax_class:
-                    code: ''
-                    class_id: '6'
-                    name: Shipping
-                  tax_exempt: false
-                  type: shipping
-                handling:
-                  id: 5d522b889d3d9
-                  item_code: Flat Rate
-                  item_reference: '12345678'
-                  name: 'Handling for Van Wert, United States 45891'
-                  price:
-                    amount: 0
-                    tax_inclusive: false
-                  quantity: 1
-                  tax_class:
-                    code: ''
-                    class_id: '6'
-                    name: Handling
-                  tax_exempt: false
-                  type: handling
-                items:
-                  - id: 088c7465-e5b8-4624-a220-0d9faa82e7cb
-                    item_code: ABS
-                    item_reference: '87654321'
-                    name: '[Sample] Able Brewing System'
-                    price:
-                      amount: 450
-                      tax_inclusive: false
-                    quantity: 2
-                    tax_class:
-                      code: ''
-                      class_id: '0'
-                      name: Default Tax Class
-                    tax_exempt: false
-                    type: item
-                    wrapping:
-                      id: d2675662-6326-4a23-9107-ab71fa6a21a1
-                      item_code: ''
-                      item_reference: ''
-                      name: 'Wrapping: [Sample] Canvas Laundry Cart'
-                      price:
-                        amount: 5
-                        tax_inclusive: false
-                      quantity: 1
-                      tax_class:
-                        code: ''
-                        class_id: '6'
-                        name: Wrapping
-                      tax_exempt: false
-                      type: wrapping
-                  - id: d2675662-6326-4a23-9107-ab71fa6a21a1
-                    item_code: CLC
-                    item_reference: ABC12345
-                    name: '[Sample] Canvas Laundry Cart'
-                    price:
-                      amount: 200
-                      tax_inclusive: false
-                    quantity: 1
-                    tax_class:
-                      code: ''
-                      class_id: '0'
-                      name: Default Tax Class
-                    tax_exempt: false
-                    type: item
-                    wrapping:
-                      id: d2675662-6326-4a23-9107-ab71fa6a21a1
-                      item_code: ''
-                      item_reference: ''
-                      name: 'Wrapping: [Sample] Canvas Laundry Cart'
-                      price:
-                        amount: 5
-                        tax_inclusive: false
-                      quantity: 1
-                      tax_class:
-                        code: ''
-                        class_id: '6'
-                        name: Wrapping
-                      tax_exempt: false
-                      type: wrapping
       responses:
         '200':
           description: Noteworthy is that the estimate response does not contain an **external ID** since there is no expectation that an estimate will result in any persisted tax documents by the tax provider.
@@ -338,140 +338,135 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/request-quote'
+            examples:
+              example:
+                value:
+                  id: '113'
+                  currency_code: USD
+                  customer:
+                    customer_id: '0'
+                    customer_group_id: '0'
+                    taxability_code: ''
+                  transaction_date: '2019-08-13T03:40:15+00:00'
+                  documents:
+                    - id: shipping_14
+                      billing_address:
+                        line1: 402 S Vine St
+                        line2: ''
+                        city: Van Wert
+                        region_name: Ohio
+                        region_code: OH
+                        country_name: United States
+                        country_code: US
+                        postal_code: '45891'
+                        company_name: ''
+                        type: RESIDENTIAL
+                      destination_address:
+                        line1: 402 S Vine St
+                        line2: ''
+                        city: Van Wert
+                        region_name: Ohio
+                        region_code: OH
+                        country_name: United States
+                        country_code: US
+                        postal_code: '45891'
+                        company_name: ''
+                        type: RESIDENTIAL
+                      origin_address:
+                        line1: 2139 W ANDERSON LN
+                        line2: ''
+                        city: AUSTIN
+                        region_name: Texas
+                        region_code: TX
+                        country_name: United States
+                        country_code: US
+                        postal_code: '78757'
+                        company_name: ''
+                        type: COMMERCIAL
+                      shipping:
+                        id: shipping_14
+                        item_code: Flat Rate
+                        name: 'Shipping to Van Wert, United States 45891'
+                        price:
+                          amount: 10
+                          tax_inclusive: false
+                        quantity: 1
+                        tax_class:
+                          code: ''
+                          class_id: '6'
+                          name: Shipping
+                        tax_exempt: false
+                        type: shipping
+                      handling:
+                        id: handling_14
+                        item_code: Flat Rate
+                        name: 'Handling for Van Wert, United States 45891'
+                        price:
+                          amount: 0
+                          tax_inclusive: false
+                        quantity: 1
+                        tax_class:
+                          code: ''
+                          class_id: '6'
+                          name: Handling
+                        tax_exempt: false
+                        type: handling
+                      items:
+                        - id: product_13
+                          item_code: ABS
+                          name: '[Sample] Able Brewing System'
+                          price:
+                            amount: 450
+                            tax_inclusive: false
+                          quantity: 2
+                          tax_class:
+                            code: ''
+                            class_id: '0'
+                            name: Default Tax Class
+                          tax_exempt: false
+                          type: item
+                          wrapping:
+                            id: product_14
+                            item_code: ''
+                            name: 'Wrapping: Holiday'
+                            price:
+                              amount: 5
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Wrapping
+                            tax_exempt: false
+                            type: wrapping
+                        - id: product_14
+                          item_code: CLC
+                          name: '[Sample] Canvas Laundry Cart'
+                          price:
+                            amount: 200
+                            tax_inclusive: false
+                          quantity: 1
+                          tax_class:
+                            code: ''
+                            class_id: '0'
+                            name: Default Tax Class
+                          tax_exempt: false
+                          type: item
+                          wrapping:
+                            id: product_14
+                            item_code: ''
+                            name: 'Wrapping: Holiday'
+                            price:
+                              amount: 5
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Wrapping
+                            tax_exempt: false
+                            type: wrapping
         required: true
-        x-examples:
-          application/json:
-            id: '113'
-            currency_code: USD
-            customer:
-              customer_id: '0'
-              customer_group_id: '0'
-              taxability_code: ''
-            transaction_date: '2019-08-13T03:40:15+00:00'
-            documents:
-              - id: shipping_14
-                billing_address:
-                  line1: 402 S Vine St
-                  line2: ''
-                  city: Van Wert
-                  region_name: Ohio
-                  region_code: OH
-                  country_name: United States
-                  country_code: US
-                  postal_code: '45891'
-                  company_name: ''
-                  type: RESIDENTIAL
-                destination_address:
-                  line1: 402 S Vine St
-                  line2: ''
-                  city: Van Wert
-                  region_name: Ohio
-                  region_code: OH
-                  country_name: United States
-                  country_code: US
-                  postal_code: '45891'
-                  company_name: ''
-                  type: RESIDENTIAL
-                origin_address:
-                  line1: 2139 W ANDERSON LN
-                  line2: ''
-                  city: AUSTIN
-                  region_name: Texas
-                  region_code: TX
-                  country_name: United States
-                  country_code: US
-                  postal_code: '78757'
-                  company_name: ''
-                  type: COMMERCIAL
-                shipping:
-                  id: shipping_14
-                  item_code: Flat Rate
-                  item_reference: '12345678'
-                  name: 'Shipping to Van Wert, United States 45891'
-                  price:
-                    amount: 10
-                    tax_inclusive: false
-                  quantity: 1
-                  tax_class:
-                    code: ''
-                    class_id: '6'
-                    name: Shipping
-                  tax_exempt: false
-                  type: shipping
-                handling:
-                  id: handling_14
-                  item_code: Flat Rate
-                  item_reference: '12345678'
-                  name: 'Handling for Van Wert, United States 45891'
-                  price:
-                    amount: 0
-                    tax_inclusive: false
-                  quantity: 1
-                  tax_class:
-                    code: ''
-                    class_id: '6'
-                    name: Handling
-                  tax_exempt: false
-                  type: handling
-                items:
-                  - id: product_13
-                    item_code: ABS
-                    item_reference: '87654321'
-                    name: '[Sample] Able Brewing System'
-                    price:
-                      amount: 450
-                      tax_inclusive: false
-                    quantity: 2
-                    tax_class:
-                      code: ''
-                      class_id: '0'
-                      name: Default Tax Class
-                    tax_exempt: false
-                    type: item
-                    wrapping:
-                      id: product_14
-                      item_code: ''
-                      item_reference: ''
-                      name: 'Wrapping: Holiday'
-                      price:
-                        amount: 5
-                        tax_inclusive: false
-                      quantity: 1
-                      tax_class:
-                        code: ''
-                        class_id: '6'
-                        name: Wrapping
-                      tax_exempt: false
-                      type: wrapping
-                  - id: product_14
-                    item_code: CLC
-                    item_reference: ABC12345
-                    name: '[Sample] Canvas Laundry Cart'
-                    price:
-                      amount: 200
-                      tax_inclusive: false
-                    quantity: 1
-                    tax_class:
-                      code: ''
-                      class_id: '0'
-                      name: Default Tax Class
-                    tax_exempt: false
-                    type: item
-                    wrapping:
-                      id: product_14
-                      item_code: ''
-                      item_reference: ''
-                      name: 'Wrapping: Holiday'
-                      price:
-                        amount: 5
-                        tax_inclusive: false
-                      quantity: 1
-                      tax_class:
-                        code: ''
-                        class_id: '6'
-                        name: Wrapping
-                      tax_exempt: false
-                      type: wrapping
       responses:
         '200':
           description: OK
@@ -987,7 +982,10 @@ components:
         wrapping:
           anyOf:
             - $ref: '#/components/schemas/request-item'
-            - type: 'null'
+            - type: object
+              nullable: true
+              enum: 
+                - null
       required:
         - id
         - price
@@ -996,7 +994,7 @@ components:
       x-internal: false
     request-item-tax-property:
       type: object
-      description: A simple key value pairing allowing merchants to provide an additional input into a tax provider's tax calculation.
+      description: A simple key value pairing allowing merchants to provide an additional input into a tax providerʼs tax calculation.
       title: TaxProperty
       properties:
         code:
@@ -1005,7 +1003,7 @@ components:
           example: alcohol-percentage
         value:
           type: string
-          description: The value that will be factored into the tax provider's tax calculation rules, where supported.
+          description: The value that will be factored into the tax providerʼs tax calculation rules, where supported.
           example: '4.9'
       required:
         - code
@@ -1317,6 +1315,9 @@ components:
     Authorization:
       type: http
       scheme: basic
-      description: 'The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username` and `password` using the [Update a Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) request.'
+      description: |-
+        The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username` and `password` using the [Update a Connection](/docs/apps-api/tax-app-connection#update-a-connection) request.
+        
+        For more, see [developer-configured authentication](/api-docs/getting-started/authentication#developer-configured-authentication) for Provider APIs.
 security:
   - Authorization: []

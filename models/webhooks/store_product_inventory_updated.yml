@@ -1,29 +1,33 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/product/inventory/updated:
+    description: Product inventory is updated.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      inventory:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          product_id:
-            type: integer
-          method:
+          type:
             type: string
-          value:
+          id:
             type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          inventory:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              method:
+                type: string
+              value:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

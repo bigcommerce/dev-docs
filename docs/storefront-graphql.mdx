@@ -19,9 +19,9 @@ To explore Storefront nodes in an interactive graph, check out the [GraphQL Expl
 
 ### Request tokens with REST API
 
-Create JWT tokens for authenticating cross-origin requests by making a `POST` request to the [Create a token](/api-reference/store-management/tokens/api-token/createtoken) endpoint.
+Create JWT tokens for authenticating cross-origin requests by making a `POST` request to the [Create a token](/docs/storefront-auth/tokens#create-a-token) endpoint.
 
-```http title="Example request: Create a token" lineNumbers
+```http filename="Example request: Create a token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -36,7 +36,7 @@ Accept: application/json
 }
 ```
 &nbsp;
-```json title="Example response: Create a token" lineNumbers
+```json filename="Example response: Create a token" showLineNumbers copy
 {
   "data": {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
@@ -47,7 +47,7 @@ Accept: application/json
 
 You can complete the GraphQL query call with any HTTP library. Use the `data.token` value from the preceding response as the `{{JWT}}` value in the `Authorization: Bearer {{JWT}}` header. 
 
-```http title="Example GraphQL query" lineNumbers
+```http filename="Example GraphQL query" showLineNumbers copy
 POST /graphql
 Authorization: Bearer {{JWT}}
 Content-Type: application/json
@@ -62,7 +62,7 @@ Content-Type: application/json
 
 Client scripts on BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil)-powered storefronts can access a token with the `{{settings.storefront_api.token}}` Handlebars object.
 
-```handlebars title="Example GraphQL query script with Stencil token" lineNumbers
+```handlebars filename="Example GraphQL query script with Stencil token" showLineNumbers copy
 <script>
 // nest within any conditional, such as onload
   fetch('/graphql', {
@@ -80,9 +80,9 @@ Client scripts on BigCommerce [Stencil](/stencil-docs/getting-started/about-sten
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. Make a `POST` request to the [Create a customer impersonation token](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint.
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. Make a `POST` request to the [Create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) endpoint.
 
-```http title="Example request: Create a customer impersonation token" lineNumbers
+```http filename="Example request: Create a customer impersonation token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -95,7 +95,7 @@ Accept: application/json
 
 ```
 &nbsp;
-```json title="Example response: Create a customer impersonation token" lineNumbers
+```json filename="Example response: Create a customer impersonation token" showLineNumbers copy
 {
   "data": {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
@@ -109,7 +109,7 @@ Accept: application/json
 
 If you're using the Storefront API from a browser (for example, on top of your Stencil storefront) you can use the Customer Login mutation to log in a customer account with an email address and password (for server-side integrations, consider a customer impersonation token instead). This will set a session cookie in the browser which will authenticate the customer account on future requests:
 
-```graphql title="Customer login mutation" lineNumbers
+```graphql filename="Customer login mutation" showLineNumbers copy
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result

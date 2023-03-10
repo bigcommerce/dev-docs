@@ -1,65 +1,36 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   title: Scripts
   version: ''
   description: |-
-    Inject client-side code onto a BigCommere storefront. To learn more about scripts, see [Scripts API](/api-docs/store-management/scripts). 
-
-    ## OAuth Scopes
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Checkout Content1                             | modify     | `store_content_checkout`                      |
-    | Checkout Content1                             | read-only  | `store_content_checkout_read_only`            |
-    | Content                                       | modify     | `store_v2_content`                            |
-    | Content                                       | read-only  | `store_v2_content_read_only`                  |
-
-    1. `Checkout Content` scopes are required to create or read scripts on the checkout page.
-
-    For more information on OAuth Scopes, see [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
-    ## Authentication
-
-    Requests can be authenticated by sending an`access_token` via `X-Auth-Token` HTTP header:
-
-    ```http
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {access_token}
-    ```
-
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-    For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
-
-    ## Available Endpoints
-    | Resource / Endpoint                     | Description                                                             |
-    |-----------------------------------------|-------------------------------------------------------------------------|
-    | Scripts                                 | Add client-side code to a store                                         |
-  termsOfService: ''
+    Inject client-side code onto a BigCommerce storefront. To learn more about scripts, see [Scripts API](/api-docs/store-management/scripts). 
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   license:
     name: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
 tags:
   - name: Scripts
 paths:
-  '/stores/{store_hash}/v3/content/scripts':
+  '/content/scripts':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     post:
       summary: Create a Script
       operationId: createScript
       parameters:
-        - in: header
-          name: Accept
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -124,8 +95,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -182,18 +153,6 @@ paths:
             enum:
               - asc
               - desc
-        - in: header
-          name: Accept
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - in: query
           name: 'channel_id:in'
           description: Filters list of scripts by the associated channel_id.
@@ -243,9 +202,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
                 title: Error Response
       tags:
         - Scripts
@@ -253,32 +211,13 @@ paths:
         Returns a list of *Scripts*. Optional parameters can be passed in.
 
         This operation will only return scripts generated by the API key and password used to create the script originally. 
+  '/content/scripts/{uuid}':
     parameters:
-      - $ref: '#/components/parameters/StoreHashParam'
-  '/stores/{store_hash}/v3/content/scripts/{uuid}':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ScriptUUID'
     get:
       summary: Get a Script
       operationId: getScript
-      parameters:
-        - name: uuid
-          description: The identifier for a specific script.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - in: header
-          name: Accept
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: Success
@@ -315,8 +254,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -347,8 +286,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -358,25 +297,7 @@ paths:
       summary: Update a Script
       operationId: updateScript
       parameters:
-        - name: uuid
-          description: The identifier for a specific script.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Accept
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -419,8 +340,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -451,8 +372,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -461,26 +382,6 @@ paths:
     delete:
       summary: Delete a Script
       operationId: deleteScript
-      parameters:
-        - name: uuid
-          description: The identifier for a specific script.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - in: header
-          name: Accept
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -515,8 +416,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -546,24 +447,13 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
         - Scripts
       description: Deletes a *Script*.
-    parameters:
-      - $ref: '#/components/parameters/StoreHashParam'
-      - $ref: '#/components/parameters/ScriptUUID'
-security:
-  - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
-servers:
-  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
     FilterWidgetTemplateUUIDParam:
@@ -689,56 +579,51 @@ components:
       schema:
         type: string
     Accept:
-      in: header
       name: Accept
+      in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
-    StoreHashParam:
-      name: store_hash
-      in: path
-      required: true
-      schema:
-        type: string
-        example: 29iql3rwa6
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
-        |  Content | modify | `store_v2_content` |
-        |  Content | read-only | `store_v2_content_read_only` |
+        ### OAuth scopes
 
-        **Note:**: Injecting scripts into Checkout requires `Checkout Content` scope.
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Checkout Content | modify | `store_content_checkout` |
+        | Checkout Content | read-only | `store_content_checkout_read_only` |
+        | Content | modify | `store_v2_content` |
+        | Content | read-only  | `store_v2_content_read_only` |
 
-        ### Headers
+        To read or modify scripts on checkout pages, add `Checkout Content` scopes.
 
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     CollectionMeta:
       type: object
@@ -845,7 +730,9 @@ components:
       x-internal: false
     Meta:
       type: object
-      description: Empty meta object; may be used later.
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
       title: Meta
       x-internal: false
     ErrorResponse:
@@ -871,8 +758,8 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true
               title: DetailedErrors
       title: Error Response
       x-internal: false
@@ -897,8 +784,8 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       title: DetailedErrors
       x-internal: false
     NotFound:

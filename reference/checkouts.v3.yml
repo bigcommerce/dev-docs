@@ -12,7 +12,12 @@ info:
     url: 'https://www.bigcommerce.com' 
     email: support@bigcommerce.com 
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 tags:
   - name: Checkout
   - name: Checkout Billing Address
@@ -25,9 +30,8 @@ tags:
 security:
   - X-Auth-Token: []
 paths:
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}':
+  '/checkouts/{checkoutId}':
     parameters:
-      - $ref: '#/components/parameters/storeHash'
       - $ref: '#/components/parameters/checkoutId'
       - $ref: '#/components/parameters/Accept'
     get:
@@ -66,6 +70,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
               examples: {}
             Available Shipping Options:
               example:
@@ -854,6 +860,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -1591,7 +1599,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/discounts':
+  '/checkouts/{checkoutId}/discounts':
     post:
       tags:
         - Checkout Discounts
@@ -1607,7 +1615,6 @@ paths:
         * discounted_amount
       operationId: post-store_hash-v3-checkouts-checkoutId-discounts
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -1644,6 +1651,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -2375,7 +2384,7 @@ paths:
                             - cartpage
                           text: Some text
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
+  '/checkouts/{checkoutId}/billing-address':
     post:
       tags:
         - Checkout Billing Address
@@ -2388,7 +2397,6 @@ paths:
         * country_code
       operationId: CheckoutsBillingAddressByCheckoutIdPost
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -2408,6 +2416,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -3145,7 +3155,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
+  '/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       tags:
         - Checkout Billing Address
@@ -3153,7 +3163,6 @@ paths:
       description: Updates an existing billing address on a checkout.
       operationId: CheckoutsBillingAddressByCheckoutIdAndAddressIdPut
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -3178,6 +3187,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -3915,7 +3926,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
+  '/checkouts/{checkoutId}/consignments':
     post:
       tags:
         - Checkout Consignments
@@ -3925,7 +3936,7 @@ paths:
 
         For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
-        Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `address` requires the following properties:
+        Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/docs/rest-management/checkouts/checkout-orders#create-an-order) the `address` requires the following properties:
         * `first_name`
         * `last_name`
         * `address1`
@@ -3940,7 +3951,6 @@ paths:
         * `state_or_province`
       operationId: CheckoutsConsignmentsByCheckoutIdPost
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -3966,6 +3976,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -4703,9 +4715,9 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
+  '/checkouts/{checkoutId}/consignments/{consignmentId}':
     parameters:
-      - $ref: '#/components/parameters/storeHash'
+      
       - $ref: '#/components/parameters/checkoutId'
       - $ref: '#/components/parameters/Accept'
       - name: consignmentId
@@ -4722,7 +4734,7 @@ paths:
         
         To add a new address and shipping options with line items, complete the following steps. 
         
-        1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout. 
+        1. Add a new [consignment](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) to a checkout. 
         
         2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
@@ -4757,6 +4769,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -5507,6 +5521,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -6237,7 +6253,7 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
+  '/checkouts/{checkoutId}/coupons':
     post:
       tags:
         - Checkout Coupons
@@ -6252,7 +6268,6 @@ paths:
         * Coupon codes have a 50-character limit. 
       operationId: CheckoutsCouponsByCheckoutIdPost
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -6272,6 +6287,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -7009,7 +7026,7 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
+  '/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       tags:
         - Checkout Coupons
@@ -7017,7 +7034,6 @@ paths:
       description: Deletes a coupon code from a checkout.
       operationId: CheckoutsCouponsByCheckoutIdAndCouponCodeDelete
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - name: couponCode
@@ -7036,6 +7052,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -7574,7 +7592,7 @@ paths:
                             - cartpage
                           text: Some text
                 meta: {}
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
+  '/checkouts/{checkoutId}/orders':
     post:
       tags:
         - Checkout Orders
@@ -7590,7 +7608,6 @@ paths:
         * Cart deletion occurs if you are using BigCommerce to accept payments on orders.
       operationId: createAnOrder
       parameters:
-        - $ref: '#/components/parameters/storeHash'
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -7605,15 +7622,13 @@ paths:
                   data:
                     $ref: '#/components/schemas/Order'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   id: 75
                 meta: {}
-  '/stores/{store_hash}/v3/checkouts/settings':
-    parameters:
-      - $ref: '#/components/parameters/storeHash'
+  '/checkouts/settings':
+    parameters:     
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
@@ -7632,8 +7647,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CheckoutsSettings'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
@@ -7673,8 +7687,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CheckoutsSettings'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
@@ -7689,9 +7702,9 @@ paths:
                   order_confirmation_use_custom_checkout_script: false
                   custom_order_confirmation_script_url: 'webdav:vtz-order-confirmation/dist/auto-loader.js'
                 meta: {}
-  '/stores/{store_hash}/v3/checkouts/{checkoutId}/token':
+  '/checkouts/{checkoutId}/token':
     parameters:
-      - $ref: '#/components/parameters/storeHash'
+      
       - $ref: '#/components/parameters/checkoutId'
       - $ref: '#/components/parameters/Accept'
     post:
@@ -7713,7 +7726,7 @@ paths:
                     type: string
                     example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 example-1:
                   value:
@@ -8581,7 +8594,7 @@ components:
           description: ''
         custom_fields:
           type: array
-          description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+          description: 'You can retrieve custom fields from the [Get Form Fields](/docs/rest-storefront/forms#get-form-fields) endpoint.'
           items:
             title: Custom Field
             type: object
@@ -8644,7 +8657,7 @@ components:
                 description: ''
               custom_fields:
                 type: array
-                description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+                description: 'You can retrieve custom fields from the [Get Form Fields](/docs/rest-storefront/forms#get-form-fields) endpoint.'
                 items:
                   title: Custom Field
                   type: object
@@ -8804,6 +8817,12 @@ components:
           type: boolean
           description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   responses:
     CheckoutResponse:
       description: ''
@@ -9587,13 +9606,6 @@ components:
               id: 75
             meta: {}
   parameters:
-    storeHash:
-      name: store_hash
-      in: path
-      required: true
-      description: Permanent ID of the BigCommerce store.
-      schema:
-        type: string
     checkoutId:
       name: checkoutId
       in: path
@@ -9645,7 +9657,29 @@ components:
           - consignments.available_shipping_options
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
-      description: ''
       name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Checkouts | modify | `store_checkouts` |
+        |  Checkouts | read-only | `store_checkouts_read_only` |
+        |  Checkout Content | modify | `store_checkout_content` |
+        |  Checkout Content | read-only | `store_checkout_content_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header

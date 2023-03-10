@@ -1,33 +1,24 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Wishlist
   description: |-
     Create and manage customer [wishlists](https://support.bigcommerce.com/s/article/Wishlists).
 
-    ## Authentication
-
-    [Authenticate](/api-docs/getting-started/authentication/rest-api-authentication) requests by including an OAuth `access_token` in the request header.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth scopes
-    |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
-    |  Customers | modify | `store_v2_customers` |
-    |  Customers | read-only | `store_v2_customers_read_only` |
-
-    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
     ## Additional Information
     * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
-  contact: {}
   version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
   - X-Auth-Token: []
 tags:
@@ -35,7 +26,7 @@ tags:
     description: ''
   - name: Wishlists Items
 paths:
-  '/stores/{store_hash}/v3/wishlists':
+  '/wishlists':
     get:
       tags:
         - Wishlists
@@ -43,11 +34,6 @@ paths:
       description: Returns a list of wishlists. Optional filter parameters can be passed in.
       operationId: WishlistsGet
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: customer_id
           in: query
           description: All wishlists relating to the customer.
@@ -66,16 +52,7 @@ paths:
           schema:
             type: integer
             format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
@@ -187,21 +164,8 @@ paths:
         * customer_id
       operationId: WishlistsPost
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -221,6 +185,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -276,7 +242,7 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: body
-  '/stores/{store_hash}/v3/wishlists/{wishlist_id}/items/{item_id}':
+  '/wishlists/{wishlist_id}/items/{item_id}':
     delete:
       tags:
         - Wishlists Items
@@ -284,28 +250,8 @@ paths:
       description: Deletes a wishlist item.
       operationId: WishlistsItemsByIdDelete
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: wishlist_id
-          in: path
-          description: ID of the Wishlist
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/WishlistID'
+        - $ref: '#/components/parameters/Accept'
         - name: item_id
           in: path
           required: true
@@ -325,6 +271,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -385,7 +333,7 @@ paths:
                     type: string
                   type:
                     type: string
-  '/stores/{store_hash}/v3/wishlists/{wishlist_id}':
+  '/wishlists/{wishlist_id}':
     get:
       tags:
         - Wishlists
@@ -393,28 +341,8 @@ paths:
       description: Returns a single wishlist.
       operationId: WishlistsByIdGet
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: wishlist_id
-          in: path
-          description: ID of the Wishlist
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/WishlistID'
+        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
@@ -428,6 +356,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -495,31 +425,12 @@ paths:
       description: |-
         Updates a wishlist.
 
-        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/api-reference/store-management/wishlists/wishlists-items).
+        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists/wishlists-items).
       operationId: WishlistsByIdPut
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: wishlist_id
-          in: path
-          description: ID of the Wishlist
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/WishlistID'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -539,6 +450,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -601,28 +514,8 @@ paths:
       description: Deletes a wishlist.
       operationId: WishlistsByIdDelete
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: wishlist_id
-          in: path
-          description: ID of the Wishlist
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/WishlistID'
+        - $ref: '#/components/parameters/Accept'
       responses:
         '204':
           description: ''
@@ -657,7 +550,7 @@ paths:
                     type: string
                   type:
                     type: string
-  '/stores/{store_hash}/v3/wishlists/{wishlist_id}/items':
+  '/wishlists/{wishlist_id}/items':
     post:
       tags:
         - Wishlists Items
@@ -665,28 +558,9 @@ paths:
       description: Adds a wishlist item. More than one item can be added at a time.
       operationId: WishlistsItemsByIdPost
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: wishlist_id
-          in: path
-          description: ID of the Wishlist
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/WishlistID'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -706,6 +580,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -977,6 +853,8 @@ components:
               meta:
                 type: object
                 properties: {}
+                additionalProperties: true
+                description: Response metadata.
           example:
             data:
               id: 30
@@ -1094,52 +972,51 @@ components:
     WishlistID:
       name: wishlist_id
       in: path
-      description: ID of the Wishlist
+      description: ID of the Wishlist.
       required: true
       schema:
         type: integer
         format: int32
-    Content-Type:
-      name: Content-Type
-      in: header
-      schema:
-        type: string
-        default: application/json
     Accept:
       name: Accept
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
+      name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Customers | modify | `store_v2_customers` |
         |  Customers | read-only | `store_v2_customers_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
-      name: X-Auth-Token
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

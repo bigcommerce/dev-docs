@@ -1,20 +1,24 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/cart/created:
+    description: This webhook will fire whenever a new cart is created, either via a storefront shopper adding their first item to the cart, or when a new cart is created via an API consumer. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before). For the API it means a POST to /carts, (V3 and Storefront API). The store/cart/updated hook will also fire.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
         type: string
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

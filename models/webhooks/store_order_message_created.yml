@@ -1,25 +1,29 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/order/message/created:
+    description: Order message is created by customer or in control panel
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      message:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          order_message_id:
+          type:
+            type: string
+          id:
             type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          message:
+            type: object
+            properties:
+              order_message_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

@@ -1,20 +1,24 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/product/updated:
+    description: Occurs when product details are edited. For a full list of product fields that trigger an updated event, see Product updated events below
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+      hash:
+        type: string
+      created_at:
         type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      producer:
+        type: string
 

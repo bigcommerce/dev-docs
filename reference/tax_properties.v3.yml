@@ -1,12 +1,29 @@
-openapi: 3.0.0
-x-stoplight:
-  id: af9eb7ad6774f
+openapi: '3.0.0'
 info:
   title: Tax Properties
   description: Include tax properties and product tax properties in tax calculations.
-  version: ""
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Tax Properties
+  - name: Product Tax Properties
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 paths:
-  "/stores/{store_hash}/v3/tax/properties":
+  "/tax/properties":
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Tax Properties
@@ -14,11 +31,6 @@ paths:
       description: Retrieve all tax properties defined in this store.
       operationId: get-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - $ref: "#/components/parameters/idin"
       responses:
         "200":
@@ -33,7 +45,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "400":
           description: Request parameters invalid
     put:
@@ -44,11 +56,7 @@ paths:
         adjusted.
       operationId: update-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -57,7 +65,6 @@ paths:
               items:
                 $ref: "#/components/schemas/PropertyPUT"
         required: true
-        x-examples: {}
       responses:
         "200":
           description: OK
@@ -71,7 +78,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     post:
@@ -82,11 +89,7 @@ paths:
         must be included when creating tax properties.
       operationId: create-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -108,7 +111,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     delete:
@@ -119,11 +122,6 @@ paths:
         usages within product tax properties before you can delete it.
       operationId: delete-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - $ref: "#/components/parameters/idin_required"
       responses:
         "204":
@@ -132,7 +130,9 @@ paths:
           description: Request parameters invalid
         "409":
           description: Tax Property is in use and cannot be deleted.
-  "/stores/{store_hash}/v3/tax/products/properties":
+  "/tax/products/properties":
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Product Tax Properties
@@ -141,11 +141,6 @@ paths:
         products.
       operationId: get-product-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - $ref: "#/components/parameters/product_idin"
       responses:
         "200":
@@ -160,7 +155,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ProductTaxProperty"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "400":
           description: Request parameters invalid
     put:
@@ -172,11 +167,7 @@ paths:
         with the product, overwriting any existing tax property values.
       operationId: update-product-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -184,13 +175,14 @@ paths:
               type: array
               items:
                 $ref: "#/components/schemas/ProductTaxProperty"
+            examples:
+              Example:
+                value:
+                  - product_id: 157
+                    tax_properties:
+                      A-123456789: "26"
+                      B-6731789: "200"
         required: true
-        x-examples:
-          Example:
-            - product_id: 157
-              tax_properties:
-                A-123456789: "26"
-                B-6731789: "200"
       responses:
         "200":
           description: OK
@@ -204,7 +196,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ProductTaxProperty"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     delete:
@@ -214,26 +206,30 @@ paths:
       description: Delete tax properties that are associated with one or more products.
       operationId: delete-product-tax-properties
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - $ref: "#/components/parameters/product_idin"
       responses:
         "204":
           description: No Content
         "400":
           description: Request parameters invalid
-security:
-  - API_Key: []
-tags:
-  - name: Tax Properties
-  - name: Product Tax Properties
-servers:
-  - url: https://api.bigcommerce.com
 components:
   parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
     product_idin:
       name: product_id:in
       in: query
@@ -259,33 +255,31 @@ components:
       schema:
         type: string
   securitySchemes:
-    API_Key:
-      type: apiKey
+    X-Auth-Token:
       name: X-Auth-Token
-      in: header
-      description: >-
-        ### OAuth Scopes
+      description: |-
+        ### OAuth scopes
 
-        |  **UI Name** | **Permission** | **Parameter** |
-
-        | --- | --- | --- |
-
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Information & Settings | modify | `store_v2_information` |
-
         |  Information & Settings | read-only | `store_v2_information_read_only` |
 
-
-        ### Headers
-
-
-        |Header|Parameter|Description|
-
-        |-|-|-|
-
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-
-        * For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     Property:
       type: object
@@ -376,7 +370,6 @@ components:
     ProductTaxProperty:
       type: object
       description: A collection of tax property values associated with a product.
-      x-examples: {}
       properties:
         product_id:
           type: integer
@@ -395,3 +388,9 @@ components:
       required:
         - product_id
         - tax_properties
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.

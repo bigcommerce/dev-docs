@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
   version: ''
   title: Shipping V2
@@ -25,7 +25,11 @@ info:
 
     Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
     description: BigCommerce API Gateway
 security:
   - X-Auth-Token: []
@@ -35,27 +39,14 @@ tags:
   - name: Shipping Zones
   - name: Shipping Products Custom Information
 paths:
-  '/stores/{store_hash}/v2/shipping/zones':
+  '/shipping/zones':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       description: Returns a list of all *Shipping Zones*.
       summary: Get All Shipping Zones
       tags:
         - Shipping Zones
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -145,7 +136,7 @@ paths:
                       example: true
                       type: boolean
               examples:
-                response:
+                'Example 1: Zones are Country Zones':
                   value:
                     - id: 1
                       name: United States
@@ -169,34 +160,25 @@ paths:
                         minimum_sub_total: '0.0000'
                         exclude_fixed_shipping_products: false
                       enabled: true
-            Response Schema:
-              examples:
-                response:
+                'Example 2: Zone is Selection of States in a Country':
                   value:
-                    - name: esse veniam deserunt nisi
-                      id: 6648057
+                    - id: 2 
+                      name: States in the U.S.
                       type: state
                       locations:
-                        - id: 27962554
-                          zip: sed commodo
-                          country_iso2: laborum Ut
-                          state_iso2: sunt officia laboris tempor cupidatat
-                        - id: 90778339
-                          zip: amet anim deserunt cillum aute
-                          country_iso2: cupidatat
-                          state_iso2: dolor nisi
-                        - id: 48379114
-                          zip: dolore fugiat
-                          country_iso2: sit in officia ea
-                          state_iso2: qui ad
+                        - id: 3
+                          country_iso2: US
+                          state_iso2: TX
+                        - id: 4
+                          country_iso2: US
+                          state_iso2: TX
                       free_shipping:
                         enabled: false
-                        minimum_sub_total: exercitation pariatur Lorem enim
+                        minimum_sub_total: "0"
                         exclude_fixed_shipping_products: true
                       handling_fees:
-                        fixed_surcharge: in
-                        percentage_surcharge: consequat
                         display_separately: false
+                        fixed_surcharge: 0
                       enabled: false
       x-unitTests: []
       x-operation-settings:
@@ -211,18 +193,7 @@ paths:
       tags:
         - Shipping Zones
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -419,41 +390,12 @@ paths:
                     type: boolean
               examples: {}
       operationId: createAShippingZones
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v2/shipping/zones/{id}':
+  '/shipping/zones/{id}':
     get:
       description: Returns a single *Shipping Zone*.
       summary: Get a Shipping Zones
       tags:
         - Shipping Zones
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -554,28 +496,7 @@ paths:
       tags:
         - Shipping Zones
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -759,29 +680,6 @@ paths:
       summary: Delete a Shipping Zone
       tags:
         - Shipping Zones
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -793,45 +691,21 @@ paths:
         IsMultiContentStreaming: false
       operationId: deleteAShippingZone
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/Accept'
       - name: id
         in: path
         required: true
+        description: ID of the shipping zone.
         schema:
-          type: string
-  '/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods':
+          type: integer
+          exclusiveMinimum: false
+          exclusiveMaximum: false
+  '/shipping/zones/{zone_id}/methods':
     get:
       description: 'Returns a list of *Shipping Methods* in a zone. Default sorting is by shipping method ID, from lowest to highest.'
       summary: Get All Shipping Methods in a Zone
       tags:
         - Shipping Method
-      parameters:
-        - name: zone_id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -841,8 +715,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/shippingMethod_Full'
-              x-examples:
-                response:
+              examples:
+                Example 1:
                   value:
                     - id: 1
                       name: Flat Rate
@@ -851,15 +725,15 @@ paths:
                         rate: 12
                       enabled: true
                       handling_fees:
-                        fixed_surcharge: 0
+                        fixed_surcharge: "0"
                       is_fallback: false
                     - id: 2
                       name: Pickup In Store
-                      type: pickupinstore
-                      settings: []
+                      type: total
+                      settings: {}
                       enabled: false
                       handling_fees:
-                        fixed_surcharge: 0
+                        fixed_surcharge: "0"
                       is_fallback: false
                     - id: 3
                       name: Ship by Weight
@@ -882,7 +756,7 @@ paths:
                             shipping_cost: 8
                       enabled: true
                       handling_fees:
-                        fixed_surcharge: 0
+                        fixed_surcharge: "0"
                       is_fallback: false
                     - id: 4
                       name: UPS®
@@ -903,76 +777,433 @@ paths:
                           packaging: []
                       enabled: true
                       handling_fees:
-                        fixed_surcharge: 0
+                        fixed_surcharge: "0"
                       is_fallback: false
-            Response Schema:
-              examples:
-                response:
+                Example 2:
                   value:
                     - id: 23225205
                       name: tempo
                       type: royalmail
                       settings: {}
                       enabled: true
-                      handling_fees: fixed_surcharge
+                      handling_fees: 
+                        fixed_surcharge: "0"
                       is_fallback: false
                     - id: 35889344
                       name: Lorem Excepteur esse
                       type: canadapost
                       settings: {}
                       enabled: true
-                      handling_fees: percentage_surcharge
+                      handling_fees: 
+                        percentage_surcharge: "0"
                       is_fallback: false
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
       operationId: getShippingMethodsZone
     post:
-      description: "Creates a *Shipping Method* within a shipping zone. Real Time Carrier\nConnections are also supported by this endpoint. \n\n\n## Carrier Configurations – Current\n\n\nThis section provides a sample request and a carrier-specific object/property model, for each supported carrier.\n \n### USPS by Endicia\n\n\n#### Sample Request\n\n\n\n```json\n\n{\n    \"name\": \"USPS by Endicia\",\n    \"type\": \"endicia\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\" : [\"PriorityExpress\",\"Priority\", \"PriorityMailExpressInternational\"],\n\t\t\t\"packaging_type\" : \"LargeFlatRateBox\",\n            \"show_transit_time\" : true\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n### USPS by Endicia Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | PriorityExpress <br> PriorityMailExpressInternational <br> FirstClassPackageInternationalService <br> Priority <br> PriorityMailInternational <br> First <br> ParcelSelect <br> MediaMail |\n| packaging_type | array | FlatRateLegalEnvelope <br> FlatRatePaddedEnvelope <br> Parcel <br> SmallFlatRateBox <br> MediumFlatRateBox <br> LargeFlatRateBox <br> FlatRateEnvelope <br> RegionalRateBoxA <br> RegionalRateBoxB |\n|show_transit_time | boolean | true <br> false |\n\n\n\n### FedEx\n\n\n#### Sample Request\n\n\n```json\n\n{\n    \"name\": \"FEDEX\",\n    \"type\": \"fedex\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"PRIORITY_OVERNIGHT\",\n\t\t\t\t\"FEDEX_2_DAY\"\n            ],\n            \"dropoff_type\": \"REGULAR_PICKUP\",\n            \"packaging_type\": \"FEDEX_ENVELOPE\",\n            \"packing_method\": \"SEPARATE\",\n            \"rate_type\": \"NONE\",\n            \"include_package_value\": true,\n            \"destination_type\": \"residential\"\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### FedEx Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | PRIORITY_OVERNIGHT <br> STANDARD_OVERNIGHT <br> FIRST_OVERNIGHT <br> FEDEX_2_DAY <br> FEDEX_EXPRESS_SAVER <br> INTERNATIONAL_PRIORITY <br> INTERNATIONAL_ECONOMY <br> INTERNATIONAL_FIRST <br> FEDEX_1_DAY_FREIGHT <br> FEDEX_2_DAY_FREIGHT <br> FEDEX_3_DAY_FREIGHT <br> FEDEX_GROUND <br> GROUND_HOME_DELIVERY <br> INTERNATIONAL_PRIORITY_FREIGHT <br> INTERNATIONAL_ECONOMY_FREIGHT <br> EUROPE_FIRST_INTERNATIONAL_PRIORITY |\n| dropoff_type | string | REGULAR_PICKUP <br> REQUEST_COURIER <br> DROP_BOX <br> BUSINESS_SERVICE_CENTER <br> STATION |\n| packaging_type | string | FEDEX_ENVELOPE <br>  FEDEX_PAK <br> FEDEX_BOX <br> FEDEX_TUBE <br> FEDEX_10KG_BOX <br> FEDEX_25KG_BOX <br> YOUR_PACKAGING |\n| packing_method | string | SEPARATE <br> COMBINED |\n| rate_type | string | NONE <br> LIST |\n| include_package_value | boolean | true <br> false |\n| destination_type | string | residential <br> business |\n\n\n### UPS Ready\n\n\n#### Sample Request\n\n\n```json\n\n{\n    \"name\": \"UPS ready\",\n    \"type\": \"upsready\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"2nd_Day_Air\",\"Standard\"\n            ],\n            \"packaging_type\": \"21\",\n            \"packing_method\": \"separate\",\n            \"include_package_value\": true,\n            \"destination_type\": \"residential\",\n            \"show_transit_time\" : true\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### UPS Ready Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | 2nd_Day_Air <br> 2nd_Day_Air_AM <br> 3_Day_Select <br> Expedited <br> Express <br> Express_Plus <br> Express_Saver <br> Express_Early_AM <br> Ground <br> Next_Day_Air <br> Next_Day_Air_Early_AM <br> Next_Day_Air_Saver <br> Saver <br> Standard <br> Today_Dedicated_Courier <br> Today_Express <br> Today_Express_Saver <br> Today_Intercity <br> Today_Standard <br> Worldwide_Expedited <br> Worldwide_Express <br> Worldwide_Express_Plus <br> Worldwide_Express_Saver <br> Worldwide_Saver |\n| destination_type | string | residential <br> business |\n| packing_method | string | separate <br> combined |\n| packaging_type | string (only codes allowed) | 21: UPS® Express Box <br> 24: UPS® 25 KG Box <br> 25: UPS® 10 KG Box <br> 30: Pallet <br> 01: UPS® Letter <br> 02: Customer Supplied Package <br> 03: Tube <br> 04: PAK <br> 2a: Small Express Box <br> 2b: Medium Express Box <br> 2c: Large Express Box |\n| include_package_value | boolean | true <br> false |\n| show_transit_time | boolean | true <br> false |\n\n\n### Canada Post\n\n\n#### Sample Request\n\n\n```json\n\n{\n    \"name\": \"Canada Post\",\n    \"type\": \"canadapost\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"DOM.RP\",\"DOM.EP\"\n            ]\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### Canada Post Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | DOM.RP <br> DOM.EP <br> DOM.XP <br> DOM.XP.CERT <br> DOM.PC DOM.LIB <br> USA.EP <br> USA.PW.ENV <br> USA.PW.PAK <br> USA.PW.PARCEL <br> USA.SP.AIR <br> USA.TP <br> USA.TP.LVM <br> USA.XP <br> INT.XP <br> INT.IP.AIR <br> INT.IP.SURF <br> INT.PW.ENV <br> INT.PW.PAK <br> INT.PW.PARCEL <br> INT.SP.AIR <br> INT.SP.SURF <br> INT.TP |\n\n\n### Australia Post\n\n\n```json\n\n{\n    \"name\": \"Australia Post\",\n    \"type\": \"auspost\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"AUS_PARCEL_REGULAR\",\n\t\t\t\t\"AUS_PARCEL_EXPRESS\"\n            ]\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### Australia Post Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | AUS_LETTER_REGULAR_SMALL <br> AUS_LETTER_REGULAR_Large <br> AUS_LETTER_EXPRESS_SMALL <br> AUS_LETTER_EXPRESS_MEDIUM <br> AUS_LETTER_EXPRESS_LARGE <br> AUS_PARCEL_REGULAR <br> AUS_PARCEL_REGULAR_SATCHEL_500G <br> AUS_PARCEL_REGULAR_SATCHEL_3KG <br> AUS_PARCEL_REGULAR_SATCHEL_5KG <br> AUS_PARCEL_EXPRESS <br> AUS_PARCEL_EXPRESS_SATCHEL_500G <br> AUS_PARCEL_EXPRESS_SATCHEL_3KG <br> AUS_PARCEL_EXPRESS_SATCHEL_5KG <br> AUS_PARCEL_COURIER <br> AUS_PARCEL_COURIER_SATCHEL_MEDIUM <br> INT_PARCEL_COR_OWN_PACKAGING <br> INT_PARCEL_EXP_OWN_PACKAGING <br> INT_PARCEL_STD_OWN_PACKAGING <br> INT_PARCEL_AIR_OWN_PACKAGING <br> INT_PARCEL_SEA_OWN_PACKAGING |\n\n\n### Royal Mail\n\n\n#### Sample Request\n\n\n```json\n\n{\n    \"name\": \"Royal Mail\",\n    \"type\": \"royalmail\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"StandardFirstClass\",\n\t\t\t\t\"StandardSecondClass\"\n            ]\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### Royal Mail Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | SpecialDelivery1pm <br> SpecialDelivery9am <br> SpecialDelivery1pmSaturday <br> SpecialDelivery9amSaturday <br> SignedForFirstClass <br> SignedForSecondClass <br> Express9 <br> Express10 <br> ExpressAM <br> Express24 <br> Express48 <br> StandardFirstClass <br> StandardSecondClass <br> InternationalStandard <br> InternationalTracked <br> InternationalEconomy |\n\n\n### Zoom2U\n\n\n#### Sample Request\n\n\n```json\n\n{\n    \"name\": \"Zoom2U\",\n    \"type\": \"zoom2u\",\n    \"settings\": {\n        \"carrier_options\": {\n            \"delivery_services\": [\n                \"3_hour\",\n\t\t\t\t\"Same_day\",\n\t\t\t\t\"VIP\"\n            ]\n        }\n    },\n    \"enabled\": true\n}\n\n```\n\n\n#### Zoom2U Object Properties\n\n\n| Property | Type | Values |\n| - | - | - |\n| delivery_services | array | 3_hour <br> Same_day <br> VIP|\n\n\n\n### Settings Objects \n\n\nA shipping method's `type` and `settings` properties can match one of the following models:\n\n\n### perorder Object – Properties \n\n\nObject model for flat-rate shipping quotes per order.\n\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per order. |\n\n\n#### JSON Example \n\n\n```json\n\n{\n\t\"name\": \"Flat Rate per Order\",\n\t\"type\": \"perorder\",\n\t\"settings\": {\n\t\t\"rate\": 7\n\t}\n},\n\n```\n\n\n### peritem Object – Properties \n\n\nObject model for flat-rate shipping quotes per item ordered.\n\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per item. |\n\n\n#### JSON Example \n\n\n```json\n\n{\n\t\"name\": \"Flat Rate per Item\",\n\t\"type\": \"peritem\",\n\t\"settings\": {\n\t\t\"rate\": 8\n\t}\n},\n\n```\n\n\n### weight Object – Properties \n\n\nObject model for shipping quotes by weight.\n\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |\n\n\n\n#### JSON Example \n   \n```json\n\n{\n\t\"name\": \"Rate per Weight\",\n\t\"type\": \"weight\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 40,\n\t\t\t\t\"shipping_cost\": 12\n\t\t\t}\n\t\t]\n\t}\n}\n\n```\n\n\n### total Object – Properties \n\n\nObject model for shipping quotes by order's total value.\n\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| include_order_total_taxes | boolean | Whether or not to include taxes on the order's total value in the shipping cost calculation. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |\n\n\n#### JSON Example \n\n\nThis example sets free shipping above a certain order total:\n\n\n```json\n\n{\n\t\"name\": \"Per Total or Free\",\n\t\"type\": \"total\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"include_order_total_taxes\": 0,\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 5,\n\t\t\t\t\"shipping_cost\": 5\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 5,\n\t\t\t\t\"upper_limit\": 10,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 10,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 10\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 49.99,\n\t\t\t\t\"shipping_cost\": 15\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 50,\n\t\t\t\t\"upper_limit\": 100000,\n\t\t\t\t\"shipping_cost\": 0\n\t\t\t}       \n\t\t]\n\t}\n}\n\n```\n\n\n### Range Object – Properties \n\n\nObject model to define ranges for shipping quotes. Units are defined in the parent object.\n\n\n| Name | Type | Description |\n| - | - | - |\n| lower_limit | number | Lower limit for order total. |\n| upper_limit | number | Upper limit for order total. |\n| shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |\n\n\n#### JSON Example \n\n\n```json\n\n{\n\t\"lower_limit\": 0,\n\t\"upper_limit\": 20,\n\t\"shipping_cost\": 8\n}\n\n```"
+      description: |-
+        Creates a *Shipping Method* within a shipping zone. Real Time Carrier Connections are also supported by this endpoint. 
+        
+        ## Carrier Configurations – Current
+        
+        This section provides a sample request and a carrier-specific object/property model, for each supported carrier.
+        
+        ### USPS by Endicia
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "USPS by Endicia",
+            "type": "endicia",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services" : ["PriorityExpress","Priority", "PriorityMailExpressInternational"],
+                    "packaging_type" : "LargeFlatRateBox",
+                    "show_transit_time" : true
+                }
+            },
+            "enabled": true
+        }
+        ```
+        
+        #### USPS by Endicia Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | PriorityExpress, PriorityMailExpressInternational, FirstClassPackageInternationalService, Priority, PriorityMailInternational, First, ParcelSelect, MediaMail |
+        | packaging_type | array | FlatRateLegalEnvelope, FlatRatePaddedEnvelope, Parcel, SmallFlatRateBox, MediumFlatRateBox, LargeFlatRateBox, FlatRateEnvelope, RegionalRateBoxA, RegionalRateBoxB |
+        |show_transit_time | boolean | true, false |
+        
+        ### FedEx
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "FEDEX",
+            "type": "fedex",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "PRIORITY_OVERNIGHT",
+                        "FEDEX_2_DAY"
+                    ],
+                    "dropoff_type": "REGULAR_PICKUP",
+                    "packaging_type": "FEDEX_ENVELOPE",
+                    "packing_method": "SEPARATE",
+                    "rate_type": "NONE",
+                    "include_package_value": true,
+                    "destination_type": "residential"
+                }
+            },
+            "enabled": true
+        }
+        
+        ```
+        
+        #### FedEx Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | PRIORITY_OVERNIGHT, STANDARD_OVERNIGHT, FIRST_OVERNIGHT, FEDEX_2_DAY, FEDEX_EXPRESS_SAVER, INTERNATIONAL_PRIORITY, INTERNATIONAL_ECONOMY, INTERNATIONAL_FIRST, FEDEX_1_DAY_FREIGHT, FEDEX_2_DAY_FREIGHT, FEDEX_3_DAY_FREIGHT, FEDEX_GROUND, GROUND_HOME_DELIVERY, INTERNATIONAL_PRIORITY_FREIGHT, INTERNATIONAL_ECONOMY_FREIGHT, EUROPE_FIRST_INTERNATIONAL_PRIORITY |
+        | dropoff_type | string | REGULAR_PICKUP, REQUEST_COURIER, DROP_BOX, BUSINESS_SERVICE_CENTER, STATION |
+        | packaging_type | string | FEDEX_ENVELOPE,  FEDEX_PAK, FEDEX_BOX, FEDEX_TUBE, FEDEX_10KG_BOX, FEDEX_25KG_BOX, YOUR_PACKAGING |
+        | packing_method | string | SEPARATE, COMBINED |
+        | rate_type | string | NONE, LIST |
+        | include_package_value | boolean | true, false |
+        | destination_type | string | residential, business |
+        
+        
+        ### UPS Ready
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "UPS ready",
+            "type": "upsready",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "2nd_Day_Air","Standard"
+                    ],
+                    "packaging_type": "21",
+                    "packing_method": "separate",
+                    "include_package_value": true,
+                    "destination_type": "residential",
+                    "show_transit_time" : true
+                }
+            },
+            "enabled": true
+        }
+        
+        ```
+        
+        #### UPS Ready Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | 2nd_Day_Air, 2nd_Day_Air_AM, 3_Day_Select, Expedited, Express, Express_Plus, Express_Saver, Express_Early_AM, Ground, Next_Day_Air, Next_Day_Air_Early_AM, Next_Day_Air_Saver, Saver, Standard, Today_Dedicated_Courier, Today_Express, Today_Express_Saver, Today_Intercity, Today_Standard, Worldwide_Expedited, Worldwide_Express, Worldwide_Express_Plus, Worldwide_Express_Saver, Worldwide_Saver |
+        | destination_type | string | residential, business |
+        | packing_method | string | separate, combined |
+        | packaging_type | string (only codes allowed) | See the following table |
+        | include_package_value | boolean | true, false |
+        | show_transit_time | boolean | true, false |
+        
+        UPS `packaging_type` values include:
+
+        | Code | Description |
+        |:----:|:------------|
+        | 21 | UPS® Express Box |
+        | 24 | UPS® 25 KG Box |
+        | 25 | UPS® 10 KG Box |
+        | 30 | Pallet |
+        | 01 | UPS® Letter |
+        | 02 | Customer Supplied Package |
+        | 03 | Tube |
+        | 04 | PAK |
+        | 2a | Small Express Box |
+        | 2b | Medium Express Box |
+        | 2c | Large Express Box |
+
+
+        ### Canada Post
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "Canada Post",
+            "type": "canadapost",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "DOM.RP","DOM.EP"
+                    ]
+                }
+            },
+            "enabled": true
+        }
+        
+        ```
+        
+        #### Canada Post Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | DOM.RP, DOM.EP, DOM.XP, DOM.XP.CERT, DOM.PC DOM.LIB, USA.EP, USA.PW.ENV, USA.PW.PAK, USA.PW.PARCEL, USA.SP.AIR, USA.TP, USA.TP.LVM, USA.XP, INT.XP, INT.IP.AIR, INT.IP.SURF, INT.PW.ENV, INT.PW.PAK, INT.PW.PARCEL, INT.SP.AIR, INT.SP.SURF, INT.TP |
+        
+        ### Australia Post
+        
+        Example request body:
+
+        ```json
+        {
+            "name": "Australia Post",
+            "type": "auspost",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "AUS_PARCEL_REGULAR",
+                "AUS_PARCEL_EXPRESS"
+                    ]
+                }
+            },
+            "enabled": true
+        }
+        
+        ```
+        
+        #### Australia Post Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | AUS_LETTER_REGULAR_SMALL, AUS_LETTER_REGULAR_Large, AUS_LETTER_EXPRESS_SMALL, AUS_LETTER_EXPRESS_MEDIUM, AUS_LETTER_EXPRESS_LARGE, AUS_PARCEL_REGULAR, AUS_PARCEL_REGULAR_SATCHEL_500G, AUS_PARCEL_REGULAR_SATCHEL_3KG, AUS_PARCEL_REGULAR_SATCHEL_5KG, AUS_PARCEL_EXPRESS, AUS_PARCEL_EXPRESS_SATCHEL_500G, AUS_PARCEL_EXPRESS_SATCHEL_3KG, AUS_PARCEL_EXPRESS_SATCHEL_5KG, AUS_PARCEL_COURIER, AUS_PARCEL_COURIER_SATCHEL_MEDIUM, INT_PARCEL_COR_OWN_PACKAGING, INT_PARCEL_EXP_OWN_PACKAGING, INT_PARCEL_STD_OWN_PACKAGING, INT_PARCEL_AIR_OWN_PACKAGING, INT_PARCEL_SEA_OWN_PACKAGING |
+        
+        ### Royal Mail
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "Royal Mail",
+            "type": "royalmail",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "StandardFirstClass",
+                        "StandardSecondClass"
+                    ]
+                }
+            },
+            "enabled": true
+        }
+        ```
+        
+        #### Royal Mail Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | SpecialDelivery1pm, SpecialDelivery9am, SpecialDelivery1pmSaturday, SpecialDelivery9amSaturday, SignedForFirstClass, SignedForSecondClass, Express9, Express10, ExpressAM, Express24, Express48, StandardFirstClass, StandardSecondClass, InternationalStandard, InternationalTracked, InternationalEconomy |
+        
+        ### Zoom2U
+        
+        Example request body:
+        
+        ```json
+        {
+            "name": "Zoom2U",
+            "type": "zoom2u",
+            "settings": {
+                "carrier_options": {
+                    "delivery_services": [
+                        "3_hour",
+                "Same_day",
+                "VIP"
+                    ]
+                }
+            },
+            "enabled": true
+        }
+        ```
+
+        #### Zoom2U Object Properties
+        
+        | Property | Type | Values |
+        |:---------|:-----|:-------|
+        | delivery_services | array | 3_hour, Same_day, VIP|
+        
+        ### Settings Objects 
+        
+        A shipping methodʼs `type` and `settings` properties can match one of the following models:
+        
+        #### perorder Object – Properties 
+        
+        Object model for flat-rate shipping quotes per order.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | rate | number | Flat rate per order. |
+        
+        Example request body: 
+        
+        ```json
+        {
+          "name": "Flat Rate per Order",
+          "type": "perorder",
+          "settings": {
+            "rate": 7
+          }
+        }
+        ```
+        
+        #### peritem Object – Properties 
+        
+        Object model for flat-rate shipping quotes per item ordered.
+        
+        | Name | Type | Description |
+        |:-----|:-----|:------------|
+        | rate | number | Flat rate per item. |
+        
+        Ezample request body:
+        
+        ```json
+        {
+          "name": "Flat Rate per Item",
+          "type": "peritem",
+          "settings": {
+            "rate": 8
+          }
+        }
+        ```
+        
+        #### weight Object – Properties 
+        
+        Object model for shipping quotes by weight.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
+        
+        Example request body:
+          
+        ```json
+        {
+          "name": "Rate per Weight",
+          "type": "weight",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 20,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 40,
+                "shipping_cost": 12
+              }
+            ]
+          }
+        }
+        ```
+        
+        #### total Object – Properties 
+        
+        Object model for shipping quotes by orderʼs total value.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
+        
+        Example request body:
+        
+        This example sets free shipping above a certain order total:
+        
+        ```json
+        {
+          "name": "Per Total or Free",
+          "type": "total",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "include_order_total_taxes": 0,
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 5,
+                "shipping_cost": 5
+              },
+              {
+                "lower_limit": 5,
+                "upper_limit": 10,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 10,
+                "upper_limit": 20,
+                "shipping_cost": 10
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 49.99,
+                "shipping_cost": 15
+              },
+              {
+                "lower_limit": 50,
+                "upper_limit": 100000,
+                "shipping_cost": 0
+              }       
+            ]
+          }
+        }
+        ```
+        
+        #### Range Object – Properties 
+        
+        Object model to define ranges for shipping quotes. Units are defined in the parent object.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | lower_limit | number | Lower limit for order total. |
+        | upper_limit | number | Upper limit for order total. |
+        | shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |
+        
+        
+        Example request body: 
+        
+        ```json
+        {
+          "lower_limit": 0,
+          "upper_limit": 20,
+          "shipping_cost": 8
+        }
+        ```  
       summary: Create a Shipping Method
       tags:
         - Shipping Method
       parameters:
-        - name: zone_id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/shippingMethod_Base'
+            example:
+              name: Per Order
+              type: perorder
+              settings:
+                rate: 8
+              enabled: true
+              handling_fees:
+                fixed_surcharge: "3"
         required: true
-        x-examples:
-          application/json:
-            name: Per Order
-            type: perorder
-            settings:
-              rate: 8
-            enabled: true
-            handling_fees:
-              fixed_surcharge: 3
       responses:
         '200':
           description: ''
@@ -980,8 +1211,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/shippingMethod_Full'
-              x-examples:
-                response:
+              examples:
+                Example 1:
                   value:
                     id: 5
                     name: Per Order
@@ -990,38 +1221,36 @@ paths:
                       rate: 8
                     enabled: true
                     handling_fees:
-                      fixed_surcharge: 3
-            Response Schema:
-              examples:
-                response:
+                      fixed_surcharge: "3"
+                Example 2:
                   value:
                     id: 19609616
                     name: ad sed
                     type: auspost
                     settings: {}
                     enabled: false
-                    handling_fees: fixed_surcharge
+                    handling_fees: 
+                      fixed_surcharge: "0"
                     is_fallback: false
       operationId: createAShippingMethod
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/Accept'
       - name: zone_id
         in: path
         required: true
+        description: ID of the shipping zone.
         schema:
-          type: string
-  '/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods/{method_id}':
+          type: integer
+          exclusiveMinimum: false
+          exclusiveMaximum: false
+  '/shipping/zones/{zone_id}/methods/{method_id}':
     get:
       description: |-
         Returns a single *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint.
 
         ### Settings Objects
 
-        A shipping method's `type` and `settings` properties can match one of the following models:
+        A shipping methodʼs `type` and `settings` properties can match one of the following models:
 
         ### perorder Object – Properties
 
@@ -1067,9 +1296,9 @@ paths:
 
         | Name | Type | Description |
         | - | - | - |
-        | default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
-        | default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
-        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
 
 
         #### JSON Example
@@ -1098,14 +1327,14 @@ paths:
 
         ### total Object – Properties
 
-        Object model for shipping quotes by order's total value.
+        Object model for shipping quotes by orderʼs total value.
 
         | Name | Type | Description |
         | - | - | - |
-        | default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
-        | default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
-        | include_order_total_taxes | boolean | Whether or not to include taxes on the order's total value in the shipping cost calculation. |
-        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
 
         #### JSON Example
 
@@ -1172,37 +1401,6 @@ paths:
       summary: Get a Shipping Method
       tags:
         - Shipping Method
-      parameters:
-        - name: zone_id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: method_id
-          in: path
-          required: true
-          description: ID of the shipping method within the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -1249,8 +1447,8 @@ paths:
                     description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
                     example: false
                     type: boolean
-              x-examples:
-                response:
+              examples:
+                Example 1:
                   value:
                     id: 1
                     name: Flat Rate
@@ -1259,18 +1457,17 @@ paths:
                       rate: 12
                     enabled: true
                     handling_fees:
-                      fixed_surcharge: 0
+                      fixed_surcharge: "0"
                     is_fallback: false
-            Response Schema:
-              examples:
-                response:
+                Example 2:
                   value:
                     id: 71711609
                     name: nisi
                     type: weight
                     settings: {}
                     enabled: false
-                    handling_fees: percentage_surcharge
+                    handling_fees: 
+                      percentage_surcharge: "0"
                     is_fallback: false
       x-unitTests: []
       x-operation-settings:
@@ -1280,53 +1477,182 @@ paths:
         IsMultiContentStreaming: false
       operationId: getAShippingMethod
     put:
-      description: "Updates a *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint. \n\n**Read Only Fields**\n* id\n\n### Settings Objects \n\nA shipping method's `type` and `settings` properties can match one of the following models:\n\n### perorder Object – Properties \n\nObject model for flat-rate shipping quotes per order.\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per order. |\n\n#### JSON Example \n\n```json\n{\n\t\"name\": \"Flat Rate per Order\",\n\t\"type\": \"perorder\",\n\t\"settings\": {\n\t\t\"rate\": 7\n\t}\n},\n```\n\n### peritem Object – Properties \n\nObject model for flat-rate shipping quotes per item ordered.\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per item. |\n\n#### JSON Example \n\n```json\n{\n\t\"name\": \"Flat Rate per Item\",\n\t\"type\": \"peritem\",\n\t\"settings\": {\n\t\t\"rate\": 8\n\t}\n},\n```\n\n### weight Object – Properties \n\nObject model for shipping quotes by weight.\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |\n\n\n#### JSON Example \n   \n```json\n{\n\t\"name\": \"Rate per Weight\",\n\t\"type\": \"weight\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 40,\n\t\t\t\t\"shipping_cost\": 12\n\t\t\t}\n\t\t]\n\t}\n}\n```\n\n### total Object – Properties \n\nObject model for shipping quotes by order's total value.\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| include_order_total_taxes | boolean | Whether or not to include taxes on the order's total value in the shipping cost calculation. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |\n\n#### JSON Example \n\nThis example sets free shipping above a certain order total:\n\n```json\n{\n\t\"name\": \"Per Total or Free\",\n\t\"type\": \"total\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"include_order_total_taxes\": 0,\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 5,\n\t\t\t\t\"shipping_cost\": 5\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 5,\n\t\t\t\t\"upper_limit\": 10,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 10,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 10\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 49.99,\n\t\t\t\t\"shipping_cost\": 15\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 50,\n\t\t\t\t\"upper_limit\": 100000,\n\t\t\t\t\"shipping_cost\": 0\n\t\t\t}       \n\t\t]\n\t}\n}\n```\n\n### Range Object – Properties \n\nObject model to define ranges for shipping quotes. Units are defined in the parent object.\n\n| Name | Type | Description |\n| - | - | - |\n| lower_limit | number | Lower limit for order total. |\n| upper_limit | number | Upper limit for order total. |\n| shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |\n\n#### JSON Example \n\n```json\n{\n\t\"lower_limit\": 0,\n\t\"upper_limit\": 20,\n\t\"shipping_cost\": 8\n}\n```\n"
+      description: |-
+        Updates a *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint. 
+        
+        **Read Only Fields**
+        * id
+        
+        ### Settings Objects 
+        
+        A shipping methodʼs `type` and `settings` properties can match one of the following models:
+        
+        #### perorder Object – Properties 
+        
+        Object model for flat-rate shipping quotes per order.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | rate | number | Flat rate per order. |
+        
+        Example response: 
+        
+        ```json
+        {
+          "name": "Flat Rate per Order",
+          "type": "perorder",
+          "settings": {
+            "rate": 7
+          }
+        },
+        ```
+        
+        #### peritem Object – Properties 
+        
+        Object model for flat-rate shipping quotes per item ordered.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | rate | number | Flat rate per item. |
+        
+        Example response: 
+        
+        ```json
+        {
+          "name": "Flat Rate per Item",
+          "type": "peritem",
+          "settings": {
+            "rate": 8
+          }
+        },
+        ```
+        
+        #### weight Object – Properties 
+        
+        Object model for shipping quotes by weight.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
+        
+        
+        Example response: 
+          
+        ```json
+        {
+          "name": "Rate per Weight",
+          "type": "weight",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 20,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 40,
+                "shipping_cost": 12
+              }
+            ]
+          }
+        }
+        ```
+        
+        #### total Object – Properties 
+        
+        Object model for shipping quotes by orderʼs total value.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
+        | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
+        
+        Example response: 
+        
+        This example sets free shipping above a certain order total:
+        
+        ```json
+        {
+          "name": "Per Total or Free",
+          "type": "total",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "include_order_total_taxes": 0,
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 5,
+                "shipping_cost": 5
+              },
+              {
+                "lower_limit": 5,
+                "upper_limit": 10,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 10,
+                "upper_limit": 20,
+                "shipping_cost": 10
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 49.99,
+                "shipping_cost": 15
+              },
+              {
+                "lower_limit": 50,
+                "upper_limit": 100000,
+                "shipping_cost": 0
+              }       
+            ]
+          }
+        }
+        ```
+        
+        #### Range Object – Properties 
+        
+        Object model to define ranges for shipping quotes. Units are defined in the parent object.
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | lower_limit | number | Lower limit for order total. |
+        | upper_limit | number | Upper limit for order total. |
+        | shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |
+        
+        Example response: 
+        
+        ```json
+        {
+          "lower_limit": 0,
+          "upper_limit": 20,
+          "shipping_cost": 8
+        }
+        ```
+        
       summary: Update a Shipping Method
       tags:
         - Shipping Method
       parameters:
-        - name: zone_id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: method_id
-          in: path
-          required: true
-          description: ID of the shipping method within the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/shippingMethod_Base'
+            example:
+              settings:
+                rate: 11
+              handling_fees:
+                fixed_surcharge: "0"
         required: true
-        x-examples:
-          application/json:
-            settings:
-              rate: 11
-            handling_fees:
-              fixed_surcharge: 0
       responses:
         '200':
           description: ''
@@ -1334,8 +1660,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/shippingMethod_Full'
-              x-examples:
-                response:
+              examples:
+                Example 1:
                   value:
                     id: 5
                     name: Per Order
@@ -1344,17 +1670,16 @@ paths:
                       rate: 11
                     enabled: true
                     handling_fees:
-                      fixed_surcharge: 0
-            Response Schema:
-              examples:
-                response:
+                      fixed_surcharge: "0"
+                Example 2:
                   value:
                     id: 8176684
                     name: in incididunt amet adipisicing
                     type: endicia
                     settings: {}
                     enabled: false
-                    handling_fees: fixed_surcharge
+                    handling_fees: 
+                      fixed_surcharge: "0"
                     is_fallback: false
       x-unitTests: []
       x-operation-settings:
@@ -1368,37 +1693,6 @@ paths:
       summary: Delete a Shipping Method
       tags:
         - Shipping Method
-      parameters:
-        - name: zone_id
-          in: path
-          required: true
-          description: ID of the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: method_id
-          in: path
-          required: true
-          description: ID of the shipping method within the shipping zone.
-          schema:
-            type: integer
-            exclusiveMinimum: false
-            exclusiveMaximum: false
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -1410,22 +1704,26 @@ paths:
         IsMultiContentStreaming: false
       operationId: deleteAShippingMethod
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/Accept'
       - name: zone_id
         in: path
         required: true
+        description: ID of the shipping zone.
         schema:
-          type: string
+          type: integer
+          exclusiveMinimum: false
+          exclusiveMaximum: false
       - name: method_id
         in: path
         required: true
+        description: ID of the shipping method within the shipping zone.
         schema:
-          type: string
-  '/stores/{store_hash}/v2/shipping/carrier/connection':
+          type: integer
+          exclusiveMinimum: false
+          exclusiveMaximum: false
+  '/shipping/carrier/connection':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     put:
       description: |-
         Updates a *Carrier Connection*.
@@ -1435,32 +1733,18 @@ paths:
       tags:
         - Shipping Carrier
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/carrierConnection'
-        description: 'The request body will vary by carrier. See [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection).'
-        x-examples:
-          application/json:
-            carrier_id: endicia
-            connection:
-              account_id: yourEndiciaAccountId
-              pass_phrase: yourEndiciaPassphrase
+            example:
+              carrier_id: endicia
+              connection:
+                account_id: yourEndiciaAccountId
+                pass_phrase: yourEndiciaPassphrase
+        description: The request body will vary by carrier. See [Create a Carrier Connection](/docs/rest-management/shipping-v2/shipping-carrier#create-a-carrier-connection).
       responses:
         '204':
           description: Returns if request was successful.
@@ -1479,35 +1763,193 @@ paths:
               schema: {}
       operationId: updateACarrierConnection
     post:
-      description: "Creates a *Carrier Connection*. \n\nCarrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.\n\n*Notes:*\n\n- There is no `GET` with this resource. It has `PUT`, `POST` and `DELETE`.\n    * `PUT` is used to update. The connection can be updated by API.\n\n    \n- Connections created here do not enable the shipping method. To enable the carrier for a shipping zone, use the Shipping Methods API. \n\n- The Carrier Connection resource returns a 204 for both successful and unsuccessful attempts to connect. If a field is missing, it will return a 400.\n\n### Australia Post\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"auspost\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourAusPostAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"auspost\"\n}\n```\n\n#### Australia Post Connection Object – Properties\n\nAustralia Post `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description\n| - | - | - |\n| auth_key | string | Australia Post authorization key. |\n| test_mode | boolean | Whether or not to use Australia Post test-mode settings. Acceptable values are `true` or `false`. |\n\n\n### Endicia\nUSPS is connected through Endicia.\n\n#### Sample Request – PUT or POST\n\n```json\n{\t\"carrier_id\" : \"endicia\",\n\t\"connection\": {\n\t\t\"account_id\" : \"yourEndiciaAccountId\",\n\t\t\"pass_phrase\" : \"yourEndiciaPassphrase\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"endicia\"\n}\n```\n\n#### Endicia Connection Object – Properties\n\nEndicia `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description |\n| - | - | - |\n| account_id | string | Endicia account ID. |\n| passphrase | string | Endicia passphrase. |\n\n\n### FedEx\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"fedex\",\n\t\"connection\" : {\n\t\t\"key\" : \"yourFedexKey\",\n\t\t\"password\" : \"yourFedexPassword\",\n\t\t\"account_number\" : \"yourFedexAccountNumber\",\n\t\t\"meter_number\" : \"yourFedexMeterNumber\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"fedex\"\n}\n```\n\n#### FedEx Connection Object – Properties\n\nFedEx `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| key | string | FedEx account ID. | \n| password | string | FedEx passphrase. |\n| account_number | string | FedEx account number. |\n| meter_number | string | FedEx meter number. |\n\n### Royal Mail\n\nSample Request - PUT or POST\n\n```json\n{\n    \"carrier_id\" : \"royalmail\",\n    \"connection\" : {\n        \n    }\n}\n```\n\nSample Request - DELETE\n\n```json\n{\n    \"carrier_id\" : \"royalmail\"\n}\n```\n\n#### Royal Mail Connection Object - Properties\n\nRoyal Mail has no connection object properties.\n\n\n### Zoom2U\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourZoom2uAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\"\n}\n```\n\n#### Zoom2U Connection Object – Properties\n\nZoom2U `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| auth_key | string | Zoom2U authorization key. |\n| test_mode | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |"
+      description: |-
+        Creates a *Carrier Connection*. 
+        
+        Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
+        
+        *Notes:*
+        
+        - There is no `GET` with this resource. It has `PUT`, `POST` and `DELETE`.
+            * `PUT` is used to update. The connection can be updated by API.
+        
+        - Connections created here do not enable the shipping method. To enable the carrier for a shipping zone, use the Shipping Methods API. 
+        
+        - The Carrier Connection resource returns a 204 for both successful and unsuccessful attempts to connect. If a field is missing, it will return a 400.
+        
+        ### Australia Post
+        
+        PUT or POST example request:
+        
+        ```json
+        {
+          "carrier_id" : "auspost",
+          "connection" : {
+            "auth_key" : "yourAusPostAuthKey",
+            "test_mode" : false
+          }
+        }
+        ```
+        
+        DELETE example request:
+        
+        ```json
+        {
+          "carrier_id" : "auspost"
+        }
+        ```
+        
+        #### Australia Post Connection Object – Properties
+        
+        Australia Post `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | auth_key | string | Australia Post authorization key. |
+        | test_mode | boolean | Whether or not to use Australia Post test-mode settings. Acceptable values are `true` or `false`. |
+        
+        
+        ### Endicia
+        USPS is connected through Endicia.
+        
+        PUT or POST example request:
+        
+        ```json
+        {  "carrier_id" : "endicia",
+          "connection": {
+            "account_id" : "yourEndiciaAccountId",
+            "pass_phrase" : "yourEndiciaPassphrase"
+          }
+        }
+        ```
+        
+        DELETE example request:
+        
+        ```json
+        {
+          "carrier_id" : "endicia"
+        }
+        ```
+        
+        #### Endicia Connection Object – Properties
+        
+        Endicia `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | account_id | string | Endicia account ID. |
+        | passphrase | string | Endicia passphrase. |
+        
+        
+        ### FedEx
+        
+        PUT or POST example request:
+        
+        ```json
+        {
+          "carrier_id" : "fedex",
+          "connection" : {
+            "key" : "yourFedexKey",
+            "password" : "yourFedexPassword",
+            "account_number" : "yourFedexAccountNumber",
+            "meter_number" : "yourFedexMeterNumber"
+          }
+        }
+        ```
+        
+        DELETE example request:
+        
+        ```json
+        {
+          "carrier_id" : "fedex"
+        }
+        ```
+        
+        #### FedEx Connection Object – Properties
+        
+        FedEx `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | key | string | FedEx account ID. | 
+        | password | string | FedEx passphrase. |
+        | account_number | string | FedEx account number. |
+        | meter_number | string | FedEx meter number. |
+        
+        ### Royal Mail
+        
+        PUT or POST example request:
+        
+        ```json
+        {
+            "carrier_id" : "royalmail",
+            "connection" : {
+                
+            }
+        }
+        ```
+        
+        DELETE example request:
+        
+        ```json
+        {
+            "carrier_id" : "royalmail"
+        }
+        ```
+        
+        #### Royal Mail Connection Object - Properties
+        
+        Royal Mail has no connection object properties.
+        
+        
+        ### Zoom2U
+        
+        PUT or POST example request:
+        
+        ```json
+        {
+          "carrier_id" : "zoom2u",
+          "connection" : {
+            "auth_key" : "yourZoom2uAuthKey",
+            "test_mode" : false
+          }
+        }
+        ```
+        
+        DELETE example request:
+        
+        ```json
+        {
+          "carrier_id" : "zoom2u"
+        }
+        ```
+        
+        #### Zoom2U Connection Object – Properties
+        
+        Zoom2U `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        
+        
+        | Property | Type | Description |
+        |:---------|:-----|:------------|
+        | auth_key | string | Zoom2U authorization key. |
+        | test_mode | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |
       summary: Create a Carrier Connection
       operationId: createACarrierConnection
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/carrierConnection'
-        x-examples:
-          application/json:
-            carrier_id: auspost
-            connection:
-              auth_key: yourAusPostAuthKey
-              test_mode: false
+            example:
+              carrier_id: auspost
+              connection:
+                auth_key: yourAusPostAuthKey
+                test_mode: false
       responses:
         '204':
           description: Returns if request was successful.
@@ -1550,21 +1992,6 @@ paths:
       summary: Delete a Carrier Connection
       tags:
         - Shipping Carrier
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -1574,12 +2001,9 @@ paths:
                 carrier_id:
                   type: string
                   example: fedex
+            example:
+              carrier_id: fedex
         required: true
-        x-examples:
-          application/json:
-            carrier_id: fedex
-          new:
-            carrier_id: fedex
       responses:
         '204':
           description: Returns if request was successful.
@@ -1603,41 +2027,50 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: deleteCarrierConnection
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
 components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.
+      schema:
+        type: string
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Information & Settings | modify | `store_v2_information` |
         |  Information & Settings | read-only | `store_v2_information_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     TrackingCarrier:
       title: Tracking Carrier
@@ -1933,7 +2366,4 @@ components:
                   description: Query string appended to the resource to show the current page.
                   example: '?limit=1&page=2'
       x-internal: false
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
+

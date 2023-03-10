@@ -1,36 +1,46 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
-  contact:
-    email: support@bigcommerce.com
-    name: BigCommerce
-    url: 'https://www.bigcommerce.com'
   description: |-
     Manage settings and configuration for BigCommerce hosted stores and headless storefronts.
-
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
-
-    ```http
-    GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth Scopes
-    |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
-    |  Information & Settings | modify | `store_v2_information` |
-    |  Information & Settings | read-only | `store_v2_information_read_only` |
-  termsOfService: 'http://www.bigcommerce.com/terms'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   title: Settings V3
-  version: 3.0.0
+  version: '3.0.0'
 servers:
-  - description: Production API Gateway
-    url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Email Statuses
+  - name: Search Filters
+  - name: Store Locale
+  - name: Storefront Category
+  - name: Storefront Robotstxt
+  - name: Storefront Search
+  - name: Storefront Security
+  - name: Storefront SEO
+  - name: Storefront Status
+  - name: Analytics
+  - name: Catalog
+  - name: Inventory
+  - name: Inventory Notifications
+  - name: Logo
+  - name: Logo Image
+  - name: Favicon Image
+  - name: Store Profile
+  - name: Storefront Product
 paths:
-  '/stores/{store_hash}/v3/settings/analytics':
+  '/settings/analytics':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get All Web Analytics Providers
       description: Returns a list of web analytics providers.
@@ -47,12 +57,17 @@ paths:
                   data:
                     $ref: '#/components/schemas/AnalyticsProviders'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Analytics
+  '/settings/analytics/{id}':
     parameters:
-      - $ref: '#/components/parameters/store_hash'
-  '/stores/{store_hash}/v3/settings/analytics/{id}':
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
     get:
       summary: Get a Web Analytics Provider
       description: Returns a single web analytics provider data for a default channel.
@@ -85,17 +100,11 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse404'
       tags:
         - Analytics
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update a Web Analytics Provider
       description: Updates a single web analytics provider data for a default channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: id
           in: path
           description: Web Analytics Provider ID.
@@ -170,7 +179,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse422'
       tags:
         - Analytics
-  '/stores/{store_hash}/v3/settings/catalog':
+  '/settings/catalog':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Catalog Settings
       description: |-
@@ -192,11 +203,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/CatalogSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Catalog
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Catalog Settings
       description: |-
@@ -206,6 +215,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
@@ -224,10 +234,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/CatalogSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Catalog
-  '/stores/{store_hash}/v3/settings/email-statuses':
+  '/settings/email-statuses':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-emails-enabled
       summary: Get Transactional Email Settings
@@ -261,16 +273,15 @@ paths:
                   data:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Email Statuses
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       operationId: put-settings-transactional-emails-enabled
       summary: Update Transactional Email Settings
       description: Update global transactional email settings or create channel specific overrides by `channel_id`.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -318,12 +329,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Email Statuses
-  '/stores/{store_hash}/v3/settings/favicon/image':
+  '/settings/favicon/image':
     parameters:
-      - $ref: '#/components/parameters/store_hash'
+      - $ref: '#/components/parameters/Accept'
     post:
       operationId: post-favicon-logo-image
       summary: Create Favicon Image
@@ -332,6 +343,7 @@ paths:
 
           - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -347,7 +359,9 @@ paths:
           description: OK
       tags:
         - Favicon Image
-  '/stores/{store_hash}/v3/settings/inventory/notifications':
+  '/settings/inventory/notifications':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Notifications Settings
       description: |-
@@ -362,16 +376,14 @@ paths:
             application/json:
               examples: {}
               schema:
-                allOf:
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/InventoryNotificationsSettings'
-                    type: object
-                  - $ref: 'https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/global_refs.yaml#/components/schemas/meta_Empty'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InventoryNotificationsSettings'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Inventory Notifications
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Inventory Notifications Settings
       description: |-
@@ -380,6 +392,7 @@ paths:
         * Supplying `null` settings values per channel will delete overrides per given channel and values will be inherited from global level. 
         * Partial updates are not supported within the given endpoint. In order to delete overrides per channel, `null` should be supplied for all the settings within the given endpoint.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
@@ -392,7 +405,9 @@ paths:
           description: OK
       tags:
         - Inventory Notifications
-  '/stores/{store_hash}/v3/settings/logo':
+  '/settings/logo':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-logo
       summary: Get Store Logo Settings
@@ -415,11 +430,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/LogoSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Logo
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       operationId: put-settings-logo
       summary: Update Store Logo Settings
@@ -447,12 +460,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/LogoSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Logo
-  '/stores/{store_hash}/v3/settings/logo/image':
+  '/settings/logo/image':
     parameters:
-      - $ref: '#/components/parameters/store_hash'
+      - $ref: '#/components/parameters/Accept'
     post:
       operationId: post-settings-logo-image
       summary: Create Logo Image
@@ -461,6 +474,7 @@ paths:
 
          - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -476,7 +490,7 @@ paths:
           description: OK
       tags:
         - Logo Image
-  '/stores/{store_hash}/v3/settings/search/filters':
+  '/settings/search/filters':
     get:
       operationId: getEnabled
       summary: Get Enabled Filters
@@ -530,15 +544,15 @@ paths:
                   data:
                     $ref: '#/components/schemas/ConfiguredFilters'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       operationId: updateEnabled
       summary: Update Enabled Filters
       description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -629,15 +643,18 @@ paths:
                   data:
                     $ref: '#/components/schemas/ConfiguredFilters'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
-  '/stores/{store_hash}/v3/settings/search/filters/available':
+  '/settings/search/filters/available':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: getAvailable
       summary: Get Available Filters
       description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: channel_id
           in: query
           description: Narrows the list of available filters based on channel ID. Only products currently assigned to the given Channel will be considered.
@@ -694,12 +711,12 @@ paths:
                     items:
                       $ref: '#/components/schemas/AvailableFilter'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
+  '/settings/search/filters/contexts':
     parameters:
-      - $ref: '#/components/parameters/store_hash'
-  '/stores/{store_hash}/v3/settings/search/filters/contexts':
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: getContexts
       summary: Get Contextual Filters
@@ -738,8 +755,6 @@ paths:
                     $ref: '#/components/schemas/MetaPaginationObject'
       tags:
         - Search Filters
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       operationId: upsertContexts
       summary: Upsert Contextual Filters
@@ -751,7 +766,8 @@ paths:
         Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
 
         You can change the order of the filters on the live site by changing the order of the filters you send.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -772,10 +788,12 @@ paths:
                     items:
                       $ref: '#/components/schemas/ConfiguredFiltersOverride'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
-  '/stores/{store_hash}/v3/settings/store/locale':
+  '/settings/store/locale':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Locale Settings
       description: Returns global locale settings.
@@ -798,14 +816,14 @@ paths:
                   data:
                     $ref: '#/components/schemas/Locale'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Store Locale
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Locale Settings
       description: Updates global locale settings.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -836,7 +854,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Locale'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -845,7 +863,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Store Locale
-  '/stores/{store_hash}/v3/settings/store/profile':
+  '/settings/store/profile':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Store Profile Settings
       description: |-
@@ -867,11 +887,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/StoreProfile'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Store Profile
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Store Profile Settings
       description: |-
@@ -881,6 +899,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -898,7 +917,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StoreProfile'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -907,7 +926,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Store Profile
-  '/stores/{store_hash}/v3/settings/storefront/category':
+  '/settings/storefront/category':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Category Settings
       description: |-
@@ -929,11 +950,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Category
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Storefront Category Settings
       description: |-
@@ -943,6 +962,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -960,12 +980,14 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           $ref: '#/components/responses/422ErrorResp'
       tags:
         - Storefront Category
-  '/stores/{store_hash}/v3/settings/storefront/product':
+  '/settings/storefront/product':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-storefront-product
       summary: Get Storefront Product Settings
@@ -982,8 +1004,6 @@ paths:
           $ref: '#/components/responses/200-storefront-product-settings'
       tags:
         - Storefront Product
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       operationId: put-settings-storefront-product
       summary: Update Storefront Product Settings
@@ -994,6 +1014,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1007,7 +1028,9 @@ paths:
           $ref: '#/components/responses/422ErrorResp'
       tags:
         - Storefront Product
-  '/stores/{store_hash}/v3/settings/storefront/robotstxt':
+  '/settings/storefront/robotstxt':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Robots.txt Settings
       description: |-
@@ -1035,11 +1058,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/RobotsTxtSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Robotstxt
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Robots.txt Settings
       description: |-
@@ -1049,6 +1070,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1066,10 +1088,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/RobotsTxtSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Robotstxt
-  '/stores/{store_hash}/v3/settings/storefront/search':
+  '/settings/storefront/search':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: ''
       summary: Get Storefront Search Settings
@@ -1101,11 +1125,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Search
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Storefront Search Settings
       description: |-
@@ -1115,6 +1137,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1148,10 +1171,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Search
-  '/stores/{store_hash}/v3/settings/storefront/security':
+  '/settings/storefront/security':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Security Settings
       description: |-
@@ -1173,11 +1198,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSecuritySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Security
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Storefront Security Settings
       description: |-
@@ -1187,6 +1210,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1204,10 +1228,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSecuritySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Security
-  '/stores/{store_hash}/v3/settings/storefront/seo':
+  '/settings/storefront/seo':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront SEO Settings
       description: |-
@@ -1238,11 +1264,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront SEO
-    parameters:
-      - $ref: '#/components/parameters/store_hash'
     put:
       summary: Update Storefront SEO Settings
       description: |-
@@ -1252,6 +1276,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1277,12 +1302,14 @@ paths:
                   data:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           $ref: '#/components/responses/422ErrorResp'
       tags:
         - Storefront SEO
-  '/stores/{store_hash}/v3/settings/storefront/status':
+  '/settings/storefront/status':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Status
       description: |-
@@ -1312,11 +1339,9 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontStatus'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Status
-    parameters:
-      - $ref: 'https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/global_refs.yaml#/components/parameters/store_hash'
     put:
       summary: Update Storefront Status
       description: |-
@@ -1326,6 +1351,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1356,10 +1382,12 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontStatus'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Status
-  '/stores/{store_hash}/v3/settings/inventory':
+  '/settings/inventory':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Settings
       tags:
@@ -1375,7 +1403,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/InventorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -1404,20 +1432,31 @@ paths:
                   data:
                     $ref: '#/components/schemas/InventorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Inventory
       description: Update inventory settings
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
 components:
   parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
     ChannelIdParam:
       description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
       in: query
@@ -1440,14 +1479,6 @@ components:
       required: true
       schema:
         type: integer
-    store_hash:
-      description: Hash of your store
-      in: path
-      name: store_hash
-      required: true
-      schema:
-        type: string
-        example: 29iql3rwa6
   schemas:
     AddressTypeEnumValues:
       description: Only supports manipulation on a global level.
@@ -1613,8 +1644,9 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-internal: false
     EnabledBrandFilter:
       description: A storefront filter for product brand
@@ -1995,6 +2027,12 @@ components:
             - text
       x-tags:
         - Models
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     MetaPaginationObject:
       type: object
       properties:
@@ -2256,7 +2294,7 @@ components:
               data:
                 $ref: '#/components/schemas/StorefrontProductSettings'
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
     422ErrorResp:
       description: |
         `422 Unprocessable Entity` Provided settings could not be applied for some reason - detailed errors in the response.
@@ -2294,42 +2332,27 @@ components:
                 type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
   securitySchemes:
     X-Auth-Token:
+      name: X-Auth-Token
       description: |-
-        Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
+        ### OAuth scopes
 
-        ```http
-        GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
-        host: api.bigcommerce.com
-        Accept: application/json
-        X-Auth-Token: {{ACCESS_TOKEN}}
-        ```
-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Information & Settings | modify | `store_v2_information` |
         |  Information & Settings | read-only | `store_v2_information_read_only` |
-      in: header
-      name: X-Auth-Token
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
       type: apiKey
-tags:
-  - name: Email Statuses
-  - name: Search Filters
-  - name: Store Locale
-  - name: Storefront Category
-  - name: Storefront Robotstxt
-  - name: Storefront Search
-  - name: Storefront Security
-  - name: Storefront SEO
-  - name: Storefront Status
-  - name: Analytics
-  - name: Catalog
-  - name: Inventory
-  - name: Inventory Notifications
-  - name: Logo
-  - name: Logo Image
-  - name: Favicon Image
-  - name: Store Profile
-  - name: Storefront Product
-security:
-  - X-Auth-Token: []
+      in: header

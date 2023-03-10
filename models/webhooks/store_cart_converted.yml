@@ -1,22 +1,26 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/cart/converted:
+    description: This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
         type: string
-      orderId:
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          orderId:
+            type: integer
+      hash:
+        type: string
+      created_at:
         type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      producer:
+        type: string
 

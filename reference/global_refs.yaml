@@ -1,9 +1,12 @@
-openapi: 3.1.0
+openapi: '3.0.0'
 info:
   title: global_refs.yml
   version: '1.0'
+  description: 'non-empty string'
 servers:
   - url: 'http://localhost:3000'
+tags:
+  - name: Experiment
 paths:
   '/users/{userId}':
     parameters:
@@ -15,7 +18,8 @@ paths:
         description: Id of an existing user.
     get:
       summary: Get User Info by User ID
-      tags: []
+      tags:
+        - Experiment
       responses:
         '200':
           description: User Found
@@ -40,6 +44,8 @@ paths:
     patch:
       summary: Update User Information
       operationId: patch-users-userId
+      tags:
+        - Experiment
       responses:
         '200':
           description: User Updated
@@ -74,7 +80,7 @@ paths:
                   type: string
                 email:
                   type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                  description: 'If a new email is given, the userʼs email verified property will be set to false.'
                 dateOfBirth:
                   type: string
             examples:
@@ -89,10 +95,12 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
-  /user:
+  '/user':
     post:
       summary: Create New User
       operationId: post-user
+      tags:
+        - Experiment
       responses:
         '200':
           description: User Created
@@ -149,14 +157,14 @@ components:
       title: User
       type: object
       description: ''
-      examples:
-        - id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
+      example:
+        id: 142
+        firstName: Alice
+        lastName: Smith
+        email: alice.smith@gmail.com
+        dateOfBirth: '1997-10-31'
+        emailVerified: true
+        signUpDate: '2019-08-24'
       properties:
         id:
           type: integer
@@ -188,15 +196,23 @@ components:
     meta_Empty:
       title: meta_Empty
       type: object
-      properties:
-        meta:
-          type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   parameters:
-    store_hash:
-      name: store_hash
-      in: path
+    Accept:
+      name: Accept
+      in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        example: 29iql3rwa6
-      description: Hash of your store
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'

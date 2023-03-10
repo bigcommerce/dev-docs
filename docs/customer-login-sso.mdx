@@ -1,12 +1,13 @@
 # Customer Login SSO
 
-* **Host**: {store_domain}/graphql
+* **Host**: `{store_domain}/graphql`
 * **Protocols**:`https`
 * **Accepts**: `application/json`
 * **Responds With**: `application/json`
 
 
-Download Spec: [customer_login.json](https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/customer_login.yml?branch=master&amp;deref=all&amp;format=json)
+Download Spec: [customer_login.json](#)
+{/* https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/customer_login.yml?branch=master&amp;deref=all&amp;format=json */}
 
 Create a login URL for customer single sign-on.
 
@@ -14,7 +15,7 @@ Create a login URL for customer single sign-on.
 
 To log in a customer using the Customer Login API, redirect the customer's browser to the following access point URL:
 
-```http
+```http copy
   https://yourstore.example.com/login/token/{{TOKEN}}
 ```
 
@@ -35,7 +36,7 @@ We recommend writing a script to generate a login token since the `JWT iat` (iss
 
 ### JWT Header
 
-```json
+```json copy
   {
     "alg": "HS256",
     "typ": "JWT"
@@ -50,7 +51,7 @@ We recommend writing a script to generate a login token since the `JWT iat` (iss
     
 To create the signature, sign the encoded header, the encoded payload, and client_secret using the `HMAC SHA256` algorithm.
   
-```js
+```js copy
   HMACSHA256(
     base64UrlEncode(header) + "." +
     base64UrlEncode(payload),
@@ -63,21 +64,29 @@ To create the signature, sign the encoded header, the encoded payload, and clien
       
 Create `urlGenerator.js` node app and install dependencies.
     
-```shell
+```shell copy
   mkdir urlGenerator
+```
 
+```shell copy
   cd urlGenerator
+```
 
+```shell copy
   touch urlGenerator.js
+```
 
+```shell copy
   npm init
+```
 
+```shell copy
   npm install jsonwebtoken uuid
 ```
 
 Paste the following into `urlGenerator/urlGenerator.js`.
 
-```js
+```js copy
   const jwt = require('jsonwebtoken');
   const {v4: uuidv4} = require('uuid');
 
@@ -109,15 +118,15 @@ Paste the following into `urlGenerator/urlGenerator.js`.
 
 Replace `{{CLIENT_ID}}` and other variables with your credentials, then run the app.
 
-```shell
+```shell copy
   node urlGenerator.js
 ```
 
 You should receive a complete access point URL as an output.
 
-<!-- theme: info -->
-> #### Note
-> You are required to include the `channel_id` when using the login JWTs to redirect to an embedded checkout. Default value = 1. For more information, see the [Embedded Checkout Overview](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+<Callout type="info">
+  You are required to include the `channel_id` when using the login JWTs to redirect to an embedded checkout. Default value = 1. For more information, see the [Embedded Checkout Overview](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+</Callout>
 
 
 ## Resources

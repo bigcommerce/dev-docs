@@ -26,19 +26,23 @@ info:
     | `page` | A user-defined plain-text page. | text |
     | `contact_form` | A user-customizable page that contains a contact form. | HTML |
     | `raw` | A user-defined page that contains HTML markup or other stringified code. | HTML, other code |
-    | `blog` | A page that contains blog posts. Use caution; `blog`-type pages can only be created in the store control panel, but you may be able to change the type of a blog page to something else with this API. Use the [Store Content API](/api-reference/store-management/store-content/blog-posts/createablogposts) to work with blog posts and tags. | empty string |
+    | `blog` | A page that contains blog posts. Use caution; `blog`-type pages can only be created in the store control panel, but you may be able to change the type of a blog page to something else with this API. Use the [Store Content API](/docs/rest-content/store-content/blog-posts#create-a-blog-post) to work with blog posts and tags. | empty string |
     | `feed` | Makes RSS-syndicated content feeds available in the menu of other pages that contain markup. | &mdash; |
     | `link` | A link to an external absolute URL. Displays in the menu of other pages that contain markup. | &mdash; |
 servers:
-  - url: 'https://api.bigcommerce.com'
-    description: OAuth API Gateway
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 tags:
   - name: Pages (Bulk)
   - name: Pages (Single)
 security:
   - X-Auth-Token: []
 paths:
-  '/stores/{store_hash}/v3/content/pages':
+  '/content/pages':
     get:
       operationId: content-pages-get
       tags:
@@ -209,9 +213,9 @@ paths:
       description: |-
         Deletes one or more content pages. This endpoint supports bulk operations.
 
-        <!-- theme: warning -->
-        > #### Mind query parameters
-        > If you attempt to delete multiple pages by passing more than one pageId to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the pagesIds that do exist will still be deleted.
+        > #### Warning
+        > **Pay attention to query parameters**
+        > If you attempt to delete multiple pages by passing more than one `pageId`` to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the `pagesId`s that do exist will still be deleted.
       responses:
         '204':
           $ref: '#/components/responses/HTTP204'
@@ -245,8 +249,7 @@ paths:
       summary: Delete Pages
     parameters:
       - $ref: '#/components/parameters/Accept'
-      - $ref: '#/components/parameters/storeHashPath'
-  '/stores/{store_hash}/v3/content/pages/{pageId}':
+  '/content/pages/{pageId}':
     get:
       operationId: content-page-get
       tags:
@@ -254,9 +257,9 @@ paths:
       description: |-
         Returns one content page.
 
-        <!-- theme: warning -->
-        > #### Mind query parameters
-        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/api-reference/store-management/pages/pages/getpages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested pageId does exist.
+        > #### Warning
+        > **Pay attention to query parameters**
+        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/docs/rest-content/pages#get-pages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested `pageId` does exist.
       responses:
         '200':
           description: ''
@@ -487,8 +490,8 @@ paths:
       description: |-
         Deletes one content page.
 
-        <!-- theme: info -->
-        > #### Query parameters
+        > #### Warning
+        > **Query parameters not recognized**
         > This endpoint does not recognize query parameters.
       responses:
         '204':
@@ -509,12 +512,7 @@ paths:
       summary: Delete a Page
     parameters:
       - $ref: '#/components/parameters/Accept'
-      - $ref: '#/components/parameters/storeHashPath'
       - $ref: '#/components/parameters/pageIdPath'
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showSchemas: false
 components:
   parameters:
     Accept:
@@ -531,13 +529,6 @@ components:
       schema:
         type: string
         default: 'application/json'
-    storeHashPath: 
-      schema:
-        type: string
-      name: store_hash
-      in: path
-      required: true
-      description: The permanent ID of the BigCommerce store.
     pageIdPath:
       schema:
         type: string
@@ -1232,7 +1223,7 @@ components:
           example: 0
         type:
           type: string
-          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          description: 'Determines the type of page. See [Pages v3 page types](/docs/rest-content/pages#page-types) for more about the differences.'
           nullable: false
           example: page
           enum:
@@ -1392,7 +1383,7 @@ components:
           default: 0
         type:
           type: string
-          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          description: 'Determines the type of page. See [Pages v3 page types](/docs/rest-content/pages#page-types) for more about the differences.'
           example: page
           enum:
             - page

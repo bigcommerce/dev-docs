@@ -1,0 +1,30 @@
+{
+  "name": "mdx-linter-devdocs",
+  "version": "1.0.0",
+  "description": "Lints and otherwise helps improve DevDocs in MDX format.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "engines": {
+    "node": ">= 14.0.0"
+  },
+  "scripts": {
+    "lint": "eslint ./docs --ext mdx --max-warnings 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "lint",
+    "mdx",
+    "eslint",
+    "docs-as-code"
+  ],
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-plugin-mdx": "^2.0.5"
+  },
+  "author": "Matthew Volk"
+}

@@ -1,9 +1,26 @@
-openapi: 3.0.0
+openapi: '3.0.0'
+info:
+  version: ''
+  title: Customers V3
+  description: |-
+    Create and manage customers.
+
+    ## Resources
+    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     variables:
       store_hash:
         default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
 tags:
   - name: Customers
     description: BigCommerce Customers API Definition.
@@ -17,49 +34,8 @@ tags:
   - name: Customer Settings
   - name: Customer Settings Channel
   - name: Customer Validate Credentials
-x-stoplight:
-  docs:
-    includeDownloadLink: false
-    showModels: false
-security:
-  - X-Auth-Token: []
-info:
-  version: ''
-  title: Customers V3
-  description: |-
-    Create and manage customers.
-
-    ## Authentication
-
-    Authenticate requests by passing an API account `access_token` in the `X-Auth-Token` HTTP header:
-
-    ```http
-    GET /stores/{{STORE_HASH}}/v3/customers
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    | Header | Parameter | Description |
-    |:-------|:----------|:------------|
-    | `X-Auth-Token` | `access_token` | Obtained by creating an API account or installing an app in a BigCommerce control panel. |
-
-    ### OAuth Scopes
-
-    | UI Name                                      | Permission | Parameter                                     |
-    |:---------------------------------------------|:-----------|:----------------------------------------------|
-    | Customers                                    | modify     | `store_v2_customers`                          |
-    | Customers                                    | read-only  | `store_v2_customers_read_only`                |
-    | Stored Payment Instruments                   | modify     | `store_stored_payment_instruments`            |
-    | Stored Payment Instruments                   | read-only  | `store_stored_payment_instruments_read_only`  |
-
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
-
-    ## Resources
-    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
-  contact: {}
 paths:
-  '/stores/{store_hash}/v3/customers':
+  '/customers':
     get:
       description: |-
         Returns a list of Customers. Optional filter parameters can be passed in.
@@ -234,9 +210,9 @@ paths:
         * address1
 
         **Required Fields Attributes**
-        * Attributes must be [created](/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.
+        * Attributes must be [created](/docs/rest-management/customers/customer-attributes#create-a-customer-attribute) **BEFORE** creating a customer.
         * attribute_id
-        * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
+        * attribute_value -- This is input as a string, regardless of the [Type](/docs/rest-management/customers/customer-attributes#create-a-customer-attribute).
 
         **Limits**
         * Limit of 10 concurrent requests 
@@ -245,7 +221,7 @@ paths:
 
         A customer can be created with global access or channel-specific access.
         * **Global access:**
-          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget).
+          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](/docs/rest-management/customers/customer-settings-channel).
           * Omit `channel_ids` field, or provide `channel_ids: null`.
         * **Channel-specific access:**
           * Provide a `channel_ids` array containing the channels accessible by the customer. This array cannot be empty.
@@ -337,7 +313,7 @@ paths:
 
         **Notes**
 
-        * Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
+        * Attributes Values can not be updated using Update a Customer. Use the [Update customer attribute values](/docs/rest-management/customers/customer-attribute-values#upsert-customer-attribute-values) endpoint.
         * channel_ids -- Updating the list of channels a customer can access may create some side effects in a multi-storefront situation. This list determines which customer account we will use to authenticate a shopper given a channel.
       summary: Update Customers
       tags:
@@ -437,13 +413,7 @@ paths:
         '204':
           description: ''
           headers: {}
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/addresses':
+  '/customers/addresses':
     get:
       description: Returns a list of Customer Addresses. Optional filter parameters can be passed in.
       summary: Get All Customer Addresses
@@ -749,13 +719,7 @@ paths:
           headers: {}
       tags:
         - Customer Addresses
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/validate-credentials':
+  '/customers/validate-credentials':
     post:
       tags:
         - Customer Validate Credentials
@@ -806,13 +770,7 @@ paths:
                     title: Too many requests
                     type: /api-docs/getting-started/api-status-codes
                     errors: {}
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/settings':
+  '/customers/settings':
     get:
       tags:
         - Customer Settings
@@ -873,13 +831,7 @@ paths:
                     customer_group_settings:
                       guest_customer_group_id: 0
                       default_customer_group_id: 0
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/settings/channels/{channel_id}':
+  '/customers/settings/channels/{channel_id}':
     get:
       tags:
         - Customer Settings Channel
@@ -971,15 +923,10 @@ paths:
     parameters:
       - schema:
           type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
         name: channel_id
         in: path
         required: true
-  '/stores/{store_hash}/v3/customers/attributes':
+  '/customers/attributes':
     get:
       description: Returns a list of Customer Attributes. You can pass in optional filter parameters.
       summary: Get All Customer Attributes
@@ -1213,13 +1160,7 @@ paths:
           headers: {}
       tags:
         - Customer Attributes
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/attribute-values':
+  '/customers/attribute-values':
     get:
       description: Returns a list of Customer Attribute Values. Optional filter parameters can be passed in.
       summary: Get All Customer Attribute Values
@@ -1414,13 +1355,7 @@ paths:
           headers: {}
       tags:
         - Customer Attribute Values
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/form-field-values':
+  '/customers/form-field-values':
     get:
       responses:
         '200':
@@ -1540,13 +1475,7 @@ paths:
                   - customer_id: 12
                     name: What is your favorite pizza topping?
                     value: Mushrooms
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/customers/{customerId}/consent':
+  '/customers/{customerId}/consent':
     get:
       description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Get Customer Consent
@@ -1627,15 +1556,10 @@ paths:
     parameters:
       - schema:
           type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
         name: customerId
         in: path
         required: true
-  '/stores/{store_hash}/v3/customers/{customerId}/stored-instruments':
+  '/customers/{customerId}/stored-instruments':
     get:
       summary: Get Stored Instruments
       tags:
@@ -1707,11 +1631,6 @@ paths:
                 code: 403
                 message: Missing scope
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
       - schema:
           type: string
         name: customerId
@@ -2009,18 +1928,9 @@ components:
                           description: Array of form fields. Controlled by `formfields` parameter.
                           type: array
                           items:
-                            oneOf:
-                              - allOf:
-                                  - type: object
-                                    title: Form Field Value Base
-                                  - type: object
-                              - allOf:
-                                  - type: object
-                                    title: Form Field Value Base
-                                  - type: object
-                            title: 'Form Field Value '
+                            $ref: '#/components/schemas/formFieldValue_Full'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               - title: DuplicateAddressCollectionResponse
                 example: {}
             type: object
@@ -2104,7 +2014,7 @@ components:
                           - $ref: "#/components/schemas/formFieldValue_Address"
                         title: 'Customer Address Form Field Value'
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             application/json:
               value:
@@ -2262,7 +2172,7 @@ components:
                     - type
                     - id
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             response:
               value:
@@ -2558,9 +2468,9 @@ components:
                           required:
                             - address_id
                       title: Customer Address Form Field Value
-                  title: 'Form Field Value '
+                  title: Form Field Value
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             response:
               value:
@@ -2583,8 +2493,31 @@ components:
             $ref: '#/components/schemas/consent_Full'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Customers | modify | `store_v2_customers` |
+        | Customers | read-only | `store_v2_customers_read_only` |
+        | Stored Payment Instruments | modify | `store_stored_payment_instruments` |
+        | Stored Payment Instruments | read-only | `store_stored_payment_instruments_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
       in: header
   schemas:
     Pagination:
@@ -2623,6 +2556,12 @@ components:
         pagination:
           $ref: '#/components/schemas/Pagination'
       x-internal: false
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       title: Error Response
       type: object

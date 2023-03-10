@@ -1,14 +1,22 @@
-openapi: 3.0.0
-x-stoplight:
-  id: 984571274919c
+openapi: '3.0.0'
 info:
   title: Store Logs V3 API
   version: ''
   description: This API can be used to retrieve and filter for specific store logs.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 paths:
-  '/stores/{store_hash}/v3/store/systemlogs':
+  '/store/systemlogs':
     get:
       summary: Get System Logs
       description: 'Get system logs '
@@ -30,12 +38,6 @@ paths:
                   meta:
                     $ref: '#/components/schemas/IndexMeta'
       parameters:
-        - schema:
-            type: string
-          in: path
-          required: true
-          name: store_hash
-          description: Path parameter that lets you specify a unique identifier for a store.
         - schema:
             type: integer
             default: 50
@@ -196,22 +198,29 @@ components:
   requestBodies: {}
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
-        |  UI Name | Permission | Parameter |
-        | :-------|:-----------|:----------|
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Store logs | read-only | store_logs_read_only |
 
-        ### Headers
-
-        | Header | Parameter | Description |
-         |:-------|:----------|:------------|
-        | `X-Auth-Token` | `access_token` | Obtained by [creating an API account](/api-docs/getting-started/authentication/rest-api-authentication) or installing an app in a BigCommerce control panel. |
-
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
         For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
 tags:
   - name: System Logs
 security:

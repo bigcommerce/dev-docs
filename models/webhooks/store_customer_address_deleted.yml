@@ -1,25 +1,29 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/customer/address/deleted:
+    description: Customer address is deleted
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      address:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          customer_id:
+          type:
+            type: string
+          id:
             type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          address:
+            type: object
+            properties:
+              customer_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

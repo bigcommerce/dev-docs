@@ -1,27 +1,31 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/order/statusUpdated:
+    description: This will only fire if the order status has changed. Such as Pending to Awaiting Payment
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      status:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          previous_status_id:
+          type:
+            type: string
+          id:
             type: integer
-          new_status_id:
-            type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          status:
+            type: object
+            properties:
+              previous_status_id:
+                type: integer
+              new_status_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

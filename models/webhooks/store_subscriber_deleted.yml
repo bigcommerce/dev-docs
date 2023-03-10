@@ -1,20 +1,24 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/subscriber/deleted:
+    description: Subscriber is deleted
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+      hash:
+        type: string
+      created_at:
         type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      producer:
+        type: string
 

@@ -1,18 +1,25 @@
 openapi: '3.0.1'
 info:
   title: Storefront Checkouts
-  description: Manage checkout operations and data using front-end JavaScript on BigCommerce Stencil-powered storefronts.
+  description: |-
+    Manage checkout operations and data using front-end JavaScript on BigCommerce
+    Stencil-powered storefronts.
+
+    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+  version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
-  version: ''
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
       store_domain:
-        default: yourstore.example.com
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
 tags:
   - name: Checkout
   - name: Checkout Billing Address
@@ -33,8 +40,6 @@ paths:
 
         The cart ID and checkout ID are the same.
 
-
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -227,8 +232,6 @@ paths:
 
         * 2000 character limit
 
-
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -370,10 +373,8 @@ paths:
       description: |-
         Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
 
-        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoint.
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint.
 
-
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -525,8 +526,6 @@ paths:
       description: |-
         Deletes a *Line Item* from the *Cart*.
 
-
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -782,7 +781,6 @@ paths:
         * country_code
 
 
-        <!-- theme: info -->
         > #### Note
         > * The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.
         > * Sending `email` property as a payload in POST request triggers the abandoned cart notification process.
@@ -932,8 +930,6 @@ paths:
       description: |-
         Updates an existing billing address on *Checkout*.
 
-
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -1199,7 +1195,7 @@ paths:
         1. Add a new Consignment to Checkout.
           * Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.
           * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.
-        2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+        2. [Update the Consignment](/docs/rest-storefront/checkouts/checkout-consignments#update-a-consignment) with Shipping Options.
 
         **Required Query**
         * `consignments.availableShippingOptions`
@@ -1210,7 +1206,6 @@ paths:
 
         To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/api-docs/storefront/tutorials/carts).
 
-        <!-- theme: info --> 
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -1369,7 +1364,6 @@ paths:
 
         To learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).
 
-        <!-- theme: info --> 
         > #### Note
         > * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address 
         > * Substitute your storefront domain for `yourstore.example.com`. 
@@ -1522,7 +1516,6 @@ paths:
       description: |-
         Removes an existing *Consignment* from *Checkout*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -1662,8 +1655,6 @@ paths:
       description: |-
         Adds a *Gift Certificate Code* to *Checkout*.
 
-
-        <!-- theme: info -->
         > #### Note
         > * *Gift Certificates* are treated as a payment methods.
         > * You are not able to purchase a gift certificate with a gift certificate.
@@ -1816,7 +1807,6 @@ paths:
 
         This removes the *Gift Certificate* payment method.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -1850,7 +1840,6 @@ paths:
         **Required Fields**
         * couponCode
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -1997,7 +1986,6 @@ paths:
       description: |
         Deletes a *Coupon Code* from *Checkout*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -2241,7 +2229,6 @@ paths:
       description: |-
         Applies any available store credit to a checkout. As on the storefront, all available store credit will be used (up to the value of the order) and no amount need be specified.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.
@@ -2266,7 +2253,6 @@ paths:
       description: |-
         Removes store credit from a checkout.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -2292,7 +2278,6 @@ paths:
       description: |-
         Verifies if checkout is created by human.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  

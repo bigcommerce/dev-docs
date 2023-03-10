@@ -1,29 +1,33 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/product/inventory/order/updated:
+    description: Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      inventory:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          product_id:
-            type: integer
-          method:
+          type:
             type: string
-          value:
+          id:
             type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          inventory:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              method:
+                type: string
+              value:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

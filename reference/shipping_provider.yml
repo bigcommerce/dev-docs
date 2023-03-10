@@ -6,9 +6,12 @@ info:
     Implement endpoints consumed by BigCommerce for custom shipping integrations. To learn more, see [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api).
 
     ## Authentication
+
     This specification file describes API requests BigCommerce will make to a registered shipping carrierʼs server to check connection options and retrieve rates. As such, the method of authentication is determined by the carrier server.
 
-    ## Sub-resources
+    For more, see [developer-configured authentication](/api-docs/getting-started/authentication#developer-configured-authentication) for provider APIs.
+
+    ## Subresources
 
     ### Check Connection Options
     The Check Connection Options request is made by BigCommerce when checking for available shipping options. Each Shipping Provider will have different configurations for the payload.
@@ -22,8 +25,8 @@ info:
     - [Shipment](/api-docs/store-management/webhooks/webhook-events#shipment)
 
     ### Related API Resources
-    - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
-    - [Shipping V2 API](/api-reference/shipping/shipping-api)
+    - [Shipping Provider](/docs/apps-api/shipping)
+    - [Shipping V2 API](/docs/rest-management/shipping-v2)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -31,12 +34,12 @@ info:
     email: support@bigcommerce.com
 tags:
   - name: Shipping Provider
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 servers:
-  - url: 'https://your_app.example.com'
+  - url: 'https://{app_domain}'
+    variables:
+      app_domain:
+        default: your_app.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of your appʼs server.'
     description: The public URL of your shipping provider application.
 paths:
   /rate:
@@ -62,7 +65,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RateResponsePayload'
               examples:
-                response:
+                With shipping rates:
                   value:
                     quote_id: Lor
                     messages:
@@ -347,9 +350,7 @@ paths:
                         carrier_info:
                           code: vel
                           display_name: laborum e
-            No Shipping Rates:
-              examples:
-                response:
+                Without shipping rates:
                   value:
                     quote_id: example_quote
                     messages: []
@@ -626,7 +627,7 @@ components:
                           description: The value associated with the meta field.
                         namespace:
                           type: string
-                          description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                          description: 'The namespace associated with metafields for [products](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
                         resource_type:
                           type: string
                           enum:
@@ -1133,7 +1134,7 @@ components:
                 description: The value associated with the product or product variant meta field.
               namespace:
                 type: string
-                description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                description: 'The namespace associated with metafields for [products](docs/rest-management/catalog/product-metafields) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
               resource_type:
                 type: string
                 enum:
@@ -1316,7 +1317,7 @@ components:
           description: The value associated with the product or product variant meta field.
         namespace:
           type: string
-          description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+          description: 'The namespace associated with metafields for [products](docs/rest-management/catalog/product-metafields) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
         resource_type:
           type: string
           description: Resource type associated with the product or product variant meta field. Currently, the only values available are 'product' or 'variant'.
@@ -1722,7 +1723,7 @@ components:
               example:
                 "1": selected_value
                 "3": checkbox_selection_1
-              description: Describes one or more [custom form fields](/api-reference/storefront/form-fields/form-fields/getformfields). Property key is the global ID of a shipping address form field. When no custom fields exist, the object is empty.
+              description: Describes one or more [custom form fields](/docs/rest-storefront/forms). Property key is the global ID of a shipping address form field. When no custom fields exist, the object is empty.
               properties:
                 '<form field global ID>':
                   $ref: '#/components/schemas/FormFieldValue' 
@@ -1852,7 +1853,7 @@ components:
                       description: The value associated with the meta field.
                     namespace:
                       type: string
-                      description: 'The namespace associated with a product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant(/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. You should save a meta field namespace under this format `shipping_carrier_{yourCarrierId}`; otherwise, you will not be able to recognize it as an attribute.'
+                      description: 'The namespace associated with a [product](docs/rest-management/catalog/product-metafields) or [product variant](/docs/rest-management/catalog/product-variants-metafields) metafields. You should save a metafield namespace under this format `shipping_carrier_{yourCarrierId}`; otherwise, you will not be able to recognize it as an attribute.'
                     resource_type:
                       type: string
                       enum:
@@ -1911,6 +1912,6 @@ components:
         - store_id
     FormFieldValue:
       type: string
-      description: The value of a [shipping address](/api-reference/store-management/orders/order-shipping-addresses/getashippingaddress) form field. Depending on the form field, this could be a user-defined value or the value of a hidden input.
+      description: The value of a [shipping address](/docs/rest-management/orders/order-shipping-addresses#get-a-shipping-address) form field. Depending on the form field, this could be a user-defined value or the value of a hidden input.
       title: Form Field Value
        

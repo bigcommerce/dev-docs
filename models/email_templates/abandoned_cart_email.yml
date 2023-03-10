@@ -1,188 +1,273 @@
-oneOf:
-  - properties:
-      notification:
-        type: array
-        items:
+Abandoned Cart:
+  title: Abandoned Cart Email Template
+  description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
+  type: object
+  oneOf:
+    - properties:
+        notification:
+          type: array
+          items:
+            type: object
+            properties:
+              unsubscribe_link:
+                type: string
+              checkout_link:
+                type: string
+        coupon:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              type:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+                    formatted:
+                      type: string
+              amount:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                      format: float
+                    formatted:
+                      type: string
+        cart:
+          type: array
+          items:
+            type: object
+            properties:
+              products:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '0':
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          url:
+                            type: string
+                          name:
+                            type: string
+                          quantity:
+                            type: integer
+                          sku:
+                            type: string
+                          thumbnail:
+                            type: string
+                          attributes:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                '0':
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                                '1':
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                          price:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                value:
+                                  type: number
+                                  format: float
+                                formatted:
+                                  type: string
+                          type:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                value:
+                                  type: integer
+                                formatted:
+                                  type: string
+                    '1':
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          url:
+                            type: string
+                          name:
+                            type: string
+                          quantity:
+                            type: integer
+                          sku:
+                            type: string
+                          thumbnail:
+                            type: string
+                          attributes:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                '0':
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                                '1':
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        type: string
+                          price:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                value:
+                                  type: number
+                                  format: float
+                                formatted:
+                                  type: string
+                          type:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                value:
+                                  type: integer
+                                formatted:
+                                  type: string
+        store:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              domain_name:
+                type: string
+              logo:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    name:
+                      type: string
+                    url:
+                      type: string
+              ssl_path:
+                type: string
+              cdn_path:
+                type: string
+              image_directory:
+                type: string
+              img_path:
+                type: string
+              path_normal:
+                type: string
+              path:
+                type: string
+              address:
+                type: string
+              phone_number:
+                type: string
+              language:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    direction:
+                      type: string
+        customer:
+          type: array
+          items:
+            type: object
+            properties:
+              first_name:
+                type: string
+              full_name:
+                type: string
+              email:
+                type: string
+              group:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+        misc:
+          type: array
+          items:
+            type: object
+            properties:
+              year:
+                type: integer
+    - deprecated: true
+      properties:
+        abandoned_cart:
           type: object
+          title: deprecated
+          deprecated: true
           properties:
+            body:
+              type: string
             unsubscribe_link:
               type: string
-            checkout_link:
-              type: string
-      coupon:
-        type: array
-        items:
+        store:
           type: object
-          properties:
-            code:
-              type: string
-            type:
-              type: array
-              items:
-                type: object
-                properties:
-                  value:
-                    type: string
-                  formatted:
-                    type: string
-            amount:
-              type: array
-              items:
-                type: object
-                properties:
-                  value:
-                    type: number
-                    format: float
-                  formatted:
-                    type: string
-      cart:
-        type: array
-        items:
-          type: object
-          properties:
-            products:
-              type: array
-              items:
-                type: object
-                properties:
-                  '0':
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: number
-                        url:
-                          type: string
-                        name:
-                          type: string
-                        quantity:
-                          type: integer
-                        sku:
-                          type: string
-                        thumbnail:
-                          type: string
-                        attributes:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              '0':
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    name:
-                                      type: string
-                                    value:
-                                      type: string
-                              '1':
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    name:
-                                      type: string
-                                    value:
-                                      type: string
-                        price:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                                format: float
-                              formatted:
-                                type: string
-                        type:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              value:
-                                type: integer
-                              formatted:
-                                type: string
-                  '1':
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: number
-                        url:
-                          type: string
-                        name:
-                          type: string
-                        quantity:
-                          type: integer
-                        sku:
-                          type: string
-                        thumbnail:
-                          type: string
-                        attributes:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              '0':
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    name:
-                                      type: string
-                                    value:
-                                      type: string
-                              '1':
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    name:
-                                      type: string
-                                    value:
-                                      type: string
-                        price:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                                format: float
-                              formatted:
-                                type: string
-                        type:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              value:
-                                type: integer
-                              formatted:
-                                type: string
-      store:
-        type: array
-        items:
-          type: object
+          deprecated: true
           properties:
             name:
               type: string
             domain_name:
               type: string
             logo:
-              type: array
-              items:
-                type: object
-                properties:
-                  title:
-                    type: string
-                  name:
-                    type: string
-                  url:
-                    type: string
+              type: object
+              deprecated: true
+              properties:
+                title:
+                  type: string
+                name:
+                  type: string
+                url:
+                  type: string
             ssl_path:
               type: string
             cdn_path:
@@ -193,25 +278,22 @@ oneOf:
               type: string
             path_normal:
               type: string
+              description: 'Path to the store (i.e., domain + protocol)'
             path:
               type: string
             address:
               type: string
-            phone_number:
-              type: string
             language:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                  direction:
-                    type: string
-      customer:
-        type: array
-        items:
+              type: object
+              properties:
+                code:
+                  type: string
+                direction:
+                  type: string
+                  description: 'Left to right or right to left, depending on the language'
+        customer:
           type: object
+          deprecated: true
           properties:
             first_name:
               type: string
@@ -224,181 +306,131 @@ oneOf:
               items:
                 type: object
                 properties:
-                  id:
-                    type: number
                   name:
                     type: string
-      misc:
-        type: array
-        items:
+        misc:
           type: object
+          deprecated: true
           properties:
             year:
               type: integer
-  - deprecated: true
-    properties:
-      abandoned_cart:
-        type: object
-        title: deprecated
-        deprecated: true
-        properties:
-          body:
-            type: string
-          unsubscribe_link:
-            type: string
-      store:
-        type: object
-        deprecated: true
-        properties:
-          name:
-            type: string
-          domain_name:
-            type: string
-          logo:
-            type: object
-            deprecated: true
-            properties:
-              title:
-                type: string
-              name:
-                type: string
-              url:
-                type: string
-          ssl_path:
-            type: string
-          cdn_path:
-            type: string
-          image_directory:
-            type: string
-          img_path:
-            type: string
-          path_normal:
-            type: string
-            description: 'Path to the store (i.e., domain + protocol)'
-          path:
-            type: string
-          address:
-            type: string
-          language:
-            type: object
-            properties:
-              code:
-                type: string
-              direction:
-                type: string
-                description: 'Left to right or right to left, depending on the language'
-      customer:
-        type: object
-        deprecated: true
-        properties:
-          first_name:
-            type: string
-          full_name:
-            type: string
-          email:
-            type: string
-          group:
-            type: array
-            items:
+        translations:
+          type: object
+          deprecated: true
+          properties:
+            en:
               type: object
               properties:
-                name:
+                unsubscribe:
                   type: string
+  examples:
+    - notification:
+        - unsubscribe_link: string
+          checkout_link: string
+      coupon:
+        - code: string
+          type:
+            - value: string
+              formatted: string
+          amount:
+            - value: 0
+              formatted: string
+      cart:
+        - products:
+            - '0':
+                - id: 0
+                  url: string
+                  name: string
+                  quantity: 0
+                  sku: string
+                  thumbnail: string
+                  attributes:
+                    - '0':
+                        - name: string
+                          value: string
+                      '1':
+                        - name: string
+                          value: string
+                  price:
+                    - value: 0
+                      formatted: string
+                  type:
+                    - value: 0
+                      formatted: string
+              '1':
+                - id: 0
+                  url: string
+                  name: string
+                  quantity: 0
+                  sku: string
+                  thumbnail: string
+                  attributes:
+                    - '0':
+                        - name: string
+                          value: string
+                      '1':
+                        - name: string
+                          value: string
+                  price:
+                    - value: 0
+                      formatted: string
+                  type:
+                    - value: 0
+                      formatted: string
+      store:
+        - name: string
+          domain_name: string
+          logo:
+            - title: string
+              name: string
+              url: string
+          ssl_path: string
+          cdn_path: string
+          image_directory: string
+          img_path: string
+          path_normal: string
+          path: string
+          address: string
+          phone_number: string
+          language:
+            - code: string
+              direction: string
+      customer:
+        - first_name: string
+          full_name: string
+          email: string
+          group:
+            - id: 0
+              name: string
       misc:
-        type: object
-        deprecated: true
-        properties:
-          year:
-            type: integer
-      translations:
-        type: object
-        deprecated: true
-        properties:
-          en:
-            type: object
-            properties:
-              unsubscribe:
-                type: string
-examples:
-  - notification:
-      - unsubscribe_link: string
-        checkout_link: string
-    coupon:
-      - code: string
-        type:
-          - value: string
-            formatted: string
-        amount:
-          - value: 0
-            formatted: string
-    cart:
-      - products:
-          - '0':
-              - id: 0
-                url: string
-                name: string
-                quantity: 0
-                sku: string
-                thumbnail: string
-                attributes:
-                  - '0':
-                      - name: string
-                        value: string
-                    '1':
-                      - name: string
-                        value: string
-                price:
-                  - value: 0
-                    formatted: string
-                type:
-                  - value: 0
-                    formatted: string
-            '1':
-              - id: 0
-                url: string
-                name: string
-                quantity: 0
-                sku: string
-                thumbnail: string
-                attributes:
-                  - '0':
-                      - name: string
-                        value: string
-                    '1':
-                      - name: string
-                        value: string
-                price:
-                  - value: 0
-                    formatted: string
-                type:
-                  - value: 0
-                    formatted: string
-    store:
-      - name: string
-        domain_name: string
-        logo:
-          - title: string
-            name: string
-            url: string
-        ssl_path: string
-        cdn_path: string
-        image_directory: string
-        img_path: string
-        path_normal: string
-        path: string
-        address: string
-        phone_number: string
+        - year: 0
+      examples: 
+        abandoned_cart: 
+        body: You recently visited our online store and we noticed that you didn't complete your order.\n <br>To complete your order right now, just click on the link below:\n <a href=\"#link\">Complete your order</a>
+        unsubscribe_link: #unsubscribe-link
+        store: 
+        name: My Dev Store 97434969
+        domain_name: my-dev-store-97434969.store.bcdev
+        logo: 
+          title: [= My Dev Store 97434969 =]
+          name: avatar-2020_1612860757__16350.jpeg
+          url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+        ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+        cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+        image_directory: product_images
+        img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+        path_normal: 'https://my-dev-store-97434969.store.bcdev'
+        path: 'https://my-dev-store-97434969.store.bcdev' 
+        address: 
         language:
-          - code: string
-            direction: string
-    customer:
-      - first_name: string
-        full_name: string
-        email: string
-        group:
-          - id: 0
-            name: string
-    misc:
-      - year: 0
-description: ''
-type: object
+          code: en
+          direction: ltr
+        customer: 
+          first_name: John
+          full_name: John Jr
+          email: 'john.f@example.com'
+        misc: 
+          year: 2021
+        translations: 
+          en: 
+            unsubscribe:'<a href=\"{{link}}\">Unsubscribe</a> from future emails like this.

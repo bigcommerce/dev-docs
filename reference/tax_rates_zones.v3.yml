@@ -1,4 +1,4 @@
-openapi: '3.1.0'
+openapi: '3.0.3'
 info:
   title: Tax Rates & Zones
   version: '1.0.0'
@@ -9,15 +9,19 @@ info:
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
     description: BigCommerce API Gateway
 tags:
   - name: Tax Zones
   - name: Tax Rates
 paths:
-  '/stores/{store_hash}/v3/tax/zones':
+  '/tax/zones':
     parameters:
-      - $ref: '#/components/parameters/storeHash'
+      
       - $ref: '#/components/parameters/Accept'
     get:
       parameters:
@@ -40,7 +44,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Tax_Zone'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 Example 1:
                   value:
@@ -90,7 +94,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Tax_Zone'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 Example 1:
                   value:
@@ -121,7 +125,6 @@ paths:
       description: |-
         Create one or more tax zones.
 
-        <!-- theme: info -->
         > #### Note
         > You cannot create a default tax zone.
       operationId: create-tax-zones
@@ -140,7 +143,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Tax_Zone'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 Example 1:
                   value:
@@ -176,16 +179,16 @@ paths:
       description: |-
         Delete one or more tax zones. Deleting a tax zone removes all associated tax rates.
 
-        <!-- theme:info -->
+        > #### Note
         > You must specify which zone(s) to delete using the `id:in` query parameter.
 
       operationId: delete-tax-zones
       responses:
         '204':
           description: No Content
-  '/stores/{store_hash}/v3/tax/rates':
+  '/tax/rates':
     parameters:
-      - $ref: '#/components/parameters/storeHash'
+      
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
@@ -234,7 +237,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Tax_Rate'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 Example 1:
                   value:
@@ -271,7 +274,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Tax_Rate'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 Example 1:
                   value:
@@ -294,7 +297,7 @@ paths:
       description: |- 
         Delete one or more tax rates.
 
-        <!-- theme:info -->
+        > #### Note
         > You must specify which rate(s) to delete using the `id:in` query parameter.
 
       operationId: delete-tax-rates
@@ -412,13 +415,13 @@ components:
 
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
 
         ### Further reading
 
         For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
         
         For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
   schemas:
@@ -486,8 +489,6 @@ components:
                 type: integer
     Tax_ZonePUT:
       type: object
-      x-stoplight:
-        id: 3d6cd787b77b3
       properties:
         id:
           type: integer
@@ -655,8 +656,6 @@ components:
       x-examples: {}
     Tax_RatePUT:
       type: object
-      x-stoplight:
-        id: d741cb3bba64c
       properties:
         class_rates:
           type: array
@@ -766,6 +765,12 @@ components:
             links:
               current: '?tax_zone_id%3Ain=1&page=1&limit=50'
       title: Meta
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   parameters:
     storeHash:
       name: store_hash
@@ -803,11 +808,29 @@ components:
       description: Filter by `id`. Use a comma-separated CSV string of IDs for multiple selections. For example, `5` or `12,34,56`.
       required: false
     zoneIdIn:
-      $ref: '#/components/parameters/idIn'
+      name: 'id:in'
+      in: query
+      schema:
+        type: array
+        items:
+          type: integer
+        minItems: 1
+      style: form
+      explode: false
       description: Filter by tax zone `id`. Use a comma-separated CSV string of IDs for multiple tax zones. For example, `5` or `12,34,56`.
+      required: false
     rateIdIn:
-      $ref: '#/components/parameters/idIn'
+      name: 'id:in'
+      in: query
+      schema:
+        type: array
+        items:
+          type: integer
+        minItems: 1
+      style: form
+      explode: false
       description: Filter by tax rate `id`. Use a comma-separated CSV string of IDs for multiple tax rates. For example, `5` or `12,34,56`.
+      required: false
     taxZoneIdIn:
       name: 'tax_zone_id:in'
       in: query

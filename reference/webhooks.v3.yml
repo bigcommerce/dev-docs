@@ -8,8 +8,22 @@ info:
     email: support@bigcommerce.com
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
+tags:
+  - name: Manage Webhooks (Single)
+  - name: Manage Webhooks (Bulk)
+  - name: Webhook Events
+  - name: Webhooks Admin
+security:
+  - X-Auth-Token: []
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 paths:
-  '/stores/{store_hash}/v3/hooks':
+  '/hooks':
     post:
       responses:
         '200':
@@ -74,7 +88,7 @@ paths:
             schema:
               $ref: '#/components/schemas/webhook_Base'
       tags:
-        - Webhooks
+        - Manage Webhooks (Bulk)
     get:
       responses:
         '200':
@@ -90,7 +104,7 @@ paths:
         *Note: BigCommerce determines the `client_id` from the `access_token`.*
       operationId: getAllWebhooks
       tags:
-        - Webhooks
+        - Manage Webhooks (Bulk)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -99,9 +113,7 @@ paths:
         - $ref: '#/components/parameters/IsActive'
         - $ref: '#/components/parameters/FilterByScope'
         - $ref: '#/components/parameters/FilterByDestination'
-    parameters:
-      - $ref: '#/components/parameters/StoreHash'
-  '/stores/{store_hash}/v3/hooks/{webhook_id}':
+  '/hooks/{webhook_id}':
     get:
       responses:
         '200':
@@ -116,13 +128,12 @@ paths:
       operationId: getWebhook
       summary: Get a Webhook
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
     parameters:
-      - $ref: '#/components/parameters/WebhookId'
-      - $ref: '#/components/parameters/StoreHash'
+      - $ref: '#/components/parameters/WebhookId' 
     put:
       responses:
         '200':
@@ -147,7 +158,7 @@ paths:
               User-Name: Hello
               Password: Goodbye
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
     delete:
       responses:
         '200':
@@ -156,18 +167,17 @@ paths:
       description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
       operationId: deleteAWebhook
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
-  '/stores/{store_hash}/v3/hooks/admin':
+  '/hooks/admin':
     get:
       operationId: getHooksAdmin
       summary: Get Admin Info
       description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
       parameters:
         - $ref: '#/components/parameters/IsActive'
-        - $ref: '#/components/parameters/StoreHash'
       responses:
         '200':
           description: Successful operation.
@@ -298,12 +308,10 @@ paths:
           $ref: '#/components/responses/422_UnprocessableEntity'
       tags:
         - Webhooks Admin
-    parameters:
-      - $ref: '#/components/parameters/StoreHash'
-  '/stores/{store_hash}/v3/hooks/events':
+  '/hooks/events':
     get:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Get Events
       parameters:
         - $ref: '#/components/parameters/FilterPageParam'
@@ -334,26 +342,8 @@ paths:
           $ref: '#/components/responses/401_Unauthorized'
       description: |
         Get a list of events that were sent but not successfully received. Events are stored for not less than one week.
-    parameters:
-      - $ref: '#/components/parameters/StoreHash'
-tags:
-  - name: Webhooks
-  - name: Webhooks Admin
-  - name: Callbacks
-security:
-  - X-Auth-Token: []
-servers:
-  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
-    StoreHash:
-      name: store_hash
-      in: path
-      required: true
-      description: Permanent ID of the BigCommerce store.
-      schema:
-        type: string
-        example: lkjsdflo
     WebhookId:
       name: webhook_id
       in: path
@@ -652,29 +642,27 @@ components:
                     total_pages: 1
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
+        ### OAuth scopes
+
         None required. Create and manage webhooks with the default scope of an API account.
 
-        ### Headers
-
-        | Header | Parameter | Description |
-        |:-------|:----------|:------------|
-        | `X-Auth-Token` | `access_token ` | Obtained by creating an API account or installing an app in a BigCommerce control panel. |
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     store_cart_wildcard:
       description: |-
@@ -695,7 +683,7 @@ components:
       description: |-
         This webhook fires on new cart creation when any of the following occur:
         * a storefront shopper adds their first product to a cart during a new session
-        * thereʼs a successful `POST` request to `/carts` using either the [Storefront](/api-reference/storefront/carts/cart/createacart) API or the [Store Management](/api-reference/store-management/carts/cart/createacart) API 
+        * thereʼs a successful `POST` request to `/carts` using either the [Storefront](/docs/rest-storefront/carts#create-a-cart) API or the [Store Management](/docs/rest-management/carts/carts-single#create-a-cart) API 
 
         Cart creation also fires the `store/cart/updated` webhook.
 

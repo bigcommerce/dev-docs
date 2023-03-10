@@ -1,22 +1,26 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/cart/lineItem/updated:
+    description: When an item’s quantity has changed or the product options change.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
         type: string
-      cartId:
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          cartId:
+            type: string
+      hash:
         type: string
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

@@ -1,22 +1,26 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/cart/couponApplied:
+    description: This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code.
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
+      store_id:
         type: string
-      couponId:
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          couponId:
+            type: integer
+      hash:
+        type: string
+      created_at:
         type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+      producer:
+        type: string
 

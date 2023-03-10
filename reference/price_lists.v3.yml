@@ -1,31 +1,14 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Price Lists
   description: |-
-    Populate different versions of catalog pricing and assign them to different [customer groups](/api-reference/customer-subscribers/customers-api) at the variant level.
-
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request headers.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth Scopes
-
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Products                                     | modify     | `store_v2_products`                           |
-    | Products                                     | read-only  | `store_v2_products_read_only`                 |
+    Populate different versions of catalog pricing and assign them to different [customer groups](/docs/rest-management/customers-v2/customer-groups) at the variant level.
 
     ## Price Lists
 
-    You can associate a Price List with a customer group either through the control panel or by using the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
+    You can associate a Price List with a customer group either through the control panel or by using the [Customer Groups API](/docs/rest-management/customers-v2/customer-groups).
 
-    You can create [Price List Assignments](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments) to assign Price Lists to a specific [channel](/api-reference/cart-checkout/channels-listings-api). Price Lists assigned to a channel apply to all shoppers on that channel, unless there are more specific assignments or customer group discounts set up for the shopper's customer group.
+    You can create [Price List Assignments](/docs/rest-management/price-lists/price-lists-assignments#create-price-list-assignments) to assign Price Lists to a specific [channel](/docs/rest-management/channels/channel-listings). Price Lists assigned to a channel apply to all shoppers on that channel, unless there are more specific assignments or customer group discounts set up for the shopper's customer group.
 
     If an active Price List does not contain prices for a variant, the catalog pricing will be used.
 
@@ -56,7 +39,7 @@ info:
     - Price Lists cannot be assigned to a customer group that has customer group discounts -- the customer group discounts must be deleted first.
     - Bulk pricing Tiers may additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
     - If a variant has a Price Record, any existing product-level bulk pricing will not apply in the cart. For variants without Price Records, any existing product bulk pricing will apply.
-    - [Price Lists Records](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a 429 error and the request will fail.
+    - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a 429 error and the request will fail.
     - There are no webhooks available for Price Lists. Since Price Lists directly relate to products, product webhooks will trigger for corresponding changes such as pricing.
 
     ## Additional information
@@ -67,16 +50,20 @@ info:
     * [SKU](/api-docs/store-management/webhooks/events#sku)
 
     ### Related endpoints
-    * [Get All Price Lists](/api-reference/store-management/price-lists/price-lists/getpricelistcollection)
-  termsOfService: ''
+    * [Get All Price Lists](/docs/rest-management/price-lists#get-all-price-lists)
+  termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
-    name: ''
-    url: ''
-  license:
-    name: ''
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
   version: ''
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 security:
   - X-Auth-Token: []
 tags:
@@ -85,7 +72,9 @@ tags:
   - name: Price Lists Assignments
   - name: Price Lists Records
 paths:
-  '/stores/{store_hash}/v3/pricelists':
+  '/pricelists':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists
@@ -93,11 +82,6 @@ paths:
       description: Returns a list of *Price Lists*. Optional parameters can be passed in.
       operationId: getPriceListCollection
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: id
           in: query
           description: |
@@ -133,16 +117,6 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of products.
           schema:
             type: integer
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
         - name: 'id:in'
           in: query
           style: form
@@ -315,21 +289,7 @@ paths:
         * name
       operationId: createPriceList
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -405,12 +365,9 @@ paths:
                             example: true
                         description: Specifies the Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
-                  PriceList Reponse returns for:
+                  PriceList Response returns for:
 
                   * Create a PriceList
                   * Get a PriceList
@@ -435,8 +392,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -461,8 +418,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -483,11 +440,6 @@ paths:
       description: Deletes a *Price List*. All associated price records are also removed. Optional parameters can be passed in.
       operationId: deletePriceListsByFilter
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: id
           in: query
           description: |
@@ -500,16 +452,6 @@ paths:
             Filter items by name.
           schema:
             type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: '`204 No Content`. The action has been performed and no further information will be supplied. `null` is returned.'
@@ -518,7 +460,9 @@ paths:
               schema:
                 type: object
                 nullable: true
-  '/stores/{store_hash}/v3/pricelists/{price_list_id}':
+  '/pricelists/{price_list_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists
@@ -533,11 +477,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: id
           in: query
           description: Filter items by ID.
@@ -615,12 +554,9 @@ paths:
                         example: true
                     description: Specifies the Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
-                  PriceList Reponse returns for:
+                  PriceList Response returns for:
 
                   * Create a PriceList
                   * Get a PriceList
@@ -647,11 +583,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -727,12 +659,9 @@ paths:
                             example: true
                         description: Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
-                  PriceList Reponse returns for:
+                  PriceList Response returns for:
 
                   * Create a PriceList
                   * Get a PriceList
@@ -778,8 +707,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -804,8 +733,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -837,15 +766,12 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         '204':
           description: Action has been enacted and no further information is to be supplied. `null` is returned.
-  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records':
+  '/pricelists/{price_list_id}/records':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists Records
@@ -865,11 +791,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: 'variant_id:in'
           in: query
           description: The ID of the `Variant` for which prices were requested.
@@ -956,16 +877,6 @@ paths:
             Filter items by SKU.
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
         - name: 'sku:in'
           in: query
           style: form
@@ -1486,11 +1397,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: X-Strict-Mode
           in: header
           description: |
@@ -1498,16 +1404,7 @@ paths:
           schema:
             type: integer
             default: 0
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -1702,8 +1599,8 @@ paths:
                         field_errors:
                           title: Detailed Errors
                           type: object
-                          additionalProperties:
-                            type: string
+                          properties: {}
+                          additionalProperties: true
                       description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
                 description: Errors during batch usage for the BigCommerce API.
     delete:
@@ -1720,26 +1617,11 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: 'variant_id:in'
           in: query
           description: The ID of the `Variant` for which prices were requested.
           schema:
             type: integer
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -1761,7 +1643,9 @@ paths:
                   instance:
                     type: string
                 description: No-content response for the BigCommerce API.
-  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records/{variant_id}':
+  '/pricelists/{price_list_id}/records/{variant_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists Records
@@ -1788,21 +1672,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -1991,7 +1860,9 @@ paths:
                                 description: |
                                   Link to the next page returned in the response.
               examples: {}
-  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records/{variant_id}/{currency_code}':
+  '/pricelists/{price_list_id}/records/{variant_id}/{currency_code}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists Records
@@ -2021,11 +1892,6 @@ paths:
           schema:
             type: string
             format: ISO-4217
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: include
           in: query
           description: |
@@ -2035,16 +1901,6 @@ paths:
             enum:
               - bulk_pricing_tiers
               - sku
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -2174,10 +2030,7 @@ paths:
                             example: SMB-123
                         description: Common Price Record properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: Response payload for the BigCommerce API.
               example:
                 data:
@@ -2228,21 +2081,7 @@ paths:
           schema:
             type: string
             format: ISO-4217
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -2440,9 +2279,7 @@ paths:
                     title: Price Record
                     type: object
                   meta:
-                    type: object
-                    description: Empty meta object; may be used later.
-                    title: Meta
+                    $ref: '#/components/schemas/Meta'
                 title: Price Record Response
               examples:
                 value:
@@ -2502,8 +2339,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -2528,8 +2365,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -2572,26 +2409,13 @@ paths:
           schema:
             type: string
             format: ISO-4217
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
-  '/stores/{store_hash}/v3/pricelists/assignments':
+  '/pricelists/assignments':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Price Lists Assignments
@@ -2599,11 +2423,6 @@ paths:
       description: Fetches an array of `Price List Assignments` matching a particular Customer Group and Price List and Channel.
       operationId: GetListOfPriceListAssignments
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
         - name: id
           in: query
           description: The ID of the `Price List Assignment`.
@@ -2686,6 +2505,8 @@ paths:
         **Note:** The batch limit for `Price List Assignments` is 25.
       summary: Create Price List Assignments
       operationId: CreatePriceListAssignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -2720,13 +2541,9 @@ paths:
       responses:
         '204':
           description: No Content.
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
   '/pricelists/{price_list_id}/assignments':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     put:
       tags:
         - Price Lists Assignments
@@ -2735,6 +2552,7 @@ paths:
       operationId: upsertPriceListAssignment
       parameters:
         - $ref: '#/components/parameters/PriceListIdParam'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -2749,7 +2567,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AssignmentForPutResponse'
         '404':
-          description: 'A matching customer group or channel wasn''t found, so no assignment is created or returned.'
+          description: 'A matching customer group or channel wasnʼt found, so no assignment is created or returned.'
 components:
   parameters:
     ChannelIdInParam:
@@ -2914,17 +2732,21 @@ components:
       required: false
       description: The ID of the `Variant` for which prices were requested.
     Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-      in: header
-      name: Accept
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
     FilterAssignmentIdParam:
       description: The ID of the `Price List Assignment`.
       required: false
@@ -3019,7 +2841,7 @@ components:
               description: Channel ID for assignment.
               example: 2
         meta:
-          type: object
+          $ref: '#/components/schemas/Meta'
     PriceListAssignmentsBatchErrorResponse:
       type: object
       x-internal: false
@@ -3032,6 +2854,9 @@ components:
           type: string
         errors:
           type: object
+          properties: {}
+          additionalProperties: true
+          title: Detailed Errors
         meta:
           type: object
           properties:
@@ -3175,7 +3000,7 @@ components:
       x-internal: false
     PriceListResponse:
       description: |-
-        PriceList Reponse returns for:
+        PriceList Response returns for:
 
         * Create a PriceList
         * Get a PriceList
@@ -3223,9 +3048,7 @@ components:
           title: Price List
           type: object
         meta:
-          type: object
-          description: Empty meta object; may be used later.
-          title: Meta
+          $ref: '#/components/schemas/Meta'
       title: Price List Response
       x-internal: false
     PriceListBase:
@@ -3642,9 +3465,7 @@ components:
           title: Price Record
           type: object
         meta:
-          type: object
-          description: Empty meta object; may be used later.
-          title: Meta
+          $ref: '#/components/schemas/Meta'
       title: Price Record Response
       x-internal: false
     PriceRecordBase:
@@ -4173,8 +3994,8 @@ components:
                 type: object
               field_errors:
                 type: object
-                additionalProperties:
-                  type: string
+                properties: {}
+                additionalProperties: true
                 title: Detailed Errors
             title: PriceRecord Batch Error Set
       title: PriceRecord Batch Error Response
@@ -4211,8 +4032,8 @@ components:
           type: object
         field_errors:
           type: object
-          additionalProperties:
-            type: string
+          properties: {}
+          additionalProperties: true
           title: Detailed Errors
       title: PriceRecord Batch Error Set
       x-internal: false
@@ -4320,10 +4141,11 @@ components:
                 Link to the next page returned in the response.
       x-internal: false
     Meta:
+      title: Response meta
       type: object
-      description: Empty meta object; may be used later.
-      title: Meta
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       allOf:
         - type: object
@@ -4347,8 +4169,8 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true
               title: Detailed Errors
       title: Error Response
       x-internal: false
@@ -4396,35 +4218,28 @@ components:
       x-internal: false
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Products | modify | `store_v2_products` |
         |  Products | read-only | `store_v2_products_read_only` |
 
-          ### Headers
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
 
-          |Header|Parameter|Description|
-          |-|-|-|
-          |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-          ### Example
-
-          ```http
-          GET /stores/{store_hash}/v3/catalog/summary
-          host: api.bigcommerce.com
-          Content-Type: application/json
-          X-Auth-Token: {access_token}
-          ```
-
-          * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-        name: X-Auth-Token
-        in: header
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false

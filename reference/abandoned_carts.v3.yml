@@ -1,36 +1,29 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   version: ''
   title: Abandoned Carts
   description: |-
-    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` via the abandoned cart `token` passed in to headless storefront via an abandoned cart email link clicked on by a shopper. Once the `cart_id` has been retrieved, it can be used to fetch and display information about the cart to the shopper via the storefront cart and/or server-to-server cart APIs.
-
-    ## OAuth Scopes
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Information & Settings                       | read-only  | `store_v2_information_read_only`              |
-    | Information & Settings                       | modify     | `store_v2_information`                        |
-
-    For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
-    ## Authentication
-
-    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
-
-    ```http
-    GET /stores/{store_hash}/v3/catalog/summary
-    host: api.bigcommerce.com
-    Accept: application/json
-    X-Auth-Token: {access_token}
-    ```
-
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` using the abandoned cart `token` passed to the storefront when a shopper clicks an abandoned cart email link. Once the `cart_id` has been retrieved, your application can use it to fetch and display information about the cart to the shopper using the Storefront Cart API and/or Store Management Cart API.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Abandoned Carts
+  - name: Abandoned Cart Settings
+  - name: Abandoned Carts Settings
 paths:
-  '/stores/{store_hash}/v3/abandoned-carts/settings':
+  '/abandoned-carts/settings':
     get:
       summary: Get Global Abandoned Cart Settings
       description: Returns the global abandoned cart settings of a store.
@@ -82,13 +75,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/abandoned-carts/settings/channels/{channel_id}':
+      
+      - $ref: '#/components/parameters/Accept'
+  '/abandoned-carts/settings/channels/{channel_id}':
     get:
       summary: Get Channel Abandoned Cart Settings
       description: Returns the per-channel overrides for the abandoned cart settings of a store.
@@ -134,6 +126,7 @@ paths:
           required: true
           schema:
             type: integer
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         required: true
         content:
@@ -154,24 +147,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
-          description: Unprocessible entity
+          description: Unprocessable entity
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
       security: []
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      
+      - $ref: '#/components/parameters/Accept'
       - schema:
           type: string
         name: channel_id
         in: path
         required: true
-  '/stores/{store_hash}/v3/abandoned-carts/{token}':
+  '/abandoned-carts/{token}':
     get:
       responses:
         '200':
@@ -209,41 +199,26 @@ paths:
           Unique cart `UUID` token that is generated for abandoned cart emails.
         schema:
           type: string
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-security:
-  - X-Auth-Token: []
-tags:
-  - name: Abandoned Carts
-  - name: Abandoned Cart Settings
-  - name: Abandoned Carts Settings
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
-servers:
-  - url: 'https://api.bigcommerce.com'
+      
+      - $ref: '#/components/parameters/Accept'
 components:
   parameters:
     Accept:
-      in: header
       name: Accept
+      in: header
       required: true
-      description: Accept
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
       required: true
-      description: Content-Type
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
   responses:
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
@@ -348,41 +323,37 @@ components:
                 $ref: '#/components/schemas/metaEmpty_Full'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
-      in: header
       name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         | Information & Settings  | read-only  | `store_v2_information_read_only`|
         | Information & Settings  | modify     | `store_v2_information`          |
 
+        ### Authentication header
 
-        ### Headers
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
 
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     metaEmpty_Full:
+      title: Response meta
       type: object
-      title: metaEmpty_Full
-      x-internal: false
-      properties:
-        meta:
-          type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     error_Full:
       type: object
       title: error_Full
@@ -414,7 +385,7 @@ components:
       properties:
         cart_id:
           type: string
-          description: The `cart_id` of the abandoned cart. Can be used to display the abanded cart to the customer via storefront cart or
+          description: The `cart_id` of the abandoned cart. Can be used to display the abandoned cart to the customer using storefront cart or
       x-internal: false
     AbandonedCartSettings:
       description: Represents all settings related to the abandoned cart functionality of a store
@@ -509,7 +480,7 @@ components:
         data:
           $ref: '#/components/schemas/ChannelAbandonedCartSettings'
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
       x-tags:
         - Models
     GlobalAbandonedCartSettingsRequest:
@@ -534,7 +505,7 @@ components:
         data:
           $ref: '#/components/schemas/AbandonedCartSettings'
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
       x-tags:
         - Models
     ErrorResponse:
@@ -553,3 +524,4 @@ components:
           type: object
       x-tags:
         - Models
+

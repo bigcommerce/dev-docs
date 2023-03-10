@@ -1,24 +1,28 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   version: ''
   title: Payment Processing
-  contact: {}
   description: 'Process payments using payment instrument such as credit card. See [Payments Overview](/api-docs/store-management/payment-processing) for more information.'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 tags:
   - name: Accepted Methods
   - name: Access Tokens
   - name: Process Payment
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com'
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
   - url: 'https://payments.bigcommerce.com'
-security:
-  - X-Auth-Token: []
+    description: BigCommerce Payments Gateway
 paths:
-  '/stores/{store_hash}/payments':
+  '/payments':
     post:
       summary: Process Payment
       tags:
@@ -27,29 +31,12 @@ paths:
       description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payment-processing) for more information.'
       servers:
         - url: 'https://payments.bigcommerce.com'
+          description: BigCommerce Payments Gateway
+      security:
+        - BearerPAT: []
       parameters:
-        - name: Authorization
-          in: header
-          required: true
-          description: 'Authorization header with a valid payment access token is required to access this endpoint e.g. Authorization: PAT a-valid-payment-access-token'
-          schema:
-            type: string
-            example: 'PAT {{PAT}}'
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            enum:
-              - application/vnd.bc.v1+json
-            default: application/vnd.bc.v1+json
-          required: true
-          description: This required value must be `application/vnd.bc.v1+json`
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-            default: application/json
-          required: true
+        - $ref: '#/components/parameters/AcceptPaymentResponse'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -331,19 +318,14 @@ paths:
                   - status
                   - title
                   - type
-      security: []
+  '/payments/access_tokens':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/payments/access_tokens':
+      - $ref: '#/components/parameters/Accept'
     post:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
-        After the token is created, use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
+        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing/process-payment#process-payment).
 
         **Required Fields**
         * order_id
@@ -352,19 +334,17 @@ paths:
         - Access Tokens
       operationId: PaymentsAccessTokensPost
       servers:
-        - url: 'https://api.bigcommerce.com'
+        - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+          variables:
+            store_hash:
+              default: store_hash
+              description: Permanent ID of the BigCommerce store.
+          description: BigCommerce API Gateway
+      security:
+        - X-Auth-Token: []
       deprecated: false
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -411,6 +391,11 @@ paths:
                         minLength: 1
                     required:
                       - id
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               examples:
                 example-1:
                   value:
@@ -615,19 +600,15 @@ paths:
                   - status
                   - title
                   - type
+  '/payments/methods':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/payments/methods':
+      - $ref: '#/components/parameters/Accept'
     get:
       description: |-
         Returns a list of accepted payment methods based on the `order_id` or `checkout_id`.
 
         **Notes**
-        * Use the [Create an Order](/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint, to generate the `order_id`.
+        * Use the [Create an Order](/docs/rest-management/orders#create-an-order) endpoint to generate the `order_id`.
         * Orders created will be set to incomplete order status.
         * The cart ID and checkout ID are the same.
 
@@ -638,7 +619,14 @@ paths:
         - Accepted Methods
       operationId: PaymentsMethodsGet
       servers:
-        - url: 'https://api.bigcommerce.com'
+        - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+          variables:
+            store_hash:
+              default: store_hash
+              description: Permanent ID of the BigCommerce store.
+          description: BigCommerce API Gateway
+      security:
+        - X-Auth-Token: []
       deprecated: false
       parameters:
         - name: order_id
@@ -656,16 +644,6 @@ paths:
             type: string
             exclusiveMinimum: false
             exclusiveMaximum: false
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           $ref: '#/components/responses/paymentsMethods_Resp'
@@ -834,28 +812,34 @@ paths:
                   - status
                   - title
                   - type
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
 components:
   parameters:
-    Accept:
+    AcceptPaymentResponse:
       name: Accept
       in: header
       schema:
         type: string
         enum:
-          - application/vnd.bc.v1+json
-        default: application/vnd.bc.v1+json
-    Content-Type:
-      name: Content-Type
+          - 'application/vnd.bc.v1+json'
+        default: 'application/vnd.bc.v1+json'
+      required: true
+      description: This required value must be `application/vnd.bc.v1+json`.
+    Accept:
+      name: Accept
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
   responses:
     paymentsMethods_Resp:
       description: ''
@@ -869,6 +853,11 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/paymentMethod_Full'
+              meta: 
+                type: object
+                properties: {}
+                additionalProperties: true
+                description: Response metadata.
           examples:
             response:
               value:
@@ -926,41 +915,50 @@ components:
                 $ref: '#/components/schemas/PaymentAccessToken'
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
-      in: header
       name: X-Auth-Token
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Create Payments | create | `store_payments_access_token_create` |
         |  Get Payment Methods | read-only | `store_payments_methods_read` |
 
-        ### Headers
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
 
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`ACCESS_TOKEN`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-        |`Authorization`|`PAT {{PAYMENT_ACCESS_TOKEN}}`|Obtained using Create Access Token endpoint.|
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
+    BearerPAT:
+      description: |-
+        ### OAuth scopes
 
-        ### Examples
+        The required scopes are granted to the `payment_access_token` upon generation.
 
-        ```http title="Create payment access token"
-        POST /stores/{{STORE_HASH}}/v3/payments/access_tokens
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {{ACCESS_TOKEN}}
-        ```
-        &nbsp;
-        ```http title="Process payment"
-        POST /payments
-        host: payments.bigcommerce.com
-        Content-Type: application/json
-        Accept: application/vnd.bc.v1+json
-        Authorization: PAT {{PAYMENT_ACCESS_TOKEN}}
-        ```
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        |`Authorization`|`PAT {{PAYMENT_ACCESS_TOKEN}}`| Obtained using the Create Access Token endpoint.|
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        ### Further reading
+        
+        For an outline of the Process Payment API call flow and more information about authenticating, see [Authentication and Example Requests](/api-docs/getting-started/authentication#bigcommerce-generated-jwts).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: http
+      scheme: bearer
+      bearerFormat: 'PAT {{PAYMENT_ACCESS_TOKEN}}'
   schemas:
     PaymentRequest:
       title: Payment Request
@@ -1560,8 +1558,6 @@ components:
       x-internal: false
     GiftCertificate:
       title: GiftCertificate
-      x-stoplight:
-        id: azxvgrjgbxoew
       type: object
       properties:
         type:
@@ -1576,8 +1572,6 @@ components:
           gift_certificate_code: ABC-DEF-GXX
     StoreCredit:
       title: StoreCredit
-      x-stoplight:
-        id: f7p4sz9rsvsyf
       type: object
       properties:
         type:

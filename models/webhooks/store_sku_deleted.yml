@@ -1,27 +1,31 @@
 type: object
 properties:
-  scope:
-    type: string
-  store_id:
-    type: string
-  data:
+  store/sku/deleted:
+    description: SKU is deleted
     type: object
     properties:
-      type:
+      scope:
         type: string
-      id:
-        type: integer
-      sku:
+      store_id:
+        type: string
+      data:
         type: object
         properties:
-          product_id:
+          type:
+            type: string
+          id:
             type: integer
-          variant_id:
-            type: integer
-  hash:
-    type: string
-  created_at:
-    type: integer
-  producer:
-    type: string
+          sku:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              variant_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
 

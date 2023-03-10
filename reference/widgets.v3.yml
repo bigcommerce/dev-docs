@@ -1,48 +1,34 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Widgets
   version: ''
-  contact: {}
   description: |-
     Create and manage widget templates, widgets, regions, and placements.
-
-    ## Authentication
-
-    [Authenticate](/api-docs/getting-started/authentication/rest-api-authentication) requests by including an OAuth `access_token` in the request header.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### OAuth scopes
-    |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
-    |  Content | modify | `store_v2_content` |
-    |  Content | read-only | `store_v2_content_read_only` |
-
-    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Subresources
 
     ### Widget templates
-    [Widget templates](/api-reference/store-management/widgets/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
+    [Widget templates](/rest-content/widgets/widget-template) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
 
     ### Widgets
-    [Widgets](/api-reference/store-management/widgets/widget/getwidgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
+    [Widgets](/docs/rest-content/widgets/widget) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
 
     ### Regions
-    [Regions](/api-reference/store-management/widgets/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget.
+    [Regions](/docs/rest-content/widgets/regions) are specific locations in the Stencil theme template files where you can place a widget.
 
     ### Placements
-    [Placements](/api-reference/store-management/widgets/placement/getplacements) determine the region where you place widgets and in what order.
+    [Placements](/docs/rest-content/widgets/placement) determine the region where you place widgets and in what order.
 
     ## Additional Information
 
     * [Widgets API Overview](/api-docs/store-management/widgets/overview)
     * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
     * [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 tags:
   - name: Regions
   - name: Widget Template
@@ -51,24 +37,25 @@ tags:
     description: BigCommerce Widgets API Definition.
   - name: Placement
     description: BigCommerce Placements API Definition.
+security:
+  - X-Auth-Token: []
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
 paths:
-  '/stores/{store_hash}/v3/content/widget-templates':
+  '/content/widget-templates':
     post:
       tags:
         - Widget Template
       summary: Create a Widget Template
       operationId: createWidgetTemplate
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -160,16 +147,8 @@ paths:
           required: false
           schema:
             type: string
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
         - in: query
           name: 'channel_id:in'
           description: Filter items by channel_id.
@@ -182,13 +161,7 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Widget Templates**.
       summary: Get All Widget Templates
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
+  '/content/widget-templates/{uuid}/preview':
     post:
       tags:
         - Widget Template
@@ -221,40 +194,18 @@ paths:
         in: path
         required: true
         description: The identifier for a specific widget.
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
+  '/content/widget-templates/{uuid}':
     get:
       tags:
         - Widget Template
       summary: Get a Widget Template
       operationId: getWidgetTemplate
       parameters:
-        - name: uuid
-          description: The identifier for a specific template.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
         - schema:
             type: string
           in: query
           name: version_uuid
-          description: This is an optional query parmeter used to attempt to fetch a specific Widget Template version.
+          description: This is an optional query parameter used to attempt to fetch a specific Widget Template version.
       responses:
         '200':
           $ref: '#/components/responses/WidgetTemplate_Resp'
@@ -269,23 +220,7 @@ paths:
       summary: Update a Widget Template
       operationId: updateWidgetTemplate
       parameters:
-        - name: uuid
-          description: The identifier for a specific template.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -310,24 +245,6 @@ paths:
         - Widget Template
       summary: Delete A Widget Template
       operationId: deleteWidgetTemplate
-      parameters:
-        - name: uuid
-          description: The identifier for a specific template.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: An empty response.
@@ -337,33 +254,16 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Widget Template**.
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: uuid
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/content/widgets':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/TemplateUUID'
+  '/content/widgets':
     post:
       tags:
         - Widget
       summary: Create a Widget
       operationId: createWidget
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -422,16 +322,6 @@ paths:
           schema:
             type: string
             format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
         - in: query
           name: name
           description: The URL encoded name of the widget.
@@ -460,35 +350,13 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Widgets**. Optional parameters can be passed in.
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/content/widgets/{uuid}':
+      - $ref: '#/components/parameters/Accept'
+  '/content/widgets/{uuid}':
     get:
       tags:
         - Widget
       summary: Get a Widget
       operationId: getWidget
-      parameters:
-        - name: uuid
-          description: The identifier for a specific widget.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           $ref: '#/components/responses/Widget_Resp'
@@ -503,23 +371,7 @@ paths:
       summary: Update a Widget
       operationId: updateWidget
       parameters:
-        - name: uuid
-          description: The identifier for a specific widget.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -548,24 +400,6 @@ paths:
         - Widget
       summary: Delete a Widget
       operationId: deleteWidget
-      parameters:
-        - name: uuid
-          description: The identifier for a specific widget.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: An empty response.
@@ -575,34 +409,16 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Widget**.
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: uuid
-        in: path
-        required: true
-        schema:
-          type: string
-        description: The identifier for a specific widget.
-  '/stores/{store_hash}/v3/content/placements':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/WidgetUUID'
+  '/content/placements':
     post:
       tags:
         - Placement
       summary: Create a Placement
       operationId: createPlacement
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -674,16 +490,6 @@ paths:
           schema:
             type: string
             format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
         - $ref: '#/components/parameters/ChannelIDInParam'
         - $ref: '#/components/parameters/SiteIDInParam'
       responses:
@@ -693,35 +499,13 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Placements**.
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/content/placements/{uuid}':
+      - $ref: '#/components/parameters/Accept'
+  '/content/placements/{uuid}':
     get:
       tags:
         - Placement
       summary: Get a Placement
       operationId: getPlacement
-      parameters:
-        - name: uuid
-          description: The identifier for a specific placement.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           $ref: '#/components/responses/Placement_Resp'
@@ -736,23 +520,7 @@ paths:
       summary: Update a Placement
       operationId: updatePlacement
       parameters:
-        - name: uuid
-          description: The identifier for a specific placement.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -778,24 +546,6 @@ paths:
         - Placement
       summary: Delete a Placement
       operationId: deletePlacement
-      parameters:
-        - name: uuid
-          description: The identifier for a specific placement.
-          required: true
-          in: path
-          schema:
-            type: string
-            format: uuid
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: An empty response.
@@ -805,17 +555,9 @@ paths:
           $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Placement**.
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: uuid
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/content/regions':
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PlacementUUID'
+  '/content/regions':
     get:
       responses:
         '200':
@@ -830,32 +572,13 @@ paths:
       tags:
         - Regions
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-            default: application/json
-        - in: header
-          name: Content-Type
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
         - in: query
           name: template_file
           description: 'The template file, for example: `templateFile=pages/home`.'
           required: true
           schema:
             type: string
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-security:
-  - X-Auth-Token: []
-servers:
-  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
     TemplateUUID:
@@ -953,15 +676,19 @@ components:
     Accept:
       name: Accept
       in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
-      in: header
+        default: 'application/json'
+    ContentType:
       name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
     ChannelIDInParam:
       name: 'channel_id:in'
       in: query
@@ -989,8 +716,7 @@ components:
                 items:
                   $ref: '#/components/schemas/themeRegion'
               meta:
-                type: object
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/Meta'
           examples:
             response:
               value:
@@ -1208,7 +934,7 @@ components:
               data:
                 $ref: '#/components/schemas/placement_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/Meta'
           examples:
             response:
               value:
@@ -1265,7 +991,7 @@ components:
                 items:
                   $ref: '#/components/schemas/widgetTemplate_Full'
               meta:
-                $ref: '#/components/schemas/pagination'
+                $ref: '#/components/schemas/metaCollection'
           examples:
             response:
               value:
@@ -1377,13 +1103,13 @@ components:
         application/json:
           schema:
             allOf:
-              - properties:
+              - type: object
+                properties:
                   data:
                     $ref: '#/components/schemas/widgetTemplate_Full'
               - properties:
                   meta:
-                    type: object
-            type: object
+                    $ref: '#/components/schemas/Meta'
           examples:
             response:
               value:
@@ -1497,7 +1223,7 @@ components:
               data:
                 $ref: '#/components/schemas/widget_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/Meta'
           examples:
             response:
               value:
@@ -1555,32 +1281,30 @@ components:
                 errors: {}
   securitySchemes:
     X-Auth-Token:
-      type: apiKey
       name: X-Auth-Token
-      in: header
       description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
         |  Content | modify | `store_v2_content` |
         |  Content | read-only | `store_v2_content_read_only` |
 
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
   schemas:
     WidgetTemplatePreview:
       properties:
@@ -1908,8 +1632,9 @@ components:
         - Models
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-tags:
         - Models
     themeRegion:
@@ -1920,9 +1645,11 @@ components:
       title: themeRegion
       x-internal: false
     Meta:
+      title: Response meta
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     placement_Base:
       type: object
       title: placement_Base
