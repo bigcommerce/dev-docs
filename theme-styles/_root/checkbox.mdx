@@ -2,7 +2,7 @@
 
 Used to toggle on theme settings (boolean value).
 
-```json
+```json filename="checkbox: theme settings" showLineNumbers copy
 {
   "type": "checkbox",
   "label": "i18n.HideBreadcrumbs",

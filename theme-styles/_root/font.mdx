@@ -2,7 +2,7 @@
 
 Used to select font value on theme setting.
 
-```json
+```json filename="font: theme settings" showLineNumbers copy
 {
   "type": "font",
   "label": "i18n.BodyTextFontFamily",

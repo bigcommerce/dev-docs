@@ -2,7 +2,7 @@
 
 Used to set image ratio on theme setting.
 
-```json
+```json filename="imageDimension" showLineNumbers copy
 {
   "type": "imageDimension",
   "id": "blog_size",
@@ -23,6 +23,8 @@ Used to set image ratio on theme setting.
 
 Required fields: `type`, `label`, `id`, and `options`.
 
-Note: "custom" value option will allow users to specify the width/height. Else, use values set by the theme developer (example image below).
+<Callout type="info">
+  "custom" value option will allow users to specify the width/height. Else, use values set by the theme developer. An example image follows
+</Callout>
 
 ![https://storage.googleapis.com/bigcommerce-production-dev-center/images/theme_styles_imageDimension.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/theme_styles_imageDimension.png)

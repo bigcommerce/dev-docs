@@ -2,9 +2,7 @@
 
 The reference field on a setting can show additional settings based on the value of another setting. For example, we may want to hide the `Product Sale Badge Label` setting if `Show product sale badges` setting equals none.
 
-ShowProductSaleBadges setting example
-
-```json
+```json filename="ShowProductSaleBadges setting" showLineNumbers copy
 {
   "type": "select",
   "label": "i18n.ShowProductSaleBadges",
@@ -31,9 +29,9 @@ ShowProductSaleBadges setting example
 },
 ```
 
-ProductSaleBadgeLabel setting example
+&nbsp;
 
-```json
+```json filename="ProductSaleBadgeLabel setting" showLineNumbers copy
 {
   "type": "text",
   "label": "i18n.ProductSaleBadgeLabel",

@@ -1,6 +1,6 @@
 # heading
 
-```json
+```json filename="heading" showLineNumbers copy
 {
   "type": "heading",
   "content": "i18n.BackgroundAndLines"

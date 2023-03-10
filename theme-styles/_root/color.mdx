@@ -2,7 +2,7 @@
 
 Used to set color value on theme setting (hex value).
 
-```json
+```json filename="color: theme settings" showLineNumbers copy
 {
   "type": "color",
   "label": "i18n.BannerBackground",

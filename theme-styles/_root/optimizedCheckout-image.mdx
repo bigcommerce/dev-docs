@@ -2,7 +2,7 @@
 
 Upload a custom logo to checkout when using optimized one-page checkout.
 
-```json
+```json filename="optimizedCheckout-image" showLineNumbers copy
 {
   "type": "optimizedCheckout-image",
   "label": "i18n.250X100pxRecommended",

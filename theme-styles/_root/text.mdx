@@ -2,7 +2,7 @@
 
 Used to set string value for theme settings.
 
-```json
+```json filename="text: set string value" showLineNumbers copy
 {
   "type": "text",
   "label": "i18n.ProductPriceLabelSale",

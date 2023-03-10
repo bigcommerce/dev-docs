@@ -2,9 +2,11 @@
 
 Used to select custom value on theme settings.
 
-Note: Option types should all be the same (i.e., string, number, etc.).
+<Callout type="info">
+  Option types should all be the same (i.e., string, number, etc.).
+</Callout>
 
-```json
+```json filename="select: add option type" showLineNumbers copy
 {
   "type": "select",
   "label": "i18n.BodyTextFontSize",
