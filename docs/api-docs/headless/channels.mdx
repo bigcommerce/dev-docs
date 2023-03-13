@@ -14,6 +14,11 @@ You can create both using the [Channels API](/docs/rest-management/channels).
 2. Pass that channel ID in a `POST` request to `/channels/{channel_id}/site` to create a site for the provided channel.
 3. After setting up the channel, you can authenticate cross-origin requests by [creating a JWT token](/docs/storefront-auth/tokens#create-a-token) through the GraphQL Storefront API. Make sure to create your GraphQL Storefront API token with the same channel ID as your headless platform; otherwise, your request will be rejected.
 
+<Callout type="info">
+#### Limits
+When the BigCommerce storefront status is `inactive` or `prelaunch`, one active headless storefront and a free store are allowed.
+</Callout>
+  
 ## Next steps
 
 - [Learn how to work with products](/api-docs/storefronts/guide/products)
