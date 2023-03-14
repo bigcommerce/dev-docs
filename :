@@ -1,0 +1,16 @@
+DEVDOCS-4770: [update] Webhooks, reverse SKU inventory method definitions (#1762)
+Adding linter
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# interactive rebase in progress; onto 77117361
+# Last command done (1 command done):
+#    pick ee9fd961 DEVDOCS-4770: [update] Webhooks, reverse SKU inventory method definitions (#1762)
+# Next commands to do (2 remaining commands):
+#    pick 8207d76f (no ticket): [update] Handlebars helpers, add each to list of standard helpers (#1769)
+#    pick 1adc77cf Updated available-apis and renamed to .mdx
+# You are currently rebasing branch 'DEVDOCS-4719-getting-started' on '77117361'.
+#
+# Changes to be committed:
+#	modified:   docs/api-docs/webhooks/webhook-events.mdx
+#
