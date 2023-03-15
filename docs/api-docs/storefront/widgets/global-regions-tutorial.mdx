@@ -71,4 +71,4 @@ To test your global region's functionality, drag and drop one of the basic widge
 * [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview)
 
 ### Endpoints
-* [Widgets API](/api-reference/store-management/widgets)
+* [Widgets API](/docs/rest-content/widgets)

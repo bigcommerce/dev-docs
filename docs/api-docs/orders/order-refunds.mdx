@@ -1,6 +1,6 @@
 # Order Refunds
 
-[Order V3](/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
+[Order V3](/docs/rest-management/transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 
 This article provides an overview of Order's V3 refund capabilities and includes a step-by-step example for creating a [single order refund](#single-order-refund-example).
 
@@ -10,8 +10,8 @@ Refunding an order consists of two API requests.
 
 |Request|Operation|Endpoint|Description|
 |-|-|-|-|
-|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/api-reference/store-management/order-transactions/order-refunds/postrefundquote)|Calculate amounts and get payment methods|
-|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/docs/rest-management/transactions/payment-actions#create-a-refund-quote)|Calculate amounts and get payment methods|
+|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/docs/rest-management/transactions/payment-actions#create-a-refund)|Create the refund|
 
 The example requests in this article use an order with the following properties:
 
@@ -19,13 +19,13 @@ The example requests in this article use an order with the following properties:
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
 
-The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote). Then, we will [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund) using the information contained in the [create refund quote response](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses).
+The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/docs/rest-management/transactions/payment-actions#create-a-refund-quote). Then, we will [create a refund](/docs/rest-management/transactions/payment-actions#create-a-refund) using the information contained in the [create refund quote response](/docs/rest-management/transactions/payment-actions#create-a-refund-quote).
 
 ## Creating refund quotes
 
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
-To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
+To [create a refund quote](/docs/rest-management/transactions/payment-actions#create-a-refund-quote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
 
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
@@ -88,13 +88,13 @@ To [create a refund quote](/api-reference/store-management/order-transactions/or
 </Tabs>
 
 <Callout type="info">
-  * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
-  * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders).
+  * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/docs/rest-management/orders/order-products#list-order-products).
+  * To get a list of orders and their `id`s, make a request to [get all orders](/docs/rest-management/orders#get-all-orders).
 </Callout>
 
 ## Creating a refund
 
-Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
+Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/docs/rest-management/transactions/payment-actions#create-a-refund).
 <Tabs items={[`Request`, `Response`]}>
   <Tab>
     ```http filename="Example request: Create a refund" showLineNumbers copy
@@ -132,7 +132,7 @@ Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creati
     ```
   </Tab>
   <Tab>
-  **[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
+  **[Response:](/docs/rest-management/transactions/payment-actions#create-a-refund)**
 
     ```json filename="Example response: Create a refund" showLineNumbers copy
     {
@@ -304,5 +304,5 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 
 ### Endpoints
 
-* [Orders V2 Reference](/api-reference/store-management/orders)
-* [Orders V3 Reference](/api-reference/store-management/order-transactions)
+* [Orders V2 Reference](/docs/rest-management/orders)
+* [Orders V3 Reference](/docs/rest-management/transactions)

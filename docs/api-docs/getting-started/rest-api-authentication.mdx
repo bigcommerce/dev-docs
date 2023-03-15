@@ -151,53 +151,53 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 | UI Name | Permission | Parameter | Description | Endpoints |
 |:--------|:-----------|:----------|:------------|:----------|
-| Create Payments | modify | `store_payments_access_token_create` | Create payment access tokens, process payments | [Payments, Access Tokens](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) <br /> [Payments, Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) |
-| Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/api-reference/store-management/tokens/api-token/createtoken) |
-| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
+| Create Payments | modify | `store_payments_access_token_create` | Create payment access tokens, process payments | [Payments, Access Tokens](/docs/rest-payments/processing/access-tokens#create-payment-access-token) <br /> [Payments, Process Payment](/docs/rest-payments/processing/process-payment#process-payment) |
+| Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/docs/storefront-auth/tokens#create-a-token) |
+| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) |
 
 
 ### Resource scopes
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
-| Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/api-reference/store-management/store-content/pages/getallpages) <br />[Blog V2](/api-reference/store-management/store-content/blog-posts/getallblogposts) <br />[Redirects V2](/api-reference/store-management/store-content/redirects/getalistofredirects) <br />[Widgets V3](/api-reference/store-management/widgets) |
-| Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/api-reference/store-management/store-content/pages/getallpages) <br />[Blog V2](/api-reference/store-management/store-content/blog-posts/getallblogposts) <br />[Redirects V2](/api-reference/store-management/store-content/redirects/getalistofredirects) <br />[Widgets V3](/api-reference/store-management/widgets) |
-| Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [Scripts V3](/api-reference/store-management/scripts) |
-| Checkout Content | read-only | `store_content_checkout_read_only` | View content on checkout pages | [Scripts V3](/api-reference/store-management/scripts) |
-| Customers | modify | `store_v2_customers` | View and modify customer information | [Customers V2](/api-reference/store-management/customers-v2/customers/getallcustomers) <br />[Customer Groups V2](/api-reference/store-management/customers-v2/customer-groups/getallcustomergroups) <br />[Subscribers V3](/api-reference/store-management/subscribers/subscribers/getsubscribers) <br />[Wishlists V3](/api-reference/store-management/wishlists/wishlists/wishlistsget) |
-| Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/api-reference/store-management/customers-v2/customers/getallcustomers) <br />[Customer Groups V2](/api-reference/store-management/customers-v2/customer-groups/getallcustomergroups) <br />[Subscribers V3](/api-reference/store-management/subscribers/subscribers/getsubscribers) <br />[Wishlists V3](/api-reference/store-management/wishlists/wishlists/wishlistsget) |
+| Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
+| Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
+| Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [Scripts V3](/docs/rest-management/scripts#create-a-script) |
+| Checkout Content | read-only | `store_content_checkout_read_only` | View content on checkout pages | [Scripts V3](/docs/rest-management/scripts#create-a-script) |
+| Customers | modify | `store_v2_customers` | View and modify customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
+| Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/api-docs/storefront/customer-login-api) |
-| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/api-reference/store-management/store-information-api/store-information/getstore) <br />[Time V2](/api-reference/store-management/store-information-api/time-zone/gettime) |
-| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/api-reference/store-management/store-information-api/store-information/getstore) <br />[Time V2](/api-reference/store-management/store-information-api/time-zone/gettime) |
+| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) |
+| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) |
 | Store Inventory | modify | `store_inventory` | View and modify store inventory | [Inventory V3]() |
 | Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3]() |
 | Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3]() |
 | Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3]() |
-| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/api-reference/store-management/marketing/coupons/getallcoupons) <br />[Gift Certificates V2](/api-reference/store-management/marketing/gift-certificates/getallgiftcertificates) <br />[Banners V2](/api-reference/store-management/marketing/banners/getallbanners) |
-| Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [Coupons V2](/api-reference/store-management/marketing/coupons/getallcoupons) <br />[Gift Certificates V2](/api-reference/store-management/marketing/gift-certificates/getallgiftcertificates) <br />[Banners V2](/api-reference/store-management/marketing/banners/getallbanners) |
-| Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/api-reference/store-management/orders) <br />[Order Status V2](/api-reference/store-management/orders/order-status/getorderstatus) |
-| Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/api-reference/store-management/orders) <br />[Order Status V2](/api-reference/store-management/orders/order-status/getorderstatus) |
+| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) |
+| Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) |
+| Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
+| Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Order Fulfillment | modify | `store_order_fulfillment_manage` | View and modify order fulfillments | [Pickup V3]() |
 | Order Fulfillment | read-only | `store_order_fulfillment_read_only` | View order fulfillments | [Pickup V3]() |
 | Fulfillment Methods| modify | `store_fulfillment_methods_manage` | View and modify order fulfillment methods | [Pickup Methods V3]() <br />[Pickup Options V3]() |
 | Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3]() <br />[Pickup Options V3]() |
-| Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/api-reference/store-management/order-transactions) |
-| Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/api-reference/store-management/order-transactions) |
-| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments, Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) |
-| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/api-reference/store-management/catalog) <br />[Price Lists V3](/api-reference/store-management/price-lists) |
-| Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/api-reference/store-management/catalog) <br />[Price Lists V3](/api-reference/store-management/price-lists) |
-| Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/api-reference/store-management/themes) |
-| Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/api-reference/store-management/themes) |
-| Carts | modify | `store_cart` | View and modify carts | [Carts V3](/api-reference/store-management/carts) |
-| Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/api-reference/store-management/carts) |
-| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/api-reference/store-management/checkouts) |
-| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/api-reference/store-management/checkouts) |
-| Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/api-reference/store-management/sites) <br /> [Channels V3 Sites](/api-reference/store-management/channels/channel-site/get-channel-site) |
-| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/api-reference/store-management/sites) <br /> [Channels V3 Sites](/api-reference/store-management/channels/channel-site/get-channel-site) |
-| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [Channels V3](/api-reference/store-management/channels) |
-| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/api-reference/store-management/channels) |
-| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/api-reference/store-management/channels/channel-listings/listchannellistings) |
-| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/api-reference/store-management/channels/channel-listings/listchannellistings) |
+| Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
+| Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
+| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments, Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods) |
+| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/docs/rest-management/catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
+| Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/docs/rest-management/catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
+| Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/docs/rest-content/themes) |
+| Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
+| Carts | modify | `store_cart` | View and modify carts | [Carts V3](/docs/rest-management/carts) |
+| Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/docs/rest-management/carts) |
+| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/docs/rest-storefront/checkouts) |
+| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/docs/rest-storefront/checkouts) |
+| Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
+| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
+| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [Channels V3](/docs/rest-management/channels) |
+| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/docs/rest-management/channels) |
+| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
+| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
 
 ## Resources
 * [Authentication and Example Requests](/api-docs/getting-started/authentication)

@@ -54,7 +54,7 @@ Be sure to set the Customers Login scope to Login.
 
 <Callout type="info">
  #### API account notes
- * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+ * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/api-accounts#app-api-accounts).
  * The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
  </Callout>
 
@@ -70,9 +70,9 @@ The beginning of this tutorial focuses on manually creating a token using the de
 
 ### Create JWT using the debugger tool
 
-To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/api-reference/store-management/customers-v3).
+To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/docs/rest-management/customers).
 
-1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`.
+1. Send a `GET` request to the [Get All Customers](/docs/rest-management/customers#get-all-customers) endpoint. Choose a customer and make note of the `customer_id`.
 
 ```json showLineNumbers copy
 {
@@ -210,7 +210,7 @@ To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/
 
 ## Troubleshooting
 
-* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
+* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](/docs/rest-management/store-information#get-system-timestamp) endpoint as a source of truth.
 * You can only visit the access point URL once. The token will be invalidated after the `GET` request is made.
 * Tokens should not be generated in advance. Instead, the app should generate the token and immediately redirect the user’s browser to the access point URL.
 
@@ -218,12 +218,12 @@ To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/
 
 ### Articles
 
-* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
+* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/api-accounts#obtaining-store-api-credentials)
 * [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
 * [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
 
 ### Endpoints
 
-* [Customer Login SSO](/api-reference/storefront/customer-login-sso)
-* [Customers V3](/api-reference/store-management/customers-v3)
+* [Customer Login SSO](/docs/storefront-auth/customer-login)
+* [Customers V3](/docs/rest-management/customers)

@@ -18,7 +18,7 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
-For more information, see [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+For more information, see [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
 
 * The [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
 
@@ -100,7 +100,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](/docs/rest-management/carts)  `/cart` endpoint.
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -254,4 +254,4 @@ To ensure you log shoppers off from the checkout page and the headless storefron
 ## Related resources
 
 ### Endpoints
-- [Channels API reference](/api-reference/store-management/channels/)
+- [Channels API reference](/docs/rest-management/channels#channels)

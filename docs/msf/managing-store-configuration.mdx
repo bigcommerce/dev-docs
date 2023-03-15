@@ -1,6 +1,6 @@
 # Managing Store Configuration
 
-[Settings API reference documentation](/api-reference/store-management/settings)
+[Settings API reference documentation](/docs/rest-management/settings)
 
 BigCommerce's Settings APIs can manage many of the configuration settings that are exposed to merchants in their store control panel, such as the store's name and contact information, SEO settings, and search filters.
 
@@ -22,7 +22,7 @@ Each new channel will use the store's global default values unless the merchant 
 
 The Settings APIs use query parameters to distinguish which set of settings a request is accessing.
 
-Consider the following request to the [Get store profile settings](/api-reference/store-management/settings/store-profile/getstoreprofilesettings) endpoint:
+Consider the following request to the [Get store profile settings](/docs/rest-management/settings/store-profile#get-store-profile-settings) endpoint:
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -146,7 +146,7 @@ Currently, the following settings are inherently global and cannot be modified w
 
 You can modify global and channel-specific settings alike by sending `PUT` requests to the relevant endpoints. 
 
-The following example uses the [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) endpoint to modify a store's global default configuration:
+The following example uses the [Update store profile settings](/docs/rest-management/settings/store-profile#update-store-profile-settings) endpoint to modify a store's global default configuration:
 
 ```http filename="Example request: Update global store profile settings" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile

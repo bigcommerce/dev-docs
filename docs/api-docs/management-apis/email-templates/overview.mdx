@@ -34,7 +34,7 @@ Use [Handlebars expressions](/api-docs/store-management/email-templates/handleba
 
 ## API
 
-To manage transactional email templates programmatically, use the [Email Templates API](/api-reference/store-management/email-templates). For example, to [get a list of email templates](/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
+To manage transactional email templates programmatically, use the [Email Templates API](/docs/rest-content/email-templates). For example, to [get a list of email templates](/docs/rest-content/abandoned-cart-emails#get-all-email-templates), send a `GET` request to `/v3/marketing/email-templates`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -65,7 +65,7 @@ To manage transactional email templates programmatically, use the [Email Templat
   </Tab>
 </Tabs>
 
-To [update an email template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
+To [update an email template](/docs/rest-content/abandoned-cart-emails#update-an-email-template), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
 
 ```http filename="Example request: Update an email template" showLineNumbers copy
 PUT /stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email
@@ -91,7 +91,7 @@ Accept: application/json
 
 ## Overrides
 
-Pass in a [channel's](/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
+Pass in a [channel's](/docs/rest-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
 
 ```http filename="Example request: Update an email template" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates?channel_id=123
@@ -121,6 +121,6 @@ Accept: application/json
 
 ## Resources
 
-* [Email Template API Reference](/api-reference/store-management/email-templates)
+* [Email Template API Reference](/docs/rest-content/email-templates)
 * [Email Template Handlebars Reference](/api-docs/store-management/email-templates/handlebars)
 * [Customizing Email Templates](https://support.bigcommerce.com/s/article/Customizing-Emails)

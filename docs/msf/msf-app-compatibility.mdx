@@ -20,7 +20,7 @@ You should determine whether your application is relevant only to Stencil storef
 
 Ensure that your app's settings acknowledge multiple storefronts and convey that understanding to the merchant or authorized user. Your app's features should work with any subset of a merchant's channels, including a single channel, some of their channels, or across all the channels in their store. 
 
-In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use the [Channels API](/api-reference/store-management/channels) to work with basic data about the store's channels. Use the [Sites API](/api-reference/store-management/sites) to work with the channels' sites.
+In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use the [Channels API](/docs/rest-management/channels) to work with basic data about the store's channels. Use the [Sites API](/docs/rest-management/sites) to work with the channels' sites.
 
 Edit the app's profile in your [Developer Portal](https://devtools.bigcommerce.com/my/apps) to indicate that it supports multi-storefront functionality. See [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#indicate-multi-storefront-support).
 
@@ -48,7 +48,7 @@ All storefront content that your app creates should be assigned to the channel o
 
 1. Scripts installed using the Scripts API should include correct storefront site assignments. Read more about using the `site_id` to [assign a script to a site](/api-docs/multi-storefront/api-guide#scripts).
 
-2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](/api-docs/multi-storefront/api-guide#scripts) and consult the [Update a web analytics provider](/api-reference/store-management/settings/analytics/putwebanalyticsprovider) endpoint.
+2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](/api-docs/multi-storefront/api-guide#scripts) and consult the [Update a web analytics provider](/docs/rest-management/settings/analytics#update-a-web-analytics-provider) endpoint.
 
 3. If your app creates storefront content or features, merchants should be able to make it accessible on one or more channels. Read more about [channel-aware storefront content](/api-docs/multi-storefront/api-guide#storefront-and-content).
 
@@ -56,7 +56,7 @@ All storefront content that your app creates should be assigned to the channel o
 
 5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](/api-docs/multi-storefront/api-guide#themes).
 
-6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](/api-reference/store-management/widgets/widget-template/getwidgettemplate).
+6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](/docs/rest-content/widgets/widget-template#get-a-widget-template).
 
 7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](/api-docs/multi-storefront/api-guide#pages).
 
@@ -68,13 +68,13 @@ All storefront content that your app creates should be assigned to the channel o
 
 2. Newsletter subscribers synced to the app should include the correct storefront channel assignments. Merchants should be able to assign any subscribers that the app creates to one or more channels. Read more about [subscribers](/api-docs/multi-storefront/api-guide#subscribers).
 
-3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [Get store information endpoint](/api-reference/store-management/store-information-api/store-information/getstore) to learn more about viewing and updating currency properties.
+3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [Get store information endpoint](/docs/rest-management/store-information#get-store-information) to learn more about viewing and updating currency properties.
 
 
 4. 301 redirects synced from or written to a merchant's store must include the correct storefront's `site_id`. Read more about [channel-aware 301 redirects](/api-docs/multi-storefront/api-guide#redirects).
 
 
-5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](/api-reference/store-management/settings/email-statuses/get-settings-emails-enabled) and [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) endpoints.
+5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](/docs/rest-management/settings/email-statuses#get-transactional-email-settings) and [Update transactional email settings](/docs/rest-management/settings/email-statuses#update-transactional-email-settings) endpoints.
 
 
-6. Abandoned cart emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) endpoint.
+6. Abandoned cart emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) endpoint.

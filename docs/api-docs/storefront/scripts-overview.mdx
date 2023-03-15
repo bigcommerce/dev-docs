@@ -79,7 +79,7 @@ It’s possible that your app installation may find itself unexpectedly missing 
 
 Merchants receive a warning when attempting to delete a script belonging to an app, but we do allow them to do so.
 
-To handle this situation gracefully, we recommend you check the [Get Scripts](/api-reference/storefront/content-scripts-api/scripts/getscripts) endpoint on your App Detail Page (returned by the [Load Callback URI](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_processing-signed-payload) to determine whether the expected scripts are present. If they are not, you can prompt the user to click a button to repair their installation automatically.
+To handle this situation gracefully, we recommend you check the [Get Scripts](/docs/rest-management/scripts#get-all-scripts) endpoint on your App Detail Page (returned by the [Load Callback URI](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_processing-signed-payload) to determine whether the expected scripts are present. If they are not, you can prompt the user to click a button to repair their installation automatically.
 
 We ask that you request the user’s permission rather than doing this automatically, as they may have had a good reason for deleting the missing script. 
 
@@ -136,4 +136,4 @@ Scripts can not be injected to:
 ## Related resources
 
 ### Endpoints
-* [Scripts](/api-reference/content/content-scripts-api)
+* [Scripts](/docs/rest-management/scripts)
