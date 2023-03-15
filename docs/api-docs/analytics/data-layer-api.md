@@ -16,6 +16,7 @@ title: Query
 ```http title="Example query: Get data layer enabled flag" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
 X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
 Accept: application/json
 
 query {
