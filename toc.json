@@ -377,19 +377,19 @@
           "type": "item",
           "title": "Overview",
           "href": "/api-docs/store-management/webhooks/overview",
-          "uri": "docs/api-docs/getting-started/webhooks/about-webhooks.md"
+          "uri": "docs/api-docs/webhooks/about-webhooks.md"
         },
         {
           "type": "item",
           "title": "Webhook Events",
           "href": "/api-docs/store-management/webhooks/webhook-events",
-          "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
+          "uri": "docs/api-docs/webhooks/webhook-events.md"
         },
         {
           "type": "item",
           "title": "Webhooks Tutorial",
           "href": "/api-docs/store-management/webhooks/tutorial",
-          "uri": "docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+          "uri": "docs/api-docs/webhooks/setting-up-webhooks.md"
         }
       ]
     },
@@ -580,7 +580,7 @@
         },
         {
           "type": "item",
-          "title": "Find an App's ID",
+          "title": "Locating the ID of an App",
           "href": "/api-docs/apps/tutorials/id",
           "uri": "docs/api-docs/apps/tutorials/apps-id.md"
         }
@@ -843,7 +843,7 @@
             },
             {
               "type": "item",
-              "title": "API Best Practices",
+              "title": "Best Practices",
               "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
               "uri": "docs/api-docs/getting-started/best-practices.md"
             }
@@ -971,7 +971,7 @@
       "items": [
         {
           "type": "item",
-          "title": "Foundation PoC Guide",
+          "title": "POS Foundation Guide",
           "href": "/api-docs/partner/pos-solutions/foundation-guide",
           "uri": "docs/api-docs/partner/pos/foundation-guide.md"
         },
