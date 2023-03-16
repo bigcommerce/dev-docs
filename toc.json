@@ -85,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
@@ -303,6 +297,18 @@
       "items": [
         {
           "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
+        },
+        {
+          "type": "item",
           "title": "Tax Properties",
           "href": "/api-docs/store-management/tax/tax-properties",
           "uri": "docs/api-docs/tax/tax-properties.md"
@@ -371,19 +377,19 @@
           "type": "item",
           "title": "Overview",
           "href": "/api-docs/store-management/webhooks/overview",
-          "uri": "docs/api-docs/getting-started/webhooks/about-webhooks.md"
+          "uri": "docs/api-docs/webhooks/about-webhooks.md"
         },
         {
           "type": "item",
           "title": "Webhook Events",
           "href": "/api-docs/store-management/webhooks/webhook-events",
-          "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
+          "uri": "docs/api-docs/webhooks/webhook-events.md"
         },
         {
           "type": "item",
           "title": "Webhooks Tutorial",
           "href": "/api-docs/store-management/webhooks/tutorial",
-          "uri": "docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+          "uri": "docs/api-docs/webhooks/setting-up-webhooks.md"
         }
       ]
     },
@@ -574,7 +580,7 @@
         },
         {
           "type": "item",
-          "title": "Find an App's ID",
+          "title": "Locating the ID of an App",
           "href": "/api-docs/apps/tutorials/id",
           "uri": "docs/api-docs/apps/tutorials/apps-id.md"
         }
@@ -785,6 +791,22 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -821,7 +843,7 @@
             },
             {
               "type": "item",
-              "title": "API Best Practices",
+              "title": "Best Practices",
               "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
               "uri": "docs/api-docs/getting-started/best-practices.md"
             }
@@ -921,13 +943,25 @@
     },
     {
       "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "Analytics Solutions",
       "items": [
         {
           "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
         }
       ]
     },
@@ -937,7 +971,7 @@
       "items": [
         {
           "type": "item",
-          "title": "Foundation PoC Guide",
+          "title": "POS Foundation Guide",
           "href": "/api-docs/partner/pos-solutions/foundation-guide",
           "uri": "docs/api-docs/partner/pos/foundation-guide.md"
         },
