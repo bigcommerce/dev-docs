@@ -1,12 +1,8 @@
 # These owners will be the default owners for everything in the repo. Unless a later match takes precedence, @global-owner1 and @global-owner2 will be requested for review when someone opens a pull request.
 
-@markcmurphy @slsriehl
+@slsriehl @bigcommerce/devdocs-codeowners @markcmurphy
 
 # Teams can be specified as code owners as well. Teams should
 # be identified in the format @org/team-name. Teams must have
 # explicit write access to the repository. In this example,
 # the octocats team in the octo-org organization owns all .md files.
-*.yml @bigcommerce/devdocs-codeowners
-*.yaml @bigcommerce/devdocs-codeowners
-*.md @bigcommerce/devdocs-codeowners
-*.json @bigcommerce/devdocs-codeowners
