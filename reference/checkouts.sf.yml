@@ -1191,18 +1191,25 @@ paths:
       description: |
         Adds a new *Consignment* to *Checkout*.
 
-        There are two steps to add a new shipping address and shipping options with line items. 
-        1. Add a new Consignment to Checkout.
-          * Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.
-          * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.
-        2. [Update the Consignment](/docs/rest-storefront/checkouts/checkout-consignments#update-a-consignment) with Shipping Options.
+        Perform the following two steps to define the fulfillment of the items in the cart.
+          ### For **shipping** consignments:
+            1. Add a new Consignment to Checkout.
+                * Send a `POST` request to `/consignments` with each shipping address, line item IDs, and quantities. Each address can have its own line item IDs.
+                * Provide a full valid customer address before placing the order. If provided, the order placement will succeed. 
+                * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on the items, the address, and the shipping location. This will return `availableShippingOptions` in the response.
 
-        **Required Query**
-        * `consignments.availableShippingOptions`
-
-        **Required Fields**
-        * `shipping_address` (deprecated) or `address`
-        * `line_items`
+              * Required Fields:
+                * `shipping_address` (deprecated) or `address`
+                * `lineItems`
+            2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+                  
+          ### For **pickup** consignments:
+            1. Create a new consignment object. 
+              - Send a `POST` request to `/consignments` with line item IDs and quantities.
+              - Provide a `pickupMethodId`. This is the `id` of the Pickup Method provided in the response body of the Storefront Pickup Options API.
+              - Required Fields:
+                  * `pickupOption`
+                  * `lineItems`
 
         To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/api-docs/storefront/tutorials/carts).
 
@@ -1352,15 +1359,25 @@ paths:
         - Checkout Consignments
       summary: Update a Consignment
       description: |-
-        Updates an existing consignment. Either the shipping address, one or more line item IDs, or the shipping option ID can be updated in a single call to this endpoint.
+        Updates an existing consignment. An update is either one of the following:
 
-        There are two steps to add a new shipping address and shipping options with line items. 
-        1. Add a new Consignment to Checkout.
-        2. Update the Consignment with Shipping Options.
-          * Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. 
+        1. Updates the consignment address and/or line items.
+        2. Selects a specific fulfillment option.
 
-        **Required Fields**
-        * `shippingOptionId`
+        ### Update the consignment address and line items
+        For this type of update, the payload is the same as when creating a new consignment.         Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from the POST `/consignment` response. 
+        
+        **Note:**
+        Updating a consignment could invalidate the value for `selectedShippingOption` and `selectedPickupOption`.
+        
+        ### Select a specific fulfillment option
+        Before placing an order, each consignment must have a `selectedShippingOption` or a `selectedPickupOption`.
+        
+        If the consignment already has a pick-up option selected and a shipping option is provided, the pick-up option will be deselected and the shipping option will be selected instead (and vice versa). The `PUT` request will fail if it contains a shipping option ID and a pickup option ID.
+        
+        Required Fields:
+        * `shippingOptionId` or `pickupOptionId`
+        * `lineItems`
 
         To learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).
 
@@ -1384,7 +1401,7 @@ paths:
           in: query
           schema:
             type: string
-            default: consignments.availableShippingOptions
+            default: consignments.availableShippingOptions, consignments.availablePickupOptions
       requestBody:
         content:
           application/json:
@@ -2548,6 +2565,8 @@ components:
           x-deprecated: true
         address:
           $ref: '#/components/schemas/address_Full'
+        selectedPickupOption:
+          $ref: '#/components/schemas/PickupOption'
         availableShippingOptions:
           type: array
           description: 'This is available only when "include=consignments.availableShippingOptions" is present in the URL.'
@@ -3510,6 +3529,14 @@ components:
                 type: integer
                 description: ''
                 format: int32
+        shippingOptionId:
+          type: string
+          description: ''
+        pickupOption:
+          type: object
+          properties:
+            pickupMethodId:
+              type: integer
       x-internal: false
     GiftCertificateRequest:
       title: Gift Certificate Request
@@ -3611,7 +3638,12 @@ components:
         shippingOptionId:
           type: string
           description: ''
-      description: One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.
+        pickupOption:
+          type: object
+          properties:
+            pickupMethodId:
+              type: integer
+      description: One or more of these three fields is mandatory. You can update address and line items in one request. You have to update shipping option ID or pickup option ID in a separate request since changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     checkoutCart:
       title: checkoutCart
@@ -4037,6 +4069,13 @@ components:
           type: string
           description: An estimate of the arrival time.
       x-internal: false
+    PickupOption:
+      type: object
+      title: Pickup Option
+      description: An option that represents a location where customers can pick up items.
+      properties:
+        pickupMethodId:
+          type: integer  
   responses:
     Checkout:
       description: ''

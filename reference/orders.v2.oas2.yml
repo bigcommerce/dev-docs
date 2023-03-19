@@ -65,6 +65,7 @@ tags:
   - name: Order Shipping Addresses
   - name: Order Messages
   - name: Order Shipping Addresses Quotes
+  - name: Order Consignments
 paths:
   '/orders/{order_id}':
     parameters:
@@ -241,12 +242,26 @@ paths:
       description: |-
         Creates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
 
-        An order can be created with an existing catalog product or a custom product.
+        Create an order with an existing catalog product or a custom product.
 
         **Required Fields**
 
-        *   products
-        *   billing_address
+        * `products` or `consignments`
+        * `billing_address`
+
+        When you create an order, the `consignment(s)` array allows you to create pickup consignments.
+        - An order can have either a pickup or a shipping fulfillment method, but not both.
+        - An order can have only one pickup consignment.
+
+        Choose from one of the following:
+        1. Create order with a shipping fulfillment method using `shipping_addresses` and `products`, i.e. legacy mode
+        2. Create order with a pickup fulfillment method using `consignments`, i.e. Consignment mode
+
+        You can fulfill an order with shipping or pickup, but not both.
+        
+        This means that if the `consignments` array is present in the request, then _none_ of the following may be present and vice-versa:
+        - `shipping_addresses`
+        - `products`
       summary: Create an Order
       tags:
         - Orders
@@ -853,6 +868,123 @@ paths:
       tags:
         - Order Shipping Addresses Quotes
       operationId: getShippingQuotes
+  '/stores/{store_hash}/v2/orders/{order_id}/consignments':
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+    get:
+      summary: Get Consignments
+      tags:
+        - Order Consignments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderConsignment_Get'
+              examples:
+                Pickup Consignments:
+                  value:
+                    pickups:
+                      - id: 99
+                        pickup_method_id: 1
+                        pickup_method_display_name: Pick Up
+                        collection_instructions: Bring your ID
+                        collection_time_description: 9am - 6pm
+                        location:
+                          id: 1
+                          name: Location 1
+                          code: LOCATION-1
+                          address_line_1: 123 Main Street
+                          address_line_2: Suite 101
+                          city: Austin
+                          state: Texas
+                          postal_code: '78726'
+                          country_alpha2: US
+                          email: location1@example.com
+                          phone: +1 111-111-1111
+                        line_items:
+                          - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+                            resource: /orders/129/products/12
+        '404':
+          $ref: '#/components/responses/404_Resp'
+      operationId: get-orders-orderId-consignments
+      description: 'Get all consignments for an order. '
+      parameters:
+        - $ref: '#/components/parameters/store_hash'
+        - $ref: '#/components/parameters/order_id_path'
+  '/stores/{store_hash}/v2/orders/{order_id}/consignments/shipping/{shipping_consignment_id}/shipping_quotes':
+    get:
+      summary: Get Consignment Shipping Quotes
+      tags:
+        - Order Consignments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/shippingQuotes_Base'
+              examples:
+                Fixed Shipping:
+                  value:
+                    id: '42'
+                    uuid: 7c65e0a0-cf46-4438-934e-c7b4edb31e18
+                    timestamp: 'Fri, 24 Jun 2022 01:45:27 +0000'
+                    shipping_provider_id: bcstatic
+                    shipping_provider_quote: []
+                    provider_code: peritem
+                    carrier_code: ''
+                    rate_code: ''
+                    rate_id: ''
+                    method_id: 2
+                Fedex:
+                  value:
+                    id: '43'
+                    uuid: 551404b9-beeb-4e49-922b-3b8d85002863
+                    timestamp: 'Fri, 24 Jun 2022 03:52:03 +0000'
+                    shipping_provider_id: bcrealtime
+                    shipping_provider_quote:
+                      rate:
+                        value: '107.32'
+                        unit: USD
+                      transitTime: '1'
+                      name: Priority Overnight
+                      signatureConfirmationFee: {}
+                      carrierName: ''
+                      carrierCode: {}
+                      code: {}
+                      deliveryMessage: ''
+                      labelSizes: []
+                      insuredMailFee: {}
+                      dates: []
+                      rateId: {}
+                      description: ''
+                      additionalInfo: {}
+                    provider_code: fedex
+                    carrier_code: ''
+                    rate_code: ''
+                    rate_id: ''
+                    method_id: 5
+        '404':
+          $ref: '#/components/responses/404_Resp'
+      operationId: get-orders-orderId-consignments-shipping-shippingId-shippingQuotes
+      description: |-
+        Get all shipping quotes persisted on an order for a shipping consignment.
+        This is a read-only endpoint whose response depends on the shipping quote. You can only generate a shipping quote using the storefront at this time. Orders that are created in the control panel, or using the API, return a 204 status response since you can't generate a shipping quote during that process.
+      parameters:
+        - $ref: '#/components/parameters/store_hash'
+        - $ref: '#/components/parameters/order_id_path'
+        - $ref: '#/components/parameters/shipping_consignment_id'
 components:
   parameters:
     Accept:
@@ -911,13 +1043,13 @@ components:
     status_id:
       name: status_id
       in: query
-      description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
+      description: The status ID of the order. You can get the status id from the `/orders` endpoints.
       schema:
         type: integer
     status_id_path:
       name: status_id
       in: path
-      description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
+      description: The status ID of the order. You can get the status id from the `/orders` endpoints.
       required: true
       schema:
         type: integer
@@ -1063,6 +1195,19 @@ components:
       name: channel_id
       in: query
       description: The Channel ID of the Order.
+      schema:
+        type: integer
+    store_hash:
+      name: store_hash
+      schema:
+        type: string
+      in: path
+      required: true
+    shipping_consignment_id:
+      name: shipping_consignment_id
+      in: path
+      required: true
+      description: Shipping consignment ID.
       schema:
         type: integer
   responses:
@@ -1284,7 +1429,7 @@ components:
                   customer_locale: en
                   external_order_id: external-order-id
     ordersCount_Resp:
-      description: Order Countr response collection.
+      description: Order Country response collection.
       content:
         application/json:
           schema:
@@ -2830,18 +2975,24 @@ components:
                   AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
 
                   "" (empty string) - The order is created with the API, or the tax provider is unknown.
-                enum:
-                  - BasicTaxProvider
-                  - AvaTaxProvider
-                  - ''
-              customer_locale:
-                type: string
-                example: en
-                description: The customer’s locale.
-              external_order_id:
-                type: string
-                example: external-order-id
-                description: The external id of the order.
+    404_Resp:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                status:
+                  type: integer
+                message:
+                  type: string
+          examples:
+            response:
+              value:
+                - status: 404
+                  message: The requested resource was not found.
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
@@ -2960,8 +3111,12 @@ components:
           description: Numeric ID of the product.
           example: 20
           type: integer
+        order_pickup_method_id:
+          type: integer
+          example: 0
+          description: ID of the pickup fulfillment method for this item. Default value is 0 when the item is not fulfilled by pickup method.
         order_address_id:
-          description: Numeric ID of the associated order address.
+          description: Numeric ID of the associated order address. Value is `0` for items that are not fulfilled by a pickup method.
           example: 20
           type: integer
         name:
@@ -3396,6 +3551,21 @@ components:
                 type: number
                 example: 2
       x-internal: false
+    orderConsignments_Resource:
+      title: orderConsignments_Resource
+      type: object
+      readOnly: true
+      properties:
+        url:
+          description: URL where you can use a GET request to get the order consignments.
+          readOnly: true
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/101/consignments'
+          type: string
+        resource:
+          description: Path where you can use a GET request to get the order consignments.
+          readOnly: true
+          example: /orders/101/consignments
+          type: string
     products_Resource:
       title: products_Resource
       type: object
@@ -4192,6 +4362,8 @@ components:
           description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. This value is read-only. Do not pass in a POST or PUT.
           example: www
           type: string
+        consignments:
+          $ref: '#/components/schemas/orderConsignments_Resource'
         products:
           $ref: '#/components/schemas/products_Resource'
         shipping_addresses:
@@ -4201,7 +4373,7 @@ components:
         status_id:
           type: integer
           example: 7
-          description: The staus ID of the order.
+          description: The status ID of the order.
         billing_address:
           type: object
           properties:
@@ -4329,7 +4501,7 @@ components:
                   - The API does not currently support the following option types:
                     - File upload
                     - Pick list
-                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and retuned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
+                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and returned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
                   - For multi-line text field modifiers, use the `\n` characters for separating the lines.
               display_name:
                 type: string
@@ -4437,6 +4609,8 @@ components:
         - $ref: '#/components/schemas/order_Shared'
         - type: object
           properties:
+            consignments:
+              $ref: '#/components/schemas/orderConsignment_Put'
             products:
               type: array
               items:
@@ -4462,5 +4636,696 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/shippingAddress_Base'
+            consignments:
+              $ref: '#/components/schemas/orderConsignment_Post'
         - $ref: '#/components/schemas/order_Shared'
       x-internal: false
+    orderConsignment_Put:
+      title: ''
+      type: object
+      properties:
+        pickups:
+          type: array
+          items:
+            $ref: '#/components/schemas/pickupConsignment_Put'
+      x-examples:
+        example-1:
+          pickups:
+            - id: 99
+              pickup_method_id: 1
+              pickup_method_display_name: Pick Up
+              collection_instructions: Bring your ID
+              collection_time_description: 9am - 6pm
+              location:
+                name: Location 1
+                code: LOCATION-1
+                address_line_1: 123 Main Street
+                address_line_2: Suite 101
+                city: Austin
+                state: Texas
+                postal_code: '78726'
+                country_alpha2: US
+                email: location1@example.com
+                phone: +1 111-111-1111
+              line_items:
+                - name: Fog Linen Chambray Towel - Beige Stripe
+                  name_customer: Fog Linen Chambray Towel - Beige Stripe
+                  name_merchant: Towel Type 1
+                  quantity: 3
+                  price_ex_tax: 0
+                  price_inc_tax: 0
+                  sku: string
+                  upc: string
+                  id: 12
+    pickupConsignment_Put:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 99
+              description: ID of the pickup consignment to update.
+            pickup_method_id:
+              type: integer
+              example: 1
+              description: ID of the pickup method.
+          required:
+            - id
+        - $ref: '#/components/schemas/pickupConsignment_Base'
+        - type: object
+          properties:
+            location:
+              $ref: '#/components/schemas/pickupConsignmentLocation_Put'
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/orderProduct_Put'
+      x-examples:
+        example-1:
+          id: 99
+          pickup_method_id: 1
+          pickup_method_display_name: Pick Up
+          collection_instructions: Bring your ID
+          collection_time_description: 9am - 6pm
+          location:
+            name: Location 1
+            code: LOCATION-1
+            address_line_1: 123 Main Street
+            address_line_2: Suite 101
+            city: Austin
+            state: Texas
+            postal_code: '78726'
+            country_alpha2: US
+            email: location1@example.com
+            phone: +1 111-111-1111
+          line_items:
+            - name: Fog Linen Chambray Towel - Beige Stripe
+              name_customer: Fog Linen Chambray Towel - Beige Stripe
+              name_merchant: Towel Type 1
+              quantity: 0
+              price_ex_tax: 0
+              price_inc_tax: 0
+              sku: string
+              upc: string
+              id: 12
+    pickupConsignment_Base:
+      title: ''
+      type: object
+      description: ''
+      properties:
+        pickup_method_display_name:
+          type: string
+          description: A name for the pickup method that can be displayed to shoppers.
+          maxLength: 250
+          example: Pick Up
+        collection_instructions:
+          type: string
+          description: A message for shoppers explaining how to collect their pickup order.
+          example: Bring your ID.
+        collection_time_description:
+          type: string
+          description: A message for shoppers indicating the estimated time their pickup order will be ready for collection.
+          maxLength: 250
+          example: 9am - 6pm
+    pickupConsignmentLocation_Put:
+      title: ''
+      description: ''
+      x-examples:
+        example-1:
+          name: Location 1
+          code: LOCATION-1
+          address_line_1: 123 Main Street
+          address_line_2: Suite 101
+          city: Austin
+          state: Texas
+          postal_code: '78726'
+          country_alpha2: US
+          email: location1@example.com
+          phone: +1 111-111-1111
+      allOf:
+        - $ref: '#/components/schemas/pickupConsignmentLocation_Base'
+    pickupConsignmentLocation_Base:
+      title: ''
+      type: object
+      description: ''
+      properties:
+        name:
+          type: string
+          description: The name of the pickup location.
+          example: Location 1
+          maxLength: 255
+        code:
+          type: string
+          description: The code of the pickup location.
+          example: LOCATION-1
+          maxLength: 50
+        address_line_1:
+          type: string
+          description: Street address (first line).
+          example: 123 Main Street
+          maxLength: 255
+        address_line_2:
+          type: string
+          description: Street address (second line).
+          maxLength: 255
+          example: Suite 101
+        city:
+          type: string
+          maxLength: 255
+          example: Austin
+        state:
+          type: string
+          example: Texas
+          maxLength: 255
+        postal_code:
+          type: string
+          example: '78726'
+          maxLength: 50
+        country_alpha2:
+          type: string
+          minLength: 2
+          maxLength: 2
+          example: US
+          description: 2-letter ISO Alpha-2 code for the country.
+        email:
+          type: string
+          description: Pickup location's email address.
+          maxLength: 255
+          example: location1@example.com
+        phone:
+          type: string
+          description: Pickup location's phone number.
+          maxLength: 125
+          example: +1 111-111-1111
+      x-examples: {}
+    orderProduct_Put:
+      title: orderProduct_Put
+      anyOf:
+        - $ref: '#/components/schemas/orderCustomProduct_Put'
+        - $ref: '#/components/schemas/orderCatalogProduct_Put'
+    orderConsignment_Post:
+      title: ''
+      type: object
+      x-examples:
+        example-1:
+          pickups:
+            - pickup_method_id: 1
+              pickup_method_display_name: Pick Up
+              collection_instructions: Bring your ID
+              collection_time_description: 9am - 6pm
+              location:
+                name: Location 1
+                code: LOCATION-1
+                address_line_1: 123 Main Street
+                address_line_2: Suite 101
+                city: Austin
+                state: Texas
+                postal_code: '78726'
+                country_alpha2: US
+                email: location1@example.com
+                phone: +1 111-111-1111
+              line_items:
+                - name: Fog Linen Chambray Towel - Beige Stripe
+                  name_customer: Fog Linen Chambray Towel - Beige Stripe
+                  name_merchant: Towel Type 1
+                  quantity: 0
+                  price_inc_tax: 0
+                  price_ex_tax: 0
+                  upc: string
+                  sku: string
+      properties:
+        pickups:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/pickupConsignment_Post'
+      required:
+        - pickups
+    pickupConsignment_Post:
+      allOf:
+        - type: object
+          properties:
+            pickup_method_id:
+              type: integer
+              example: 1
+              description: ID of the pickup method.
+          required:
+            - pickup_method_id
+        - $ref: '#/components/schemas/pickupConsignment_Base'
+        - type: object
+          properties:
+            location:
+              $ref: '#/components/schemas/pickupConsignmentLocation_Post'
+            line_items:
+              type: array
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/orderProduct_Post'
+          required:
+            - line_items
+      x-examples:
+        example-1:
+          pickup_method_id: 1
+          pickup_method_display_name: Pick Up
+          collection_instructions: Bring your ID
+          collection_time_description: 9am - 6pm
+          location:
+            name: Location 1
+            code: LOCATION-1
+            address_line_1: 123 Main Street
+            address_line_2: Suite 101
+            city: Austin
+            state: Texas
+            postal_code: '78726'
+            country_alpha2: US
+            email: location1@example.com
+            phone: +1 111-111-1111
+          line_items:
+            - name: Fog Linen Chambray Towel - Beige Stripe
+              name_customer: Fog Linen Chambray Towel - Beige Stripe
+              name_merchant: Towel Type 1
+              quantity: 0
+              price_inc_tax: 0
+              price_ex_tax: 0
+              upc: string
+              sku: string
+    pickupConsignmentLocation_Post:
+      title: ''
+      description: ''
+      x-examples:
+        example-1:
+          name: Location 1
+          code: LOCATION-1
+          address_line_1: 123 Main Street
+          address_line_2: Suite 101
+          city: Austin
+          state: Texas
+          postal_code: '78726'
+          country_alpha2: US
+          email: location1@example.com
+          phone: +1 111-111-1111
+      allOf:
+        - $ref: '#/components/schemas/pickupConsignmentLocation_Base'
+    orderProduct_Post:
+      title: orderProduct_Post
+      anyOf:
+        - $ref: '#/components/schemas/orderCustomProduct_Post'
+        - $ref: '#/components/schemas/orderCatalogProduct_Post'
+    orderConsignment_Get:
+      title: ''
+      type: object
+      x-examples:
+        order with pickup consignments:
+          pickups:
+            - id: 99
+              pickup_method_id: 1
+              pickup_method_display_name: Pick Up
+              collection_instructions: Bring your ID
+              collection_time_description: 9am - 6pm
+              location:
+                id: 1
+                name: Location 1
+                code: LOCATION-1
+                address_line_1: 123 Main Street
+                address_line_2: Suite 101
+                city: Austin
+                state: Texas
+                postal_code: '78726'
+                country_alpha2: US
+                email: location1@example.com
+                phone: +1 111-111-1111
+              line_items:
+                - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+                  resource: /orders/129/products/12
+          shipping: []
+          downloads: []
+          email:
+            gift_certificates: []
+        order with shipping consignments:
+          pickups: []
+          shipping:
+            - id: 99
+              first_name: Jane
+              last_name: Doe
+              company: Laser Ltd
+              street_1: 123 Main Street
+              street_2: string
+              city: Austin
+              state: Texas
+              zip: '12345'
+              country: United States
+              country_iso2: US
+              phone: '0410999888'
+              email: janedoe@example.com
+              form_fields:
+                - name: License Id
+                  value: 123BAF
+              shipping_method: Free Shipping
+              line_items:
+                - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+                  resource: /orders/129/products/12
+              items_total: 1
+              items_shipped: 0
+              base_cost: 5.1
+              cost_ex_tax: 5.1
+              cost_inc_tax: 6.2
+              cost_tax: 1.1
+              cost_tax_class_id: 2
+              base_handling_cost: 4.1
+              handling_cost_ex_tax: 4.1
+              handling_cost_inc_tax: 5.3
+              handling_cost_tax: 1.2
+              handling_cost_tax_class_id: 2
+              shipping_zone_id: 1
+              shipping_zone_name: United States
+              shipping_quotes:
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/consignments/shipping/64/shipping_quotes'
+                resource: /orders/163/consignments/shipping/64/shipping_quotes
+          downloads: []
+          email:
+            gift_certificates: []
+        order with digital consignments:
+          pickups: []
+          shipping: []
+          downloads:
+            - recipient_email: recipient@email.com
+              line_items:
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+                resource: /orders/129/products/12
+          email:
+            gift_certificates: []
+        order with gift certificate consignments:
+          pickups: []
+          shipping: []
+          downloads: []
+          email:
+            gift_certificates:
+              - recipient_email: recipient@email.com
+                line_items:
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+                  resource: /orders/129/products/12
+      properties:
+        pickups:
+          type: array
+          description: Pickup consignments.
+          items:
+            $ref: '#/components/schemas/pickupConsignment_Get'
+        shipping:
+          type: array
+          description: Shipping consignments.
+          items:
+            $ref: '#/components/schemas/shippingConsignment_Get'
+        downloads:
+          type: array
+          maxItems: 1
+          description: Digital consignments for products that are downloaded.
+          items:
+            $ref: '#/components/schemas/digitalConsignment_Get'
+        email:
+          type: object
+          description: Email consignments for gift certificates.
+          properties:
+            gift_certificates:
+              type: array
+              items:
+                $ref: '#/components/schemas/giftCertificateConsignment_Get'
+    giftCertificateConsignment_Get:
+      type: object
+      x-examples:
+        example-1:
+          recipient_email: recipient@email.com
+          line_items:
+            - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+              resource: /orders/129/products/12
+      properties:
+        recipient_email:
+          type: string
+          example: recipient@email.com
+          description: The recipient email of the gift certificate.
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/products_Resource'
+    pickupConsignment_Get:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 99
+              description: The ID of the pickup consignment to update.
+            pickup_method_id:
+              type: integer
+              example: 1
+              description: ID of the pickup method.
+        - $ref: '#/components/schemas/pickupConsignment_Base'
+        - type: object
+          properties:
+            location:
+              $ref: '#/components/schemas/pickupConsignmentLocation_Get'
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/products_Resource'
+      x-examples:
+        example-1:
+          id: 99
+          pickup_method_id: 1
+          pickup_method_display_name: Pick Up
+          collection_instructions: Bring your ID
+          collection_time_description: 9am - 6pm
+          location:
+            id: 1
+            name: Location 1
+            code: LOCATION-1
+            address_line_1: 123 Main Street
+            address_line_2: Suite 101
+            city: Austin
+            state: Texas
+            postal_code: '78726'
+            country_alpha2: US
+            email: location1@example.com
+            phone: +1 111-111-1111
+          line_items:
+            - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+              resource: /orders/129/products/12
+    pickupConsignmentLocation_Get:
+      title: ''
+      description: ''
+      x-examples:
+        example-1:
+          id: 1
+          name: Location 1
+          code: LOCATION-1
+          address_line_1: 123 Main Street
+          address_line_2: Suite 101
+          city: Austin
+          state: Texas
+          postal_code: '78726'
+          country_alpha2: US
+          email: location1@example.com
+          phone: +1 111-111-1111
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+              description: ID of the location.
+        - $ref: '#/components/schemas/pickupConsignmentLocation_Base'
+    shippingConsignment_Get:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 99
+              description: ID of the shipping consignment.
+        - $ref: '#/components/schemas/shippingConsignment_Base'
+        - type: object
+          properties:
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/products_Resource'
+            items_total:
+              type: number
+              example: 1
+              description: The total number of items in the order.
+            items_shipped:
+              type: number
+              description: The number of items that have been shipped.
+              example: 0
+            shipping_method:
+              type: string
+              description: Text identifying the BigCommerce shipping module selected by the customer.
+              example: Free Shipping
+            base_cost:
+              type: number
+              description: The base shipping cost value.
+              example: 5.1
+            cost_ex_tax:
+              type: number
+              example: 5.1
+              description: The shipping cost value excluding tax.
+            cost_inc_tax:
+              type: number
+              description: The shipping cost value including tax.
+              example: 6.2
+            cost_tax:
+              type: number
+              description: The tax amount on the shipping cost.
+              example: 1.1
+            cost_tax_class_id:
+              type: integer
+              description: The ID of the tax class applied to the shipping cost. Ignored if automatic tax is enabled.
+              example: 2
+            base_handling_cost:
+              type: number
+              description: The base handling charge.
+              example: 4.1
+            handling_cost_ex_tax:
+              type: number
+              description: 'The handling charge, excluding tax.'
+              example: 4.1
+            handling_cost_inc_tax:
+              type: number
+              description: 'The handling charge, including tax.'
+              example: 5.3
+            handling_cost_tax:
+              type: number
+              example: 1.2
+            handling_cost_tax_class_id:
+              type: integer
+              description: The ID of the tax class applied to the handling charge. Ignored if automatic tax is enabled.
+              example: 2
+            shipping_zone_id:
+              type: number
+              description: The numeric ID of the shipping zone.
+              example: 1
+            shipping_zone_name:
+              type: string
+              description: The name of the shipping zone.
+              example: United States
+            shipping_quotes:
+              $ref: '#/components/schemas/shippingQuotesConsignment_Resource'
+      x-examples:
+        example-1:
+          id: 99
+          first_name: Jane
+          last_name: Doe
+          company: Laser Ltd
+          street_1: 123 Main Street
+          street_2: string
+          city: Austin
+          state: Texas
+          zip: '12345'
+          country: United States
+          country_iso2: US
+          phone: '0410999888'
+          email: janedoe@example.com
+          form_fields:
+            - name: License Id
+              value: 123BAF
+          shipping_method: Free Shipping
+          line_items:
+            - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+              resource: /orders/129/products/12
+          items_total: 1
+          items_shipped: 0
+          base_cost: 5.1
+          cost_ex_tax: 5.1
+          cost_inc_tax: 6.2
+          cost_tax: 1.1
+          cost_tax_class_id: 2
+          base_handling_cost: 4.1
+          handling_cost_ex_tax: 4.1
+          handling_cost_inc_tax: 5.3
+          handling_cost_tax: 1.2
+          handling_cost_tax_class_id: 2
+          shipping_zone_id: 1
+          shipping_zone_name: United States
+          shipping_quotes:
+            url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/consignments/shipping/64/shipping_quotes'
+            resource: /orders/163/consignments/shipping/64/shipping_quotes
+    shippingConsignment_Base:
+      title: shippingConsignment_Base
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: Jane
+        last_name:
+          type: string
+          example: Doe
+        company:
+          type: string
+          example: Laser Ltd
+        street_1:
+          type: string
+          example: 123 Main Street
+          description: Street address (first line).
+        street_2:
+          type: string
+          description: Street address (second line).
+        city:
+          type: string
+          example: Austin
+        zip:
+          type: string
+          example: '12345'
+          description: 'Zip or postal code, as a string.'
+        country:
+          type: string
+          example: United States
+        country_iso2:
+          type: string
+          example: US
+          description: 2-letter ISO Alpha-2 code for the country.
+        state:
+          type: string
+          example: Texas
+        email:
+          type: string
+          example: janedoe@example.com
+          description: Recipient’s email address.
+        phone:
+          type: string
+          description: Recipient’s telephone number.
+          example: '0410999888'
+        form_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/formFields'
+    shippingQuotesConsignment_Resource:
+      type: object
+      title: ''
+      properties:
+        url:
+          type: string
+          description: URL where you can use a GET request to get the shipping quotes for the order consignment.
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/consignments/shipping/64/shipping_quotes'
+          readOnly: true
+        resource:
+          type: string
+          description: Path where you can use a GET request to get the shipping quotes for the order consignment.
+          example: /orders/163/consignments/shipping/64/shipping_quotes
+          readOnly: true
+      readOnly: true
+    digitalConsignment_Get:
+      type: object
+      properties:
+        recipient_email:
+          type: string
+          example: recipient@email.com
+          description: The recipient email of the digital consignment.
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/products_Resource'
+      x-examples:
+        example-1:
+          recipient_email: recipient@email.com
+          line_items:
+            - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products/12'
+              resource: /orders/129/products/12
