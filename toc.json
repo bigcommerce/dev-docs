@@ -197,18 +197,6 @@
     },
     {
       "type": "group",
-      "title": "GraphQL Users API",
-      "items": [
-        {
-          "type": "item",
-          "title": "GraphQL Users API Overview",
-          "href": "/api-docs/store-management/customers",
-          "uri": "docs/api-docs/users/overview.mdx"
-        }
-      ]
-    },
-    {
-      "type": "group",
       "title": "Email Templates",
       "items": [
         {
