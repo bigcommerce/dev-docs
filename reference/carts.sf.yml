@@ -396,7 +396,7 @@ components:
           description: 'Cost of cart’s contents, before applying discounts.'
         discountAmount:
           type: number
-          description: Discounted amount.
+          description: Order based discounted amount only - Coupon discounts and product based discounts are excluded.
           format: float
         cartAmount:
           type: number

@@ -2725,7 +2725,7 @@ components:
                   format: double
                 discountAmount:
                   type: number
-                  description: Discounted amount.
+                  description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
                   format: double
                 cartAmount:
                   type: number

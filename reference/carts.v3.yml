@@ -1324,7 +1324,7 @@ components:
           description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.'
         discount_amount:
           type: number
-          description: Discounted amount.
+          description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
         cart_amount:
           type: number
           description: Sum of cart line-item amounts minus cart-level discounts and coupons. This amount includes taxes (where applicable).
