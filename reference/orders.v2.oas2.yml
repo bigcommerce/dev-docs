@@ -4,30 +4,30 @@ info:
   title: Orders V2
   description: |-
     Manage order coupons, messages, products, shipping addresses, statuses, taxes, shipments, and shipping address quotes.
-
+    
     ## Order
-
+    
     The Order object contains a record of the purchase agreement between a shopper and a merchant. To learn more about creating orders, see [Orders API Guide](/api-docs/orders/orders-api-overview).
-
+    
     ### Currency Fields
-
+    
     The **default** currency refers to the transactional currency which is the currency the shopper pays in.
-
+    
     The **display** currency refers to the presentational currency used to present prices to the shopper on the storefront.
-
+    
     * `currency_id` - the display currency ID. Depending on the currency selected, the value may be different from the transactional currency.
     * `currency_code` - the currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value may be different from the transactional currency.
     * `currency_exchange_rate` - the exchange rate between the store’s default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
     * `default_currency_id` - the transactional currency ID.
     * `default_currency_code` - the currency code of the transactional currency the shopper pays in.
-
+    
     The following additional fields are returned on orders when Multi-Currency is enabled on the store:
-
+    
     * `store_default_currency_code` - the currency code of the store’s default currency.
     * `store_default_to_transactional_exchange_rate` - the exchange rate between the store’s default currency and the transactional currency used in the order.
-
+    
     **Example:**
-
+    
     ```json
     {
       ...
@@ -88,13 +88,13 @@ paths:
     put:
       description: |-
         Updates an *Order*. 
-
+        
         To add a product to an existing order, don't include `id` in the body. Include `product_options` if adding a product with variants.
-
+        
         To update a product in an order, include `id` in the body. The body should only contain the fields that need to be updated. Those fields that are omitted will not be changed.
-
+        
         To remove a product from an order, set that product’s `quantity` to `0`.
-
+        
         To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
       summary: Update an Order
       tags:
@@ -208,9 +208,9 @@ paths:
     get:
       description: |-
         Gets a list of orders using the filter query.
-
+        
         **Notes**
-
+        
         The default sort is by order id, from lowest to highest.
       tags:
         - Orders
@@ -417,7 +417,7 @@ paths:
     get:
       description: |-
         Lists all order coupons. Optional parameters can be passed in.
-
+        
         |Type `int`|Type Name|
         |-|-|
         |`0`|`per_item_discount`|
@@ -459,7 +459,7 @@ paths:
     get:
       description: |-
         Get all shipping addresses on an order using the `order_id`.
-
+        
         Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote.
       summary: Get Order Shipping Addresses
       parameters:
@@ -477,7 +477,7 @@ paths:
     get:
       description: |-
         Returns a Collection of All Order Statuses.
-
+        
         **Order Status Descriptions:**
         |Status ID | Name  | Description |
         |--|--|--|
@@ -510,7 +510,7 @@ paths:
     get:
       description: |-
         Returns a single order status.
-
+        
         **Order Status Descriptions**
         |Status ID | Name  | Description |
         |:--|:--|:--|
@@ -546,7 +546,7 @@ paths:
         Each tax applied to an order. This information can be useful for reporting purposes.
         Pass in the query parameter `?details=true` to return extra details about order taxes.
         `order_product_id` and `line_item_type` are also returned.
-
+        
         All values are read-only.
       summary: Get All Order Taxes
       parameters:
@@ -583,17 +583,17 @@ paths:
     post:
       description: |
         Creates an *Order Shipment*. For more details, see [Shipping an Order](/api-docs/orders/orders-api-overview#creating-order-shipments).
-
+        
         **Required Fields**
         *   order_address_id
         *   items
-
+        
         **Usage notes**
-
-        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in an unclickable text in the customer facing email.
-
+        
+        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in non-clickable text in the customer facing email.
+        
         Acceptable values for `shipping_provider` include an empty string (`""`), auspost, canadapost, endicia, usps, fedex, royalmail, ups, upsready, upsonline, or shipperhq.
-
+        
         Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
       summary: Create Order Shipment
       parameters:
@@ -736,7 +736,7 @@ paths:
       summary: Get a Shipping Address
       description: |-
         Gets a shipping address associated with an order.
-
+        
         Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote.
       tags:
         - Order Shipping Addresses
@@ -829,7 +829,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/shippingAddress_Base'
+              $ref: '#/components/schemas/shippingAddress_Put'
             examples:
               application/json:
                 value:
@@ -847,7 +847,7 @@ paths:
                   phone: '468444123'
       description: |-
         Update a shipping address associated with an order.
-
+        
         **Note**: Updating a shipping address will NOT trigger the recalculation of shipping cost and tax
       tags:
         - Order Shipping Addresses
@@ -863,7 +863,7 @@ paths:
       summary: Get Order Shipping Quotes
       description: |-
         Gets all shipping quotes persisted on an order.
-
+        
         This is a read-only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 for this endpoint since a shipping quote is not generated during that process.
       tags:
         - Order Shipping Addresses Quotes
@@ -1083,9 +1083,9 @@ components:
       in: query
       description: |-
         Minimum date the order was created in RFC-2822 or ISO-8601.
-
+        
         RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
-
+        
         ISO-8601: `2017-04-20T11:32:00.000-04:00`
       schema:
         type: string
@@ -1094,9 +1094,9 @@ components:
       in: query
       description: |-
         Maximum date the order was created in RFC-2822 or ISO-8601.
-
+        
         RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
-
+        
         ISO-8601: `2017-04-20T11:32:00.000-04:00`
       schema:
         type: string
@@ -1105,9 +1105,9 @@ components:
       in: query
       description: |-
         Minimum date the order was modified in RFC-2822 or ISO-8601.
-
+        
         RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
-
+        
         ISO-8601: `2017-04-20T11:32:00.000-04:00`
       schema:
         type: string
@@ -1116,9 +1116,9 @@ components:
       in: query
       description: |-
         Maximum date the order was modified in RFC-2822 or ISO-8601.
-
+        
         RFC-2822: `Thu, 20 Apr 2017 11:32:00 -0400`
-
+        
         ISO-8601: `2017-04-20T11:32:00.000-04:00`
       schema:
         type: string
@@ -1429,7 +1429,7 @@ components:
                   customer_locale: en
                   external_order_id: external-order-id
     ordersCount_Resp:
-      description: Order Country response collection.
+      description: Order Counter response collection.
       content:
         application/json:
           schema:
@@ -2849,11 +2849,11 @@ components:
                 type: number
                 description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT request.
               is_deleted:
-                description: Boolean value that indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+                description: 'Boolean value indicates whether the order was deleted (archived). Set to to true to archive an order.'
                 example: false
                 type: boolean
               is_email_opt_in:
-                description: Boolean value that indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT request.
+                description: Boolean value indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT request.
                 example: false
                 type: boolean
               credit_card_type:
@@ -2971,9 +2971,9 @@ components:
                 type: string
                 description: |
                   BasicTaxProvider - Tax is set to manual and order is created in the store.
-
+                  
                   AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
-
+                  
                   "" (empty string) - The order is created with the API, or the tax provider is unknown.
     404_Resp:
       description: Not Found
@@ -3003,7 +3003,7 @@ components:
         |:--------|:-----------|:----------|
         |  Orders | modify | `store_v2_orders` |
         |  Orders | read-only | `store_v2_orders_read_only` |
-
+        
         ### Authentication header
         
         | Header | Argument | Description |
@@ -3150,10 +3150,10 @@ components:
         price_tax:
           description: |-
             Amount of tax applied to a single product.
-
+            
             Price tax is calculated as:
             `price_tax = price_inc_tax - price_ex_tax`
-
+            
             (Float, Float-As-String, Integer)
           example: '0.0000'
           type: string
@@ -3173,8 +3173,8 @@ components:
           description: |-
             Total tax applied to products.
             For example, if quantity if 2, base price is 5 and tax rate is 10%. price_tax will be $.50 and total_tax will be $1.00.
-
-            If there is a manual discount applied total_tax is calcuted as the following:
+          
+            If there is a manual discount applied total_tax is calculated as the following:
             `(price_ex_tax - discount)*tax_rate=total_tax`.
             (Float, Float-As-String, Integer)
           example: '0.5200'
@@ -3722,20 +3722,66 @@ components:
     formFields:
       title: formFields
       type: object
-      readOnly: true
-      description: Read-Only.
+      x-internal: false
       properties:
         name:
-          description: Read-Only.
-          readOnly: true
           type: string
           example: License ID
+          description: The form field name.
         value:
-          description: Read-Only.
-          readOnly: true
-          type: string
+          description: The form field value.
+          type:
+            - number
+            - string
+            - array
           example: 123BAF
-      x-internal: false
+          items:
+            type: string
+      x-examples:
+        Example 1:
+          name: License ID
+          value: 123BAF
+        Example 2:
+          name: Borrowing Amount
+          value: 12.2
+        Example 3:
+          name: Acceptable Sizes
+          value:
+            - Small
+            - Medium
+        Capture Custom Billing Address Form Fields:
+          data:
+            billing_address:
+              form_fields:
+                - name: picklist1
+                  value: picklist-value-2
+                - name: textfield1
+                  value: text2
+                - name: radiobutton1
+                  value: radio-value-2
+                - name: checkbox1
+                  value: checkbox-value-2
+                - name: multilinetextfield
+                  value: line1\line2
+                - name: numberonlyfield
+                  value: 123.2
+                - name: passwordfield1
+                  value: password2
+        Capture Custom Shipping Address Form Fields:
+          data:
+            shipping_address:
+              id: 23
+              form_fields:
+                - name:  picklist1
+                  value: picklist-value-3
+        Capture Custom Consignment Shipping Form Fields:
+          data:
+            consignments:
+              Shipping:
+                id: 23
+                form_fields:
+                  - name: picklist1
+                    value: picklist-value-2
     orderMessages:
       type: array
       items:
@@ -4049,7 +4095,7 @@ components:
           type: string
           description: |-
             IPv4 Address of the customer, if known.
-
+          
             Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address` value will reset the `ip_address_v6` value and vice versa.
           example: 12.345.678.910
           maxLength: 30
@@ -4057,7 +4103,7 @@ components:
           type: string
           description: |-
             IPv6 Address of the customer, if known.
-
+          
             Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address_v6` value will reset the `ip_address` value and vice versa.
           example: '2001:db8:3333:4444:5555:6666:7777:8888'
           maxLength: 39
@@ -4122,9 +4168,9 @@ components:
         tax_provider_id:
           description: |
             BasicTaxProvider - Tax is set to manual and order is created in the store.
-
+            
             AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
-
+            
             "" (empty string) - The order is created with the API, or the tax provider is unknown.
           enum:
             - BasicTaxProvider
@@ -4386,10 +4432,10 @@ components:
       title: orderCustomProduct_Put
       description: |
         **Usage notes:**
-
+      
         To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a non-empty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
         To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. You cannot change omitted fields.
-
+      
         Note the following constraints and default field values:
          - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
          - `name` and `name_customer` always hold the same value; updating either `name` or `name_customer` will change the value for both of those fields.
@@ -4435,10 +4481,10 @@ components:
       title: orderCatalogProduct_Put
       description: |
         **Usage notes**
-
+        
          To `add` a product to an existing order, don't include `id` in the payload. When adding a product with variants, `product_options` are required.
          To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. The fields that you omit will not be changed.
-
+         
          Note the following constraints and default field values:
          - `xxx` and `xxx_customer` always hold the same value. Updating either `xxx` or `xxx_customer` will change the value of both fields.
          - If both fields `xxx` and `xxx_customer` are present, they must have same value.
@@ -4496,7 +4542,7 @@ components:
                   Depending on the option type, value can be one of the following:
                   - The variant option value id or the modifier value id for modifier types with a list of defined values, such as drop down or checkbox modifiers.
                   - The modifier value for modifier types without a list of defined values, such as text field or date field modifiers.
-
+                  
                   Notes:
                   - The API does not currently support the following option types:
                     - File upload
@@ -4568,7 +4614,7 @@ components:
           - `name`
           - `name_customer`
           - `name_merchant`
-
+        
         Note the following constraints and default field values:
           - Null and `''` empty strings are invalid for `name`, `name_customer`, and `name_merchant`.
           - `name` and `name_customer` always share the same value; updating one updates the other.
@@ -4604,13 +4650,17 @@ components:
         - price_ex_tax
       x-internal: false
     order_Put:
-      title: order_Put
       allOf:
         - $ref: '#/components/schemas/order_Shared'
         - type: object
           properties:
+            billing_address:
+              $ref: '#/components/schemas/billingAddress_Put'
             consignments:
               $ref: '#/components/schemas/orderConsignment_Put'
+            payment_method:
+              type: string
+              description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
             products:
               type: array
               items:
@@ -4618,8 +4668,12 @@ components:
                   - $ref: '#/components/schemas/orderCatalogProduct_Put'
                   - $ref: '#/components/schemas/orderCustomProduct_Put'
             shipping_addresses:
-              $ref: '#/components/schemas/shippingAddress_Base'
-      x-internal: false
+              allOf:
+                - type: object
+                  properties:
+                    id:
+                      type: integer
+                - $ref: '#/components/schemas/shippingAddress_Put'
     order_Post:
       title: order_Post
       description: Products and Billing address only required for POST operation.
@@ -4640,6 +4694,24 @@ components:
               $ref: '#/components/schemas/orderConsignment_Post'
         - $ref: '#/components/schemas/order_Shared'
       x-internal: false
+    shippingAddress_Put:
+      allOf:
+        - $ref: '#/components/schemas/shippingAddress_Base'
+        - type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
+    billingAddress_Put:
+      allOf:
+        - $ref: '#/components/schemas/billingAddress_Base'
+        - type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
     orderConsignment_Put:
       title: ''
       type: object
