@@ -86,9 +86,18 @@ components:
     CustomFields:
       title: CustomFields
       type: object
+      x-internal: false
       properties:
         fieldId:
           type: string
         fieldValue:
-          type: string
-      x-internal: false
+          oneOf:
+            - type: string
+            - type: number
+            - type: array
+              items:
+                type: string
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
