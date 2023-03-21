@@ -37,7 +37,7 @@ The GraphQL Users API introduces a new way to manage users from within your BigC
 
 Begin with the following steps to get started:
 
-1. Request an access token and account UUID from your BigCommerce team.
+1. Request an access token and account UUID from Settings -> Account API tokens. Note this is a different than a store token or store-level API account.
 2. Use a GraphQL client such as [Altair](https://altairgraphql.dev/) to test the API.
 3. In the client, set the request URL to `https://api.bigcommerce.com/accounts/{account_uuid}/graphql`.
 4. Send an `X-Auth-Token` request header with the access token as its value.
