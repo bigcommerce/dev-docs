@@ -805,6 +805,7 @@ components:
                     code:
                       description: A code describing the service.
                       type: string
+                      minLength: 1
                       maxLength: 50
                       example: GND
                     display_name:
