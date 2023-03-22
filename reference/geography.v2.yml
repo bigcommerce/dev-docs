@@ -243,7 +243,7 @@ paths:
       tags:
         - States
       description: Returns a count of all states.
-  '/countries/states':
+  '/stores/{store_hash}/v2/countries/states':
     get:
       responses:
         '200':
@@ -252,6 +252,23 @@ paths:
       tags:
         - States
       description: Returns a list of all states.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: The number of results to return per request.
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: The ordered grouping of results to return.
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
   '/countries/{country_id}/states/count':
     get:
       responses:
