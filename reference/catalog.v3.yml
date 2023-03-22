@@ -21757,7 +21757,7 @@ components:
           type: integer
         name:
           type: string
-          minLength: 6
+          minLength: 1
           maxLength: 255
         channels:
           type: array
