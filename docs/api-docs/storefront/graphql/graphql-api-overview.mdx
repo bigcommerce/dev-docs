@@ -102,7 +102,9 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT-style bearer tokens that authenticate cross-origin requests to the GraphQL Storefront API. Consult the endpoint's documentation to determine what OAuth scopes it requires. In addition, ensure that the API account you use for the following request has sufficient permissions to make your GraphQL queries. **Your JWT will have the same OAuth scopes as the REST API account that creates it.** 
+Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT-style bearer tokens that authenticate cross-origin requests to the GraphQL Storefront API.
+
+This type of token is most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the Storefront API, you might be better served by a [Customer Impersonation Token](#customer-impersonation-tokens).
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
