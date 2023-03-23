@@ -1,26 +1,28 @@
 # API Accounts & OAuth Scopes
 
-BigCommerce offers two types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: store management credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
+BigCommerce offers two types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: Store-level API accounts and Account-level API accounts. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
 
 In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
 
 ## API accounts
 
 Every parent set of API credentials that you request for your store is its own **API account**. At its simplest, an API account consists of the following: 
-* the `client_id` uniquely identifies the app or user, or the _client_, making a request;
-* the `client_secret` is a cryptographically secure value known only to the client and BigCommerce.
+* the `client_id` uniquely identifies the app or user, or the _client_, making a request
+* the `client_secret` is a cryptographically secure value known only to the client and BigCommerce
 
-Every active API account has at least one `access_token`. [Store API accounts](#store-api-accounts) include a static `access_token` that does not change. [App API accounts](#app-api-accounts) expect each application to generate a unique `access_token` for every store that installs the app.
+Every active API account has at least one `access_token`: 
+[Store-Level API accounts](#store-api-accounts) include a static `access_token` that does not change 
+[Account-level API accounts](>>>>URL<<<<) grants merchants the ability to create an `access_token` that is tied to an account.
 
-**Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, and/or function.
+**Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each store API user, or for each account that belongs to a merchant.
 
 ## Store-level API accounts
 
-Merchants generate single-store API credentials when they create API accounts in their store control panel (**Settings** > **API** > **Store API Tokens**). Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store API accounts' access tokens or OAuth scopes. 
+Merchants generate store-level API credentials when they create API accounts in their store's control panel (**Settings** > **API** > **Account-level API Tokens**). Use these credentials to read and change the single-store data with BigCommerce's APIs. You can't change store-level API accounts' access tokens or OAuth scopes. 
 
-In addition to the [API account components](#api-accounts) in the preceding section, store API accounts contain the following attributes out of the box:
-* an `access_token`, which accompanies most REST API requests;
-* the **client name** is a label for your convenience, and it doesn't accompany requests;
+In addition to the [API account components](#api-accounts) in the preceding section, store-level API accounts contain the following attributes out of the box:
+* an `access_token`, which accompanies most REST API requests
+* the **client name** is a label for your convenience, and it doesn't accompany requests
 * the **API path** is the URL to which you make requests. The API path won't change, but it will have `/v3/` or `/v2/` appended to it, depending on the current version for the endpoint you're querying.
 
 Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authentication and Example Requests](/api-docs/getting-started/authentication) and consult the documentation for the API you want to use.
@@ -30,36 +32,37 @@ Most APIs that work with store API accounts use the `access_token` to authentica
   Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
 </Callout>
 
-### Obtaining store API credentials
+### Obtaining store-level API credentials
 
-To create a store API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#creating).
+To create a store-level API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#creating).
 
 To get started making requests, see [Getting Started](/api-docs/getting-started/making-requests).
 
-### Revoking store API credentials
+### Revoking store-level API credentials
 
-To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
+To revoke store-level API credentials, you must delete the corresponding store-level API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take precaution.
 
 <Callout type="error">
   #### Delete carefully
-  Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+  Deleting an account can't be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 </Callout>
 
-To delete a store API account, consult our Knowledge Base article on [Deleting a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting).
+To delete a store-level API account, consult our Knowledge Base article on [Deleting a Store-level API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting).
 
 <Callout type="warning">
   #### Don't forget your webhooks and metafields
-  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
+  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store-level API account, plan accordingly.
 </Callout>
-
 
 ## Account-level API accounts
 
-Merchants can generate account-level API credentials when they create API accounts in their store control panel (**Settings** > **API** > **Account API Tokens**). 
-For more information, see [Create an account-level API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level)
+Merchants can generate account-level API credentials when they create an account API in their store's control panel (**Settings** > **API** > **Account API Tokens**). This type of API account grants merchants the ability to manage all stores tied to the specific account and not the user that created it. With account-level credentials, merchants can secure the OAuth scopes necessary to manage users on a larger scale.
 
+Since this API token is tied to a specific account, the token remains active unless the Merchant's account becomes inactive. The account-level API allows merchants to make API calls to our platform, with the help of our API Gateway, allowing merchants to provide an automated onboarding or offboarding experience on an enterprise level. There are other ways that BigCommerce's account-level API can assist with handling all provisioned users. For example, merchants can leverage an account-level token to perform actions like  generate records for compliance reporting, subscription management, and more. 
+For more information, see [Create an account-level API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level).
 
-### Revoking app API credentials
+>>>>Start: I think we should remove this part for now <<<
+### Revoking account-level API credentials
 
 There is no way to manually revoke or force-regenerate app API account access tokens. However, either of the following actions triggers a token refresh:
 * When the store owner's email address changes
@@ -74,13 +77,13 @@ After one of these changes, the store owner will be prompted to review the chang
 
 
 To delete an app API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
-
+>>>>END: I think we should remove this part for now <<<
 
 ## Choosing the right kind of API account
 
 Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article.
 
-| API or Use Case | App API Account | Store API Account |
+| API or Use Case | Store-level API Account | Account-level API Account |
 |:----------------|:---------------:|:-----------------:|
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
 | [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) |  | &times; |
