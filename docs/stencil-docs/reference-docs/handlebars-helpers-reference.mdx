@@ -1,3 +1,4 @@
+
 # Handlebars Helpers Reference
 
 This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
@@ -143,7 +144,6 @@ categories: [
     { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
 ]
 ```
-
 ```handlebars showLineNumbers
 {{pluck (limit categories 2) 'image.data'}}
 <!-- Returns a comma-separated list of image URLs. -->
@@ -183,7 +183,6 @@ A URL transformer for content delivery networks.
 #### Parameters
 
 - `assetPath` (String): Path to the file containing static assets.
-
 
 
 #### Example
@@ -1565,6 +1564,36 @@ Parse data with JSONparse.
 {{/JSONparse}}
 <!-- output: bar -->
 ```
+
+### JSONparseSafe
+
+Parse data safely with JSONparseSafe. This helper is similar to the JSONparse helper, but allows handling of incorrect JSON data. Returns `parsed data` when JSON is correct; otherwise, renders an `else` block.
+
+
+#### Parameters
+
+- `json` {String}: The data parsed by the helper.
+
+
+#### Example
+
+```handlebars
+{{#JSONparseSafe '{"foo": "bar"}'}}
+  {{foo}}
+{{/JSONparseSafe}}
+<!-- output: bar -->
+```
+
+```handlebars
+{{#JSONparseSafe 'foo'}}
+  {{foo}}
+{{else}}
+  John Doe
+{{/JSONparseSafe}}
+<!-- output: John Doe -->
+```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsonParseSafe.js)
 
 ## Standard helpers
 
