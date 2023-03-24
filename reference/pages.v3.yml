@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: 3.0.3
 info:
   title: Pages V3
   version: ''
@@ -11,7 +11,7 @@ info:
     ## Overview
 
     A **page** appears on a **site** that is associated with a **channel**. 
-    
+
     Some pages, such as blog pages, contact forms, and plain-text or HTML pages, are web pages in the traditional sense. They contain markup (a `body`) and load at a relative page location on the site itself (the `url`). Other pages, such as link and feed pages, make external or non-visual content available from the menu of a parent page or by direct link.
 
     ### Bulk operations
@@ -521,14 +521,21 @@ components:
       required: true
       schema:
         type: string
-        default: 'application/json'
+        default: application/json
     ContentType:
       name: Content-Type
       in: header
       required: true
       schema:
         type: string
-        default: 'application/json'
+        default: application/json
+    storeHashPath:
+      schema:
+        type: string
+      name: store_hash
+      in: path
+      required: true
+      description: The permanent ID of the BigCommerce store.
     pageIdPath:
       schema:
         type: string
@@ -539,11 +546,11 @@ components:
     includeQuery:
       schema:
         type: string
-        enum: 
+        enum:
           - body
       in: query
       name: include
-      description: Include the requested property in the response. The `body` property returns the page’s markup, text, or raw content.
+      description: 'Include the requested property in the response. The `body` property returns the page’s markup, text, or raw content.'
     channelIdQuery:
       schema:
         type: integer
@@ -588,41 +595,43 @@ components:
       name: page
       description: The ordered grouping of results to return. See `meta.pagination.current_page` in the response body.
   headers:
-    Content-Type: 
+    Content-Type:
       description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: 'application/json'
-    Accept: 
+        default: application/json
+    Accept:
       description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: 'application/json'
+        default: application/json
     X-Auth-Token:
       description: Your API account's access token.
       schema:
         type: string
-      # $ref: ''
   securitySchemes:
     X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
       description: |-
         ## API account
 
         You can use this API with a [store API account or an app API account](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication). 
 
         ## OAuth scopes 
- 
+
         | UI Name | Permission | Parameter | 
         |:--------|:-----------|:----------| 
         | Content | modify     |`store_v2_content`| 
         | Content | read-only  |`store_v2_content_read_only`| 
 
         For a [full list of OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication#oauth-scopes), see our narrative documentation.
-        
+
         ## Security header        
-        
+
         Include a header parameter called `X-Auth-Token` and pass it the `access_token` provided with your store API account or generated with your app's `/auth` callback.
-        
+
         ```http title="Security header example"
           X-Auth-Token: example_access_token
         ```
@@ -630,24 +639,10 @@ components:
         ## Example requests
 
         For detailed examples, consult our [X-Auth-Token example requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
-        
+
         ## Additional information
-        
+
         [BigCommerce Terms of Service](http://www.bigcommerce.com/terms)
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'https://store-store_hash.mybigcommerce.com/manage/settings/api-accounts/create'
-          scopes: 
-            store_v2_content: Modify store content 
-            store_v2_content_read_only: Read store content
-        authorizationCode:
-          authorizationUrl: 'https://your_app.example.com/api/auth'
-          tokenUrl: 'https://devtools.bigcommerce.com'
-          refreshUrl: 'https://your_app.example.com/api/auth'
-          scopes: 
-            store_v2_content: Modify store content 
-            store_v2_content_read_only: Read store content
   schemas:
     ResponseErrorBrief:
       type: object
@@ -1210,11 +1205,10 @@ components:
           type: boolean
           example: true
           default: true
-          description: |-
-            A boolean value that controls whether the page is available to users or visible in any navigation menus.
+          description: A boolean value that controls whether the page is available to users or visible in any navigation menus.
         parent_id:
           type: integer
-          description: ID of the parent page, if any. 
+          description: 'ID of the parent page, if any.'
           example: 0
           default: 0
         sort_order:
@@ -1241,6 +1235,11 @@ components:
           type: boolean
           description: 'When `true`, this page is not visible to merchant users who are signed in to the store control panel.'
           default: false
+        url:
+          type: string
+          description: |
+            Relative URL on the storefront for this page.
+          example: /my-store-page
       required:
         - name
         - type
@@ -1262,7 +1261,7 @@ components:
               type: string
               description: |
                 Relative URL on the storefront for this page.
-              example: '/blog/'
+              example: /blog/
     typeContactForm:
       description: ''
       allOf:
@@ -1310,13 +1309,12 @@ components:
               type: string
               description: |
                 HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
-              example: '<div>Hello World!</div>'
+              example: <div>Hello World!</div>
               nullable: true
             content_type:
               type: string
-              description:
-                The MIME type of the page body.
-              example: 'text/html'
+              description: The MIME type of the page body.
+              example: text/html
           required:
             - body
     typeLink:
@@ -1373,7 +1371,7 @@ components:
           description: Indicates whether the page is available to users and visible in any menus.
         parent_id:
           type: integer
-          description: ID of the parent page, if any. 
+          description: 'ID of the parent page, if any.'
           example: 0
           default: 0
         sort_order:
@@ -1420,17 +1418,17 @@ components:
         When you make bulk requests, an invalid input in any one entry will return 422. The entries that are valid will still be created.
       content:
         application/json:
-          schema: 
+          schema:
             type: object
             properties:
               data:
                 anyOf:
-                - $ref: '#/components/schemas/typePage'
-                - $ref: '#/components/schemas/typeBlog'
-                - $ref: '#/components/schemas/typeContactForm'
-                - $ref: '#/components/schemas/typeFeed'
-                - $ref: '#/components/schemas/typeRaw'
-                - $ref: '#/components/schemas/typeLink'
+                  - $ref: '#/components/schemas/typePage'
+                  - $ref: '#/components/schemas/typeBlog'
+                  - $ref: '#/components/schemas/typeContactForm'
+                  - $ref: '#/components/schemas/typeFeed'
+                  - $ref: '#/components/schemas/typeRaw'
+                  - $ref: '#/components/schemas/typeLink'
               meta:
                 $ref: '#/components/schemas/ResponseMeta'
     HTTP204:
@@ -1439,17 +1437,17 @@ components:
       description: ''
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/ResponseErrorBrief'
     HTTP404:
       description: ''
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/ResponseErrorDetailed'
     HTTP422:
       description: ''
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/ResponseErrorDetailed'
