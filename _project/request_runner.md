@@ -20,7 +20,7 @@ https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Req
 The link path can be a URL for any API reference operation page. Just append `#requestrunner` to the end like so:
 
 ```
-https://austin-dev-docs.docs.stoplight.io/api-reference/catalog/catalog-api/brands/getbrands#requestrunner
+https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands#requestrunner
 ````
 
 `#requestrunner` at the end of an `<a>` tag's `href` is what triggers the request runner code.

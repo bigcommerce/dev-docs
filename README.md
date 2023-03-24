@@ -25,15 +25,13 @@ Other repositories that contain markdown files and static assets that appear on 
 ├── .gitignore                         # gitignore
 ├── .nojekyll                          # 
 ├── .spelling                          # mdspell dictionary
-├── .stoplight.json                    # Stoplight Platform edit view configuration file
 ├── .textlintrc                        # textlint configuration file
 ├── CONTRIBUTING.md                    # guidelines for contribution
 ├── Gruntfile.js                       # grunt configuration file
 ├── package-lock.json                  # packages for grunt, linting, and spell checking
 ├── package.json                       # packages for grunt, linting, and spell checking
 ├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
-├── pull_request_template.md           # template for most pull requests
-└── toc.json                           # Stoplight Platform table of contents configuration file 
+└── pull_request_template.md           # template for most pull requests
 ```
 
 ## Contributing
