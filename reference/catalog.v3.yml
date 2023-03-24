@@ -19613,18 +19613,15 @@ components:
       x-internal: false
     bulkPricingRule_Full:
       title: bulkPricingRule_Full
-      required:
-        - amount
-        - quantity_max
-        - quantity_min
-        - type
       type: object
+      description: Common Bulk Pricing Rule properties
+      x-internal: false
       properties:
         quantity_min:
           minimum: 0
           type: integer
           description: |
-            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.
+            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
             Required in /POST.
           example: 10
           x-required:
@@ -19651,13 +19648,57 @@ components:
           x-required:
             - post
         amount:
+          oneOf:
+            - type: number
+              example: 10
+            - type: string
+              example: '.10'
+          description: |-
+            You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
+            Divide the adjustment percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float value for both `price` and `percentage` adjustments. 
+            Required in /POST.
+      required:
+        - quantity_min
+        - quantity_max
+        - type
+        - amount
+    bulkPricingRuleFull_Response:
+      title: Bulk Pricing Rule
+      type: object
+      x-internal: false
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the *Bulk Pricing Rule*. Read-Only.
+          readOnly: true
+        quantity_min:
+          minimum: 0
+          type: integer
+          description: |
+            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
+          example: 10
+        quantity_max:
+          minimum: 0
           type: integer
           description: |-
-            The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer.
-            Required in /POST.
+            The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.
+          example: 50
+        type:
+          type: string
+          description: |-
+            The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.
+          example: price
+          enum:
+            - price
+            - percent
+            - fixed
+        amount:
+          type: number
+          description: |-
+            The adjustment amount. Depending on the rule `type`, may represent a fixed dollar amount or a percentage.
           example: 10
-      description: Common Bulk Pricing Rule properties
-      x-internal: false
+      x-stoplight:
+        id: 386de544af45e
     productOptionConfig_Full:
       title: productOptionConfig_Full
       type: object
@@ -22365,7 +22406,7 @@ components:
               data:
                 type: array
                 items:
-                  $ref: '#/components/schemas/bulkPricingRule_Full'
+                  $ref: '#/components/schemas/bulkPricingRuleFull_Response'
               meta:
                 $ref: '#/components/schemas/metaCollection_Full'
     BulkPricingRuleResponse:
@@ -22376,7 +22417,7 @@ components:
             type: object
             properties:
               data:
-                $ref: '#/components/schemas/bulkPricingRule_Full'
+                $ref: '#/components/schemas/bulkPricingRuleFull_Response'
               meta:
                 $ref: '#/components/schemas/metaEmpty_Full'
           example:
