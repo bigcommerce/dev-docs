@@ -118,9 +118,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "channel_id": 1,            // int (must be a valid channel ID on the store)
-  "expires_at": 1602288000,   // double utc unix timestamp (required)
-  "allowed_cors_origins": [   // array (up to 2 origins per token are allowed)
+  "channel_id": 1,            // integer (must be a valid channel ID on the store)
+  "expires_at": 1602288000,   // when the token will expire, as an integer unix timestamp (in seconds)
+  "allowed_cors_origins": [   // array of origins (up to 2 origins per token are allowed)
     "https://example.com"
   ]
 }
@@ -170,8 +170,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "channel_id": 1,
-  "expires_at": 1602288000
+  "channel_id": 1, // integer (must be a valid channel ID on the store)
+  "expires_at": 1602288000 // when the token will expire, as an integer unix timestamp (in seconds)
 }
 ```
 </Tab>
