@@ -26,7 +26,20 @@ Before you get started creating account-level tokens, read our doc on [API Accou
 Head into action with Account-level API management by verifying that you have the following prerequisites.
 
 * A BigCommerce store
-* A valid API account access token with the necessary OAuth scopes to make these changes
+* A valid API account access token with the necessary credentials to make these changes
+
+## OAuth scopes
+
+Be sure to set the following OAuth scopes to acquire the permissions needed to manage the account-level API:
+
+|Name|Permission|Description|
+|:---||:---|:---|:---|
+| Subscriptions | read-only | View or cancel subscriptions |
+| Checkouts | modify | View or cancel checkouts |
+| Charges | modify | Create or delete charges |
+| Account | read-only | View account information for Account level GraphQL |
+| Account Stores | read-only | View information for apps belonging to the account for the Account-level GraphQL |
+| Accounts Apps | read-only | View information for apps belonging to the account for account-level API |
+| Account User | modify | View/Write/Delete information for users belonging to the account for account-level GraphQL |
 
 Checkout our knowledge base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level-api-accounts) to learn more about setting up Account-level API Tokens.
-
