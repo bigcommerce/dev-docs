@@ -223,7 +223,7 @@ mutation Login($email: String!, $pass: String!) {
 }
 ```
 
-This mutation may also be useful for server-to-server applications using a Customer Impersonation Token, as you can use this interface to validate a customer email address + password, for example to power a login form. When the credentials are correct and the mutation returns successfully, you can take the resulting customer ID and store it in a session to use in the `X-Bc-Customer-Id` header in future requests for that shopper.
+This mutation may also be useful for server-to-server applications using a Customer Impersonation Token, as you can use this interface to validate a customer email address + password, for example to power a login form. When the credentials are correct and the mutation returns successfully, you can take the resulting customer ID and store it in a session to use in the `x-bc-customer-id` header in future requests for that shopper.
 
 As a security best practice, you should inject the email address & password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request.
 
