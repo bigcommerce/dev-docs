@@ -279,8 +279,8 @@ fetch('/graphql', {
     }`
   })
 })
-.then(r => r.json())
-.then(j => console.log(j)) // will log JSON result to browser console
+.then(res => res.json())
+.then(data => console.log(data)) // will log JSON result to browser console
 .catch(error => console.error(error));
 </script>
 ```
