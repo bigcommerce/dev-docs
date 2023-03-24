@@ -96,7 +96,7 @@ GraphQL Storefront API requests are authenticated with JWT bearer tokens sent us
 ```shell filename="Example Authorization header using cURL" showLineNumbers copy
 curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
   # ...
-  -H 'Authorization: Bearer {token}'\
+  -H 'authorization: Bearer {token}'\
   # ...
 ```
 
@@ -113,9 +113,9 @@ For security reasons, GraphQL Storefront API tokens are scoped to particular [CO
 
 ```http filename="Example request: Create a GraphQL Storefront API token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
-X-Auth-Token: {{access_token}}
-Accept: application/json
-Content-Type: application/json
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
 
 {
   "channel_id": 1,            // integer (must be a valid channel ID on the store)
@@ -165,9 +165,9 @@ It's also possible to generate tokens for use in server-to-server interactions w
 
 ```http filename="Example request: Create a customer impersonation token" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
-X-Auth-Token: {{access_token}}
-Accept: application/json
-Content-Type: application/json
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
 
 {
   "channel_id": 1, // integer (must be a valid channel ID on the store)
@@ -189,7 +189,7 @@ Content-Type: application/json
 </Tab>
 </Tabs>
 
-Customer impersonation token-authenticated requests made to the GraphQL Storefront API may query store information from the perspective of ANY customer by specifying the customer ID using the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Customer-specific data such as product pricing & availability, customer account details, and other parameters will change to reflect the specified customer's data.
+Customer impersonation token-authenticated requests made to the GraphQL Storefront API may query store information from the perspective of ANY customer by specifying the customer ID using the `x-bc-customer-id` header sent with the GraphQL `POST` request. Customer-specific data such as product pricing & availability, customer account details, and other parameters will change to reflect the specified customer's data.
 
 Unlike typical GraphQL Storefront API tokens, Customer impersonation tokens _are_ sensitive, and should therefore **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for front-end requests. They should be treated with the same care as other application secrets, just as you might treat an OAuth access token for BigCommerce's REST APIs. Requests using these tokens originating from a web browser will be rejected.
 
@@ -198,7 +198,7 @@ It is not necessary to generate a new token for each customer ID. You may use a 
 Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`.
 
 ```shell filename="Example request: Query as customer 123" showLineNumbers copy
-curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
+curl 'https://store.com/graphql' -H 'authorization: Bearer TOKEN_GOES_HERE' -H 'x-bc-customer-id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
 ```
 
 <Callout type="info">
@@ -646,7 +646,7 @@ Use normal GraphQL Storefront API tokens. According to the [Principle of least p
 
 ### I want to run requests from a server, and I need to support customer login
 
-Use a Customer Impersonation token and store it securely on your server like other secrets. When you need to run requests in the context of a particular customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
+Use a Customer Impersonation token and store it securely on your server like other secrets. When you need to run requests in the context of a particular customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `x-bc-customer-id` header.
 
 ### I want a list of GraphQL error messages
 
