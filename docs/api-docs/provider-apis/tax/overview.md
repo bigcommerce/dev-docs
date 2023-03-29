@@ -44,6 +44,15 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
 | Partner sandbox store domain          | Required                       | Domain name                  | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
+### Tax profile (optional)
+
+BigCommerce sets the tax provider registry with your URLs for [Tax Provider API](/...) requests. BigCommerce sends requests to these URLs when a merchant requests tax estimates.
+If you would like to support multiple connections for a merchant, BigCommerce can set the registry with flexible URLs that use our new profile option.
+In this case, merchants will enter the URL they want to connect to in the Control Panel when they make install your app. Merchants can also self serve updates to the URL. Requests to Tax Provider API will go to these urls.
+This allows merchants the flexibility of customizing the endpoint.   
+
+You must liaise with the merchant to provide merchants the url connection options. Merchants are responsible if URLs are incorrect.
+
 ### Sandbox tax provider configuration
 
 Sandbox tax provider configurations are nested within your production tax provider configuration, as such tax providers requiring a sandbox tax provider configuration should also provide details for their production tax provider configuration.
