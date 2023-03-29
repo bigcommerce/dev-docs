@@ -15,9 +15,7 @@ With account-level credentials merchants can now perform actions at scale such a
 Before you get started creating account-level tokens, read our doc on [API Accounts & OAuth Scopes](api-docs/getting-started/api-accounts) to get up to speed.
 
 ## How it works
-
-
-
+After an account-level API token is created, merchants can now add a layer of protection when making API calls to our API gateway. Once the call is made, the BigCommerce gateway checks for authorization by sending the request through to Authorization and Authentication to confirm that the token has the required permissions. 
 
 >>> will add diagrams <<<<
 
@@ -42,4 +40,4 @@ Be sure to set the following OAuth scopes to acquire the permissions needed to m
 | Accounts Apps | read-only | View information for apps belonging to the account for account-level API |
 | Account User | modify | View/Write/Delete information for users belonging to the account for account-level GraphQL |
 
-Checkout our knowledge base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level-api-accounts) to learn more about setting up Account-level API Tokens.
+Learn more about setting up Account-Level API token by checking out our Knowledge Base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level-api-accounts).
