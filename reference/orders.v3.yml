@@ -501,7 +501,7 @@ paths:
         required: true
         schema:
           type: string
-  '/stores/v3/orders/payment_actions/refunds':
+  '/stores/{store_hash}/v3/orders/payment_actions/refunds':
     get:
       summary: Get All Refunds
       description: |-
@@ -514,6 +514,11 @@ paths:
         * `store_v2_orders`
       operationId: getrefunds
       parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
         - name: 'order_id:in'
           in: query
           description: Filter by `order_id`. Accepts multiple as comma-separated values.
