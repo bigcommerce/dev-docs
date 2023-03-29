@@ -35,7 +35,9 @@ Other repositories that contain markdown files and static assets that appear on 
 ```
 
 ## Contributing
+
 If you're interested in contributing to BigCommerce Developer Documentation, see [CONTRIBUTING.md](CONTRIBUTING.md) for instructions and guidelines.
 
 ## Recommending Changes
+
 Feel free to recommend changes to BigCommerce Developer Documentation. To do see, [submit an issue on GitHub](https://github.com/bigcommerce/dev-docs/issues), or leave us feedback on [developer.bigcommerce.com](https://developer.bigcommerce.com/api-docs) using the **Docs Feedback** form (bottom right).

@@ -1,8 +1,6 @@
 # Request Runner
 
-
-
-This page demos this Request Runner.
+Use the Request Runner steps outlined here to add it to your PRs.
 
 ## Adding a Button
 
@@ -24,4 +22,3 @@ https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbr
 ````
 
 `#requestrunner` at the end of an `<a>` tag's `href` is what triggers the request runner code.
-

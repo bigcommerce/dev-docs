@@ -9,12 +9,13 @@
 
 Thanks for showing interest in contributing!
 
-The following is a set of guidelines for contributing to BigCommerce Developer Documentation. These are just guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to BigCommerce's Developer Documentation. These are guidelines, not rules. Use your best judgment, and make proposed changes to this document in a pull request.
 
 ## Making a Quick Edit
+
 The easiest way to edit a file is using GitHub's web interface:
 
-1. Navigate to the file in github ([making-requests.md](/bigcommerce/dev-docs/blob/master/docs/api-docs/getting-started/making-requests.md), for example)
+1. Navigate to the file in github ([making-requests.md](NEED NEW URL), for example)
 2. Click the **pencil** icon to **Edit This File**
 3. Make the edit
 4. Type a commit message
@@ -28,27 +29,30 @@ The easiest way to edit a file is using GitHub's web interface:
 That's it! You're done.
 
 ## Editing Locally
-For more complex changes, fork and edit locally: 
+
+For more complex changes, fork and edit locally:
 
 1. Fork `bigcommerce/dev-docs`
 2. `git clone` the fork to your local machine
-3. Make edits in your favorite code editor on a new branch
-4. Commit and pushes changes to your remote repo
+3. Make edits in your IDE of choice on a new branch
+4. Commit and push changes to your remote repo
 5. Create a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) against `bigcommerce/dev-docs/master`
 
 ## Commit Messages
-* Always include subject; include body when necessary
-* Use present tense ("Add feature" not "Added feature")
-* Use imperative mood ("Fix broken link..." not "Fixes broken link...")
-* Separate subject from body with a blank line
-* Limit the subject line to 50 characters
-* Capitalize the subject line
-* Do not end the subject line with a period
-* Use the body to explain what and why vs. how
+
+- Always include subject; include body when necessary
+- Use present tense ("Add feature" not "Added feature")
+- Use imperative mood ("Fix broken link..." not "Fixes broken link...")
+- Separate subject from body with a blank line
+- Limit the subject line to 50 characters
+- Capitalize the subject line
+- Do not end the subject line with a period
+- Use the body to explain what and why vs. how
 
 ## Style Guides
-* [Documentation Style Guide](_project/_doc_style_guide.md)
-* [API Specification Style Guide](_project/_spec_style_guide.md)
+
+- [Documentation Style Guide](_project/_doc_style_guide.md)
+- [API Specification Style Guide](_project/_spec_style_guide.md)
 
 ## Linting & Spell Checking
 
@@ -82,4 +86,5 @@ grunt textlint
 ```
 
 ## Contributing to Other Projects
+
 There are many other public BigCommerce repositories accepting contributions. If you're interested in contributing to those projects, see the [full list of public source repos](https://github.com/bigcommerce?utf8=%E2%9C%93&q=is%3Apublic&type=source&language=). Also, consider joining the [BigCommerce Developer Community Group](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).
