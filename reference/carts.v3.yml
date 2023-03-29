@@ -96,11 +96,16 @@ paths:
                       product_id: 118
                       list_price: 25
                       variant_id: 140
-                      name: shirt
+                      name: قميص
+                      option_selections:
+                        - option_id: 125
+                          option_value: 127
+                          name: بحجم
+                          value: صغير
                   channel_id: 1
                   currency:
-                    code: USD
-                  locale: en-US
+                    code: JOD
+                  locale: ar-JO
               Cart with date option:
                 value:
                   line_items:
@@ -109,7 +114,12 @@ paths:
                       variant_id: 144
                       option_selections:
                         - option_id: 147
-                          option_value: '{“day”:”01”, “month”:”02”, “year”:”2020”}'
+                          option_value: '{“día”:”01”, “mes”:”02”, “año”:”2020”}'
+                          name: calendario
+                          value: 2023
+                  currency:
+                    code: MXN
+                  locale: es-MX
               'Cart with variant, a checkbox, and a pick list modifier':
                 value:
                   customer_id: 0
@@ -130,8 +140,8 @@ paths:
                           valueId: 129
                   channel_id: 1
                   currency:
-                    code: usd
-                  locale: en
+                    code: AUD
+                  locale: en-AU
               Custom item:
                 value:
                   customer_id: 0
@@ -161,7 +171,7 @@ paths:
                   channel_id: 1
                   currency:
                     code: usd
-                  locale: en
+                  locale: en-US
         description: |-
           **Examples:**
 
@@ -512,7 +522,7 @@ paths:
                             message: Happy Birthday Jane!
                       created_time: '2018-09-17T14:27:39.000Z'
                       updated_time: '2018-09-17T14:53:40.000Z'
-                    meta: {}
+                      meta: {}
         '204':
           description: 'If the action’s result is an empty cart, the cart is automatically deleted.'
       summary: Delete Cart Line Item
@@ -1100,8 +1110,10 @@ components:
               example: usd
         locale:
           type: string
-          description: Accepts string of format `xx` or `xx-YY`.
+          description: 'The locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
           example: en-US
+      description: ''
     CartRequestData:
       type: object
       title: Cart Request Data
@@ -1375,7 +1387,8 @@ components:
           description: 'The channel ID. If no channel is specified, defaults to 1.'
         locale:
           type: string
-          description: Locale of the cart.
+          description: 'Locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
         promotions:
           type: object
           description: This is available only when "include=promotions.banners" is presented in the URL.
@@ -3252,6 +3265,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Cart_Full'
+          examples: {}
     CartRedirectResponse:
       description: ''
       content:
