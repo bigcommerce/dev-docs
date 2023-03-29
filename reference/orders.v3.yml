@@ -27,7 +27,7 @@ tags:
 paths:
   '/orders/{order_id}/payment_actions/capture':
     post:
-      summary: Capture
+      summary: Capture order payment
       description: |-
         Capture the payment for an order. When there are no payment method validation issues, the capture process is successful, the `payment_status` updates to `capture pending`, and the payment request is scheduled. The payment request itself occurs asynchronously.
         Requires at least one of the following scopes:
@@ -169,6 +169,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RefundQuote_Post'
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
         required: true
         x-examples:
           Quantity:
@@ -186,7 +194,7 @@ paths:
               - item_type: ORDER
                 item_id: 1234
                 amount: 1
-                reason: Overchaged $1.00
+                reason: Overcharged $1.00
           Multiple Items:
             items:
               - item_id: 75
@@ -195,6 +203,7 @@ paths:
               - item_id: 79
                 item_type: SHIPPING
                 amount: 10
+        description: ''
       responses:
         '201':
           $ref: '#/components/responses/RefundQuote_Resp'
@@ -373,6 +382,126 @@ paths:
   '/orders/payment_actions/refunds':
     parameters:
       - $ref: '#/components/parameters/Accept'
+  '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
+    post:
+      summary: Create Refund Quotes - BATCH
+      description: |-
+        Calculate the tax amount, total refund amount and get available payment options for an order refund by providing items and costs or quantities to refund.
+
+        This endpoint will accept a batch of one or more.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: postrefundquotes
+      parameters:
+        - $ref: '#/components/parameters/Accept'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRefundQuotesRequest'
+        required: true
+        x-examples:
+          application/json:
+            - items:
+                - item_id: 76
+                  item_type: PRODUCT
+                  quantity: 1
+              tax_adjustment_amount: 0
+      responses:
+        '201':
+          $ref: '#/components/responses/RefundQuotesBATCH_Resp'
+        '422':
+          description: Partial success/failure response. Status to roll up to the most severe individual failure to the whole request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RefundQuote_Full'
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FailedQuoteError'
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+            Example 1:
+              examples:
+                response:
+                  value: |-
+                    {
+                        "data": [
+                            {
+                                "order_id": 1,
+                                "total_refund_amount": 1.99,
+                                "total_refund_tax_amount": 1.95,
+                                "rounding": 1,
+                                "adjustment": 0.05,
+                                "tax_inclusive": true,
+                                "refund_methods": [
+                                    ""
+                                ]
+                            }
+                        ],
+                        "errors": [
+                            {
+                                "order_id": 1,
+                                "status": 422,
+                                "error": "Refund amount is greater than remaining amount"
+                            }
+                        ],
+                        "meta": {
+                            "failure": 1,
+                            "success": 1,
+                            "total": 2
+                        }
+                    }
+        '503':
+          description: Every request in the batch failed. The error object describes the failure for each component request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RefundQuote_Full'
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FailedQuoteError'
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              examples:
+                response:
+                  value:
+                    data: []
+                    errors:
+                      - order_id: 1
+                        status: 503
+                        error: Tax service could not be contacted
+                      - order_id: 100
+                        status: 422
+                        error: Refund amount exceeds remaining amount
+                    meta:
+                      failure: 2
+                      success: 0
+                      total: 2
+      tags:
+        - Payment Actions
+      x-private: true
+    parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+  '/stores/v3/orders/payment_actions/refunds':
     get:
       summary: Get All Refunds
       description: |-
@@ -453,7 +582,7 @@ paths:
       description: |
         Gets a `Metafield` object list, by `order_id`.
 
-        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
+        The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: getOrderMetafieldsByOrderId
       parameters:
         - $ref: '#/components/parameters/PageParam'
@@ -704,7 +833,7 @@ paths:
       description: |-
         Updates order settings for a specific channel.
 
-         **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addesses and the other set to `null`.
+         **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addresses and the other set to `null`.
       operationId: UpdateChannelOrderSettings
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1980,24 +2109,17 @@ components:
       x-internal: false
       x-examples: {}
       properties:
-        order_id:
-          type: integer
-          description: Order ID against which this refund will be created. This is optional for creating a single refund request. The order ID is included in the request path.
-          example: 1
         items:
           type: array
           items:
             $ref: '#/components/schemas/ItemsRefund'
       required:
-        - order_id
         - items
     RefundQuote_Full:
       type: object
       title: RefundQuote_Full
+      x-internal: false
       properties:
-        order_id:
-          type: integer
-          description: ID of the order to be refunded
         total_refund_amount:
           $ref: '#/components/schemas/Amount'
         total_refund_tax_amount:
@@ -2005,12 +2127,12 @@ components:
           example: 1.95
         rounding:
           type: number
-          description: Indicates rounding value to bring refund_total to an amount refundable via payment providers (in this case to 2 decimal places)
+          description: Indicates rounding value to bring `refund_total` to an amount refundable via payment providers (in this case to 2 decimal places).
         adjustment:
           $ref: '#/components/schemas/AdjustmentAmount'
         tax_inclusive:
           type: boolean
-          description: Indicate if total_refund_amount includes tax amount
+          description: Indicate if `total_refund_amount` includes tax amount.
         refund_methods:
           type: array
           description: |
@@ -2068,11 +2190,8 @@ components:
             1. Refund up to the entire order amount to store credit.
             2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
             3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
-
-            
           items:
             $ref: '#/components/schemas/RefundMethod'
-      x-internal: false
     RefundRequest_Post:
       type: object
       description: Request body for refund requests.
@@ -2289,19 +2408,23 @@ components:
         Quantity Bound Item
 
         Type of refund item that capture refunding of items in the order that are of type quantity.
+        * `ORDER`
         * `PRODUCT`
-        * `GIFT_WRAPPING`
+        * `SHIPPING`
+        * `HANDLING`
       properties:
         item_type:
           type: string
           enum:
+            - ORDER
             - PRODUCT
-            - GIFT_WRAPPING
+            - SHIPPING
+            - HANDLING
           description: Type of refund.
         item_id:
           type: integer
           example: 1
-          description: 'Order Product ID. '
+          description: Order Product ID.
         quantity:
           type: integer
           example: 3
@@ -2315,6 +2438,7 @@ components:
       type: object
       title: Tax Exempt (Order Level)
       description: 'Use this to refund a custom value at the order level. When `item_type` is set to `ORDER`, tax is not re-calculated.'
+      x-internal: false
       properties:
         item_type:
           type: string
@@ -2322,6 +2446,10 @@ components:
           example: ORDER
           enum:
             - ORDER
+        item_id:
+          type: number
+          description: Numeric ID of the product in the order.
+          example: 1
         amount:
           $ref: '#/components/schemas/Amount'
         reason:
@@ -2329,7 +2457,6 @@ components:
           description: Reason for the refund.
           minLength: 0
           maxLength: 1000
-      x-internal: false
     AmountBoundItem:
       type: object
       title: Amount Bound Item
@@ -2337,12 +2464,17 @@ components:
         Amount Bound Item
 
         Type of refund item that capture refunding of items in the order that are of type amount.
+        * `PRODUCT`
+        * `ORDER`
         * `SHIPPING`
         * `HANDLING`
+      x-internal: false
       properties:
         item_type:
           type: string
           enum:
+            - PRODUCT
+            - ORDER
             - SHIPPING
             - HANDLING
           example: SHIPPING
@@ -2353,11 +2485,16 @@ components:
           description: Order address ID.
         amount:
           $ref: '#/components/schemas/Amount'
+        quantity:
+          type: integer
+          example: 3
+          description: Number of items in refund.
         reason:
           type: string
+          description: Explanation of refund.
           minLength: 0
           maxLength: 1000
-      x-internal: false
+          example: Customer requested refund
     MerchantOverride:
       type: object
       title: Merchant Calculated Override
@@ -2485,15 +2622,15 @@ components:
       properties:
         provider_id:
           type: string
-          description: Name of the payment method
+          description: Name of the payment method.
           example: checkout_paypalexpress
         provider_description:
           type: string
-          description: Description for payment provider
+          description: Description for payment provider.
           example: Paypal Express
         amount:
           type: number
-          description: amount to be refunded via this payment provider
+          description: Amount to be refunded via this payment provider.
           example: 9.99
         offline:
           type: boolean
@@ -3043,7 +3180,6 @@ components:
         application/json:
           schema:
             type: object
-            properties: {}
     RefundCollection_Resp:
       description: ''
       content:
