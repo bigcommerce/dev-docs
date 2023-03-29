@@ -2243,7 +2243,7 @@ components:
                 type: Text field
                 name: Custom-Message1549572912-201
                 display_style: ''
-                configurable_fields: [
+                configurable_fields:
             product_options:
               value:
                 - id: 143
@@ -3049,8 +3049,8 @@ components:
                           readOnly: true
                       readOnly: true
               order_source:
-                description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. A read-only value. Do not pass in a POST or PUT request.
-                example: www
+                description: Orders submitted from the store's website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
+                example: www, iPhone, Android, mobile, manual
                 type: string
               external_source:
                 description: |-
@@ -4518,8 +4518,8 @@ components:
           example: false
           type: boolean
         order_source:
-          description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. This value is read-only. Do not pass in a POST or PUT.
-          example: www
+          description: Orders submitted from the store's website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
+          example: www, iPhone, Android, mobile, manual
           type: string
         consignments:
           $ref: '#/components/schemas/orderConsignments_Resource'
