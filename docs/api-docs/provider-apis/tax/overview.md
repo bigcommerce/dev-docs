@@ -52,7 +52,7 @@ BigCommerce sets the tax provider registry with your URLs for [Tax Provider API]
 If you would like to support multiple connections for a merchant, BigCommerce can set the registry with flexible URLs that use our new profile option. 
 These URLs would include a reserved string, for example, `https://{profile}/estimate`, allowing merchants to customize the base domain.   
 
-You will need to allow merchants to enter the URL's base domain in the Control Panel when they connect or install your app. Merchants would also need to be able to self-serve updates to the URL through your app. 
+You will need to allow merchants to enter the URL's base domain in the control panel when they connect or install your app. Merchants would also need to be able to self-serve updates to the URL through your app. 
 When you [Establish a Tax Provider connection](#establishing-a-connection), you will include the `profile` base domain along with credentials associated with the merchant's account. 
 
 <Callout type="info">
@@ -121,7 +121,7 @@ The [Get a Connection](/api-reference/store-management/tax/tax-provider-connecti
 
 ## Enabling tax providers in the control panel
 
-Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, merchants will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, merchants and partners will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
 To enable the tax provider, merchants must navigate to **Settings > Setup > Tax** in an active MSF-enabled BigCommerce control panel and click **Enable** next to the associated tax provider.
 
