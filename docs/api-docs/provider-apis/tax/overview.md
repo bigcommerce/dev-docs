@@ -44,7 +44,7 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
 | Partner sandbox store domain          | Required                       | Domain name                  | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
-<sup>+</sup> You have the option of supporting a URL that merchants can customize. See [Tax Profile](#tax-profile).
+<sup>+</sup> You have the option of supporting a URL that merchants can customize. See [Tax Profile](#tax-profile-optional).
 
 ### Tax profile (optional)
 
