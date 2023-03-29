@@ -6,6 +6,36 @@ For any unexpected behavior you encounter while developing your Stencil theme, w
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
+<Callout type="warning">
+BigCommerce is currently targeting 11/1/2023 to sunset node-sass. To ensure that your storefront is up to date, use the latest version of node (Node 18) in Stencil CLI and install the automated script described in [Incompatible SCSS directives](#incompatible-scss-directives) to prevent an issue with the styling of your storefront.
+</Callout>
+
+## Incompatible SCSS directives
+
+To ensure that your storefront is up to date, perform the following steps:
+
+1. Using the latest version of Stencil CLI, run the stencil bundle command to validate your theme's code. Note any errors in the console output.
+```shell copy
+stencil bundle
+```
+2. Update your files to ensure the correct formatting by running the following script. This step allows you to see changes before merging.
+```shell showLineNumbers copy
+stencil -scss-autofix.js --dry
+```
+3. To commit the changes and revalidate, run the following commands:
+```shell showLineNumbers copy
+stencil -scss-autofix.js
+stencil bundle
+```
+4. After making changes, you can test your site by running the following command:
+```shell copy
+stencil start
+```
+5. If everything looks good, push your changes live to your storefront with the following command.
+```shell copy
+stencil push
+```
+
 ## Unsupported Node version
 
 If you receive the following error message, please reinstall Node.js to a supported "LTS" ("Long-Term Support") version:
