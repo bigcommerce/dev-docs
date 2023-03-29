@@ -37,21 +37,27 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | Supported store(s) | Required if platform availability is **private instance** | Store hashes                 | As a private instance, tax provider configuration will only work on store hashes provided.                      | `dwvjntfqv,epq54yymgq`                            |
 | Supported / unsupported countries     | Required                       | ISO 3166-1 alpha-2           | Comma separated ISO 3166-1 alpha-2 country codes for supported countries.                             | `US,CA,GB,FR,AU,NZ`                               |
 | **URLs**                              |                                |                              |                                                                                                       |                                                   |
-| Estimate URL                          | Required                       | URL                          | URL BigCommerce should use for Tax Provider API estimate requests.                                    | `https://sampletax.example.com/tax/estimate`      |
-| Commit URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/commit`        |
-| Adjust URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/adjust`        |
-| Void URL                              | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/void`          |
+| <sup>+</sup> Estimate URL                          | Required                       | URL                          | URL BigCommerce should use for Tax Provider API estimate requests.                                    | `https://sampletax.example.com/tax/estimate`      |
+| <sup>+</sup> Commit URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/commit`        |
+| <sup>+</sup> Adjust URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/adjust`        |
+| <sup>+</sup> Void URL                              | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/void`          |
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
 | Partner sandbox store domain          | Required                       | Domain name                  | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
+<sup>+</sup> You have the option of supporting a URL that merchants can customize. See [Tax Profile](#tax-profile).
+
 ### Tax profile (optional)
 
-BigCommerce sets the tax provider registry with your URLs for [Tax Provider API](/...) requests. BigCommerce sends requests to these URLs when a merchant requests tax estimates.
-If you would like to support multiple connections for a merchant, BigCommerce can set the registry with flexible URLs that use our new profile option.
-In this case, merchants will enter the URL they want to connect to in the Control Panel when they make install your app. Merchants can also self serve updates to the URL. Requests to Tax Provider API will go to these urls.
-This allows merchants the flexibility of customizing the endpoint.   
+BigCommerce sets the tax provider registry with your URLs for [Tax Provider API](/docs/apps-api/tax) requests. BigCommerce sends requests to these URLs, for example, when a shopper requests tax estimates.
+If you would like to support multiple connections for a merchant, BigCommerce can set the registry with flexible URLs that use our new profile option. 
+These URLs would include a reserved string, for example, `https://{profile}/estimate`, allowing merchants to customize the base domain.   
 
-You must liaise with the merchant to provide merchants the url connection options. Merchants are responsible if URLs are incorrect.
+You will need to allow merchants to enter the URL's base domain in the Control Panel when they connect or install your app. Merchants would also need to be able to self-serve updates to the URL through your app. 
+When you [Establish a Tax Provider connection](#establishing-a-connection), you will include the `profile` base domain along with credentials associated with the merchant's account. 
+
+<Callout type="info">
+  You must liaise with the merchant to provide them with customized URLs. BigCommerce merely consumes the URL values that the merchant enters and uses the provided string value for Tax Provider API requests.
+</Callout>
 
 ### Sandbox tax provider configuration
 
