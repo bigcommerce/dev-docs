@@ -71,14 +71,6 @@ X-Rate-Limit-Time-Window-Ms: 5000
 
 BigCommerce responds to apps that exceed the quota with a [429](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response. When this happens, applications should pause requests until the number of milliseconds in `X-Rate-Limit-Time-Reset-Ms` elapses.
 
-### Understand concurrent API request limits
-
-BigCommerce limits concurrent requests to most endpoints to three. The endpoints specified below enjoy an increased limit.
-
-| Limit | Endpoint | Method |
-| -- | -- | -- |
-| `10` | `/v3/customers` | `POST` |
-
 ### Play nicely when making parallel requests
 
 BigCommerce's REST endpoints accept requests made in parallel. Applications making parallel requests should monitor rate limit headers to avoid a `429` response. Methods for doing so include the following:
