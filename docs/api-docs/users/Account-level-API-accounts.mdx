@@ -1,23 +1,22 @@
 # Account-level API accounts
 
 ## Introduction
-Account-level API accounts enable merchants to manage functions for multiple stores tied to your BigCommerce account. When a token is generated it will belong to the account that the merchant has logged into. 
-
-With account-level credentials merchants can now perform actions at scale such as:
-* Facilitate onboarding or offboarding processes for a group of users
-* Run user reports to compile records for compliance or other purposes 
-* Manage subscriptions and other recurring offerings to users on an enterprise level
+The Account-Level API is designed to allow merchants to build custom integrations and solutions that require high-level access to a store's resources. By using this API, merchants can automate various business need processes, integrate with third-party applications, and manage multiple stores per account.
 
 <Callout type="info">
- As long as this account is active, the token will always be tied to the account.
+    When a token is generated it will belong to the account that the merchant has logged into.
+</Callout> 
+
+With Account-Level API credentials merchants can now perform actions such as:
+* Create tokens that can be used to manage apps on a merchant's store
+* Manage charges and subscriptions for accounts
+* Integrate third-party applications to streamline and automate store processes
+
+<Callout type="info">
+    As long as this account is active, the token will always be tied to the account.
 </Callout>
 
-Before you get started creating account-level tokens, read our doc on [API Accounts & OAuth Scopes](api-docs/getting-started/api-accounts) to get up to speed.
-
-## How it works
-After an account-level API token is created, merchants can now add a layer of protection when making API calls to our API gateway. Once the call is made, the BigCommerce gateway checks for authorization by sending the request through to Authorization and Authentication to confirm that the token has the required permissions. 
-
->>> will add diagrams <<<<
+Before you get started creating Account-Level tokens, read our doc on [API Accounts & OAuth Scopes](api-docs/getting-started/api-accounts) to get up to speed.
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ Head into action with Account-level API management by verifying that you have th
 
 ## OAuth scopes
 
-Be sure to set the following OAuth scopes to acquire the permissions needed to manage the account-level API:
+Be sure to set the following OAuth scopes to acquire the permissions needed to manage the Account-Level API:
 
 | Name | Permission | Description |
 |:---|:---|:---|
@@ -37,7 +36,17 @@ Be sure to set the following OAuth scopes to acquire the permissions needed to m
 | Charges | modify | Create or delete charges |
 | Account | read-only | View account information for Account level GraphQL |
 | Account Stores | read-only | View information for apps belonging to the account for the Account-level GraphQL |
-| Accounts Apps | read-only | View information for apps belonging to the account for account-level API |
-| Account User | modify | View/Write/Delete information for users belonging to the account for account-level GraphQL |
+| Accounts Apps | read-only | View information for apps belonging to the account for Account-Level API |
+| Account User | modify | View/Write/Delete information for users belonging to the account for Account-Level GraphQL |
 
-Learn more about setting up Account-Level API token by checking out our Knowledge Base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#account-level-api-accounts).
+## How it works
+
+To use the Account-Level API, merchants need to generate an API token from the BigCommerce control panel. The API token should be kept secure, as it provides complete access to the account's stores. This means that any actions performed through the API have the same effect as if they were performed directly in the store's control panel. 
+
+Once an API call is made to the BigCommerce API gateway, the gateway will then check for the proper token permissions. If the token has the correct rights, the API request can be made. However, if the token does not have the correct permission rights, the API request will bounce.
+
+This process allows BigCommerce to filter out API requests that aren't verified.
+
+All in all, the Account-Level API accounts on the BigCommerce platform provides merchants and developers with a powerful tool-set for building custom integrations and solutions that can help streamline and automate various processes.
+
+Learn more about setting up Account-Level API token by checking out our Knowledge Base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#Account-Level-api-accounts).
