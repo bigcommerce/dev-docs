@@ -6,7 +6,7 @@ The [Tax Provider API](/docs/apps-api/tax) allows you to provide business-to-con
 
 The [Tax Provider API](/docs/apps-api/tax) works in conjunction with a BigCommerce app, so you will need to [build an app](/api-docs/apps/guide/intro) that integrates the [Tax Provider API](/docs/apps-api/tax).
 
-Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the specified stores.
+Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed using a URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the specified stores.
 
 
 ## Obtaining an app ID
@@ -17,9 +17,9 @@ To get your app ID, start creating an app in the [Developer Portal](https://devt
 
 ## Sharing provider details with BigCommerce
 
-Once you've obtained your app ID, please share your app ID as well as the below information with BigCommerce by emailing [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com). This allows us to create your tax provider configuration, which will take approximately 5 days.
+Once you've obtained your app ID, share your app ID as well as the below information with BigCommerce by emailing [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com). This allows us to create your tax provider configuration, which will take approximately five days.
 
-Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when [establishing a connection](#establishing-a-connection) with the [Tax Provider API](/docs/apps-api/tax).
+Once your tax provider configuration is ready, we'll let you know through email. The email will also include your `provider_id` which is required when [establishing a connection](#establishing-a-connection) with the [Tax Provider API](/docs/apps-api/tax).
 
 
 
@@ -78,7 +78,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 ## Building the app
 
-Tax providers are required to build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) in order to utilise the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of tax provider settings via an iFrame in the BigCommerce control panel.
+Tax providers are required to build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) in order to utilise the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of tax provider settings through an iFrame in the BigCommerce control panel.
 
 Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
@@ -99,8 +99,8 @@ When handling the OAuth flow, tax providers must ensure their app is requesting 
 
 A tax provider is ready to establish a connection with the Tax Provider API when all of the following are true:
 
-* Tax provider has shared their tax provider details with BigCommerce via email, and we've replied confirming the tax provider configuration is now ready on all supplied merchant and/or partner test stores (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
-* BigCommerce has shared the `provider_id` of the tax provider configuration with the tax provider via email (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
+* Tax provider has shared their tax provider details with BigCommerce through email, and we've replied confirming the tax provider configuration is now ready on all supplied merchant and/or partner test stores (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
+* BigCommerce has shared the `provider_id` of the tax provider configuration with the tax provider through email (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
 * Tax provider has built a draft app that successfully handles the OAuth flow during app installation (see [Building the app](#building-the-app)).
 * During the OAuth flow the app requested the merchant to authorize read and write permissions on the Information and Settings API scopes (see [Installing the app](#installing-the-app)).
 * During the OAuth flow the `client_id` and `access_token` was received and stored by the tax provider (see [Installing the app](#installing-the-app)).
