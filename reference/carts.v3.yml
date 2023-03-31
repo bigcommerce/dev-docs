@@ -1543,8 +1543,7 @@ components:
       x-internal: false
     ItemDigital:
       allOf:
-        - type: object
-          title: Base Item
+        - title: Base Item
           properties:
             id:
               type: string
@@ -1606,8 +1605,6 @@ components:
                   ```
                 properties:
                   id:
-                    description: ID of the applied discount.
-                    example: coupon
                     oneOf:
                       - type: string
                       - type: number
@@ -1697,6 +1694,7 @@ components:
               type: array
               items:
                 type: object
+                title: Product Option
                 properties:
                   name:
                     type: string
@@ -1711,13 +1709,11 @@ components:
                     type: number
                     description: The product option value identifier in number format.
                     example: 128
-                title: Product Option
           required:
             - variant_id
             - product_id
             - quantity
-        - type: object
-          properties:
+        - properties:
             download_file_urls:
               description: URLs to download all product files.
               type: array
@@ -1731,8 +1727,8 @@ components:
             download_size:
               description: 'Specifies the combined download size of all files in human-readable style; for example, `30MB`.'
               type: string
-      title: Item Digital
-      x-internal: false
+      type: object
+      title: ''
     ItemDigitalGet:
       allOf:
         - title: Base Item
@@ -1797,8 +1793,6 @@ components:
                   ```
                 properties:
                   id:
-                    description: ID of the applied discount.
-                    example: coupon
                     oneOf:
                       - type: string
                       - type: number
@@ -1806,59 +1800,55 @@ components:
                     type: number
                     description: The discounted amount.
             coupons:
-              type: array
-              items:
-                type: object
-                title: Applied Coupon
-                properties:
-                  coupons:
+              oneOf:
+                - type: number
+                - type: array
+                  items:
                     type: object
-                    description: Required in a /POST request.
+                    title: Applied Coupon
                     properties:
-                      coupon_code:
-                        type: object
-                        description: The coupon code.
-                        properties:
-                          id:
-                            type: integer
-                            example: 6
-                            description: ID of the coupon.
-                          code:
-                            type: string
-                            example: KV56053388J
-                            description: The coupon code. Required in a /POST request.
-                          name:
-                            type: string
-                            example: Percentage off
-                            description: Name given to the coupon in the control panel.
-                          discountType:
-                            type: integer
-                            description: |-
-                              The discount type.
-
-                              - type 0: per_item_discount
-                              - type 1: percentage_discount
-                              - type 2: per_total_discount
-                              - type 3: shipping_discount
-                              - type 4: free_shipping
-                            enum:
-                              - 0
-                              - 1
-                              - 2
-                              - 3
-                              - 4
-                          discountAmount:
-                            type: integer
-                            description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
-                            example: 3
-                          expiresDate:
-                            type: integer
-                            example: 0
-                            description: Returns 0 if no expiration date has been set.
-                          totalDiscount:
-                            type: number
-                            example: 4.19
-                            description: The total amount of all discounts applied to the cart.
+                      id:
+                        type: integer
+                        example: 6
+                        description: ID of the coupon.
+                      code:
+                        type: string
+                        example: KV56053388J
+                        description: The coupon code. Required in a /POST request.
+                      name:
+                        type: string
+                        example: Percentage off
+                        description: Name given to the coupon in the control panel.
+                      discountType:
+                        type: integer
+                        description: |
+                          The discount type.
+                          - type 0: per_item_discount
+                          - type 1: percentage_discount
+                          - type 2: per_total_discount
+                          - type 3: shipping_discount
+                          - type 4: free_shipping
+                        example: 3
+                        enum:
+                          - 0
+                          - 1
+                          - 2
+                          - 3
+                          - 4
+                      discountAmount:
+                        type: integer
+                        description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                        example: 3
+                      expiresDate:
+                        type: integer
+                        example: 0
+                        description: Returns 0 if no expiration date has been set.
+                      totalDiscount:
+                        type: number
+                        example: 4.19
+                        description: The total amount of all discounts applied to the cart.
+                    required:
+                      - code
             discount_amount:
               type: number
               description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
@@ -1915,9 +1905,9 @@ components:
             download_size:
               description: 'Specifies the combined download size of all files in human-readable style; for example, `30MB`.'
               type: string
-      title: Item Digital
-      x-internal: false
       type: object
+      title: ''
+      description: ''
     ItemPhysical:
       allOf:
         - type: object
@@ -1983,8 +1973,6 @@ components:
                   ```
                 properties:
                   id:
-                    description: ID of the applied discount.
-                    example: coupon
                     oneOf:
                       - type: string
                       - type: number
@@ -2093,22 +2081,8 @@ components:
             - variant_id
             - product_id
             - quantity
-        - properties:
-            is_require_shipping:
-              type: boolean
-            gift_wrapping:
-              title: Gift Wrapping
-              type: object
-              properties:
-                name:
-                  type: string
-                message:
-                  type: string
-                amount:
-                  type: number
-                  format: float
-      title: Item Physical
-      x-internal: false
+        - {}
+      description: ''
     BaseItem:
       type: object
       title: Base Item
@@ -2217,7 +2191,7 @@ components:
                           - type 2: per_total_discount
                           - type 3: shipping_discount
                           - type 4: free_shipping
-                        enum:
+                          enum:
                           - 0
                           - 1
                           - 2
@@ -2314,6 +2288,7 @@ components:
         |`3`|`shipping_discount`|
         |`4`|`free_shipping`|
         |`5`|`promotion`|
+      x-internal: false
       properties:
         code:
           description: The coupon code.
@@ -2333,6 +2308,13 @@ components:
             type 4: free_shipping
             type 5: promotion
           type: string
+          enum:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
           readOnly: true
         discounted_amount:
           description: The discounted amount applied within a given context.
@@ -2341,7 +2323,6 @@ components:
           readOnly: true
       required:
         - code
-      x-internal: false
     AppliedDiscount:
       type: object
       title: Applied Discount
@@ -2390,7 +2371,7 @@ components:
           type: string
         list_price:
           type: string
-          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
     ItemCustomGet:
       type: object
       title: Item Custom
@@ -2414,7 +2395,7 @@ components:
           type: string
         list_price:
           type: string
-          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
     cart_PostVariant:
       type: object
       title: Item with variant
@@ -2432,23 +2413,7 @@ components:
           description: Variant ID. Exists only in Catalog V3.
         name:
           type: string
-          description: Optionally, provide a value to override the product name.
-        weight:
-          type: number
-          description: Optionally, provide a value to override the product weight.
-        dimensions:
-          type: object
-          description: Optionally, provide a value to override the product dimensions.
-          properties:
-            height:
-              type: number
-              description: The custom height of the product.
-            width:
-              type: number
-              description: The custom width of the product.
-            depth:
-              type: number
-              description: The custom depth of the product.
+          description: 'Optionally, provide a value to override the product name.'
         gift_wrapping:
           type: object
           properties:
@@ -2499,23 +2464,7 @@ components:
           description: Optional price override.
         name:
           type: string
-          description: Optionally, provide a value to override the product name.
-        weight:
-          type: number
-          description: Optionally, provide a value to override the product weight.
-        dimensions:
-          type: object
-          description: Optionally, provide a value to override the product dimensions.
-          properties:
-            height:
-              type: number
-              description: The custom height of the product.
-            width:
-              type: number
-              description: The custom width of the product.
-            depth:
-              type: number
-              description: The custom depth of the product.
+          description: 'Optionally, provide a value to override the product name.'
         option_selections:
           type: array
           description: Needed for Catalog V2.
@@ -2877,8 +2826,6 @@ components:
                   ```
                 properties:
                   id:
-                    description: ID of the applied discount.
-                    example: coupon
                     oneOf:
                       - type: string
                       - type: number
@@ -2886,61 +2833,55 @@ components:
                     type: number
                     description: The discounted amount.
             coupons:
-              type: array
-              items:
-                type: object
-                title: Applied Coupon
-                properties:
-                  coupons:
+              oneOf:
+                - type: number
+                - type: array
+                  items:
                     type: object
-                    description: Required in a /POST request.
+                    title: Applied Coupon
                     properties:
-                      coupon_code:
-                        type: object
-                        description: The coupon code.
-                        properties:
-                          id:
-                            type: integer
-                            example: 6
-                            description: The ID of the coupon.
-                          code:
-                            type: string
-                            example: KV56053388J
-                            description: The coupon code. Required in a /POST request.
-                          name:
-                            type: string
-                            example: Percentage off
-                            description: Name given to the coupon in the control panel.
-                          discountType:
-                            type: integer
-                            description: |-
-                              The discount type.
-
-                              - type 0: per_item_discount
-                              - type 1: percentage_discount
-                              - type 2: per_total_discount
-                              - type 3: shipping_discount
-                              - type 4: free_shipping
-                            enum:
-                              - 0
-                              - 1
-                              - 2
-                              - 3
-                              - 4
-                          discountAmount:
-                            type: integer
-                            description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
-                            example: 3
-                          expiresDate:
-                            type: integer
-                            example: 0
-                            description: Returns 0 if no expiration date is set.
-                          totalDiscount:
-                            type: number
-                            example: 4.19
-                            description: The total amount of all discounts applied to the cart.
+                      id:
+                        type: integer
+                        example: 6
+                        description: ID of the coupon.
+                      code:
+                        type: string
+                        example: KV56053388J
+                        description: The coupon code. Required in a /POST request.
+                      name:
+                        type: string
+                        example: Percentage off
+                        description: Name given to the coupon in the control panel.
+                      discountType:
+                        type: integer
+                        description: |-
+                          The discount type.
+                          - type 0: per_item_discount
+                          - type 1: percentage_discount
+                          - type 2: per_total_discount
+                          - type 3: shipping_discount
+                          - type 4: free_shipping
+                        example: 3
+                        enum:
+                          - 0
+                          - 1
+                          - 2
+                          - 3
+                          - 4
+                      discountAmount:
+                        type: integer
+                        description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                        example: 3
+                      expiresDate:
+                        type: integer
+                        example: 0
+                        description: Returns 0 if no expiration date has been set.
+                      totalDiscount:
+                        type: number
+                        example: 4.19
+                        description: The total amount of all discounts applied to the cart.
                     required:
-                      - coupon_code
+                      - code
             discount_amount:
               type: number
               description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
@@ -2987,22 +2928,9 @@ components:
             - variant_id
             - product_id
             - quantity
-        - properties:
-            is_require_shipping:
-              type: boolean
-            gift_wrapping:
-              title: Gift Wrapping
-              type: object
-              properties:
-                name:
-                  type: string
-                message:
-                  type: string
-                amount:
-                  type: number
-                  format: float
-      title: Item Physical Get
-      x-internal: false
+        - {}
+      title: ''
+      description: ''
     NotFound:
       description: Error payload for the BigCommerce API.
       type: object
@@ -3061,7 +2989,6 @@ components:
           type: string
           description: |
             Determines the visibility and writeability of the field by other API consumers.
-
             | Value | Description |
             | :--- | :--- |
             | `app_only` | Private to the app that owns the field. |
@@ -3138,7 +3065,6 @@ components:
           type: string
           description: |
             Determines the visibility and writeability of the field by other API consumers.
-
             | Value | Description |
             | :--- | :--- |
             | `app_only` | Private to the app that owns the field. |
@@ -3312,10 +3238,9 @@ components:
       name: Content-Type
       in: header
       required: true
-      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: 'application/json'
+        default: application/json
     cartId:
       name: cartId
       in: path
