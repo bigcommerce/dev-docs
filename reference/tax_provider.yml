@@ -25,6 +25,10 @@ paths:
       description: |-
         Submit the quote request to retrieve an estimate from the enabled third-party tax provider. Estimates are not expected to be persisted by the tax provider.
 
+        > Server URL
+        > - For supporting tax providers, the server url contains the tax provider's profile field; for example, `your_profile.example.com`.
+        > - The Try it feature is not currently supported for this endpoint.
+
         The following actions can trigger tax estimate requests multiple times during a standard checkout on a BigCommerce storefront, depending on the BigCommerce merchant’s settings.
 
         - After selecting a Shipping Method during the “Estimate Shipping & Tax” facility on the Cart page.
@@ -305,7 +309,13 @@ paths:
   /void:
     post:
       summary: Void Tax Quote
-      description: Invalidate the persisted tax quote as identified by the given unique ID. Relevant to order cancellations or when moving an order from a paid status to an unpaid status.
+      description: |- 
+        Invalidate the persisted tax quote as identified by the given unique ID. Relevant to order cancellations or when moving an order from a paid status to an unpaid status.
+
+        > Server URL
+        > - For supporting tax providers, the server url contains the tax provider's profile field; for example, `your_profile.example.com`.
+        > - The Try it feature is not currently supported for this endpoint.
+
       operationId: void
       parameters:
         - name: id
@@ -329,7 +339,13 @@ paths:
   /commit:
     post:
       summary: Commit Tax Quote
-      description: 'Submit the quote request to be persisted by the enabled third-party tax provider. A commit operation is intended to be submitted once only, when the Order has been confirmed and paid.'
+      description: |-
+        Submit the quote request to be persisted by the enabled third-party tax provider. A commit operation is intended to be submitted once only, when the Order has been confirmed and paid.
+
+        > Server URL
+        > - For supporting tax providers, the server url contains the tax provider's profile field; for example, `your_profile.example.com`.
+        > - The Try it feature is not currently supported for this endpoint.
+
       operationId: commit
       parameters:
         - $ref: '#/components/parameters/header-storehash'
@@ -830,6 +846,11 @@ paths:
         Relevant for partial refunds, full refunds, returns, and other Order modifications where there have been changes to the tax liabilities.
 
         The returned **Tax Quote** response is expected to be the same to a response returned by an equivalent response to **estimate** or **commit** methods.
+
+        > Server URL
+        > - For supporting tax providers, the server url contains the tax provider's profile field; for example, `your_profile.example.com`.
+        > - The Try it feature is not currently supported for this endpoint.
+        
       operationId: adjust
       tags:
         - Tax Provider
@@ -1316,8 +1337,9 @@ components:
       type: http
       scheme: basic
       description: |-
-        The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username` and `password` using the [Update a Connection](/docs/apps-api/tax-app-connection#update-a-connection) request.
+        The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username`, `password`, and optionally `profile`, using the [Update a Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) request. `profile` is an optional field and will be used with supporting providers only.
         
         For more, see [developer-configured authentication](/api-docs/getting-started/authentication#developer-configured-authentication) for Provider APIs.
+
 security:
   - Authorization: []
