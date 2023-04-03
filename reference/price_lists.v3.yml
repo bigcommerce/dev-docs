@@ -1373,6 +1373,21 @@ paths:
                     per_page: 50
                     current_page: 1
                     total_pages: 1
+        '429':
+          description: |
+            Allowed number of requests exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
+            examples: {}
     put:
       tags:
         - Price Lists Records
@@ -1554,7 +1569,6 @@ paths:
                           quantity_max: 10
                           type: fixed
                           amount: 3
-              examples: {}
         '422':
           description: Error response for batch PUT of `Price Records`. May include errors during partial update in non-strict mode.
           content:
@@ -1603,6 +1617,21 @@ paths:
                           additionalProperties: true
                       description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
                 description: Errors during batch usage for the BigCommerce API.
+        '429':
+          description: |
+            Allowed number of requests exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
+            examples: {}
     delete:
       tags:
         - Price Lists Records
@@ -1654,7 +1683,7 @@ paths:
         Returns *Price List Records* using the variant ID. Will also contain currency records.
         
         **Notes**
-        * Supports up to 50 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error and your additional requests will fail.
+        * Supports up to 40 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
         * Store Pricelist Records data to reduce the number of calls and maximize performance.
       operationId: getPriceListRecordsByVariantId
       parameters:
@@ -1859,7 +1888,21 @@ paths:
                                 type: string
                                 description: |
                                   Link to the next page returned in the response.
-              examples: {}
+        '429':
+          description: |
+            Allowed number of requests exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
+            examples: {}
   '/pricelists/{price_list_id}/records/{variant_id}/{currency_code}':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -1867,7 +1910,11 @@ paths:
       tags:
         - Price Lists Records
       summary: Get a Price Record by Currency Code
-      description: Returns a *Price List Record* using the currency code. Optional parameters can be used.
+      description: |- 
+        Returns a *Price List Record* using the currency code. You can use optional parameters.
+
+        **Notes**
+        * Supports up to 40 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
       operationId: getPriceListRecord
       parameters:
         - name: price_list_id
@@ -2052,11 +2099,30 @@ paths:
                     per_page: 50
                     current_page: 1
                     total_pages: 1
+        '429':
+          description: |
+            Allowed number of requests exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
+            examples: {}
     put:
       tags:
         - Price Lists Records
       summary: Set Price List Record by Currency Code
-      description: Creates or updates a*Price List Record* using the currency code.
+      description: |-
+        Creates or updates a *Price List Record* using the currency code.
+
+        **Notes**
+        * Supports up to 40 simultaneous PUT requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
       operationId: setPriceListRecord
       parameters:
         - name: price_list_id
@@ -2379,6 +2445,21 @@ paths:
                       The error title describing the particular error.
                   type:
                     type: string
+        '429':
+          description: |
+            Allowed number of requests exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
+            examples: {}
       x-codegen-request-body-name: PriceRecord
     delete:
       tags:
