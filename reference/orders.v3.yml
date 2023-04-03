@@ -235,28 +235,18 @@ paths:
         x-examples:
           Quantity:
             items:
-              - item_id: 75
-                item_type: PRODUCT
+              - item_type: PRODUCT
+                item_id: 31
+                amount: 35.00
                 quantity: 1
+                reason: Not the right product.
             payments:
               - provider_id: storecredit
-                amount: 232.75
+                amount: 37.89
                 offline: false
-          Amount:
-            order_id: 1
-            items:
-              - item_type: SHIPPING
-                item_id: 1
-                amount: 1.99
-                reason: string
-            reason: Wrong t-shirt size
-            payments:
-              - |-
-                {
-                    "provider_id": "checkout_paypalexpress",
-                    "amount": 9.99,
-                    "offline": true
-                }
+            merchant_calculated_override:
+              - total_amount: 45.00
+                total_tax:
           Tax Exempt (Order Level):
             order_id: 1234
             items:
@@ -624,7 +614,7 @@ paths:
       description: |-
         Creates an order `Metafield`.
 
-        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
+        The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: createOrderMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -647,7 +637,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client ID, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -910,10 +900,10 @@ components:
           format: int64
         label:
           type: string
-          description: A description of the reason
+          description: A description of the reason.
         is_archived:
           type: boolean
-          description: Indicates whether or not the reason has been archived
+          description: Indicates whether or not the reason has been archived.
       x-internal: false
     PreferredOutcome:
       type: object
@@ -923,10 +913,10 @@ components:
           format: int64
         label:
           type: string
-          description: A description of the outcome
+          description: A description of the outcome.
         is_archived:
           type: boolean
-          description: Indicates whether or not the outcome has been archived
+          description: Indicates whether or not the outcome has been archived.
       x-internal: false
     CreateReturnRequest:
       type: object
@@ -934,12 +924,12 @@ components:
         - items
       properties:
         items:
-          description: A collection of items to be returned
+          description: A collection of items to be returned.
           type: array
           items:
             $ref: '#/components/schemas/CreateReturnRequestItem'
         comment:
-          description: A comment provided to the merchant for review
+          description: A comment provided to the merchant for review.
           type: string
       title: CreateReturnRequest
       x-internal: false
@@ -967,7 +957,7 @@ components:
       $ref: '#/components/schemas/Return_Full'
     Return_Full:
       type: object
-      description: A view of a return
+      description: A view of a return.
       properties:
         items:
           type: array
@@ -976,11 +966,11 @@ components:
         total:
           type: string
           format: decimal
-          description: The total price of the items being returned
+          description: The total price of the items being returned.
         currency:
           type: string
           format: iso-4217
-          description: The transactional currency of the return and the associated order
+          description: The transactional currency of the return and the associated order.
         customer:
           type: object
           properties:
@@ -992,7 +982,7 @@ components:
               format: email
         comment:
           type: string
-          description: A comment provided to the merchant for review
+          description: A comment provided to the merchant for review.
         status:
           $ref: '#/components/schemas/Status_Full'
         date_modified:
@@ -1001,62 +991,62 @@ components:
       x-internal: false
     ReturnItem:
       type: object
-      description: A view of a return item
+      description: A view of a return item.
       properties:
         id:
           type: integer
           format: int64
-          description: The unique identifier of this return item
+          description: The unique identifier of this return item.
         reference_id:
           $ref: '#/components/schemas/ItemReferenceId'
         quantity:
           type: integer
-          description: The quantity of items for which a return was requested
+          description: The quantity of items for which a return was requested.
         total:
           type: string
           format: decimal
-          description: The total price of the line item
+          description: The total price of the line item.
         preferred_outcome:
           type: object
           properties:
             id:
               type: integer
               format: int64
-              description: Unique identifier of the preferred outcome
+              description: Unique identifier of the preferred outcome.
             label:
               type: string
-              description: A displayable label for the preferred outcome
+              description: A displayable label for the preferred outcome.
         reason:
           type: object
           properties:
             id:
               type: integer
               format: int64
-              description: Unique identifier of the reason
+              description: Unique identifier of the reason.
             label:
               type: string
-              description: A displayable label for the reason
+              description: A displayable label for the reason.
         received_state:
           type: object
           properties:
             received_quantity:
               type: integer
-              description: The quantity of items marked as received by the merchant
+              description: The quantity of items marked as received by the merchant.
             pending_quantity:
               type: integer
-              description: The quantity of items pending receipt by the merchant
+              description: The quantity of items pending receipt by the merchant.
         review_state:
           type: object
           properties:
             approved_quantity:
               type: integer
-              description: The quantity of items approved for return by the merchant
+              description: The quantity of items approved for return by the merchant.
             pending_quantity:
               type: integer
-              description: The quantity of items pending receipt by the merchant
+              description: The quantity of items pending receipt by the merchant.
             rejected_quantity:
               type: integer
-              description: The quantity of items rejected by the merchant
+              description: The quantity of items rejected by the merchant.
       x-internal: false
     StatusUpdate_Full:
       type: object
@@ -1064,7 +1054,7 @@ components:
         return_id:
           type: integer
           format: int64
-          description: The ID of the return for which the status should be updated
+          description: The ID of the return for which the status should be updated.
         new_status:
           $ref: '#/components/schemas/Status_Full'
       title: StatusUpdate_Full
@@ -1092,7 +1082,7 @@ components:
           id:
             type: integer
             format: int64
-            description: The ID of the return for which the status was updated
+            description: The ID of the return for which the status was updated.
           status:
             $ref: '#/components/schemas/Status_Full'
       x-internal: false
@@ -1101,27 +1091,27 @@ components:
       properties:
         status:
           type: integer
-          description: Status code of the problem
+          description: Status code of the problem.
         title:
           type: string
-          description: A short description of the problem
+          description: A short description of the problem.
         type:
           type: string
           format: url
-          description: A resource describing the problem
+          description: A resource describing the problem.
       x-internal: false
     BatchOperationMeta:
       type: object
       properties:
         total:
           type: integer
-          description: The total number of operations in the batch
+          description: The total number of operations in the batch.
         success:
           type: integer
-          description: The number of failed operations in the batch
+          description: The number of failed operations in the batch.
         failed:
           type: integer
-          description: The number of failed operations in the batch
+          description: The number of failed operations in the batch.
       x-internal: false
     Pagination:
       type: object
@@ -1184,13 +1174,13 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which to update the received state
+            description: The ID of the item for which to update the received state.
           received_quantity:
             type: integer
-            description: The quantity of items to be marked as received
+            description: The quantity of items to be marked as received.
           pending_quantity:
             type: integer
-            description: The quantity of items to be marked as pending
+            description: The quantity of items to be marked as pending.
       title: ReceivedItems_Put
       x-internal: false
     ReceivedItems_Base:
@@ -1201,15 +1191,15 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which received item status was updated
+            description: The ID of the item for which received item status was updated.
           received_quantity:
             type: integer
             format: int64
-            description: The quantity of items marked as received
+            description: The quantity of items marked as received.
           pending_quantity:
             type: integer
             format: int64
-            description: The quantity of items marked as pending
+            description: The quantity of items marked as pending.
       title: ReceivedItems_Base
       x-internal: false
     ReviewedItems_Put:
@@ -1225,16 +1215,16 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which to update the reviewed state
+            description: The ID of the item for which to update the reviewed state.
           authorized_quantity:
             type: integer
-            description: The quantity of items to be marked as authorized
+            description: The quantity of items to be marked as authorized.
           rejected_quantity:
             type: integer
-            description: The quantity of items to be marked as rejected
+            description: The quantity of items to be marked as rejected.
           pending_quantity:
             type: integer
-            description: The quantity of items to be marked as pending
+            description: The quantity of items to be marked as pending.
       title: ReviewedItems_Put
       x-internal: false
     ReviewedItems_Base:
@@ -1245,19 +1235,19 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which reviewed status was updated
+            description: The ID of the item for which reviewed status was updated.
           authorized_quantity:
             type: integer
             format: int64
-            description: The quantity of items marked as authorized
+            description: The quantity of items marked as authorized.
           rejected_quantity:
             type: integer
             format: int64
-            description: The quantity of items marked as rejected
+            description: The quantity of items marked as rejected.
           pending_quantity:
             type: integer
             format: int64
-            description: The quantity of items marked as pending
+            description: The quantity of items marked as pending.
       title: ReviewedItems_Base
       x-internal: false
     GetReturnableItems:
@@ -1269,14 +1259,14 @@ components:
             $ref: '#/components/schemas/ItemReferenceId'
           name:
             type: string
-            description: The name of the order product
+            description: The name of the order product.
           returnable_quantity:
             type: integer
-            description: The maximum quantity of this item that can presently be requested for return
+            description: The maximum quantity of this item that can presently be requested for return.
           total:
             type: string
             format: decimal
-            description: The total price of this line item
+            description: The total price of this line item.
           options:
             type: array
             items:
@@ -1284,24 +1274,24 @@ components:
               properties:
                 display_name:
                   type: string
-                  description: A displayable name for the option
+                  description: A displayable name for the option.
                 display_value:
                   type: string
-                  description: A displayable value for the option
-              description: An item available for return
-            description: A collection of options configured for the order product
+                  description: A displayable value for the option.
+              description: An item available for return.
+            description: A collection of options configured for the order product.
       x-internal: false
     ItemReferenceId:
       type: object
       properties:
         type:
           type: string
-          description: The reference type
+          description: The reference type.
           enum:
             - ORDER_PRODUCT
         value:
           type: string
-          description: The value identifying the returned item
+          description: The value identifying the returned item.
       required:
         - type
         - value
@@ -1513,7 +1503,7 @@ components:
           type: string
         date_created:
           description: |
-            The datetime of the transaction.
+            The date/time of the transaction.
           type: string
           format: date-time
         test:
@@ -1645,7 +1635,7 @@ components:
               type: string
             date_created:
               description: |
-                The datetime of the transaction.
+                The date/time of the transaction.
               type: string
               format: date-time
             test:
@@ -1688,7 +1678,7 @@ components:
             payment_method_id:
               type: string
               description: |
-                The payment method ID used for this transaction
+                The payment method ID used for this transaction.
           required:
             - event
             - method
@@ -1706,7 +1696,7 @@ components:
                 Identifier for the BigCommerce Order with which this transaction is associated.
             date_created:
               description: |
-                The datetime of the transaction.
+                The date/time of the transaction.
               type: string
               format: date-time
             payment_instrument_token:
@@ -2125,6 +2115,9 @@ components:
       title: RefundQuote_Full
       x-internal: false
       properties:
+        order_id:
+          type: integer
+          description: ID of the order to be refunded.
         total_refund_amount:
           $ref: '#/components/schemas/Amount'
         total_refund_tax_amount:
@@ -2132,7 +2125,7 @@ components:
           example: 1.95
         rounding:
           type: number
-          description: Indicates rounding value to bring `refund_total` to an amount refundable via payment providers (in this case to 2 decimal places).
+          description: Indicates rounding value to bring `refund_total` to an amount refundable with payment providers (in this case to 2 decimal places).
         adjustment:
           $ref: '#/components/schemas/AdjustmentAmount'
         tax_inclusive:
@@ -2194,7 +2187,7 @@ components:
             In this case there are three refund methods available to the merchant:
             1. Refund up to the entire order amount to store credit.
             2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
-            3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
+            3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit with a manual refund, which will be recorded as being refunded against the bank deposit.
           items:
             $ref: '#/components/schemas/RefundMethod'
     RefundRequest_Post:
@@ -2207,12 +2200,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ItemsRefund'
-        reason:
-          type: string
-          description: Reason for refund
-          example: Wrong t-shirt size
         payments:
-          type: array
+          type: object
           items:
             $ref: '#/components/schemas/PaymentRequest'
         merchant_calculated_override:
@@ -2246,7 +2235,7 @@ components:
                 item_id: 87
                 quantity: 1
                 requested_amount: null
-                reason: incididunt exercitation enim
+                reason: Wrong color
           meta: {}
       properties:
         data:
@@ -2255,10 +2244,10 @@ components:
             id:
               type: integer
               description: |
-                Refund ID for the returned refund
+                Refund ID for the returned refund.
             order_id:
               type: integer
-              description: Order ID associated with the refund
+              description: Order ID associated with the refund.
             user_id:
               type: integer
               description: |
@@ -2266,12 +2255,12 @@ components:
             created:
               type: string
               description: |
-                Timestamp of when the refund was created
+                Timestamp of when the refund was created.
               format: date-time
             reason:
               type: string
               description: |
-                Reason for refund
+                Reason for refund.
             total_amount:
               type: number
               description: |
@@ -2293,29 +2282,29 @@ components:
                   id:
                     type: integer
                     description: |
-                      Reference to refund payment ID
+                      Reference to refund payment ID.
                   provider_id:
                     type: string
                     description: |
-                      Reference to payment provider
+                      Reference to payment provider.
                       example: storecredit
                   amount:
                     type: number
                     description: |
-                      A non-negative two decimal place rounded value represents the amount that can be charged/refunded via payment providers.
+                      A non-negative two decimal place rounded value represents the amount that can be charged/refunded with payment providers.
                     example: 109.11
                   offline:
                     type: boolean
                     description: |
-                      Indicates whether the payment was offline
+                      Indicates whether the payment was offline.
                   is_declined:
                     type: boolean
                     description: |
-                      Indicates if this payment has been declined by the payment provider
+                      Indicates if this payment has been declined by the payment provider.
                   declined_message:
                     type: string
                     description: |
-                      Message indicates why the payment was declined
+                      Message indicates why the payment was declined.
             items:
               type: array
               items:
@@ -2324,7 +2313,7 @@ components:
                   item_type:
                     type: string
                     description: |
-                      Type of item that was refunded
+                      Type of item that was refunded.
                     enum:
                       - PRODUCT
                       - GIFT_WRAPPING
@@ -2338,7 +2327,7 @@ components:
                   quantity:
                     type: integer
                     description: |
-                      Quantity of item refunded. Note: this will only be populated for item_type PRODUCT
+                      Quantity of item refunded. Note: this will only be populated for item_type PRODUCT.
                   requested_amount:
                     type: string
                     description: |
@@ -2348,12 +2337,12 @@ components:
                   reason:
                     type: string
                     description: |
-                      Reason for refunding an item
+                      Reason for refunding an item.
         meta:
           $ref: '#/components/schemas/metaEmpty_Full'
     PostRefundsRequest:
       type: array
-      description: Request body for batch refunds
+      description: Request body for batch refunds.
       title: Refunds Request - BATCH
       items:
         $ref: '#/components/schemas/RefundRequest_Post'
@@ -2367,11 +2356,11 @@ components:
           type: integer
         status:
           type: integer
-          description: HTTP status code
+          description: HTTP status code.
           example: 422
         error:
           type: string
-          description: details why the request failed
+          description: details why the request failed.
       title: FailedQuoteError
       x-internal: false
     ItemsRefund:
@@ -2387,11 +2376,11 @@ components:
       properties:
         provider_id:
           type: string
-          description: Reference to payment provider
+          description: Reference to payment provider.
           example: checkout_paypalexpress
         amount:
           type: number
-          description: Amount refunded via this provider
+          description: Amount refunded with this provider.
           example: 9.99
         offline:
           type: boolean
@@ -2420,6 +2409,7 @@ components:
       properties:
         item_type:
           type: string
+          example: PRODUCT
           enum:
             - ORDER
             - PRODUCT
@@ -2435,7 +2425,8 @@ components:
           example: 3
         reason:
           type: string
-          description: Reason for refund
+          example: Wrong size.
+          description: Reason for refund.
           minLength: 0
           maxLength: 1000
       x-internal: false
@@ -2465,7 +2456,7 @@ components:
     AmountBoundItem:
       type: object
       title: Amount Bound Item
-      description: |
+      description: |-
         Amount Bound Item
 
         Type of refund item that capture refunding of items in the order that are of type amount.
@@ -2473,6 +2464,7 @@ components:
         * `ORDER`
         * `SHIPPING`
         * `HANDLING`
+        * `TAX`
       x-internal: false
       properties:
         item_type:
@@ -2482,6 +2474,7 @@ components:
             - ORDER
             - SHIPPING
             - HANDLING
+            - TAX
           example: SHIPPING
           description: Type of refund.
         item_id:
@@ -2503,7 +2496,7 @@ components:
     MerchantOverride:
       type: object
       title: Merchant Calculated Override
-      description: |
+      description: |-
         Merchant explicitly provided override based on their own calculation.
 
         This override gives merchants the flexibility to
@@ -2527,23 +2520,23 @@ components:
       properties:
         id:
           type: integer
-          description: Refund resource ID
+          description: Refund resource ID.
           readOnly: true
         order_id:
           type: integer
-          description: Reference to order id
+          description: Reference to order ID.
         user_id:
           type: integer
-          description: Reference to the user's id who create this refund. This is automatically populated by BigCommerce.
+          description: Reference to the user's ID who create this refund. This is automatically populated by BigCommerce.
           readOnly: true
         created:
           type: string
           format: date-time
-          description: Timestamp of when this refund was created
+          description: Timestamp of when this refund was created.
           readOnly: true
         reason:
           type: string
-          description: Reason for refund
+          description: Reason for refund.
         total_amount:
           $ref: '#/components/schemas/Amount'
         total_tax:
@@ -2551,16 +2544,16 @@ components:
           description: 'Total tax amount refunded back to the shopper. Note: `order_level_amount` does not affect tax liability. This can be a negative amount indicating we have collected tax by refunding less to the customer.'
         uses_merchant_override_values:
           type: boolean
-          description: Whether refund amount and tax are provided explicitly by merchant override
+          description: Whether refund amount and tax are provided explicitly by merchant override.
         items:
           type: array
-          description: Array of items refunded
+          description: Array of items refunded.
           minItems: 1
           items:
             $ref: '#/components/schemas/RefundItem'
         payments:
           type: array
-          description: An array of refund payments made to payment providers
+          description: An array of refund payments made to payment providers.
           minItems: 1
           items:
             $ref: '#/components/schemas/RefundPayment'
@@ -2570,7 +2563,7 @@ components:
       properties:
         item_type:
           type: string
-          description: Type of item that was refunded
+          description: Type of item that was refunded.
           enum:
             - PRODUCT
             - GIFT_WRAPPING
@@ -2582,7 +2575,7 @@ components:
           description: 'order_product.id corresponding to the item_types of PRODUCT, GIFT_WRAPPING. order_address.id corresponding to the item_types of SHIPPING, HANDLING. order.id corresponding to the item_type of ORDER.'
         reason:
           type: string
-          description: Reason for refunding an item
+          description: Reason for refunding an item.
         quantity:
           type: integer
           description: 'Quantity of item refunded. Note: this will only be populated for item_type PRODUCT'
@@ -2596,23 +2589,23 @@ components:
       properties:
         id:
           type: integer
-          description: Reference to refund payment id
+          description: Reference to refund payment ID.
           readOnly: true
         provider_id:
           type: string
-          description: Reference to payment provider
+          description: Reference to payment provider.
           example: storecredit
         amount:
           $ref: '#/components/schemas/Amount'
         offline:
           type: boolean
-          description: Indicate whether payment was offline
+          description: Indicate whether payment was offline.
         is_declined:
           type: boolean
-          description: Indicate if this payment has been declined by payment provider
+          description: Indicate if this payment has been declined by payment provider.
         declined_message:
           type: string
-          description: Message indicate why payment was declined
+          description: Message indicate why payment was declined.
       x-internal: false
     PaymentOption:
       type: object
@@ -2622,7 +2615,7 @@ components:
         amount: 9.99
         offline: true
         offline_provider: true
-        offline_reason: Multiple online refunds are not available
+        offline_reason: Multiple online refunds are not available.
       title: Payment Option
       properties:
         provider_id:
@@ -2635,7 +2628,7 @@ components:
           example: Paypal Express
         amount:
           type: number
-          description: Amount to be refunded via this payment provider.
+          description: Amount to be refunded with this payment provider.
           example: 9.99
         offline:
           type: boolean
@@ -2653,7 +2646,7 @@ components:
     Amount:
       type: number
       format: float
-      description: A non-negative 2 decimal place rounded value that represents the amount that can be charged/refunded via payment providers.
+      description: A non-negative 2 decimal place rounded value that represents the amount that can be charged/refunded with payment providers.
       example: 1.99
       title: Amount
       x-internal: false
@@ -3081,7 +3074,7 @@ components:
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
       content:
         application/json:
           schema:
@@ -3107,7 +3100,7 @@ components:
                 type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
-        Malformed request syntax. Typically need to fix the JSON
+        Malformed request syntax. Typically need to fix the JSON.
         Body to resend successfully.
       content:
         application/json:
@@ -3147,7 +3140,7 @@ components:
                   name: error.expected.jsstring
                   primary_contact.district: error.expected.jsstring.
     503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
       content:
         application/json:
           schema:
@@ -3191,7 +3184,7 @@ components:
         application/json:
           schema:
             type: object
-            description: Response payload for Refund resource
+            description: Response payload for Refund resource.
             properties:
               data:
                 type: array
@@ -3338,7 +3331,7 @@ components:
                       item_id: 87
                       quantity: 1
                       requested_amount: null
-                      reason: incididunt exercitation enim
+                      reason: Wrong item sent.
                 meta: {}
   parameters:
     OrderIdParam:
