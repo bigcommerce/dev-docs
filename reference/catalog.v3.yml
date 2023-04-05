@@ -14536,35 +14536,8 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 4
-                  key: location_id
-                  value: 'Shelf 3, Bin 5'
-                  namespace: App Namespace
-                  permission_set: app_only
-                  resource_type: brand
-                  resource_id: 137
-                  description: Where products are located
-                  date_created: '2021-08-06T19:15:35+00:00'
-                  date_modified: '2021-08-06T19:15:35+00:00'
-                meta: {}
               examples:
                 example-1:
-                  value:
-                    data:
-                      id: 6
-                      key: Location
-                      value: 4HG
-                      namespace: Warehouse Locations
-                      permission_set: app_only
-                      resource_type: category
-                      resource_id: 111
-                      description: Location in the warehouse
-                      date_created: '2018-05-07T20:14:17+00:00'
-                      date_modified: '2018-05-07T20:14:17+00:00'
-                    meta: {}
-                example-2:
                   value:
                     data:
                       id: 4
@@ -14575,6 +14548,34 @@ paths:
                       resource_type: brand
                       resource_id: 137
                       description: Where products are located
+                      date_created: '2021-08-06T19:15:35+00:00'
+                      date_modified: '2021-08-06T19:15:35+00:00'
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 6
+                      key: Location
+                      value: 4HG
+                      namespace: Warehouse Locations
+                      permission_set: app_only
+                      resource_type: category
+                      resource_id: 111
+                      description: Location in the warehouse.
+                      date_created: '2018-05-07T20:14:17+00:00'
+                      date_modified: '2018-05-07T20:14:17+00:00'
+                    meta: {}
+                example-3:
+                  value:
+                    data:
+                      id: 4
+                      key: location_id
+                      value: 'Shelf 3, Bin 5'
+                      namespace: App Namespace
+                      permission_set: app_only
+                      resource_type: brand
+                      resource_id: 137
+                      description: Where products are located.
                       date_created: '2021-08-06T19:15:35+00:00'
                       date_modified: '2021-08-06T19:15:35+00:00'
                     meta: {}
@@ -16070,7 +16071,7 @@ paths:
         If a tree object contains an ID, it is processed as an update operation using that ID. If no ID is provided, a new tree is created.
 
         **Usage Notes**
-        * `channel_id` is required to create a *Category Tree*.
+        * `channel_id` is required to create a *Category Tree*. You can assign one `channel_id` to one category tree.
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: UpsertCategoryTrees
