@@ -991,12 +991,12 @@ components:
       x-internal: false
     ReturnItem:
       type: object
-      description: A view of a return item.
+      description: A view of a returned item.
       properties:
         id:
           type: integer
           format: int64
-          description: The unique identifier of this return item.
+          description: The unique identifier of this returned item.
         reference_id:
           $ref: '#/components/schemas/ItemReferenceId'
         quantity:
@@ -1174,7 +1174,7 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which to update the received state.
+            description: The item ID for updating the received state.
           received_quantity:
             type: integer
             description: The quantity of items to be marked as received.
@@ -1215,7 +1215,7 @@ components:
           item_id:
             type: integer
             format: int64
-            description: The ID of the item for which to update the reviewed state.
+            description: The item ID for updating the reviewed state.
           authorized_quantity:
             type: integer
             description: The quantity of items to be marked as authorized.
@@ -2360,7 +2360,7 @@ components:
           example: 422
         error:
           type: string
-          description: details why the request failed.
+          description: Details why the request failed.
       title: FailedQuoteError
       x-internal: false
     ItemsRefund:
@@ -3074,7 +3074,7 @@ components:
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; however, if you cannot successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down, and you will need to complete the request again when it is back up (in several hours, usually).'
       content:
         application/json:
           schema:
@@ -3140,7 +3140,7 @@ components:
                   name: error.expected.jsstring
                   primary_contact.district: error.expected.jsstring.
     503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
+      description:  'If this occurs, you should retry the request. If you cannot successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down, and you will need to make the request again when it is back up (in several hours, usually).'
       content:
         application/json:
           schema:
