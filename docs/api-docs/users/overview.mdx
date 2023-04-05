@@ -2,44 +2,46 @@
 
 ## Introduction
 
-The GraphQL Users API is an account-level management GraphQL API that allows you to create, edit, and delete BigCommerce control panel users. This highly requested feature is primarily useful for Enterprise merchants who need to audit existing users or integrate with third-party user management systems.
+The GraphQL Users API is an account-level management GraphQL API that allows you to create, edit, and delete BigCommerce control panel users. This highly requested feature is for Enterprise merchants who need to audit existing users that can also integrate with third-party user management systems.
 
 ## What is a user
 
-A user is an account (email address) that can sign in to the BigCommerce control panel for an account or store.
+A user is an account that can sign in to the BigCommerce control panel for an account or store.
 
 ## Prerequisites
 
 Before getting started with the GraphQL Users API, make sure you have the following:
 
 * BigCommerce store
-* A valid API account access token with sufficient permissions to make the desired requests (more on that in the  **Getting Started** segment below)
+* A valid API account access token with sufficient permissions to make the desired requests
 
 ## OAuth scopes
 
-| Name | Permission | Description |
-|:-----|:-----------|:------------|
-| Account | read-only | View account details |
-| Account Stores | read | View the stores associated with an account |
-| Account Apps| read | View the apps associated with an account |
-| Account Users | read | View the users associated with an account |
-| Account Users | write | Create and update users |
-| Account Users | delete | Remove users |
+| Name | Permission | Parameter | Description |
+|:-----|:-----------|:----------|:------------|
+| Account details  | read-only | `account-read` | View account details |
+| Account users | read-only | `account_users_read`| View the users associated with an account |
+| Account stores | read-only | `account_stores_read` | View the stores associated with an account |
+| Account apps| read-only | `account_apps_read` | View the apps associated with an account |
+| Add user to account | modify | `account_users_write` | View and modify adding a user from an account |
+| Remove user from account | modify | `account_users_write` | View and modify removing a user from an account |
+| Create user | modify | `account_users_write` | View and modify a user |
+| Add user to store | modify | `account_users_write` | View and modify adding a user to a store |
+| Remove user from store | modify | `account_users_delete` | View and modify removing a user from a store |
 
 For more information on available authentication methods, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
 ## Getting started
 
-The GraphQL Users API introduces a new way to manage control panel users. Using an OAuth-based API account, you can integrate our APIs with your current system to create a custom experience.
+The GraphQL Users API introduces a new way to manage users from within your BigCommerce account. Using an OAuth-based API account, you can integrate our APIs with your current system to create a custom experience.
 
 Begin with the following steps to get started:
 
-1. Request an access token in **Settings** > **Account-level API accounts** from the control panel. Note that this is different from a Store-level API account credentials.
+1. Request an access token in **Settings** > **Account API tokens** from the control panel. Note that this is different from a store token or a store-level API account.
 2. Use a GraphQL client such as [Altair](https://altairgraphql.dev/) to test the API.
 3. In the client, set the request URL to `https://api.bigcommerce.com/accounts/{account_uuid}/graphql`.
-4. You can obtain the Account UUID identifier when creating the token or copy it from the API Path field.
-5. Send an `X-Auth-Token` request header with the access token as its value.
-6. Use the request body to send the GraphQL query or mutation you want to perform.
+4. Send an `X-Auth-Token` request header with the access token as its value.
+5. Use the request body to send the GraphQL query or mutation you want to perform.
 
 ## Example requests
 
@@ -90,7 +92,7 @@ The following query returns details about an account:
 
 ### Account users
 
-The following query returns details about an account's users. Note that a standard cursor-based pagination is supported.
+The following query returns details about an account's users:
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
