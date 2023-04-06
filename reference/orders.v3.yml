@@ -161,6 +161,10 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
+
+        **Note:**
+        Order refunds are processed consecutively. Processing synchronous refunds on an order are not yet supported.
+
       operationId: postrefundquote
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -223,6 +227,10 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
+
+        **Note:**
+        Order refunds are processed consecutively. Processing synchronous refunds on an order are not yet supported.
+        
       operationId: postrefund
       parameters:
         - $ref: '#/components/parameters/ContentType'
