@@ -658,7 +658,8 @@ properties:
             type: integer
           new_status:
             type: string
-            example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting Pickup, Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
+            example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting 
+            , Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
           new_formatted_status:
             type: string
             example: 'Shipment123, PendingOrder345, Cancelled0223222, Awaiting Payment in Store'
@@ -732,6 +733,44 @@ properties:
                   type: string
                 link:
                   type: string
+          ready_for_pickup_products:
+            type: array
+            items:
+              type: object
+              properties:
+                name: 
+                  type: string
+                sku:
+                  type: string
+                quantity:
+                  type: integer
+                thumbnail:
+                  type: string
+                price:
+                  type: string
+                brand:
+                  type: string
+          picked_up_products:
+            type: array
+            items:
+              type: object
+              properties:
+                name: 
+                  type: string
+                sku:
+                  type: string
+                quantity:
+                  type: integer
+                thumbnail:
+                  type: string
+                price:
+                  type: string
+                brand:
+                  type: string
+          pickup_methods:
+            type: array
+            items:
+              type: string
       store:
         type: object
         properties:
@@ -798,42 +837,18 @@ properties:
           en:
             type: object
             properties:
-              title:
+              prodname:
                 type: string
-              hello:
+                example: "Product Name"
+              prodsku:
                 type: string
-              message:
+                example: "Product SKU"
+          fr:
+            type: object
+            properties:
+              store:
                 type: string
-              details_title:
-                type: string
-              order_total:
-                type: string
-              date_placed:
-                type: string
-              payment_method:
-                type: string
-              total_refund:
-                type: string
-              products_shipped:
-                type: string
-              products_to_be_shipped:
-                type: string
-              tracking_title:
-                type: string
-              downloadable_items_title:
-                type: string
-              quantity:
-                type: string
-              download:
-                type: string
-              tracking_label:
-                type: string
-              no_tracking_numbers:
-                type: string
-              check_status:
-                type: string
-              go_shopping:
-                type: string
+                example: "Boutique"
   Account Created:
     title: Account Created Email Template
     description: Account created email triggers when a customer or store admin creates their account.
@@ -1131,6 +1146,10 @@ properties:
             type: string
           customer_id:
             type: integer
+          pickup_methods:
+            type: array
+            items:
+              type: string
           date_placed:
             type: object
             properties:
@@ -1260,6 +1279,115 @@ properties:
                   items:
                     type: object
                     properties: {}
+                pickup:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id: 
+                        type: integer
+                      email: 
+                        type: string
+                      phone: 
+                        type: string
+                      instructions: 
+                        type: string
+                      name: 
+                        type: string
+                      location: 
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              name: 
+                                type: string
+                              address_lines: 
+                                type: array
+                                items: 
+                                  type: string
+                              city: 
+                                type: string
+                              state:
+                                type: string
+                              country:
+                                type: string
+                              zip:
+                                type: string
+                      operating_hours: 
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              sunday:
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time:
+                                   formatted:
+                                      type: string
+                                closing_time: 
+                                    formatted: 
+                                      type: string
+                              monday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
+                              tuesday:
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                     type: string  
+                              wednesday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                     type: string
+                                closing_time: 
+                                  formatted: 
+                                     type: string  
+                              thursday:
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                     type: string
+                                closing_time:
+                                  formatted: 
+                                     type: string
+                              friday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
+                              saturday:
+                                type: object
+                                is_open:
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
           payment:
             type: object
             properties:
@@ -1352,6 +1480,7 @@ properties:
                 type: integer
               show_immediate_download:
                 type: boolean
+
       store:
         type: object
         properties:
@@ -1418,81 +1547,18 @@ properties:
           en:
             type: object
             properties:
-              comment_label:
+              prodname:
                 type: string
-              order_id_line:
+                example: "Product Name"
+              prodsku:
                 type: string
-              view_summary:
+                example: "Product SKU"
+          fr:
+            type: object
+            properties:
+              store:
                 type: string
-              sepa:
-                type: string
-                description: A link to SEPA mandate and also receive this link embedded on email confirmation.
-              shipment_to_multiple_addresses:
-                type: string
-              shipping_immediate_download:
-                type: string
-              shipping_address_label:
-                type: string
-              immediate_download:
-                type: string
-              email:
-                type: string
-              billing_address_managed_by_amazon:
-                type: string
-              billing_address_label:
-                type: string
-              pending_payment:
-                type: string
-              how_to_pay:
-                type: string
-              pay_for_order_help:
-                type: string
-              order_total:
-                type: string
-              cart_items:
-                type: string
-              sku:
-                type: string
-              quantity:
-                type: string
-              item_price:
-                type: string
-              item_total:
-                type: string
-              payment_method:
-                type: string
-              no_payment_taken_in_test_mode:
-                type: string
-              download_files:
-                type: string
-              preorder:
-                type: string
-              download_available_after_payment:
-                type: string
-              shipped_to:
-                type: string
-              shipping_discount:
-                type: string
-              thanks_for_your_order:
-                type: string
-              your_order_contains:
-                type: string
-              shipping_method:
-                type: string
-              shipping_to_address:
-                type: string
-              your_order_will_be_shipped_by:
-                type: string
-              total_cost:
-                type: string
-              items:
-                type: string
-              total:
-                type: string
-              price:
-                type: string
-              email_address:
-                type: string
+                example: "Boutique" 
   Order Notification:
     title: Order Notification Email Template
     description: Order notification email triggers when a merchant or store admin adds a message to an order.
@@ -1583,6 +1649,237 @@ properties:
                 type: string
               go_shopping:
                 type: string
+  Order ready for pickup:
+    title: Order Ready for Pick-up Email Template
+    description: Order ready for pick-up email triggers when a customer or store admin creates a pick-up order.
+    type: object
+    properties:
+      order:
+        type: object
+        properties:
+          id:
+            type: integer
+          account_order_status_url:
+            type: string
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                quantity:
+                  type: integer
+                name:
+                  type: string
+                sku:
+                  type: string
+                thumbnail:
+                  type: string
+                options:
+                  type: array
+                  properties:
+                    Size:
+                      type: string
+                attribute_lines:
+                  type: array
+                  description: A list of strings that represents product variant options.
+                  items:
+                    type: object
+                    properties: {}
+                configurable_fields:
+                  type: array
+                  description: Object array with properties name and value.
+                  items:
+                    type: object
+                    properties: {}
+                pickup:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id: 
+                        type: integer
+                      email: 
+                        type: string
+                      phone: 
+                        type: string
+                      instructions: 
+                        type: string
+                      name: 
+                        type: string
+                      location: 
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              name: 
+                                type: string
+                              address_lines: 
+                                type: array
+                                items: 
+                                  type: string
+                              city: 
+                                type: string
+                              state:
+                                type: string
+                              country:
+                                type: string
+                              zip:
+                                type: string
+                      operating_hours: 
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              sunday:
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time:
+                                   formatted:
+                                      type: string
+                                closing_time: 
+                                    formatted: 
+                                      type: string
+                              monday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
+                              tuesday:
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                     type: string  
+                              wednesday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                     type: string
+                                closing_time: 
+                                  formatted: 
+                                     type: string  
+                              thursday:
+                                type: object
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time:
+                                    formatted: 
+                                      type: string
+                              friday: 
+                                type: object
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
+                              saturday:
+                                type: object
+                                is_open:
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time: 
+                                  formatted: 
+                                    type: string
+      store:
+        type: object
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        properties:
+          en:
+            type: object
+            properties:
+              prodname:
+                type: string
+                example: "Product Name"
+              prodsku:
+                type: string
+                example: "Product SKU"
+          fr:
+            type: object
+            properties:
+              store:
+                type: string
+                example: "Boutique"
   Sign in Link Request:
     title: Sign in Link Request Email Template
     description: Sign-in request email triggers when an existing customer requests passwordless login while checking out.
