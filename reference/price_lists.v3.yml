@@ -1520,55 +1520,19 @@ paths:
         description: ''
       responses:
         '200':
-          description: Success response for batch PUT requests of Price Records.
+          description: 'Success response for batch PUT requests of Price Records.'
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    variant_id:
-                      type: integer
-                    sku:
-                      type: string
-                    currency:
-                      type: string
-                    price:
-                      type: number
-                    sale_price:
-                      type: integer
-                    retail_price:
-                      type: integer
-                    map_price:
-                      type: integer
-                    bulk_pricing_tiers:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          quantity_min:
-                            type: integer
-                          quantity_max:
-                            type: integer
-                          type:
-                            type: string
-                          amount:
-                            type: integer
-                x-examples:
-                  example-1:
-                    - variant_id: 331
-                      sku: SMB-123
-                      currency: usd
-                      price: 3.99
-                      sale_price: 3.49
-                      retail_price: 4.99
-                      map_price: 2.5
-                      bulk_pricing_tiers:
-                        - quantity_min: 1
-                          quantity_max: 10
-                          type: fixed
-                          amount: 3
+                title: Price Records response
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties: {}
+                  meta:
+                    type: object
+                    properties: {}
         '422':
           description: Error response for batch PUT of `Price Records`. May include errors during partial update in non-strict mode.
           content:
