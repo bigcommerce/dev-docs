@@ -2,6 +2,34 @@
   "items": [
     {
       "type": "divider",
+      "title": "API Reference"
+    },
+    {
+      "type": "item",
+      "title": "Getting Started",
+      "href": "/api-docs/getting-started/making-requests",
+      "uri": "docs/api-docs/getting-started/making-requests.md"
+    },
+    {
+      "type": "item",
+      "title": "GraphQL Storefront API",
+      "href": "/api-docs/getting-started/about-our-api",
+      "uri": "docs/api-docs/getting-started/about-our-api.md"
+    },
+    {
+      "type": "item",
+      "title": "GraphQL Admin API",
+      "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+      "uri": "docs/api-docs/getting-started/authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "GraphQL Users API",
+      "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+      "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
+    },
+    {
+      "type": "divider",
       "title": "Getting Started"
     },
     {
