@@ -658,8 +658,7 @@ properties:
             type: integer
           new_status:
             type: string
-            example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting 
-            , Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
+            example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting, Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
           new_formatted_status:
             type: string
             example: 'Shipment123, PendingOrder345, Cancelled0223222, Awaiting Payment in Store'
@@ -1774,14 +1773,15 @@ properties:
                                      type: string  
                               thursday:
                                 type: object
-                                  is_open: 
-                                    type: boolean
-                                  opening_time: 
-                                    formatted: 
-                                      type: string
-                                  closing_time:
-                                    formatted: 
-                                      type: string
+                                is_open: 
+                                  type: boolean
+                                opening_time: 
+                                  formatted: 
+                                    type: string
+                                closing_time:
+                                  formatted: 
+                                    type: string
+
                               friday: 
                                 type: object
                                 is_open: 
