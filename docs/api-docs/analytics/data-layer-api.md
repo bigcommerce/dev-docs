@@ -4,6 +4,16 @@ The Data Layer API allows BigCommerce to send data from BigCommerce-hosted store
 
 This guide shows you how to use the Data Layer API. For full schema, see the [GraphQL Admin API reference](/graphql-admin). 
 
+## Prerequisites
+
+You need a [store-level API account](/api-docs/getting-started/api-accounts#store-api-accounts) that contains the following [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes):
+
+| UI Name | Permission | Parameter | Description |
+|:--------|:-----------|:----------|:------------|
+| Information & Settings | modify | `store_v2_information` | View and modify store information and settings |
+
+For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication).
+
 ## Get data layer
 
 Send the following query to retrieve whether the data layer is enabled in the store: 
