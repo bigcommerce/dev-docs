@@ -18,136 +18,33 @@ For more about API accounts that generate `access_token`s, see [API Accounts and
 
 Send the following query to retrieve whether the data layer is enabled in the store: 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+  <Tab>
 
-```http title="Example query: Get data layer enabled flag" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
+  ```http filename="Example query: Get data layer enabled flag" showLineNumbers copy
+  POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
 
-query {
-  store {
-    settings {
-      dataSolutions {
-        isDataLayerEnabled
-      }
-    }
-  }
-}
-```
-<!--
-type: tab
-title: Response
--->
-
-```graphql title="Example response: Get data layer enabled flag" lineNumbers
-{
-  "data": {
-    "store": {
-      "settings": {
-        "dataSolutions": {
-          "isDataLayerEnabled": false
-        }
-      }
-    }
-  }
-}
-```
-<!-- type: tab-end -->
-
-## Enable data layer
-
-Send the following query to enable the data layer in the store: 
-
-<!--
-type: tab
-title: Mutation
--->
-
-```http title="Example mutation: Enable data layer" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-mutation {
-  settings {
-    dataSolutions {
-      updateDataLayer (input: {isDataLayerEnabled: true}) {
+  query {
+    store {
+      settings {
         dataSolutions {
           isDataLayerEnabled
         }
       }
     }
   }
-}
-```
-<!--
-type: tab
-title: Response
--->
+  ```
+  </Tab>
+  <Tab>
 
-```graphql title="Example response: Enable data layer" lineNumbers
-{
-  "data": {
-    "settings": {
-      "dataSolutions": {
-        "updateDataLayer": {
-          "dataSolutions": {
-            "isDataLayerEnabled": true
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<!-- type: tab-end -->
-
-## Disable data layer
-
-Send the following query to disable the data layer in the store: 
-
-<!--
-type: tab
-title: Mutation
--->
-
-```http title="Example mutation: Disable data layer" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-mutation {
-  settings {
-    dataSolutions {
-      updateDataLayer (input: {isDataLayerEnabled: false}) {
-        dataSolutions {
-          isDataLayerEnabled
-        }
-      }
-    }
-  }
-}
-```
-
-<!--
-type: tab
-title: Response
--->
-
-```graphql title="Example response: Disable data layer" lineNumbers
-{
-  "data": {
-    "settings": {
-      "dataSolutions": {
-        "updateDataLayer": {
+  ```graphql filename="Example query: Get data layer enabled flag" showLineNumbers copy
+  {
+    "data": {
+      "store": {
+        "settings": {
           "dataSolutions": {
             "isDataLayerEnabled": false
           }
@@ -155,11 +52,105 @@ title: Response
       }
     }
   }
-}
-```
+  ```
+  </Tab>
+</Tabs>
 
-<!-- type: tab-end -->
+## Enable data layer
+
+Send the following mutation to enable the data layer in the store: 
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+  ```http filename="Example mutation: Enable data layer" showLineNumbers copy
+  POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+
+  mutation {
+    settings {
+      dataSolutions {
+        updateDataLayer (input: {isDataLayerEnabled: true}) {
+          dataSolutions {
+            isDataLayerEnabled
+          }
+        }
+      }
+    }
+  }
+  ```
+  </Tab>
+  <Tab>
+
+  ```graphql filename="Example mutation: Enable data layer" showLineNumbers copy
+  {
+    "data": {
+      "settings": {
+        "dataSolutions": {
+          "updateDataLayer": {
+            "dataSolutions": {
+              "isDataLayerEnabled": true
+            }
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  </Tab>
+</Tabs>
+
+## Disable data layer
+
+Send the following mutation to disable the data layer in the store: 
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+  ```http filename="Example mutation: Disable data layer" showLineNumbers copy
+  POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/graphql
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+
+  mutation {
+    settings {
+      dataSolutions {
+        updateDataLayer (input: {isDataLayerEnabled: false}) {
+          dataSolutions {
+            isDataLayerEnabled
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  </Tab>
+  <Tab>
+
+  ```graphql filename="Example mutation: Disable data layer" showLineNumbers copy
+  {
+    "data": {
+      "settings": {
+        "dataSolutions": {
+          "updateDataLayer": {
+            "dataSolutions": {
+              "isDataLayerEnabled": false
+            }
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  </Tab>
+</Tabs>
 
 ## Resources
 - [GraphQL Admin API reference](/graphql-admin)
-- [Big Open Data Layer](/api-docs/analytics/bodl-for-storefronts)
+- [Big Open Data Layer](/api-docs/partner/analytics-solutions/bodl)
