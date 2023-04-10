@@ -99,6 +99,61 @@ This should now execute properly.
 
 7. Verify your theme's launch at: http://localhost:3000.
 
+### old version of `stencil-cli` included in package.json
+
+If you get an error message (the actual output is way larger) like the following when executing the `npm install` command:
+
+```text showLineNumbers copy
+npm ERR! gyp ERR! stack Error: Command failed: /usr/local/bin/python -c import sys; print "%s.%s.%s" % sys.version_info[:3];
+npm ERR! gyp ERR! stack   File "<string>", line 1
+npm ERR! gyp ERR! stack     import sys; print "%s.%s.%s" % sys.version_info[:3];
+npm ERR! gyp ERR! stack                                ^
+npm ERR! gyp ERR! stack SyntaxError: invalid syntax
+
+```
+
+It's because you have an old version of stencil CLI included in package.json. In general, it shouldn't be part of package.json (neither part of dev dependencies).
+
+### Running `stencil bundle` errors
+
+Nowadays, `stencil bundle` is running several validation checks on theme before it can be bundled and then pushed to the store. 
+You may see those errors, because your theme had some missing properies in translations, frontmatter, that become required.
+
+For example, running on the theme `stencil bundle` may occur such error
+
+```text showLineNumbers copy
+Error: Your theme's schemaTranslations.json has errors:
+missing translation key "i18n.HeaderAndFooter"
+```
+
+, which indicates that `schemaTranslations.json` has missing missing translation key `i18n.HeaderAndFooter`.
+
+```text showLineNumbers copy
+Error: Missed schemaTranslations.json file
+```
+
+```text showLineNumbers copy
+Error: Your theme's schemaTranslations.json has errors:
+unused translation key "i18n.ProductSaleBadges"
+unused translation key "i18n.ShowProductSaleBadges"
+```
+
+meaning that there are some translation keys in the `schemaTranslations.json` file, that are not used in the theme, because are missed in `schema.json`
+
+
+
+```test showLineNumbers copy
+Error: Error: Found unallowed trailing symbol in: "4,", while parsing frontmatter at ".....templates/pages/home.html".
+```
+
+meaning that there is a trailing comma in the frontmatter of the `home.html` file.
+
+
+
+#### Node 16+ support 
+
+Just a note, that theme packages (webpack, e.g) might be updated to get latest Node versions support.
+
 ## `npm install` and `stencil init` errors
 
 If you get an unexpected error messages when issuing the `npm install` or `stencil init` commands, check your Node.js version and ensure it aligns with a version compatible for the Stencil framework.
