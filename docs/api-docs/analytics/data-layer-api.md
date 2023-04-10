@@ -1,6 +1,6 @@
 # Data Layer API
 
-The Data Layer API allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/api-docs/analytics/bodl-for-storefronts). Bigcommerce can build native integrations to analytic providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer via the Data Layer API. The data layer is enabled at the global level.
+The Data Layer API allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/api-docs/partner/analytics-solutions/bodl). Bigcommerce can build native integrations to analytic providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer via the Data Layer API. The data layer is enabled at the global level.
 
 This guide shows you how to use the Data Layer API. For full schema, see the [GraphQL Admin API reference](/graphql-admin). 
 
@@ -40,7 +40,7 @@ Send the following query to retrieve whether the data layer is enabled in the st
   </Tab>
   <Tab>
 
-  ```graphql filename="Example query: Get data layer enabled flag" showLineNumbers copy
+  ```json filename="Example query: Get data layer enabled flag" showLineNumbers copy
   {
     "data": {
       "store": {
@@ -84,7 +84,7 @@ Send the following mutation to enable the data layer in the store:
   </Tab>
   <Tab>
 
-  ```graphql filename="Example mutation: Enable data layer" showLineNumbers copy
+  ```json filename="Example mutation: Enable data layer" showLineNumbers copy
   {
     "data": {
       "settings": {
@@ -132,7 +132,7 @@ Send the following mutation to disable the data layer in the store:
   </Tab>
   <Tab>
 
-  ```graphql filename="Example mutation: Disable data layer" showLineNumbers copy
+  ```json filename="Example mutation: Disable data layer" showLineNumbers copy
   {
     "data": {
       "settings": {
