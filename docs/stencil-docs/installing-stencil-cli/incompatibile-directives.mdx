@@ -1,0 +1,74 @@
+# Incompatible directives
+
+Since we have different versions of node sass running in stencil cli and production, there can be difference in the output of the css.
+This doc is to cover the differences and how to avoid them until the node sass fork is sunset.
+
+## Examples
+
+1. To avoid using / divisions in scss directives
+Since support of it was added later then node sass fork, it will break on production with error stating that this syntax is not supported.
+So it's not recommended to use it in your scss files until the node sass fork is sunset.
+
+More info [here](https://github.com/sass/libsass/issues/2149)
+
+2. Usage of color with $hue paremeter.
+
+Example 
+
+```shell showLineNumbers
+$color: #1caf9a;
+
+body {
+  background: change-color($color, $hue: 120);
+}
+```
+
+Will lead to different behaviour in stencil cli and production. 
+So it's not recommended to use it in your scss files until the node sass fork is sunset.
+
+More info [here](https://github.com/sass/libsass/issues/2112)
+
+
+3. Concatenating an empty string w/ a quoted string will unquote the string.
+
+Example 
+
+```shell showLineNumbers
+@debug "\"foo\"" + "";
+```
+
+Will lead to different behaviour in stencil cli (quoted) and production (unquoted).
+
+More info [here](https://github.com/sass/libsass/issues/2153)
+
+4. if() function does not correctly evaluate the parent selector
+
+Example
+
+```shell showLineNumbers
+@function foo() {
+  @return if(& != null, green, red);
+}
+
+test {
+  color: foo();
+}
+```
+
+Will lead to 
+```shell
+test {
+  color: green;
+}
+```
+
+in stencil cli and
+
+```shell
+test {
+  color: red;
+}
+```
+in production
+
+More info [here](https://github.com/sass/libsass/issues/2116)
