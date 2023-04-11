@@ -215,7 +215,7 @@ paths:
 
         > #### Warning
         > **Pay attention to query parameters**
-        > If you attempt to delete multiple pages by passing more than one `pageId`` to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the `pagesId`s that do exist will still be deleted.
+        > If you attempt to delete multiple pages by passing more than one page ID to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the page IDs that do exist will still be deleted.
       responses:
         '204':
           $ref: '#/components/responses/HTTP204'

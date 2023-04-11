@@ -5,7 +5,9 @@ info:
     Manage blog posts, blog tags, content pages, and redirects.
 
     > #### Warning
-    > * Redirects V2 are deprecated; use [V3 Redirects](/docs/rest-management/redirects) instead. 
+    > **Deprecations**
+    > * Redirects V2 are deprecated; use [Redirects V3](/docs/rest-management/redirects) instead. 
+    > * Pages V2 are deprecated; use [Pages V3](/docs/rest-content/pages) instead.
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
@@ -147,7 +149,7 @@ paths:
                   title: Your first blog post!
                   url: /your-first-blog-post/
                   preview_url: /your-first-blog-post/
-                  body: "<p><strong>Welcome to your blog!</strong><br> A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the BigCommerce <a href='http://blog.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce blog</a>.</p><p><strong>How can I delete this post?</strong><br>To delete this post and add your own, login to your <a href='/admin' target='_blank'>admin area</a> and go to Storefront > Blog in the left hand menu.</p><p><strong>Powered by Bigcommerce</strong><br>Your website, online store and blog are powered by Bigcommerce <a href='http://www.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce software</a>. It includes everything you need to run a beautiful online store including <a href='http://www.bigcommerce.com/templates/' target='_blank' rel='nofollow'>ecommerce website templates</a>, <a href='http://www.bigcommerce.com/features/hosting/' target='_blank' rel='nofollow'>ecommerce hosting</a>, an <a href='http://www.bigcommerce.com/features/setup/' target='_blank' rel='nofollow'>online shopping cart</a> and more.</p>"
+                  body: "<p><strong>Welcome to your blog!</strong><br> A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the BigCommerce <a href='http://blog.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce blog</a>.</p><p><strong>How can I delete this post?</strong><br>To delete this post and add your own, login to your <a href='/admin' target='_blank'>admin area</a> and go to Storefront > Blog in the left hand menu.</p><p><strong>Powered by BigCommerce</strong><br>Your website, online store and blog are powered by BigCommerce <a href='http://www.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce software</a>. It includes everything you need to run a beautiful online store including <a href='http://www.bigcommerce.com/templates/' target='_blank' rel='nofollow'>ecommerce website templates</a>, <a href='http://www.bigcommerce.com/features/hosting/' target='_blank' rel='nofollow'>ecommerce hosting</a>, an <a href='http://www.bigcommerce.com/features/setup/' target='_blank' rel='nofollow'>online shopping cart</a> and more.</p>"
                   tags:
                     - Blog
                     - SEO
@@ -343,7 +345,7 @@ paths:
                 author: BigCommerce
                 thumbnail_path: ''
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
             application/json:
               schema:
@@ -381,10 +383,17 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
+      deprecated: true
       tags:
         - Pages
       summary: Get All Pages
-      description: 'Returns a list of *Pages*. Default sorting is by auto-generated ID from oldest to newest. This endpoint is deprecated. '
+      description: | 
+        Returns a list of *Pages*. Default sorting is by auto-generated ID from oldest to newest.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get one or more pages, use Pages V3ʼs [Get pages](/docs/rest-content/pages#get-pages) endpoint. To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
       operationId: getAllPages
       parameters:
         - name: page
@@ -432,13 +441,13 @@ paths:
                   meta_title: ''
                   search_keywords: ''
                   meta_keywords: ''
-      deprecated: true
     post:
+      deprecated: true
       tags:
         - Pages
       summary: Create a Page
       description: |-
-        Creates a *Page*. The payload limit is 1MB. This endpoint is deprecated.
+        Creates a *Page*. The request payload limit is 1MB.
 
         **Required Fields**
         *   `type`
@@ -453,6 +462,11 @@ paths:
         ## Content Type
 
         The default value for `content_type` is `text/html`; however, if `page_type` is set to `raw`, `content_type` can be changed to `text/javascript` or `application/json`. Updating this field allows you to place a JavaScript or a JSON file in the root directory.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To create one or more pages, use Pages V3ʼs [Create pages](/docs/rest-content/pages#create-pages) endpoint. 
       operationId: createAPage
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -514,12 +528,11 @@ paths:
                 search_keywords: ''
                 meta_keywords: ''
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
             application/json:
               schema:
                 type: object
-      deprecated: true
       x-codegen-request-body-name: body
   '/pages/{id}':
     parameters:
@@ -533,10 +546,17 @@ paths:
           exclusiveMinimum: false
           type: integer
     get:
+      deprecated: true
       tags:
         - Pages
       summary: Get A Page
-      description: Returns a *Page*. This endpoint is deprecated.
+      description: |
+        Returns a *Page*. 
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
       operationId: getAPage
       responses:
         '200':
@@ -565,16 +585,21 @@ paths:
                 link: ''
                 mobile_body: '0'
                 url: /rss-syndication/
-      deprecated: true
     put:
+      deprecated: true
       tags:
         - Pages
       summary: Update a Page
       description: |-
-        Updates a *Page*. The payload limit is 1MB. This endpoint is deprecated.
+        Updates a *Page*. The request payload limit is 1MB.
 
         **Read Only Fields**
         * id
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To update multiple pages, use Pages V3ʼs [Update pages](/docs/rest-content/pages#update-pages) endpoint. To update a single page, use Pages V3ʼs [Update a page](/docs/rest-content/pages#update-a-page) endpoint.
       operationId: updateAPage
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -612,28 +637,34 @@ paths:
                 mobile_body: ''
                 url: /shipping-returns/
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
             application/json:
               schema:
                 type: object
-      deprecated: true
       x-codegen-request-body-name: body
     delete:
+      deprecated: true
       tags:
         - Pages
       summary: Delete a Page
-      description: 'Deletes a *Page*. This endpoint is deprecated. '
+      description: |
+        Deletes a *Page*.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To delete multiple pages, use Pages V3ʼs [Delete pages](/docs/rest-content/pages#delete-pages) endpoint. To delete a single page, use Pages V3ʼs [Delete a page](/docs/rest-content/pages#delete-a-page) endpoint. 
       operationId: deleteAPage
       responses:
         '204':
           description: ''
           content: {}
-      deprecated: true
   '/redirects':
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
+      deprecated: true
       tags:
         - Redirects
       summary: Get All Redirects
@@ -642,8 +673,8 @@ paths:
 
         > #### Warning
         > **Deprecated**
-        >* This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        >* For the most up-to-date version of this API, see [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to manage redirect URLs.
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get redirect URLs, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
       operationId: getAListofRedirects
       parameters:
         - name: page
@@ -671,7 +702,6 @@ paths:
                   $ref: '#/components/schemas/redirect'
             Response Schema:
               example: ''
-      deprecated: true
     post:
       tags:
         - Redirects
@@ -690,7 +720,7 @@ paths:
         > #### Warning
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > * For the most up-to-date version of this API, see [Upsert Redirects v3](/docs/rest-management/redirects#upsert-redirects) to upsert new redirect data.
+        > * To upsert new redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
       operationId: createARedirect
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -716,6 +746,7 @@ paths:
                 url: 'http://store.example.com/mens'
       x-codegen-request-body-name: body
     delete:
+      deprecated: true
       tags:
         - Redirects
       summary: Delete All Redirects
@@ -724,9 +755,9 @@ paths:
 
 
         > #### Warning
-        >**Deprecated**
+        > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > * For the most up-to-date version of this API, see [Delete Redirects v3](/docs/rest-management/redirects#delete-redirects) to delete redirect URLs.
+        > * To delete redirect URLs, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
       operationId: deleteAllRedirects
       responses:
         '204':
@@ -744,6 +775,7 @@ paths:
           exclusiveMinimum: false
           type: integer
     get:
+      deprecated: true
       tags:
         - Redirects
       summary: Get a Redirect
@@ -751,9 +783,9 @@ paths:
         Returns a single *Redirect URL*.
 
         > #### Warning
-        >**Deprecated** 
+        > **Deprecated** 
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > * For the most up-to-date version of this API, see [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to get a redirect URL.
+        > * To get a redirect URL, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
       operationId: getARedirectURL
       responses:
         '200':
@@ -769,7 +801,6 @@ paths:
                   type: product
                   ref: 111
                 url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
-      deprecated: true
     put:
       tags:
         - Redirects
@@ -788,7 +819,7 @@ paths:
         > #### Warning
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > * For the most up-to-date version of this API, see [Upsert Redirects v3](/docs/rest-management/redirects#upsert-redirects) to update redirect data.
+        > * To update redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
       operationId: updateARedirectURL
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -858,8 +889,8 @@ paths:
 
         > #### Warning
         > **Deprecated** 
-        > This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Delete Redirects v3](/docs/rest-management/redirects#delete-redirects) to delete a redirect URL.
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To delete a redirect URL, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
       operationId: deleteARedirect
       responses:
         '204':
@@ -869,6 +900,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
+      deprecated: true
       tags:
         - Redirects
       summary: Get a Count of Redirects
@@ -878,7 +910,7 @@ paths:
         > #### Warning
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
-        > * For the most up-to-date version of this API, see [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to get a count of redirects.
+        > * To get a count of redirects, use the `meta` object data returned with the Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
       operationId: getACountOfRedirects
       responses:
         '200':
@@ -889,7 +921,6 @@ paths:
                 $ref: '#/components/schemas/count_Response'
               example:
                 count: 27
-      deprecated: true
 components:
   parameters:
     Accept:
@@ -1506,7 +1537,7 @@ components:
           description: Comma-separated list of SEO-relevant keywords to include in the page’s `<meta/>` element.
         feed:
           type: string
-          description: If page type is `rss_feed` the n this field is visisble. Required in POST required for `rss page` type.
+          description: If page type is `rss_feed` then this field is visible. Required in POST required for `rss page` type.
         link:
           type: string
           description: If page type is `link` this field is returned. Required in  POST to create a `link` page.
@@ -1597,7 +1628,7 @@ components:
           description: Comma-separated list of SEO-relevant keywords to include in the page’s `<meta/>` element.
         feed:
           type: string
-          description: If page type is `rss_feed` then this field is visisble.
+          description: If page type is `rss_feed` then this field is visible.
         link:
           type: string
           description: If page type is `link` this field is returned.
