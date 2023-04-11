@@ -647,7 +647,7 @@ paths:
                             date_modified: '2019-08-24T14:15:22Z'
                         videos:
                           - title: Writing Great Documentation
-                            description: A video about documenation
+                            description: A video about documentation
                             sort_order: 1
                             type: youtube
                             video_id: z3fRu9pkuXE
@@ -692,11 +692,11 @@ paths:
                               product_list_shipping_calc: weight
                             sort_order: 1
                             option_values:
-                              is_default: false
-                              label: Green
-                              sort_order: 0
-                              value_data: {}
-                              id: 0
+                              - is_default: false
+                                label: Green
+                                sort_order: 0
+                                value_data: {}
+                                id: 0
                         modifiers:
                           - type: date
                             required: true
@@ -17351,7 +17351,9 @@ components:
           description: 'Order in which the option is displayed on the storefront. '
           example: 1
         option_values:
-          $ref: '#/components/schemas/productOptionOptionValue_Full'
+          type: array
+          items:
+            $ref: '#/components/schemas/productOptionOptionValue_Full'
       description: Common Option properties.
       x-internal: false
     productOption_Full:
