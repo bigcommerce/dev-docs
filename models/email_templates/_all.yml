@@ -1319,74 +1319,81 @@ properties:
                             properties:
                               sunday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time:
-                                   formatted:
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time:
+                                    formatted:
                                       type: string
-                                closing_time: 
+                                  closing_time: 
                                     formatted: 
                                       type: string
                               monday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
                               tuesday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                     type: string  
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string  
                               wednesday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                     type: string
-                                closing_time: 
-                                  formatted: 
-                                     type: string  
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string  
                               thursday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                     type: string
-                                closing_time:
-                                  formatted: 
-                                     type: string
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time:
+                                    formatted: 
+                                      type: string
                               friday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
                               saturday:
                                 type: object
-                                is_open:
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open:
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
           payment:
             type: object
             properties:
@@ -1733,75 +1740,81 @@ properties:
                             properties:
                               sunday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time:
-                                   formatted:
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time:
+                                    formatted:
                                       type: string
-                                closing_time: 
+                                  closing_time: 
                                     formatted: 
                                       type: string
                               monday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
                               tuesday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                     type: string  
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string  
                               wednesday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                     type: string
-                                closing_time: 
-                                  formatted: 
-                                     type: string  
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string  
                               thursday:
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time:
-                                  formatted: 
-                                    type: string
-
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time:
+                                    formatted: 
+                                      type: string
                               friday: 
                                 type: object
-                                is_open: 
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open: 
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
                               saturday:
                                 type: object
-                                is_open:
-                                  type: boolean
-                                opening_time: 
-                                  formatted: 
-                                    type: string
-                                closing_time: 
-                                  formatted: 
-                                    type: string
+                                properties:
+                                  is_open:
+                                    type: boolean
+                                  opening_time: 
+                                    formatted: 
+                                      type: string
+                                  closing_time: 
+                                    formatted: 
+                                      type: string
       store:
         type: object
         properties:
