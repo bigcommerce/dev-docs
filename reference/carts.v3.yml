@@ -77,6 +77,7 @@ paths:
               $ref: '#/components/schemas/CartCreatePostData'
             examples:
               Simple Product:
+                summary: Creating a cart by adding a simple product without option selections.
                 value:
                   customer_id: 0
                   line_items:
@@ -89,6 +90,7 @@ paths:
                     code: USD
                   locale: en-US
               Cart with a variant:
+                summary: Creating a cart with a product that can be specified purely by a variant, without any other required options.
                 value:
                   customer_id: 0
                   line_items:
@@ -107,6 +109,7 @@ paths:
                     code: JOD
                   locale: ar-JO
               Cart with date option:
+                summary: Creating a cart using a date option.
                 value:
                   line_items:
                     - quantity: 1
@@ -120,7 +123,8 @@ paths:
                   currency:
                     code: MXN
                   locale: es-MX
-              'Cart with variant, a checkbox, and a pick list modifier':
+              Cart with variant, a checkbox, and a pick list modifier:
+                summary: Creating a cart with a variant, a checkbox, and an added picklist modifier.
                 value:
                   customer_id: 0
                   line_items:
@@ -143,6 +147,7 @@ paths:
                     code: AUD
                   locale: en-AU
               Custom item:
+                summary: Creating a cart using a custom item.
                 value:
                   customer_id: 0
                   line_items: []
@@ -173,13 +178,6 @@ paths:
                     code: usd
                   locale: en-US
         description: |-
-          **Examples:**
-
-          1. Creating a cart by adding a simple product (a product without option selections).
-          2. Creating a cart with a variant. This works when a product can be specified purely by a variant, without any other required options.
-          3. Creating a cart using a date option. The API supports timestamps, “option_value”: 1743570000, and dates as an object literal, “option_value”: {“day”:”01”, “month”:”02”, “year”:”2020”}.
-          4. Creating a cart with a variant, a checkbox, and a picklist modifier added.
-          5. Creating a cart using a custom item.
         required: true
         x-examples:
           Simple Product: |-
