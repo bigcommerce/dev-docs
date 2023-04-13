@@ -196,12 +196,6 @@
       ]
     },
     {
-      "type": "item",
-      "title": "Data Layer",
-      "href": "/api-docs/store-management/data-layer-api",
-      "uri": "docs/api-docs/analytics/data-layer-api.md"
-    },
-    {
       "type": "group",
       "title": "Email Templates",
       "items": [
