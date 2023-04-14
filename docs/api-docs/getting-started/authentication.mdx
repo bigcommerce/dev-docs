@@ -21,7 +21,7 @@ The following sections describe the two authentication schemes we use that rely 
   Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/api-accounts#migrating-from-legacy-to-oauth).
 </Callout>
 
-Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
+Most of our REST endpoints and GraphQL Admin API endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
 The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/api-accounts#api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
@@ -79,7 +79,6 @@ The following tabs contain examples of how to authenticate requests by passing a
     ```
   </Tab>
 </Tabs>
-
 
 ### Client ID
 
@@ -262,7 +261,6 @@ The following table lists the APIs that rely on user-generated JWTs. For OAuth s
 For the Customer Login API, your request will look something like the following:
 
 ```js filename="Example GET request: Customer Login API"
-
 const loginCustomer = (yourJwt) => {
   let resource = `${window.location.origin}/login/token/${yourJwt}`;
   return fetch(resource)
@@ -304,7 +302,6 @@ The REST Storefront API lets you make client-side requests for carts, checkouts,
 The following examples illustrate how to make calls to the REST Storefront API:
 
 ```js filename="Example script: REST Storefront API call" showLineNumbers copy
-
 const storefrontCall = (endpoint, requestBody = null) => {
   let resource = `${window.location.origin}/api/storefront${endpoint.route}`;
   let init = {
