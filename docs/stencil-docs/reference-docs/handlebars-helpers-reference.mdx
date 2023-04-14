@@ -1,6 +1,8 @@
+
 # Handlebars Helpers Reference
 
-This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+
 
 ## Custom helpers
 
@@ -73,6 +75,7 @@ Limits the number of items returned from an array; returns a new array.
 - `data` (Array): Collection.
 - `limit` (Number): Index specifying the number of items to exclude.
 
+
 #### Example
 
 Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit that behavior to only the first four items.
@@ -133,6 +136,7 @@ Retrieves corresponding values from some or all elements in a collection using s
 
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
+
 ```json showLineNumbers
 categories: [
     { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
@@ -167,6 +171,7 @@ results in: '["aa", "bb", "cc"]'
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pluck)
 
+
 ### cdn
 
 ```handlebars showLineNumbers
@@ -194,6 +199,7 @@ To reference static assets staged locally outside your `<theme-name>` directory 
 ```
 
 will be transformed to a result like this:
+
 
 ```handlebars showLineNumbers
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
@@ -372,6 +378,7 @@ Returns `<link>` elements for configured fonts.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontsCollection)
 
+
 ### encodeHtmlEntities
 
 ```handlebars showLineNumbers
@@ -381,6 +388,7 @@ Returns `<link>` elements for configured fonts.
 Returns a string with HTML entities encoded. You may optionally pass additional encoding arguments.
 
 #### Parameters
+
 
 - `string` (String): String to encode with HTML entities.
 - `args` (Boolean): Acceptlist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
@@ -1557,10 +1565,40 @@ Parse data with JSONparse.
 <!-- output: bar -->
 ```
 
+### JSONparseSafe
+
+Parse data safely with JSONparseSafe. This helper is similar to the JSONparse helper, but allows handling of incorrect JSON data. Returns `parsed data` when JSON is correct; otherwise, renders an `else` block.
+
+
+#### Parameters
+
+- `json` {String}: The data parsed by the helper.
+
+
+#### Example
+
+```handlebars
+{{#JSONparseSafe '{"foo": "bar"}'}}
+  {{foo}}
+{{/JSONparseSafe}}
+<!-- output: bar -->
+```
+
+```handlebars
+{{#JSONparseSafe 'foo'}}
+  {{foo}}
+{{else}}
+  John Doe
+{{/JSONparseSafe}}
+<!-- output: John Doe -->
+```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsonParseSafe.js)
+
 ## Standard helpers
 
 
-The following table contains acceptlisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
+The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
@@ -1641,6 +1679,7 @@ The following table contains acceptlisted standard Handlebars helpers available 
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
+| [JSONparseSafe](#jsonparsesafe) | object | Parses the given string safely using `JSON.parseSafe`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)  | object | Stringifies an object using `JSON.stringify`. |
 | [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
@@ -1684,3 +1723,4 @@ BigCommerce's custom Handlebars helpers are open source. To contribute, make a p
 * [Cornerstone](https://github.com/bigcommerce/cornerstone)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers)
 * [Handlebars.js](https://handlebarsjs.com/)
+

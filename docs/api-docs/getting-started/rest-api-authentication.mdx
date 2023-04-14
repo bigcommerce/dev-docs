@@ -75,7 +75,6 @@ After one of these changes, the store owner will be prompted to review the chang
   When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
 </Callout>
 
-
 To delete an app API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
 >>>>END: I think we should remove this part for now <<<
 
@@ -86,6 +85,7 @@ Where both types of API account are supported, review the preceding sections to 
 | API or Use Case | Store-level API Account | Account-level API Account |
 |:----------------|:---------------:|:-----------------:|
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
+| [GraphQL Admin API](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
 | [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) |  | &times; |
 | [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) |  | &times; |
 | [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | &times; |  |
