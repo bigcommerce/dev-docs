@@ -34,7 +34,7 @@ To keep data in your application up-to-date, [webhooks](/api-docs/getting-starte
 When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
 ### Avoid polling the Storefront Cart API 
-Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
+Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Thousands of browsers could poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
 
 Consider writing a server-side application to subscribe to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) as an alternative to polling the Storefront Cart API, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs.
 
