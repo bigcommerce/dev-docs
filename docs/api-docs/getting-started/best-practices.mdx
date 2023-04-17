@@ -29,9 +29,9 @@ Examples of non-breaking changes include:
 We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
 
 ## Use webhooks to listen for changes
-To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events that are relevant to your application.
+To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your application.
 
-When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
+When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
 ### Avoid polling the Storefront Cart API 
 Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
@@ -120,7 +120,7 @@ The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, 
 
 When you see a response with an HTTP `429` status code, your client shouldn’t make any further requests until your quota has refreshed:
 
-```http filename="Example: 429 response"
+```http filename="Example: 429 response" showLineNumbers copy
 HTTP/1.1 429 Too Many Requests
 Date: Mon, 03 Feb 2022 20:36:00 GMT
 Content-Type: application/json
@@ -130,7 +130,7 @@ X-Rate-Limit-Time-Reset-Ms: 15000
 Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to wait. In this case, it would be 15000 milliseconds.
 Your client can sleep on the specified interval:
 
-```php filename="PHP example for delaying response"
+```php filename="PHP example for delaying response" showLineNumbers copy
     $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
     usleep($milliseconds * 1000);
 ```
