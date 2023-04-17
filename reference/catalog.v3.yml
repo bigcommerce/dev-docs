@@ -436,7 +436,8 @@ paths:
             examples:
               example-1:
                 value:
-                  - name: Smith Journal 13
+                  - id: 0
+                    name: Smith Journal 13
                     type: physical
                     sku: SM-13
                     description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
@@ -14974,14 +14975,17 @@ paths:
       parameters:
         - name: id
           in: query
-          description: |
-            Filter items by id.
+          description: Filter items by ID.
           schema:
             type: integer
         - name: sku
           in: query
-          description: |
-            Filter items by sku.
+          description: Filter items by SKU.
+          schema:
+            type: string
+        - name: upc
+          in: query
+          description: Filter items by UPC.
           schema:
             type: string
         - name: page
@@ -14996,12 +15000,12 @@ paths:
             type: integer
         - name: include_fields
           in: query
-          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          description: Fields to include, in a comma-separated list. The ID and the specified fields will be returned.
           schema:
             type: string
         - name: exclude_fields
           in: query
-          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          description: Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.
           schema:
             type: string
         - name: product_id
@@ -19989,7 +19993,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     error_Base:
       title: error_Base
@@ -20026,7 +20030,7 @@ components:
           type: string
           description: A BigCommerce-defined error signifier.
         errors: 
-          $ref: '#/components/schemas/detailedErrors'
+          $ref: '#/components/schemas/DetailedErrors'
     errorNotFound:
       title: errorNotFound
       type: object
@@ -20099,8 +20103,8 @@ components:
           type: string
       description: No-content response for the BigCommerce API.
       x-internal: false
-    detailedErrors:
-      title: detailedErrors
+    DetailedErrors:
+      title: DetailedErrors
       description: Each key-value pair describes a failure or partial success case.
       type: object
       properties: {}
@@ -20207,12 +20211,21 @@ components:
       title: product_Put_Collection
       description: The model for batch updating products.
       x-internal: false
-      allOf:
-        - items:
-            $ref: '#/components/schemas/product_Base'
+      items:
+        allOf:
+          - type: object
+            properties:
+              id:
+                type: integer
+                description: Unique ID of the *Product*. Read-Only.
+                readOnly: true
+            required:
+              - id
+          - $ref: '#/components/schemas/product_Base'
       x-examples:
         example-1:
-          - name: Smith Journal 13
+          - id: 0
+            name: Smith Journal 13
             type: physical
             sku: SM-13
             description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
@@ -21156,7 +21169,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     errorResponse_422:
       title: errorResponse_422
@@ -21175,7 +21188,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     productSortOrder:
       title: productSortOrder
@@ -21377,7 +21390,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       title: errorResponse_Full
       x-tags:
         - Models
@@ -21437,9 +21450,9 @@ components:
       title: errorNoContent
       x-tags:
         - Models
-    betadetailedErrors:
+    betaDetailedErrors:
       type: object
-      title: detailedErrors
+      title: DetailedErrors
       properties: {}
       additionalProperties: true
       x-tags:
@@ -21459,7 +21472,7 @@ components:
               type: string
         - properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       type: object
       x-tags:
         - Models
@@ -21478,7 +21491,7 @@ components:
               type: string
         - properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       type: object
       x-tags:
         - Models
@@ -21723,14 +21736,6 @@ components:
                 next:
                   type: string
                   example: '?limit=5&page=3'
-      x-tags:
-        - Models
-    DetailedErrors:
-      description: |
-        Details of errors.
-      type: object
-      properties: {}
-      additionalProperties: true
       x-tags:
         - Models
     ErrorRequest:
