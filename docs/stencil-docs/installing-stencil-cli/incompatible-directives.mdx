@@ -1,21 +1,24 @@
 # Incompatible Directives
 
-Since we have different versions of node-sass running in Stencil CLI and production, there can be differences in the output of the CSS.
-This doc covers the differences and how to avoid them until the node-sass fork is sunset.
+As of this writing, BigCommerce is using a fork of node-sass that we plan to sunset in the future. Because Stencil CLI and BigCommerce's servers are running different versions of node-sass, there can be differences in the compiled CSS output.
+
+This article covers the known divergent behavior and describes how to avoid unexpected compiler errors until the node-sass fork sunsets.
 
 ## Examples
 
-1. To avoid using / divisions in scss directives
-Since the support of SCSS directives came after the node-sass fork, the SCSS directives will break on production with an error stating that this syntax is not supported.
-So we do not recommend using it in your SCSS files until the node-sass fork is sunset.
+1. In production, using the `/` character in SCSS directives causes a compiler error.
 
-For more information, see [Issue 2149](https://github.com/sass/libsass/issues/2149).
+Because support for SCSS directives came after the node-sass fork, SCSS directives that contain the `/` literal will break in production with an error stating that this syntax is not supported.
 
-2. Usage of color with $hue parameter.
+We do not recommend using `/` in your SCSS files until the node-sass fork is sunset.
 
-Example 
+For more information, see [Issue 2149 (GitHub / libsass)](https://github.com/sass/libsass/issues/2149).
 
-```shell showLineNumbers copy
+2. The `$hue` parameter behaves differently. 
+
+The following example demonstrates the context in which you might pass `$hue` or encounter it in library packages:
+
+```scss filename="Example: $hue parameter" showLineNumbers copy
 $color: #1caf9a;
 
 body {
@@ -23,30 +26,32 @@ body {
 }
 ```
 
-This will lead to different behavior in Stencil CLI and production. 
-So we do not recommend using it in your SCSS files until the node-sass fork is sunset.
+Using `$hue` leads to different behavior in Stencil CLI versus in production. 
+
+We do not recommend including `$hue` in your SCSS functions until the node-sass fork is sunset.
+
+For more information, see [Issue 2112 (GitHub / libsass)](https://github.com/sass/libsass/issues/2112).
 
 
-For more information, see [Issue 2112](https://github.com/sass/libsass/issues/2112).
+3. In production, concatenating an empty string with a quoted string unquotes the string.
 
+The following example demonstrates the context in which you might concatenate an empty string or encounter it in library packages:
 
-3. Concatenating an empty string w/ a quoted string will unquote the string.
-
-Example 
-
-```shell showLineNumbers copy
+```scss filename="Example: Empty string concatenation" showLineNumbers copy
 @debug "\"foo\"" + "";
 ```
 
-This will lead to different behavior in Stencil CLI (quoted) and production (unquoted).
+Empty string arguments lead to divergent behavior between Stencil CLI, which supports empty string concatenation, and production, which unquotes strings. 
 
-For more information, see [Issue 2153](https://github.com/sass/libsass/issues/2153).
+Pay particular attention to SCSS functions that might receive empty strings as arguments.
 
-4. if() function does not correctly evaluate the parent selector
+For more information, see [Issue 2153 (GitHub / libsass)](https://github.com/sass/libsass/issues/2153).
+
+4. The `if()` method does not correctly evaluate its parent selector.
 
 Example
 
-```shell showLineNumbers copy
+```scss filename="Example: Function that uses if()" showLineNumbers copy
 @function foo() {
   @return if(& != null, green, red);
 }
@@ -55,21 +60,18 @@ test {
   color: foo();
 }
 ```
+In the preceding example, the fork's error in the evaluation of the `if()` method leads to the following divergent results:
 
-This will lead to 
-```shell showLineNumbers copy
+```css filename="Stencil CLI output" showLineNumbers copy
 test {
   color: green;
 }
 ```
 
-in Stencil CLI and
-
-```shell showLineNumbers copy
+```css filename="Production output" showLineNumbers copy
 test {
   color: red;
 }
 ```
-in production.
 
-For more information, see [Issue 2116](https://github.com/sass/libsass/issues/2116).
+For more information, see [Issue 2116 (GitHub / libsass)](https://github.com/sass/libsass/issues/2116).
