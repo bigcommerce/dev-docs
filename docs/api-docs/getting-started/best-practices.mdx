@@ -92,9 +92,9 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 
 ### Playing nicely with the platform
 
-<!-- theme: info -->
-> #### Case-insensitive response headers
-> As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/api-docs/getting-started/about-our-api#response-headers).
+<Callout type="info">
+  As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/api-docs/getting-started/about-our-api#response-headers).
+</Callout>
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
@@ -120,7 +120,7 @@ The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, 
 
 When you see a response with an HTTP `429` status code, your client shouldn’t make any further requests until your quota has refreshed:
 
-```http title="Example: 429 response"
+```http filename="Example: 429 response"
 HTTP/1.1 429 Too Many Requests
 Date: Mon, 03 Feb 2022 20:36:00 GMT
 Content-Type: application/json
@@ -130,7 +130,7 @@ X-Rate-Limit-Time-Reset-Ms: 15000
 Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to wait. In this case, it would be 15000 milliseconds.
 Your client can sleep on the specified interval:
 
-```php title="PHP example for delaying response"
+```php filename="PHP example for delaying response"
     $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
     usleep($milliseconds * 1000);
 ```
