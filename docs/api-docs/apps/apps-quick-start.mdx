@@ -44,12 +44,13 @@ Next, register the draft app in the [Developer Portal](https://devtools.bigcomme
 2. Click **Create an app**.
 3. Give the app a name.
 4. Click **Technical**.
-5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth{:http}`. For example, `https://12345.ngrok.io/api/auth{:http}`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000{:shell}`.
-6. Enter Load Callback URL as `https://{ngrok_id}.ngrok.io/api/load{:http}`.
-7. Enter Uninstall Callback URL as `https://{ngrok_id}.ngrok.io/api/uninstall{:http}`.
-8. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
-9. Click **Update & Close**.
-10. Click **View Client ID** -- this is the app's client ID and client secret.
+5. Enter the **Auth Callback URL** as `https://{ngrok_id}.ngrok.io/api/auth{:http}`. For example, `https://12345.ngrok.io/api/auth{:http}`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000{:shell}`.
+6. Enter the **Load Callback URL** as `https://{ngrok_id}.ngrok.io/api/load{:http}`.
+7. Enter the **Uninstall Callback URL** as `https://{ngrok_id}.ngrok.io/api/uninstall{:http}`.
+8. If your app supports multiple users, locate the **App Features** section. Select **Multiple Users**, then enter the **Remove User Callback URL** as `https://{ngrok_id}.ngrok.io/api/remove_user{:http}`.
+9. Because you will be using the API to modify the store's products, set the Products OAuth scope to `modify`. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+10. Click **Update & Close**.
+11. Click **View Client ID** to view this app's client ID and client secret, or _app-level API account_.
 
 Keep this tab open for the next step.
 
