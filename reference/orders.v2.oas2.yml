@@ -406,6 +406,8 @@ paths:
       summary: Delete All Orders
       tags:
         - Orders
+      parameters:
+        - $ref: '#/components/parameters/limit'
       responses:
         '204':
           description: ''
