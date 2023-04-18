@@ -1973,6 +1973,16 @@ components:
         hide_in_product_filtering:
           type: boolean
           description: 'Describes whether an option is hidden in product filtering. Applies when `option_out_of_stock_behavior` is set to `label_option`. '
+        show_pre_order_stock_levels:
+          type: boolean
+          description: Describes whether pre-order stock levels are shown.
+          default: false
+          example: true
+        show_out_of_stock_message:
+          type: boolean
+          description: Describes whether out-of-stock messages are shown on product listing pages.
+          default: false
+          example: true
     Locale:
       description: 'The basic locale settings for a store, used to give shopper information about languages, countries, etc.'
       type: object
