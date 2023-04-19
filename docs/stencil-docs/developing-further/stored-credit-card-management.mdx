@@ -84,6 +84,110 @@ curl -O https://raw.githubusercontent.com/leeBigCommerce/cornerstone/54f5681a6a1
 ## Update `en.json`
 At minimum, a translation for the `en` needs to be added to `lang/en.json: [Pull Request #1603](https://github.com/bigcommerce/cornerstone/pull/1603/files?file-filters%5B%5D=.html&file-filters%5B%5D=.json&file-filters%5B%5D=.md#diff-b0d4c1fc9d8d2a5a213b27a72cf6c9fe). Add translations for other locales as needed.
 
+## Manage stored account payments
+
+After adding a stored payment method, shoppers can use the Storefront account payments microapp to manage their stored payment instruments. The Storefront account payments provide a payment method form with billing address fields. Currently, the microapp works only with Ayden.
+
+### Microapp installation instructions
+
+To install the Storefront account microapp to your theme, inject the `account_payments` variable into your template.
+
+```js showLineNumbers copy
+{{#if account_payments}}
+    {{{ account_payments }}}
+    <script>
+        window.BigCommerce = window.BigCommerce || {};
+    </script>
+{{/if}}
+```
+`account_payments` will provide the `<div>` element where you can render Storefront account payments and attach the renderAccountPayments() method to the window.BigCommerce object that displays the Storefront account payments app if the selected payment provider is already implemented.
+
+A [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45) shows how to load a script to the page. In this example, we have a condition: if `account_payments` is available - it renders; if not - the fallback payment method form renders.
+
+In the subsequent releases, we'll remove the fallback payment method form because the Storefront account payments microapp will support all payment methods.
+
+The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. We need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
+
+The example has a simple initialize interface.
+
+```js showLineNumbers copy
+interface AppConfigInterface {
+  styles?: AppStyles;
+  storeContextData: StoreContextDataInterface;
+  errorHandler(error: string): void;
+}
+```
+
+* `style` - an optional property for customization of the Storefront account payments form 
+* `storeContextData` - a required field where you must provide data from the store context 
+* `errorHandler` - a required field where you need to provide the callback that will be called on the Storefront account payments form submission error event.
+
+```js showLineNumbers copy
+interface AppStyles {
+    inputBase?: CSSProperties;
+    inputValidationError?: CSSProperties;
+    inputValidationSuccess?: CSSProperties;
+    submitButton?: CSSProperties;
+    cancelButton?: CSSProperties;
+    label?: CSSProperties;
+    inputWrapper?: CSSProperties;
+    validationError?: CSSProperties;
+    heading?: CSSProperties;
+    formRow?: CSSProperties;
+    formActions?: CSSProperties;
+}
+
+interface StoreContextDataInterface {
+    countries: Country[];
+    paymentsUrl: string;
+    storeHash: string;
+    storeLocale: string;
+    vaultToken: string;
+    shopperId: string;
+    customerEmail: string;
+    providerId: PaymentProviders;
+    currencyCode: string;
+    paymentMethodsUrl: string;
+    paymentProviderInitializationData: PaymentProviderInitializationData;
+}
+
+type PaymentProviderInitializationData =
+  AdyenV2InitializationData
+  | AdyenV3InitializationData;
+
+interface AdyenV2InitializationData {
+    clientKey?: string;
+    environment: string;
+    gateway: string;
+    originKey: string;
+}
+
+interface AdyenV3InitializationData {
+    clientKey: string;
+    environment: string;
+    gateway: string;
+    originKey?: string;
+}
+
+interface Country {
+    code: string;
+    label: string;
+    states?: State[];
+    value: string;
+}
+
+interface State {
+    code: string;
+    name: string;
+    value: string;
+}
+
+enum PaymentProviders {
+    Adyenv2 = 'adyenv2',
+    Adyenv3 = 'adyenv3',
+}
+```
+
 ## FAQ
 **Where is the card data stored?**
 
