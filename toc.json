@@ -17,22 +17,22 @@
       "uri": "docs/api-docs/getting-started/about-our-api.md"
     },
     {
-      "type": "group",
-      "title": "Authentication",
-      "items": [
-        {
-          "type": "item",
-          "title": "Authenticating BigCommerce APIs",
-          "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-          "uri": "docs/api-docs/getting-started/authentication.md"
-        },
-        {
-          "type": "item",
-          "title": "V2 and V3 REST API Authentication",
-          "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-        }
-      ]
+      "type": "item",
+      "title": "Authentication & Example Requests",
+      "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+      "uri": "docs/api-docs/getting-started/authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Accounts & OAuth Scopes",
+      "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+      "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Status Codes",
+      "href": "/api-docs/getting-started/api-status-codes",
+      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
@@ -45,12 +45,6 @@
       "title": "Best Practices",
       "href": "/api-docs/getting-started/best-practices",
       "uri": "docs/api-docs/getting-started/best-practices.md"
-    },
-    {
-      "type": "item",
-      "title": "API Status Codes",
-      "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
@@ -80,6 +74,12 @@
         },
         {
           "type": "item",
+          "title": "Faceted and Textual Search",
+          "href": "/api-docs/storefront/graphql/search",
+          "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
+        },
+        {
+          "type": "item",
           "title": "Code Samples",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
           "flag": "code samples",
@@ -87,15 +87,16 @@
         },
         {
           "type": "item",
-          "title": "GraphQL Playground",
-          "href": "/api-docs/storefront/graphql/playground",
-          "uri": "assets/html/graphql/playground.html"
+          "title": "GraphQL Storefront Explorer",
+          "href": "/api-docs/storefront/graphql/explorer",
+          "uri": "https://developer.bigcommerce.com/graphql-explorer"
         },
         {
+
           "type": "item",
-          "title": "GraphQL Explorer",
-          "href": "/api-docs/storefront/graphql/explorer",
-          "uri": "assets/html/graphql/voyager.html"
+          "title": "GraphQL Storefront Playground",
+          "href": "/api-docs/storefront/graphql/playground",
+          "uri": "https://developer.bigcommerce.com/graphql-playground"
         }
       ]
     },
@@ -267,6 +268,12 @@
       ]
     },
     {
+      "type": "item",
+      "title": "Store Logs",
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
+    },
+    {
       "type": "group",
       "title": "Shipping",
       "items": [
@@ -284,6 +291,30 @@
         }
       ]
     },
+    {
+      "type": "group",
+      "title": "Tax",
+      "items": [
+        {
+          "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
+          "uri": "docs/api-docs/tax/tax-properties.md"
+        }
+      ]
+    },    
     {
       "type": "group",
       "title": "Widgets",
@@ -346,19 +377,19 @@
           "type": "item",
           "title": "Overview",
           "href": "/api-docs/store-management/webhooks/overview",
-          "uri": "docs/api-docs/getting-started/webhooks/about-webhooks.md"
+          "uri": "docs/api-docs/webhooks/about-webhooks.md"
         },
         {
           "type": "item",
           "title": "Webhook Events",
           "href": "/api-docs/store-management/webhooks/webhook-events",
-          "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
+          "uri": "docs/api-docs/webhooks/webhook-events.md"
         },
         {
           "type": "item",
           "title": "Webhooks Tutorial",
           "href": "/api-docs/store-management/webhooks/tutorial",
-          "uri": "docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+          "uri": "docs/api-docs/webhooks/setting-up-webhooks.md"
         }
       ]
     },
@@ -549,7 +580,7 @@
         },
         {
           "type": "item",
-          "title": "Find an App's ID",
+          "title": "Locating the ID of an App",
           "href": "/api-docs/apps/tutorials/id",
           "uri": "docs/api-docs/apps/tutorials/apps-id.md"
         }
@@ -760,6 +791,22 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -796,7 +843,7 @@
             },
             {
               "type": "item",
-              "title": "API Best Practices",
+              "title": "Best Practices",
               "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
               "uri": "docs/api-docs/getting-started/best-practices.md"
             }
@@ -896,13 +943,25 @@
     },
     {
       "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "Analytics Solutions",
       "items": [
         {
           "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
         }
       ]
     },
@@ -910,6 +969,12 @@
       "type": "group",
       "title": "POS Solutions",
       "items": [
+        {
+          "type": "item",
+          "title": "POS Foundation Guide",
+          "href": "/api-docs/partner/pos-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/pos/foundation-guide.md"
+        },
         {
           "type": "item",
           "title": "Catalog",
@@ -933,6 +998,18 @@
           "title": "Orders",
           "href": "/api-docs/partner/pos-solutions/orders",
           "uri": "docs/api-docs/orders/orders-api-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Subscription Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "Foundation App Guide",
+          "href": "/api-docs/partner/subscription-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/subscriptions/foundation-guide.md"
         }
       ]
     },
