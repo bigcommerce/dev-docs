@@ -90,7 +90,7 @@ After adding a stored payment method, shoppers can use the Storefront account pa
 
 ### Microapp installation instructions
 
-To install the Storefront account microapp to your theme, inject the `account_payments` variable into your template.
+To install the Storefront account microapp to your theme, inject the `account_payments` variable into your template using `add-payment-method.html`.
 
 ```js showLineNumbers copy
 {{#if account_payments}}
@@ -106,7 +106,7 @@ A [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/t
 
 In the subsequent releases, we'll remove the fallback payment method form because the Storefront account payments microapp will support all payment methods.
 
-The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. We need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
+The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. In `account.js` we need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
 
 The example has a simple initialize interface.
 
