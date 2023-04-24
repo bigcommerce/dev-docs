@@ -76,26 +76,14 @@ There are two methods for installing Stencil CLI and its dependencies on Windows
 If you're not comfortable manually installing and configuring Python and Node.js on Windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
 
 ```shell showLineNumbers copy
- # Install Chocolatey
-iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
+# Install Chocolatey (https://chocolatey.org/install)
 
 # Install git if you don't have it
 choco install git
 
-#####################################################################################
-# Close PowerShell and re-open as admin
-#####################################################################################
-
-# Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 18.15.0; nvm use 18.15.0
-
-# Install Windows C++ Build Tools (also installs python3)
-
-npm install -g windows-build-tools --vs2019
-
-# Tell npm to use python3
-
-npm config set python python3.11
+# Install Node.js for Windows
+# Use the official Node.js for Window installer (https://node.js.org/en/download/).
+# If prompted, select the options to install Visual Studio Build Tools. 
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -117,9 +105,7 @@ If you're a pro at installing and configuring Python and Node.js environments on
 
 **Required Dependencies:**
 * [Git](https://git-scm.com/downloads) - required to run npm install
-* [Python 3.11](https://www.python.org/downloads/) - required to build some dependencies
 * [Node.js 18.15.0 and npm](https://nodejs.org/en/download/releases/)
-* [Visual C++ Build Tools 2019](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
 
