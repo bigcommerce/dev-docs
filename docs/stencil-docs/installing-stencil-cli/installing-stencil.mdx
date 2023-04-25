@@ -37,37 +37,6 @@ nvm use 18.15.0
 npm install -g @bigcommerce/stencil-cli
 ```
 
-### Installing on Mac with Apple silicon
-
-Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
-
-
-<Callout type="info">
- These instructions have been tested on a **MacBook Air** with an M1 chip.
-</Callout>
-
-To open the Rosetta terminal:
-
-1. Open **Finder**.
-2. Go to **Applications** > **Utilities** > **Terminal**.
-3. Right-click **Terminal** and select **Get Info**.
-4. Check the **Open using Rosetta** checkbox.
-5. Close the window and quit all terminal instances.
-6. Start a new terminal, and install Rosetta if prompted.
-
-Run the following commands:
-
-```shell showLineNumbers copy
-# Install Stencil CLI supported version of Node.js
-nvm install 18.15.0
-
-# Switch to Stencil CLI supported version of Node.js
-nvm use 18.15.0
-
-# Install Stencil CLI
-npm install -g @bigcommerce/stencil-cli
-```
-
 ## Installing on Windows
 There are two methods for installing Stencil CLI and its dependencies on Windows.
 
@@ -193,7 +162,7 @@ If you receive the error "Could not find VS", run the following commands:
 
 ```powershell showLineNumbers copy
 choco install python visualcpp-build-tools -y
-npm config set msvs_version 2017 
+npm config set msvs_version 2017
 ```
 
 ### Python npm configuration error
