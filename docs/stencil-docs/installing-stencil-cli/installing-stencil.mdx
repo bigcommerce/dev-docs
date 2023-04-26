@@ -176,21 +176,6 @@ If you receive an error installing Chocolatey, run the following command to enab
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
-### Visual Studio not found error
-If you receive the error "Could not find VS", run the following commands:
-
-```powershell showLineNumbers copy
-choco install python visualcpp-build-tools -y
-npm config set msvs_version 2019 
-```
-
-### Python npm configuration error
-If you receive "Error: Could not find any Python installation to use", run the following command:
-
-```powershell copy
-choco install python --version=3.11
-```
-
 
 ## Resources
 
