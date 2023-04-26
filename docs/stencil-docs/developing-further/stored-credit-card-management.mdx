@@ -86,13 +86,13 @@ At minimum, a translation for the `en` needs to be added to `lang/en.json: [Pull
 
 ## Manage stored account payments
 
-After adding a stored payment method, shoppers can use the Storefront account payments microapp to manage their stored payment instruments. The Storefront account payments provide a payment method form with billing address fields. Currently, the microapp works only with Ayden.
+After adding a [stored payment method](https://support.bigcommerce.com/s/article/Enabling-Stored-Payment-Methods?language=en_US), shoppers can use the Storefront account payments microapp to manage their stored payment instruments. The Storefront account payments provide a payment method form with billing address fields. Currently, the microapp works only with Adyen.
 
-### Microapp installation instructions
+### Install the microapp
 
 To install the Storefront account microapp to your theme, inject the `account_payments` variable into your template using `add-payment-method.html`.
 
-```js showLineNumbers copy
+```handlebars showLineNumbers copy
 {{#if account_payments}}
     {{{ account_payments }}}
     <script>
@@ -102,15 +102,15 @@ To install the Storefront account microapp to your theme, inject the `account_pa
 ```
 `account_payments` will provide the `<div>` element where you can render Storefront account payments and attach the renderAccountPayments() method to the window.BigCommerce object that displays the Storefront account payments app if the selected payment provider is already implemented.
 
-A [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45) shows how to load a script to the page. In this example, we have a condition: if `account_payments` is available - it renders; if not - the fallback payment method form renders.
+A [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45) shows how to load a script to the page. In this example, we have a condition because currently, the storefront-account-payments app works only with Adyen: if `account_payments` is available - it renders; if not - the fallback payment method form renders. If you install another payment provider, you still need to render the "add payments" form; therefore, the "add payments method" form displays.
 
-In the subsequent releases, we'll remove the fallback payment method form because the Storefront account payments microapp will support all payment methods.
+Our roadmap includes plans for the Storefront accounts payment microapp to support all payment methods. Thus the fallback payment method is a temporary solution.
 
-The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. In `account.js` we need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
+The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. In `account.js` you need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
 
-The example has a simple initialize interface.
+The following is an example of a simple `initialize` interface.
 
-```js showLineNumbers copy
+```ts showLineNumbers copy
 interface AppConfigInterface {
   styles?: AppStyles;
   storeContextData: StoreContextDataInterface;
@@ -122,7 +122,7 @@ interface AppConfigInterface {
 * `storeContextData` - a required field where you must provide data from the store context 
 * `errorHandler` - a required field where you need to provide the callback that will be called on the Storefront account payments form submission error event.
 
-```js showLineNumbers copy
+```ts showLineNumbers copy
 interface AppStyles {
     inputBase?: CSSProperties;
     inputValidationError?: CSSProperties;
