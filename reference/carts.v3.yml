@@ -2643,6 +2643,8 @@ components:
             type: string
           name:
             type: string
+            minLength: 1
+            maxLength: 250  
           quantity:
             type: number
           list_price:
