@@ -4740,6 +4740,8 @@ components:
           type: string
           example: Fog Linen Chambray Towel - Beige Stripe
           description: Alias for name_customer. The product name that is shown to customer in storefront.
+          minLength: 1
+          maxLength: 250
         name_customer:
           type: string
           example: Fog Linen Chambray Towel - Beige Stripe
