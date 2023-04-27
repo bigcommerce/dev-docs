@@ -588,7 +588,8 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 
 
 The following is an example request to [create a product modifier](/api-reference/store-management/catalog/product-modifiers/createmodifier).
-
+<Tabs>
+<Tab>
 ```http filename="Example request: Create a modifier" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{PRODUCT_ID}}/modifiers
 Accept: application/json
@@ -607,7 +608,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 &nbsp;
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner) -->
 ```json filename="Example response: Create a modifier" showLineNumbers copy
 {
   "data": [
@@ -621,11 +621,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
       },
       "display_name": "Add a $5 Donation"
     }
-    ```
+  ]
+}
+```
 
-
-  </Tab>
-  <Tab>
+</Tab>
+<Tab>
 
     ```json filename="Example response: Create a product modifier" showLineNumbers copy
     {
@@ -819,13 +820,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/category/createcategory#requestrunner) -->
-
 ## Category trees
 
 Product categories can have their own subcategories. The relationship hierarchy of a store or storefront's categories is called a **category tree**. Category trees belong to channels. In a single storefront store, channel `1` is the only channel.
 
 The following is a series of example requests to the [Get all category trees](/api-reference/store-management/catalog/category-trees/getcategorytrees) endpoint and [Get a category tree](/api-reference/store-management/catalog/category-trees/getacategorytree) endpoint to retrieve the category tree for channel `1`. 
+
+<Tabs>
+  <Tab>
 
 ```http filename="Example request: Get the category tree for channel 1"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees?channel_id:in=1
@@ -847,7 +849,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   ]
 }
 ```
-&nbsp;
+</Tab>
+<Tab>
 ```http filename="Example request: Get category tree 12"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees/12/categories
 Accept: application/json
@@ -897,7 +900,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
       ],
       "meta": {...}
     }
-    ```
+  ]
+}
+```
 
   </Tab>
 </Tabs>
@@ -923,7 +928,7 @@ Product sorting methods:
 ## Related resources
 
 ### Endpoints
-* [Catalog API]/docs/rest-management/catalog)
+* [Catalog API](/docs/rest-management/catalog)
 
 ### Webhooks
 * [Products](/api-docs/store-management/webhooks/events#products)
