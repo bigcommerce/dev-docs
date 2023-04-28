@@ -88,11 +88,11 @@ At minimum, a translation for the `en` needs to be added to `lang/en.json: [Pull
 
 ## Manage stored account payments
 
-After adding a [stored payment method](https://support.bigcommerce.com/s/article/Enabling-Stored-Payment-Methods?language=en_US), shoppers can use the Storefront account payments microapp to manage their stored payment instruments. The Storefront account payments provide a payment method form with billing address fields. Currently, the microapp works only with Adyen.
+After adding a [stored payment method](https://support.bigcommerce.com/s/article/Enabling-Stored-Payment-Methods?language=en_US), shoppers can use the Storefront account payments microapp to manage their stored payment instruments. The microapp provides a payment method form with billing address fields. Currently, the microapp works with Adyen. Plans include expanding the number of supported payment processors.
 
 ### Install the microapp
 
-To install the Storefront account microapp to your theme, inject the `account_payments` variable into your template using `add-payment-method.html`.
+To install the Storefront account payments microapp to your theme, inject the `account_payments` variable into the `add-payment-method.html` template.
 
 ```handlebars showLineNumbers copy
 {{#if account_payments}}
@@ -102,10 +102,10 @@ To install the Storefront account microapp to your theme, inject the `account_pa
     </script>
 {{/if}}
 ```
-The `account_payments` variable includes the `<div>` element that renders the microapp and a script tag containing the microapp URL. You can use a script to attach the `renderAccountPayments()` method to the `window.BigCommerce` object. 
 
-If the selected payment provider already has an integration with the Storefront account payments microapp, calling `renderAccountPayments()` renders the microapp automatically.
+The `account_payments` variable includes the `<div>` element that renders the microapp and a script tag containing the microapp URL. If the `window.BigCommerce` object does not yet exist, insert a script to create it. 
 
+If the selected payment provider already has an integration with the Storefront account payments microapp, [initializing window.BigCommerce.renderAccountPayments](#initialize-the-microapp) renders the microapp automatically.
 
 If the selected payment provider does not have an integration with the microapp, the `account_payments` variable is undefined and the fallback payment form renders. See an example of a fallback payment form and the conditional rendering logic from the [Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45).
 
