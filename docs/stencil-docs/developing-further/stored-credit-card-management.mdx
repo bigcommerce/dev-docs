@@ -109,13 +109,23 @@ If the selected payment provider already has an integration with the Storefront 
 
 If the selected payment provider does not have an integration with the microapp, the `account_payments` variable is undefined and the fallback payment form renders. See an example of a fallback payment form and the conditional rendering logic from the [Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45).
 
-Our roadmap includes plans for the Storefront accounts payment microapp to support all payment methods. Thus the fallback payment method is a temporary solution.
+### Initialize the microapp
 
-The following [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) shows how to initialize the script. In `account.js` you need to call `window.BigCommerce.renderAccountPayments` to initialize the Storefront account payments app with the provided options:
+Initialize the microapp by calling the `renderAccountPayments()` method of the storefront browser's `window.BigCommerce` object. The Cornerstore theme initializes the microapp in the `account.js` file.
 
-The following is an example of a simple `initialize` interface.
+The `renderAccountPayments()` method takes the following three parameters:
 
-```ts showLineNumbers copy
+* `style` - an options **object** for customizing the look of the microapp form. May be empty.
+* `storeContextData` - an **object** that supplies store context. 
+* `errorHandler` - a **function** that the microapp calls if the payments form submission fails.
+
+```js filename="Example renderAccountPayments() wrapper function" copy
+const initializeMicroapp = (style, storeContextData, errorHandler) => window.BigCommerce.renderAccountPayments(style, storeContextData, errorHandler);
+```
+
+The following example expresses the method's parameters as a TypeScript interface:
+
+```ts filename="Example interface for renderAccountPayments()" showLineNumbers copy
 interface AppConfigInterface {
   styles?: AppStyles;
   storeContextData: StoreContextDataInterface;
@@ -123,9 +133,9 @@ interface AppConfigInterface {
 }
 ```
 
-* `style` - an optional property for customization of the Storefront account payments form 
-* `storeContextData` - a required field where you must provide data from the store context 
-* `errorHandler` - a required field where you need to provide the callback that will be called on the Storefront account payments form submission error event.
+This [Cornerstone example (GitHub)](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) initializes `window.BigCommerce.renderAccountPayments` using JavaScript. 
+
+The following TypeScript interfaces express the data structures and types that `renderAccountPayments()` expects:
 
 ```ts showLineNumbers copy
 interface AppStyles {
