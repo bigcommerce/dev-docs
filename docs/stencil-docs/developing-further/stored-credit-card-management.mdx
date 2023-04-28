@@ -23,23 +23,25 @@ In `config.json`, replace `account_payment_methods` in the `features` array with
       "csrf_protection",        // <-- add csrf_protection
       "account_payment_methods" // <-- replace with account_payment_methods_v2
     ]
-  },
+  }
+}
 ```
 
 Then [add the `supported_payment_methods` array](https://github.com/leeBigCommerce/cornerstone/blob/54f5681a6a15cd8477c51c6db9eb54ea3eb40972/config.json#L325) and append `card` and `paypal` to it:
 
 ```json filename="config.json" showLineNumbers copy
-    ...
-    "supported_card_type_icons": [
-      ...
-    ],
-    "supported_payment_methods": [ // <-- Add supported_payment_methods array
-      "card",                      // <-- whitelist card and paypal
-      "paypal"
-    ],
-    "lazyload_mode": "lazyload+lqip"
-  },
+{
   ...
+  "supported_card_type_icons": [
+    ...
+  ],
+  "supported_payment_methods": [ // <-- Add supported_payment_methods array
+    "card",                      // <-- allowlist card and paypal
+    "paypal"
+  ],
+  "lazyload_mode": "lazyload+lqip"
+  ...
+}
 ```
 
 This will enable saving PayPal and credit card accounts (and other non credit card payment methods) on the theme.
