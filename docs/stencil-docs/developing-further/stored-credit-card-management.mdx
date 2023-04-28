@@ -100,9 +100,12 @@ To install the Storefront account microapp to your theme, inject the `account_pa
     </script>
 {{/if}}
 ```
-`account_payments` will provide the `<div>` element where you can render Storefront account payments and attach the renderAccountPayments() method to the window.BigCommerce object that displays the Storefront account payments app if the selected payment provider is already implemented.
+The `account_payments` variable includes the `<div>` element that renders the microapp and a script tag containing the microapp URL. You can use a script to attach the `renderAccountPayments()` method to the `window.BigCommerce` object. 
 
-A [Cornerstone example](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45) shows how to load a script to the page. In this example, we have a condition because currently, the storefront-account-payments app works only with Adyen: if `account_payments` is available - it renders; if not - the fallback payment method form renders. If you install another payment provider, you still need to render the "add payments" form; therefore, the "add payments method" form displays.
+If the selected payment provider already has an integration with the Storefront account payments microapp, calling `renderAccountPayments()` renders the microapp automatically.
+
+
+If the selected payment provider does not have an integration with the microapp, the `account_payments` variable is undefined and the fallback payment form renders. See an example of a fallback payment form and the conditional rendering logic from the [Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html#L45).
 
 Our roadmap includes plans for the Storefront accounts payment microapp to support all payment methods. Thus the fallback payment method is a temporary solution.
 
