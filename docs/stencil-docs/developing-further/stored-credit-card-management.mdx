@@ -123,6 +123,8 @@ The `renderAccountPayments()` method takes the following three parameters:
 const initializeMicroapp = (style, storeContextData, errorHandler) => window.BigCommerce.renderAccountPayments(style, storeContextData, errorHandler);
 ```
 
+This [Cornerstone example (GitHub)](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) initializes `window.BigCommerce.renderAccountPayments` using JavaScript. 
+
 The following example expresses the method's parameters as a TypeScript interface:
 
 ```ts filename="Example interface for renderAccountPayments()" showLineNumbers copy
@@ -132,8 +134,6 @@ interface AppConfigInterface {
   errorHandler(error: string): void;
 }
 ```
-
-This [Cornerstone example (GitHub)](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/account.js#L102) initializes `window.BigCommerce.renderAccountPayments` using JavaScript. 
 
 The following TypeScript interfaces express the data structures and types that `renderAccountPayments()` expects:
 
