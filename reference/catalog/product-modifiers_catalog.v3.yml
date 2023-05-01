@@ -1,0 +1,2856 @@
+openapi: '3.0.3'
+info:
+  title: Catalog - Product Modifiers
+  description: |-
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/api-docs/store-management/catalog/products-overview).
+
+    Product Modifiers represent choices that the shopper can make to change how the merchant customizes or adds on to the product. Examples include shipping insurance, monograms, custom inseam length, and a color selection for an unfinished product.
+
+    Modifier values do not change which item is picked in a warehouse, but they change what happens to that item between the warehouse shelf and the shopper taking possession of their order.
+
+    Critically, Modifier values do not change which Product Variant is fulfilled. You cannot track inventory for combinations of Modifier values.
+
+    You can add an adjuster to a Modifier value to override the underlying Product Variant's properties, such as price, weight, and shipping rules.  Not all Modifier types are compatible with adjusters.
+
+    > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
+    
+    ## Resources
+
+    ### Webhooks
+    Learn more about [Product webhook events](/api-docs/store-management/webhooks/webhook-events#products).
+
+    ### Additional Catalog endpoints
+    * [Brands](/docs/rest-catalog/brands)
+    * [Categories](/docs/rest-catalog/categories)
+    * [Category Trees](/docs/rest-catalog/category-trees)
+    * [Products](/docs/rest-catalog/products)
+    * [Product Variants](/docs/rest-catalog/product-variants)
+    * [Product Variant Options](/docs/rest-catalog/product-variant-options)
+
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Product Modifiers
+  - name: Values
+  - name: Images
+paths:
+  '/catalog/products/{product_id}/modifiers':
+    get:
+      tags:
+        - Product Modifiers
+      summary: Get All Product Modifiers
+      description: Returns a list of all *Product Modifiers*. Optional parameters can be passed in.
+      operationId: getModifiers
+      parameters:
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Collection Response
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/productModifier_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+                description: Modifier Collection Response return for /GET All Modifiers.
+              example:
+                data:
+                  - id: 206
+                    product_id: 158
+                    name: Insurance
+                    display_name: Insurace
+                    type: checkbox
+                    required: true
+                    config:
+                      checkbox_label: $5 for insurance
+                      checked_by_default: false
+                    option_values:
+                      - id: 183
+                        option_id: 206
+                        label: 'Yes'
+                        sort_order: 0
+                        value_data:
+                          checked_value: true
+                        is_default: false
+                        adjusters:
+                          price: {}
+                          weight: {}
+                          image_url: ''
+                          purchasing_disabled:
+                            status: false
+                            message: ''
+                      - id: 184
+                        option_id: 206
+                        label: 'No'
+                        sort_order: 1
+                        value_data:
+                          checked_value: false
+                        is_default: true
+                        adjusters:
+                          price: {}
+                          weight: {}
+                          image_url: ''
+                          purchasing_disabled:
+                            status: false
+                            message: ''
+                meta:
+                  pagination:
+                    total: 1
+                    count: 1
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+    post:
+      tags:
+        - Product Modifiers
+      summary: Create a Product Modifier
+      description: |-
+        Creates a *Product Modifier*.
+
+        **Required Fields**
+        * `required`
+        * `display_name`
+        * `type`
+
+        **Read-Only Fields**
+        * `id`
+
+        **Notes**
+        It takes two separate requests to create a new checkbox modifier with option values. Perform a request to create a modifier, then perform a second request to update option values.
+      operationId: createModifier
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Modifier Post
+              description: The model for a POST to create a modifier on a product.
+              allOf:
+                - title: Modifier Base
+                  required:
+                    - required
+                    - type
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: |
+                        BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
+                      enum:
+                        - date
+                        - checkbox
+                        - file
+                        - text
+                        - multi_line_text
+                        - numbers_only_text
+                        - radio_buttons
+                        - rectangles
+                        - dropdown
+                        - product_list
+                        - product_list_with_images
+                        - swatch
+                      x-required:
+                        - post
+                    required:
+                      type: boolean
+                      description: |
+                        Whether or not this modifer is required or not at checkout. Required in a /POST.
+                      x-required:
+                        - post
+                    sort_order:
+                      type: integer
+                      description: The order the modifiers display on the product detail page.
+                    config:
+                      title: Option Config
+                      type: object
+                      properties:
+                        default_value:
+                          type: string
+                          description: |
+                            (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
+                        checked_by_default:
+                          type: boolean
+                          description: |
+                            (checkbox) Flag for setting the checkbox to be checked by default.
+                        checkbox_label:
+                          type: string
+                          description: |
+                            (checkbox) Label displayed for the checkbox option.
+                        date_limited:
+                          type: boolean
+                          description: |
+                            (date) Flag to limit the dates allowed to be entered on a date option.
+                        date_limit_mode:
+                          type: string
+                          description: |
+                            (date) The type of limit that is allowed to be entered on a date option.
+                          example: range
+                          enum:
+                            - earliest
+                            - range
+                            - latest
+                        date_earliest_value:
+                          type: string
+                          description: |
+                            (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                          format: date-time
+                          example: '2018-08-31T00:00:00+00:00'
+                        date_latest_value:
+                          type: string
+                          description: |
+                            (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                          format: date-time
+                          example: '2019-01-01T00:00:00+00:00'
+                        file_types_mode:
+                          type: string
+                          description: |
+                            (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
+                          example: specific
+                          enum:
+                            - specific
+                            - all
+                        file_types_supported:
+                          type: array
+                          description: |
+                            (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                              `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
+                              `other` - Allows file types defined in the `file_types_other` array.
+                          example:
+                            - images
+                            - documents
+                            - other
+                          items:
+                            type: string
+                        file_types_other:
+                          type: array
+                          description: |
+                            (file) A list of other file types allowed with the file upload option.
+                          example:
+                            - pdf
+                            - txt
+                          items:
+                            type: string
+                        file_max_size:
+                          type: integer
+                          description: |
+                            (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
+                          example: 5
+                        text_characters_limited:
+                          type: boolean
+                          description: |
+                            (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
+                        text_min_length:
+                          type: integer
+                          description: |
+                            (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
+                          example: 1
+                        text_max_length:
+                          type: integer
+                          description: |
+                            (text, multi_line_text) The maximum length allowed for a text or multi line text option.
+                          example: 55
+                        text_lines_limited:
+                          type: boolean
+                          description: |
+                            (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
+                          example: true
+                        text_max_lines:
+                          type: integer
+                          description: |
+                            (multi_line_text) The maximum number of lines allowed on a multi-line text input.
+                          example: 4
+                        number_limited:
+                          type: boolean
+                          description: |
+                            (numbers_only_text) Flag to limit the value of a number option.
+                          example: true
+                        number_limit_mode:
+                          type: string
+                          description: |
+                            (numbers_only_text) The type of limit on values entered for a number option.
+                          example: lowest
+                          enum:
+                            - lowest
+                            - highest
+                            - range
+                        number_lowest_value:
+                          type: number
+                          description: |
+                            (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
+                          example: 100
+                        number_highest_value:
+                          type: number
+                          description: |
+                            (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
+                        number_integers_only:
+                          type: boolean
+                          description: |
+                            (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
+                          example: false
+                        product_list_adjusts_inventory:
+                          type: boolean
+                          description: |
+                            (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
+                        product_list_adjusts_pricing:
+                          type: boolean
+                          description: |
+                            (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+                        product_list_shipping_calc:
+                          type: string
+                          description: |
+                            (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+                          example: weight
+                          enum:
+                            - none
+                            - weight
+                            - package
+                      description: The values for option config can vary based on the Modifier created.
+                    option_values:
+                      type: array
+                      items:
+                        title: Modifier Value
+                        type: object
+                        description: 'Part of Modifier Value Response '
+                        allOf:
+                          - title: Modifier Value Base
+                            type: object
+                            allOf:
+                              - title: Option Value Base
+                                required:
+                                  - label
+                                  - sort_order
+                                type: object
+                                properties:
+                                  is_default:
+                                    type: boolean
+                                    description: |
+                                      The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                                    example: false
+                                  label:
+                                    type: string
+                                    description: |
+                                      The text display identifying the value on the storefront. Required in a /POST.
+                                    example: Green
+                                    x-required:
+                                      - post
+                                  sort_order:
+                                    maximum: 2147483647
+                                    minimum: -2147483648
+                                    type: integer
+                                    description: |
+                                      The order in which the value will be displayed on the product page. Required in a /POST.
+                                    example: 0
+                                    x-required:
+                                      - post
+                                  value_data:
+                                    type: object
+                                    properties: {}
+                                    description: |
+                                      Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                                description: Common Option Value properties.
+                              - type: object
+                                properties:
+                                  adjusters:
+                                    type: object
+                                    properties:
+                                      price:
+                                        title: Adjuster
+                                        type: object
+                                        properties:
+                                          adjuster:
+                                            type: string
+                                            description: |
+                                              The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                            enum:
+                                              - relative
+                                              - percentage
+                                            x-nullable: true
+                                          adjuster_value:
+                                            type: number
+                                            description: |
+                                              The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                            example: 5
+                                        description: Adjuster for Complex Rules.
+                                      weight:
+                                        title: Adjuster
+                                        type: object
+                                        properties:
+                                          adjuster:
+                                            type: string
+                                            description: |
+                                              The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                            enum:
+                                              - relative
+                                              - percentage
+                                            x-nullable: true
+                                          adjuster_value:
+                                            type: number
+                                            description: |
+                                              The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                            example: 5
+                                        description: Adjuster for Complex Rules.
+                                      image_url:
+                                        type: string
+                                        description: |
+                                          The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                                        example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                      purchasing_disabled:
+                                        type: object
+                                        properties:
+                                          status:
+                                            type: boolean
+                                            description: |
+                                              Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                          message:
+                                            type: string
+                                            description: |
+                                              The message displayed on the storefront when the purchasing disabled status is `true`.
+                          - type: object
+                            properties:
+                              id:
+                                type: integer
+                                description: |
+                                  The unique numeric ID of the value; increments sequentially.
+                  description: Common Modifier properties.
+                - required:
+                    - display_name
+                  type: object
+                  properties:
+                    display_name:
+                      type: string
+                      description: |
+                        The name of the option shown on the storefront.
+                      example: Donation
+                      x-required:
+                        - post
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Response
+                type: object
+                properties:
+                  data:
+                    title: Modifer
+                    type: object
+                    description: Product Modifier
+                    allOf:
+                      - title: Modifier Base
+                        required:
+                          - required
+                          - type
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            description: |
+                              BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
+                            enum:
+                              - date
+                              - checkbox
+                              - file
+                              - text
+                              - multi_line_text
+                              - numbers_only_text
+                              - radio_buttons
+                              - rectangles
+                              - dropdown
+                              - product_list
+                              - product_list_with_images
+                              - swatch
+                            x-required:
+                              - post
+                          required:
+                            type: boolean
+                            description: |
+                              Whether or not this modifer is required or not at checkout. Required in a /POST.
+                            x-required:
+                              - post
+                          sort_order:
+                            type: integer
+                            description: The order the modifiers display on the product detail page.
+                          config:
+                            title: Option Config
+                            type: object
+                            properties:
+                              default_value:
+                                type: string
+                                description: |
+                                  (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
+                              checked_by_default:
+                                type: boolean
+                                description: |
+                                  (checkbox) Flag for setting the checkbox to be checked by default.
+                              checkbox_label:
+                                type: string
+                                description: |
+                                  (checkbox) Label displayed for the checkbox option.
+                              date_limited:
+                                type: boolean
+                                description: |
+                                  (date) Flag to limit the dates allowed to be entered on a date option.
+                              date_limit_mode:
+                                type: string
+                                description: |
+                                  (date) The type of limit that is allowed to be entered on a date option.
+                                example: range
+                                enum:
+                                  - earliest
+                                  - range
+                                  - latest
+                              date_earliest_value:
+                                type: string
+                                description: |
+                                  (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                                format: date
+                              date_latest_value:
+                                type: string
+                                description: |
+                                  (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                                format: date
+                              file_types_mode:
+                                type: string
+                                description: |
+                                  (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
+                                example: specific
+                                enum:
+                                  - specific
+                                  - all
+                              file_types_supported:
+                                type: array
+                                description: |
+                                  (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                                    `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
+                                    `other` - Allows file types defined in the `file_types_other` array.
+                                items:
+                                  type: string
+                                  example: 'images, documents, other'
+                              file_types_other:
+                                type: array
+                                description: |
+                                  (file) A list of other file types allowed with the file upload option.
+                                items:
+                                  type: string
+                                  example: pdf
+                              file_max_size:
+                                type: integer
+                                description: |
+                                  (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
+                                example: 5
+                              text_characters_limited:
+                                type: boolean
+                                description: |
+                                  (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
+                              text_min_length:
+                                type: integer
+                                description: |
+                                  (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
+                                example: 1
+                              text_max_length:
+                                type: integer
+                                description: |
+                                  (text, multi_line_text) The maximum length allowed for a text or multi line text option.
+                                example: 55
+                              text_lines_limited:
+                                type: boolean
+                                description: |
+                                  (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
+                                example: true
+                              text_max_lines:
+                                type: integer
+                                description: |
+                                  (multi_line_text) The maximum number of lines allowed on a multi-line text input.
+                                example: 4
+                              number_limited:
+                                type: boolean
+                                description: |
+                                  (numbers_only_text) Flag to limit the value of a number option.
+                                example: true
+                              number_limit_mode:
+                                type: string
+                                description: |
+                                  (numbers_only_text) The type of limit on values entered for a number option.
+                                example: lowest
+                                enum:
+                                  - lowest
+                                  - highest
+                                  - range
+                              number_lowest_value:
+                                type: number
+                                description: |
+                                  (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
+                                example: 100
+                              number_highest_value:
+                                type: number
+                                description: |
+                                  (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
+                              number_integers_only:
+                                type: boolean
+                                description: |
+                                  (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
+                                example: false
+                              product_list_adjusts_inventory:
+                                type: boolean
+                                description: |
+                                  (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
+                              product_list_adjusts_pricing:
+                                type: boolean
+                                description: |
+                                  (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+                              product_list_shipping_calc:
+                                type: string
+                                description: |
+                                  (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+                                example: weight
+                                enum:
+                                  - none
+                                  - weight
+                                  - package
+                            description: The values for option config can vary based on the Modifier created.
+                          option_values:
+                            type: array
+                            items:
+                              title: Modifier Value
+                              type: object
+                              description: 'Part of Modifier Value Response '
+                              allOf:
+                                - title: Modifier Value Base
+                                  type: object
+                                  allOf:
+                                    - title: Option Value Base
+                                      required:
+                                        - label
+                                        - sort_order
+                                      type: object
+                                      properties:
+                                        is_default:
+                                          type: boolean
+                                          description: |
+                                            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                                          example: false
+                                        label:
+                                          type: string
+                                          description: |
+                                            The text display identifying the value on the storefront. Required in a /POST.
+                                          example: Green
+                                          x-required:
+                                            - post
+                                        sort_order:
+                                          maximum: 2147483647
+                                          minimum: -2147483648
+                                          type: integer
+                                          description: |
+                                            The order in which the value will be displayed on the product page. Required in a /POST.
+                                          example: 0
+                                          x-required:
+                                            - post
+                                        value_data:
+                                          type: object
+                                          properties: {}
+                                          description: |
+                                            Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                                      description: Common Option Value properties.
+                                    - type: object
+                                      properties:
+                                        adjusters:
+                                          type: object
+                                          properties:
+                                            price:
+                                              title: Adjuster
+                                              type: object
+                                              properties:
+                                                adjuster:
+                                                  type: string
+                                                  description: |
+                                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  enum:
+                                                    - relative
+                                                    - percentage
+                                                  x-nullable: true
+                                                adjuster_value:
+                                                  type: number
+                                                  description: |
+                                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  example: 5
+                                              description: Adjuster for Complex Rules.
+                                            weight:
+                                              title: Adjuster
+                                              type: object
+                                              properties:
+                                                adjuster:
+                                                  type: string
+                                                  description: |
+                                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  enum:
+                                                    - relative
+                                                    - percentage
+                                                  x-nullable: true
+                                                adjuster_value:
+                                                  type: number
+                                                  description: |
+                                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  example: 5
+                                              description: Adjuster for Complex Rules.
+                                            image_url:
+                                              type: string
+                                              description: |
+                                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                                              example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                            purchasing_disabled:
+                                              type: object
+                                              properties:
+                                                status:
+                                                  type: boolean
+                                                  description: |
+                                                    Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                                message:
+                                                  type: string
+                                                  description: |
+                                                    The message displayed on the storefront when the purchasing disabled status is `true`.
+                                - type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                      description: |
+                                        The unique numeric ID of the value; increments sequentially.
+                        description: Common Modifier properties.
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the modifier; increments sequentially.
+                            example: 12
+                          product_id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the product to which the option belongs.
+                            example: 77
+                          name:
+                            type: string
+                            description: |
+                              The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
+                            example: Add-a-$5-Donation1535039590-191
+                          display_name:
+                            type: string
+                            description: |
+                              The name of the option shown on the storefront.
+                            example: Donation
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+        '409':
+          description: |
+            The `Modifier` was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: Modifier
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
+  '/catalog/products/{product_id}/modifiers/{modifier_id}':
+    get:
+      tags:
+        - Product Modifiers
+      summary: Get a Modifier
+      description: Returns a single *Product Modifier*. Optional parameters can be passed in.
+      operationId: getModifierById
+      parameters:
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/productModifier_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    put:
+      tags:
+        - Product Modifiers
+      summary: Update a Modifier
+      description: Updates a *Product Modifier*.
+      operationId: updateModifier
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Modifier Put
+              description: The model for a PUT to update a modifier on a product.
+              allOf:
+                - title: Modifier Base
+                  required:
+                    - required
+                    - type
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: |
+                        BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
+                      enum:
+                        - date
+                        - checkbox
+                        - file
+                        - text
+                        - multi_line_text
+                        - numbers_only_text
+                        - radio_buttons
+                        - rectangles
+                        - dropdown
+                        - product_list
+                        - product_list_with_images
+                        - swatch
+                      x-required:
+                        - post
+                    required:
+                      type: boolean
+                      description: |
+                        Whether or not this modifer is required or not at checkout. Required in a /POST.
+                      x-required:
+                        - post
+                    sort_order:
+                      type: integer
+                      description: The order the modifiers display on the product detail page.
+                    config:
+                      title: Option Config
+                      type: object
+                      properties:
+                        default_value:
+                          type: string
+                          description: |
+                            (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
+                        checked_by_default:
+                          type: boolean
+                          description: |
+                            (checkbox) Flag for setting the checkbox to be checked by default.
+                        checkbox_label:
+                          type: string
+                          description: |
+                            (checkbox) Label displayed for the checkbox option.
+                        date_limited:
+                          type: boolean
+                          description: |
+                            (date) Flag to limit the dates allowed to be entered on a date option.
+                        date_limit_mode:
+                          type: string
+                          description: |
+                            (date) The type of limit that is allowed to be entered on a date option.
+                          example: range
+                          enum:
+                            - earliest
+                            - range
+                            - latest
+                        date_earliest_value:
+                          type: string
+                          description: |
+                            (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                          format: date
+                        date_latest_value:
+                          type: string
+                          description: |
+                            (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                          format: date
+                        file_types_mode:
+                          type: string
+                          description: |
+                            (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
+                          example: specific
+                          enum:
+                            - specific
+                            - all
+                        file_types_supported:
+                          type: array
+                          description: |
+                            (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                              `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
+                              `other` - Allows file types defined in the `file_types_other` array.
+                          items:
+                            type: string
+                            example: 'images, documents, other'
+                        file_types_other:
+                          type: array
+                          description: |
+                            (file) A list of other file types allowed with the file upload option.
+                          items:
+                            type: string
+                            example: pdf
+                        file_max_size:
+                          type: integer
+                          description: |
+                            (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
+                          example: 5
+                        text_characters_limited:
+                          type: boolean
+                          description: |
+                            (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
+                        text_min_length:
+                          type: integer
+                          description: |
+                            (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
+                          example: 1
+                        text_max_length:
+                          type: integer
+                          description: |
+                            (text, multi_line_text) The maximum length allowed for a text or multi line text option.
+                          example: 55
+                        text_lines_limited:
+                          type: boolean
+                          description: |
+                            (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
+                          example: true
+                        text_max_lines:
+                          type: integer
+                          description: |
+                            (multi_line_text) The maximum number of lines allowed on a multi-line text input.
+                          example: 4
+                        number_limited:
+                          type: boolean
+                          description: |
+                            (numbers_only_text) Flag to limit the value of a number option.
+                          example: true
+                        number_limit_mode:
+                          type: string
+                          description: |
+                            (numbers_only_text) The type of limit on values entered for a number option.
+                          example: lowest
+                          enum:
+                            - lowest
+                            - highest
+                            - range
+                        number_lowest_value:
+                          type: number
+                          description: |
+                            (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
+                          example: 100
+                        number_highest_value:
+                          type: number
+                          description: |
+                            (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
+                        number_integers_only:
+                          type: boolean
+                          description: |
+                            (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
+                          example: false
+                        product_list_adjusts_inventory:
+                          type: boolean
+                          description: |
+                            (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
+                        product_list_adjusts_pricing:
+                          type: boolean
+                          description: |
+                            (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+                        product_list_shipping_calc:
+                          type: string
+                          description: |
+                            (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+                          example: weight
+                          enum:
+                            - none
+                            - weight
+                            - package
+                      description: The values for option config can vary based on the Modifier created.
+                    option_values:
+                      type: array
+                      items:
+                        title: Modifier Value
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the value; increments sequentially.
+                        description: 'Part of Modifier Value Response '
+                  description: Common Modifier properties.
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Response
+                type: object
+                properties:
+                  data:
+                    title: Modifer
+                    type: object
+                    description: Product Modifier
+                    allOf:
+                      - title: Modifier Base
+                        required:
+                          - required
+                          - type
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            description: |
+                              BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
+                            enum:
+                              - date
+                              - checkbox
+                              - file
+                              - text
+                              - multi_line_text
+                              - numbers_only_text
+                              - radio_buttons
+                              - rectangles
+                              - dropdown
+                              - product_list
+                              - product_list_with_images
+                              - swatch
+                            x-required:
+                              - post
+                          required:
+                            type: boolean
+                            description: |
+                              Whether or not this modifer is required or not at checkout. Required in a /POST.
+                            x-required:
+                              - post
+                          sort_order:
+                            type: integer
+                            description: The order the modifiers display on the product detail page.
+                          config:
+                            title: Option Config
+                            type: object
+                            properties:
+                              default_value:
+                                type: string
+                                description: |
+                                  (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
+                              checked_by_default:
+                                type: boolean
+                                description: |
+                                  (checkbox) Flag for setting the checkbox to be checked by default.
+                              checkbox_label:
+                                type: string
+                                description: |
+                                  (checkbox) Label displayed for the checkbox option.
+                              date_limited:
+                                type: boolean
+                                description: |
+                                  (date) Flag to limit the dates allowed to be entered on a date option.
+                              date_limit_mode:
+                                type: string
+                                description: |
+                                  (date) The type of limit that is allowed to be entered on a date option.
+                                example: range
+                                enum:
+                                  - earliest
+                                  - range
+                                  - latest
+                              date_earliest_value:
+                                type: string
+                                description: |
+                                  (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                                format: date
+                              date_latest_value:
+                                type: string
+                                description: |
+                                  (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+                                format: date
+                              file_types_mode:
+                                type: string
+                                description: |
+                                  (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
+                                example: specific
+                                enum:
+                                  - specific
+                                  - all
+                              file_types_supported:
+                                type: array
+                                description: |
+                                  (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+                                    `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
+                                    `other` - Allows file types defined in the `file_types_other` array.
+                                items:
+                                  type: string
+                                  example: 'images, documents, other'
+                              file_types_other:
+                                type: array
+                                description: |
+                                  (file) A list of other file types allowed with the file upload option.
+                                items:
+                                  type: string
+                                  example: pdf
+                              file_max_size:
+                                type: integer
+                                description: |
+                                  (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
+                                example: 5
+                              text_characters_limited:
+                                type: boolean
+                                description: |
+                                  (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
+                              text_min_length:
+                                type: integer
+                                description: |
+                                  (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
+                                example: 1
+                              text_max_length:
+                                type: integer
+                                description: |
+                                  (text, multi_line_text) The maximum length allowed for a text or multi line text option.
+                                example: 55
+                              text_lines_limited:
+                                type: boolean
+                                description: |
+                                  (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
+                                example: true
+                              text_max_lines:
+                                type: integer
+                                description: |
+                                  (multi_line_text) The maximum number of lines allowed on a multi-line text input.
+                                example: 4
+                              number_limited:
+                                type: boolean
+                                description: |
+                                  (numbers_only_text) Flag to limit the value of a number option.
+                                example: true
+                              number_limit_mode:
+                                type: string
+                                description: |
+                                  (numbers_only_text) The type of limit on values entered for a number option.
+                                example: lowest
+                                enum:
+                                  - lowest
+                                  - highest
+                                  - range
+                              number_lowest_value:
+                                type: number
+                                description: |
+                                  (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
+                                example: 100
+                              number_highest_value:
+                                type: number
+                                description: |
+                                  (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
+                              number_integers_only:
+                                type: boolean
+                                description: |
+                                  (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
+                                example: false
+                              product_list_adjusts_inventory:
+                                type: boolean
+                                description: |
+                                  (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
+                              product_list_adjusts_pricing:
+                                type: boolean
+                                description: |
+                                  (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+                              product_list_shipping_calc:
+                                type: string
+                                description: |
+                                  (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+                                example: weight
+                                enum:
+                                  - none
+                                  - weight
+                                  - package
+                            description: The values for option config can vary based on the Modifier created.
+                          option_values:
+                            type: array
+                            items:
+                              title: Modifier Value
+                              type: object
+                              description: 'Part of Modifier Value Response '
+                              allOf:
+                                - title: Modifier Value Base
+                                  type: object
+                                  allOf:
+                                    - title: Option Value Base
+                                      required:
+                                        - label
+                                        - sort_order
+                                      type: object
+                                      properties:
+                                        is_default:
+                                          type: boolean
+                                          description: |
+                                            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                                          example: false
+                                        label:
+                                          type: string
+                                          description: |
+                                            The text display identifying the value on the storefront. Required in a /POST.
+                                          example: Green
+                                          x-required:
+                                            - post
+                                        sort_order:
+                                          maximum: 2147483647
+                                          minimum: -2147483648
+                                          type: integer
+                                          description: |
+                                            The order in which the value will be displayed on the product page. Required in a /POST.
+                                          example: 0
+                                          x-required:
+                                            - post
+                                        value_data:
+                                          type: object
+                                          properties: {}
+                                          description: |
+                                            Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                                      description: Common Option Value properties.
+                                    - type: object
+                                      properties:
+                                        adjusters:
+                                          type: object
+                                          properties:
+                                            price:
+                                              title: Adjuster
+                                              type: object
+                                              properties:
+                                                adjuster:
+                                                  type: string
+                                                  description: |
+                                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  enum:
+                                                    - relative
+                                                    - percentage
+                                                  x-nullable: true
+                                                adjuster_value:
+                                                  type: number
+                                                  description: |
+                                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  example: 5
+                                              description: Adjuster for Complex Rules.
+                                            weight:
+                                              title: Adjuster
+                                              type: object
+                                              properties:
+                                                adjuster:
+                                                  type: string
+                                                  description: |
+                                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  enum:
+                                                    - relative
+                                                    - percentage
+                                                  x-nullable: true
+                                                adjuster_value:
+                                                  type: number
+                                                  description: |
+                                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                                  example: 5
+                                              description: Adjuster for Complex Rules.
+                                            image_url:
+                                              type: string
+                                              description: |
+                                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                                              example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                            purchasing_disabled:
+                                              type: object
+                                              properties:
+                                                status:
+                                                  type: boolean
+                                                  description: |
+                                                    Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                                message:
+                                                  type: string
+                                                  description: |
+                                                    The message displayed on the storefront when the purchasing disabled status is `true`.
+                                - type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                      description: |
+                                        The unique numeric ID of the value; increments sequentially.
+                        description: Common Modifier properties.
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the modifier; increments sequentially.
+                            example: 12
+                          product_id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the product to which the option belongs.
+                            example: 77
+                          name:
+                            type: string
+                            description: |
+                              The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
+                            example: Add-a-$5-Donation1535039590-191
+                          display_name:
+                            type: string
+                            description: |
+                              The name of the option shown on the storefront.
+                            example: Donation
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+        '409':
+          description: |
+            The `Modifier` was in conflict with another modifier or option. This is the result of duplicate unique fields, such as `name`.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Modifier` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: Modifier
+    delete:
+      tags:
+        - Product Modifiers
+      summary: Delete a Modifier
+      description: Deletes a *Product Modifier*.
+      operationId: deleteModifierById
+      parameters:
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+  '/catalog/products/{product_id}/modifiers/{modifier_id}/values':
+    get:
+      tags:
+        - Values
+      summary: Get All Modifier Values
+      description: Returns a list of all product *Modifier Values*. Optional parameters can be passed in.
+      operationId: getModifierValues
+      parameters:
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Value Collection Response
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/productModifierOptionValue_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+                description: Returns for GET All Modifier Values on a Product
+              example:
+                data:
+                  - id: 190
+                    option_id: 222
+                    label: 'Yes'
+                    sort_order: 0
+                    value_data:
+                      checked_value: true
+                    is_default: false
+                    adjusters:
+                      price:
+                        adjuster: relative
+                        adjuster_value: 5
+                      weight: {}
+                      image_url: ''
+                      purchasing_disabled:
+                        status: false
+                        message: ''
+                  - id: 191
+                    option_id: 222
+                    label: 'No'
+                    sort_order: 1
+                    value_data:
+                      checked_value: false
+                    is_default: true
+                    adjusters:
+                      price: {}
+                      weight: {}
+                      image_url: ''
+                      purchasing_disabled:
+                        status: false
+                        message: ''
+                meta:
+                  pagination:
+                    total: 2
+                    count: 2
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+    post:
+      tags:
+        - Values
+      summary: Create Modifier Value
+      description: |-
+        Creates a *Modifier Value*.
+
+        **Required Fields**
+        * label
+        * sort_order
+
+        **Read-Only Fields**
+        * id
+      operationId: createModifierValue
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Modifier Value Post
+              description: The model for a POST to create a modifier value on a product.
+              allOf:
+                - title: Modifier Value Base
+                  allOf:
+                    - title: Option Value Base
+                      required:
+                        - label
+                        - sort_order
+                      type: object
+                      properties:
+                        is_default:
+                          type: boolean
+                          description: |
+                            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                          example: false
+                        label:
+                          type: string
+                          description: |
+                            The text display identifying the value on the storefront. Required in a /POST.
+                          example: Green
+                          x-required:
+                            - post
+                        sort_order:
+                          maximum: 2147483647
+                          minimum: -2147483648
+                          type: integer
+                          description: |
+                            The order in which the value will be displayed on the product page. Required in a /POST.
+                          example: 0
+                          x-required:
+                            - post
+                        value_data:
+                          type: object
+                          properties: {}
+                          description: |
+                            Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                      description: Common Option Value properties.
+                    - type: object
+                      properties:
+                        adjusters:
+                          type: object
+                          properties:
+                            price:
+                              title: Adjuster
+                              type: object
+                              properties:
+                                adjuster:
+                                  type: string
+                                  description: |
+                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  nullable: true
+                                  enum:
+                                    - relative
+                                    - percentage
+                                adjuster_value:
+                                  type: number
+                                  description: |
+                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  example: 5
+                              description: Adjuster for Complex Rules.
+                            weight:
+                              title: Adjuster
+                              type: object
+                              properties:
+                                adjuster:
+                                  type: string
+                                  description: |
+                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  nullable: true
+                                  enum:
+                                    - relative
+                                    - percentage
+                                adjuster_value:
+                                  type: number
+                                  description: |
+                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  example: 5
+                              description: Adjuster for Complex Rules.
+                            image_url:
+                              type: string
+                              description: |
+                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                              example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                            purchasing_disabled:
+                              type: object
+                              properties:
+                                status:
+                                  type: boolean
+                                  description: |
+                                    Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                message:
+                                  type: string
+                                  description: |
+                                    The message displayed on the storefront when the purchasing disabled status is `true`.
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Value Response
+                type: object
+                properties:
+                  data:
+                    title: Modifier Value
+                    type: object
+                    description: 'Part of Modifier Value Response '
+                    allOf:
+                      - title: Modifier Value Base
+                        type: object
+                        allOf:
+                          - title: Option Value Base
+                            required:
+                              - label
+                              - sort_order
+                            type: object
+                            properties:
+                              is_default:
+                                type: boolean
+                                description: |
+                                  The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                                example: false
+                              label:
+                                type: string
+                                description: |
+                                  The text display identifying the value on the storefront. Required in a /POST.
+                                example: Green
+                                x-required:
+                                  - post
+                              sort_order:
+                                maximum: 2147483647
+                                minimum: -2147483648
+                                type: integer
+                                description: |
+                                  The order in which the value will be displayed on the product page. Required in a /POST.
+                                example: 0
+                                x-required:
+                                  - post
+                              value_data:
+                                type: object
+                                properties: {}
+                                description: |
+                                  Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                            description: Common Option Value properties.
+                          - type: object
+                            properties:
+                              adjusters:
+                                type: object
+                                properties:
+                                  price:
+                                    title: Adjuster
+                                    type: object
+                                    properties:
+                                      adjuster:
+                                        type: string
+                                        description: |
+                                          The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        enum:
+                                          - relative
+                                          - percentage
+                                        x-nullable: true
+                                      adjuster_value:
+                                        type: number
+                                        description: |
+                                          The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        example: 5
+                                    description: Adjuster for Complex Rules.
+                                  weight:
+                                    title: Adjuster
+                                    type: object
+                                    properties:
+                                      adjuster:
+                                        type: string
+                                        description: |
+                                          The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        enum:
+                                          - relative
+                                          - percentage
+                                        x-nullable: true
+                                      adjuster_value:
+                                        type: number
+                                        description: |
+                                          The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        example: 5
+                                    description: Adjuster for Complex Rules.
+                                  image_url:
+                                    type: string
+                                    description: |
+                                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                                    example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                  purchasing_disabled:
+                                    type: object
+                                    properties:
+                                      status:
+                                        type: boolean
+                                        description: |
+                                          Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                      message:
+                                        type: string
+                                        description: |
+                                          The message displayed on the storefront when the purchasing disabled status is `true`.
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the value; increments sequentially.
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 190
+                  option_id: 222
+                  label: 'Yes'
+                  sort_order: 0
+                  value_data: {}
+                  is_default: false
+                  adjusters:
+                    price:
+                      adjuster: relative
+                      adjuster_value: 5
+                    weight: {}
+                    image_url: ''
+                    purchasing_disabled:
+                      status: false
+                      message: ''
+                meta: {}
+        '422':
+          description: |
+            The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: ModifierValue
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+  '/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}':
+    get:
+      tags:
+        - Values
+      summary: Get a Modifier Value
+      description: Returns a single *Modifier Value*. Optional parameters can be passed in.
+      operationId: getModifierValueById
+      parameters:
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+        - name: value_id
+          in: path
+          description: |
+            The ID of the `Modifier/Option Value`.
+          required: true
+          schema:
+            type: integer
+
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Value Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/productModifierOptionValue_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 190
+                  option_id: 222
+                  label: 'Yes'
+                  sort_order: 0
+                  value_data: {}
+                  is_default: false
+                  adjusters:
+                    price:
+                      adjuster: relative
+                      adjuster_value: 5
+                    weight: {}
+                    image_url: ''
+                    purchasing_disabled:
+                      status: false
+                      message: ''
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - Values
+      summary: Update a Modifier Value
+      description: |-
+        Updates a *Modifier Value*.
+
+        **Required Fields**
+        * none
+
+        **Read-Only Fields**
+        * id
+      operationId: updateModifierValue
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+        - name: value_id
+          in: path
+          description: |
+            The ID of the `Modifier/Option Value`.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Modifier Value Put
+              description: The model for a PUT to update a modifier value on a product.
+              allOf:
+                - title: Modifier Value Base
+                  allOf:
+                    - title: Option Value Base
+                      required:
+                        - label
+                        - sort_order
+                      type: object
+                      properties:
+                        is_default:
+                          type: boolean
+                          description: |
+                            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                          example: false
+                        label:
+                          type: string
+                          description: |
+                            The text display identifying the value on the storefront. Required in a /POST.
+                          example: Green
+                          x-required:
+                            - post
+                        sort_order:
+                          maximum: 2147483647
+                          minimum: -2147483648
+                          type: integer
+                          description: |
+                            The order in which the value will be displayed on the product page. Required in a /POST.
+                          example: 0
+                          x-required:
+                            - post
+                        value_data:
+                          type: object
+                          properties: {}
+                          description: |
+                            Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                      description: Common Option Value properties.
+                    - type: object
+                      properties:
+                        adjusters:
+                          type: object
+                          properties:
+                            price:
+                              title: Adjuster
+                              type: object
+                              properties:
+                                adjuster:
+                                  type: string
+                                  description: |
+                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  nullable: true
+                                  enum:
+                                    - relative
+                                    - percentage
+                                adjuster_value:
+                                  type: number
+                                  description: |
+                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  example: 5
+                              description: Adjuster for Complex Rules.
+                            weight:
+                              title: Adjuster
+                              type: object
+                              properties:
+                                adjuster:
+                                  type: string
+                                  description: |
+                                    The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  nullable: true
+                                  enum:
+                                    - relative
+                                    - percentage
+                                adjuster_value:
+                                  type: number
+                                  description: |
+                                    The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                  example: 5
+                              description: Adjuster for Complex Rules.
+                            image_url:
+                              type: string
+                              description: |
+                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                              example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                            purchasing_disabled:
+                              type: object
+                              properties:
+                                status:
+                                  type: boolean
+                                  description: |
+                                    Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                message:
+                                  type: string
+                                  description: |
+                                    The message displayed on the storefront when the purchasing disabled status is `true`.
+                - type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: |
+                        The unique numeric ID of the value; increments sequentially.
+                      x-required:
+                        - put
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Modifier Value Response
+                type: object
+                properties:
+                  data:
+                    title: Modifier Value
+                    type: object
+                    description: 'Part of Modifier Value Response '
+                    allOf:
+                      - title: Modifier Value Base
+                        type: object
+                        allOf:
+                          - title: Option Value Base
+                            required:
+                              - label
+                              - sort_order
+                            type: object
+                            properties:
+                              is_default:
+                                type: boolean
+                                description: |
+                                  The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+                                example: false
+                              label:
+                                type: string
+                                description: |
+                                  The text display identifying the value on the storefront. Required in a /POST.
+                                example: Green
+                                x-required:
+                                  - post
+                              sort_order:
+                                maximum: 2147483647
+                                minimum: -2147483648
+                                type: integer
+                                description: |
+                                  The order in which the value will be displayed on the product page. Required in a /POST.
+                                example: 0
+                                x-required:
+                                  - post
+                              value_data:
+                                type: object
+                                properties: {}
+                                description: |
+                                  Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
+                            description: Common Option Value properties.
+                          - type: object
+                            properties:
+                              adjusters:
+                                type: object
+                                properties:
+                                  price:
+                                    title: Adjuster
+                                    type: object
+                                    properties:
+                                      adjuster:
+                                        type: string
+                                        description: |
+                                          The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        enum:
+                                          - relative
+                                          - percentage
+                                        x-nullable: true
+                                      adjuster_value:
+                                        type: number
+                                        description: |
+                                          The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        example: 5
+                                    description: Adjuster for Complex Rules.
+                                  weight:
+                                    title: Adjuster
+                                    type: object
+                                    properties:
+                                      adjuster:
+                                        type: string
+                                        description: |
+                                          The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        enum:
+                                          - relative
+                                          - percentage
+                                        x-nullable: true
+                                      adjuster_value:
+                                        type: number
+                                        description: |
+                                          The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+                                        example: 5
+                                    description: Adjuster for Complex Rules.
+                                  image_url:
+                                    type: string
+                                    description: |
+                                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+                                    example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                  purchasing_disabled:
+                                    type: object
+                                    properties:
+                                      status:
+                                        type: boolean
+                                        description: |
+                                          Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+                                      message:
+                                        type: string
+                                        description: |
+                                          The message displayed on the storefront when the purchasing disabled status is `true`.
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: |
+                              The unique numeric ID of the value; increments sequentially.
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 190
+                  option_id: 222
+                  label: 'Yes'
+                  sort_order: 0
+                  value_data: {}
+                  is_default: false
+                  adjusters:
+                    price:
+                      adjuster: relative
+                      adjuster_value: 5
+                    weight: {}
+                    image_url: ''
+                    purchasing_disabled:
+                      status: false
+                      message: ''
+                meta: {}
+        '422':
+          description: |
+            The `ModifierValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: ModifierValue
+    delete:
+      tags:
+        - Values
+      summary: Delete Modifier Value
+      description: Deletes a *Modifier Value*.
+      operationId: deleteModifierValueById
+      parameters:
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+        - name: value_id
+          in: path
+          description: |
+            The ID of the `Modifier/Option Value`.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+      - $ref: '#/components/parameters/ValueIdParam'
+  '/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}/image':
+    post:
+      tags:
+        - Images
+      summary: Create Modifier Image
+      description: |-
+        Creates a *Modifier Image*.
+
+        The image will show on the storefront when the value is selected.
+
+         **Required Fields**
+        - image_file: Form posts are the only accepted upload option.
+      operationId: createModifierImage
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - name: modifier_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+        - name: value_id
+          in: path
+          description: |
+            The ID of the `Modifier`.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Image Response
+                type: object
+                properties:
+                  data:
+                    title: Resource Image
+                    type: object
+                    properties:
+                      image_url:
+                        type: string
+                        description: |
+                          A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
+                    description: 'An object containing a publicly accessible image URL, or a form post that contains an image file.'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+                description: |-
+                  Image Response returns for:
+                  * Create Variant Image
+                  * Create Modifier Image
+                  * Create Category Image
+                  * Create Brand Image
+              example:
+                data:
+                  image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png'
+                meta: {}
+        '400':
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+        '422':
+          description: |
+            Modifier image was not valid. This is the result of missing `image_file` fields, or of a non-URL value for the `image_file` field. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+      - $ref: '#/components/parameters/ValueIdParam'
+components:
+  schemas:
+    productModifier_Base:
+      title: productModifier_Base
+      required:
+        - required
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: |
+            BigCommerce API, which determines how it will display on the storefront. Acceptable values: `date`, `checkbox`, `file`, `text`, `multi_line_text`, `numbers_only_text`, `radio_buttons`, `rectangles`, `dropdown`, `product_list`, `product_list_with_images`, `swatch`. Required in a /POST.
+          enum:
+            - date
+            - checkbox
+            - file
+            - text
+            - multi_line_text
+            - numbers_only_text
+            - radio_buttons
+            - rectangles
+            - dropdown
+            - product_list
+            - product_list_with_images
+            - swatch
+          x-required:
+            - post
+        required:
+          type: boolean
+          description: |
+            Whether or not this modifer is required or not at checkout. Required in a /POST.
+          x-required:
+            - post
+        sort_order:
+          type: integer
+          description: The order the modifiers display on the product detail page.
+        config:
+          $ref: '#/components/schemas/config_Full'
+        display_name:
+          type: string
+          description: The name of the option shown on the storefront.
+      description: Common Modifier properties.
+      x-internal: false
+    productModifier_Full:
+      title: productModifier_Full
+      description: Product Modifier
+      allOf:
+        - $ref: '#/components/schemas/productModifier_Base'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: |
+                The unique numeric ID of the modifier; increments sequentially.
+              example: 12
+            product_id:
+              type: integer
+              description: |
+                The unique numeric ID of the product to which the option belongs.
+              example: 77
+            name:
+              type: string
+              description: |
+                The unique option name. Auto-generated from the display name, a timestamp, and the product ID.
+              example: Add-a-$5-Donation1535039590-191
+            option_values:
+              type: array
+              items:
+                $ref: '#/components/schemas/productModifierOptionValue_Full'
+      x-internal: false
+    productModifierOptionValue_Base:
+      title: productModifierOptionValue_Base
+      required:
+        - label
+        - sort_order
+      type: object
+      properties:
+        is_default:
+          type: boolean
+          description: |
+            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
+          example: false
+        label:
+          type: string
+          description: |
+            The text display identifying the value on the storefront. Required in a /POST.
+          example: Green
+          x-required:
+            - post
+        sort_order:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          description: |
+            The order in which the value will be displayed on the product page. Required in a /POST.
+          example: 0
+          x-required:
+            - post
+        value_data:
+          type: object
+          properties: {}
+          description: |
+            Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
+          nullable: true
+        adjusters:
+          $ref: '#/components/schemas/adjusters_Full'
+      description: Common Product Modifer `option_value` properties.
+      x-internal: false
+    productModifierOptionValue_Full:
+      title: productModifierOptionValue_Full
+      description: Product Modifer `option_value`.
+      allOf:
+        - $ref: '#/components/schemas/productModifierOptionValue_Base'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: |
+                The unique numeric ID of the value; increments sequentially.
+            option_id:
+              type: integer
+      x-internal: false
+    adjuster_Full:
+      title: adjuster_Full
+      type: object
+      properties:
+        adjuster:
+          type: string
+          description: |
+            The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
+          nullable: true
+          enum:
+            - relative
+            - percentage
+        adjuster_value:
+          type: number
+          description: |
+            The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
+          example: 5
+      description: Adjuster for Complex Rules.
+      x-internal: false
+    metaCollection_Full:
+      title: metaCollection_Full
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination_Full'
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    pagination_Full:
+      title: pagination_Full
+      type: object
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 36
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+          example: 36
+        per_page:
+          type: integer
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
+          example: 50
+        current_page:
+          type: integer
+          description: |
+            The page you are currently on within the collection.
+          example: 1
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+          example: 1
+        links:
+          type: object
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+              example: '?page=1&limit=50'
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    metaEmpty_Full:
+      type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    config_Full:
+      title: config_Full
+      type: object
+      properties:
+        default_value:
+          type: string
+          description: |
+            (date, text, multi_line_text, numbers_only_text) The default value. Shown on a date option as an ISO-8601–formatted string, or on a text option as a string.
+        checked_by_default:
+          type: boolean
+          description: |
+            (checkbox) Flag for setting the checkbox to be checked by default.
+        checkbox_label:
+          type: string
+          description: |
+            (checkbox) Label displayed for the checkbox option.
+        date_limited:
+          type: boolean
+          description: |
+            (date) Flag to limit the dates allowed to be entered on a date option.
+        date_limit_mode:
+          type: string
+          description: |
+            (date) The type of limit that is allowed to be entered on a date option.
+          example: range
+          enum:
+            - earliest
+            - range
+            - latest
+        date_earliest_value:
+          type: string
+          description: |
+            (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+          format: date
+        date_latest_value:
+          type: string
+          description: |
+            (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
+          format: date
+        file_types_mode:
+          type: string
+          description: |
+            (file) The kind of restriction on the file types that can be uploaded with a file upload option. Values: `specific` - restricts uploads to particular file types; `all` - allows all file types.
+          example: specific
+          enum:
+            - specific
+            - all
+        file_types_supported:
+          type: array
+          description: |
+            (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
+              `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
+              `other` - Allows file types defined in the `file_types_other` array.        
+          items:
+            type: string
+            example: 'images, documents, other'
+        file_types_other:
+          type: array
+          description: |
+            (file) A list of other file types allowed with the file upload option.
+          items:
+            type: string
+            example: pdf
+        file_max_size:
+          type: integer
+          description: |
+            (file) The maximum size for a file that can be used with the file upload option. This will still be limited by the server.
+          example: 5
+        text_characters_limited:
+          type: boolean
+          description: |
+            (text, multi_line_text) Flag to validate the length of a text or multi-line text input.
+        text_min_length:
+          type: integer
+          description: |
+            (text, multi_line_text) The minimum length allowed for a text or multi-line text option.
+          example: 1
+        text_max_length:
+          type: integer
+          description: |
+            (text, multi_line_text) The maximum length allowed for a text or multi line text option.
+          example: 55
+        text_lines_limited:
+          type: boolean
+          description: |
+            (multi_line_text) Flag to validate the maximum number of lines allowed on a multi-line text input.
+          example: true
+        text_max_lines:
+          type: integer
+          description: |
+            (multi_line_text) The maximum number of lines allowed on a multi-line text input.
+          example: 4
+        number_limited:
+          type: boolean
+          description: |
+            (numbers_only_text) Flag to limit the value of a number option.
+          example: true
+        number_limit_mode:
+          type: string
+          description: |
+            (numbers_only_text) The type of limit on values entered for a number option.
+          example: lowest
+          enum:
+            - lowest
+            - highest
+            - range
+        number_lowest_value:
+          type: number
+          description: |
+            (numbers_only_text) The lowest allowed value for a number option if `number_limited` is true.
+          example: 100
+        number_highest_value:
+          type: number
+          description: |
+            (numbers_only_text) The highest allowed value for a number option if `number_limited` is true.
+        number_integers_only:
+          type: boolean
+          description: |
+            (numbers_only_text) Flag to limit the input on a number option to whole numbers only.
+          example: false
+        product_list_adjusts_inventory:
+          type: boolean
+          description: |
+            (product_list, product_list_with_images) Flag for automatically adjusting inventory on a product included in the list.
+        product_list_adjusts_pricing:
+          type: boolean
+          description: |
+            (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+        product_list_shipping_calc:
+          type: string
+          description: |
+            (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+          example: weight
+          enum:
+            - none
+            - weight
+            - package
+      description: The values for option config can vary based on the Modifier created.
+      x-internal: false
+    adjusters_Full:
+      title: adjusters_Full
+      type: object
+      properties:
+        price:
+          $ref: '#/components/schemas/adjuster_Full'
+        weight:
+          $ref: '#/components/schemas/adjuster_Full'
+        image_url:
+          type: string
+          description: |
+            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
+          example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+        purchasing_disabled:
+          type: object
+          properties:
+            status:
+              type: boolean
+              description: |
+                Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
+            message:
+              type: string
+              description: |
+                The message displayed on the storefront when the purchasing disabled status is `true`.
+      x-internal: false
+  parameters:
+    ProductIdParam:
+      name: product_id
+      in: path
+      description: |
+        The ID of the `Product` to which the resource belongs.
+      required: true
+      schema:
+        type: integer
+    ModifierIdParam:
+      name: modifier_id
+      description: |
+        The ID of the `Modifier`.
+      required: true
+      in: path
+      schema:
+        type: integer
+    ValueIdParam:
+      name: value_id
+      description: |
+        The ID of the `Modifier/Option Value`.
+      required: true
+      in: path
+      schema:
+        type: integer
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Products | modify | `store_v2_products` |
+        |  Products | read-only | `store_v2_products_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
