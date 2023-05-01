@@ -1,41 +1,41 @@
 # Scripts API
 
-The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
+The BigCommerce Scripts API gives developers the ability to deploy scripts on store pages programmatically, without including it in a Stencil theme or pasting a snippet of code into the control panel manually. You can insert many types of scripts using this API, including the following:
 
 * Analytics scripts
 * Single-click app scripts
 * Live chat and support plugins
 * Theme extensions or connector apps
 
+After a merchant installs your app, the app can freely update its scripts. If desired, you can automatically remove scripts when a merchant uninstalls your app.
 
-## Script Manager API partner guidelines
+>>>> diataxis type(s)
+
+This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process from the merchant perspective, see our Help Center article on [Installing Apps](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel?language=en_US#installing). For information on responding to app installation callbacks, see our article on [Implementing OAuth](/api-docs/apps/guide/auth).
 
 
-With the Script Manager API, your apps now can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. After installing your app, you can freely update these scripts and, if desired, automatically remove scripts if you uninstall your app.
+## Transitioning your app
 
-The process of installing apps on our latest theme (Stencil) is relatively straightforward. However, if your app is already live, you may have already asked merchants to paste a code snippet in one of these two sections in the control panel:
+If your app is already live, you may have previously asked merchants to paste a code snippet into one of these two sections in the control panel:
 
 - Footer Scripts
 - Web Analytics
 
-Also, since our older (Blueprint-based) themes do not support the Script Manager API, you’ll still need some way of providing users of older themes the documentation they need, without burdening users of newer themes with additional, unnecessary steps.
+Because our older Blueprint-based themes do not support the Scripts API, your app still needs some way of providing users of older themes the information they need to get started, without burdening users of Stencil or headless storefronts with additional unnecessary steps.
 
-To help you transition to the Script Manager API, we’ve provided some recommended strategies to deal with these different situations. 
+To ease your app's transition to using the Scripts API, we recommend one or more of the following strategies, depending on your app's ecosystem and customer base. 
 
-#### Stencil vs Blueprint
+### Stencil vs Blueprint
 
-As mentioned above, BigCommerce supports two theme engines: Stencil and Blueprint. Stencil is our latest technology, and all new stores only have access to Stencil themes. However, older stores use our legacy theme engine, Blueprint, which cannot render scripts inserted through the Script Manager API.
+Storefront-wise, newer stores have access to Stencil themes and headless frontends. In addition to those two frameworks, older stores may use our legacy theme engine, Blueprint, which cannot render scripts inserted using the Scripts API.
 
-Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](/api/#oauth-scopes)).
-
-## Prerequisites
-This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
+Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Scripts API. To do this, use the [Get Store Information API](/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](/api/#oauth-scopes)).
 
 ## Upgrades and installation
 
 ### Installing an app on Stencil
 
-We recommend inserting your scripts immediately after receiving the POST response during the Auth Callback flow for apps installed on Stencil stores. Add your scripts using the Create Script endpoint of the Script Manager API.
+We recommend inserting your scripts immediately after receiving the POST response during the Auth Callback flow for apps installed on Stencil stores. Add your scripts using the Create Script endpoint of the Scripts API.
 
 We highly recommend leaving the `auto_uninstall` flag set to true, so that your app will properly clean itself up when uninstalled. Find more information about this flag <a href="#script_object-properties">here</a>.
 
@@ -47,25 +47,25 @@ If you already released your app, you may have existing users with pasted-in cod
 __Do nothing__
 
 
-If you don’t need to upgrade existing merchants to the Script Manager API, it’s perfectly fine to leave them. You’ll need to maintain documentation for the manual uninstallation process so that merchants with older installations know what to clean up. You won’t be able to update or add scripts for these users automatically. 
+If you don’t need to upgrade existing merchants to the Scripts API, it’s perfectly fine to leave them. You’ll need to maintain documentation for the manual uninstallation process so that merchants with older installations know what to clean up. You won’t be able to update or add scripts for these users automatically. 
 
  __Prompt merchants to upgrade__
 
 
 If you want your merchants to update to the new Script Manager over time, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Script Manager to know whether you need to display this prompt. Use the [Get Store Information](/api-reference/store-management/store-information-api/store-information/getstore) endpoint to make sure they are running Stencil before prompting them to upgrade.
 
-Once a user decides to upgrade, you can walk them through removing the old pasted-in code in their control panel, and then, once the merchant clicks a button, install your scripts through the Script Manager API.
+Once a user decides to upgrade, you can walk them through removing the old pasted-in code in their control panel, and then, once the merchant clicks a button, install your scripts through the Scripts API.
 
-__Silently upgrade to the Script Manager API__
+__Silently upgrade to the Scripts API__
 
 
-Finally, suppose your old, pasted-in scripts can live alongside the new Script Manager API scripts. In that case, you may be able to upgrade to using the Script Manager API without any user intervention required. Whether or not this is possible will vary depending on the implementation of your app.
+Finally, suppose your old, pasted-in scripts can live alongside the new Scripts API scripts. In that case, you may be able to upgrade to using the Scripts API without any user intervention required. Whether or not this is possible will vary depending on the implementation of your app.
 
-While your merchants will be loading more data on their storefront pages than necessary, this method will allow you to transition to using the Script Manager API for all of your installations immediately. Keep in mind you’ll still need to document the manual uninstallation process for existing installations.
+While your merchants will be loading more data on their storefront pages than necessary, this method will allow you to transition to using the Scripts API for all of your installations immediately. Keep in mind you’ll still need to document the manual uninstallation process for existing installations.
 
 ### Installing apps on Blueprint stores 
 
-As mentioned, the Blueprint theme engine does not support the Script Manager API. You will not be able to render any scripts inserted through this API on any storefront pages. To prevent unpredictable behavior, should a user change their theme, we highly recommend checking the Get Store Information endpoint for Stencil support before installing any scripts through the Script Manager API. Additionally, you’ll still want to show the old manual installation steps when a store does not support Stencil. 
+As mentioned, the Blueprint theme engine does not support the Scripts API. You will not be able to render any scripts inserted through this API on any storefront pages. To prevent unpredictable behavior, should a user change their theme, we highly recommend checking the Get Store Information endpoint for Stencil support before installing any scripts through the Scripts API. Additionally, you’ll still want to show the old manual installation steps when a store does not support Stencil. 
 
 ### Existing Blueprint installations 
 
