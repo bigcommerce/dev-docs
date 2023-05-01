@@ -11,7 +11,7 @@ After a merchant installs your app, the app can freely update its scripts. If de
 
 >>>> diataxis type(s)
 
-This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process from the merchant perspective, see our Help Center article on [Installing Apps](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel?language=en_US#installing). For information on responding to app installation callbacks, see our article on [Implementing OAuth](/api-docs/apps/guide/auth).
+This article contains detailed information about the Scripts API and assumes you're familiar with the BigCommerce App Installation process. For more information on the app installation process from the merchant perspective, see our Help Center article on [Installing Apps](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel?language=en_US#installing). For information on responding to app installation callbacks, see our article on [Implementing OAuth](/api-docs/apps/guide/auth).
 
 
 ## Transitioning your app
@@ -100,7 +100,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 ## Notes
 
 - If you are injecting scripts into the checkout, you will need to use the Checkout Content OAuth scope. For more about API accounts and OAuth scopes, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication).
-- Merchants will be able to see the scripts installed on the store in the Control Panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
+- Merchants can see the scripts installed on the store in the control panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
 - Scripts can be located in the header `{{head.scripts}}` or footer `{{footer.scripts}}`.
 - Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.
 - The current visibility options are `storefront`, `checkout`, `all_pages`, and `order_confirmation`.
