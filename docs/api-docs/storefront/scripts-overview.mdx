@@ -52,7 +52,7 @@ If you don’t need to upgrade existing merchants to the Script Manager API, it�
  __Prompt merchants to upgrade__
 
 
-If you want your merchants to update to the new Script Manager over time, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Script Manager to know whether you need to display this prompt. Make sure to check that they are running Stencil (via the Get Store Information endpoint) before prompting them to upgrade.
+If you want your merchants to update to the new Script Manager over time, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Script Manager to know whether you need to display this prompt. Use the [Get Store Information](/api-reference/store-management/store-information-api/store-information/getstore) endpoint to make sure they are running Stencil before prompting them to upgrade.
 
 Once a user decides to upgrade, you can walk them through removing the old pasted-in code in their control panel, and then, once the merchant clicks a button, install your scripts through the Script Manager API.
 
@@ -99,12 +99,12 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 ## Notes
 
-- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can only create accounts.
+- If you are injecting scripts into the checkout, you will need to use the Checkout Content OAuth scope. For more about API accounts and OAuth scopes, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication).
 - Merchants will be able to see the scripts installed on the store in the Control Panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
 - Scripts can be located in the header `{{head.scripts}}` or footer `{{footer.scripts}}`.
 - Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.
 - The current visibility options are `storefront`, `checkout`, `all_pages`, and `order_confirmation`.
-- Scripts injected via the Scripts API will not render when you are developing a theme locally via Stencil CLI.
+- Scripts injected with the Scripts API will not render when you are developing a theme locally using Stencil CLI.
 - Each app can have 10 scripts. 
 - You can install up to five scripts in a single call. 
 
