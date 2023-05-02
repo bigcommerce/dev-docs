@@ -108,24 +108,6 @@ Learn more about deleting an account-level API account by visiting our Knowledge
 
 All in all, the Account-level API accounts on the BigCommerce platform provide merchants and developers with a powerful tool-set for building custom integrations and solutions that can help streamline and automate various processes.
 
-## Choosing the right kind of API account
-
-Where all three types of API accounts are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article.
-
-| API or Use Case | App-level API Account | Store-level API Account | Account-level API Account |
-|:----------------|:---------------:|:-----------------:|:---:|
-| [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; | |
-| [GraphQL Admin API](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; | &times; |
-| [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) |  | &times; |
-| [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) |  | &times; |
-| [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | &times; |  | &times; |
-| [Current Customer API](/api-docs/getting-started/authentication#client-id) | &times; |  | &times; |
-| [Payments API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; | &times; |
-| [Apps that host REST Provider APIs (provider apps)](/api-docs/getting-started/authentication#developer-configured-authentication) | &times; |  | &times; |
-| Apps hosted in the store control panel (single-click app) | &times; |  | &times; |
-| Manual connection between a third-party app and a store |  | &times; | &times; |
-| Single-store front-end scripts |  | &times; | |
-
 ## Migrating from legacy to OAuth
 
 <Callout type="warning">
@@ -222,13 +204,13 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/docs/rest-management/channels) |
 | Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
-| Account | read-only | `account_read` | View account details | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Users | read-only | `account_users_read` | View the users associated with an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Users | write | `account_users_write` | Add a user to an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Users | write | `account_users_write` | Create a user with a password for an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
-| Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Users API Overview](/docs/graphql-users/overview) |
+| Account | read-only | `account_read` | View account details | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Users | read-only | `account_users_read` | View the users associated with an account | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Users | write | `account_users_write` | Add a user to an account | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Users | write | `account_users_write` | Create a user with a password for an account | [GraphQL Users API Overview](/docs/graphql-users) |
+| Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Users API Overview](/docs/graphql-users) |
 
 ## Resources
 * [Authentication and Example Requests](/api-docs/getting-started/authentication)
