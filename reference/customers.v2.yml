@@ -959,11 +959,18 @@ paths:
             type: boolean
       responses:
         '200':
-          description: ''
+          description: The request was successful.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/customerGroup_Full'
+        '400':
+          description: |-
+            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
     put:
       tags:
         - Customer Groups
@@ -1018,8 +1025,15 @@ paths:
       operationId: deleteACustomerGroup
       responses:
         '204':
-          description: ''
+          description: No content. Request was successful but produced no response.
           content: {}
+        '400':
+          description: |-
+            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
   '/customer_groups/count':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -1429,6 +1443,7 @@ components:
         notes:
           type: string
           description: Store-owner notes on the customer.
+        
         tax_exempt_category:
           type: string
           description: 'If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
@@ -1473,6 +1488,28 @@ components:
         - first_name
         - last_name
         - email
+    ErrorRequest:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorBasic'
+    ErrorBasic:
+      type: object
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+      x-tags:
+        - Models   
     customerAddress_Base:
       title: customerAddress_Base
       required:
