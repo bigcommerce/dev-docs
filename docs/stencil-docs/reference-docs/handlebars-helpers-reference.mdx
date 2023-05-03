@@ -1,7 +1,7 @@
 
 # Handlebars Helpers Reference
 
-This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
 
 
 ## Custom helpers
@@ -270,7 +270,6 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
 
   - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
 - `cors` - (String)
-  - Corresponds to the `rel` attribute in `<link>`.
   - Value can be any of `no`, `anonymous`, `use-credentials`.
   - Defaults to `no` when no value is provided.
   - This parameter is optional.
@@ -1473,7 +1472,7 @@ Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region
 {{assignVar key value}}
 ```
 
-Assigns a variable for later use in the template.
+Assigns a variable for later use in the template and has a limit of 50 variables in storage.
 
 #### Parameters
 
@@ -1598,10 +1597,10 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 ## Standard helpers
 
 
-The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
+The following table contains acceptlisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
-| **Helper** | **Category** | **Description** |
-| --- | --- | --- |
+| Helper | Category | Description |
+|:-------|:---------|:------------|
 | [after](https://github.com/helpers/handlebars-helpers#after) | array | Returns all of the items in an array after the specified index. |
 | [arrayify](https://github.com/helpers/handlebars-helpers#arrayify)| array | Casts the given value to an array. |
 | [before](https://github.com/helpers/handlebars-helpers#before) | array | Returns all of the items in the collection before the specified count. |
