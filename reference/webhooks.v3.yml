@@ -313,6 +313,7 @@ paths:
       tags:
         - Webhook Events
       summary: Get Events
+      deprecated: true
       parameters:
         - $ref: '#/components/parameters/FilterPageParam'
         - $ref: '#/components/parameters/FilterLimitParam'
@@ -3026,6 +3027,7 @@ components:
           type: boolean
           example: true
           description: Boolean value that identifies whether events are stored that could not be received.
+          deprecated: true
         headers:
           type: object
           description: 'Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned. '
