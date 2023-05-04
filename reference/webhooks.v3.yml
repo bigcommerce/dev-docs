@@ -3026,7 +3026,7 @@ components:
         events_history_enabled:
           type: boolean
           example: true
-          description: *Deprecated*. Boolean value that identifies whether events are stored that could not be received.
+          description: Deprecated. Boolean value that identifies whether events are stored that could not be received.
           deprecated: true
         headers:
           type: object
