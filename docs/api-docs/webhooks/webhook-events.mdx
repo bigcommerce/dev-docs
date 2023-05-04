@@ -254,6 +254,34 @@ Payload objects with the following scopes take the form that follows:
 
 Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
 
+## Metafields
+
+| Name / Scope             | Description |
+|:-------------------------|:------------|
+| store/metafield/*        | Subscribe to all store/metafields events.  |
+| store/metafield/created  | This webhook will fire whenever a new metafield on any object is created.  |
+| store/metafield/updated  | Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook. |
+| store/metafield/deleted  | When a metafield is deleted. |
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/metafield/created`
+* `store/metafield/updated`
+* `store/metafield/deleted`
+
+```json filename="Example metafield payload object" showLineNumbers copy
+{
+    "scope": "store/metafield/created",
+    "store_id": "1025646",
+    "data": {
+        "type": "metafield", // will always be metafield
+        "id": 250 // ID of the order
+    },
+    "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
+    "created_at": 1561479335,
+    "producer": "stores/{store_hash}"
+}
+```
 ## Notifications
 
 Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
