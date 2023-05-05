@@ -12,17 +12,25 @@ B2B Edition offers multiple B2B feature enhancements to your BigCommerce store, 
 - Shared shopping lists and "buy again" functionality
 - Sales representative enablement tools
 - Quote management
-- Invoice & payment management
+- Invoice & payment management (Stencil only; Buyer Portal-based invoicing features are in development)
 
 For a more complete list of B2B Edition feature enhancements, see our Help Center [article on B2B Edition's features](https://support.bigcommerce.com/s/article/B2B-Edition#features).
+
+## Stencil versus the Buyer Portal
+
+The shopping frontend of B2B Edition for Stencil runs on Stencil storefronts alone, whereas the [B2B Edition Buyer Portal](https://support.bigcommerce.com/s/article/B2B-Edition-Buyer-Functions#buyer-portal) is storefront technology-agnostic. 
+
+The Buyer Portal uses the [Scripts API](/api-docs/store-management/scripts-overview) to deploy a React app that accomplishes many of the same things as B2B Edition for Stencil. It is Stencil-compatible, but does not use Stencil's context or Handlebars theme objects.
+
+The Buyer Portal is also channel-aware and [MSF-optimized](/api-docs/apps/multi-storefront). The backend can manage B2B functionality on multiple storefronts.
+
+For more on the differences, see our Help Center article on the [Buyer Portal](https://support.bigcommerce.com/s/article/B2B-Edition-Buyer-Functions#buyer-portal). We encourage businesses who are installing B2B Edition for the first time to use the Buyer Portal, as the B2B Edition team is actively developing the Buyer Portal and adding new features regularly. If you choose to use the Buyer Portal, this article is not relevant to your implementation.
 
 ## Installing and locating the app
 
 If your development sandbox or merchant store didn't come with B2B Edition pre-installed, reach out to your BigCommerce representative. You can also download the app from the [B2B Edition information page](https://www.bigcommerce.com/apps/b2b-edition/) in the Apps Marketplace.
 
 The B2B Edition backend settings are accessible in the **Apps > [My Apps](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps)** menu of the store control panel. The client-facing portions of the app load dynamically with JavaScript. 
-
-The shopping frontend of B2B Edition for Stencil runs on Stencil storefronts alone, whereas the [B2B Edition Buyer Portal]() is storefront technology-agnostic. The Buyer Portal uses the [Scripts API](/api-docs/store-management/scripts-overview) to deploy a React app that accomplishes many of the same things as B2B Edition for Stencil. For more on the differences, see our Help Center article on the [Buyer Portal](). 
 
 ## Customizing B2B Edition for Stencil
 
@@ -36,7 +44,7 @@ This section gives details on how to edit the DOM, CSS, and display text in a B2
 
 - [Node.js 14+ and npm](https://nodejs.org/en/download/releases/)
 - The [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-- A [Stencil API token](>>>>) 
+- A Stencil-scoped [API account access_token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil), to push your custom B3-optimized theme to a store
 - A text editor or IDE, such as [VS Code](https://visualstudio.microsoft.com)
 - Access to a BigCommerce store control panel with store owner permissions
 
