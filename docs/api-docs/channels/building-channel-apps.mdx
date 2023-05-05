@@ -46,7 +46,7 @@ These components can dramatically accelerate the development process by providin
 
 ## Creating a channel
 
-After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-access_token-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/docs/rest-management/channels#create-a-channel).
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-access_token-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
