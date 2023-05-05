@@ -1,8 +1,8 @@
 # Building Channel Apps
 
-Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with point-of-sale devices, [headless storefronts](/api-docs/storefronts/developers-guide-headless), online marketplaces, marketing platforms, and social networking sites. BigCommerce lists all approved channel apps on the [App Marketplace](https://www.bigcommerce.com/apps/) and markets channel apps developed by [select partners](https://www.bigcommerce.com/partners/) in [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager).
+Using BigCommerce's [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference), developers can create channel apps that integrate with point-of-sale devices, [headless storefronts](/api-docs/storefronts/developers-guide-headless), online marketplaces, marketing platforms, and social networking sites. BigCommerce lists all approved channel apps on the [App Marketplace](https://www.bigcommerce.com/apps/) and markets channel apps developed by [select partners](https://www.bigcommerce.com/partners/) in [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager).
 
-This article is a comprehensive guide on the foundations of integrating [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference) into [single-click apps](/api-docs/apps/guide/types). For a high-level overview of channels on BigCommerce, see [Channels Overview](/api-docs/channels/channels-overview).
+This article is a comprehensive guide on the foundations of integrating [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference) into [single-click apps](/api-docs/apps/guide/types). For a high-level overview of channels on BigCommerce, see [Channels Overview](/api-docs/channels/guide/overview).
 
 ## Getting started
 
@@ -12,7 +12,7 @@ Here are a few things you will need to create channel apps.
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://partners.bigcommerce.com/English/) (required to publish apps)
 4. [Familiarity with building apps](/api-docs/apps/guide/intro)
-5. [High-level understanding of channels](/api-docs/channels/channels-overview)
+5. [High-level understanding of channels](/api-docs/channels/guide/overview)
 
 ## Beginning development
 
@@ -46,7 +46,7 @@ These components can dramatically accelerate the development process by providin
 
 ## Creating a channel
 
-After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/docs/rest-management/channels#create-a-channel).
+After receiving the [`POST` response](/api-docs/apps/guide/auth#receiving-the-access_token-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to [`/stores/{{STORE_HASH}}/v3/channels`](/docs/rest-management/channels#create-a-channel).
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -149,7 +149,7 @@ To support these workflows from a UI perspective, you may need to include the fo
 - Button
 - Spinner
 
-For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/docs/rest-management/catalog).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/store-management/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/docs/rest-management/catalog).
 
 ## Creating listings
 
@@ -302,9 +302,9 @@ Channel apps are embedded in the BigCommerce control panel. As such, they need t
 
 - [Becoming a Partner](/api-docs/partner/becoming-a-partner)
 - [Introduction to Building Apps](/api-docs/apps/guide/intro)
-- [Developer's Guide to Building Headless Storefronts](/api-docs/storefronts/developers-guide-headless)
+- [Developer's Guide to Building Headless Storefronts](/api-docs/storefronts/guide/overview)
 - [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 - [Channel app approval requirements](/api-docs/channels/guide/channel-app-requirements)
 - [BigDesign Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
-- [Extending Existing Apps with Channels Toolkit](/api-docs/channels/tutorials/extend-existing-apps)
+- [Extending Existing Apps with Channels Toolkit](/api-docs/channels/guide/extending-existing-apps)
 - [Building Storefront Channels](/api-docs/channels/tutorials/storefront)
