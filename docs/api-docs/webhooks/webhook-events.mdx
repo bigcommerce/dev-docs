@@ -415,15 +415,15 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example order metafield payload object" showLineNumbers copy
 {
-    "scope": "store/order/created",
-    "store_id": "1025646",
+    "producer": "stores/{store_hash}",
+    "hash": "8fd18449531d7e531587782eb200950cbad8cffe",
+    "created_at": 1683315012,
+    "store_id": "1001197568",
+    "scope": "store/order/metafield/created",
     "data": {
-        "type": "order", // will always be order
-        "id": 250 // ID of the order
-    },
-    "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
-    "created_at": 1561479335,
-    "producer": "stores/{store_hash}"
+        "metafield_id": 14,
+        "resource_id": "270"
+    }
 }
 ```
 
