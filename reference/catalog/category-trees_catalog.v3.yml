@@ -6,7 +6,7 @@ info:
 
     Our Catalog Category Trees endpoints are the more modern and performant counterparts to the [Categories endpoints](/docs/rest-catalog/categories). Although the Category Trees endpoints and objects are designed to center an MSF-compatible, [multi-tenant category tree architecture](#categories), the endpoints work just as well in a single storefront context.
 
-    The Category Trees endpoints let you [get the Categories for a specific tree](/docs/rest-catalog/category-trees#get-a-category-tree), and [bulk create](/docs/rest-catalog/category-trees#create-categories), [bulk update](/docs/rest-catalog/category-trees#update-categories), and [bulk delete](/docs/rest-catalog/category-trees#delete-categories) Categories. You can also [bulk update the properties of Category Trees](/docs/rest-catalog/category-trees#upsert-category-trees), which includes changing the channels to which a Tree is assigned.
+    The Category Trees endpoints let you [get the Categories for a specific tree](/docs/rest-catalog/category-trees/categories#get-a-category-tree), and [bulk create](/docs/rest-catalog/category-trees/categories#create-categories), [bulk update](/docs/rest-catalog/category-trees/categories#update-categories), and [bulk delete](/docs/rest-catalog/category-trees/categories#delete-categories) Categories. You can also [bulk update the properties of Category Trees](/docs/rest-catalog/category-trees#upsert-category-trees), which includes changing the channels to which a Tree is assigned.
 
     The terms "category tree" and "catalog tree" are used interchangeably throughout the documentation.
 

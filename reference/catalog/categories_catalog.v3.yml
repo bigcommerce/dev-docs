@@ -6,11 +6,11 @@ info:
 
     Our Catalog Categories endpoints let you [create individual categories](/docs/rest-catalog/categories#create-a-category) and [modify categories](/docs/rest-catalog/categories#update-a-category) that organize a store's products, as well as [delete categories](/docs/rest-catalog/categories#delete-a-category). 
     
-    Category images have their own dedicated [create a category image](/docs/rest-catalog/categories#create-a-category-image) and [delete a category image](/docs/rest-catalog/categories#delete-a-category-image) endpoints. 
+    Category images have their own dedicated [create a category image](/docs/rest-catalog/categories/images#create-a-category-image) and [delete a category image](/docs/rest-catalog/categories/images#delete-a-category-image) endpoints. 
     
-    In addition, categories have metafields that you can use to store information structured in key-value pairs; learn more about [creating category metafields](/docs/rest-catalog/categories#create-a-category-metafield), [updating category metafields](/docs/rest-catalog/categories#update-a-category-metafield), and [deleting category metafields](/docs/rest-catalog/categories#delete-a-category-metafield). 
+    In addition, categories have metafields that you can use to store information structured in key-value pairs; learn more about [creating category metafields](/docs/rest-catalog/categories/metafields#create-a-category-metafield), [updating category metafields](/docs/rest-catalog/categories/metafields#update-a-category-metafield), and [deleting category metafields](/docs/rest-catalog/categories/metafields#delete-a-category-metafield). 
 
-    This API family also contains endpoints to [update product sort order](/docs/rest-catalog/categories#update-product-sort-order) within a category. 
+    This API family also contains endpoints to [update product sort order](/docs/rest-catalog/categories/sort-order#update-product-sort-order) within a category. 
 
     These endpoints are primarily useful in applications for single storefront stores. To work with categories for an [MSF-enabled store](/api-docs/multi-storefront/overview), see [Category Trees](/docs/rest-catalog/category-trees).
 

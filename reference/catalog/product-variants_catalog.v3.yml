@@ -8,11 +8,11 @@ info:
 
     Our Catalog Product Variants endpoints let you work in two ways. 
     
-    On a per-product basis, you can [create and manage Product Variants](/docs/rest-catalog/product-variants#create-a-product-variant), their [images](/docs/rest-catalog/product-variants#create-a-variant-image), and their [metafields](/docs/rest-catalog/product-variants#create-a-product-variant-metafield), which are arbitrary key-value attributes.
+    On a per-product basis, you can [create and manage Product Variants](/docs/rest-catalog/product-variants), their [images](/docs/rest-catalog/product-variants/images), and their [metafields](/docs/rest-catalog/product-variants/metafields), which are arbitrary key-value attributes.
 
-    By design, Product Variants consist of a combination of [Product Variant Option](/docs/rest-catalog/product-variant-options) values.
+    By design, Product Variants consist of a combination of [Product Variant Option values](/docs/rest-catalog/product-variant-options/values).
 
-    This API family also provides endpoints that can make [batch updates](/docs/rest-catalog/product-variants#update-variants-batch) to Product Variants from different products across the Catalog, as well as [getting all variants](/docs/rest-catalog/product-variants#get-all-variants).
+    This API family also provides endpoints that can make [batch updates](/docs/rest-catalog/product-variants/variants-batch#update-variants-batch) to Product Variants from different products across the Catalog, as well as [getting all variants](/docs/rest-catalog/product-variants/variants-batch#get-all-variants).
 
     The terms "product variant" and "variant" are used interchangeably throughout the documentation.
 
