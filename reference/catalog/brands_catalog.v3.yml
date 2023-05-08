@@ -1492,7 +1492,7 @@ paths:
         **Read-Only Fields**
         - id
 
-        Only one image at a time can be created. To update a *Brand Image*, use the [Update a brand](/docs/rest-management/catalog/brands#update-a-brand) endpoint and an `image_url`.
+        Only one image at a time can be created. To update a *Brand Image*, use the [Update a brand](/docs/rest-catalog/brands#update-a-brand) endpoint and an `image_url`.
       operationId: createBrandImage
       parameters:
         - $ref: '#/components/parameters/ContentType'

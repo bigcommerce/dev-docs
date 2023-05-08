@@ -627,7 +627,7 @@ components:
                           description: The value associated with the meta field.
                         namespace:
                           type: string
-                          description: 'The namespace associated with metafields for [products](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                          description: 'The namespace associated with metafields for [products](/docs/rest-catalog/products/metafields#create-a-product-metafield) and [product variants](/docs/rest-catalog/product-variants/metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
                         resource_type:
                           type: string
                           enum:
@@ -1135,7 +1135,7 @@ components:
                 description: The value associated with the product or product variant meta field.
               namespace:
                 type: string
-                description: 'The namespace associated with metafields for [products](docs/rest-management/catalog/product-metafields) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                description: 'The namespace associated with metafields for [products](/docs/rest-catalog/products/metafields) and [product variants](/docs/rest-catalog/product-variants/metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
               resource_type:
                 type: string
                 enum:
@@ -1318,7 +1318,7 @@ components:
           description: The value associated with the product or product variant meta field.
         namespace:
           type: string
-          description: 'The namespace associated with metafields for [products](docs/rest-management/catalog/product-metafields) and [product variants](/docs/rest-management/catalog/product-variants-metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+          description: 'The namespace associated with metafields for [products](/docs/rest-catalog/products/metafields) and [product variants](/docs/rest-catalog/product-variants/metafields). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
         resource_type:
           type: string
           description: Resource type associated with the product or product variant meta field. Currently, the only values available are 'product' or 'variant'.
@@ -1854,7 +1854,7 @@ components:
                       description: The value associated with the meta field.
                     namespace:
                       type: string
-                      description: 'The namespace associated with a [product](docs/rest-management/catalog/product-metafields) or [product variant](/docs/rest-management/catalog/product-variants-metafields) metafields. You should save a metafield namespace under this format `shipping_carrier_{yourCarrierId}`; otherwise, you will not be able to recognize it as an attribute.'
+                      description: 'The namespace associated with a [product](/docs/rest-catalog/products/metafields) or [product variant](/docs/rest-catalog/product-variants/metafields) metafields. You should save a metafield namespace under this format `shipping_carrier_{yourCarrierId}`; otherwise, you will not be able to recognize it as an attribute.'
                     resource_type:
                       type: string
                       enum:

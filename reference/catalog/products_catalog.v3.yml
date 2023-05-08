@@ -364,7 +364,7 @@ paths:
             type: integer
         - name: sku
           in: query
-          description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/docs/rest-management/catalog/product-variants#get-all-product-variants). '
+          description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/docs/rest-catalog/product-variants#get-all-product-variants). '
           schema:
             type: string
         - name: 'sku:in'

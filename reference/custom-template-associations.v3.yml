@@ -30,7 +30,7 @@ info:
 
     ## Getting entity IDs
 
-    Use the [Catalog API](/docs/rest-management/catalog) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](/docs/rest-management/catalog/products#get-all-products), send a `GET` request to `/v3/catalog/products`.
+    Use the [Catalog API](/docs/rest-catalog/products) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](/docs/rest-catalog/products#get-all-products), send a `GET` request to `/v3/catalog/products`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
