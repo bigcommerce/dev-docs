@@ -125,7 +125,7 @@ Accept: application/json
 ```
 
 
-Variants can be added via the same request used to create the product or later after the product is created by a `POST` request to the [Product Variant](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint (the former is recommended for bulk variant creation).
+Variants can be added via the same request used to create the product or later after the product is created by a `POST` request to the [Product Variant](/docs/rest-catalog/product-variants#create-a-product-variant) endpoint (the former is recommended for bulk variant creation).
 
 ### Exporting
 
@@ -149,7 +149,7 @@ To support these workflows from a UI perspective, you may need to include the fo
 - Button
 - Spinner
 
-For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/store-management/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/docs/rest-management/catalog).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](/api-docs/store-management/catalog/products-overview). For a complete API reference including request schemas and property descriptions, see [Catalog](/docs/rest-catalog).
 
 ## Creating listings
 
@@ -232,7 +232,7 @@ To ensure that BigCommerce merchants are able to continue using their existing c
 
 To do this, integrate the following endpoints:
 
-- [`/v3/catalog/products`](/docs/rest-management/catalog/products#create-a-product)
+- [`/v3/catalog/products`](/docs/rest-catalog/products#create-a-product)
 - [`/v2/orders`](/docs/rest-management/orders)
 
 To attribute orders to a specific sales channel, be sure to set the `channel_id` property when creating the order in BigCommerce.
@@ -252,7 +252,7 @@ Accept: application/json
 
 <Callout type="info">
   - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0`, the value used for guest shoppers.
-  - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/docs/rest-management/catalog/products#get-all-products).
+  - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/docs/rest-catalog/products#get-all-products).
 </Callout>
 
 

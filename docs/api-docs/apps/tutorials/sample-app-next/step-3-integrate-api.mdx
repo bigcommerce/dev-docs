@@ -620,7 +620,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-The Products endpoint retrieves your products summary from the [Catalog API](/docs/rest-management/catalog).
+The Products endpoint retrieves your products summary from the [Catalog API](/docs/rest-catalog).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -764,7 +764,7 @@ export default Index;
 
 `summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
-For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/docs/rest-management/catalog/summary#get-a-catalog-summary). 
+For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/docs/rest-catalog/products/summary#get-a-catalog-summary). 
 
 ## Update the user interface
 
