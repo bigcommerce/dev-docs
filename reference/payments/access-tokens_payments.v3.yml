@@ -21,9 +21,9 @@ info:
     
     ### Webhooks
     
-    *[Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
-    *[Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
-    *[Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
 
 
     ### Additional Payments endpoints

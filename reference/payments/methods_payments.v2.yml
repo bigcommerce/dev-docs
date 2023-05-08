@@ -18,9 +18,9 @@ info:
     
      ### Webhooks
     
-    *[Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
-    *[Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
-    *[Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
 
     ### Payments endpoints
 
@@ -28,6 +28,7 @@ info:
     * [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
     * [Process payments](/docs/rest-payments/processing#process-payment)
     * [Get a customer's stored instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+    
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce

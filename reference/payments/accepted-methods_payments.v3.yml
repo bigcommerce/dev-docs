@@ -22,15 +22,16 @@ info:
     
     ### Webhooks
     
-    *[Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
-    *[Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
-    *[Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
 
     ### Additional Payments endpoints
     
     * [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
     * [Process payments](/docs/rest-payments/processing#process-payment)
     * [Get a customer's stored instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+  
   
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
@@ -282,7 +283,7 @@ components:
           type: integer
           format: int32
         issuer_identification_number:
-          description: Issuer identification number of this card. This is extracted from the card when the order is payed for.
+          description: Issuer identification number of this card. This is extracted from the card when the order is paid for.
           type: string
           minLength: 6
           maxLength: 6
