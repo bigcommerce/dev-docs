@@ -828,6 +828,11 @@ components:
       allOf:
         - type: object
           properties:
+            name:
+              type: string
+              description: The user-friendly name.
+              minLength: 1
+              maxLength: 255
             uuid:
               type: string
               format: uuid
