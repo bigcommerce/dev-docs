@@ -39,7 +39,7 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 |  [Gift Certificates](/docs/rest-content/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
 |  [Orders](/docs/rest-management/orders) | Create / manage orders | `/orders` |
 |  [Pages](/docs/rest-content/store-content/pages#create-a-page) | Create / manage content pages | `/pages` |
-|  [Payment Methods](/docs/rest-payments/methods) | Create / manage enabled payment methods | `/payments/methods` |
+|  [Payment Methods (deprecated)](/docs/rest-payments/methods-deprecated) | Create / manage enabled payment methods | `/payments/methods` |
 |  [Redirects](/docs/rest-content/store-content/redirects) | Create / manage URL redirects | `/redirects` |
 |  [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
 |  [Shipping Methods](/docs/rest-management/shipping-v2/shipping-method) | Create / manage shipping methods | `/shipping` |
@@ -75,8 +75,8 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Customer Form Field Values](/docs/rest-management/customers/customer-form-field-values) | Create and manage customer form field values | `/customers/form-field-values` |
 |  [Customers](/docs/rest-management/customers) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](/docs/rest-management/transactions) | View order payment information | `/orders/{id}/transactions` |
-|  [Payment Processing Methods](/docs/rest-payments/processing/accepted-methods) | Get order payment methods for processing | `/payments/methods` |
-|  [Payment Processing Token](/docs/rest-payments/processing/access-tokens) | Get an access token for payment processing | `/payments/accsess_tokens` |
+|  [Payments - Get accepted methods](/docs/rest-payments/methods) | Get order payment methods for processing | `/payments/methods` |
+|  [Payments - Create a payment access token](/docs/rest-payments/tokens) | Get an access token for payment processing | `/payments/accsess_tokens` |
 |  [Price List Records](/docs/rest-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
 |  [Price Lists](/docs/rest-management/price-lists/price-lists-assignments) | Create and manage catalog pricing variations | `/pricelists` |
 |  [Products](/docs/rest-catalog/products) | Create and manage products | `/catalog/products` |
@@ -131,14 +131,14 @@ Using the Payment Processing API, developers can programmatically process paymen
 
 |  Resource               | Description                              | Endpoint                            |
 |-------------------------|------------------------------------------|-------------------------------------|
-|  [Payment Processing](/docs/rest-payments/methods) | Process payments on orders and checkouts | `payments.bigcommerce.com/payments` |
+|  [Payment Processing](/docs/rest-payments/processing) | Process payments on orders and checkouts | `payments.bigcommerce.com/stores/{store_hash}/payments` |
 
-In addition to the payment processing API's `/payments` endpoint, there are two **v3** API endpoints related to payment processing. The first (`/v3/payments/access_tokens`) is required to retrieve a payment access token for authenticating requests against `payments.bigcommerce.com`. Requests to the second endpoint (`/v3/payments/methods`) are optional, and can be used to retrieve an order's accepted payment methods, when necessary.
+In addition to the payment processing API's `/payments` endpoint, there are two **V3** API endpoints related to payment processing. The first, [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), is required to create an order-specific single-use token for authenticating payment processing requests. Requests to the second endpoint, [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods), are optional and can be used to retrieve an order's accepted payment methods, when necessary.
 
 | Request                                   | Endpoint                                                                    |
 |-------------------------------------------|-----------------------------------------------------------------------------|
-| [Create the payment token](/docs/rest-payments/processing/access-tokens#create-payment-access-token)              | `api.bigcommerce.com/stores/{store_hash}}/v3/payments/access_tokens` |
-| [Get order accepted payment methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        |
+| [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token)              | `api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens` |
+| [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        |
 
 **Additional Information:** [Payment Processing API Overview](/api-docs/payments/payments-api-overview)
 

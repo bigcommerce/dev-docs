@@ -80,8 +80,10 @@ Make BigCommerce API requests in the context of the **storefront**, BigCommerce 
 | [Price Lists](/docs/rest-management/price-lists)| Create variations of catalog pricing. |
 | [Scripts](/docs/rest-management/scripts) | Add and remove scripts from storefront pages. |
 | [Marketing](/docs/rest-content/marketing) | Create and manage coupons, banners, and gift certificates. |
-| [Enabled Payment Methods](/docs/rest-payments/methods#get-all-payment-methods) | Get a list of payment methods available on a store. |
-| Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](/docs/rest-payments/processing), then [process the payment](/docs/rest-payments/methods).  |
+| [Payments - Create a payment access token](/docs/rest-payments/tokens) | Create an order-specific token to process a shopper's payment. |
+| [Payments - Get accepted methods](/docs/rest-payments/methods) | Get a list of accepted payment methods available on a store. |
+| [Payments - Get methods (deprecated)](/docs/rest-payments/methods-deprecated) | Get a list of payment gateways available on a store. |
+| [Payments - Process Payments](/docs/rest-payments/processing) | Process payments using a [payment access token](/docs/rest-payments/tokens) and [accepted payment method](/docs/rest-payments/methods). |
 | [Shipping](/docs/rest-management/shipping-v2) | Create and manage shipping methods and zones. 
 | [Store Content](/docs/rest-content/store-content/blog-posts) | Manage a store's blog posts and blog tags. |
 | [Storefront GraphQL API](/docs/graphql-storefront) | Query storefront data headlessly or from within a Stencil theme. |
