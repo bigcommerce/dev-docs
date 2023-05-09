@@ -255,7 +255,7 @@ Accept: application/json
 </Tab>
 </Tabs>
 
-3. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing#process-payment). You will need several values retrieved with the [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+3. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing#process-payment). You will need several values retrieved with the [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request. Consult the following for more information:
 
 <Callout type="info">
 #### Authorization header
@@ -382,7 +382,7 @@ Accept: application/json
 
 ### Process the payment
 
-2. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing#process-payment). You will need several values from the customer's credit card. All the example request body values are required.  If any of these values are incorrect, you may be unable to process the payment. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+2. To process the payment, send a POST request to [Process Payment](/docs/rest-payments/processing#process-payment). You will need several values from the customer's credit card. All the example request body values are required.  If any of these values are incorrect, you may be unable to process the payment. Additionally, this request contains different headers than a typical BigCommerce API request. Consult the following for more information:
 
 <Callout type="info">
 #### Authorization header
@@ -570,7 +570,7 @@ You can create orders using the [Server to Server API Endpoints](/docs/rest-mana
 | `30003` | Order could not be found. | The order does not exist. <br /> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/docs/rest-management/orders#get-all-orders) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br /> Recreate the order <br /> Ensure the store settings for taxes and discounts are setup correctly|
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br /> * `expiry_month` is two digits<br />* `expiry_year` is four digits |
-| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods) to see available vaulted cards |
+| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated with the shopper.| Use [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods) to see available vaulted cards |
 | `30100` | Payment access token could not be created. | N/A|N/A|
 | `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in **Incomplete** Status with a `status_id:0`. <br />  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an **Incomplete** status will return this error. |
 | `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br />The token provided was incorrect. | Check that the shopper information provided is correct.<br />Make sure the token in the authorization header field is correct. |
