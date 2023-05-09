@@ -3,7 +3,7 @@ info:
   version: ''
   title: Payment Access Token
   description: |
-    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payment-processing).
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payments-api-overview).
 
     BigCommerce payments requests require a Payment Access Token, or _PAT_, which is a single use BigCommerce-generated JWT that's tied to the particular **order** for which the shopper authorizes BigCommerce to submit a payment. 
     
@@ -55,7 +55,7 @@ paths:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
-        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing/process-payment#process-payment).
+        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing#process-payment).
 
         **Required Fields**
         * order_id

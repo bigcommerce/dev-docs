@@ -2,7 +2,7 @@ openapi: '3.0.1'
 info:
   title: Payment Methods (Deprecated)
   description: |
-    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payment-processing).
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payments-api-overview).
 
     This endpoint is deprecated. Use [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) instead.
 

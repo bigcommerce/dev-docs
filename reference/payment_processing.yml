@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   version: ''
   title: Payment Processing
-  description: 'Process payments using payment instrument such as credit card. See [Payments Overview](/api-docs/store-management/payment-processing) for more information.'
+  description: 'Process payments using payment instrument such as credit card. See [Payments Overview](/api-docs/store-management/payments-api-overview) for more information.'
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -28,7 +28,7 @@ paths:
       tags:
         - Process Payment
       operationId: PaymentsPost
-      description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payment-processing) for more information.'
+      description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payments-api-overview) for more information.'
       servers:
         - url: 'https://payments.bigcommerce.com'
           description: BigCommerce Payments Gateway
@@ -325,7 +325,7 @@ paths:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
-        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing/process-payment#process-payment).
+        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing#process-payment).
 
         **Required Fields**
         * order_id
