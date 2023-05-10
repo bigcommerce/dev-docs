@@ -146,7 +146,7 @@ components:
         should_subtract_store_tax:
           default: true
           type: boolean
-          description: This setting applies only if a merchant enters tax-inclusive prices. When enabled, the store subtracts the item's store tax rate before calculating tax using the shopper's tax zone. The tax-exclusive amount will be the same across all tax zones. When disabled, the tax-inclusive price remains the same across all tax zones; only the tax amount will vary based on the shopper's location. The tax-exclusive amount may vary among tax zones. These calculations are relevant for tax pricing and tax quotations that use basic tax.    
+          description: This setting applies only if a merchant enters tax-inclusive prices. When enabled, the store subtracts the itemʼs store tax rate before calculating tax using the shopperʼs tax zone. The tax-exclusive amount will be the same across all tax zones. When disabled, the tax-inclusive price remains the same across all tax zones; only the tax amount will vary based on the shopperʼs location. The tax-exclusive amount may vary among tax zones. These calculations are relevant for tax pricing and tax quotations that use basic tax.    
     Tax_Settings_Req:
       type: object
       properties:
@@ -177,7 +177,7 @@ components:
         should_subtract_store_tax:
           default: true
           type: boolean
-          description: This setting applies only if a merchant enters tax-inclusive prices. When enabled, the store subtracts the item's store tax rate before calculating tax using the shopper's tax zone. The tax-exclusive amount will be the same across all tax zones. When disabled, the tax-inclusive price remains the same across all tax zones; only the tax amount will vary based on the shopper's location. The tax-exclusive amount may vary among tax zones. These calculations are relevant for tax pricing and tax quotations that use basic tax.
+          description: This setting applies only if a merchant enters tax-inclusive prices. When enabled, the store subtracts the itemʼs store tax rate before calculating tax using the shopperʼs tax zone. The tax-exclusive amount will be the same across all tax zones. When disabled, the tax-inclusive price remains the same across all tax zones; only the tax amount will vary based on the shopperʼs location. The tax-exclusive amount may vary among tax zones. These calculations are relevant for tax pricing and tax quotations that use basic tax.
     MetaOpen:
       title: Response meta
       type: object

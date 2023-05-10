@@ -87,7 +87,7 @@ paths:
             application/json:
               schema:
                 type: object
-                description: Note that a store's [tax settings](/docs/rest-management/tax-settings) may affect the calculations for `tax_inclusive` and `tax_exclusive` prices. 
+                description: Note that a storeʼs [tax settings](/docs/rest-management/tax-settings) may affect the calculations for `tax_inclusive` and `tax_exclusive` prices. 
                 properties:
                   data:
                     type: array
@@ -263,7 +263,7 @@ paths:
                                   type: number
                                   description: The estimated tax inclusive price for this product based on the provided customer group
                               description: The price for a product including estimates for tax
-                          description: The product's variants that will typically apply to this product.
+                          description: The productʼs variants that will typically apply to this product.
                         bulk_pricing:
                           type: array
                           items:
