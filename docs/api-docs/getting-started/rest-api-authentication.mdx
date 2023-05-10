@@ -12,6 +12,7 @@ Every parent set of API credentials that you request for your store is its own *
 
 Every active API account has at least one `access_token`. [Store-level API accounts](#store-level-api-accounts) include a static `access_token` that does not change. [App-level API accounts](#app-level-api-accounts) expect each application to generate a unique `access_token` for every store that installs the app.[Account-level](#account-level-api-accounts) creates a token for a single account; the token is tied to the account that the user is signed into.
 
+
 **Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, account API credentials, and/or function.
 
 ## Store-level API accounts
@@ -86,6 +87,7 @@ To delete an app-level API account, consult our article on [Managing Apps in the
 ## Account-level API accounts
 
 The account-level API is designed to allow merchants to build custom integrations and solutions that require high-level access to a store's resources. By using this API, merchants can automate various business need processes, integrate with third-party applications, and manage multiple stores per account.
+
 
 ### Obtaining account-level credentials 
 
@@ -180,7 +182,6 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/docs/storefront-auth/tokens#create-a-token) |
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) |
 
-
 ### Resource scopes
 
 | UI Name | Permission | Parameter | Description | Resources |
@@ -232,6 +233,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Users API Overview](/docs/graphql-users) |
 
 ## Resources
+
 * [Authentication and Example Requests](/api-docs/getting-started/authentication)
 * [Guide to Building Apps](/api-docs/apps/guide/intro)
 * [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
