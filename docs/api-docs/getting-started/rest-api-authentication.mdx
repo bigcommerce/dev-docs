@@ -51,7 +51,7 @@ To delete a store-level API account, consult our Knowledge Base article on [Dele
 
 <Callout type="warning">
   #### Don't forget your webhooks and metafields
-  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store-level API account, plan accordingly.
+  Some resources are only accessible to the API account that created them. These include webhooks, metafields, and scripts. If you need to revoke a store-level API account, plan accordingly.
 </Callout>
 
 ## App-level API accounts
@@ -179,7 +179,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 | UI Name | Permission | Parameter | Description | Endpoints |
 |:--------|:-----------|:----------|:------------|:----------|
-| Create Payments | modify | `store_payments_access_token_create` | Create payment access tokens, process payments | [Payments, Access Tokens](/docs/rest-payments/processing/access-tokens#create-payment-access-token) <br /> [Payments, Process Payment](/docs/rest-payments/processing/process-payment#process-payment) |
+| Create Payments | modify | `store_payments_access_token_create` | Create payment access tokens, process payments | [Payments, Access Tokens](/docs/rest-payments/tokens#create-payment-access-token) <br /> [Payments, Process Payment](/docs/rest-payments/processing#process-payment) |
 | Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/docs/storefront-auth/tokens#create-a-token) |
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) |
 
@@ -210,9 +210,9 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
 | Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
 | Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
-| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments, Methods](/docs/rest-payments/processing/accepted-methods#get-accepted-payment-methods) |
-| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/docs/rest-management/catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
-| Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/docs/rest-management/catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
+| Payments - Get accepted methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments - Get accepted methods](/docs/rest-payments/methods#get-accepted-payment-methods) |
+| Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/docs/rest-catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
+| Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/docs/rest-catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
 | Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/docs/rest-content/themes) |
 | Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
 | Carts | modify | `store_cart` | View and modify carts | [Carts V3](/docs/rest-management/carts) |
