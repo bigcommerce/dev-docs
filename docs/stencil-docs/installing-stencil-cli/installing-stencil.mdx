@@ -6,9 +6,11 @@ BigCommerce is currently targeting 11/1/2023 to sunset its node-sass fork in fav
 </Callout>
 
 
-Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
+Stencil CLI allows developers to locally edit and preview themes without impacting a merchant's live storefront, and its built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts and make them live using Stencil CLI's simple yet powerful commands.
 
-This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
+
+This article contains detailed instructions on installing and configuring Stencil CLI, the first step towards developing Stencil themes for BigCommerce storefronts.
+
 
 
 ## Installing on Mac
@@ -31,37 +33,6 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | b
 nvm install 18.15.0
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 18.15.0
-
-# Install Stencil CLI
-npm install -g @bigcommerce/stencil-cli
-```
-
-### Installing on Mac with Apple silicon
-
-Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
-
-
-<Callout type="info">
- These instructions have been tested on a **MacBook Air** with an M1 chip.
-</Callout>
-
-To open the Rosetta terminal:
-
-1. Open **Finder**.
-2. Go to **Applications** > **Utilities** > **Terminal**.
-3. Right-click **Terminal** and select **Get Info**.
-4. Check the **Open using Rosetta** checkbox.
-5. Close the window and quit all terminal instances.
-6. Start a new terminal, and install Rosetta if prompted.
-
-Run the following commands:
-
-```shell showLineNumbers copy
-# Install Stencil CLI supported version of Node.js
-nvm install 18.15.0
-
-# Switch to Stencil CLI supported version of Node.js
 nvm use 18.15.0
 
 # Install Stencil CLI
@@ -160,11 +131,11 @@ Once you've installed Stencil CLI, the next step on the road to theme developmen
 # move into theme dir
 cd ~/path/to/theme/dir
 
-# initialize a new .stencil config for the theme
-stencil init
-
 # install theme modules
 npm install
+
+# initialize a new .stencil config for the theme
+stencil init
 
 # serve a live, Browsersync enabled preview of the theme
 stencil start
@@ -183,6 +154,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 Stencil CLI's dependencies no longer require Visual C++ build tools to compile. 
 
 If you receive the error "Could not find VS", update to the most current version of Stencil CLI and run it using the version of Node.js indicated in this article.
+
 
 ### Python npm configuration error
 
