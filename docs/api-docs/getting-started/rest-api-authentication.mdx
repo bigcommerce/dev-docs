@@ -88,30 +88,29 @@ To delete an app-level API account, consult our article on [Managing Apps in the
 
 ## Account-level API accounts
 
-The account-level API is designed to allow merchants to build custom integrations and solutions that require high-level access to a store's resources. By using this API, merchants can automate various business need processes, integrate with third-party applications, and manage multiple stores per account.
+Account-level API accounts are designed to work with the GraphQL Account API, which manages resources beyond the scope of a single store. For example, [managing control panel users](/docs/graphql-users/overview) in the BigCommerce ecosystem. Current and future features available using the GraphQL Account API toolset allow developers to build custom integrations and solutions that require high-level access to store and platform resources. Using this API, you can integrate with third-party applications, streamline and automate business processes, and manage multiple merchant stores per account.
 
 ### Creating account-level credentials
 
 To create an account-level API account, visit the [account control panel](https://accounts.bigcommerce.com/tokens) or the store control panel for a member store **[Settings > Account-level API accounts](https://login.bigcommerce.com/deep-links/manage/settings-list)**.
 
-To use the account-level API, merchants must generate an API token from the BigCommerce control panel (**Settings** > **Account-level API Tokens**). Learn more about setting up Account-Level API token by checking out our Knowledge Base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#Account-Level-api-accounts).
+To learn more about creating an account-level API account, consult our Knowledge Base article on [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#account-level).
 
 <Callout type="info">
-    When a token is generated, it will belong to the account that the merchant has logged into.
-</Callout> 
-
-The API token should be kept secure, as it provides complete access to the account's stores. This means that any actions performed through the API have the same effect as if they were performed directly in the store's control panel. 
-
-### Revoking account-level API credentials
-An account-level API token is valid until the account is no longer active. However, account-level credentials can be manually deleted. From the account's control panel, click **action** to access the delete option.
-
-<Callout type="warning">
- Do be aware that deleting APIs must be done with precaution. Only users who have the correct permission can perform this action.
+    When you create account-level credentials, they belong to the parent account for the store you're signed in to.
 </Callout>
 
-Learn more about deleting an account-level API account by visiting our Knowledge Base article [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting)
+Account-level API credentials provide direct access to **all** the account's stores, not just the store that was signed in at the time of creation. Their permissions are limited only by the OAuth scopes they were granted at the time of creation. Keep the access token and client secret secure.
 
-All in all, the Account-level API accounts on the BigCommerce platform provide merchants and developers with a powerful tool-set for building custom integrations and solutions that can help streamline and automate various processes.
+### Revoking account-level API credentials
+
+An account-level access token is valid until the account is no longer active. However, you can manually delete account-level credentials.
+
+<Callout type="warning">
+ Deleting API accounts is risky and must be done with caution. Only users who have the correct permissions can perform this action.
+</Callout>
+
+To delete an account-level API account, visit the [account control panel](https://accounts.bigcommerce.com/tokens) and find the account you want to delete in the list. Click the three dots in the **Action** column, then click **Delete**. Follow any prompts that appear.
 
 ## Choosing the right kind of API account
 
