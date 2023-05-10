@@ -69,7 +69,7 @@ paths:
                       username: MyDisconnectedTaxProviderAccount
                       configured: false
         '404':
-          description: Provider does not exist
+          description: Provider or provider connection does not exist
       tags:
         - Tax Provider Connection
     put:
