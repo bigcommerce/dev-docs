@@ -87,6 +87,7 @@ paths:
             application/json:
               schema:
                 type: object
+                description: Note that a store's [tax settings](/docs/rest-management/tax-settings) may affect the calculations for `tax_inclusive` and `tax_exclusive` prices. 
                 properties:
                   data:
                     type: array
