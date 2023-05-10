@@ -13,11 +13,11 @@ Every parent set of API credentials that you request for your store is its own *
 
 Every active API account has at least one `access_token`. [Store-level API accounts](#store-level-api-accounts) include a static access token that does not change. [App-level API accounts](#app-level-api-accounts) expect each application to generate a unique access token for every store that installs the app. [Account-level API accounts](#account-level-api-accounts) include a single access token that belongs to the parent account of the store that the user is signed in to at the time of creation.
 
-**Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, account API credentials, and/or function.
+**Guard these values closely.** The client ID and client secret will never change; access tokens do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user or function, or account-related implementation.
 
 ## Store-level API accounts
 
-Merchants generate single-store API credentials when they create API accounts in their store control panel, in the **[Settings > Store-level API accounts](https://login.bigcommerce.com/deep-links/manage/settings-list)** menu. Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store-level API accounts' access tokens or OAuth scopes.
+Merchants generate single-store API credentials when they create API accounts in their store control panel, in the **[Settings > Store-level API accounts](https://login.bigcommerce.com/deep-links/manage/settings-list)** menu. Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store-level access tokens or OAuth scopes.
 
 In addition to the [API account components](#api-accounts) in the preceding section, store-level API accounts contain the following attributes out of the box:
 
@@ -51,12 +51,12 @@ To delete a store-level API account, consult our Knowledge Base article on [Dele
 
 <Callout type="warning">
   #### Don't forget your webhooks and metafields
-  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store-Level API account, plan accordingly.
+  Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store-level API account, plan accordingly.
 </Callout>
 
 ## App-level API accounts
 
-You can [create app-level API accounts](#creating-app-level-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-level-access-tokens) with the BigCommerce-initiated grant code authorization flow.
+You can [create app-level API accounts](#creating-app-level-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). After a store owner installs and authorizes an app, most apps use access tokens generated from the API account's client ID, client secret, and a temporary grant code to read and change store data. [Generate access tokens](#app-level-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
 Some APIs use app-level API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
 
@@ -103,7 +103,6 @@ To learn more about creating an account-level API account, consult our Knowledge
 Account-level API credentials provide direct access to **all** the account's stores, not just the store that was signed in at the time of creation. Their permissions are limited only by the OAuth scopes they were granted at the time of creation. Keep the access token and client secret secure.
 
 ### Revoking account-level API credentials
-
 An account-level access token is valid until the account is no longer active. However, you can manually delete account-level credentials.
 
 <Callout type="warning">
