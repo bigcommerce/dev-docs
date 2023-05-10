@@ -31,7 +31,7 @@ Most APIs that work with store-level API accounts use the `access_token` to auth
   Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
 </Callout>
 
-### Obtaining Store-level API credentials
+### Creating store-level API credentials
 
 To create a store-level API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#creating).
 
@@ -61,7 +61,7 @@ Some APIs use app-level API accounts to implement alternative authentication pat
 
 For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
-### Obtaining app-level API credentials
+### Creating app-level API credentials
 
 To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#create-an-app).
 
@@ -88,8 +88,9 @@ To delete an app-level API account, consult our article on [Managing Apps in the
 
 The account-level API is designed to allow merchants to build custom integrations and solutions that require high-level access to a store's resources. By using this API, merchants can automate various business need processes, integrate with third-party applications, and manage multiple stores per account.
 
+### Creating account-level credentials
 
-### Obtaining account-level credentials 
+To create an account-level API account, visit the [account control panel](https://accounts.bigcommerce.com/tokens) or the store control panel for a member store **[Settings > Account-level API accounts](https://login.bigcommerce.com/deep-links/manage/settings-list)**.
 
 To use the account-level API, merchants must generate an API token from the BigCommerce control panel (**Settings** > **Account-level API Tokens**). Learn more about setting up Account-Level API token by checking out our Knowledge Base article, [API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#Account-Level-api-accounts).
 
