@@ -303,29 +303,37 @@ Retrieves the provided URL and produces an early hint to communicate important w
 - `CORS` (String): Optional. Valid values are `no` (default), `anonymous`, and `use-credentials`.
 
 
-#### Example
+#### Examples
 
 ```handlebars showLineNumbers
-{{earlyHint 'samplepath.js' 'preload'}}
-<!-- => 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' 'preload' -->
+{{earlyHint 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' 'preload' as='script' crossorigin='anonymous'}}
 ```
-
-In this example, the earlyHint helper produces the provided URL and an early hint. 
+This example produces an early hint in a `Link` header that looks like:
 
 ```handlebars showLineNumbers
-{{ cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload'}}
-{{ earlyHint 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' 'preload'}}
-{{ getFontsCollection resourceHint='preload'}}
-{{ stylesheet '/assets/css/theme/css' resourceHint='preload'}}
+<https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js>; rel=preload; as=script; crossorigin=anonymous
 ```
 
-The output displays in a `Link` header.
+
+The next example includes additional helpers. `getFontsCollection` and `stylesheet` helpers produce early-hints by default. 
 
 ```handlebars showLineNumbers
-Link: <https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js>; rel=preload; type=application/javascript, <https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.cjs.min.js; rel=preload; type=application/javascript
-Link: <https://bernardinainject-cloud-dev-vm.store.bcdev/store/sta8s37lcd/stencil/c1124950-05fa-013b-69a8-32020d8a3125/css/theme-ac056578-05fb-013b-2bf2-7a01a337b61f.css>; rel=preload; type=text/css, <https://fonts.googleapis.com/css?family Karla:400%7CMontserrat:400,500,700&display swap;rel=preload; <https://https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js>;rel=preload;type=application/javascript, <https://bernardinainject-cloud-dev-vm.store.bcdev/store/sta8s37lcd/stencil/c1124950-05fa-013b-69a8-32020d8a3125/dist/theme-bundle.head_asyn.js; rel=preload, <https://fonts.gstatic.com>; rel=dns-prefetch, <https://fonts.googleapis.com>; rel=dns-prefetch, <https://bernardinainject-cloud-dev-vm.store.bcdev/store/sta8s37lcd>; rel=dns-prefetch
+<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
+
+{{getFontsCollection font-display='block'}}
+
+<script async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
+
+{{{stylesheet '/assets/css/theme.css'}}}
 ```
 
+The output displays in a `Link` header that looks like:
+
+```handlebars showLineNumbers
+Link: <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.head_async.js>; rel=preload; as=script; crossorigin=anonymous, 
+<https://fonts.googleapis.com/css?family=Montserrat:700,500,400%7CKarla:400&display=block>; rel=preload; as=style, <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.font.js>; rel=preload; as=script
+<https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/css/theme-6bec0d40-d17a-013b-e9d8-02ea0e5c37ab.css>; rel=preload; as=style
+```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/earlyHint.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#)
