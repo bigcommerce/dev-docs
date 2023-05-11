@@ -1274,10 +1274,12 @@ paths:
                               type: integer
                               description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
                               x-nullable: true
+                              maximum: 2147483647
                             inventory_warning_level:
                               type: integer
                               description: 'When the variant hits this inventory level, it is considered low stock.'
                               x-nullable: true
+                              maximum: 2147483647
                             bin_picking_number:
                               maxLength: 255
                               minLength: 0
@@ -1460,10 +1462,12 @@ paths:
                         type: integer
                         description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
                         x-nullable: true
+                        maximum: 2147483647
                       inventory_warning_level:
                         type: integer
                         description: 'When the variant hits this inventory level, it is considered low stock.'
                         x-nullable: true
+                        maximum: 2147483647
                       bin_picking_number:
                         maxLength: 255
                         minLength: 0
@@ -1573,10 +1577,12 @@ paths:
                               type: integer
                               description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
                               x-nullable: true
+                              maximum: 2147483647
                             inventory_warning_level:
                               type: integer
                               description: 'When the variant hits this inventory level, it is considered low stock.'
                               x-nullable: true
+                              maximum: 2147483647
                             bin_picking_number:
                               maxLength: 255
                               minLength: 0
@@ -1870,10 +1876,12 @@ components:
           type: integer
           description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
           nullable: true
+          maximum: 2147483647
         inventory_warning_level:
           type: integer
           description: 'When the variant hits this inventory level, it is considered low stock.'
           nullable: true
+          maximum: 2147483647
         bin_picking_number:
           maxLength: 255
           minLength: 0
@@ -2055,10 +2063,12 @@ components:
               type: integer
               description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
               nullable: true
+              maximum: 2147483647
             inventory_warning_level:
               type: integer
               description: 'When the variant hits this inventory level, it is considered low stock.'
               nullable: true
+              maximum: 2147483647
             bin_picking_number:
               maxLength: 255
               minLength: 0
