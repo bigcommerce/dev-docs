@@ -306,7 +306,7 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
 | store/order/metafield* | Subscribe to all store/order/metafield events.  |
 | store/order/metafield/created |Fires if an order metafield is created using the control panel, an app, or the API.|
-| store/order/metafield/updated| Fires when an already created order metafield is updated. Any changes to an existing order metafield will fire this webhook.|
+| store/order/metafield/updated| Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.|
 | store/order/metafield/deleted | An order metafield is deleted. |
 
 Payload objects with the following scopes take the form that follows:
@@ -538,7 +538,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/product/metafield/created`
 * `store/product/metafield/updated`
 
-```json filename="Example product payload object" showLineNumbers copy
+```json filename="Example product metafield payload object" showLineNumbers copy
 {
     "producer": "stores/{store_hash}",
     "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
@@ -558,7 +558,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/variant/metafield/created`
 * `store/variant/metafield/updated`
 
-```json filename="Example product variant payload object" showLineNumbers copy
+```json filename="Example product variant metafield payload object" showLineNumbers copy
 {
     "producer": "stores/{store_hash}",
     "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
