@@ -1401,8 +1401,16 @@ properties:
                 type: boolean
               provider_name:
                 type: string
+                deprecated: true
               offline_payment_message:
                 type: string
+              payment_method: 
+                type: string
+              provider:
+                type: object
+                properties:
+                  name:
+                    type: string
               gateway_amount:
                 type: object
                 description: Price value. Provided only if the payment method is offline.
