@@ -13,7 +13,9 @@ Developers may customize free and purchased marketplace themes; however, the ori
 
 Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil-specific access token. 
 
-To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
+To automatically create an API account with the scopes and permissions required by Stencil CLI, apply the following settings as you [create a store-level API account](/api-docs/getting-started/api-accounts#creating-store-level-api-accounts). 
+
+Select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
 ![Create API Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/create-api-account.png "Create API Account")
 
@@ -74,7 +76,7 @@ Stencil CLI uses [Browsersync](https://github.com/bigcommerce/browser-sync) to s
 
 The Browsersync preview is launched by executing the `stencil start` command in a terminal window. When `stencil start` is executed, Stencil CLI checks for the required `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later), which contains the following information:
 * the store's URL
-* an API access token
+* a store-level API account access token
 * a local port number
 
 
