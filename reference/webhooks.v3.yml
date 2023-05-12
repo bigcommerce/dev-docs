@@ -3038,7 +3038,6 @@ components:
       required:
         - scope
         - destination
-        - headers
     webhook_Full:
       allOf:
         - $ref: '#/components/schemas/webhook_Base'
