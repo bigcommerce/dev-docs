@@ -2209,7 +2209,7 @@ components:
           items:
             $ref: '#/components/schemas/ItemsRefund'
         payments:
-          type: object
+          type: array
           items:
             $ref: '#/components/schemas/PaymentRequest'
         merchant_calculated_override:
