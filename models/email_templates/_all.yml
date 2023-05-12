@@ -708,6 +708,8 @@ properties:
             type: array
             items:
               type: object
+              description: Products that have been shipped, i.e., have been added to a consignment.
+              example: [Partially Shipped, Completed, Shipped, Refunded]
               properties:
                 name:
                   type: string
@@ -732,8 +734,13 @@ properties:
                   type: string
                 link:
                   type: string
+          unshipped_products:
+            type: array
+            description: Products that have not been shipped or added to a shipping consignment.
+            example: [Awaiting Fulfillment, Awaiting Shipment, Awaiting Pickup, Partially Shipped, Completed, Shipped, Refunded]
           ready_for_pickup_products:
             type: array
+            description: Products that have been added to a BOPIS pickup consignment and marked as ready for pickup.
             items:
               type: object
               properties:
@@ -751,6 +758,7 @@ properties:
                   type: string
           picked_up_products:
             type: array
+            description: Products that have been added to a BOPIS pickup consignment and marked as picked up.
             items:
               type: object
               properties:
