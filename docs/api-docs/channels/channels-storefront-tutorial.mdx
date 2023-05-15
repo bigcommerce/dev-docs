@@ -11,7 +11,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the final response of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response) `auth` callback, create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
+After receiving the final response of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response) `auth` callback, create a channel on the merchant's store. Creating a dedicated channel for a storefront allows merchants to assign the storefront selected product listings and configure storefront-specific settings. To create a storefront channel, set `type` to `storefront` in a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -86,7 +86,7 @@ Accept: application/json
 ```
 
 <Callout type="info">
-  These UI sections were previously managed using `config_meta`. As of March 29, 2022, changes to UI sections that use `config_meta` are dual-written to the Channel Menus object when `config_meta.app.sections` exists in the payload.
+  Previously, you could manage UI sections settings using the `config_meta` property on the Channels object. As of March 29, 2022, changes to UI sections for channels that already have a non-null `config_meta.app.sections` property are dual-written to the Channel Menus object.
 </Callout>
 
 ## Protected UI sections
@@ -102,7 +102,7 @@ BigCommerce allows the developer to toggle the location and scope of the followi
 | Notifications | `notifications` | Renders channel-specific notification settings. |
 | Social | `social` | Renders channel-specific social media settings. |
 
-The term _protected section_ refers to the settings in that section being protected from the settings selected at the storewide level. Include these protected sections in requests to the [Create channel menus](/docs/rest-management/channels/channel-menus#create-channel-menus) endpoint to display BigCommerce-provided, channel-specific settings pages and corresponding menu items. Enabled protected sections precede custom sections in a channel's menu.
+The term _protected section_ refers to the settings on the corresponding menu pages. Settings in protected sections override the default settings configured at the storewide level. Include these protected sections in requests to the [Create channel menus](/docs/rest-management/channels/channel-menus#create-channel-menus) endpoint to display BigCommerce-provided, channel-specific settings pages and corresponding menu items. Enabled protected sections precede custom sections in a channel's menu.
 
 ```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
