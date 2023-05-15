@@ -1131,7 +1131,7 @@ components:
                 type: object
                 properties:
                   bigcommerce_protected_app_sections:
-                    $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+                    $ref: '#/components/schemas/BigCommerceProtectedAppSections'
                   custom_app_sections:
                     $ref: '#/components/schemas/CustomAppSections'
               meta:
@@ -2632,9 +2632,9 @@ components:
           items:
             $ref: '#/components/schemas/ChannelProductVariantFull'
       x-internal: false
-    BigcommerceProtectedAppSections:
+    BigCommerceProtectedAppSections:
       type: array
-      description: 'List of pre-built UI pages an app developer can choose to enable for a channel.  More information can be found [here](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyMzA-building-storefront-channels#protected-ui-sections)'
+      description: 'List of channel-specific control panel menu navigation items and corresponding settings pages an app developer can choose to enable for the subject channel. Protected settings override any settings set in those UI sections at the storewide level. Learn more in the [Building Storefront Channels](/api-docs/channels/tutorials/storefront#protected-ui-sections) tutorial.'
       items:
         type: string
         enum:
@@ -2648,7 +2648,7 @@ components:
       type: object
       properties:
         bigcommerce_protected_app_sections:
-          $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+          $ref: '#/components/schemas/BigCommerceProtectedAppSections'
         custom_app_sections:
           $ref: '#/components/schemas/CustomAppSections'
     CustomAppSections:
@@ -2658,10 +2658,10 @@ components:
         properties:
           title:
             type: string
-            description: Text displayed to the merchant
+            description: Text displayed to the merchant.
           query_path:
             type: string
-            description: Value used in the `section` query param
+            description: Value used in the `section` query param.
         x-internal: false
     Error:
       type: object
