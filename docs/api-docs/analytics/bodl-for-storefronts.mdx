@@ -58,18 +58,18 @@ The `line_item` object has many common fields for browser events, including the 
 
 | Event field | Type | Description | BigC data map |
 |:---|:---|:---|:---|
-| `base_price` | number | Price of product. Default price in the control panel. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.price` |
-| `brand_name` | string | Brand name. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.brand_name` |
-| `category_names[]` | array | Category names. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.categories[]` |
+| `base_price` | number | Price of product. Default price in the control panel. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.price` |
+| `brand_name` | string | Brand name. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.brand_name` |
+| `category_names[]` | array | Category names. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.categories[]` |
 | `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) for the transaction. | [Get a checkout](/docs/rest-management/checkouts#get-a-checkout) <br />  `data.cart.currency.code`  |
 | `discount` | number | Discount applied to purchase. | [Get a checkout](/docs/rest-management/checkouts#get-a-checkout) <br /> `data.cart.discount_amount` |
-| `product_id` | string | ID of the product. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.id` |
-| `product_name` | string | Name of the product. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.name` |
-| `purchase_price` | number | Final price of product that the shopper actually pays before taxes and other charges. Equals the `base_price` unless there is a `sale_price`. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.price` or <br /> `data.sale_price` |
+| `product_id` | string | ID of the product. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.id` |
+| `product_name` | string | Name of the product. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.name` |
+| `purchase_price` | number | Final price of product that the shopper actually pays before taxes and other charges. Equals the `base_price` unless there is a `sale_price`. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.price` or <br /> `data.sale_price` |
 | `quantity` | number | Number of items of product purchased. | [Get a cart](/docs/rest-management/carts/carts-single#get-a-cart) <br /> `data.line_items.physical_items.quantity` or <br /> `data.line_items.digital_items.quantity` |
-| `sale_price` | number | Price of product after sale. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.sale_price` |
-| `sku` | string | User-defined SKU for the product or variant (whichever is applied). | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.sku` or `data.variants.sku` |
-| `variant_id` | integer | ID of the variant. | [Get a product](/docs/rest-management/catalog/products#get-a-product) <br /> `data.variants.id` | 
+| `sale_price` | number | Price of product after sale. The price should include or exclude tax, based on the store settings. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.sale_price` |
+| `sku` | string | User-defined SKU for the product or variant (whichever is applied). | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.sku` or `data.variants.sku` |
+| `variant_id` | integer | ID of the variant. | [Get a product](/docs/rest-catalog/products#get-a-product) <br /> `data.variants.id` | 
 
 
 ## Example implementation
