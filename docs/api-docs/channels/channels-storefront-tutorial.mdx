@@ -89,21 +89,23 @@ Accept: application/json
 ```
 
 <Callout type="info">
-  These UI sections were previously managed via `config_meta`. As of March 29, 2022, changes to UI sections via `config_meta` are dual written to the new API when `config_meta.app.sections` exists in the payload.
+  These UI sections were previously managed using `config_meta`. As of March 29, 2022, changes to UI sections that use `config_meta` are dual-written to the Channel Menus object when `config_meta.app.sections` exists in the payload.
 </Callout>
 
 ## Protected UI sections
 
-The following protected sections are provided by BigCommerce:
+BigCommerce allows the developer to toggle the location and scope of the following BigCommerce-managed settings pages between the storewide menu and channel-specific menus:
 
-| Title               | Query                 | Description                                    |
-| ------------------- | --------------------- | ---------------------------------------------- |
-|`Storefront Settings` | `storefront_settings` | Renders channel specific storefront settings   |
-| `Domains`             | `domains`             | Renders channel specific domain settings       |
-| `Notifications`       | `notifications`       | Renders channel specific notification settings |
-| `Currencies`          | `currencies`          | Renders channel specific currency settings     |
+| Menu item / settings page | API Argument | Description |
+|:------|:------|:------------|
+| Storefront Settings | `storefront_settings` | Renders channel-specific storefront settings. |
+| Carousel | `carousel` | Renders channel-specific carousel settings. |
+| Currencies | `currencies` | Renders channel-specific currency settings. |
+| Domains | `domains` | Renders channel-specific domain settings. |
+| Notifications | `notifications` | Renders channel-specific notification settings. |
+| Social | `social` | Renders channel-specific social media settings. |
 
-Include protected sections in the [create channel menus request](/docs/rest-management/channels/channel-menus#create-channel-menus) to display BigCommerce-provided channel-specific settings pages.
+The term _protected section_ refers to the settings in that section being protected from the settings selected at the storewide level. Include these protected sections in requests to the [Create channel menus](/docs/rest-management/channels/channel-menus#create-channel-menus) endpoint to display BigCommerce-provided, channel-specific settings pages and corresponding menu items. Enabled protected sections precede custom sections in a channel's menu.
 
 ```http filename="Example request: Create channel menus" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
