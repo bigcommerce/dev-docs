@@ -453,7 +453,7 @@ paths:
                 image_url:
                   type: string
                   description: |
-                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                   example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                   x-url: true
                 custom_url:
@@ -894,7 +894,7 @@ paths:
                 image_url:
                   type: string
                   description: |
-                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                   example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                   x-url: true
                 custom_url:
@@ -1032,7 +1032,7 @@ paths:
                       image_url:
                         type: string
                         description: |
-                          Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+                          Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                         example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                         x-url: true
                       custom_url:
@@ -1945,7 +1945,7 @@ components:
         image_url:
           type: string
           description: |
-            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
           example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
           x-url: true
         custom_url:
@@ -2331,7 +2331,7 @@ components:
         image_url:
           type: string
           description: |
-            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
           example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
           x-url: true
     meta_description:
