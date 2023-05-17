@@ -124,7 +124,7 @@ The following table lists the APIs that authenticate with a client ID. For OAuth
 
 ## Dynamic tokens
 
-Several of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requester and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used unlimited times within an expiration window; others must be unique to each request.
+Several of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requester and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used for any number of requests within an expiration window; others must be unique to each request.
 
 Our JWT-based authentication schemes fall into the following categories:
 * The user passes a [BigCommerce-generated JWT](#bigcommerce-generated-jwts) as part of the value of the `Authorization` header
