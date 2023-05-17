@@ -63,7 +63,7 @@ Previously (prior to December 17th, 2018), when a product option, is created in 
 }
 ```
 
-Instead of a 422 error, now it will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Options](/docs/rest-management/catalog/product-variant-options#get-all-product-variant-options) or [Product Modifiers](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) endpoints.
+Instead of a 422 error, now it will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options) or [Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) endpoints.
 
 **What this does is:**
 - Changes the `option_value` > `id`. Not the `option_id`.
@@ -317,7 +317,7 @@ Any variant created in v3 with non-null core properties (price, weight, image, p
 In our control panel’s Add/Edit Product section, any products created by the V3 API will not have an option set applied, but merchants can still edit the options. If the merchant applies an option set to a V3 product, the product's variants will be removed. Currently, the Add/Edit Product area consumes the V2 API, so products created and managed through the control panel will be converted to the V2 model, using option sets.
 
 ## Recommendations
-When the resource is available in [V3](/docs/rest-management/catalog), it is best practice to use the V3 endpoint. For resources that do not have a V3 counterpart, like Orders, use V2. Both the V2 and V3 APIs authenticate with Oauth and are designed to be used concurrently within a single application.
+When the resource is available in [V3](/docs/rest-catalog/products), it is best practice to use the V3 endpoint. For resources that do not have a V3 counterpart, like Orders, use V2. Both the V2 and V3 APIs authenticate with Oauth and are designed to be used concurrently within a single application.
 
 We have created a handy cheat sheet below that lists all the differences between V2 and V3 of the API.
 

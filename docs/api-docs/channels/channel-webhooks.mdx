@@ -136,9 +136,9 @@ The following categories webhook events fire in response to actions that affect 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/category/*`            | Fires when subscribed to all category events for categories associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/docs/rest-management/catalog/categories-batch#create-categories) |
-| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/docs/rest-management/catalog/categories-batch#update-categories)  |
-| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/docs/rest-management/catalog/categories-batch#delete-categories)|
+| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/docs/rest-catalog/category-trees/categories#create-categories) |
+| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/docs/rest-/catalog/category-trees/categories#update-categories)  |
+| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/docs/rest-catalog/category-trees/categories#delete-categories)|
 
 Categories payload objects take the form that follows:
 
@@ -161,7 +161,7 @@ The following category tree webhook event fires in response to actions that affe
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/docs/rest-management/catalog/category-trees#upsert-category-trees) or [Delete category trees](/docs/rest-management/catalog/category-trees#delete-category-trees) |
+| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/docs/rest-catalog/category-trees#upsert-category-trees) or [Delete category trees](/docs/rest-catalog/category-trees#delete-category-trees) |
 
 
 Category tree payload objects take the form that follows:
@@ -344,10 +344,10 @@ The following product assignment webhook events fire in response to actions that
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/docs/rest-management/catalog/products-channel-assignments#create-products-channel-assignments) |
-| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/docs/rest-management/catalog/products-channel-assignments#delete-products-channel-assignments) |
-| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/docs/rest-management/catalog/products-category-assignments#create-products-category-assignments.) |
-| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/docs/rest-management/catalog/products-category-assignments#delete-products-category-assignments) |
+| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/docs/rest-catalog/products/channel-assignments#create-products-channel-assignments) |
+| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/docs/rest-catalog/products/channel-assignments#delete-products-channel-assignments) |
+| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/docs/rest-catalog/products/category-assignments#create-products-category-assignments.) |
+| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/docs/rest-catalog/products-category-assignments#delete-products-category-assignments) |
 
 Product assignment payload objects take the form that follows:
 
