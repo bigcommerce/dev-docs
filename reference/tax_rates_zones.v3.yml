@@ -125,8 +125,9 @@ paths:
       description: |-
         Create one or more tax zones.
 
-        > #### Note
-        > You cannot create a default tax zone.
+      
+        **Note:**
+        You can't create a default tax zone.
       operationId: create-tax-zones
       requestBody:
         $ref: '#/components/requestBodies/Tax_ZoneArrayPOST'
