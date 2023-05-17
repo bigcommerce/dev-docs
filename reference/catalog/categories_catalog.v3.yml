@@ -2209,13 +2209,13 @@ components:
         - $ref: '#/components/schemas/default_product_sort'
         - type: object
           properties:
-            url:
+            custom_url:
               $ref: '#/components/schemas/Url'
       x-examples: {}
     Url:
       type: object
       properties:
-        path:
+        url:
           type: string
         is_customized:
           type: boolean
