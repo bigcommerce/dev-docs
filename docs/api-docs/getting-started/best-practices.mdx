@@ -47,17 +47,19 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 ## API rate limits
 
-Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the [store’s plan](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store plan and resource requested.
 
-| Plans & sandboxes | Maximum quota |
-|:------------------|:--------------|
-| Enterprise plans and Enterprise sandboxes (Enterprise-Test) | Unlimited\*| 
-| Pro plans| 60k per hour (450 / 30sec) | 
-| All other sandboxes (Dev/Partner/Employee) | Unlimited\*| 
+| Plans & sandboxes | Quotas |
+|:------------------|:-------|
+| Enterprise plans and Enterprise sandboxes (Enterprise-Test) | by plan\* and [resource](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits) | 
+| All other sandboxes (Dev/Partner/Employee) | by [resource](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits) | 
+| Pro plans| 60k per hour (450 / 30sec) |
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
-<Callout type="info">
- The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API requests per unit of time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
+<Callout type="warning">
+  \* The **Unlimited** rate plan for select BigCommerce Enterprise clients means that these stores are not rate limited by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. For more on resource constraints, consult our article on [object-related limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+  
+  BigCommerce reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). 
 </Callout>
 
 
