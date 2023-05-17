@@ -443,9 +443,10 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/order_id_path'
     get:
-      description: 'Lists all order products on an order using `order_id`. By default, items sort from lowest to highest according to a newly created ID, separate from the `order_id` and the `product_id`.'
+      description: 'Lists 50 order products on an order using `order_id`. By default, items sort from lowest to highest according to a newly created ID, separate from the `order_id` and the `product_id`.'
       summary: List Order Products
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/limit'
       responses:
