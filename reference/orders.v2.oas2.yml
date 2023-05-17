@@ -4768,22 +4768,149 @@ components:
       x-internal: false
     order_Put:
       allOf:
-        - $ref: '#/components/schemas/order_Shared'
         - type: object
           properties:
+            base_handling_cost:
+              description: 'The value of the base handling cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            base_shipping_cost:
+              description: 'The value of the base shipping cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            base_wrapping_cost:
+              description: The value of the base wrapping cost expressed as a floating point number to four decimal places in string format.
+              example: '0.0000'
+              type: string
             billing_address:
               $ref: '#/components/schemas/billingAddress_Put'
+            channel_id:
+              description: Shows where the order originated. The channel_id will default to 1.
+              example: 1
+              type: integer            
             consignments:
               $ref: '#/components/schemas/orderConsignment_Put'
+            customer_id:
+              type: number
+            customer_message:
+              description: 'Message that the customer entered (number, options) -o the `Order Comments` box during checkout.'
+              example: Thank you
+              type: string
+            date_created:
+              description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`.'
+              type: string
+            default_currency_code:
+              description: A read-only field displays the currency code of the [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional) the shopper uses.
+              type: string
+            discount_amount:
+              description: 'Amount of discount for this transaction. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            ebay_order_id:
+              description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
+              example: '0'
+              type: string
+            external_id:
+              description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a POST request, but a PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
+              example: null
+              oneOf:
+                - type: string
+              nullable: true
+            external_merchant_id:
+              description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a POST request, but a PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
+              example: null
+              oneOf:
+                - type: string
+              nullable: true
+            external_source:
+              description: |-
+                This value identifies an external system that generated the order and submitted it to BigCommerce with the Orders API.
+                * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
+                * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
+                * If you do not provide a value, then it will default to null.
+              example: null
+              type: string
+              nullable: true
+            geoip_country:
+              description: 'The full name of the country where the customer made the purchase, based on the IP.'
+              example: United States
+              type: string
+            geoip_country_iso2:
+              description: 'The country where the customer made the purchase, in ISO2 format, based on the IP.'
+              example: US
+              type: string
+            handling_cost_ex_tax:
+              description: 'The value of the handling cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            handling_cost_inc_tax:
+              description: 'The value of the handling cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            ip_address:
+              type: string
+              description: |-
+                IPv4 Address of the customer, if known.
+              
+                Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address` value will reset the `ip_address_v6` value and vice versa.
+              example: 12.345.678.910
+              maxLength: 30
+            ip_address_v6:
+              type: string
+              description: |-
+                IPv6 Address of the customer, if known.
+              
+                Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address_v6` value will reset the `ip_address` value and vice versa.
+              example: '2001:db8:3333:4444:5555:6666:7777:8888'
+              maxLength: 39
+            is_deleted:
+              description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+              example: false
+              type: boolean
+            items_shipped:
+              description: The number of items that have been shipped.
+              example: 0
+              type: number
+            items_total:
+              description: The total number of items in the order.
+              example: 1
+              type: number
+            order_is_digital:
+              description: Whether this is an order for digital products.
+              example: false
+              type: boolean  
             payment_method:
               type: string
               description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
+            payment_provider_id:
+              description: The external Transaction ID/Payment ID within this order’s payment provider (if a payment provider was used).
+              example: ''
+              oneOf:
+                - type: string
+                - type: number
             products:
               type: array
               items:
                 anyOf:
                   - $ref: '#/components/schemas/orderCatalogProduct_Put'
                   - $ref: '#/components/schemas/orderCustomProduct_Put'
+            refunded_amount:
+              description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
+              example: '0.0000'
+              type: string
+            shipping_cost_ex_tax:
+              description: 'The value of shipping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            shipping_cost_inc_tax:
+              description: 'The value of shipping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            staff_notes:
+              type: string
+              description: Any additional notes for staff.
+              example: Send Saturday
+              maxLength: 65535
             shipping_addresses:
               allOf:
                 - type: object
@@ -4791,6 +4918,53 @@ components:
                     id:
                       type: integer
                 - $ref: '#/components/schemas/shippingAddress_Put'
+            status_id:
+              description: The status ID of the order.
+              type: integer
+            subtotal_ex_tax:
+              description: 'Override value for subtotal excluding tax. If specified, the field `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+              type: string
+            subtotal_inc_tax:
+              description: 'Override value for subtotal including tax. If specified, the field `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+              type: string
+            tax_provider_id:
+              description: |
+                BasicTaxProvider - Tax is set to manual and order is created in the store.
+                
+                AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
+                
+                "" (empty string) - The order is created with the API, or the tax provider is unknown.
+              enum:
+                - BasicTaxProvider
+                - AvaTaxProvider
+                - ''
+              type: string
+            customer_locale:
+              type: string
+              example: en
+              description: The customer’s locale.
+            external_order_id:
+              type: string
+              example: external-order-id
+              description: The external id of the order.
+            total_ex_tax:
+              description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+              type: string
+            total_inc_tax:
+              description: 'Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+              type: string
+            wrapping_cost_ex_tax:
+              description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
+            wrapping_cost_inc_tax:
+              description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+              type: string
     order_Post:
       title: order_Post
       description: Products and Billing address only required for POST operation.
