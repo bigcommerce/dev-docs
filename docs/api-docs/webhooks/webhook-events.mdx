@@ -33,6 +33,15 @@ Callback payloads take the following form. The `data` property will contain vary
   "producer": "stores/{store_hash}"
 }
 ```
+## Brands
+
+| Name / Scope            | Description |
+|:------------------------|:------------|
+| store/brand/metafield/* | Subscribe to all brand events. |
+| store/brand/metafield/created | This webhook will fire whenever a new brand metafield is created. |
+| store/brand/metafield/deleted | This webhook will fire whenever a brand metafield is deleted.     |   
+| store/brand/metafield/updated | This webhook is fired whenever a brand metafield is modified.     |
+
 
 ## Carts
 
@@ -50,6 +59,10 @@ Callback payloads take the following form. The `data` property will contain vary
 | store/cart/couponApplied | This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code. |
 | store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
 | store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
+| store/cart/metafield/created | This webhook will fire whenever a new cart metafield is created. |
+| store/cart/metafield/deleted| This webhook will fire whenever a cart metafield is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
+| store/cart/metafield/updated | This webhook is fired whenever a cart metafield is modified through the changes in its line items.  |
+
 
 <Callout type="info">
   The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
@@ -158,6 +171,11 @@ Payload objects with the following scopes take the form that follows:
 | store/category/created | Category is created. |
 | store/category/updated | Category is updated. |
 | store/category/deleted | Category is deleted. |
+| store/category/metafield/created | Category metafield is created. |
+| store/category/metafield/deleted | Category metfield is deleted. |
+| store/category/metafield/updated | Category metafield is updated. |
+
+
 
 Payload objects with the following scopes take the form that follows:
 
@@ -169,6 +187,28 @@ Payload objects with the following scopes take the form that follows:
 ```json filename="Example category payload object" showLineNumbers copy
 {
     "scope": "store/category/created",
+    "store_id": "1025646",
+    "data": {
+        "type": "category", // will always be category
+        "id": 42 // ID of the category
+    },
+    "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
+    "created_at": 1561480214,
+    "producer": "stores/{store_hash}"
+}
+```
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/category/metafield/created`
+* `store/category/metafield/deleted`
+* `store/category/metafield/updated`
+
+
+
+```json filename="Example category metafield payload object" showLineNumbers copy
+{
+    "scope": "store/category/metafield/created",
     "store_id": "1025646",
     "data": {
         "type": "category", // will always be category
@@ -253,6 +293,37 @@ Payload objects with the following scopes take the form that follows:
 ## Emails
 
 Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
+
+## Inventories
+
+| Name / Scope             | Description |
+|:-------------------------|:------------|
+| store/inventory/location/metafield/*        | Subscribe to all store/inventory/location/metafields events.  |
+| store/inventory/location/metafield/created  | This webhook will fire whenever a new inventory, location metafield is created.  |
+| store/inventory/location/metafield/deleted  | When a inventory, location metafield is deleted. |
+| store/inventory/location/metafield/updated  | Fires when an already created inventory, location metafield is updated. Any changes to an existing inventory, location metafield will fire this webhook. |
+
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/inventory/location/metafield/created`
+* `store/inventory/location/metafield/deleted`
+* `store/inventory/location/metafield/updated`
+
+```json filename="Example inventory location metafield payload object" showLineNumbers copy
+{
+    "producer": "stores/{store_hash}",
+    "hash": "e0c298b8097a6a2f39d17e593a9b360f5b2fef7d",
+    "created_at": 1683303055,
+    "store_id": "1001197568",
+    "scope": "store/inventory/location/metafield/updated",
+    "data": {
+        "metafield_id": 10,
+        "resource_id": "1",
+        "resource_type": "location"
+    }
+}
+```
 
 ## Metafields
 
