@@ -69,6 +69,99 @@ Accept: application/json
 </Tab>
 </Tabs>
 
+### Filter by date created
+
+Filter logs by using the `date_created` value in the query parameter. The date created must be in [Unix Timestamp](https://www.unixtimestamp.com/) format.
+
+The following example retrieves entries by the date created:
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by date created" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?date_created:min=1657688400&date_created:max=1658379600
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by date created" showLineNumbers copy
+{
+    "data": [
+        {
+            "id": 63,
+            "type": "payment",
+            "module": "Test Payment Gateway",
+            "severity": "success",
+            "summary": "Test payment for order #121 processed successfully",
+            "message": "",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 64,
+            "type": "notification",
+            "module": "Email Message",
+            "severity": "success",
+            "summary": "Notification sent successfully",
+            "message": "<strong>Sent email notification to:</strong><br />jane.doe@example.com",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 65,
+            "type": "notification",
+            "module": "Optimized Checkout",
+            "severity": "success",
+            "summary": "Order has been successfully finalized via Optimized checkout.",
+            "message": "Order has been successfully finalized via Optimized checkout.",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 66,
+            "type": "payment",
+            "module": "Test Payment Gateway",
+            "severity": "success",
+            "summary": "Test payment for order #122 processed successfully",
+            "message": "",
+            "date_created": "2023-01-05T22:46:15+00:00"
+        },
+        {
+            "id": 68,
+            "type": "notification",
+            "module": "Optimized Checkout",
+            "severity": "success",
+            "summary": "Order has been successfully finalized via Optimized checkout.",
+            "message": "Order has been successfully finalized via Optimized checkout.",
+            "date_created": "2023-01-05T22:46:16+00:00"
+        },
+        {
+            "id": 71,
+            "type": "shipping",
+            "module": "Home Delivery (flatrate)",
+            "severity": "success",
+            "summary": "Successfully retrieved shipping quote",
+            "message": "{\"quoteId\":\"\",\"timestamp\":\"1673022877\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":2,\"name\":\"Retail\"},\"customerEmail\":\"\",\"customerId\":0,\"destination\":{\"streetAddress1\":\"123 Test Lane\",\"streetAddress2\":\"\",\"city\":\"Test\",\"postcode\":\"78040\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\",\"customAddressFields\":[]},\"items\":[{\"name\":\"Test Product (Test-001)\",\"id\":\"127\",\"quantity\":1,\"price\":15,\"discounted_price\":15,\"shipping_price\":0,\"weight\":0.5,\"width\":0,\"height\":0,\"length\":0,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":10,\"description\":\"Home Delivery\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+            "date_created": "2023-01-06T16:34:37+00:00"
+        },
+    ],
+    "meta": {
+        "pagination": {
+            "total": 6,
+            "count": 6,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?date_created%3Amin=1671244778&date_created%3Amax=1684287578&page=1&limit=50"
+            }
+        }
+    }
+}
+```
+
+</Tab>
+</Tabs>
 
 ### Filter by type 
 
