@@ -1,33 +1,34 @@
 # BigCommerce API Specifications
 
-OpenAPI Specifications (OAS) and JSON schema used to generate the human-readable [BigCommerce API Reference](https://developer.bigcommerce.com/api-reference).
+This repo contains the OpenAPI Specifications (OAS) and JSON schema that form the human-readable [BigCommerce REST API Reference](https://developer.bigcommerce.com/docs/api).
 
-<!-- theme: info -->
-> #### OAS updates
-> As of August 22, 2022, all API specification files are in OAS 3+ format. Please update your forks to ensure you're working with the newest source files. 
-> 
-> **Caveat:** The file that contains webhook events callback schemas, `webhooks_events.yml`, is still in Swagger 2.0 format.
+As of August 22, 2022, all API specification files are in OAS 3+ format. We also made significant changes to this repo in March 2023. Please update your fork to ensure you're working with the newest source files.
+
+## Contributing
+
+If you're interested in contributing, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Directory structure
 
 ```shell
 .
-├── .circleci                          # config for circleci job that runs openapi linter
-    └── config.yml                     # - docs: https://meta.stoplight.io/docs/spectral
-├── docs                               # markdown files
-├── models                             # yaml schema for various objects
-    ├── ...
-    └── json2schema.py                 # script to easily convert json data to yaml schema
-├── reference                          # openapi specification files
+├── .github/                           # github config
+    └── workflows/                     # workflows to lint pull requests, etc.
+├── .idea/                             # directory ignored by git - use for yourself
+├── models/                            # yml schema for various objects
+    ├── email_templates/               # email template schemas
+    ├── webhooks/                      # webhooks schemas
+    └── json2schema.py                 # script to convert json to yml
+├── reference/                         # openapi specification files
+    ├── catalog/                       # catalog OAS API reference
+    ├── payments/                      # payments OAS API reference
+    └── ...                            # other OAS API reference
+├── .eslintrc.json                     # config for MDX linter
 ├── .gitignore                         # gitignore
-├── .spectral.yaml                     # config for stoplight spectral openapi linter
-├── .stoplight.json                    # Stoplight Platform edit view configuration file
-├── CONTRIBUTING.md                    # guidelines for contribution
-├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
-├── pull_request_template.md           # template for most pull requests
-└── toc.json                           # Stoplight Platform table of contents configuration file 
+├── .spectral.yaml                     # config for OAS linter
+├── CONTRIBUTING                       # guidelines for contribution
+├── package-lock.json
+├── package.json
+├── pull_request_template.md           # template for most pull requests         
+└── README
 ```
-
-## Contributing
-
-If you're interested in contributing, see [CONTRIBUTING.md](CONTRIBUTING.md).

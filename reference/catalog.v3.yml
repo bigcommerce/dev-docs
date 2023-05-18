@@ -19736,8 +19736,6 @@ components:
           description: |-
             The adjustment amount. Depending on the rule `type`, may represent a fixed dollar amount or a percentage.
           example: 10
-      x-stoplight:
-        id: 386de544af45e
     productOptionConfig_Full:
       title: productOptionConfig_Full
       type: object
