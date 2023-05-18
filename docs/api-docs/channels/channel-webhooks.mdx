@@ -231,6 +231,28 @@ Emails payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
+## Metafields
+The following metafield webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| `store/channel/metafield/created/` | Fires when a metafield is created per a specified channel. |  
+| `store/channel/metafield/deleted`  | Fires when a metafield is deleted per a specified channel. |  |
+| `store/channel/metafield/updated`  | Fires when a metafield is updated per a specified channel. |  |
+
+Metafields payload objects take the form that follows:
+
+```json filename="Example metafields payload object" showLineNumbers copy
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/metafields/updated",
+ "data": {},
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
 
 ## Notifications
 The following notifications webhook events fire in response to actions that affect a specific channel on a store:
