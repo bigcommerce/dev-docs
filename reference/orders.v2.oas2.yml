@@ -273,8 +273,28 @@ paths:
             schema:
               $ref: '#/components/schemas/order_Post'
             examples:
+              Product with Variants:
+                value:
+                  status_id: 0
+                  customer_id: 1
+                  billing_address: 
+                    first_name: Jane
+                    last_name: Doe
+                    street_1: 123 Main Street
+                    city: Austin
+                    state: Texas
+                    zip: 78751
+                    country: United States
+                    country_iso2: US
+                    email: janedoe@example.com
+                  products: 
+                    - product_id: 118,
+                      quantity: 1,
+                      variant_id: 93            
               Custom Product:
                 value:
+                  status_id: 0
+                  customer_id: 1
                   billing_address:
                     first_name: Jane
                     last_name: Doe
