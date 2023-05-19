@@ -8,7 +8,7 @@ If the cart is associated with the shopper's channel and the relationship betwee
 
 ## Categories
 
-[Categories API reference documentation](/docs/rest-management/catalog/category#get-all-categories)
+[Categories API reference documentation](/docs/rest-catalog/category-trees/categories#get-all-categories)
 
 Previously, a store had a collection of categories that were organized in a tree structure. This collection of categories has been abstracted from the store and converted into the store's first **category tree**. You can create multiple category trees, each of which you can assign to a storefront or other sales channel.
 
@@ -78,13 +78,13 @@ If your application interacts with shoppers, you can use the [GraphQL Storefront
 
 ### The nuances of channel assignments
 
-Use the [Channel Assignments API](/docs/rest-management/catalog/products-channel-assignments#get-products-channel-assignments) to create and manage product assignments for [storefronts and other sales channels](/api-docs/multi-storefront/overview#channels).
+Use the [Channel Assignments API](/docs/rest-catalog/products/channel-assignments#get-products-channel-assignments) to create and manage product assignments for [storefronts and other sales channels](/api-docs/multi-storefront/overview#channels).
 
 A product assigned to a storefront channel can be sold on that channel, discovered in search, and accessed by direct link, unless that storefront's settings otherwise disable direct links. 
 
 Removing a product from a channel will make that product unavailable on the given channel. The product will remain categorized, but it will not be available using category filters, search, or direct link.
 
-Removing a product from a category does not remove it from the channel. Use the [Channel Assignments API](/docs/rest-management/catalog/products-channel-assignments#get-products-channel-assignments) to revoke channel assignments.
+Removing a product from a category does not remove it from the channel. Use the [Channel Assignments API](/docs/rest-catalog/products/channel-assignments#get-products-channel-assignments) to revoke channel assignments.
 
 Removing a product from one or all of a channel's categories without revoking the channel assignment will remove the product from the category views and filters, but shoppers will still be able to access the product by search or direct link. This may be useful for sales campaigns that send shoppers a direct link to purchase a specific product.
 

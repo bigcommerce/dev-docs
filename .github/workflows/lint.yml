@@ -1,8 +1,6 @@
 name: lint-valid-mdx
-
 on:
-  pull_request:
-    branches: [migrate-DEVDOCS-4719]
+  - pull_request
 
 jobs:
   lint:
