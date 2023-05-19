@@ -291,7 +291,7 @@ Accept: application/json
   "html": "<script> function subscribeOnBodlEvents() {console.log('run subscribeOnBodlEvents()'); window.dataLayer = window.dataLayer || []; if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {console.log('not defined'); return;} if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {window.bodlEvents.checkout.checkoutBegin((payload) => {console.log('window.bodlEvents.checkout.checkoutBegin ~ payload', payload);});} if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {window.bodlEvents.checkout.orderPurchased((payload) => {console.log('window.bodlEvents.checkout.orderPurchased ~ payload', payload);});}}  window.addEventListener('load', subscribeOnBodlEvents, false); </script>",
   "load_method": "default",
   "location": "head",
-  "visibility": "all_pages",            //configure the pages on which the script is available
+  "visibility": "all_pages",            //set which pages can access the script
   "kind": "script_tag",
   "consent_category": "essential",      //script is set to a category of consent
   "enabled": true,
