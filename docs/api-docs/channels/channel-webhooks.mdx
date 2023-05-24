@@ -236,9 +236,9 @@ The following metafield webhook events fire in response to actions that affect a
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/metafield/created/` | Fires when a metafield is created per a specified channel. |  
-| `store/channel/metafield/deleted`  | Fires when a metafield is deleted per a specified channel. |  |
-| `store/channel/metafield/updated`  | Fires when a metafield is updated per a specified channel. |  |
+| `store/channel/metafield/created/` | Fires when a metafield is created per a specified channel. | [Create a Channel Metafield](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#create-a-channel-metafield) |
+| `store/channel/metafield/deleted`  | Fires when a metafield is deleted per a specified channel. |  [Delete a Channel Metafield|](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#delete-a-channel-metafield)
+| `store/channel/metafield/updated`  | Fires when a metafield is updated per a specified channel. | [Update a Channel Metafield](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#update-a-channel-metafield) |
 
 Metafields payload objects take the form that follows:
 
@@ -247,8 +247,11 @@ Metafields payload objects take the form that follows:
  "store_id": "11111",
  "producer": "stores/abcde",
  "created_at": 1641641646,
- "scope": "store/channel/1/metafields/updated",
- "data": {},
+ "scope": "store/channel/metafield/created",
+ "data": {
+    "metafield_id": 21,
+    "resource_id": "1"
+         },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
