@@ -866,8 +866,8 @@ paths:
         - 250 characters product name length.
 
         **Usage Notes**
-        * `POST` requests to `/products` accept a `video` array. 
-        * `POST` requests to `/products/{product_id}/videos` accept a `video` object.
+        * This endpoint accepts a `video` array. To create a product video that accepts a `video` object, see [Create a Product Video](/docs/rest-catalog/products/videos#create-a-product-video) for information.
+      
       operationId: createProduct
       parameters:
         - $ref: '#/components/parameters/ContentType'
