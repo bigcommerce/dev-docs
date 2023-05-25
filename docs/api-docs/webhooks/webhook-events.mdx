@@ -254,6 +254,43 @@ Payload objects with the following scopes take the form that follows:
 
 Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
 
+## Inventory
+
+Consult the [inventory section of the _Buy Online, Pick up in Store_ Webhook Events](/buy-online-pick-up-in-store/webhooks#inventory).
+
+## Locations
+
+Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Events](/buy-online-pick-up-in-store/webhooks#locations).
+
+## Metafields
+
+| Name / Scope             | Description |
+|:-------------------------|:------------|
+| store/metafield/*        | Subscribe to all store/metafields events.  |
+| store/metafield/created  | This webhook will fire whenever a new metafield on any object is created.  |
+| store/metafield/updated  | Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook. |
+| store/metafield/deleted  | When a metafield is deleted. |
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/metafield/created`
+* `store/metafield/updated`
+* `store/metafield/deleted`
+
+```json filename="Example metafield payload object" showLineNumbers copy
+{
+    "producer": "stores/{store_hash}",
+    "hash": "e0c298b8097a6a2f39d17e593a9b360f5b2fef7d",
+    "created_at": 1683303055,
+    "store_id": "1001197568",
+    "scope": "store/metafield/updated",
+    "data": {
+        "metafield_id": 10,
+        "resource_id": "1",
+        "resource_type": "location"
+    }
+}
+```
 ## Notifications
 
 Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
@@ -275,6 +312,10 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 | store/order/refund/created | A refund has been submitted against an order. |
 | store/order/transaction/created | Fires when a transaction record is created. |
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
+| store/order/metafield* | Subscribe to all store/order/metafield events.  |
+| store/order/metafield/created |Fires if an order metafield is created using the control panel, an app, or the API.|
+| store/order/metafield/updated| Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.|
+| store/order/metafield/deleted | An order metafield is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -374,6 +415,26 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
+Payload objects with the following scopes take the form that follows:
+
+* `store/order/metafield/created`
+* `store/order/metafield/updated`
+* `store/order/metafield/deleted`
+
+```json filename="Example order metafield payload object" showLineNumbers copy
+{
+    "producer": "stores/{store_hash}",
+    "hash": "8fd18449531d7e531587782eb200950cbad8cffe",
+    "created_at": 1683315012,
+    "store_id": "1001197568",
+    "scope": "store/order/metafield/created",
+    "data": {
+        "metafield_id": 14,
+        "resource_id": "270"
+    }
+}
+```
+
 ## Pages
 
 Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
@@ -391,11 +452,19 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | Name / Scope             | Description |
 |:-------------------------|:------------|
 | store/product/* | Subscribe to all store/product events. |
-|store/product/deleted| Product is deleted.|
+| store/product/deleted| Product is deleted.|
 | store/product/created | A new product is created. |
 | store/product/updated |Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
 | store/product/inventory/updated| Product inventory is updated. |
 | store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
+| store/product/metafield/* | Subscribe to all store/product/metafield events. |
+| store/product/metafield/created | A new product metafield is created. |
+| store/product/metafield/updated | Occurs when product metafield details are edited. |
+| store/product/metafield/deleted | A product metafield is deleted.|
+| store/variant/metafield/* | Subscribe to all store/variant/metafield events. |
+| store/variant/metafield/created | A new product variant metafield is created. |
+| store/variant/metafield/updated | Occurs when product variant metafield details are edited. |
+| store/variant/metafield/deleted | A product variant metafield is deleted.|
 
 Payload objects with the following scopes take the form that follows:
 
@@ -416,6 +485,33 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
+### Product update events
+
+Changes to any of the following fields will trigger a `store/product/updated` event:
+
+* Availability
+* Category
+* Brand
+* Condition
+* Description
+* Dimensions
+* Featured
+* Inventory
+* Modifier (deleted)
+* Name
+* Number Sold
+* Price
+* Product Type
+* Sort Order
+* Tax Price
+* Thumbnail (new images only)*
+* Variant (deleted)
+* Visibility
+
+<Callout type="info">
+  Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
+</Callout>
+
 
 Payload objects with the following scopes take the form that follows:
 
@@ -444,32 +540,46 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
-### Product update events
+Payload objects with the following scopes take the form that follows:
 
-Changes to any of the following fields will trigger a `store/product/updated` event:
+* `store/product/metafield/deleted`
+* `store/product/metafield/created`
+* `store/product/metafield/updated`
 
-* Availability
-* Category
-* Brand
-* Condition
-* Description
-* Dimensions
-* Featured
-* Inventory
-* Modifier (deleted)
-* Name
-* Number Sold
-* Price
-* Product Type
-* Sort Order
-* Tax Price
-* Thumbnail (new images only)*
-* Variant (deleted)
-* Visibility
+```json filename="Example product metafield payload object" showLineNumbers copy
+{
+    "producer": "stores/{store_hash}",
+    "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
+    "created_at": 1683305167,
+    "store_id": "1001197568",
+    "scope": "store/metafield/created",
+    "data": {
+        "metafield_id": 12,
+        "resource_id": "118",
+        "resource_type": "product"
+    }
+}
+```
+Payload objects with the following scopes take the form that follows:
 
-<Callout type="info">
-  Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
-</Callout>
+* `store/variant/metafield/deleted`
+* `store/variant/metafield/created`
+* `store/variant/metafield/updated`
+
+```json filename="Example product variant metafield payload object" showLineNumbers copy
+{
+    "producer": "stores/{store_hash}",
+    "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
+    "created_at": 1683305167,
+    "store_id": "1001197568",
+    "scope": "store/metafield/created",
+    "data": {
+        "metafield_id": 12,
+        "resource_id": "118",
+        "resource_type": "variant"
+    }
+}
+```
 
 ## Routes
 
@@ -678,6 +788,7 @@ Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/gu
 ### Related articles
 
 * [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
+* [Webhooks Tutorial](/api-docs/store-management/webhooks/setting-up-webhooks)
 * [Webhooks Reference](/docs/webhooks/webhooks)
 * [Channel Webhook Events](/api-docs/channels/guide/webhooks)
+* [Buy Online, Pick up in Store Webhook Events](/buy-online-pick-up-in-store/webhooks)
