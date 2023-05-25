@@ -374,3 +374,22 @@ query {
   }
 }
 ```
+
+## Get popular brands
+
+```graphql filename="Example query: Get popular brands" showLineNumbers copy
+query {
+  site {
+    popularBrands {
+      edges {
+        node {
+          entityId
+          count
+          name
+          path
+        }
+      }
+    }
+  }
+}
+```
