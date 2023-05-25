@@ -11,8 +11,8 @@ description: |-
   Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example `{{{banners}}}`.
   (Double braces would escape the HTML.)
  
- **Limits**
- * `{{banners}}` will only return the first 50 banners on each page.
+  **Limits**
+  * `{{banners}}` will only return the first 50 banners on each page.
  
 type: object
 properties:
