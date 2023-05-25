@@ -3186,7 +3186,6 @@ paths:
         **Required Fields**
         - modifier_id
         - modifier_value_id
-        - modifier_value_id
         - variant_id
 
         **Read-Only Fields**
@@ -3296,19 +3295,6 @@ paths:
                       - variant_id
                     type: object
                     properties:
-                      id:
-                        type: integer
-                        description: |
-                          The unique numeric ID of the rule condition; increments sequentially. Read-Only
-                        nullable: true
-                        example: 3
-                      rule_id:
-                        type: integer
-                        description: |-
-                          The unique numeric ID of the rule with which the condition is associated.
-                          Read-Only
-                        nullable: true
-                        example: 4
                       modifier_id:
                         type: integer
                         description: |-
@@ -3330,11 +3316,6 @@ paths:
                           Required in /POST.
                         nullable: true
                         example: 1
-                      combination_id:
-                        type: integer
-                        description: |
-                          (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-                    description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
               description: Common ComplexRule properties.
         required: true
       responses:
@@ -3768,12 +3749,6 @@ paths:
               title: Complex Rule
               type: object
               properties:
-                id:
-                  type: integer
-                  description: |-
-                    The unique numeric ID of the rule; increments sequentially.
-                    Read-Only
-                  example: 5
                 product_id:
                   type: integer
                   description: |
@@ -3865,19 +3840,6 @@ paths:
                       - variant_id
                     type: object
                     properties:
-                      id:
-                        type: integer
-                        description: |
-                          The unique numeric ID of the rule condition; increments sequentially. Read-Only
-                        nullable: true
-                        example: 3
-                      rule_id:
-                        type: integer
-                        description: |-
-                          The unique numeric ID of the rule with which the condition is associated.
-                          Read-Only
-                        nullable: true
-                        example: 4
                       modifier_id:
                         type: integer
                         description: |-
@@ -3899,11 +3861,6 @@ paths:
                           Required in /POST.
                         nullable: true
                         example: 1
-                      combination_id:
-                        type: integer
-                        description: |
-                          (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
-                    description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
               description: Common ComplexRule properties.
         required: true
       responses:
