@@ -31,10 +31,7 @@ If you're interested in contributing to BigCommerce Developer Documentation, see
 ├── .eslintrc.json                     # config for MDX linter
 ├── .gitignore                         # gitignore
 ├── .nojekyll                          
-├── .spelling                          # mdspell dictionary
-├── .textlintrc                        # textlint configuration file
 ├── CONTRIBUTING                       # guidelines for contribution
-├── Gruntfile.js                       # grunt configuration file
 ├── package-lock.json                  
 ├── package.json                       
 ├── pull_request_template.md           # template for most pull requests
