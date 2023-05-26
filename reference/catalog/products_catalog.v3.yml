@@ -6659,7 +6659,14 @@ components:
           nullable: true
         inventory_level:
           type: integer
-          description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
+          description: |- 
+            Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+                                
+            The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647. 
+                                
+            If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
+            
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
           nullable: true
           maximum: 2147483647
         inventory_warning_level:
@@ -6842,7 +6849,14 @@ components:
           nullable: true
         inventory_level:
           type: integer
-          description: 'Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`.'
+          description: |- 
+            Inventory level for the variant, which is used when the product’s inventory_tracking is set to `variant`. The Catalog API returns the inventory for only the default location.
+                                
+            The inventory for a variant cannot exceed 2,147,483,647 in the catalog. The sum of the variant inventories, or the total inventory for a product, cannot exceed 2,147,483,647. 
+                                
+            If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
+            
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
           nullable: true
           maximum: 2147483647
         inventory_warning_level:
@@ -8271,8 +8285,12 @@ components:
           maximum: 2147483647
           minimum: 0
           type: integer
-          description: |
-            Current inventory level of the product. Simple inventory tracking must be enabled (See the `inventory_tracking` field) for this to take any effect.
+          description: |- 
+            Current inventory level of the product. You must track inventory by _product_ for this to take effect (see the `inventory_tracking` field). The Catalog API returns the inventory for only the default location.
+
+            The inventory for a product cannot exceed 2,147,483,647 in the catalog. If you exceed the limit, the store sets the inventory level to the limit.
+
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
         inventory_warning_level:
           maximum: 2147483647
           minimum: 0
