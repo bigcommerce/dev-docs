@@ -9,9 +9,9 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
  </Callout>
 
-## Creating store-level API accounts for Stencil
+## Creating Stencil API credentials
 
-Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. 
+Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil-specific access token. 
 
 To automatically create an API account with the scopes and permissions required by Stencil CLI, apply the following settings as you [create a store-level API account](/api-docs/getting-started/api-accounts#creating-store-level-api-accounts). 
 
@@ -25,6 +25,8 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
+
+For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
 
 ## Downloading a theme
 
@@ -82,7 +84,7 @@ The Browsersync preview is launched by executing the `stencil start` command in 
  The store's URL should be a vanity URL.
  </Callout>
 
-This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [create a Stencil-scoped store-level API account](#creating-store-level-api-accounts-for-stencil).
+This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [create Stencil API credentials](#creating-stencil-api-credentials).
 
 To initialize a new `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
 
@@ -116,7 +118,7 @@ stencil start
 [Browsersync] Watching files...
 ```
 
-Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use the store-level API account access token you supply to make API calls to BigCommerce and populate the theme preview with live store data in order to mimic production as closely as possible.
+Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use the Stencil API token supplied to make API calls to BigCommerce and populate the theme preview with live store data in order to mimic production as closely as possible.
 
 ### Serving a live preview over HTTPS 
 
