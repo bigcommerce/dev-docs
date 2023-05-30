@@ -31,6 +31,7 @@ If you're interested in contributing to BigCommerce Developer Documentation, see
 ├── .eslintrc.json                     # config for MDX linter
 ├── .gitignore                         # gitignore
 ├── .nojekyll                          
+├── .spelling   
 ├── CONTRIBUTING                       # guidelines for contribution
 ├── package-lock.json                  
 ├── package.json                       
