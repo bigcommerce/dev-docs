@@ -1,17 +1,19 @@
-# Troubleshooting
+# Troubleshooting BigCommerce for WordPress Plugin
+
+
 
 ## Error on "Add to Cart" button, 404 error
 
 ### Symptom
 
 ```shell
-> Not Found: The requested URL /bigcommerce/cart/42 was not found on this server.
-> Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
+ Not Found: The requested URL /bigcommerce/cart/42 was not found on this server.
+ Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
 ```
 
 ### Solution
 
-In WordPress, go to **Settings > Permalinks**. Scroll to the bottom of the page and click Save. This resets the site's redirects properly.
+In WordPress, go to **Settings > Permalinks**. Scroll to the bottom of the page and click Save. This resets the site's redirects.
 
 ## PHP getenv() Errors
 
@@ -20,7 +22,7 @@ In WordPress, go to **Settings > Permalinks**. Scroll to the bottom of the page 
 When in use the plugin floods the error log with the following:
 
 ```shell
-> PHP message: PHP Warning: getenv() expects exactly 1 parameter, 2 given in wp-content/plugins/bigcommerce-for-wordpress-0.11.1/bigcommerce.php on line 58
+PHP message: PHP Warning: getenv() expects exactly 1 parameter, 2 given in wp-content/plugins/bigcommerce-for-wordpress-0.11.1/bigcommerce.php on line 58
 ```
 
 ### Solution
@@ -37,7 +39,7 @@ You can expect to see that error if you're on PHP version 5.4 or lower (the plug
 
 ### Solution
 
-Make sure that the server/service doesn't block requests. Whitelist requests to Bigcommerce API and responses from it.
+Make sure that the server/service doesn't block requests. Whitelist requests to BigCommerce API and responses from it.
 
 
 ## Could not retrieve the token
@@ -75,13 +77,13 @@ BigCommerce.ERROR: Could not retrieve the token
 
 ### Solution
 
-If you use `Fast`(headless) import you have to apply right scopes to your API keys. The Storefront API tokens and Storefront API impersonation token scopes are required. You can create correct scopes via Bigcommerce dashboard -> Settings -> Store-level API accounts
+If you use `Fast`(headless) import you need to apply the right scopes to your API keys. The Storefront API tokens and Storefront API impersonation token scopes are required. You can create correct scopes in the Bigcommerce dashboard > Settings > Store-level API accounts
 
 ## Mini-cart/cart page doesn't display or display wrong amount of products
 
 ### Solution
 
-Make sure that you don't have a cache problem. Each time when you add a product to a cart, an API request is sent. Without a cache set, the cart's content will be updated after the successful processing of the API request. However, if cache rules are applied they can affect the cart and return the wrong version of the cart(empty cart page, not a sufficient amount of products, etc.). To resolve the problem exclude cart page and mini-cart requests from cache.
+Make sure that you don't have a cache problem. Each time you add a product to a cart, an API request is sent. Without a cache set, the cart's content will be updated after the successful processing of the API request. However, if cache rules are applied they can affect the cart and return the wrong version of the cart (empty cart page, not a sufficient amount of products, etc.). To resolve the problem exclude cart page and mini-cart requests from cache.
 
 ## Sync stuck. No handler found for current import state
 
@@ -93,7 +95,7 @@ BigCommerce.NOTICE: No handler found for current import state {"state":"complete
 
 ### Solution
 
-Go to `wp-admin -> Bigcommerce -> Settings -> Diagnostics`. Click on the Abort import button and wait 1-2 minutes. After that try to restart the import. Check that WP-Cron is working and you don't have server issues. If import still doesn't work, contact Bigcommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Please provide as many details as possible.
+Go to `wp-admin > BigCommerce > Settings > Diagnostics`. Click on the Abort import button and wait one to two minutes. After that try to restart the import. Check that WP-Cron is working and you don't have server issues. If import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Provide as many details as possible.
 
 
 
@@ -107,19 +109,19 @@ PHP Fatal error:  Uncaught Error: Call to undefined function BigCommerce\Import\
 
 ### Solution
 
-Please check that this is not a PHP extension specific issue e.g https://www.php.net/manual/en/function.ctype-alpha.php function is disabled by hosting/service provider and similar. In any other cases please contact Bigcommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues).
+Check that this is not a PHP extension specific issue, e.g https://www.php.net/manual/en/function.ctype-alpha.php ,function is disabled by hosting/service provider and similar. In any other instances, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues).
 
-## Not all products from the Bigcommerce store appear on WordPress side
+## Not all products from the BigCommerce store appear on WordPress side
 
 ### Solution
 
-Please check that products are assigned to corresponding channels. Make sure that for Full import in plugin settings you didn't disable `Automatic Listing` option.
+Check that products are assigned to corresponding channels. Make sure that for Full import in plugin settings you didn't disable `Automatic Listing` option.
 
 ## Import is too slow
 
 ### Solution
 
-Import time relies on the amount of products you have synced from your catalog. In general if you have more than 200 products and use full import it is normal to run import for more than 30 minutes. Please note that the import process also relies on WP-Cron. That means import tasks will be processed only if the site has visitors. The import task won't be processed automatically until someone attends the site. To avoid such problem [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) can be used.
+Import time relies on the amount of product that you have synced from your catalog. In general if you have more than 200 products and use full import it is normal to run import for more than 30 minutes. Note that the import process also relies on WP-Cron. That means that import tasks will be processed only when the site has visitors. The import task won't be processed automatically until someone is on the site. To avoid such a problem, [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) can be used.
 
 ## Inactive channel. Product import canceled
 
@@ -132,7 +134,7 @@ Import time relies on the amount of products you have synced from your catalog. 
 
 ### Solution
 
-Make sure that your Wordpress store is connected to Bigcommerce and the primary channel is set under `Bigcommerce -> Settings -> Channel`. If primary channel is not set please re-install plugin and connect it to the correct store channel.
+Make sure that your WordPress store is connected to BigCommerce and the primary channel is set under `BigCommerce > Settings > Channel`. If primary channel is not set then re-install plugin and connect it to the correct store channel.
 
 ## Webhooks incorrect password
 
@@ -144,24 +146,24 @@ BigCommerce-webhooks.ERROR: Incoming webhook password does not match
 
 ### Solution
 
-Go to `Bigcommerce -> Settings -> Product Sync`. Disable webhooks and save settings. After page reload go to the `Bigcommerce -> Settings -> Product Sync` again and re-enable webhooks.
+Go to `BigCommerce > Settings > Product Sync`. Disable webhooks and save settings. After page reload go to the `BigCommerce > Settings > Product Sync` again and re-enable webhooks.
 
 ## Cart/Checkout url doesn't work or throw 404 error
 
 ### Solution
-Make sure that the correct permalink structure is set in `wp-admin -> Settings -> Permalinks`. For correct plugin work please enable any permalink structure except a plain one.
+Make sure that the correct permalink structure is set in `wp-admin > Settings > Permalinks`. For correct plugin work enable any permalink structure except a plain one.
 
 ## Password reset email doesn't work
 
 ### Solution
 
-Please check that email functionality is on and your server/service doesn't block it. By default plugin use settings from Wordpress.
+Check that email functionality is on and your server/service doesn't block it. By default plugin use settings from WordPress.
 
 ## Some elements are hidden on product single page(reviews, price, variants etc)
 
 ### Solution
 
-Please check your primary channel settings in BigCommerce (example url: `https://store-<store_hash>.mybigcommerce.com/manage/channel/<channel_id>/store-settings`) and make sure that corresponding items in product display settings are not hidden.
+Check your primary channel settings in BigCommerce (example url: `https://store-<store_hash>.mybigcommerce.com/manage/channel/<channel_id>/store-settings`) and make sure that corresponding items in product display settings are not hidden.
 
 ## Product entity exists. Skipping
 
@@ -173,7 +175,7 @@ BigCommerce.DEBUG: Product entity exists. Skipping. {"product_id":xxxx,"channel_
 
 ### Solution
 
-Message in error logs means product already imported to Wordpress and won't be processed again
+Message in error logs means product already imported to WordPress and won't be processed again
 
 ## Failed to download image. cURL error 28: Resolving timed out after 10000 milliseconds
 
@@ -196,7 +198,7 @@ Issue occurs during product/category image import. The issue is environment spec
 ## E-commerce pages(categories, products single page, checkout) are not visible for non-logged user
 
 ### Solution
-Make sure that your channel attached to Wordpress is not in pre launch status. If it has prelaunch status change it to active and perform import on Wordpress side
+Make sure that your channel attached to WordPress is not in pre launch status. If it has prelaunch status change it to active and perform import on WordPress side
 
 ## New/Updated since last sync doesn't work on Fast import
 
@@ -214,11 +216,11 @@ The full list of the scopes can be found [here](https://developer.bigcommerce.co
 
 ### Solution
 
-Please flush the cache on your Wordpress setup. Sometimes pages, product information may be cached and old information will be shown
+Flush the cache on your WordPress setup. Sometimes pages, product information may be cached and old information will be shown.
 
 ## Price is not correct on the single product page (Fast Import)
 
 ### Solution
 
-Sometimes due to heavy caching, the price on the product page has the wrong value. That happened due to an expired `X-Nonce` for price request. The issue can be resolved by removing that nonce from the price request. Go to the `Appearance -> Customizer -> Bigcommerce -> Product Single -> Pricing nonce field(for advanced use only)` and disable nonce.
+Sometimes due to heavy caching, the price on the product page has the wrong value. That happened due to an expired `X-Nonce` for price request. The issue can be resolved by removing that nonce from the price request. Go to the `Appearance > Customizer > BigCommerce > Product Single > Pricing nonce field(for advanced use only)` and disable nonce.
 
