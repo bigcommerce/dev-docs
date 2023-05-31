@@ -1,19 +1,19 @@
 # GraphQL Storefront API Overview
 
 <Callout type="info">
-#### Early access
-The GraphQL Storefront API is in early access and is feature-incomplete. It will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience. As new features are added to the API, we'll announce them in our [Developer Changelog](/changelog#labels/storefront-api).
-
- "Early access" does not mean the API's quality, stability, or readiness is inadequate for use in a production capacity on transactional storefronts. On the contrary, this API is production ready and fully supported & tested by BigCommerce. You should be comfortable using it if the current functionality satisfies your use case.
+The GraphQL Storefront API is feature-complete.
 </Callout>
 
-BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](/stencil-docs/getting-started/about-stencil) theme, or from external websites or applications in a headless shopper experience. This GraphQL API serves as a flexible interface for building shopper experiences. For example, with the GraphQL Storefront API, it is possible to do the following:
+BigCommerce's GraphQL Storefront API makes it possible to power a headless storefront; see [Introduction to Headless Commerce](/api-docs/storefronts/guide/overview) for details.
+The GraphQL Storefront API also lets you query storefront data from within a [Stencil](/stencil-docs/getting-started/about-stencil) theme. 
+
+This graph serves as a flexible interface for building shopper experiences. For example, with the GraphQL Storefront API, it is possible to do the following:
 
 * Query product catalog data to help shoppers find the product they're looking for through BigCommerce's searching, filtering, and sorting capabilities.
 * Request any product's images at any resolution.
-* Ask for customer details such as name, email address, and attributes (if logged in).
+* Ask for a signed-in customer's details, such as name, email address, and attributes.
 * Look up objects, such as categories or brands, by URL, and fetch their details.
-* Build front-end applications on top of a BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil) theme or on a headless storefront.
+* Create new carts, fetch existing carts, and initiate checkout.
 
 
 Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
@@ -251,7 +251,7 @@ The following example request uses the `{{settings.storefront_api.token}}` Handl
   The `fetch` request's `credentials` property must be set to `same-origin`.
 </Callout>
 
-```js filename="Example request: GraphQL query using Stencil auto-generated token" showLineNumbers copy
+```handlebars filename="Example request: GraphQL query using Stencil auto-generated token" showLineNumbers copy
 <script>
 fetch('/graphql', {
   method: 'POST',
@@ -596,6 +596,9 @@ query {
   site {
     products(first:10) { // <--- reducing quantity requested reduces complexity score
       // ...
+    }
+  }
+}
 ```
 
 To reduce complexity, reduce the number of objects requested. For example, do the following:
