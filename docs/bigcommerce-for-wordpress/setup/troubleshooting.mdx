@@ -1,52 +1,45 @@
 # Troubleshooting BigCommerce for WordPress Plugin
 
-
+Find solutions to some of the unexpected errors encountered when using the BigCommerce for WordPress plugin. 
 
 ## Error on "Add to Cart" button, 404 error
 
-### Symptom
+If you encounter an error on the "Add to Cart" button or get the error below, try reseting the site's redirects.
 
-```shell
- Not Found: The requested URL /bigcommerce/cart/42 was not found on this server.
- Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
+```shell showLineNumbers copy
+Not Found: The requested URL /bigcommerce/cart/42 was not found on this server.
+Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
 ```
+Try the following steps to resolve the issue.
 
-### Solution
-
-In WordPress, go to **Settings > Permalinks**. Scroll to the bottom of the page and click Save. This resets the site's redirects.
+1. Make changes in WordPress by going to **Settings > Permalinks**. 
+2. Scroll to the bottom of the page and click Save. This resets the site's redirects.
 
 ## PHP getenv() Errors
 
-### Symptom
+When in use, the plugin floods the error log with the message below.
 
-When in use the plugin floods the error log with the following:
-
-```shell
+```shell showLineNumbers copy
 PHP message: PHP Warning: getenv() expects exactly 1 parameter, 2 given in wp-content/plugins/bigcommerce-for-wordpress-0.11.1/bigcommerce.php on line 58
 ```
 
-### Solution
-
-You can expect to see that error if you're on PHP version 5.4 or lower (the plugin requires 5.6+).
+Expect to see that error if you're on PHP version 5.4 or lower (the plugin requires 5.6+).
 
 ## 403 error on API request
 
-### Symptom
+When sending an API request you may come accross a 403 error, or you might see the following message:
 
-```shell
+```shell showLineNumbers copy
 [429] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/catalog/categories?id%3Ain=138%2C139%2C140%2C142%2C143%2C144%2C145%2C146%2C147%2C149&limit=10&include_fields=id)
 ```
 
-### Solution
-
-Make sure that the server/service doesn't block requests. Whitelist requests to BigCommerce API and responses from it.
-
+Make sure that either the server, or service, doesn't block requests. Be sure to whitelist requests to BigCommerce API and responses from it.
 
 ## Could not retrieve the token
 
-### Symptom
+If you encounter the error below, you could be having API scope issues.
 
-```shell
+```shell  showLineNunbers copy
 BigCommerce.ERROR: Could not retrieve the token
 {
   "trace": "
@@ -75,80 +68,75 @@ BigCommerce.ERROR: Could not retrieve the token
 }
 ```
 
-### Solution
+If you're using `Fast` (headless) import you need to apply the right scopes to your API keys. The Storefront API tokens and Storefront API impersonation token scopes are required. Create the correct scopes in the Bigcommerce dashboard > Settings > Store-level API accounts.
 
-If you use `Fast`(headless) import you need to apply the right scopes to your API keys. The Storefront API tokens and Storefront API impersonation token scopes are required. You can create correct scopes in the Bigcommerce dashboard > Settings > Store-level API accounts
+## Mini-cart/cart page doesn't display or displays the wrong amount of products
 
-## Mini-cart/cart page doesn't display or display wrong amount of products
+Make sure that you don't have a cache problem. Each time you add a product to a cart, an API request is sent. Without a cache set, the cart's content will be updated after the successful processing of the API request. 
 
-### Solution
+However, if cache rules are applied they can affect the cart and return the wrong version of the cart (empty cart page, not a sufficient amount of products, etc.). 
 
-Make sure that you don't have a cache problem. Each time you add a product to a cart, an API request is sent. Without a cache set, the cart's content will be updated after the successful processing of the API request. However, if cache rules are applied they can affect the cart and return the wrong version of the cart (empty cart page, not a sufficient amount of products, etc.). To resolve the problem exclude cart page and mini-cart requests from cache.
+To resolve the issue exclude cart page and mini-cart requests from cache.
 
 ## Sync stuck. No handler found for current import state
 
-### Symptom
+If your product sync is stuck, or if you've come accross the message below, there are steps available to get the products back in sync.
 
-```shell
+```shell showLineNumbers copy
 BigCommerce.NOTICE: No handler found for current import state {"state":"completed"}
 ```
+The following steps will get your products syncing once again.
 
-### Solution
+1. Go to **`wp-admin > BigCommerce > Settings > Diagnostics`**. 
+2. Click on the "Abort import button" and wait one to two minutes. 
+3. Now try to restart the import. Check to see if WP-Cron is working and that you don't have server issues. 
 
-Go to `wp-admin > BigCommerce > Settings > Diagnostics`. Click on the Abort import button and wait one to two minutes. After that try to restart the import. Check that WP-Cron is working and you don't have server issues. If import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Provide as many details as possible.
-
-
+<Callout type="info">
+  If import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Provide as many details as possible.
+</Callout>
 
 ## PHP errors in server logs related to the plugin
 
-### Symptom
+If you encounter the following PHP errors (shown below) in your server logs realted to the plugin, there could be specific extension related issues. 
 
-```shell
+```shell showLineNumbers
 PHP Fatal error:  Uncaught Error: Call to undefined function BigCommerce\Import\Importers\Products\ctype_alpha() in path/wp-content/plugins/bigcommerce/src/BigCommerce/Import/Importers/Products/Product_Builder.php:461 
 ```
 
-### Solution
+First, check that this is not a PHP extension specific issue, e.g https://www.php.net/manual/en/function.ctype-alpha.php ,function is disabled by hosting/service provider and similar. If that doesn't solve the issue then contact BigCommerce support, or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues).
 
-Check that this is not a PHP extension specific issue, e.g https://www.php.net/manual/en/function.ctype-alpha.php ,function is disabled by hosting/service provider and similar. In any other instances, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues).
+## Not all products from the BigCommerce store appear on the WordPress side
 
-## Not all products from the BigCommerce store appear on WordPress side
-
-### Solution
-
-Check that products are assigned to corresponding channels. Make sure that for Full import in plugin settings you didn't disable `Automatic Listing` option.
+If you come across missing products in the WordPress control panel, verify that products are assigned to corresponding channels. Make sure that the `Automatic Listing` option for `Full` import in the plugin's settings isn't disabled.
 
 ## Import is too slow
 
-### Solution
+The import time is dependent on the amount of product that you have synced from your catalog. In general, if you have more than 200 products and use full import  then it is normal to run import for more than 30 minutes. 
 
-Import time relies on the amount of product that you have synced from your catalog. In general if you have more than 200 products and use full import it is normal to run import for more than 30 minutes. Note that the import process also relies on WP-Cron. That means that import tasks will be processed only when the site has visitors. The import task won't be processed automatically until someone is on the site. To avoid such a problem, [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) can be used.
+Note that the import process also relies on WP-Cron. That means that import tasks are processed only when the site has visitors. The import task won't be processed automatically until someone is on the site. To avoid this kind of issue follow the [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) guide.
 
 ## Inactive channel. Product import canceled
 
-### Symptom
+If you find that your product import is cancelled, or see the following error below, make sure your channel is properly connected.
 
-```shell
+```shell showLineNumbers copy
 [502] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings)
 [504] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings/listing_id)
 ```
-
-### Solution
 
 Make sure that your WordPress store is connected to BigCommerce and the primary channel is set under `BigCommerce > Settings > Channel`. If primary channel is not set then re-install plugin and connect it to the correct store channel.
 
 ## Webhooks incorrect password
 
-### Symptom
+If you see the following webhook error, shown below, try resetting webhooks in the control panel.
 
-```shell
+```shell showLineNumbers copy
 BigCommerce-webhooks.ERROR: Incoming webhook password does not match
 ```
 
-### Solution
-
 Go to `BigCommerce > Settings > Product Sync`. Disable webhooks and save settings. After page reload go to the `BigCommerce > Settings > Product Sync` again and re-enable webhooks.
 
-## Cart/Checkout url doesn't work or throw 404 error
+## Cart/Checkout url doesn't work or gives a 404 error
 
 ### Solution
 Make sure that the correct permalink structure is set in `wp-admin > Settings > Permalinks`. For correct plugin work enable any permalink structure except a plain one.
