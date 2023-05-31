@@ -290,7 +290,7 @@ const Header = () => {
 export default Header;
 ```
 
-The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production or production-like environment (integration or staging). `router.prefetch()` does not prefetch the products page while in the development mode.
+The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production environment. `router.prefetch()` does not prefetch the products page while in the development mode.
 
 ### Test your app
 
@@ -301,8 +301,6 @@ Your app should now display two tabs: **Home** and **Products**. Click on the **
 ### Latency
 
 When loading the products page for the first time, the latency you notice only happens in the development mode. In production or a production-like environment, `router.prefetch()` prefetches the products page reducing the latency.
-
-To test your app in a production or a production-like environment (integration or staging), run `npm run build` instead of `npm run dev` in your terminal. This builds and compiles your local code. Then, run `npm run start` to get the performance enhancements traditionally not available in the development mode. 
 
 Keep in mind that any changes you make to your code after running `npm run build` need to go through the build process to be captured.
 
