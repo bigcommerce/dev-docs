@@ -675,7 +675,7 @@ paths:
                             class_id: string
                             name: string
                           tax_exempt: false
-                          type: item
+                          type: shipping
                         handling:
                           id: string
                           item_code: Flat Rate
@@ -690,7 +690,7 @@ paths:
                             class_id: string
                             name: string
                           tax_exempt: false
-                          type: item
+                          type: handling
                         items:
                           - id: string
                             item_code: Flat Rate
@@ -720,7 +720,7 @@ paths:
                                 class_id: string
                                 name: string
                               tax_exempt: false
-                              type: item
+                              type: wrapping
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
@@ -904,7 +904,7 @@ components:
           properties:
             amount:
               type: number
-              description: 'Note: This amount will be **negative** for order-level refunds and may be **zero** for line-item refunds.'
+              description: 'Note: This amount will be **negative** for order-level refunds and may be **zero** for line item refunds.'
               format: double
               example: 1.5
             tax_inclusive:
@@ -925,94 +925,10 @@ components:
           description: Merchants may opt to include additional properties that a tax provider can choose to support, factoring these values into tax calculation.
           items:
             $ref: '#/components/schemas/request-item-tax-property'
-        type:
-          type: string
-          description: |-
-            The type of line item this request represents. This will depend on the item’s position in the request hierarchy. For example, the document request contains a collection of items (which may or may not also have wrapping attached). In addition, each document request also has a shipping line item and handling line item.
-
-            The type refund is used when the tax estimate request is for an order-level refund.
-          enum:
-            - item
-            - wrapping
-            - handling
-            - shipping
-            - refund
       required:
         - id
         - price
         - quantity
-        - type
-    request-item-wrapping:
-      type: object
-      description: 'An **ItemRequestWrapping** represents required information relating to completing tax calculations for a specific line item, including the information used to calculate wrapping tax.'
-      title: ItemRequestWrapping
-      properties:
-        id:
-          type: string
-          description: A unique identifier for this item used to map responses back to the corresponding item on the order.
-        item_code:
-          type: string
-          description: 'The UPC or SKU of the item. The UPC is used when both UPC and SKU values are available on the item. Empty string if both UPC and SKU are not available.'
-        item_reference:
-          type: string
-          description: 'The SKU of the item. Empty string if SKU is not available.'
-        name:
-          type: string
-          description: A display name for this item.
-        price:
-          type: object
-          description: 'The final sale price (after discounts, bulk pricing, price lists, etc.) prior to having taxes calculated. If the merchant lists prices inclusive of tax, this price will already be tax inclusive, and so the tax provider will instead calculate the amount of tax that was already included in this price. For multiple quantities, this price includes that multiplication.'
-          required:
-            - amount
-            - tax_inclusive
-          properties:
-            amount:
-              type: number
-              description: 'Note: This amount will be **negative** for order-level refunds and may be **zero** for line-item refunds.'
-              format: double
-            tax_inclusive:
-              type: boolean
-              description: 'Note: **Tax Inclusive** and **Tax Exclusive** prices cannot be added together.'
-              default: false
-        quantity:
-          type: integer
-          minimum: 0
-        tax_class:
-          $ref: '#/components/schemas/TaxClass'
-        tax_exempt:
-          type: boolean
-          description: 'Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.'
-          default: false
-        tax_properties:
-          type: array
-          description: Merchants may opt to include additional properties that a tax provider can choose to support, factoring these values into tax calculation.
-          items:
-            $ref: '#/components/schemas/request-item-tax-property'
-        type:
-          type: string
-          description: |-
-            The type of line item this request represents. This will depend on the item’s position in the request hierarchy. For example, the document request contains a collection of items (which may or may not also have wrapping attached). In addition, each document request also has a shipping line item and handling line item.
-
-            The type refund is used when the tax estimate request is for an order-level refund.
-          enum:
-            - item
-            - wrapping
-            - handling
-            - shipping
-            - refund
-        wrapping:
-          anyOf:
-            - $ref: '#/components/schemas/request-item'
-            - type: object
-              nullable: true
-              enum: 
-                - null
-      required:
-        - id
-        - price
-        - quantity
-        - type
-      x-internal: false
     request-item-tax-property:
       type: object
       description: A simple key value pairing allowing merchants to provide an additional input into a tax providerʼs tax calculation.
@@ -1032,7 +948,7 @@ components:
       x-internal: false
     request-document:
       type: object
-      description: 'Each **DocumentRequest** represents an order or part of an order of items fulfilled from a single origin address to a single destination address. In addition to shipping and billing details, it contains an `items` array of one or more **ItemRequest** objects, which represent the shipment’s tax-relevant contents. Multi-address orders, in which items ship to or from multiple addresses, require at least one **DocumentRequest** per combination of sender-recipient addresses. These are similar to "consignments" or "shipments" in other BigCommerce APIs.'
+      description: 'Each **DocumentRequest** represents an order or part of an order of items fulfilled from a single origin address to a single destination address. In addition to shipping and billing details, a document request includes the collection of items in the shipment, with tax-relevant information for each item. Multi-address orders, in which items ship to or from multiple addresses, require at least one **DocumentRequest** per combination of sender-recipient addresses. These are similar to "consignments" or "shipments" in other BigCommerce APIs.'
       title: DocumentRequest
       properties:
         id:
@@ -1045,14 +961,51 @@ components:
         origin_address:
           $ref: '#/components/schemas/Address'
         shipping:
-          $ref: '#/components/schemas/request-item'
+          type: object
+          description: Shipping line item present in each document request.
+          allOf:
+            - $ref: '#/components/schemas/request-item'
+            - type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/shipping_type'
+              required:
+                - type
         handling:
-          $ref: '#/components/schemas/request-item'
+          type: object
+          description: Handling line item present in each document request.
+          allOf:
+            - $ref: '#/components/schemas/request-item'
+            - type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/handling_type'
+              required:
+                - type
         items:
           type: array
-          description: Collection of one or more items contained within this consignment that need to be assessed for tax liabilities.
+          description: Collection of one or more items contained within this consignment that need to be assessed for tax liabilities. An item may or may not have gift wrapping.
           items:
-            $ref: '#/components/schemas/request-item-wrapping'
+            allOf:
+              - $ref: '#/components/schemas/request-item'
+              - type: object
+                properties:
+                  type:
+                    $ref: '#/components/schemas/item_type'
+                  wrapping:
+                    type: object
+                    description: Optional gift wrapping for items in the consignment.
+                    nullable: true
+                    allOf:
+                      - $ref: '#/components/schemas/request-item'
+                      - type: object
+                        properties:
+                          type:
+                            $ref: '#/components/schemas/wrapping_type'
+                        required:
+                          - type
+                required:
+                  - type
       required:
         - id
         - destination_address
@@ -1205,13 +1158,50 @@ components:
           description: 'An optional unique identifier for the document stored in the external provider’s system. Currently not used in any end-to-end operation, but may be logged by BigCommerce and thus be helpful when resolving issues.'
         items:
           type: array
-          description: Collection of items contained within this consignment that have had tax liabilities calculated.
+          description: Collection of items contained within this consignment that have had tax liabilities calculated. An item may or may not have gift wrapping.
           items:
-            $ref: '#/components/schemas/response-item-wrapping'
+            allOf:
+              - $ref: '#/components/schemas/response-item'
+              - type: object
+                properties:
+                  type:
+                    $ref: '#/components/schemas/item_type'
+                  wrapping:
+                    type: object
+                    description: Optional gift wrapping for items in the consignment.
+                    nullable: true
+                    allOf:
+                      - $ref: '#/components/schemas/response-item'
+                      - type: object
+                        properties:
+                          type:
+                            $ref: '#/components/schemas/wrapping_type'
+                        required: 
+                          - type
+                required:
+                  - type
         shipping:
-          $ref: '#/components/schemas/response-item'
+          type: object
+          description: Shipping line item present in each document request.
+          allOf:
+            - $ref: '#/components/schemas/response-item'
+            - type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/shipping_type'
+              required:
+                - type
         handling:
-          $ref: '#/components/schemas/response-item'
+          type: object
+          description: Handling line item present in each document request.
+          allOf:
+            - $ref: '#/components/schemas/response-item'
+            - type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/handling_type'
+              required:
+                - type
       required:
         - id
         - items
@@ -1231,46 +1221,9 @@ components:
           description: A unique identifier for the line item these tax liabilities are calculated for. Must match the corresponding request line item ID.
         price:
           $ref: '#/components/schemas/response-taxprice'
-        type:
-          type: string
-          enum:
-            - item
-            - wrapping
-            - shipping
-            - handling
-            - refund
       required:
         - id
         - price
-        - type
-      x-internal: false
-    response-item-wrapping:
-      type: object
-      description: |-
-        The tax liabilities calculated for a specific item, including the liabilities for wrapping tax.
-
-        Note: Tax liabilities should be calculated with **quantity** accounted for.
-      title: ItemWrapping
-      properties:
-        id:
-          type: string
-          description: A unique identifier for the line item these tax liabilities are calculated for. Must match the corresponding request line item ID.
-        price:
-          $ref: '#/components/schemas/response-taxprice'
-        type:
-          type: string
-          enum:
-            - item
-            - wrapping
-            - shipping
-            - handling
-            - refund
-        wrapping:
-          $ref: '#/components/schemas/response-item'
-      required:
-        - id
-        - price
-        - type
       x-internal: false
     response-taxprice:
       type: object
@@ -1332,6 +1285,33 @@ components:
         - rate
         - amount
       x-internal: false
+    item_type:
+      type: string
+      description: |-
+        The type of item for the line item in the document.
+
+        Tax estimate requests for order-level refunds have an additional line item with the type `refund`.
+      enum:
+        - item
+        - refund
+    shipping_type:
+      type: string
+      description: |-
+        The type of item for the line item in the document.
+      enum:
+        - shipping
+    handling_type:
+      type: string
+      description: |-
+        The type of item for the line item in the document.
+      enum:
+        - handling
+    wrapping_type:
+      type: string
+      description: |-
+        The type of item for the line item in the document.
+      enum:
+        - wrapping
   securitySchemes:
     Authorization:
       type: http
