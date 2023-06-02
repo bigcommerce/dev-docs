@@ -1,7 +1,7 @@
 type: object
 properties:
   store/cart/lineItem/created:
-    description: When a new item is added to the cart
+    description: Fires when a new item is added to a cart.
     type: object
     properties:
       scope:

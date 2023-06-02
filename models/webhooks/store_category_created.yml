@@ -1,7 +1,7 @@
 type: object
 properties:
   store/category/created:
-    description: Category is created
+    description: Fires when a category is created.
     type: object
     properties:
       scope:

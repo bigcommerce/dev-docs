@@ -1,7 +1,13 @@
 type: object
 properties:
   store/sku/inventory/order/updated:
-    description: This will fire when the inventory is updated via API, the control panel, when an order is placed and when an order is refunded and the inventory is returned to stock. This hook will fire based on a store’s Inventory settings.
+    description: |-
+      Fires when the inventory is updated in the store control panel or using an API. Events include the following:
+      
+      * An order is placed 
+      * An order is refunded and the inventory is returned to stock. 
+      
+      The store’s Inventory settings affect when this webhook fires.
     type: object
     properties:
       scope:

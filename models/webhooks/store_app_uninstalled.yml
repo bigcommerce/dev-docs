@@ -1,7 +1,7 @@
 type: object
 properties:
   store/app/uninstalled:
-    description: Occurs when a client store is cancelled and uninstalled from the platform.
+    description: Fires when a client store is cancelled and uninstalled from the platform.
     type: object
     properties:
       scope:

@@ -1,7 +1,7 @@
 type: object
 properties:
   store/order/created:
-    description: Fires if an order is created using the control panel, an app or via the API
+    description: Fires when an order is created either in the control panel or by API.
     type: object
     properties:
       scope:

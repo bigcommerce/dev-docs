@@ -1,7 +1,7 @@
 type: object
 properties:
   store/customer/updated:
-    description: Customer is updated. Does not currently track changes to the customer address.
+    description: Fires when a customer is updated. Does not currently track changes to the customer address.
     type: object
     properties:
       scope:

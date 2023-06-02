@@ -1,7 +1,7 @@
 type: object
 properties:
   store/cart/lineItem/updated:
-    description: When an item’s quantity has changed or the product options change.
+    description: Fires when a line item’s quantity or product options change.
     type: object
     properties:
       scope:

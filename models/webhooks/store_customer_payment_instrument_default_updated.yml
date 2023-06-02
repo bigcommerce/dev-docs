@@ -1,7 +1,7 @@
 type: object
 properties:
   store/customer/payment/instrument/default/updated:
-    description: Customer default payment instrument is updated
+    description: Fires when a customer default payment instrument is updated
     type: object
     properties:
       scope:

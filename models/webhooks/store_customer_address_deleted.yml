@@ -1,7 +1,7 @@
 type: object
 properties:
   store/customer/address/deleted:
-    description: Customer address is deleted
+    description: Fires when a customer address is deleted
     type: object
     properties:
       scope:

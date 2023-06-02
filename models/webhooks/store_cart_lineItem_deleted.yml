@@ -1,7 +1,7 @@
 type: object
 properties:
   store/cart/lineItem/deleted:
-    description: When an item is deleted from the cart
+    description: Fires when an item is deleted from a cart.
     type: object
     properties:
       scope:

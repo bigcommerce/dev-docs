@@ -1,7 +1,7 @@
 type: object
 properties:
   store/customer/address/updated:
-    description: Customer address is updated
+    description: Fires when a customer address is updated
     type: object
     properties:
       scope:

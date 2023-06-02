@@ -1,7 +1,7 @@
 type: object
 properties:
   store/order/updated:
-    description: Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon or changing an address.
+    description: Fires when an already created order is updated. Any change to an existing order fires this webhook. Updates can include changing the status, updating a coupon, or changing an address.
     type: object
     properties:
       scope:

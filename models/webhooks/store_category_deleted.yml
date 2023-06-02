@@ -1,7 +1,7 @@
 type: object
 properties:
   store/category/deleted:
-    description: Category is deleted
+    description: Fires when a category is deleted
     type: object
     properties:
       scope:

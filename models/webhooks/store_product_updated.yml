@@ -1,7 +1,7 @@
 type: object
 properties:
   store/product/updated:
-    description: Occurs when product details are edited. For a full list of product fields that trigger an updated event, see Product updated events below
+    description: Fires when product details are edited. For a full list of product fields that trigger an updated event, see the product updated events that follow.
     type: object
     properties:
       scope:

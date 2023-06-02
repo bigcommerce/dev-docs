@@ -1,7 +1,7 @@
 type: object
 properties:
   store/information/updated:
-    description: Occurs when changes are made to store settings. For a full list of fields that can trigger this event, see Store information updated events below
+    description: Fires when changes are made to store settings. For a full list of fields that can trigger this event, see the store information updated events that follow.
     type: object
     properties:
       scope:

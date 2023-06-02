@@ -1,7 +1,7 @@
 type: object
 properties:
   store/category/updated:
-    description: Category is updated
+    description: Fires when a category is updated
     type: object
     properties:
       scope:

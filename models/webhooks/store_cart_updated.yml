@@ -1,7 +1,17 @@
 type: object
 properties:
   store/cart/updated:
-    description: his webhook is fired whenever a cart is modified through the changes in its line items. Eg. when a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or when an existing item is deleted. The payload will include the ID of the cart being updated. This webhook also fires along with the cart created hook, because the first product being added to an empty cart triggers an update.
+    description: |-
+      Fires when a cart is modified, including in the following cases: 
+      
+      * When a new item is added to a cart
+      * When an existing item’s quantity is updated
+      * When an existing item is deleted
+      * When the email is changed during guest checkout
+      * When the store/cart/created webhook fires
+      * When the store/cart/deleted webhook fires
+      
+      The payload includes the ID of the cart being updated.
     type: object
     properties:
       scope:

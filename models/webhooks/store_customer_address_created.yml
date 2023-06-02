@@ -1,7 +1,7 @@
 type: object
 properties:
   store/customer/address/created:
-    description: Customer address is created
+    description: Fires when a customer address is created
     type: object
     properties:
       scope:

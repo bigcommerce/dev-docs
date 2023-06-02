@@ -1,7 +1,7 @@
 type: object
 properties:
   store/order/statusUpdated:
-    description: This will only fire if the order status has changed. Such as Pending to Awaiting Payment
+    description: Fires when the order status has changed, such as from Pending to Awaiting Payment.
     type: object
     properties:
       scope:

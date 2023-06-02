@@ -1,7 +1,13 @@
 type: object
 properties:
   store/cart/deleted:
-    description: This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed via a DELETE request by an API consumer. This ends the lifecycle of the cart. The store/cart/updated webhook will also fire when the last item is removed.
+    description: |-
+      Fires when a cart is deleted. This ends the lifecycle of the cart. Events include the following:
+      
+      * When a storefront shopper or API call removes all items from the cart
+      * When the cart is explicitly removed by API using a DELETE request      
+      
+      The store/cart/updated webhook fires simultaneously with store/cart/deleted.
     type: object
     properties:
       scope:
