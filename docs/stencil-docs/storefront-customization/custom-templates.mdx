@@ -7,7 +7,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Product
 * Page
 
-This section explains how to author a custom template, map it to a URL, upload it to BigCommerce, and apply it to a storefront as a theme.
+This section explains how to author a custom template, map it to a URL, upload it to BigCommerce, and apply it to a storefront as a theme using Stencil CLI. Mapping a Template to a URL is specifically for local testing.
 
 <Callout type="warning">
   #### Stencil versus blueprint themes
@@ -19,20 +19,19 @@ This section explains how to author a custom template, map it to a URL, upload i
 
 ## Authoring a custom template
 
-If you are a theme developer, your first step is to create a custom template page.
+If you are a theme developer, your first step is to create a custom template page. 
 
 To create a custom page:
 
-1. In the control panel navigate to **Storefront > Web Pages** in a non-active MSF-enabled control panel or if MSF is active on your store go to **Channel Manager > Channels > Edit Settings > Web Pages**. 
-2. First, create a `custom` subdirectory in the `templates/pages` directory. 
-3. Then, create the following four subdirectories under the `templates/pages/custom` directory: 
+1. First, create a `custom` subdirectory in the `templates/pages` directory. 
+2. Then, create the following four subdirectories under the `templates/pages/custom` directory: 
 
 * brand
 * category
 * product
 * page
 
-4. Next, create the template file in .html format, and then place the file in the appropriate `templates/pages/custom/` subdirectory.
+3. Next, create the template file in .html format, and then place the file in the appropriate `templates/pages/custom/` subdirectory.
 
 <Callout type="warning">
   #### File permissions required
