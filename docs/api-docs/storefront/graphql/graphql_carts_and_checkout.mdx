@@ -2,7 +2,7 @@
 
 BigCommerce's GraphQL Storefront API supports Cart and Checkout objects within the graph. This Cart and Checkout support offers similar benefits as our REST APIs, but having Cart and Checkout in GraphQL alongside other data makes it easier for building storefront functionality.
 
-The addition of GraphQL means we have all the critical GraphQL capabilities necessary to power an end-to-end shopper purchase funnel in GraphQL, including the following features:
+GraphQL Storefront Carts and Checkout presents a critical feature addition that significantly expands the BC GraphQL capabilities by allowing developers to implement an end-to-end shopper purchase funnel in GraphQL, including:
 * Adding products to a cart and viewing/managing a cart
 * Filling out checkout details
 * Obtaining the cost of shipping and selecting a shipping method
@@ -31,7 +31,7 @@ OAuth resource scopes are not applicable to Storefront API. Those scopes are onl
 
   ```graphql filename="Example mutation: Create a cart (simple)" showLineNumbers copy 
   # Creates a new cart, adding a simple product.
-  # This will fail if you already have a cart.
+  # This will fail in the GraphQL Playground if you already have a cart.
 
   mutation createCartSimple($createCartInput: CreateCartInput!) {
     cart {
@@ -507,7 +507,7 @@ OAuth resource scopes are not applicable to Storefront API. Those scopes are onl
   <Tab>
 
   ```graphql filename="Example mutation: Delete cart" showLineNumbers copy
-  # Delete your cart, which will enable you to create a new cart.
+  # Delete your cart in the GraphQL Playground, which will enable you to create a new cart.
   # Update the GQL variables with details from your cart first, or it will fail.
   mutation deleteCart($deleteCartInput: DeleteCartInput!) {
     cart {
@@ -975,6 +975,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
 </Tab>
   
   <Tab>
+	  
 ```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
  {
   "data": {
