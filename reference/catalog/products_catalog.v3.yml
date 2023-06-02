@@ -7708,7 +7708,7 @@ components:
               description: The unique identifier of the base variant associated with a simple product. This value is `null` for complex products.
             calculated_price:
               type: number
-              description: 'The price of the product as seen on the storefront. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`.'
+              description: 'The calculated_price is derived from the default price and sale price of the product. It is equal to the sale price if set or the default price if there is not a sale price present. Depending on your store settings and customer group, or channel-specific pricing, this value may or may not be equal to the price seen on the storefront.'
               format: float
             options:
               type: array
