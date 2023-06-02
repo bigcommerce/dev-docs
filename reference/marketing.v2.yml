@@ -1090,6 +1090,10 @@ components:
           description: 'Integer value denoting whether or not the banner is visible
             on the storefront: 1 = visible; 0 = not visible'
           example: "1"
+        item_id:
+          type: string
+          description: If the banner is on a specific category or brand page, then the item_id will correspond the category or brand ID.
+          example: "35"
       x-internal: false
     banner_Full:
       title: banner_Full
@@ -1105,23 +1109,12 @@ components:
           date_created:
             type: string
             description: Date the banner is created.
-          item_id:
-            type: string
-            description: If the banner is on a specific category or brand page then
-              the `item_id` will correspond the category or brand id.
-            example: "0"
       - $ref: '#/components/schemas/banner_Base'
       x-internal: false
     banner_Put:
       title: banner_Put
       allOf:
       - type: object
-        properties:
-          item_id:
-            type: string
-            description: If the banner is on a specific category or brand page then
-              the `item_id` will correspond the category or brand id.
-            example: "0"
       - $ref: '#/components/schemas/banner_Base'
       x-internal: false
     giftCertificate_Base:
