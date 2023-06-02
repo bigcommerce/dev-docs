@@ -1,4 +1,4 @@
-# GraphQL Carts and Checkout
+# GraphQL Carts and Checkout (Beta)
 
 BigCommerce's GraphQL Storefront API now supports Cart and Checkout objects within the graph. This Cart and Checkout support offers similar benefits as our REST APIs, but having Cart and Checkout in GraphQL alongside other data makes it easier for building storefront functionality.
 
@@ -998,7 +998,6 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
   <Tab>
 
   ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
-#
   mutation completeCheckout($completeCheckoutInput: CompleteCheckoutInput!) {
     checkout {
       completeCheckout(input:$completeCheckoutInput) {
@@ -1018,6 +1017,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
   </Tab>
   
   <Tab>
+	  
 ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
 {
   "data": {
