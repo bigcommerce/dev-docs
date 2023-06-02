@@ -944,12 +944,61 @@ OAuth resource scopes are not applicable to Storefront API. Those scopes are onl
   </Tab>
 </Tabs>
 
+### Select checkout shipping option
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+  ```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy
+
+mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: SelectCheckoutShippingOptionInput!) {
+  checkout {
+    selectCheckoutShippingOption(input: $selectCheckoutShippingOptionInput) {
+      checkout {
+        entityId
+      }
+    }
+  }
+}
+```
+    
+```json filename="GraphQL variables" showLineNumbers copy
+  {
+	"selectCheckoutShippingOptionInput": {
+		"checkoutEntityId": "acd6f2ca-85c1-4b5f-8dab-d7d80521ecc5",
+		"consignmentEntityId": "6478ff925d33a",
+		"data": {
+			"shippingOptionEntityId": "9ba45e71fe66e1cd757f022dcae331b0"
+		}
+	}
+}
+```
+</Tab>
+  
+  <Tab>
+```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
+ {
+  "data": {
+    "checkout": {
+      "selectCheckoutShippingOption": {
+        "checkout": {
+          "entityId": "acd6f2ca-85c1-4b5f-8dab-d7d80521ecc5"
+        }
+      }
+    }
+  }
+}
+```
+</Tab>
+
+</Tabs>
+
 ### Complete checkout
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
   ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
+#
   mutation completeCheckout($completeCheckoutInput: CompleteCheckoutInput!) {
     checkout {
       completeCheckout(input:$completeCheckoutInput) {
@@ -970,7 +1019,16 @@ OAuth resource scopes are not applicable to Storefront API. Those scopes are onl
   
   <Tab>
 ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
-
+{
+  "data": {
+    "checkout": {
+      "completeCheckout": {
+        "orderEntityId": 106,
+        "paymentAccessToken": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU3MjQwMzQsIm5iZiI6MTY4NTcyMDQzNCwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoidmpid3FiYWJwMSIsImp0aSI6IjAzODU3ODk2LTdkY2YtNDIzNi04OTQ5LWU0MjcyYWU3ZGZjMSIsImlhdCI6MTY4NTcyMDQzNCwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDI4ODA3NDYiLCJvcmRlcl9pZCI6IjEwNiIsImFtb3VudCI6MjUwMCwiY3VycmVuY3kiOiJVU0QifX0.iiJ96cYKtk2-oLRXvZHs1lWUl9v8JkEkCdHShbyfEK4"
+      }
+    }
+  }
+}
 ```
   </Tab>
 
