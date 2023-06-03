@@ -1,26 +1,51 @@
-# GraphQL Carts and Checkout (Beta)
+# GraphQL Storefront API: Carts and Checkout
 
-BigCommerce's GraphQL Storefront API supports Cart and Checkout objects within the graph. This Cart and Checkout support offers similar benefits as our REST APIs, but having Cart and Checkout in GraphQL alongside other data makes it easier for building storefront functionality.
+<Callout type="info">
+  While the GraphQL Storefront API is feature-complete, the carts and checkouts schemas are in **beta**. We may introduce changes without notice.
+</Callout>
 
-GraphQL Storefront Carts and Checkout presents a critical feature addition that significantly expands the BC GraphQL capabilities by allowing developers to implement an end-to-end shopper purchase funnel in GraphQL, including:
-* Adding products to a cart and viewing/managing a cart
-* Filling out checkout details
-* Obtaining the cost of shipping and selecting a shipping method
-* Converting a cart into an order (completing checkout)
+BigCommerce's GraphQL Storefront API provides the same access to cart and checkout objects as the REST Storefront API. Having access to cart and checkout data in the graph alongside related data makes it easier to build headless storefront applications. 
 
-## Limitations
+Developers can use frontend GraphQL to create an end-to-end shopper experience. Cart and checkout-related mutations and queries can do the following:
+* Add products to a cart
+* View or manage a cart
+* Fill out checkout details
+* Determine the cost of shipping and select a shipping method
+* Complete checkout by converting a cart into an order
 
-* The GraphQL API will give you the appropriate parameters for a request to our Payments API to choose a payment instrument. However, we have intentionally kept the transmission of payment data out of the GraphQL API for PCI reasons.
-* Gift Certificate is now a payment instrument (i.e., a payment method similar to a credit card). The Payments API will need to apply the gift certificate to the checkout.
-* This GraphQL Storefront Carts & Checkout API does not support file upload product options, cart metafields, BOPIS (Buy Online Pick Up In Store), and Buy Now cart where a shopper can check out a product on the Product Details Page, skipping the cart page.
+<Callout type="info">
+  **Limitations**
+  As of this writing, the GraphQL Storefront API does not support the following features:
+  * File upload product options
+  * Cart metafields
+  * _Buy Online, Pick up in Store_
+  * Checkout directly from the Product Details Page, or _Buy Now_ carts
+</Callout>
 
 ## Tokens
 
-Tokens need to be generated under the [Storefront API Tokens](/docs/storefront-auth/tokens#create-a-token) and [Storefront API Customer Impersonation Tokens](docs/storefront-auth/tokens/customer-impersonation-token) scopes. See [Creating a Token](/api-docs/storefront/graphql/graphql-api-overview#creating-a-token) for more information.
+To make requests, create a [store-level API account](/api-docs/getting-started/api-accounts#store-level-api-accounts) with one or more of the following [token creation OAuth scopes](/api-docs/getting-started/api-accounts#token-creation-scopes):
+* Storefront API Tokens
+* Storefront API Customer Impersonation Tokens
 
-<Callout type="info">
-OAuth resource scopes are not applicable to Storefront API. Those scopes are only relevant to Admin/Management APIs (e.g. V3 APIs where you can edit admin data).
-</Callout>
+No additional scopes are required to use the GraphQL Storefront API.
+
+To generate a bearer token your application can pass to authenticate calls to the GraphQL Storefront API, use either the [Create a storefront token](/docs/storefront-auth/tokens#create-a-token) or the [Create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) REST endpoint. On a Stencil storefront, you can also access a token at render time using a Handlebars property. Learn more about [Using Auto-Generated Tokens in Stencil Themes](/api-docs/storefront/graphql/graphql-api-overview#using-auto-generated-tokens-in-stencil-themes).
+
+For more information, see [Creating a Token](/api-docs/storefront/graphql/graphql-api-overview#creating-a-token) in the GraphQL Storefront API Overview and [Dynamic Tokens](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) in the Authentication and Example Requests article.
+
+## Handling payments
+
+To handle payments, use the [Payments API](/docs/rest-payments).
+
+For PCI compliance-related reasons, the GraphQL Storefront API does not itself handle payments. You can use the [Payments API](/docs/rest-payments) to process payments. 
+
+The GraphQL Storefront API returns the checkout ID and order ID, which you can use to [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) and [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token). It also returns the customer ID, which you can use to [Get stored payment instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments). To learn more about authenticating REST endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
+
+Gift certificates are a type of payment instrument similar to a debit card, so the Payments API must apply the gift certificate to the checkout.
+
+The API account you use to process payments must have the scopes specified in the [Payments Overview](/api-docs/store-management/payments-api-overview). 
+
 
 ## Example GraphQL queries and mutations
 
@@ -976,7 +1001,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
   
   <Tab>
 	  
-```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
+```json filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
  {
   "data": {
     "checkout": {
@@ -1019,7 +1044,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
   
   <Tab>
 	  
-```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
+```json filename="Example mutation: Complete checkout" showLineNumbers copy
 {
   "data": {
     "checkout": {
@@ -1040,7 +1065,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
 
 ## Want to provide feedback
 
-We'd like to invite you to give feedback on the GraphQL schema and the capabilities of the API to let us know if it meets your needs. We're interested in knowing about anything that might be confusing, or anything that you think is missing. This will help us ensure we've built the right thing for you, and give us a chance to make any updates.
+We'd like to invite you to give feedback on the GraphQL Storefront schema and the capabilities of the API to let us know if it meets your needs. We're interested in knowing about anything that might be confusing, or anything that you think is missing. This will help us ensure we've built the right thing for you, and give us a chance to make any updates.
 
 Join our [Developer Community](https://developer.bigcommerce.com/community) and share your feedback with us in the BigCommerceDevs Slack or Discord.
 
