@@ -36,15 +36,15 @@ For more information, see [Creating a Token](/api-docs/storefront/graphql/graphq
 
 ## Handling payments
 
-To handle payments, use the [Payments API](/docs/rest-payments).
+To handle payments, use the [Payments API (Overview)](/api-docs/payments/payments-api-overview).
 
-For PCI compliance-related reasons, the GraphQL Storefront API does not itself handle payments. You can use the [Payments API](/docs/rest-payments) to process payments. 
+For PCI compliance-related reasons, the GraphQL Storefront API does not itself handle payments. You can use the [Payments API (Reference)](/docs/rest-payments) to process payments. 
 
 The GraphQL Storefront API returns the checkout ID and order ID, which you can use to [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) and [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token). It also returns the customer ID, which you can use to [Get stored payment instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments). To learn more about authenticating REST endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
 
 Gift certificates are a type of payment instrument similar to a debit card, so the Payments API must apply the gift certificate to the checkout.
 
-The API account you use to process payments must have the scopes specified in the [Payments Overview](/api-docs/store-management/payments-api-overview). 
+The API account you use to process payments must have the scopes specified in the [Payments API Overview](/api-docs/store-management/payments-api-overview). 
 
 
 ## Example GraphQL queries and mutations
@@ -1057,6 +1057,7 @@ mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: Select
 }
 ```
   </Tab>
+Join our [Developer Community](/community) to share your feedback with us in the BigCommerceDevs Slack or our Discord server.
 
 </Tabs>
   
