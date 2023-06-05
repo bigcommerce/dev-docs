@@ -455,8 +455,8 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | store/product/deleted| Product is deleted.|
 | store/product/created | A new product is created. |
 | store/product/updated |Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
-| store/product/inventory/updated| Product inventory is updated. |
-| store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
+| store/product/inventory/updated| Fires to indicate changes in inventory for a _base product_. For products with variants, you must track by _product_ and change the _product-level_ inventory. For products without variants, the webhook fires regardless of how you track inventory. You can make the inventory updates through the API, marketplace apps, or control panel. In the control panel, you can use a CSV import or Orders tab. |
+| <sup>+</sup>store/product/inventory/order/updated| Fires to indicate changes in inventory for _variants_. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory. |
 | store/product/metafield/* | Subscribe to all store/product/metafield events. |
 | store/product/metafield/created | A new product metafield is created. |
 | store/product/metafield/updated | Occurs when product metafield details are edited. |
@@ -465,6 +465,8 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | store/variant/metafield/created | A new product variant metafield is created. |
 | store/variant/metafield/updated | Occurs when product variant metafield details are edited. |
 | store/variant/metafield/deleted | A product variant metafield is deleted.|
+
+> <sup>+</sup>A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.
 
 Payload objects with the following scopes take the form that follows:
 
@@ -626,6 +628,7 @@ Payload objects with the following scopes take the form that follows:
 ## Sites
 
 Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#sites).
+
 ## SKUs
 
 | Name / Scope             | Description |
@@ -634,8 +637,10 @@ Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/gui
 | store/sku/created | A new sku is created. |
 | store/sku/updated | SKU is updated. |
 | store/sku/deleted | SKU is deleted. |
-| store/sku/inventory/updated | SKU is updated.|
-| store/sku/inventory/order/updated | Fires when the inventory is updated, when an order is placed, and when an order is refunded and the inventory returned to stock. This hook will fire based on a store's Inventory settings. |
+| store/sku/inventory/updated | Fires to indicate changes in inventory through an order for a _base product_. The webhook fires for products with or without variants, but only when you track by _product_.  |
+| <sup>+</sup>store/sku/inventory/order/updated | Fires to indicate changes in inventory through an order for _variants_. The webhook fires only for products with variants, and you must track by variant. |
+
+> <sup>+</sup>A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.
 
 Payload objects with the following scopes take the form that follows:
 
