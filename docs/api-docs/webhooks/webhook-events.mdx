@@ -37,7 +37,7 @@ Callback payloads take the following form. The `data` property will contain vary
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/brand/metafield/* | Fires when subscribed to all brand events. |
+| store/brand/metafield/* | Fires for all store/brand/metafield events. |
 | store/brand/metafield/created | Fires whenever a new brand metafield is created. |
 | store/brand/metafield/deleted | Fires whenever a brand metafield is deleted.     |   
 | store/brand/metafield/updated | Fires whenever a brand metafield is modified.    |
@@ -206,7 +206,7 @@ Payload objects with the following scopes take the form that follows:
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/category/* | Fires when subscribed to all store/category events. |
+| store/category/* | Fires for all store/category events. |
 | store/category/created | Fires when a category is created. |
 | store/category/updated | Fires when a category is updated. |
 | store/category/deleted | Fires when a category is deleted. |
@@ -273,7 +273,7 @@ Consult the [channel events section of the Channel Webhooks Guide](/api-docs/cha
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/customer/* | Fires when subscribed to all store/customer events. |
+| store/customer/* | Fires for all store/customer events. |
 | store/customer/created | Fires when a new customer is created.|
 | store/customer/updated | Fires when a customer is updated. Does not currently track changes to the customer address. |
 | store/customer/deleted | Fires when a customer is deleted. |
@@ -337,7 +337,7 @@ Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/gu
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/inventory/location/metafield/*        | Fires when subscribed to all store/inventory/location/metafields events.  |
+| store/inventory/location/metafield/*        | Fires for all store/inventory/location/metafields events.  |
 | store/inventory/location/metafield/created  | Fires whenever a new inventory, location metafield is created.  |
 | store/inventory/location/metafield/deleted  | Fires when a inventory, location metafield is deleted. |
 | store/inventory/location/metafield/updated  | Fires when an already created inventory, location metafield is updated. Any changes to an existing inventory, location metafield will fire this webhook. |
@@ -376,7 +376,7 @@ Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Eve
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/metafield/*        | Fires when subscribed to all store/metafields events.  |
+| store/metafield/*        | Fires for all store/metafields events.  |
 | store/metafield/created  | Fires whenever a new metafield on any object is created.  |
 | store/metafield/updated  | Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook. |
 | store/metafield/deleted  | Fires when a metafield is deleted. |
@@ -413,7 +413,7 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/order/* | Fires when subscribed to all store/order events.  |
+| store/order/* | Fires for all store/order events.  |
 | store/order/created |Fires if an order is created using the control panel, an app, or the API.|
 | store/order/updated| Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon, or changing an address.|
 | store/order/archived | Fires when an order is archived. |
@@ -422,7 +422,7 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 | store/order/refund/created | Fires if a refund has been submitted against an order. |
 | store/order/transaction/created | Fires when a transaction record is created. |
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
-| store/order/metafield* | Fires when subscribed to all store/order/metafield events.  |
+| store/order/metafield* | Fires for all store/order/metafield events.  |
 | store/order/metafield/created |Fires if an order metafield is created using the control panel, an app, or the API.|
 | store/order/metafield/updated| Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.|
 | store/order/metafield/deleted | Fires when an order metafield is deleted. |
@@ -561,17 +561,17 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/product/* | Fires when subscribed to all store/product events. |
+| store/product/* | Fires for all store/product events. |
 | store/product/deleted| Fires when a product is deleted.|
 | store/product/created | Fires when a new product is created. |
 | store/product/updated | Fires when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
 | store/product/inventory/updated| Fires when product inventory is updated. |
 | store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
-| store/product/metafield/* | Fires when subscribed to all store/product/metafield events. |
+| store/product/metafield/* | Fires for all store/product/metafield events.  |
 | store/product/metafield/created | Fires when a new product metafield is created. |
 | store/product/metafield/updated | Fires when product metafield details are edited. |
 | store/product/metafield/deleted | Fires when a product metafield is deleted.|
-| store/variant/metafield/* | Fires when subscribed to all store/variant/metafield events. |
+| store/variant/metafield/* | Fires for all store/variant/metafield events. |
 | store/variant/metafield/created | Fires when a new product variant metafield is created. |
 | store/variant/metafield/updated | Fires when product variant metafield details are edited. |
 | store/variant/metafield/deleted | Fires when a product variant metafield is deleted.|
@@ -707,7 +707,7 @@ Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/shipment/* | Fires when subscribed to all store/shipment events. |
+| store/shipment/* | Fires for all store/shipment events. |
 | store/shipment/created | Fires when a shipment is created. |
 | store/shipment/updated | Fires when a shipment is updated. |
 | store/shipment/deleted | Fires when a shipment is deleted. |
@@ -742,8 +742,8 @@ Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/gui
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/sku/* | Fires when subscribed to all store/sku events. |
-| store/sku/created | Fires when a new sku is created. |
+| store/sku/* | Fires for all store/sku events. |
+| store/sku/created | Fires when a new SKU is created.|
 | store/sku/updated | Fires when a SKU is updated. |
 | store/sku/deleted | Fires when a SKU is deleted. |
 | store/sku/inventory/updated | Fires when a SKU inventory is updated.|
@@ -866,7 +866,7 @@ Changes to the following store settings will trigger a `store/information/update
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/subscriber/*       | Fires when subscribed to all store/subscriber events. |
+| store/subscriber/*       | Fires for all store/subscriber events. |
 | store/subscriber/created | Fires when a subscriber is created. |
 | store/subscriber/updated | Fires when a subscriber is updated. |
 | store/subscriber/deleted | Fires when a subscriber is deleted. |
