@@ -37,10 +37,10 @@ Callback payloads take the following form. The `data` property will contain vary
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/brand/metafield/* | This webhook will fire when subscribed to all brand events. |
-| store/brand/metafield/created | This webhook will fire whenever a new brand metafield is created. |
-| store/brand/metafield/deleted | This webhook will fire whenever a brand metafield is deleted.     |   
-| store/brand/metafield/updated | This webhook is fired whenever a brand metafield is modified.     |
+| store/brand/metafield/* | Fires when subscribed to all brand events. |
+| store/brand/metafield/created | Fires whenever a new brand metafield is created. |
+| store/brand/metafield/deleted | Fires whenever a brand metafield is deleted.     |   
+| store/brand/metafield/updated | Fires whenever a brand metafield is modified.    |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -73,15 +73,15 @@ Payload objects with the following scopes take the form that follows:
 | Name / Scope            | Description |
 |:------------------------|:------------|
 | store/cart/* | Subscribe to all cart events. This will also subscribe you to cart/lineItem. |
-| store/cart/created | This webhook will fire whenever a new cart is created, either when a storefront shopper adding their first item to the cart, or when a new cart is created by API. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before). For the API it means a `POST` to /carts, (V3 and Storefront API). The `store/cart/updated` hook will also fire.|
-| store/cart/updated | This webhook is fired whenever a cart is modified through the changes in its line items. Eg. When a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or when an existing item is deleted. The payload will include the ID of the cart being updated. <br /> This webhook also fires along with the cart created hook, because the first product being added to an empty cart triggers an update. It will also fire for the following events: <br /> - Logging into customer account after creating a cart (email is inherited from customer account email) <br />- Entering email address during guest checkout <br /> -Changing the email in guest checkout |
-| store/cart/deleted| This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
-| store/cart/couponApplied | This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code. |
-| store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
-| store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
-| store/cart/metafield/created | This webhook will fire whenever a new cart metafield is created. |
-| store/cart/metafield/deleted| This webhook will fire whenever a cart metafield is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated` webhook will also fire when the last item is removed.|
-| store/cart/metafield/updated | This webhook is fired whenever a cart metafield is modified through the changes in its line items.  |
+| store/cart/created | Fires whenever a new cart is created, either when a storefront shopper adding their first item to the cart, or when a new cart is created by API. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before). For the API it means a `POST` to /carts, (V3 and Storefront API). The `store/cart/updated` hook will also fire.|
+| store/cart/updated | Fires whenever a cart is modified through the changes in its line items. Eg. When a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or when an existing item is deleted. The payload will include the ID of the cart being updated. <br /> This webhook also fires along with the cart created hook, because the first product being added to an empty cart triggers an update. It will also fire for the following events: <br /> - Logging into customer account after creating a cart (email is inherited from customer account email) <br />- Entering email address during guest checkout <br /> -Changing the email in guest checkout |
+| store/cart/deleted| Fires whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
+| store/cart/couponApplied | Fires whenever a new coupon code is applied to a cart. It will include the ID of the coupon code. |
+| store/cart/abandoned | Fires once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
+| store/cart/converted | Fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
+| store/cart/metafield/created | Fires whenever a new cart metafield is created. |
+| store/cart/metafield/deleted| Fires whenever a cart metafield is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated` webhook will also fire when the last item is removed.|
+| store/cart/metafield/updated | Fires whenever a cart metafield is modified through the changes in its line items.  |
 
 
 <Callout type="info">
@@ -171,10 +171,10 @@ Payload objects with the following scopes take the form that follows:
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/cart/lineItem/* | Subscribe to all cart line item events. This webhook will fire when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
-| store/cart/lineItem/created | This webhook fires when a new item is added to the cart.  |
-| store/cart/lineItem/updated | This webhook fires when an item’s quantity has changed or the product options change. |
-| store/cart/lineItem/deleted | This webhook fires when an item is deleted from the cart.|
+| store/cart/lineItem/* | Subscribe to all cart line item events. Fires when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
+| store/cart/lineItem/created | Fires when a new item is added to the cart.  |
+| store/cart/lineItem/updated | Fires when an item’s quantity has changed or the product options change. |
+| store/cart/lineItem/deleted | Fires when an item is deleted from the cart.|
 
 Payload objects with the following scopes take the form that follows:
 
@@ -206,13 +206,13 @@ Payload objects with the following scopes take the form that follows:
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/category/* | This webhook fires when subscribed to all store/category events. |
-| store/category/created | This webhook fires when a category is created. |
-| store/category/updated | This webhook fires when a category is updated. |
-| store/category/deleted | This webhook fires when a category is deleted. |
-| store/category/metafield/created | This webhook fires when a category metafield is created. |
-| store/category/metafield/deleted | This webhook fires when a category metfield is deleted. |
-| store/category/metafield/updated | This webhook fires when a category metafield is updated. |
+| store/category/* | Fires when subscribed to all store/category events. |
+| store/category/created | Fires when a category is created. |
+| store/category/updated | Fires when a category is updated. |
+| store/category/deleted | Fires when a category is deleted. |
+| store/category/metafield/created | Fires when a category metafield is created. |
+| store/category/metafield/deleted | Fires when a category metfield is deleted. |
+| store/category/metafield/updated | Fires when a category metafield is updated. |
 
 
 
@@ -273,14 +273,14 @@ Consult the [channel events section of the Channel Webhooks Guide](/api-docs/cha
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/customer/* | This webhook fires when subscribed to all store/customer events. |
-| store/customer/created | This webhook fires when a new customer is created.|
-| store/customer/updated | This webhook fires when a customer is updated. Does not currently track changes to the customer address. |
-| store/customer/deleted | This webhook fires when a customer is deleted. |
-| store/customer/address/created | This webhook fires when a customer address is created. |
-| store/customer/address/updated | This webhook fires when a customer address is updated. |
-| store/customer/address/deleted | This webhook fires when a customer address is deleted. |
-| store/customer/payment/instrument/default/updated | Customer default payment instrument is updated. |
+| store/customer/* | Fires when subscribed to all store/customer events. |
+| store/customer/created | Fires when a new customer is created.|
+| store/customer/updated | Fires when a customer is updated. Does not currently track changes to the customer address. |
+| store/customer/deleted | Fires when a customer is deleted. |
+| store/customer/address/created | Fires when a customer address is created. |
+| store/customer/address/updated | Fires when a customer address is updated. |
+| store/customer/address/deleted | Fires when a customer address is deleted. |
+| store/customer/payment/instrument/default/updated | Fires when a customer default payment instrument is updated. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -337,9 +337,9 @@ Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/gu
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/inventory/location/metafield/*        | This webhook fires when subscribed to all store/inventory/location/metafields events.  |
-| store/inventory/location/metafield/created  | This webhook will fire whenever a new inventory, location metafield is created.  |
-| store/inventory/location/metafield/deleted  | This webhook will fire when a inventory, location metafield is deleted. |
+| store/inventory/location/metafield/*        | Fires when subscribed to all store/inventory/location/metafields events.  |
+| store/inventory/location/metafield/created  | Fires whenever a new inventory, location metafield is created.  |
+| store/inventory/location/metafield/deleted  | Fires when a inventory, location metafield is deleted. |
 | store/inventory/location/metafield/updated  | Fires when an already created inventory, location metafield is updated. Any changes to an existing inventory, location metafield will fire this webhook. |
 
 
@@ -376,10 +376,10 @@ Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Eve
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/metafield/*        | This webhook fires when subscribed to all store/metafields events.  |
-| store/metafield/created  | This webhook will fire whenever a new metafield on any object is created.  |
+| store/metafield/*        | Fires when subscribed to all store/metafields events.  |
+| store/metafield/created  | Fires whenever a new metafield on any object is created.  |
 | store/metafield/updated  | Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook. |
-| store/metafield/deleted  | This webhook fires when a metafield is deleted. |
+| store/metafield/deleted  | Fires when a metafield is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -417,7 +417,7 @@ Consult the [notifications section of the Channel Webhooks Guide](/api-docs/chan
 | store/order/created |Fires if an order is created using the control panel, an app, or the API.|
 | store/order/updated| Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon, or changing an address.|
 | store/order/archived | Fires when an order is archived. |
-| store/order/statusUpdated | This will only fire if the order status has changed, such as Pending to Awaiting Payment. |
+| store/order/statusUpdated | Fires only if the order status has changed, such as Pending to Awaiting Payment. |
 | store/order/message/created | Fires if order message is created by a customer or in the control panel. |
 | store/order/refund/created | Fires if a refund has been submitted against an order. |
 | store/order/transaction/created | Fires when a transaction record is created. |
@@ -564,16 +564,16 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | store/product/* | Fires when subscribed to all store/product events. |
 | store/product/deleted| Fires when a product is deleted.|
 | store/product/created | Fires when a new product is created. |
-| store/product/updated | Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
+| store/product/updated | Fires when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
 | store/product/inventory/updated| Fires when product inventory is updated. |
 | store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
 | store/product/metafield/* | Fires when subscribed to all store/product/metafield events. |
 | store/product/metafield/created | Fires when a new product metafield is created. |
-| store/product/metafield/updated | Occurs when product metafield details are edited. |
+| store/product/metafield/updated | Fires when product metafield details are edited. |
 | store/product/metafield/deleted | Fires when a product metafield is deleted.|
 | store/variant/metafield/* | Fires when subscribed to all store/variant/metafield events. |
 | store/variant/metafield/created | Fires when a new product variant metafield is created. |
-| store/variant/metafield/updated | Occurs when product variant metafield details are edited. |
+| store/variant/metafield/updated | Fires when product variant metafield details are edited. |
 | store/variant/metafield/deleted | Fires when a product variant metafield is deleted.|
 
 Payload objects with the following scopes take the form that follows:
@@ -707,10 +707,10 @@ Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/shipment/* | This webhook fires when subscribed to all store/shipment events. |
-| store/shipment/created | This webhook fires when a shipment is created. |
-| store/shipment/updated | This webhook fires when a shipment is updated. |
-| store/shipment/deleted | This webhook fires when a shipment is deleted. |
+| store/shipment/* | Fires when subscribed to all store/shipment events. |
+| store/shipment/created | Fires when a shipment is created. |
+| store/shipment/updated | Fires when a shipment is updated. |
+| store/shipment/deleted | Fires when a shipment is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -742,11 +742,11 @@ Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/gui
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/sku/* | This webhook fires when subscribed to all store/sku events. |
-| store/sku/created | This webhook fires when a new sku is created. |
-| store/sku/updated | This webhook fires when a SKU is updated. |
-| store/sku/deleted | This webhook fires when a SKU is deleted. |
-| store/sku/inventory/updated | This webhook fires when a SKU inventory is updated.|
+| store/sku/* | Fires when subscribed to all store/sku events. |
+| store/sku/created | Fires when a new sku is created. |
+| store/sku/updated | Fires when a SKU is updated. |
+| store/sku/deleted | Fires when a SKU is deleted. |
+| store/sku/inventory/updated | Fires when a SKU inventory is updated.|
 | store/sku/inventory/order/updated | Fires when the inventory is updated, when an order is placed, and when an order is refunded and the inventory returned to stock. This hook will fire based on a store's Inventory settings. |
 
 Payload objects with the following scopes take the form that follows:
@@ -813,8 +813,8 @@ Consult the [social media links section of the Channel Webhooks Guide](/api-docs
 
 | Name / Scope              | Description |
 |:--------------------------|:------------|
-| store/app/uninstalled     | Occurs when a client store is cancelled and uninstalled from the platform. |
-| store/information/updated | Occurs when changes are made to store settings. For a full list of fields that can trigger this event, consult the following section on [store information updated events](#store-information-updated-events). |
+| store/app/uninstalled     | Fires when a client store is cancelled and uninstalled from the platform. |
+| store/information/updated | Fires when changes are made to store settings. For a full list of fields that can trigger this event, consult the following section on [store information updated events](#store-information-updated-events). |
 
 ### Store information updated events
 
@@ -866,10 +866,10 @@ Changes to the following store settings will trigger a `store/information/update
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/subscriber/*       | This webhook fires when subscribed to all store/subscriber events. |
-| store/subscriber/created | This webhook fires when a subscriber is created. |
-| store/subscriber/updated | This webhook fires when a subscriber is updated. |
-| store/subscriber/deleted | This webhook fires when a subscriber is deleted. |
+| store/subscriber/*       | Fires when subscribed to all store/subscriber events. |
+| store/subscriber/created | Fires when a subscriber is created. |
+| store/subscriber/updated | Fires when a subscriber is updated. |
+| store/subscriber/deleted | Fires when a subscriber is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
