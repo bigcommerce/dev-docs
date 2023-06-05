@@ -686,10 +686,10 @@ paths:
       operationId: get-channels-channel_id-metafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
-        - $ref: ./catalog.v3.yml#/components/parameters/LimitParam
-        - $ref: ./catalog.v3.yml#/components/parameters/MetafieldKeyParam
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
         - $ref: '#/components/parameters/MetafieldNamespaceParam'
-        - $ref: ./catalog.v3.yml#/components/parameters/DirectionParam
+        - $ref: '#/components/parameters/DirectionParam'
       description: Returns a list of metafields on a channel. Optional filter parameters can be passed in.
     post:
       summary: Create a Channel Metafield
