@@ -121,39 +121,40 @@ fragment PriceFields on Money {
 
 ```graphql filename="Example query: Look up an object by URL" showLineNumbers copy
 query LookUpUrl {
-  site {
-    route(path: "/shop-all/") {
-      node {
-        __typename
-        id
-        ... on Category {
-          name
-          description
-        }
-        ... on Brand {
-          name
-          defaultImage {
-            url(width: 200)
-          }
-        }
-        ... on Product {
-          name
-          description
-          images {
-            edges {
-              node {
-                url(width: 500, height: 500)
-              }
-            }
-          }
-          brand {
-            name
-          }
-        }
-      }
-    }
-  }
-}
+   site {
+     route(path: "/shop-all/") {
+       node {
+         __typename
+         id
+         ... on Category {
+           name
+           description
+         }
+         ... on Brand {
+           name
+           defaultImage {
+             url(width: 200)
+           }
+         }
+         ... on Product {
+           name
+           description
+           images {
+             edges {
+               node {
+                 url(width: 500, height: 500)
+               }
+             }
+           }
+         }
+         ... on Redirect {
+           # all redirect attributes
+           toUrl
+         }
+       }
+     }
+   }
+ }
 ```
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
