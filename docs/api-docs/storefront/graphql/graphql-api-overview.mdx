@@ -104,7 +104,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
 
-This type of token is the most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the Storefront API, a [Customer Impersonation Token](#customer-impersonation-tokens) may be more appropriate for your use case. This special token is not necessary if you only wish to query information from an anonymous shopper's perspective.
+This type of token is the most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the GraphQL Storefront API, a [Customer Impersonation Token](#customer-impersonation-tokens) may be more appropriate for your use case. This special token is not necessary if you only wish to query information from an anonymous shopper's perspective.
 
 For security reasons, GraphQL Storefront API tokens are scoped to particular [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) origins, so you must supply the origin(s) on which you intend to use the token in order for requests from browsers to work correctly. If you do not supply any CORS origins for your token, the API will reject requests originating from web browsers, although you can still use it in other contexts.
 
@@ -158,7 +158,7 @@ This auto-generated token has an expiry period of 24-48 hours and will periodica
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/docs/storefront-auth/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
+It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/storefront-auth/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -223,7 +223,7 @@ mutation Login($email: String!, $pass: String!) {
 }
 ```
 
-This mutation is also useful for server-to-server applications using a Customer Impersonation Token. For example, this interface can validate a customer's email address + password to power a login form. When the credentials are correct, and the mutation returns successfully, you can take the resulting customer ID and store it in a session to use in the `x-bc-customer-id` header in future requests for that shopper.
+This mutation is also useful for server-to-server or headless storefront applications using a Customer Impersonation Token. For example, this interface can validate a customer's email address + password to power a login form. When the credentials are correct, and the mutation returns successfully, you can take the resulting customer ID and store it in a session to use in the `x-bc-customer-id` header in future requests for that shopper.
 
 As a security best practice, you should inject the email address & password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request.
 
