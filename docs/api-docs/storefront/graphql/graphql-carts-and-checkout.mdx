@@ -471,7 +471,7 @@ The API account you use to process payments must have the scopes specified in th
   <Tab>
     ```graphql filename="Example mutation: Add cart line items" showLineNumbers copy
     # Adds another line item.
-    # Update the GQL variables with details from your cart first, or it will fail.
+    # Add the cart ID to the GraphQL variables, or the mutation will fail. 
     mutation addCartLineItems($addCartLineItemsInput: AddCartLineItemsInput!) {
       cart {
         addCartLineItems(input: $addCartLineItemsInput) {
