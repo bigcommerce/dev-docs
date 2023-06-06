@@ -87,7 +87,7 @@ To learn more about the BigCommerce-compatible features of these gateways, see [
 There are three steps to using a stored card or PayPal account to make a payment.
 
 1. [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods)
-2. [Create Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+2. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
 3. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 Before starting development, you should verify that the store and payment gateway are both able to make charges to stored payment instruments.
@@ -222,7 +222,7 @@ Accept: application/json
 Make a note of the `token` for the target payment method to use as part of processing the payment in the request body.
 
 
-2. Make a request to [Create Access Token](/docs/rest-payments/tokens#create-payment-access-token) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+2. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) to complete checkout.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -335,7 +335,7 @@ Use the [Get Stored Instruments](/docs/rest-management/customers/customer-stored
 
 There are two steps to using a credit card to make a payment.
 
-1. [Create Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+1. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
 2. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
@@ -347,7 +347,7 @@ Attempting to process a payment through the API using the full credit card infor
 </Callout>
 
 ### Create an access token
-1. Make a request to [Create Access Token](/docs/rest-payments/tokens#create-payment-access-token) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+1. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) to complete checkout.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -629,8 +629,9 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 * [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds)
 
 
-### Endpoints
-* [Create Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+### Endpoints and mutations
+* [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+* `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
 * [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods)
 * [Process Payment](/docs/rest-payments/processing#process-payment)
 
