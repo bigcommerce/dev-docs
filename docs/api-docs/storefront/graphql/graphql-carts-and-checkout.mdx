@@ -52,6 +52,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Create a cart (simple)" showLineNumbers copy 
     # Creates a new cart, adding a simple product.
     # In the GraphQL Playground, this will fail if you already have a cart.
@@ -130,6 +131,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example query: Get a cart" showLineNumbers copy
     query getCart {
       site {
@@ -368,6 +370,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example query: Get a cart" showLineNumbers copy
     {
       "data": {
@@ -406,8 +409,8 @@ The API account you use to process payments must have the scopes specified in th
                   "productEntityId": 111,
                   "sku": "SM13",
                   "name": "[Sample] Smith Journal 13",
-                  "url": "https://cart-graphql-playground.mybigcommerce.com/smith-journal-13/",
-                  "imageUrl": "https://cdn11.bigcommerce.com/s-vjbwqbabp1/products/111/images/371/smithjournal1.1679614893.220.290.jpg?c=1",
+                  "url": "https://cart-graphql-playground.mybigcommerce.com/url/",
+                  "imageUrl": "https://cdn11.bigcommerce.com/s-xxxxx/products/111/images/300/journal.jpg",
                   "brand": null,
                   "quantity": 1,
                   "isTaxable": true,
@@ -469,6 +472,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Add cart line items" showLineNumbers copy
     # Adds another line item.
     # Add the cart ID to the GraphQL variables, or the mutation will fail. 
@@ -500,6 +504,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Add cart line item" showLineNumbers copy
     {
       "data": {
@@ -520,6 +525,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Delete cart" showLineNumbers copy
     # Delete your cart in the GraphQL Playground, which will enable you to create a new cart.
     # Add the cart ID to the GraphQL variables, or the mutation will fail.
@@ -542,6 +548,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Delete cart" showLineNumbers copy
     {
       "data": {
@@ -560,6 +567,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example query: Get checkout" showLineNumbers copy
     query getCheckout {
       site {
@@ -740,6 +748,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example query: Get checkout" showLineNumbers copy   
     {
       "data": {
@@ -807,6 +816,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Add checkout billing address" showLineNumbers copy
     mutation addCheckoutBillingAddress($addCheckoutBillingAddressInput: AddCheckoutBillingAddressInput!) {
       checkout {
@@ -845,6 +855,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Add checkout billing address" showLineNumbers copy
     {
       "data": {
@@ -865,6 +876,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Add a checkout shipping consignment" showLineNumbers copy
     mutation addCheckoutShippingConsignments($addCheckoutShippingConsignmentsInput: AddCheckoutShippingConsignmentsInput!) {
       checkout {
@@ -921,6 +933,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Add a checkout shipping consignment" showLineNumbers copy
     {
       "data": {
@@ -955,6 +968,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy
       mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: SelectCheckoutShippingOptionInput!) {
         checkout {
@@ -979,6 +993,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
       {
         "data": {
@@ -999,6 +1014,7 @@ The API account you use to process payments must have the scopes specified in th
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
+    
     ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
       mutation completeCheckout($completeCheckoutInput: CompleteCheckoutInput!) {
         checkout {
@@ -1019,6 +1035,7 @@ The API account you use to process payments must have the scopes specified in th
     ```
   </Tab>
   <Tab>
+    
     ```json filename="Example mutation: Complete checkout" showLineNumbers copy
       {
         "data": {
