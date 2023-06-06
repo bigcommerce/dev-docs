@@ -891,16 +891,11 @@ paths:
       tags:
         - Order Shipping Addresses Quotes
       operationId: getShippingQuotes
-  '/stores/{store_hash}/v2/orders/{order_id}/consignments':
+  '/orders/{order_id}/consignments':
     parameters:
       - schema:
           type: string
         name: order_id
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: store_hash
         in: path
         required: true
     get:
@@ -943,9 +938,8 @@ paths:
       operationId: get-orders-orderId-consignments
       description: 'Get all consignments for an order. '
       parameters:
-        - $ref: '#/components/parameters/store_hash'
         - $ref: '#/components/parameters/order_id_path'
-  '/stores/{store_hash}/v2/orders/{order_id}/consignments/shipping/{shipping_consignment_id}/shipping_quotes':
+  '/orders/{order_id}/consignments/shipping/{shipping_consignment_id}/shipping_quotes':
     get:
       summary: Get Consignment Shipping Quotes
       tags:
@@ -1005,7 +999,6 @@ paths:
         Get all shipping quotes persisted on an order for a shipping consignment.
         This is a read-only endpoint whose response depends on the shipping quote. You can only generate a shipping quote using the storefront at this time. Orders that are created in the control panel, or using the API, return a 204 status response since you can't generate a shipping quote during that process.
       parameters:
-        - $ref: '#/components/parameters/store_hash'
         - $ref: '#/components/parameters/order_id_path'
         - $ref: '#/components/parameters/shipping_consignment_id'
 components:
@@ -1220,12 +1213,6 @@ components:
       description: The Channel ID of the Order.
       schema:
         type: integer
-    store_hash:
-      name: store_hash
-      schema:
-        type: string
-      in: path
-      required: true
     shipping_consignment_id:
       name: shipping_consignment_id
       in: path
@@ -3866,10 +3853,10 @@ components:
           description: The form field name.
         value:
           description: The form field value.
-          type:
-            - number
-            - string
-            - array
+          oneOf:
+            - type: number
+            - type: string
+            - type: array
           example: 123BAF
           items:
             type: string
