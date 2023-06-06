@@ -522,7 +522,7 @@ The API account you use to process payments must have the scopes specified in th
   <Tab>
     ```graphql filename="Example mutation: Delete cart" showLineNumbers copy
     # Delete your cart in the GraphQL Playground, which will enable you to create a new cart.
-    # Update the GQL variables with details from your cart first, or it will fail.
+    # Add the cart ID to the GraphQL variables, or the mutation will fail.
     
     mutation deleteCart($deleteCartInput: DeleteCartInput!) {
       cart {
