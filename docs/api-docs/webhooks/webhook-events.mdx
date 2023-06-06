@@ -639,8 +639,8 @@ Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/gui
 | store/sku/created | A new sku is created. |
 | store/sku/updated | SKU is updated. |
 | store/sku/deleted | SKU is deleted. |
-| <sup>+</sup>store/sku/inventory/updated | Fires to indicate changes in variant inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory. |
-| <sup>++</sup>store/sku/inventory/order/updated | Fires to indicate changes in variant inventory through an order. The webhook fires only for products with variants, and you must track by variant. |
+| <sup>+</sup>store/sku/inventory/updated | Fires to indicate changes in _variant_ inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory. |
+| <sup>++</sup>store/sku/inventory/order/updated | Fires to indicate changes in _variant_ inventory through an order. The webhook fires only for products with variants, and you must track by _variant_. |
 
 > <sup>+</sup>Inventory updates made through the API, marketplace apps, and control panel can all trigger the webhook. In the control panel, you can bulk import product inventories or update inventory by navigating to the **Products > View** tab.
 
