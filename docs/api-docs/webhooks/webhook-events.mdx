@@ -55,7 +55,7 @@ Payload objects with the following scopes take the form that follows:
   "store_id": "1025646",
   "data": {
     "metafield_id": 16,
-    "resource_id": "38"
+    "resource_id": "38"  // Brand ID
   },
   "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
   "created_at": 1561482670,
@@ -155,7 +155,7 @@ Payload objects with the following scopes take the form that follows:
     "store_id": "1025646",
     "data": {
         "metafield_id": 20
-        "resource_id": "29520ea6-2d39-4b39-836e-06ea14bf9f69"
+        "resource_id": "29520ea6-2d39-4b39-836e-06ea14bf9f69" // Cart ID
     },
     "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
     "created_at": 1561482670,
@@ -249,7 +249,7 @@ Payload objects with the following scopes take the form that follows:
     "store_id": "1025646",
     "data": {
         "metafield_id": 17
-        "resource_id": "24"
+        "resource_id": "24"  // Category ID
     },
     "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
     "created_at": 1561480214,
@@ -358,7 +358,7 @@ Payload objects with the following scopes take the form that follows:
     "scope": "store/inventory/location/metafield/created",
     "data": {
         "metafield_id": 10,
-        "resource_id": "1",
+        "resource_id": "1", // Location ID
     }
 }
 ```
@@ -396,7 +396,7 @@ Payload objects with the following scopes take the form that follows:
     "scope": "store/metafield/updated",
     "data": {
         "metafield_id": 10,
-        "resource_id": "1",
+        "resource_id": "1",  // Location ID
         "resource_type": "location"
     }
 }
@@ -540,7 +540,7 @@ Payload objects with the following scopes take the form that follows:
     "scope": "store/order/metafield/created",
     "data": {
         "metafield_id": 14,
-        "resource_id": "270"
+        "resource_id": "270". // Order ID
     }
 }
 ```
@@ -665,7 +665,7 @@ Payload objects with the following scopes take the form that follows:
     "scope": "store/metafield/created",
     "data": {
         "metafield_id": 12,
-        "resource_id": "118",
+        "resource_id": "118", // Product ID
         "resource_type": "product"
     }
 }
@@ -685,7 +685,7 @@ Payload objects with the following scopes take the form that follows:
     "scope": "store/metafield/created",
     "data": {
         "metafield_id": 12,
-        "resource_id": "118",
+        "resource_id": "118", // Variant ID
         "resource_type": "variant"
     }
 }
