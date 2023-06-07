@@ -244,20 +244,21 @@ Metafields payload objects take the form that follows:
 
 ```json filename="Example metafields payload object" showLineNumbers copy
 {
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/metafield/created",
- "data": {
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/metafield/created",
+  "data": {
     "metafield_id": 21,
     "resource_id": "1"
-         },
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+  },
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
 
 
 ## Notifications
+
 The following notifications webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
@@ -269,12 +270,12 @@ Notifications payload objects take the form that follows:
 
 ```json filename="Example notifications payload object" showLineNumbers copy
 {
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/1/notifications/abandonedCart/updated",
- "data": {},
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/1/notifications/abandonedCart/updated",
+  "data": {},
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
 
