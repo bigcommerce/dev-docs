@@ -2,12 +2,9 @@ type: object
 properties:
   store/sku/inventory/order/updated:
     description: |-
-      Fires when the inventory is updated in the store control panel or using an API. Events include the following:
+      Fires to indicate changes in _variant_ inventory through an order. The webhook fires only for products with variants, and you must track by _variant_.
       
-      * An order is placed 
-      * An order is refunded and the inventory is returned to stock. 
-      
-      The store’s Inventory settings affect when this webhook fires.
+      A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.
     type: object
     properties:
       scope:

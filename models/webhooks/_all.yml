@@ -245,12 +245,18 @@ properties:
     allOf:
       - $ref: ./store_product_deleted.yml
   store/product/inventory/order/updated:
-    description: Fires when a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.
-    type: object
+    description: |-
+      Fires to indicate changes in inventory through an order for a _base product_. The webhook fires for products with or without variants, but only when you track by _product_.
+
+      A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.    
+      type: object
     allOf:
       - $ref: ./store_product_inventory_order_updated.yml
   store/product/inventory/updated:
-    description: Fires when product inventory is updated.
+    description: |-
+      Fires to indicate changes in inventory for a _base product_. For products with variants, you must track by _product_ and change _product-level_ inventories. For products without variants, the webhook fires regardless of how you track inventory.
+ 
+      Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
     type: object
     allOf:
       - $ref: ./store_product_inventory_updated.yml
@@ -286,17 +292,17 @@ properties:
       - $ref: ./store_sku_deleted.yml
   store/sku/inventory/order/updated:
     description: |-
-      Fires when the inventory is updated in the store control panel or using an API. Events include the following:
+      Fires to indicate changes in _variant_ inventory through an order. The webhook fires only for products with variants, and you must track by _variant_.
       
-      * An order is placed 
-      * An order is refunded and the inventory is returned to stock. 
-      
-      The store’s Inventory settings affect when this webhook fires.
+      A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.
     type: object
     allOf:
       - $ref: ./store_sku_inventory_order_updated.yml
   store/sku/inventory/updated:
-    description: Fires when a SKU is updated using an Inventory API.
+    description: |- 
+      Fires to indicate changes in _variant_ inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory.
+
+      Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
     type: object
     allOf:
       - $ref: ./store_sku_inventory_updated.yml

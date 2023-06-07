@@ -1,7 +1,10 @@
 type: object
 properties:
   store/sku/inventory/updated:
-    description: SKU is updated
+    description: |- 
+      Fires to indicate changes in _variant_ inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory.
+
+      Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
     type: object
     properties:
       scope:
