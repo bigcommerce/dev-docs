@@ -635,12 +635,8 @@ Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/gui
 | store/sku/created | A new sku is created. |
 | store/sku/updated | SKU is updated. |
 | store/sku/deleted | SKU is deleted. |
-| <sup>+</sup>store/sku/inventory/updated | Fires to indicate changes in _variant_ inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory. |
-| <sup>++</sup>store/sku/inventory/order/updated | Fires to indicate changes in _variant_ inventory through an order. The webhook fires only for products with variants, and you must track by _variant_. |
-
-> <sup>+</sup>Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
-
-> <sup>++</sup>A store's [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings) affect _when_ stock levels change through an order. For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order.
+| store/sku/inventory/updated | Fires when inventory levels change for a _variant_. This webhook does not fire for products without variants. <br />For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_ and the _variant-level_ inventory changes. <br /> Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page. |
+| store/sku/inventory/order/updated | Fires when _variant_ inventory levels change in response to the order-related event or events configured in [inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. <br />The webhook does not fire for products without variants. For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_. |
 
 Payload objects with the following scopes take the form that follows:
 
