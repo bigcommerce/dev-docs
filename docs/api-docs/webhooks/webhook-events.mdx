@@ -571,10 +571,10 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | store/product/metafield/created | Fires when a new product metafield is created. |
 | store/product/metafield/updated | Fires when product metafield details are edited. |
 | store/product/metafield/deleted | Fires when a product metafield is deleted.|
-| store/variant/metafield/* | Fires for all store/variant/metafield events. |
-| store/variant/metafield/created | Fires when a new product variant metafield is created. |
-| store/variant/metafield/updated | Fires when product variant metafield details are edited. |
-| store/variant/metafield/deleted | Fires when a product variant metafield is deleted.|
+| store/product/variant/metafield/* | Fires for all store/variant/metafield events. |
+| store/product/variant/metafield/created | Fires when a new product variant metafield is created. |
+| store/product/variant/metafield/updated | Fires when product variant metafield details are edited. |
+| store/product/variant/metafield/deleted | Fires when a product variant metafield is deleted.|
 
 Payload objects with the following scopes take the form that follows:
 
@@ -672,9 +672,9 @@ Payload objects with the following scopes take the form that follows:
 ```
 Payload objects with the following scopes take the form that follows:
 
-* `store/variant/metafield/deleted`
-* `store/variant/metafield/created`
-* `store/variant/metafield/updated`
+* `store/product/variant/metafield/deleted`
+* `store/product/variant/metafield/created`
+* `store/product/variant/metafield/updated`
 
 ```json filename="Example product variant metafield created payload object" showLineNumbers copy
 {
