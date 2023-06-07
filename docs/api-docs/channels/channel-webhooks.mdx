@@ -232,13 +232,14 @@ Emails payload objects take the form that follows:
 }
 ```
 ## Metafields
-The following metafield webhook events fire in response to actions that affect a specific channel on a store:
+
+The following metafield webhook events fire in response to actions that affect any channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/metafield/created/` | Fires when a metafield is created per a specified channel. | [Create a Channel Metafield](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#create-a-channel-metafield) |
-| `store/channel/metafield/deleted`  | Fires when a metafield is deleted per a specified channel. |  [Delete a Channel Metafield](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#delete-a-channel-metafield)
-| `store/channel/metafield/updated`  | Fires when a metafield is updated per a specified channel. | [Update a Channel Metafield](https://developer.bigcommerce.com/docs/rest-management/channels/channel-metafields#update-a-channel-metafield) |
+| `store/channel/metafield/created/` | Fires when a channel metafield is created on any channel. | [Create a channel metafield](/docs/rest-management/channels/channel-metafields#create-a-channel-metafield) |
+| `store/channel/metafield/updated`  | Fires when any channel metafield is updated. | [Update a channel metafield](/docs/rest-management/channels/channel-metafields#update-a-channel-metafield) |
+| `store/channel/metafield/deleted`  | Fires when any channel metafield is deleted. |  [Delete a channel metafield](/docs/rest-management/channels/channel-metafields#delete-a-channel-metafield)
 
 Metafields payload objects take the form that follows:
 
