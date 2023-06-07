@@ -204,6 +204,21 @@ properties:
     type: object
     allOf:
       - $ref: ./store_inventory_location_metafield_updated.yml
+  store/metafield/created:
+    description: Fires whenever a new metafield on any object is created.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_created.yml
+  store/metafield/deleted:
+    description: Fires whenever a metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_deleted.yml
+  store/metafield/updated:
+    description: Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_updated.yml    
   store/order/archived:
     description: Fires when an order is archived.
     type: object
@@ -219,6 +234,21 @@ properties:
     type: object
     allOf:
       - $ref: ./store_order_message_created.yml
+  store/order/metafield/created:
+    description: Fires if an order metafield is created using the control panel, an app, or the API.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_created.yml
+  store/order/metafield/deleted:
+    description: Fires when an order metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_deleted.yml
+  store/order/metafield/updated:
+    description: Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_updated.yml
   store/order/refund/created:
     description: Fires when a refund is submitted against an order.
     type: object
@@ -260,11 +290,41 @@ properties:
     type: object
     allOf:
       - $ref: ./store_product_inventory_updated.yml
+  store/product/metafield/created:
+    description: Fires when a new product metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_created.yml
+  store/product/metafield/deleted:
+    description: Fires when a product metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_deleted.yml
+  store/product/metafield/updated:
+    description: Fires when product metafield details are edited.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_updated.yml 
   store/product/updated:
     description: Fires when product details are edited. For a full list of product fields that trigger an updated event, see the product updated events that follow.
     type: object
     allOf:
       - $ref: ./store_product_updated.yml
+  store/product/variant/metafield/created:
+    description: Fires when a new product variant metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_created.yml
+  store/product/variant/metafield/deleted:
+    description: Fires when a product variant metafield is deleted..
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_deleted.yml
+  store/product/variant/metafield/updated:
+    description: Fires when product variant metafield details are edited.
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_updated.yml
   store/shipment/created:
     description: Fires when a shipment is created.
     type: object
@@ -326,3 +386,4 @@ properties:
     type: object
     allOf:
       - $ref: ./store_subscriber_updated.yml
+  

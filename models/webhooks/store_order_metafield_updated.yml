@@ -1,0 +1,23 @@
+type: object
+properties:
+  store/order/metafield/updated:
+    description: Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          metafield_id:
+            type: integer
+          resource_id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
