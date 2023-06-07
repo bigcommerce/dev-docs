@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      buildWithCache:
+        description: 'Build with cache'
+        default: true
+        required: false
+        type: boolean
 
 jobs:
   build:
@@ -15,4 +22,4 @@ jobs:
       
     - name: Trigger Vercel Deploy Hook
       run: |
-        curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}?buildCache=${{ inputs.buildWithCache }}
