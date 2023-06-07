@@ -461,10 +461,10 @@ Consult the [product assignment section of the Channel Webhooks Guide](/api-docs
 | store/product/metafield/created | A new product metafield is created. |
 | store/product/metafield/updated | Occurs when product metafield details are edited. |
 | store/product/metafield/deleted | A product metafield is deleted.|
-| store/variant/metafield/* | Subscribe to all store/variant/metafield events. |
-| store/variant/metafield/created | A new product variant metafield is created. |
-| store/variant/metafield/updated | Occurs when product variant metafield details are edited. |
-| store/variant/metafield/deleted | A product variant metafield is deleted.|
+| store/product/variant/metafield/* | Subscribe to all store/product/variant/metafield events. |
+| store/product/variant/metafield/created | A new product variant metafield is created. |
+| store/product/variant/metafield/updated | Occurs when product variant metafield details are edited. |
+| store/product/variant/metafield/deleted | A product variant metafield is deleted.|
 
 > <sup>+</sup>Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
 
@@ -566,9 +566,9 @@ Payload objects with the following scopes take the form that follows:
 ```
 Payload objects with the following scopes take the form that follows:
 
-* `store/variant/metafield/deleted`
-* `store/variant/metafield/created`
-* `store/variant/metafield/updated`
+* `store/product/variant/metafield/deleted`
+* `store/product/variant/metafield/created`
+* `store/product/variant/metafield/updated`
 
 ```json filename="Example product variant metafield payload object" showLineNumbers copy
 {
