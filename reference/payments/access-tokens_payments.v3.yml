@@ -9,6 +9,8 @@ info:
     
     To get a valid PAT, submit the order number to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint. Authenticate using an [API account access token](/api-docs/getting-started/api-accounts#api-accounts) with the [Create payments](/api-docs/getting-started/api-accounts#token-creation-scopes) scope as the value of the X-Auth-Token header.
 
+    You can also generate a PAT during checkout by using the `completeCheckout` mutation in the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments).
+
     For a guide through the API call sequence needed to create a PAT and make charges, see the [Payments Overview](/api-docs/store-management/payments-api-overview#compatible-payment-gateways).
 
     > To learn more about authenticating Payments endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
@@ -53,9 +55,11 @@ paths:
       - $ref: '#/components/parameters/Accept'
     post:
       description: |-
-        This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
+        Use this endpoint to create a payment access token. A payment access token is required to process payments with the BigCommerce API.
 
-        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing#process-payment).
+        You can also generate a payment access token during checkout by using the `completeCheckout` mutation in the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments).
+
+        After the token is created, use the token to [Process a payment](/docs/rest-payments/processing#process-payment).
 
         **Required Fields**
         * order_id
@@ -94,7 +98,7 @@ paths:
               id: 182
       responses:
         '201':
-          description: Payment access token has been successfully created
+          description: Payment access token has been successfully created.
           headers: {}
           content:
             application/json:
@@ -107,7 +111,7 @@ paths:
                     type: object
                     properties:
                       id:
-                        description: Payment access token. This token is required in subsequent payment request to Payment API endpoint.
+                        description: Payment access token. This token is required in the subsequent request to the [Process a payment](/docs/rest-payments/processing#process-payment) endpoint.
                         type: string
                         minLength: 1
                     required:

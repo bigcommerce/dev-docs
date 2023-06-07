@@ -7,7 +7,7 @@ info:
 
     The Payment Processing API uses BigCommerce's PCI-compliant payments server and a supported payment gateway to charge customers. The payment portal you choose may support charging stored instruments and/or making refund transactions. For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/api-docs/store-management/payments-api-overview#compatible-payment-gateways).
 
-    A Payment Access Token is required to authorize payment processing requests. The X-Auth-Token header is not required in requests to the payment processing endpoint. For a payment processing authentication example request, see the related section in our [Authentication article](/api-docs/getting-started/authentication#bigcommerce-generated-jwts).
+    A Payment Access Token (_PAT_) is required to authorize payment processing requests. The X-Auth-Token header is not required in requests to the payment processing endpoint. To generate a PAT, use the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint or the `completeCheckout` mutation in the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments). For a payment processing authentication example request, see the related section in our [Authentication article](/api-docs/getting-started/authentication#bigcommerce-generated-jwts).
     
     Also note that payment processing requests use the BigCommerce Payments Gateway, which uses a different server than our other REST APIs. Please see the server URL for the payment processing endpoint.
 

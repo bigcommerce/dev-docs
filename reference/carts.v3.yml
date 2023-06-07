@@ -50,9 +50,9 @@ paths:
         * Carts are valid for **30 days** from the **last modification** (this includes creating the cart or editing the cart).
         * If a product has modifiers, use the `option_selections` array to describe the **modifier** selection(s).
         * The format and data type of a cart’s `option_value` are defined by the `value_data` object of a product’s [variant option value](/docs/rest-catalog/product-variant-options/values), [modifier value](/docs/rest-catalog/product-modifiers/values), or a combination of both.
-        * Redirect URLs can only be generated from carts that were created using the **Server-to-Server Carts API**. 
+        * Redirect URLs can only be generated from carts that were created using the **REST Management API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`. Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront configuration.
-        * To restore a cart that was created by a shopper or through the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
+        * To restore a cart that was created by a shopper or through a Storefront API, first recreate the cart using the **REST Management API**.
         * To get cart `promotions` in the response, append the following query parameter to the request URL: `include=promotions.banners`.
       parameters:
         - name: include
@@ -356,13 +356,13 @@ paths:
 
         **Usage Notes**
 
-        * Redirect URLs can also be created via **Create a Cart** requests by appending `include=redirect_urls`.
+        * Redirect URLs can also be created with **Create a Cart** requests by appending `include=redirect_urls`.
         * A **Carts** redirect URL may only be used once.
         * Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront configuration.
         * Once a redirect URL has been visited, it will be invalidated and cannot be used again. 
         * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart, and redirecting to the URL from your own application.
-        * Redirect URLs can be generated only from carts that were created using the Server to Server Cart API and the Storefront Cart API. 
-        * To restore a cart that was created on the storefront, either by a shopper or the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
+        * Redirect URLs can be generated only from carts that were created using the **REST Management API**. 
+        * To restore a cart that was created on the storefront, either by a shopper or a Storefront API, first recreate the cart using the **REST Management API**.
       tags:
         - Redirects
       responses:

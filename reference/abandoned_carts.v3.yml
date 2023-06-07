@@ -3,7 +3,7 @@ info:
   version: ''
   title: Abandoned Carts
   description: |-
-    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` using the abandoned cart `token` passed to the storefront when a shopper clicks an abandoned cart email link. Once the `cart_id` has been retrieved, your application can use it to fetch and display information about the cart to the shopper using the Storefront Cart API and/or Store Management Cart API.
+    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` using the abandoned cart `token` passed to the storefront when a shopper clicks an abandoned cart email link. Once the cart ID has been retrieved, your application can use it to fetch and display information about the cart to the shopper using the REST Storefront API, the REST Management API, or the GraphQL Storefront API.
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce

@@ -430,7 +430,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
+                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -871,7 +871,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
+                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -1009,7 +1009,7 @@ paths:
                         minLength: 0
                         type: string
                         description: |
-                          A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
+                          A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                         example: category.html
                       is_visible:
                         type: boolean
@@ -1922,7 +1922,7 @@ components:
           minLength: 0
           type: string
           description: |
-            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
+            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
           example: category.html
         is_visible:
           type: boolean

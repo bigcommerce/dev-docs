@@ -8346,7 +8346,7 @@ components:
           minLength: 0
           type: string
           description: |
-            The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
+            The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
         upc:
           type: string
           maxLength: 32

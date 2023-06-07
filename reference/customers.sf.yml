@@ -3,7 +3,7 @@ info:
   version: Storefront
   title: Storefront Customers
   description: |-
-    Manage customers and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+    Manage customers and data via front-end JavaScript on BigCommerce Stencil-powered storefronts.
     
     For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
         

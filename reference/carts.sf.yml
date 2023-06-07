@@ -3,7 +3,7 @@ info:
   version: Storefront
   title: Storefront Carts
   description: |-
-    Manage cart operations and data using frontend JavaScript on BigCommerce stencil powered storefronts.
+    Manage cart operations and data using frontend JavaScript on BigCommerce Stencil-powered storefronts.
     
     For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
         
@@ -164,7 +164,7 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
-        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints.
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints. You can also use carts mutations that are part of the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
 
 
         > #### Note
@@ -372,7 +372,7 @@ components:
             description: ID of the applied discount.
       x-internal: false
     responseCart:
-      description: Cart object used in storefront cart responses.
+      description: Cart object used in REST Storefront API cart responses.
       title: Cart Read
       type: object
       properties:
@@ -615,7 +615,7 @@ components:
           example: 10
         name:
           type: string
-          description: Item name
+          description: Name of the custom item.
           readOnly: true
           example: Custom Item Name
         quantity:
@@ -624,13 +624,13 @@ components:
           example: 1
         sku:
           type: string
-          description: Custom item sku
+          description: SKU of the custom item.
           readOnly: true
           example: SM-456
       description: |-
         **Read Only**
 
-        This will return in the Cart Response if the Cart was created using the [Store Management Carts API](/docs/rest-management/carts). A custom item can only be added to a cart using the Server to Server API.
+        This will return in the Cart Response if the Cart was created using the [REST Management API](/docs/rest-management/carts). A custom item can only be added to a cart using the REST Management API.
       x-internal: false
     responseCartLineItemsDigitalItems:
       title: Item Digital

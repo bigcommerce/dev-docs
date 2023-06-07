@@ -373,7 +373,7 @@ paths:
       description: |-
         Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
 
-        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint.
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint or the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
 
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
@@ -1201,7 +1201,7 @@ paths:
               * Required Fields:
                 * `shipping_address` (deprecated) or `address`
                 * `lineItems`
-            2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+            2. Update the Consignment with Shipping Options using the [REST Storefront API](/checkouts/checkout-consignments#update-a-consignment), the [REST Management API](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) or the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
                   
           ### For **pickup** consignments:
             1. Create a new consignment object. 

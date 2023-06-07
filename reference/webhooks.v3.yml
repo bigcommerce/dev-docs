@@ -684,7 +684,8 @@ components:
       description: |-
         This webhook fires on new cart creation when any of the following occur:
         * a storefront shopper adds their first product to a cart during a new session
-        * thereʼs a successful `POST` request to `/carts` using either the [Storefront](/docs/rest-storefront/carts#create-a-cart) API or the [Store Management](/docs/rest-management/carts/carts-single#create-a-cart) API 
+        * an application makes a successful `POST` request to `/carts` using either the [REST Storefront](/docs/rest-storefront/carts#create-a-cart) API or the [REST Management](/docs/rest-management/carts/carts-single#create-a-cart) API
+        * a storefront makes a successful call to create a cart using the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout)
 
         Cart creation also fires the `store/cart/updated` webhook.
 

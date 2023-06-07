@@ -44,7 +44,7 @@ info:
 
     ## [Customer impersonation tokens](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token)
 
-    Generate tokens for use in server-to-server requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens). To [create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
+    Generate tokens that can make queries from the perspective of a particular customer in headless or server-side code using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens). To [create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
 
     ```http
     POST https://api.bigcommerce.com/stores/{STORE_HASH}/v3/storefront/api-token-customer-impersonation
