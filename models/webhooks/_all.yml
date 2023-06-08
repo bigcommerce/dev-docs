@@ -189,6 +189,16 @@ properties:
     type: object
     allOf:
       - $ref: ./store_information_updated.yml
+  store/inventory/location/created:
+    description: Fires when a location is created.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_created.yml
+  store/inventory/location/updated:
+    description: Fires when a location is updated.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_updated.yml   
   store/inventory/location/metafield/created:
     description: Fires when a new inventory location metafield is created.
     type: object
