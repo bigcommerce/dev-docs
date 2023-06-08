@@ -6872,12 +6872,19 @@ components:
           nullable: true
         product_id:
           type: integer
+          description: Product ID
+        id:
+          type: integer
+          description: Variant ID
         sku:
           maxLength: 255
           minLength: 1
           type: string
       description: |
         The model for a PUT to update variants on a product.
+      required:
+        - product_id
+        - id
       x-internal: false
     productVariantOptionValue_Full:
       title: productVariantOptionValue_Full
