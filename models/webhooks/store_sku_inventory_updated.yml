@@ -2,9 +2,11 @@ type: object
 properties:
   store/sku/inventory/updated:
     description: |- 
-      Fires to indicate changes in _variant_ inventory. The webhook fires only for products with variants. To fire the webhook, you must track by _variant_ and change _variant-level_ inventory.
-
-      Inventory updates from APIs, marketplace apps, and control panel trigger the webhook. In the control panel, you can bulk import inventories or navigate to the **Products > View** tab.
+      Fires when inventory levels change for a _variant_. This webhook does not fire for products without variants.
+      
+      For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_ and the _variant-level_ inventory changes.
+      
+      Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page.
     type: object
     properties:
       scope:
