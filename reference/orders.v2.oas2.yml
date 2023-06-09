@@ -1085,7 +1085,7 @@ components:
     payment_method:
       name: payment_method
       in: query
-      description: The payment method used on the order.
+      description: The display name of the payment method used on the order.
       schema:
         type: string
         enum:
@@ -2893,7 +2893,7 @@ components:
                 example: 0
                 type: number
               payment_method:
-                description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.'
+                description: The display name of the payment method for this order.
                 example: Cash on Delivery
                 type: string
               payment_provider_id:
@@ -4247,7 +4247,7 @@ components:
           example: false
           type: boolean
         payment_method:
-          description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.'
+          description: The display name of the payment method for this order.
           enum:
             - Credit Card
             - Cash
@@ -4889,7 +4889,7 @@ components:
               type: boolean  
             payment_method:
               type: string
-              description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
+              description: The display name of the payment method for this order.
             payment_provider_id:
               description: The external Transaction ID/Payment ID within this order’s payment provider (if a payment provider was used).
               example: ''
