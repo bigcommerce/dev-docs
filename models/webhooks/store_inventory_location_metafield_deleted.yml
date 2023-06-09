@@ -1,6 +1,6 @@
 properties:
   store/inventory/location/metafield/deleted:
-    description: Fires when a inventory, location metafield is deleted.
+    description: Fires when a inventory location metafield is deleted.
     type: object
     properties:
       scope:

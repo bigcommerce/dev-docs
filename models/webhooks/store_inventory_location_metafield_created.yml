@@ -1,6 +1,6 @@
 properties:
   store/inventory/location/metafield/created:
-    description: Fires when a new inventory, location metafield is created.
+    description: Fires when a new inventory location metafield is created.
     type: object
     properties:
       scope:

@@ -667,7 +667,7 @@ components:
   schemas:
     store_cart_wildcard:
       description: |-
-        Subscribes to the following events:
+        Fires for each of the following events:
         * `store/cart/created`
         * `store/cart/updated`
         * `store/cart/deleted`
@@ -731,7 +731,7 @@ components:
     store_cart_updated:
       title: store/cart/updated
       description: |-
-        This webhook fires when one of the following occurs:
+        Fires when one of the following occurs:
         * A cartʼs line items are modified by adding a new item to a cart, updating an existing itemʼs quantity, or deleting an item.
         * A shopper enters or changes their email address during guest checkout. This includes signing in to a customer account after creating a guest cart, which associates the accountʼs email address with the cart.
 
@@ -779,7 +779,7 @@ components:
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
-        This webhook fires whenever a cart is deleted. Carts are deleted in two ways; when all items are removed from a cart, and when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the cart lifecycle. The `store/cart/updated` webhook also fires when the last item is removed.
+        Fires when a cart is deleted. Carts are deleted in two ways; when all items are removed from a cart, and when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the cart lifecycle. The `store/cart/updated` webhook also fires when the last item is removed.
 
 
         ```json title="Example callback object" lineNumbers
@@ -820,7 +820,7 @@ components:
     store_cart_couponApplied:
       title: store/cart/couponApplied
       description: |-
-        This webhook fires whenever a new coupon code is applied to a cart. The webhook request body includes the ID of the coupon code.
+        Fires when a new coupon code is applied to a cart. The webhook request body includes the ID of the coupon code.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -909,7 +909,7 @@ components:
     store_cart_converted:
       title: store/cart/converted
       description: |-
-        This webhook fires when a cart/checkout is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart/checkout ID and order ID for correlation purposes.
+        Fires when a cart/checkout is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart/checkout ID and order ID for correlation purposes.
 
 
         ```json title="Example callback object" lineNumbers
@@ -996,7 +996,7 @@ components:
     store_cart_lineItem_created:
       title: store/cart/lineItem/created
       description: |-
-        This webhook fires when a new item is added to the cart.
+        Fires when a new item is added to the cart.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1041,7 +1041,7 @@ components:
     store_cart_lineItem_updated:
       title: store/cart/lineItem/updated
       description: |-
-        This webhook fires when an item’s quantity has changed or the product options change.
+        Fires when an item’s quantity has changed or the product options change.
 
         Changes to the following fields trigger this event:
         * Quantity
@@ -1090,7 +1090,7 @@ components:
     store_cart_lineItem_deleted:
       title: store/cart/lineItem/deleted
       description: |-
-        This webhook fires when an item is deleted from the cart.
+        Fires when an item is deleted from the cart.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1135,7 +1135,7 @@ components:
     store_category_wildcard:
       title: store/category/*
       description: |
-        Subscribe to all store/category events
+        Fires for all `store/category` events.
       x-examples: {}
       allOf: []
       x-tags:
@@ -1145,7 +1145,7 @@ components:
       title: store/category/created
       type: object
       description: |-
-        This webhook fires when a category is created.
+        Fires when a category is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1171,7 +1171,7 @@ components:
     store_category_updated:
       title: store/category/updated
       description: |-
-        This webhook fires when a category is updated. 
+        Fires when a category is updated. 
         
         Changes to the following fields trigger this event:
         * URL
@@ -1228,7 +1228,7 @@ components:
     store_category_deleted:
       title: store/category/deleted
       description: |-
-        This webhook fires when a category is deleted.
+        Fires when a category is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1267,7 +1267,7 @@ components:
       x-internal: false
     store_channel_wildcard:
       title: store/channel/*
-      description: 'Subscribe to all `store/channel` events. '
+      description: Fires for all `store/channel` events.
       allOf: []
       x-tags:
         - created
@@ -1275,7 +1275,7 @@ components:
     store_channel_created:
       title: store/channel/created
       description: |-
-        This webhook fires when a channel is created in the control panel or by API.
+        Fires when a channel is created in the control panel or by API.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1368,7 +1368,7 @@ components:
     store_customer_wildcard:
       title: store/customer/*
       description: |
-        Subscribe to all `store/customer` events
+        Fires for all `store/customer` events.
       x-examples: {}
       allOf: []
       x-tags:
@@ -1377,7 +1377,7 @@ components:
     store_customer_created:
       title: store/customer/created
       description: |-
-        This webhook fires when a new customer is created.
+        Fires when a new customer is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1503,7 +1503,7 @@ components:
     store_customer_address_updated:
       title: store/customer/address/updated
       description: |-
-        This webhook fires when a customer address is updated.
+        Fires when a customer address is updated.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1553,7 +1553,7 @@ components:
     store_customer_address_created:
       title: store/customer/address/created
       description: |-
-        This webhook fires when a customer address is created.
+        Fires when a customer address is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1603,7 +1603,7 @@ components:
     store_customer_address_deleted:
       title: store/customer/address/deleted
       description: |-
-        This webhook fires when a customer address is deleted.
+        Fires when a customer address is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1653,7 +1653,7 @@ components:
     store_customer_payment_instrument_default_updated:
       title: store/customer/payment/instrument/default/updated
       description: |-
-        This webhook fires when a customer default payment instrument is updated.
+        Fires when a customer default payment instrument is updated.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1693,7 +1693,7 @@ components:
       x-internal: false
     store_order_wildcard:
       title: store/order/*
-      description: Subscribe to all store/order events.
+      description: Fires for all `store/order` events.
       type: object
       x-internal: false
     store_order_created:
@@ -1740,7 +1740,7 @@ components:
     store_order_updated:
       title: store/order/updated
       description: |-
-        This webhook fires when a previously-created order is updated.  
+        Fires when a previously-created order is updated.  
 
         Changes to the following fields trigger this event: 
         * Status
@@ -1801,7 +1801,7 @@ components:
     store_order_archived:
       title: store/order/archived
       description: |-
-        This webhook fires when an order is archived.
+        Fires when an order is archived.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1995,7 +1995,7 @@ components:
       x-internal: false
     store_product_wildcard:
       title: store/product/*
-      description: Subscribe to all `store/product` events.
+      description: Fires for all `store/product` events.
       type: object
       x-internal: false
     store_product_deleted:
@@ -2042,7 +2042,7 @@ components:
     store_product_created:
       title: store/product/created
       description: |-
-        This webhook fires when a new product is created.
+        Fires when a new product is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2083,7 +2083,7 @@ components:
     store_product_updated:
       title: store/product/updated
       description: |-
-        This webhook fires when product details are edited. 
+        Fires when product details are edited. 
 
         Changes to the following fields trigger this event:
         * Product Type
@@ -2316,13 +2316,13 @@ components:
       x-internal: false
     store_shipment_wildcard:
       title: store/shipment/*
-      description: Subscribe to all store/shipment events
+      description: Fires for all `store/shipment` events.
       type: object
       x-internal: false
     store_shipment_created:
       title: store/shipment/created
       description: |-
-        This webhook fires when a shipment is created.
+        Fires when a shipment is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2367,7 +2367,7 @@ components:
     store_shipment_updated:
       title: store/shipment/updated
       description: |-
-        This webhook fires when a shipment is updated.
+        Fires when a shipment is updated.
 
         Changes to the following fields trigger this event:
         * Shipping Tracking Number
@@ -2459,7 +2459,7 @@ components:
       x-internal: false
     store_sku_wildcard:
       title: store/sku/*
-      description: Subscribe to all `store/sku` events.
+      description: Fires for all `store/sku` events.
       type: object
       x-internal: false
     store_sku_created:
@@ -2520,7 +2520,7 @@ components:
     store_sku_updated:
       title: store/sku/updated
       description: |-
-        This webhook fires when a SKU is updated.
+        Fires when a SKU is updated.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2575,7 +2575,7 @@ components:
     store_sku_deleted:
       title: store/sku/deleted
       description: |-
-        This webhook fires when a SKU is deleted.
+        Fires when a SKU is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2630,7 +2630,7 @@ components:
     store_sku_inventory_updated:
       title: store/sku/inventory/updated
       description: |-
-        This webhook fires when a SKU is updated.
+        Fires when a SKU is updated.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2700,7 +2700,7 @@ components:
     store_sku_inventory_order_updated:
       title: store/sku/inventory/order/updated
       description: |-
-        This webhook fires when the inventory is updated.
+        Fires when the inventory is updated.
         
         Changes to the following fields trigger this event:
         * Quantity
@@ -2773,7 +2773,7 @@ components:
     store_app_uninstalled:
       title: store/app/uninstalled
       description: |-
-        This webhook fires when a client store is canceled and uninstalled from the platform.
+        Fires when a client store is canceled and uninstalled from the platform.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2808,7 +2808,7 @@ components:
     store_information_updated:
       title: store/information/updated
       description: |-
-        This webhook fires when changes are made to store settings. 
+        Fires when changes are made to store settings. 
 
         Changes to the following fields trigger this event:
         * Store Name
@@ -2850,13 +2850,13 @@ components:
       x-internal: false
     store_subscriber_wildcard:
       title: store/subscriber/*
-      description: Subscribe to all `store/subscriber` events
+      description: Fires for all `store/subscriber` events.
       type: object
       x-internal: false
     store_subscriber_created:
       title: store/subscriber/created
       description: |-
-        This webhook fires when a subscriber is created. 
+        Fires when a subscriber is created. 
 
         ```json title="Example callback object" lineNumbers
         {
