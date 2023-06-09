@@ -2412,8 +2412,10 @@ components:
         Type of refund item that capture refunding of items in the order that are of type quantity.
         * `ORDER`
         * `PRODUCT`
+        * `GIFT_WRAPPING`
         * `SHIPPING`
         * `HANDLING`
+        * `TAX`
       properties:
         item_type:
           type: string
@@ -2421,8 +2423,10 @@ components:
           enum:
             - ORDER
             - PRODUCT
+            - GIFT_WRAPPING
             - SHIPPING
             - HANDLING
+            - TAX
           description: Type of refund.
         item_id:
           type: integer
@@ -2470,6 +2474,7 @@ components:
         Type of refund item that capture refunding of items in the order that are of type amount.
         * `PRODUCT`
         * `ORDER`
+        * `GIFT_WRAPPING`
         * `SHIPPING`
         * `HANDLING`
         * `TAX`
@@ -2480,6 +2485,7 @@ components:
           enum:
             - PRODUCT
             - ORDER
+            - GIFT_WRAPPING
             - SHIPPING
             - HANDLING
             - TAX
@@ -2716,8 +2722,8 @@ components:
           description: |
             Determines the visibility and writeability of the field by other API consumers.
 
-            |Value|Description
-            |-|-|
+            |Value|Description |
+            |:-|:-|
             |`app_only`|Private to the app that owns the field|
             |`read`|Visible to other API consumers|
             |`write`|Open for reading and writing by other API consumers|
@@ -2787,8 +2793,8 @@ components:
           description: |
             Determines the visibility and writeability of the field by other API consumers.
 
-            |Value|Description
-            |-|-|
+            |Value|Description |
+            |:-|:-|
             |`app_only`|Private to the app that owns the field|
             |`read`|Visible to other API consumers|
             |`write`|Open for reading and writing by other API consumers|
