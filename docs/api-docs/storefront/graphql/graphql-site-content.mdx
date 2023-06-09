@@ -1,0 +1,429 @@
+# Site Content with the GraphQL Storefront API
+
+## Web pages
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get web pages" showLineNumbers copy
+query {
+  site {
+    content {
+      pages (filters: {isVisibleInNavigation: true }) {
+        edges {
+          node {
+            __typename
+            entityId
+            name
+            parentEntityId
+            seo {
+              pageTitle
+              metaKeywords
+              metaDescription
+            }
+            ... on NormalPage {
+              plainTextSummary (characterLimit: 100)
+              path
+            }
+            ... on ExternalLinkPage {
+              link
+            }
+            ... on ContactPage {
+              path
+              plainTextSummary (characterLimit: 100)
+              contactFields
+            }
+            ... on RawHtmlPage {
+              path
+              plainTextSummary (characterLimit: 100 )
+            }
+            ... on BlogIndexPage {
+              path
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get web pages" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "pages": {
+          "edges": [
+            {
+              "node": {
+                "__typename": "NormalPage",
+                "entityId": 2,
+                "name": "Shipping & Returns",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Shipping & Returns",
+                  "metaKeywords": "Shipping and Return Policy",
+                  "metaDescription": "Shipping and Return Policy"
+                },
+                "plainTextSummary": "To edit this page, log in to your control panel and go to Storefront › Web Pages. Click Edit next...",
+                "path": "/shipping-returns/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "BlogIndexPage",
+                "entityId": 3,
+                "name": "Blog",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Blog",
+                  "metaKeywords": "",
+                  "metaDescription": ""
+                },
+                "path": "/blog/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "ContactPage",
+                "entityId": 6,
+                "name": "Contact Us Form",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Contact Us Now!!",
+                  "metaKeywords": "Contact Us",
+                  "metaDescription": "Contact Info"
+                },
+                "path": "/contact-us-form/",
+                "plainTextSummary": "Visitors can use the form on this page to submit questions or feedback.&nbsp;\r\nStore is located in...",
+                "contactFields": [
+                  "fullname",
+                  "phone"
+                ]
+              }
+            },
+            {
+              "node": {
+                "__typename": "ExternalLinkPage",
+                "entityId": 8,
+                "name": "Youtube page",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "",
+                  "metaKeywords": "",
+                  "metaDescription": ""
+                },
+                "link": "https://www.youtube.com/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "RawHtmlPage",
+                "entityId": 9,
+                "name": "Random page",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "",
+                  "metaKeywords": "",
+                  "metaDescription": ""
+                },
+                "path": "/random-page/",
+                "plainTextSummary": "This is a random page.\r\n\r\n\r\n\r\n\r\nThis is the body of a random page."
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Rendered Regions
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get rendered regions" showLineNumbers copy
+
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get rendered regions" showLineNumbers copy
+```
+
+</Tab>
+</Tabs>
+
+## Blogs
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get blogs" showLineNumbers copy
+query {
+  site {
+    content {
+      blog {
+        name
+        description
+        path
+        posts (filters: { tags:["Most Popular", "Holiday"] } ) {
+          edges {
+            node {
+              entityId
+              name
+              tags
+              htmlBody
+              plainTextSummary (characterLimit: 100)
+              author
+              path
+              publishedDate {
+                utc
+              }
+              thumbnailImage {
+                url (width: 100, height: 200)
+                urlOriginal
+                altText
+                isDefault
+              }
+              seo {
+                pageTitle
+                metaKeywords
+                metaDescription
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get blogs" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "blog": {
+          "name": "Blog",
+          "description": "",
+          "path": "/blog/",
+          "posts": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 4,
+                  "name": "How to seed your garden",
+                  "tags": [
+                    "Best Reviews",
+                    "Most Popular"
+                  ],
+                  "htmlBody": "<p>1. Sow at a suitable depth<br>2. Plant at the specified spacing for your plant</p>",
+                  "plainTextSummary": "1. Sow at a suitable depth2. Plant at the specified spacing for your plant",
+                  "author": "Anonymous",
+                  "path": "/blog/how-to-seed-your-garden/",
+                  "publishedDate": {
+                    "utc": "2023-06-06T19:29:58Z"
+                  },
+                  "thumbnailImage": {
+                    "url": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/100x200/uploaded_images/flower.jpg",
+                    "urlOriginal": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/original/uploaded_images/flower.jpg",
+                    "altText": "How to seed your garden",
+                    "isDefault": true
+                  },
+                  "seo": {
+                    "pageTitle": "How to seed your garden",
+                    "metaKeywords": "Best Reviews,Most Popular",
+                    "metaDescription": "Flower products"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "entityId": 1,
+                  "name": "Indoor Planting",
+                  "tags": [
+                    "Holiday",
+                    "Lowest Price"
+                  ],
+                  "htmlBody": "<p>1. Pay attention to humidity<br>2. Provide adequate lighting</p>",
+                  "plainTextSummary": "1. Pay attention to humidity2. Provide adequate lighting",
+                  "author": "Anonymous",
+                  "path": "/blog/indoor-planting/",
+                  "publishedDate": {
+                    "utc": "2014-02-15T19:31:55Z"
+                  },
+                  "thumbnailImage": null,
+                  "seo": {
+                    "pageTitle": "Indoor Planting",
+                    "metaKeywords": "Holiday,Lowest Price",
+                    "metaDescription": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Banners
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get banners" showLineNumbers copy
+query {
+  site {
+    content {
+      banners {
+        homePage {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        searchPage {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        categoryPage (categoryEntityId: 29) {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        brandPage (brandEntityId: 41) {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+      }
+    }
+  }
+}  
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get banners" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "banners": {
+          "homePage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 1,
+                  "name": "Flower Promotion",
+                  "content": "<p><span style=\"color: #800000; font-family: 'comic sans ms', sans-serif; font-size: large;\">BUY A&nbsp;<a href=\"%%GLOBAL_ShopPathSSL%%/corn-on-the-cob-flower/\">Flower</a> TODAY!!!&nbsp;</span></p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          },
+          "searchPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 6,
+                  "name": "Buy One Get One Free",
+                  "content": "<p>Buy a plant, get one free!</p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          },
+          "categoryPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 2,
+                  "name": "Spring Flower Sale",
+                  "content": "<p>20% off all outdoor flowers</p>",
+                  "location": "BOTTOM"
+                }
+              }
+            ]
+          },
+          "brandPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 3,
+                  "name": "Most Recommended Brand",
+                  "content": "<p>Best reviews on all marketplace channels</p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Routes
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get routes" showLineNumbers copy
+
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get routes" showLineNumbers copy
+```
+
+</Tab>
+</Tabs>
