@@ -2234,7 +2234,7 @@ components:
             - write_and_sf_access
         description:
           maxLength: 255
-          minLength: 0
+          minLength: 1
           type: string
           description: |
             Description for the metafields.
