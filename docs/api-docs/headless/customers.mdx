@@ -26,7 +26,7 @@ When a customer is logged in using the customer login mutation, subsequent queri
 
 ### Server-side GraphQL customer login
 
-To make queries from the perspective of a particular customer in server-side code, use [customer impersonation tokens](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
+To make queries from the perspective of a particular customer in headless or server-side code, use [customer impersonation tokens](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 
 When you use customer impersonation tokens to authenticate requests made to the GraphQL Storefront API, the tokens receive store information from the perspective of the customer corresponding to the customer ID passed in the `X-Bc-Customer-Id` header of the `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
 

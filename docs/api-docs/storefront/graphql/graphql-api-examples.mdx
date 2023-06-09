@@ -374,3 +374,24 @@ query {
   }
 }
 ```
+
+## Get popular brands
+
+```graphql filename="Example query: Get popular brands" showLineNumbers copy
+query {
+  site {
+    popularBrands {
+      edges {
+        node {
+          entityId
+          count
+          name
+          path
+        }
+      }
+    }
+  }
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=popularBrands" target="_blank">**Try it in GraphQL Playground**</a>
