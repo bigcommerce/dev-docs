@@ -981,7 +981,9 @@ paths:
       description: |-
         Creates a *Variant Image*.
 
-        The image will show on the storefront when the value is selected.
+        Only one image can be explicitly associated with a Variant. If the Variant already has an associated image, overwrites the existing Variant Image.
+
+        The image displays on the storefront when the Variant is selected.
 
          **Required Fields**
         - image_file: Form posts. Files larger than 1 MB are not accepted
