@@ -48,9 +48,9 @@ As a developer, you can use Handlebars.js syntax to access objects and use them 
 
 Stencil objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
-<Callout type="info">
-Depthed paths are now conditionally pushed onto the stack. If the helper uses the same context, then a new stack is not created. Any instances of ../ in templates must be checked for the correct behavior.
-</Callout>
+### Migration handlebars v3 to v4
+Depthed paths are now conditionally pushed onto the stack. If the helper uses the same context, then a new stack is not created. Any instances of ../ in templates must be checked for the correct behavior. See [handlebars.js](https://github.com/handlebars-lang/handlebars.js/issues/1028) documentation for more information.
+
 
 ## YAML front matter overview
 
@@ -86,3 +86,4 @@ blog:
 
 * [Stencil Technology Stack Video](https://bigcommerce.wistia.com/medias/9g0qjdhs8t)
 * [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
+
