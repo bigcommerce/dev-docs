@@ -1,0 +1,25 @@
+{
+  // Enable your dictionary by adding it to the list of `dictionaries`
+  "dictionaries": [
+    "core-glossary"
+  ],
+  "ignoreWords": [
+    "skip-list"
+  ],
+  // Tell CSpell about your dictionary
+  "dictionaryDefinitions": [
+    {
+      "name": "core-glossary",
+      // Path to the custom word file. Relative to this `cspell.json` file.
+      "path": "./.style/core-glossary.txt",
+      // Some editor extensions will use `addWords` for adding words to your
+      // personal dictionary.
+      "addWords": true
+    },
+    {
+      "name": "skip-list", //these aren't glossary words, but shouldn't be spell checked away
+      "path": "./.style/skip-list.txt",
+      "addWords": true
+    }
+  ]
+}
