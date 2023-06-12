@@ -43,6 +43,35 @@ media type
 !docs
 !article
 !topic
+!dropdown
+!dummy
+!easy
+!easily
+!e.g.
+!eg
+!tag
+!e-mail
+!end point
+!file name
+!filesystem
+!flag
+!functionality
+!he
+!him
+!his
+!she
+!her
+!hers
+!hamburger
+!hit
+!hover
+!host name
+!i.e.
+!ie
+!impactful
+!ingest
+!in order to
+!just
 
 via
 will
