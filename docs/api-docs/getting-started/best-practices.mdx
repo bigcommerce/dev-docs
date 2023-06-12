@@ -65,16 +65,7 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
-The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests.
-
-### Concurrent API call rate limits
-
-Certain BigCommerce API resources rate-limit concurrent requests. This is to ensure the performance and reliability of the platform for all of our users. API calls are metered on a per-store, per-endpoint basis. These limitations are subject to change.
-
-| Limit | Endpoint | Method |
-|:------|:---------|:-------|
-| 10 | `/stores/:hash/v3/customers` | `POST` |
-
+A store’s overall quota is distributed across all apps that are accessing that store at a given time. This prevents a single app from consuming the store’s entire quota by itself. The quota available to a single app adjusts as additional clients start and stop making requests.
 
 ### Playing nicely with the platform
 
@@ -98,7 +89,7 @@ X-Rate-Limit-Time-Window-Ms: 5000
 | `X-Rate-Limit-Requests-Quota` | Shows how many API requests are allowed in the current window for your client. In this case, the number is 25 requests. |
 | `X-Rate-Limit-Requests-Left` | Details how many remaining requests your client can make in the current window before being rate limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate limited and would receive an HTTP 429 response.|
 
-You will know you've been limited if your request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response.
+If your implementation's request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response, it is encountering rate limits.
 
 The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying the time in milliseconds that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
 
@@ -129,16 +120,12 @@ You might wish to increase the amount of work your application can do in a given
 * Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
 * Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
 
-<Callout type="warning">
-  Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
-</Callout>
-
-## Platform limits
-
-BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) for more details.
+Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel requests to [Upsert price list records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) results in one or more error responses with the [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) status code. The current list of limitations is documented in our article on [resource-specific limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits). The [API reference](/docs/api) specification for each endpoint or mutation also documents any limits specific to that request.
 
 ## Resources
+
 ### Related articles
+
 * [API Status Codes](/api-docs/getting-started/api-status-codes)
 * [Filtering](/api-docs/getting-started/filtering)
 * [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits)
