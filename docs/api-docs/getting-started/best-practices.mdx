@@ -29,6 +29,7 @@ Examples of non-breaking changes include:
 We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
 
 ## Use webhooks to listen for changes
+
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your application.
 
 When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
@@ -61,7 +62,6 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
   
   BigCommerce reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). 
 </Callout>
-
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
@@ -124,6 +124,7 @@ Your client can sleep on the specified interval:
 After waiting for the given number of milliseconds, your client can go back to making API requests.
 
 ### Making requests in parallel
+
 You might wish to increase the amount of work your application can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your application should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
 * Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
 * Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
