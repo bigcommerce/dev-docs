@@ -2,7 +2,7 @@
 
 ## Keep your integration up to date
 
-BigCommerce frequently enhances its core product and is actively enhancing REST endpoints, as well as expanding the graph accessible to our growing family of GraphQL APIs. By using the latest information, you ensure that your app has access to the most current resources. You also position your app or implementation to provide a user experience consistent with what merchants see in their BigCommerce store control panel. To stay up to date, bookmark our [changelog](/changelog).
+BigCommerce frequently enhances its core product and is actively enhancing REST endpoints, as well as expanding the graphs accessible to our growing family of GraphQL APIs. Using the latest information lets you update your app to take advantage of the most current resources. You also position your app or implementation to provide a user experience consistent with what merchants see in their BigCommerce store control panel. To stay up to date, bookmark our [changelog](/changelog).
 
 ## Anticipate changes to BigCommerce APIs
 
@@ -30,7 +30,7 @@ We encourage you to write robust, resilient code that will not break or leak mem
 
 ## Use webhooks to listen for changes
 
-To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your application.
+To keep your app's data up to date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
 
 When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
@@ -38,13 +38,13 @@ When an event your app is listening for occurs, BigCommerce sends a payload with
 
 Client-side applications should avoid polling the [REST Storefront Cart API](/docs/rest-storefront/carts) on interval. Millions of browsers could poll this API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
 
-As an alternative, consider using a server-side application to subscribe to [cart webhook events](/api-docs/store-management/webhooks/webhook-events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs. You may also be interested in the [growing list of events](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas) available to native storefronts that have our Open Data Layer enabled. 
+As an alternative, consider using a server-side app to subscribe to [cart webhook events](/api-docs/store-management/webhooks/webhook-events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs. You may also be interested in the [growing list of events](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas) available to native storefronts that have our Open Data Layer enabled. 
 
 ## Thread API requests
 
 You can use threaded requests in order to quickly update information in an API. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource.
 
-The [BigCommerce Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe. It satisfies the need for multiple threads to access the same shared data and the need for only one thread to access a shared piece of data at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
+The [BigCommerce Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe. It satisfies both the need for multiple threads to access the same shared data and the need for only one thread to access a shared piece of data at any given time. This design pattern can reduce the total time that your app requires to complete a series of requests.
 
 ## API rate limits
 
@@ -116,7 +116,7 @@ After waiting for the given number of milliseconds, your client can go back to m
 
 ### Making requests in parallel
 
-You might wish to increase the amount of work your application can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your application should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
+You might wish to increase the amount of work your app can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your app should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
 * Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
 * Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
 
