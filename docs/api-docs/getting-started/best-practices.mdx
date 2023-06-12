@@ -8,7 +8,7 @@ BigCommerce frequently enhances its core product and is actively enhancing REST 
 
 At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes. 
 
-In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to non-production (alpha/beta) endpoints, or when analytics indicate that an endpoint has no traffic.
+In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to alpha and beta endpoints, or when analytics indicate that an endpoint has no traffic.
 
 Examples of breaking changes include:
 
@@ -44,7 +44,7 @@ As an alternative, consider using a server-side application to subscribe to [car
 
 You can use threaded requests in order to quickly update information in an API. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource.
 
-The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe. It satisfies the need for multiple threads to access the same shared data and the need for only one thread to access a shared piece of data at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
+The [BigCommerce Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe. It satisfies the need for multiple threads to access the same shared data and the need for only one thread to access a shared piece of data at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
 ## API rate limits
 
@@ -100,25 +100,25 @@ X-Rate-Limit-Time-Window-Ms: 5000
 
 You will know you've been limited if your request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response.
 
-The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying a time (in milliseconds) that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
+The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying the time in milliseconds that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
 
 ### Example of 429 status code
 
 When you see a response with an HTTP `429` status code, your client shouldn’t make any further requests until your quota has refreshed:
 
 ```http filename="Example: 429 response" showLineNumbers copy
-HTTP/1.1 429 Too Many Requests
-Date: Mon, 03 Feb 2022 20:36:00 GMT
-Content-Type: application/json
-X-Rate-Limit-Time-Reset-Ms: 15000
+  HTTP/1.1 429 Too Many Requests
+  Date: Mon, 03 Feb 2022 20:36:00 GMT
+  Content-Type: application/json
+  X-Rate-Limit-Time-Reset-Ms: 15000
 ```
 
 Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to wait. In this case, it would be 15000 milliseconds.
 Your client can sleep on the specified interval:
 
 ```php filename="PHP example for delaying response" showLineNumbers copy
-    $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
-    usleep($milliseconds * 1000);
+  $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
+  usleep($milliseconds * 1000);
 ```
 
 After waiting for the given number of milliseconds, your client can go back to making API requests.
