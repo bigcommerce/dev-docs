@@ -1,7 +1,9 @@
 {
   // Enable your dictionary by adding it to the list of `dictionaries`
   "dictionaries": [
-    "core-glossary",
+    "core-glossary"
+  ],
+  "ignoreWords": [
     "skip-list"
   ],
   // Tell CSpell about your dictionary
