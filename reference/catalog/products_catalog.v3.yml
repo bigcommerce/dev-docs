@@ -8571,6 +8571,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/productVideo_Full'
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/productVariant_Full'
       required:
         - name
         - type
