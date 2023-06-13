@@ -178,7 +178,6 @@ Category tree payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
- 
 
 ## Customers
 
@@ -207,6 +206,7 @@ Customers payload objects take the form that follows:
 ```
 
 ## Emails
+
 The following emails webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
@@ -232,24 +232,51 @@ Emails payload objects take the form that follows:
 }
 ```
 
+## Metafields
+
+The following metafield webhook events fire in response to actions that affect any channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| `store/channel/metafield/created/` | Fires when a channel metafield is created on any channel. | [Create a channel metafield](/docs/rest-management/channels/channel-metafields#create-a-channel-metafield) |
+| `store/channel/metafield/updated`  | Fires when any channel metafield is updated. | [Update a channel metafield](/docs/rest-management/channels/channel-metafields#update-a-channel-metafield) |
+| `store/channel/metafield/deleted`  | Fires when any channel metafield is deleted. |  [Delete a channel metafield](/docs/rest-management/channels/channel-metafields#delete-a-channel-metafield)
+
+Metafields payload objects take the form that follows:
+
+```json filename="Example metafields payload object" showLineNumbers copy
+{
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/metafield/created",
+  "data": {
+    "metafield_id": 21,
+    "resource_id": "1"    //channel ID
+  },
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
 ## Notifications
+
 The following notifications webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/notifications/abandonedCart/updated`        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) 
-| `store/channel/{channel_id}/notifications/inventory/updated`        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/docs/rest-management/settings/inventory-notifications#update-inventory-notifications-settings) |
+| `store/channel/{channel_id}/notifications/abandonedCart/updated` | Fires when an abandoned cart notification is updated in the specified channel. | [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) 
+| `store/channel/{channel_id}/notifications/inventory/updated` | Fires when an inventory notification is updated in the specified channel. | [Update inventory notifications settings](/docs/rest-management/settings/inventory-notifications#update-inventory-notifications-settings) |
 
 Notifications payload objects take the form that follows:
 
 ```json filename="Example notifications payload object" showLineNumbers copy
 {
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/1/notifications/abandonedCart/updated",
- "data": {},
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/1/notifications/abandonedCart/updated",
+  "data": {},
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
 
