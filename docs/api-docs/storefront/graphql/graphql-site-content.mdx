@@ -412,17 +412,267 @@ query {
 
 ## Routes
 
+### Contact form page
+
+Retrieve any webpage that is a contact form
+
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```graphql filename="Example query: Get routes" showLineNumbers copy
-
+```graphql filename="Example query: Get contact form page" showLineNumbers copy
+query {
+  site {
+    route(path: "/contact-us-form/") {
+      node {
+        id
+        ... on ContactPage {
+	      name
+          contactFields
+          entityId
+          isVisibleInNavigation
+        }
+      }
+    }
+  }
+}
 ```
 
 </Tab>
 <Tab>
 
-```json filename="Example query: Get routes" showLineNumbers copy
+```json filename="Example query: Get contact form page" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "Q29udGFjdFBhZ2U6Ng==",
+          "name": "Contact Us Form",
+          "contactFields": [
+            "fullname",
+            "phone"
+          ],
+          "entityId": 6,
+          "isVisibleInNavigation": true
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+
+### Normal page
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get normal page" showLineNumbers copy
+query {
+  site {
+    route(path: "/shipping-returns/") {
+      node {
+        id
+        ... on NormalPage {
+					name
+          entityId
+          isVisibleInNavigation
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get normal page" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "Tm9ybWFsUGFnZToy",
+          "name": "Shipping & Returns",
+          "entityId": 2,
+          "isVisibleInNavigation": true
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Raw HTML page
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get raw HTML page" showLineNumbers copy
+query {
+  site {
+    route(path: "/random-page/") {
+      node {
+        id
+        ... on RawHtmlPage {
+		  name
+          entityId
+          isVisibleInNavigation
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get raw HTML page" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "UmF3SHRtbFBhZ2U6OQ==",
+          "name": "Random page",
+          "entityId": 9,
+          "isVisibleInNavigation": true
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Blogs
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get blog page using a route" showLineNumbers copy
+query {
+  site {
+    route(path: "/blogs/") {
+      node {
+        id
+        ... on Blog {
+          name
+          description
+	      path
+		  isVisibleInNavigation
+		  posts {
+            edges {
+              node {
+                name
+                tags
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get blog page using a route" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "QmxvZzoz",
+          "name": "Blogs for the store",
+          "description": "Blogs about top products",
+          "path": "/blogs/",
+          "isVisibleInNavigation": true,
+          "posts": {
+            "edges": [
+              {
+                "node": {
+                  "name": "How to seed your garden",
+                  "tags": [
+                    "Best Reviews",
+                    "Most Popular"
+                  ]
+                }
+              },
+              {
+                "node": {
+                  "name": "Indoor Planting",
+                  "tags": [
+                    "Holiday",
+                    "Lowest Price"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Blog post
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get blog post using a route" showLineNumbers copy
+query {
+  site {
+    route(path: "/blog/how-to-seed-your-garden/") {
+      node {
+        id
+        ... on BlogPost {
+          name
+		  tags
+      	}
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get blog post using a route" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "QmxvZ1Bvc3Q6NA==",
+          "name": "How to seed your garden",
+          "tags": [
+            "Best Reviews",
+            "Most Popular"
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 
 </Tab>
