@@ -39,13 +39,14 @@ info:
     - Price Lists cannot be assigned to a customer group that has customer group discounts -- the customer group discounts must be deleted first.
     - Bulk pricing Tiers may additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
     - If a variant has a Price Record, any existing product-level bulk pricing will not apply in the cart. For variants without Price Records, any existing product bulk pricing will apply.
-    - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a 429 error and the request will fail.
-    - There are no webhooks available for Price Lists. Since Price Lists directly relate to products, product webhooks will trigger for corresponding changes such as pricing.
+    - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a `429` error and the request will fail.
+    - There are webhooks available for Price Lists assignments. The price list assignment webhook fires when a price list assignment is assigned, reassigned, or unassigned. Note that since Price Lists directly relate to products, neither product nor SKU webhooks are going to fire for corresponding changes, such as pricing.
 
     ## Additional information
 
     ### Webhooks
 
+    * [Price list assignments] (/api-docs/channels/guide/webhooks#price-list-assignments)
     * [Products](/api-docs/store-management/webhooks/events#products)
     * [SKU](/api-docs/store-management/webhooks/events#sku)
 
@@ -1402,7 +1403,7 @@ paths:
 
         * Batch updates are supported by this endpoint, meaning that several price objects can be updated in one request. This allows you to do the same work as many individual requests to singleton endpoints
         * Batch requests support up to 1,000 items per request.
-        * Up to 2 concurrent batch upsert requests are supported with this API. Running more than the allowed concurrent requests in parallel on the **same store** will cause a 429 error and your additional requests will fail. You are encouraged to run requests sequentially with as many records per request as possible, in order to maximize performance.
+        * Up to 2 concurrent batch upsert requests are supported with this API. Running more than the allowed concurrent requests in parallel on the **same store** will cause a `429` error, and your additional requests will fail. You are encouraged to run requests sequentially with as many records per request as possible to maximize performance.
       operationId: setPriceListRecordCollection
       parameters:
         - name: price_list_id
