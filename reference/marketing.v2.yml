@@ -938,6 +938,7 @@ components:
           type: string
           description: The name of the coupon.
           example: Australia Customers Discount
+          maxLength: 100
         type:
           type: string
           enum:
@@ -977,6 +978,7 @@ components:
             Value must be unique. Only letters, numbers, white space, underscores,
             and hyphens are allowed.
           example: S2549JM0Y
+          maxLength: 50
         applies_to:
           type: object
           properties:
