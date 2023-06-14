@@ -1,6 +1,21 @@
 # Site Content with the GraphQL Storefront API
 
+BigCommerce's GraphQL Storefront API allows you to retrieve site content from each storefront channel. Having access to site content makes it easier to build headless storefront applications using BigCommerce's built-in content, such as theme widgets.
+
+Developers can use frontend GraphQL to query the following: 
+
+- [Web page content]((https://support.bigcommerce.com/s/article/Web-Pages?language=en_US)), including WYSIWYG pages, contact forms, blog pages, and blog posts
+- [Banner content](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) on home, search, category, and brand pages 
+- [Widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) rendered on web pages, including WYSIWYG pages, contact forms, blog, and blog posts
+
+
 ## Web pages
+
+Queries for web pages retrieve webpages for a specific storefront. The request URL contains the storefront domain. For example, to retrieve webpages from the `yourstore.example.com` storefront domain, send a request to the URL `https://{yourstore.example.com}/graphql`. If the request URL uses the permanent store URL, the query returns webpages from the default storefront channel.
+
+Use the `isVisibleInNavigation` field to filter for pages that are not hidden from the storefront's navigation menu. Without the filter, the query also returns pages that are hidden from the menu, as these pages are still accessible by URL.
+
+Built-in blogs are global and apply to an entire store. The built-in blog index page returns if you send queries to the default channel and if blog posts are visible on storefronts.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -475,8 +490,6 @@ query {
 </Tab>
 </Tabs>
 
-Retrieve any webpage that is a contact form
-
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
@@ -601,6 +614,10 @@ query {
 </Tabs>
 
 ## Blogs
+
+Queries for blogs retrieve published blog posts, not draft blogs.
+Blog don't have to be visible, as the visibility setting removes the blog link from the storefront page, but shoppers can still access the blog page directly in the storefront using the URL.
+
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -971,6 +988,8 @@ query {
 
 
 ## Banners
+
+Queries return only visible banners.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
