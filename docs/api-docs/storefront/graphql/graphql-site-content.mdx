@@ -4,14 +4,14 @@ BigCommerce's GraphQL Storefront API allows you to retrieve site content from ea
 
 Developers can use frontend GraphQL to query the following: 
 
-- [Web page content]((https://support.bigcommerce.com/s/article/Web-Pages?language=en_US)), including WYSIWYG pages, contact forms, blog pages, and blog posts
+- [Web page content]((https://support.bigcommerce.com/s/article/Web-Pages?language=en_US)), including those created from the WYSIWYG editor, contact forms, blog pages, and blog posts
 - [Banner content](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) on home, search, category, and brand pages 
-- [Widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) rendered on web pages, including WYSIWYG pages, contact forms, blog, and blog posts
+- [Widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) rendered on web pages
 
 
 ## Web pages
 
-Queries for web pages retrieve webpages for a specific storefront. The request URL contains the storefront domain. For example, to retrieve webpages from the `yourstore.example.com` storefront domain, send a request to the URL `https://{yourstore.example.com}/graphql`. If the request URL uses the permanent store URL, the query returns webpages from the default storefront channel.
+Queries for web pages retrieve web pages for a specific storefront. The request URL contains the storefront domain. For example, to retrieve web pages from the `yourstore.example.com` storefront domain, send a request to the URL `https://{yourstore.example.com}/graphql`. If the request URL uses the permanent store URL, the query returns web pages from the default storefront channel.
 
 Use the `isVisibleInNavigation` field to filter for pages that are not hidden from the storefront's navigation menu. Without the filter, the query also returns pages that are hidden from the menu, as these pages are still accessible by URL.
 
@@ -429,6 +429,8 @@ query {
 For rendered regions of the blog page and blog posts, see [Blog Rendered Regions](#rendered-regions-1).
 
 ### Routes
+
+Contact form pages and web pages created from the WYSIWYG editor can be retrieved using the web page URL.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -867,6 +869,10 @@ query {
 
 ### Routes
 
+The main blog page and blog posts can be retrieved using the web page URL.
+
+The following query retrieves info for the main blog page.
+
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
@@ -941,6 +947,8 @@ query {
 
 </Tab>
 </Tabs>
+
+The following query retrieves info for a blog post.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
