@@ -15,9 +15,9 @@ For more info on web pages, see [Page Types](https://developer.bigcommerce.com/d
 
 Queries for web pages retrieve web pages for a specific storefront. The request URL contains the storefront domain. For example, to retrieve web pages from the `yourstore.example.com` storefront domain, send a request to the URL `https://{yourstore.example.com}/graphql`. If the request URL uses the permanent store URL, the query returns web pages from the default storefront channel.
 
-Use the `isVisibleInNavigation` field to filter for only pages that appear in the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL.
+When you query web pages for the default storefront channel, the response includes the main blog index page.
 
-Built-in blogs are global and apply to an entire store. When you query web pages for the default storefront channel, the response includes the main blog index page.
+Use the `isVisibleInNavigation` field to filter for only pages that appear in the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL. The filter applies to both web pages and the main index blog page.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
