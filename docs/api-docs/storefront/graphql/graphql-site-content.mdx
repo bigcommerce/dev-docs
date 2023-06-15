@@ -15,9 +15,9 @@ For more info on web pages, see [Page Types](https://developer.bigcommerce.com/d
 
 Queries for web pages retrieve web pages for a specific storefront. The request URL contains the storefront domain. For example, to retrieve web pages from the `yourstore.example.com` storefront domain, send a request to the URL `https://{yourstore.example.com}/graphql`. If the request URL uses the permanent store URL, the query returns web pages from the default storefront channel.
 
-Use the `isVisibleInNavigation` field to filter for pages that are not hidden from the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL.
+Use the `isVisibleInNavigation` field to filter for only pages that appear in the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL.
 
-Built-in blogs are global and apply to an entire store. The built-in blog index page returns if you send queries to the default channel and if blog posts are visible on storefronts.
+Built-in blogs are global and apply to an entire store. When you query web pages for the default storefront channel, the response includes the main blog index page.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -301,7 +301,7 @@ query {
 </Tab>
 </Tabs>
 
-For rendered regions on the main blog page and blog posts, see [Rendered Regions on Blogs](#rendered-regions-1).
+For rendered regions on the main blog index page and blog posts, see [Rendered Regions on Blogs](#rendered-regions-1).
 
 ### Routes
 
@@ -492,9 +492,8 @@ query {
 
 ## Blogs
 
-Queries for blogs retrieve published blog posts, not draft blogs.
-Blog don't have to be visible, as the visibility setting removes the blog link from the storefront page, but shoppers can still access the blog page directly in the storefront using the URL.
-
+Queries for blogs retrieve published blog posts and exclude draft blogs.
+Queries return blogs even if they are hidden from the storefront's navigation menu, as the main blog index page and blog posts are still accessible by URL.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -619,7 +618,7 @@ query {
 
 ### Rendered regions
 
-The following example retrieves rendered widgets on the main blog page and blog posts.
+The following example retrieves rendered widgets on the main blog index page and blog posts.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -697,7 +696,7 @@ query {
 </Tab>
 </Tabs>
 
-You can also retrieve rendered widgets on the main blog page using the `renderedRegionsByPageType` field, as shown in the following example:
+You can also retrieve rendered widgets on the main blog index page using the `renderedRegionsByPageType` field, as shown in the following example:
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -748,9 +747,9 @@ query {
 
 ### Routes
 
-The main blog page and blog posts can be retrieved using the web page URL.
+The main blog index page and blog posts can be retrieved using the web page URL.
 
-The following query retrieves info for the main blog page.
+The following query retrieves info for the main blog index page.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
