@@ -269,6 +269,16 @@ properties:
     type: object
     allOf:
       - $ref: ./store_order_statusUpdated.yml
+  store/order/transaction/created:
+    description: Fires when an order transaction is created.
+    type: object
+    allOf:
+      - $ref: ./store_order_transaction_created.yml
+  store/order/transaction/updated:
+    description: Fires when an order transaction is changed.
+    type: object
+    allOf:
+      - $ref: ./store_order_transaction_updated.yml
   store/order/updated:
     description: Fires when an already created order is updated. Any change to an existing order fires this webhook. Updates can include changing the status, updating a coupon, or changing an address.
     type: object
