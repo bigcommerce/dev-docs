@@ -6,10 +6,10 @@ Developers can use frontend GraphQL to perform the following:
 
 - Query [web page content]((https://support.bigcommerce.com/s/article/Web-Pages?language=en_US)), including HTML pages, contact forms, blog posts, and more
 - Retrieve [banner content](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) on home, search, category, and brand pages 
-- Retrieve rendered [widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) built using Page Builder or [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/widgets-overview)
+- Retrieve rendered [widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) built using Page Builder or the [Widgets API](/api-docs/store-management/widgets/widgets-overview)
 - Use the web page URL to retrieve web pages and blog posts
 
-For more info on web pages, see [Page Types](https://developer.bigcommerce.com/docs/rest-content/pages#page-types). Queries don't support RSS-syndicated content pages, as these are deprecated.
+For more info on web pages, see [Page Types](/docs/rest-content/pages#page-types). Queries don't support RSS-syndicated content pages, as these are deprecated.
 
 GraphQL Storefront API queries are made in the context of a particular storefront channel; for example, queries for web pages return only web pages for a specific storefront channel. For info on how to send requests for your storefront context, see [GraphQL Storefront API Overview FAQ](/api-docs/storefront/graphql/graphql-api-overview#faq-querying-for-channels-other-than-stencil-storefronts-and-querying-from-external-systems).  
 
@@ -31,30 +31,45 @@ query {
       pages (filters: {isVisibleInNavigation: true }) {
         edges {
           node {
-            __typename
-            entityId
-            name
-            parentEntityId
-            seo {
-              pageTitle
-              metaKeywords
-              metaDescription
-            }
+
+            # Fields that return for all web page types 
+            ... on WebPage {
+              __typename
+              entityId
+              name
+              parentEntityId
+              seo {
+                pageTitle
+                metaKeywords
+                metaDescription
+              }
+            }			
+              
+            # Fields that return for plain-text pages 
             ... on NormalPage {
               plainTextSummary (characterLimit: 100)
               path
             }
+
+            # Fields that return for external link pages 
             ... on ExternalLinkPage {
               link
             }
+
+            # Fields that return for contact forms 
             ... on ContactPage {
               path
               plainTextSummary (characterLimit: 100)
               contactFields
             }
+
+            # Fields that return for raw HTML pages
             ... on RawHtmlPage {
               path
+              htmlBody
             }
+
+            # Fields that return for main blog index page
             ... on BlogIndexPage {
               path
             }
@@ -151,7 +166,8 @@ query {
                   "metaKeywords": "",
                   "metaDescription": ""
                 },
-                "path": "/random-page/"
+                "path": "/random-page/",
+                "htmlBody": "<html>\r\n\r\n<head>\r\n<title>\r\nExample page\r\n</title>\r\n</head>\r\n\r\n<body>\r\nExample body\r\n</body>\r\n\r\n</html>"
               }
             }
           ]
@@ -167,7 +183,7 @@ query {
 
 ### Rendered regions
 
-The following example retrieves rendered widgets on plain-text pages. This will return the rendered HTML content of any widgets which have [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorials/widgets-tutorial#create-a-placement) in a given page's Regions.
+The following example retrieves rendered widgets on plain-text pages. This returns the rendered HTML content for all widgets that are [placed in Regions](/api-docs/store-management/widgets/tutorials/widgets-tutorial#create-a-placement) on the given page.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -236,9 +252,11 @@ query {
 
 ## Blogs
 
-Queries for blogs retrieve published blog posts and exclude draft blogs.
-Queries return published blogs even if they are hidden from the storefront's navigation menu, as the main blog index page and published blog posts are still accessible by URL.
 Retrieve blogs using the following example or [using a route](#routes). 
+
+Queries for blogs retrieve published blog posts and exclude draft blogs.
+
+Queries return published blogs even if they are hidden from the storefront's navigation menu, as the main blog index page and published blog posts are still accessible by URL.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -363,7 +381,7 @@ query {
 
 ## Routes
 
-Web pages, the main blog index page, and blog posts can be retrieved using the web page URL.
+Retrieve web pages, the main blog index page, and blog posts using the web page URL.
 
 The following query retrieves info for the page with the given path URL. 
 
@@ -391,29 +409,30 @@ query {
 
         # Fields that return for plain-text pages 
         ... on NormalPage {
-		      path
+          path
           plainTextSummary (characterLimit: 100)
         }
 
         # Fields that return for contact forms
         ... on ContactPage {
-		      path
+          path
           plainTextSummary (characterLimit: 100)
-		      contactFields
+          contactFields
         }
 
         # Fields that return for raw HTML pages
         ... on RawHtmlPage {
-		      path
+          path
+          htmlBody
         }
 
         # Fields that return for main blog index page
         ... on Blog {
           name
           description
-	        path
-		      isVisibleInNavigation
-		      posts {
+          path
+          isVisibleInNavigation
+          posts {
             edges {
               node {
                 name
@@ -426,7 +445,7 @@ query {
         # Fields that return for blog posts
         ... on BlogPost {
           name
-		      tags
+          tags
         }
       }
     }
@@ -482,7 +501,7 @@ query {
 
 ## Banners
 
-Queries return only visible [banners](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US).
+Retrieve [banners](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) using the following example. Queries return only visible banners.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
