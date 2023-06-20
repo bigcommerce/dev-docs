@@ -15,6 +15,8 @@ GraphQL Storefront API queries are made in the context of a particular storefron
 
 ## Web pages
 
+Retrieve web pages using the following example or [using a route](#routes). 
+
 When you query web pages for the default storefront channel, the response includes the main blog index page.
 
 Use the `isVisibleInNavigation` field to filter for only pages that appear in the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL. The filter applies to both web pages and the main index blog page.
@@ -238,6 +240,7 @@ For rendered regions on the main blog index page and blog posts, see [Rendered R
 
 Queries for blogs retrieve published blog posts and exclude draft blogs.
 Queries return published blogs even if they are hidden from the storefront's navigation menu, as the main blog index page and published blog posts are still accessible by URL.
+Retrieve blogs using the following example or [using a route](#routes). 
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
