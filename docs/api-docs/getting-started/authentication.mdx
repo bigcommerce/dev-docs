@@ -151,9 +151,9 @@ The following table lists the APIs that use the `Authorization` header, along wi
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
 | [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
-| [Payments API](/api-docs/store-management/payments-api-overview) | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
+| [Payments API](/api-docs/store-management/payments-api-overview) | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
 
-To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the OAuth scopes you need to make your target request. 
+To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the appropriate [token creation OAuth scopes](/api-docs/getting-started/api-accounts#token-creation-scopes). 
 
 ### Authorization header example requests
 
@@ -161,7 +161,7 @@ To obtain a dynamic token, send a request to the REST endpoint listed in the **O
   <Tab>
     ```http filename="Example request: limited-use auth token" copy
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
-    X-Auth-Token: {{access_token}} # the OAuth scopes of this access token must allow the stuff you want to do with the limited-use token
+    X-Auth-Token: {{access_token}}
     Accept: application/json
     Content-Type: application/json
 

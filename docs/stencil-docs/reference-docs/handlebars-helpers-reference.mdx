@@ -13,6 +13,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [limit](#limit) | array | Limits array to second argument. |
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
+| [earlyHint](#earlyhint) | assets | Reduces page load time and perceived latency. |
 | [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
 | [moment](#moment) | date | Use [momentjs](https://momentjs.com/) to format and calculate dates. |
 | [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font-loader config as a JSON string. |
@@ -252,9 +253,11 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn)
 
-#### Early Hints and cdn
+#### Early Hint and cdn
 
-Early Hints reduces page load time and perceived latency by allowing browsers to download critical assets earlier in the request lifecycle. For more information, see [Early Hints](#).
+Early Hints reduce page load time and perceived latency by allowing browsers to download critical assets earlier in the request lifecycle. For more information, see [Early Hint](#earlyhint).
+
+
 
 ##### Parameters
 
@@ -269,7 +272,7 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
   - This parameter is optional.
 
   - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
-- `cors` - (String)
+- `crossorigin` - (String)
   - Value can be any of `no`, `anonymous`, `use-credentials`.
   - Defaults to `no` when no value is provided.
   - This parameter is optional.
@@ -285,6 +288,65 @@ The following script is an example of Early Hints usage in the Cornerstone theme
 ```
 
 You can view more Early Hints usage in Cornerstone's `templates/layout/base.html` file by visiting the [Cornerstone Repository](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
+
+### EarlyHint
+
+```handlebars showLineNumbers
+{{ earlyHint '{path}' '{rel}' [as='{script|style|font}'] [crossorigin='{no|anonymous|use-credentials}'] }}
+
+```
+
+Retrieves the provided URL and produces an early hint to communicate important web page resources. The server indicates which site assets (such as CSS files, JS scripts, and fonts) a browser needs to render a page fully. When used in conjunction with the `{{cdn}}` helper, load times can improve by 30%.
+
+#### Parameters
+
+- `path` (String): The URL that hosts the resource being hinted.
+
+- `rel` (String): Valid arguments are `preload`, `preconnect`, `prerender`,  and `dns-prefetch`.
+
+- `as` (String): Optional. Valid arguments are `script`, `style`, `font`.
+
+- `crossorigin` (String): Optional. Valid arguments are `no` (default), `anonymous`, and `use-credentials`.
+
+
+
+#### Examples
+
+```handlebars showLineNumbers
+{{earlyHint 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' 'preload' as='script' crossorigin='anonymous'}}
+```
+This example produces an early hint in a `Link` header that looks like:
+
+```handlebars showLineNumbers
+<https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js>; rel=preload; as=script; crossorigin=anonymous
+```
+
+
+The following example uses the `getFontsCollection` and `stylesheet` helpers. These helpers produce early hints by default, without using the `earlyHint` helper directly. 
+
+
+```handlebars showLineNumbers
+<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
+
+{{getFontsCollection font-display='block'}}
+
+<script async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
+
+{{{stylesheet '/assets/css/theme.css'}}}
+```
+
+The output displays in a `Link` header that looks like:
+
+```handlebars showLineNumbers
+Link: <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.head_async.js>; rel=preload; as=script; crossorigin=anonymous, 
+<https://fonts.googleapis.com/css?family=Montserrat:700,500,400%7CKarla:400&display=block>; rel=preload; as=style, <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.font.js>; rel=preload; as=script
+<https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/css/theme-6bec0d40-d17a-013b-e9d8-02ea0e5c37ab.css>; rel=preload; as=style
+```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/earlyHint.js)
+- [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#)
+
+
 
 ### moment
 
