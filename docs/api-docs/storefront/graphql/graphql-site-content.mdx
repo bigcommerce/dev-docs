@@ -52,7 +52,6 @@ query {
             }
             ... on RawHtmlPage {
               path
-              plainTextSummary (characterLimit: 100 )
             }
             ... on BlogIndexPage {
               path
@@ -150,8 +149,7 @@ query {
                   "metaKeywords": "",
                   "metaDescription": ""
                 },
-                "path": "/random-page/",
-                "plainTextSummary": "This is a random page.\r\n\r\n\r\n\r\n\r\nThis is the body of a random page."
+                "path": "/random-page/"
               }
             }
           ]
@@ -452,7 +450,6 @@ query {
         }
         ... on RawHtmlPage {
 		  path
-          plainTextSummary (characterLimit: 100)
         }
       }
     }
@@ -478,8 +475,7 @@ query {
             "metaKeywords": "",
             "metaDescription": ""
           },
-          "path": "/random-page/",
-          "plainTextSummary": "This is a random page.\r\n\r\n\r\n\r\n\r\nThis is the body of a random page."
+          "path": "/random-page/"
         }
       }
     }
