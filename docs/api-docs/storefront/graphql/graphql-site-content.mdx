@@ -234,191 +234,6 @@ query {
 
 For rendered regions on the main blog index page and blog posts, see [Rendered Regions on Blogs](#rendered-regions-1).
 
-### Routes
-
-Plain-text pages, contact form pages, and raw HTML pages can be retrieved using the web page URL.
-
-<Tabs items={['Request', 'Response']}>
-<Tab>
-
-```graphql filename="Example query: Get plain-text page" showLineNumbers copy
-query {
-  site {
-    route(path: "/shipping-returns/") {
-      node {
-        id
-        ... on WebPage {
-          entityId
-          parentEntityId
-          name
-          isVisibleInNavigation
-          seo {
-            metaKeywords
-            metaDescription
-          }
-        }
-        ... on NormalPage {
-		  path
-          plainTextSummary (characterLimit: 100)
-        }
-      }
-    }
-  }
-}
-
-```
-
-</Tab>
-<Tab>
-
-```json filename="Example query: Get plain-text page" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "route": {
-        "node": {
-          "id": "Tm9ybWFsUGFnZToy",
-          "entityId": 2,
-          "parentEntityId": null,
-          "name": "Shipping & Returns",
-          "isVisibleInNavigation": true,
-          "seo": {
-            "metaKeywords": "Shipping and Return Policy",
-            "metaDescription": "Shipping and Return Policy"
-          },
-          "path": "/shipping-returns/",
-          "plainTextSummary": "To edit this page, log in to your control panel and go to Storefront › Web Pages. Click Edit next..."
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-</Tabs>
-
-<Tabs items={['Request', 'Response']}>
-<Tab>
-
-```graphql filename="Example query: Get contact form page" showLineNumbers copy
-query {
-  site {
-    route(path: "/contact-us-form/") {
-      node {
-        id
-        ... on WebPage {
-          entityId
-          parentEntityId
-          name
-          isVisibleInNavigation
-          seo {
-            metaKeywords
-            metaDescription
-          }
-        }
-        ... on ContactPage {
-		  path
-          plainTextSummary (characterLimit: 100)
-		  contactFields
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-<Tab>
-
-```json filename="Example query: Get contact form page" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "route": {
-        "node": {
-          "id": "Q29udGFjdFBhZ2U6Ng==",
-          "entityId": 6,
-          "parentEntityId": null,
-          "name": "Contact Us Form",
-          "isVisibleInNavigation": true,
-          "seo": {
-            "metaKeywords": "Contact Us",
-            "metaDescription": "Contact Info"
-          },
-          "path": "/contact-us-form/",
-          "plainTextSummary": "Visitors can use the form on this page to submit questions or feedback.&nbsp;\r\nStore is located in...",
-          "contactFields": [
-            "fullname",
-            "phone"
-          ]
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-</Tabs>
-
-<Tabs items={['Request', 'Response']}>
-<Tab>
-
-```graphql filename="Example query: Get raw HTML page" showLineNumbers copy
-query {
-  site {
-    route(path: "/random-page/") {
-      node {
-        id
-        ... on WebPage {
-          entityId
-          parentEntityId
-          name
-          isVisibleInNavigation
-          seo {
-            metaKeywords
-            metaDescription
-          }
-        }
-        ... on RawHtmlPage {
-		  path
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-<Tab>
-
-```json filename="Example query: Get raw HTML page" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "route": {
-        "node": {
-          "id": "UmF3SHRtbFBhZ2U6OQ==",
-          "entityId": 9,
-          "parentEntityId": null,
-          "name": "Random page",
-          "isVisibleInNavigation": true,
-          "seo": {
-            "metaKeywords": "",
-            "metaDescription": ""
-          },
-          "path": "/random-page/"
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-</Tabs>
-
 ## Blogs
 
 Queries for blogs retrieve published blog posts and exclude draft blogs.
@@ -674,27 +489,59 @@ query {
 </Tab>
 </Tabs>
 
-### Routes
+## Routes
 
-The main blog index page and blog posts can be retrieved using the web page URL.
+Web pages, the main blog index page, and blog posts can be retrieved using the web page URL.
 
-The following query retrieves info for the main blog index page.
+The following query retrieves info for the page with the given path URL. 
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
 
-```graphql filename="Example query: Get blog page using a route" showLineNumbers copy
+```graphql filename="Example query: Get page using a route" showLineNumbers copy
 query {
   site {
     route(path: "/blogs/") {
       node {
         id
+        
+        # Fields that return for plain-text pages, contact forms, and raw HTML pages
+        ... on WebPage {
+          entityId
+          parentEntityId
+          name
+          isVisibleInNavigation
+          seo {
+            metaKeywords
+            metaDescription
+          }
+        }
+
+        # Fields that return for plain-text pages 
+        ... on NormalPage {
+		      path
+          plainTextSummary (characterLimit: 100)
+        }
+
+        # Fields that return for contact forms
+        ... on ContactPage {
+		      path
+          plainTextSummary (characterLimit: 100)
+		      contactFields
+        }
+
+        # Fields that return for raw HTML pages
+        ... on RawHtmlPage {
+		      path
+        }
+
+        # Fields that return for main blog index page
         ... on Blog {
           name
           description
-	      path
-		  isVisibleInNavigation
-		  posts {
+	        path
+		      isVisibleInNavigation
+		      posts {
             edges {
               node {
                 name
@@ -703,16 +550,22 @@ query {
             }
           }
         }
+
+        # Fields that return for blog posts
+        ... on BlogPost {
+          name
+		      tags
+        }
       }
     }
-  }
+  } 
 }
 ```
 
 </Tab>
 <Tab>
 
-```json filename="Example query: Get blog page using a route" showLineNumbers copy
+```json filename="Example query: Get page using a route" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -754,53 +607,6 @@ query {
 
 </Tab>
 </Tabs>
-
-The following query retrieves info for a blog post.
-
-<Tabs items={['Request', 'Response']}>
-<Tab>
-
-```graphql filename="Example query: Get blog post using a route" showLineNumbers copy
-query {
-  site {
-    route(path: "/blog/how-to-seed-your-garden/") {
-      node {
-        id
-        ... on BlogPost {
-          name
-		  tags
-      	}
-      }
-    }
-  }
-}
-```
-
-</Tab>
-<Tab>
-
-```json filename="Example query: Get blog post using a route" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "route": {
-        "node": {
-          "id": "QmxvZ1Bvc3Q6NA==",
-          "name": "How to seed your garden",
-          "tags": [
-            "Best Reviews",
-            "Most Popular"
-          ]
-        }
-      }
-    }
-  }
-}
-```
-
-</Tab>
-</Tabs>
-
 
 ## Banners
 
