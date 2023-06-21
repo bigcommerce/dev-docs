@@ -1,0 +1,137 @@
+# Webhooks Overview
+
+Webhooks notify applications when specific events occur on a BigCommerce store. For example, when:
+
+* an order is created,
+* a product's inventory changes
+* an item is added to a shopper's cart
+
+This article is an overview of webhook behavior on BigCommerce. For webhook API reference, see [API Reference > Webhooks](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook). For webhook event reference, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events). For a step-by-step tutorial on creating webhooks for certain store events, see [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
+
+## Message queue vs. publish subscribe
+<!-- ![Image placeholder](https://storage.googleapis.com/XXXXX "placeholder image") -->
+
+
+## Supported webhook delivery types
+
+BigCommerce offers webhook delivery for the following endpoint types:
+
+* HTTPS
+* Google Cloud Pub/Sub
+* Amazon EventBridge
+
+## Platform Limitations
+
+## Best practices
+
+## App uninstallation
+
+To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
+
+<Callout type="info">
+  You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/docs/webhooks/webhooks/manage-webhooks-single#delete-a-webhook).
+</Callout>
+
+## Security
+
+To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
+
+* Webhook payloads contain minimal information about the store and event.
+* Webhook payloads are sent over **TLS-encrypted** connection.
+* Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests.
+
+
+```http filename="Example request with header object: Create a webhook" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "scope": "store/cart/lineItem/*",
+  "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
+  "is_active": true,
+  "headers": {
+    "username": "Hello",
+    "password": "Goodbye"
+  }
+}
+```
+
+BigCommerce will send the specified headers when making callback requests to the destination server - this allows webhook destination URIs to be secured with basic authentication.
+
+## Troubleshooting
+
+<Tabs items={['General', 'HTTPS', 'GCP', 'AWS']}>
+
+<Tab>
+
+**No 200 response from the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint**
+* Check TLS/SSL configuration on the computer sending the request.
+* Check the scope of the [event](/api-docs/store-management/webhooks/webhook-events) you’re subscribing to is correct 
+
+**Unable to view your webhook**
+
+Webhooks created with one token are not visible when you retrieve webhooks using a different token. To view your webhook, use the same account token that created the webhook.
+
+
+**Duplicate webhook events**
+
+Duplicate webhooks can happen. For this reason, apps should use idempotent operations to avoid significant unintended side effects. Idempotent operations allow multiple calls without changing the result. A way to ensure webhook events are idempotent is to create a temporary "blacklist" array to store the hash of webhooks that have already been received or handled. When you receive a webhook, you can compare the hash of the received event to the list. If the hash has already been handled you can ignore the event.
+
+</Tab>
+
+
+<Tab>
+
+**Webhooks timing out**
+
+To prevent your webhooks from timing out, send a `200` success status response immediately after receiving the request.
+
+**Not receiving webhook event callbacks**
+
+If your app does not return an `HTTP 200` to BigCommerce after receiving the webhook event payload, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and disables the webhook by setting the `is_active` flag to false.
+
+To see if a webhook is still active, send a request to the [Get a webhook](/docs/webhooks/webhooks/manage-webhooks-single#get-a-webhook) endpoint and check the value of the `is_active` property in the response. You can also retrieve the active/inactive status of all of your webhooks in the store’s control panel, see [Viewing Webhooks](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#webhooks).
+
+If you receive an email, or discover that your webhook is inactive, try the following:
+* Verify the app is responding to the callback with a `200` response.
+* Verify the destination server has a valid TLS/SSL setup by visiting `https://globalsign.ssllabs.com/`. Any of the following will cause the TLS/SSL handshake to fail:
+  * Self-signed certificates
+  * Hostname on the certificate doesn't match the hostname in the DNS settings
+  * Key and trust stores are not configured with the required intermediate certificates
+
+Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/docs/webhooks/webhooks/manage-webhooks-single#update-a-webhook) endpoint so that BigCommerce starts sending event callback requests again.
+
+
+</Tab>
+
+<Tab>
+**GCP troubleshooting tips - placeholder**
+</Tab>
+
+
+<Tab>
+**AWS troubleshooting tips - placeholder**
+</Tab>
+
+</Tabs>
+
+
+## Tools
+
+Below is a collection of third-party tools that can be used to aid in the development, testing, and debugging of webhooks:
+
+| Tool | Description |
+|:-----|:------------|
+| [ngrok](https://ngrok.com/) | Easily set up tunnels between `localhost` and an `ngrok` public URL to test callback requests on your machine |
+| [Webhook Tester](https://webhook.site/#/) | Test webhooks and other `HTTP` requests in your browser |
+
+## Related resources
+
+### Articles
+* [Webhook Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhook Events](/api-docs/store-management/webhooks/webhook-events)
+
+### Endpoints
+* [Webhooks Reference](/docs/webhooks/webhooks)
