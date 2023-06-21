@@ -162,7 +162,7 @@ paths:
                       enabled: true
                 'Example 2: Zone is Selection of States in a Country':
                   value:
-                    - id: 2 
+                    - id: 2
                       name: States in the U.S.
                       type: state
                       locations:
@@ -786,7 +786,7 @@ paths:
                       type: royalmail
                       settings: {}
                       enabled: true
-                      handling_fees: 
+                      handling_fees:
                         fixed_surcharge: "0"
                       is_fallback: false
                     - id: 35889344
@@ -794,7 +794,7 @@ paths:
                       type: canadapost
                       settings: {}
                       enabled: true
-                      handling_fees: 
+                      handling_fees:
                         percentage_surcharge: "0"
                       is_fallback: false
       operationId: getShippingMethodsZone
@@ -1082,12 +1082,12 @@ paths:
         
         | Property | Type | Description |
         |:---------|:-----|:------------|
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
         
         Example request body:
-          
+        
         ```json
         {
           "name": "Rate per Weight",
@@ -1117,7 +1117,7 @@ paths:
         
         | Property | Type | Description |
         |:---------|:-----|:------------|
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
@@ -1184,7 +1184,7 @@ paths:
           "upper_limit": 20,
           "shipping_cost": 8
         }
-        ```  
+        ```
       summary: Create a Shipping Method
       tags:
         - Shipping Method
@@ -1229,7 +1229,7 @@ paths:
                     type: auspost
                     settings: {}
                     enabled: false
-                    handling_fees: 
+                    handling_fees:
                       fixed_surcharge: "0"
                     is_fallback: false
       operationId: createAShippingMethod
@@ -1296,7 +1296,7 @@ paths:
 
         | Name | Type | Description |
         | - | - | - |
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
 
@@ -1331,7 +1331,7 @@ paths:
 
         | Name | Type | Description |
         | - | - | - |
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
@@ -1466,7 +1466,7 @@ paths:
                     type: weight
                     settings: {}
                     enabled: false
-                    handling_fees: 
+                    handling_fees:
                       percentage_surcharge: "0"
                     is_fallback: false
       x-unitTests: []
@@ -1533,7 +1533,7 @@ paths:
         
         | Property | Type | Description |
         |:---------|:-----|:------------|
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the storeʼs control panel. |
         
@@ -1569,7 +1569,7 @@ paths:
         
         | Property | Type | Description |
         |:---------|:-----|:------------|
-        | default_cost | number | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. |
+        | default_cost | number &#124; null | Default shipping cost, applied either as a percentage of the orderʼs total value or as a fixed amount. If default cost is not required, you can supply a value of null. |
         | default_cost_type | string | How the default shipping cost is calculated; either `percentage_of_total` or `fixed_amount`. |
         | include_order_total_taxes | boolean | Whether or not to include taxes on the orderʼs total value in the shipping cost calculation. |
         | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the storeʼs currency. |
@@ -1636,7 +1636,7 @@ paths:
           "shipping_cost": 8
         }
         ```
-        
+
       summary: Update a Shipping Method
       tags:
         - Shipping Method
@@ -1678,7 +1678,7 @@ paths:
                     type: endicia
                     settings: {}
                     enabled: false
-                    handling_fees: 
+                    handling_fees:
                       fixed_surcharge: "0"
                     is_fallback: false
       x-unitTests: []
@@ -1887,7 +1887,7 @@ paths:
         {
             "carrier_id" : "royalmail",
             "connection" : {
-                
+        
             }
         }
         ```
