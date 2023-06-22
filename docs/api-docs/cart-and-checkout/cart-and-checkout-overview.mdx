@@ -142,9 +142,9 @@ To update a cart line item to fix an incorrect or missing text modifier, use the
 
 ```http filename="Example cart line item request" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items/{itemId}
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_items": [
@@ -166,9 +166,9 @@ To add a product to the cart with one option (radio button) associated with it, 
 
 ```http filename="Single option" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_items": [
@@ -186,9 +186,9 @@ To add a product with both an option and a modifier associated with it, use the 
 ```http filename="Modifier and option" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_items": [
@@ -215,7 +215,7 @@ content-type: application/json
 *Server to Server Cart API*
 
 ***Issue:***
-When a required product modifier is missing. A product can have a modifier that is not required. In those cases, you can add the product to the cart without the modifier.
+When a required product modifier is missing, a product can have a modifier that is not required. You can add the product to the cart without the modifier in those cases.
 
 ***Resolution:***
 Use the [Get Products](/docs/rest-catalog/products#get-all-products) or [Get Modifier](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`.
@@ -225,9 +225,9 @@ To create a cart with a product modifier:
 ```http filename="Create cart with modifier" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_items": [
@@ -261,9 +261,9 @@ To create a cart with a `customer_id`:
 ```http filename="Create cart with customer ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "customer_id": 12,
@@ -289,9 +289,9 @@ To create a cart with a variant ID:
 ```http filename="Create cart with variant ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_items": [
@@ -313,9 +313,9 @@ To get the correct `option_id`, make a request to [Get Products](/docs/rest-cata
 ```http filename="Create cart option ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
-x-auth-token: {{access_token}}
-accept: application/json
-content-type: application/json
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
 {
   "line_item": {
