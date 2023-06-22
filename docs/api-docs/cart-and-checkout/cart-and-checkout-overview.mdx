@@ -1,7 +1,10 @@
-# Cart and Checkout
+# REST APIs: Cart and Checkout Overview
+
 ## Storefront Cart and Checkout
 
 The Storefront APIs manage the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
+
+The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
 
 ### When to use the Storefront APIs
 * Analytics and Tracking
@@ -95,15 +98,14 @@ fetch(`/api/storefront/order/${jsContextOrderId}`, {
 ```
 
 
-## Server-to-Server Cart and Checkout
+## Rest Management Cart and Checkout
 
-
-The Server-to-Server APIs manage the contents of a shopping cart and checkout remotely from a server. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
+The Rest Management APIs manage the contents of a shopping cart and checkout remotely from a server. These backend APIs allow merchants and partners to access and modify data on a merchant store instead of a storefront. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
 
 
 ### CaaS
 
-[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Server-to-Server APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
+[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Rest Management APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
 
 
 ## When to use
@@ -118,12 +120,12 @@ The Server-to-Server APIs manage the contents of a shopping cart and checkout re
 
 [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) lets a logged-in shopper access the same cart across devices. Persistent Cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
 
-Persistent Cart works with our Storefront Cart and Server-to-Server Cart.
+Persistent Cart works with our Storefront Cart and Rest Management Cart.
 
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 ## Troubleshooting cart errors
-We will go over common Storefront Cart and Checkout as well as Server-to-Server Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
+We will go over common Storefront Cart and Checkout as well as Rest Management Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
 
 
 ### Please create some text for the API option [422]
@@ -160,7 +162,7 @@ content-type: application/json
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-```json filename="Single option" showLineNumbers copy
+```http filename="Single option" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
 x-auth-token: {{access_token}}
 accept: application/json
@@ -179,7 +181,7 @@ content-type: application/json
 
 To add a product with both an option and a modifier associated with it, use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-```json filename="Modifier and option" showLineNumbers copy
+```http filename="Modifier and option" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
 x-auth-token: {{access_token}}
@@ -218,7 +220,7 @@ Use the [Get Products](/docs/rest-catalog/products#get-all-products) or [Get Mod
 
 To create a cart with a product modifier:
 
-```json filename="Create cart with modifier" showLineNumbers copy
+```http filename="Create cart with modifier" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
 x-auth-token: {{access_token}}
@@ -254,7 +256,7 @@ A better option is to create a cart with the `customer_id` as part of the reques
 
 To create a cart with a `customer_id`:
 
-```json filename="Create cart with customer ID" showLineNumbers copy
+```http filename="Create cart with customer ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
 x-auth-token: {{access_token}}
@@ -273,7 +275,7 @@ content-type: application/json
 ```
 
 ### This product has options; variant ID is required [422]
-*Server-to-Server Cart API*
+*Rest Management Cart API*
 
 
 ***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
@@ -282,7 +284,7 @@ content-type: application/json
 To get the variant ID use the [Get Products](/docs/rest-catalog/products#get-a-product) endpoint or the [Get Variants](/docs/rest-catalog/product-variants#get-a-product-variant) endpoint.
 To create a cart with a variant ID:
 
-```json filename="Create cart with variant ID" showLineNumbers copy
+```http filename="Create cart with variant ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
 x-auth-token: {{access_token}}
@@ -306,7 +308,7 @@ The `option_id` is incorrect.
 ***Resolution:***
 To get the correct `option_id`, make a request to [Get Products](/docs/rest-catalog/products) or [Get Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options).
 
-```json filename="Create cart option ID" showLineNumbers copy
+```http filename="Create cart option ID" showLineNumbers copy
 
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
 x-auth-token: {{access_token}}
@@ -340,7 +342,7 @@ content-type: application/json
 **Resolution:**
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-storefront/carts#create-a-cart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
-```json filename="Create cart optionId and optionValue" showLineNumbers copy
+```http filename="Create cart optionId and optionValue" showLineNumbers copy
 {
   "lineItems": [
     {
@@ -359,7 +361,7 @@ To add a product to the cart with a single modifier (text field), POST to the [C
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-```json filename="Create Storefront Cart variantID" showLineNumbers copy
+```http filename="Create Storefront Cart variantID" showLineNumbers copy
 {
   "lineItems": [
     {
@@ -373,7 +375,7 @@ To add a product to the cart with one option (radio button) associated with it, 
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-```json filename="Add item with option and modifier" showLineNumbers copy
+```http filename="Add item with option and modifier" showLineNumbers copy
 {
   "lineItems": [
     {
@@ -432,8 +434,8 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 ### Endpoints
 * [Storefront Cart](/docs/rest-storefront/carts)
 * [Storefront Checkout](/docs/rest-management/checkouts)
-* [Server-to-Server Cart](/docs/rest-management/carts)
-* [Server-to-Server Checkout](/docs/rest-storefront/checkouts)
+* [Rest Management Cart](/docs/rest-management/carts)
+* [Rest Management Checkout](/docs/rest-storefront/checkouts)
 
 ### Webhooks
 * [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
