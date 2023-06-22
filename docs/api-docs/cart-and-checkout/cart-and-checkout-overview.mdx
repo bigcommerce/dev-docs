@@ -1,7 +1,7 @@
 # Cart and Checkout
 ## Storefront Cart and Checkout
 
-The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session. For a headless storefront, use the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/carts-and-checkout).
+The Storefront APIs manage the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
 ### When to use the Storefront APIs
 * Analytics and Tracking
@@ -18,11 +18,11 @@ Most modern browsers, except Internet Explorer, support Fetch API. We recommend 
 To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis) tutorial.
 
 
-You can run fetch requests from the browser console to test, or you can use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
+You can run fetch requests from the browser console to test or use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
 
 ```js filename="Log cart details to the console" showLineNumbers copy
 console.log('Log Cart');
-fetch('/api/storefront/cart', {
+fetch('/api/storefront/carts', {
   credentials: 'include'
 }).then(function(response) {
   return response.json();
@@ -35,7 +35,7 @@ fetch('/api/storefront/cart', {
 
 ```js filename="Log checkout details to the console" showLineNumbers copy
 console.log('Log Checkout');
-fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
+fetch('/api/storefront/carts?includes=consignments.availableShippingOptions', {
   credentials: 'include'
 }).then(function (response) {
   return response.json();
@@ -98,7 +98,7 @@ fetch(`/api/storefront/order/${jsContextOrderId}`, {
 ## Server-to-Server Cart and Checkout
 
 
-The Server-to-Server APIs are for managing the contents of a shopping cart and checkout remotely from a server. Using the Cart, Checkout, and Payment APIs allows for a fully headless ecommerce solution.
+The Server-to-Server APIs manage the contents of a shopping cart and checkout remotely from a server. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
 
 
 ### CaaS
@@ -108,8 +108,8 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 ## When to use
 * Modifying cart contents, such as price matching
-* Taking a shopper through cart and checkout using an app
-* Quote Builder - Building a cart then restoring it on the storefront
+* Taking a shopper through the cart and checkout using an app
+* Quote Builder - Building a cart, then restoring it on the storefront
 * Native mobile apps
 * Pre-filling customer information
 
@@ -132,7 +132,7 @@ We will go over common Storefront Cart and Checkout as well as Server-to-Server 
 ***Issue:*** When a cart contains a product with an incorrect or missing text modifier.
 
 ***Resolution:***
-Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants at all. To learn more about options and modifiers, see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
+Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants. To learn more about options and modifiers, see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
 
 To update a cart line item to fix an incorrect or missing text modifier, use the [Update cart line item](https://developer.bigcommerce.com/docs/rest-management/carts/items#update-cart-line-item) endpoint. 
 
@@ -165,7 +165,6 @@ POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
 x-auth-token: {{access_token}}
 accept: application/json
 content-type: application/json
-
 
 {
   "line_items": [
@@ -220,6 +219,12 @@ Use the [Get Products](/docs/rest-catalog/products#get-all-products) or [Get Mod
 To create a cart with a product modifier:
 
 ```json filename="Create cart with modifier" showLineNumbers copy
+
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
+
 {
   "line_items": [
     {
@@ -250,6 +255,12 @@ A better option is to create a cart with the `customer_id` as part of the reques
 To create a cart with a `customer_id`:
 
 ```json filename="Create cart with customer ID" showLineNumbers copy
+
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
+
 {
   "customer_id": 12,
   "line_items": [
@@ -272,6 +283,12 @@ To get the variant ID use the [Get Products](/docs/rest-catalog/products#get-a-p
 To create a cart with a variant ID:
 
 ```json filename="Create cart with variant ID" showLineNumbers copy
+
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
+
 {
   "line_items": [
     {
@@ -290,6 +307,12 @@ The `option_id` is incorrect.
 To get the correct `option_id`, make a request to [Get Products](/docs/rest-catalog/products) or [Get Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options).
 
 ```json filename="Create cart option ID" showLineNumbers copy
+
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+x-auth-token: {{access_token}}
+accept: application/json
+content-type: application/json
+
 {
   "line_item": {
     "quantity": 1,
@@ -390,7 +413,7 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 Trying to edit a cart that does not exist.
 
 ***Resolution:***
-Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/docs/rest-storefront/carts#get-a-cart) endpoint for the current available session cart.
+Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/docs/rest-storefront/carts#get-a-cart) endpoint for the currently available session cart.
 
 
 *Storefront Cart API*
@@ -399,7 +422,7 @@ Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts
 When you add less than a product’s minimum required purchase or more than the maximum allowed purchase to a cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint to check for min/max purchase restrictions.
 
 ***Resolution:***
-Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint.
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint.
 
 ## Related resources
 
