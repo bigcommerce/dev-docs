@@ -1952,13 +1952,22 @@ components:
           enum:
             - order_placed
             - order_completed_or_shipped
-          description: Describes when stock levels are updated.
+          description: |-
+            Describes when stock levels are updated.
+
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
         edit_order_stock_adjustment:
           type: boolean
-          description: Describes whether stock levels automatically adjust when you edit an order.
+          description: |-
+            Describes whether stock levels automatically adjust when you edit an order.
+
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
         refund_order_stock_adjustment:
           type: boolean
-          description: Describes whether stock levels automatically adjust when you refund or cancel an order.
+          description: |-
+            Describes whether stock levels automatically adjust when you refund or cancel an order.
+
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
         stock_level_display:
           type: string
           enum:
