@@ -1,6 +1,6 @@
 # REST APIs: Cart and Checkout Overview
 
-BigCommerce offers Storefront, Rest Management, and GraphQL APIs for cart and checkout. This article discusses and gives examples of Storefront and Rest Management APIs. For information on GraphQL Cart and Checkout APIs, see [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+BigCommerce offers Storefront, REST Management, and GraphQL APIs for cart and checkout. This article discusses and gives examples of Storefront and REST Management APIs. For information on GraphQL Cart and Checkout APIs, see [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
 
 ## Storefront Cart and Checkout
 
@@ -100,14 +100,14 @@ fetch(`/api/storefront/order/${jsContextOrderId}`, {
 ```
 
 
-## Rest Management Cart and Checkout
+## REST Management Cart and Checkout
 
-The Rest Management APIs manage the contents of a shopping cart and checkout remotely from a server. These backend APIs allow merchants and partners to access and modify data on a merchant store instead of a storefront. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
+The REST Management APIs manage the contents of a shopping cart and checkout remotely from a server. These backend APIs allow merchants and partners to access and modify data on a merchant store instead of a storefront. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
 
 
 ### CaaS
 
-[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Rest Management APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
+[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the REST Management APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
 
 
 ## When to use
@@ -122,12 +122,12 @@ The Rest Management APIs manage the contents of a shopping cart and checkout rem
 
 [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) lets a logged-in shopper access the same cart across devices. Persistent Cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
 
-Persistent Cart works with our Storefront Cart and Rest Management Cart.
+Persistent Cart works with our Storefront Cart and REST Management Cart.
 
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 ## Troubleshooting cart errors
-We will go over common Storefront Cart and Checkout as well as Rest Management Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
+We will go over common Storefront Cart and Checkout as well as REST Management Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
 
 
 ### Please create some text for the API option [422]
@@ -277,7 +277,7 @@ Content-Type: application/json
 ```
 
 ### This product has options; variant ID is required [422]
-*Rest Management Cart API*
+*REST Management Cart API*
 
 
 ***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
