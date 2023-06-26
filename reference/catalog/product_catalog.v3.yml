@@ -6723,16 +6723,10 @@ components:
         - $ref: '#/components/schemas/productVariant_Base'
         - type: object
           properties:
-            id:
-              type: integer
             product_id:
               type: integer
             sku:
               type: string
-            sku_id:
-              type: integer
-              description: Read-only reference to v2 API's SKU ID. Null if it is a base variant.
-              nullable: true
             option_values:
               type: array
               description: Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.
@@ -6745,6 +6739,8 @@ components:
               format: double
             calculated_weight:
               type: number
+      required:
+          - sku
       x-internal: false
       description: ''
       x-examples:
@@ -6918,7 +6914,9 @@ components:
               example: Beige
               x-required:
                 - post
-        - $ref: '#/components/schemas/productVariantOptionValue_Base'
+      required:
+          - option_display_name
+          - label
       x-internal: false
     productVariantOptionValue_Base:
       title: productVariantOptionValue_Base
