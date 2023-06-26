@@ -281,6 +281,30 @@ function subscribeOnBodlEvents() {
     });    
   }
 
+  // If window.bodlEvents.checkout.shippingDetailsProvided is available, then...
+  if (typeof window.bodlEvents.checkout.shippingDetailsProvided === 'function') {
+    // run the shippingDetailsProvided function to get the payload
+    window.bodlEvents.checkout.shippingDetailsProvided((payload) => {
+      // log the event payload
+      console.log(
+        'window.bodlEvents.checkout.shippingDetailsProvided ~ payload',
+        payload
+      );
+    });
+  }
+
+  // If window.bodlEvents.checkout.paymentDetailsProvided is available, then...
+  if (typeof window.bodlEvents.checkout.paymentDetailsProvided === 'function') {
+    // run the paymentDetailsProvided function to get the payload
+    window.bodlEvents.checkout.paymentDetailsProvided((payload) => {
+      // log the event payload
+      console.log(
+        'window.bodlEvents.checkout.paymentDetailsProvided ~ payload',
+        payload
+      );
+    });
+  }
+
   // If window.bodlEvents.checkout.orderPurchased is available, then...
   if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {
     // run the orderPurchase function to get the payload
