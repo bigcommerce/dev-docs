@@ -399,11 +399,11 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Tree'
+                $ref: '#/components/schemas/Tree_req'
             example:
               - id: 0
                 name: string
-                channels:
+                channel_ids:
                   - 0
       responses:
         '200':
@@ -414,14 +414,16 @@ paths:
                 type: object
                 properties:
                   data:
-                    $ref: '#/components/schemas/Tree'
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tree'
                   meta:
                     $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
-                  id: 0
-                  name: string
-                  channels:
+                  - id: 0
+                    name: string
+                    channels:
                     - 0
                 meta:
                   type: object
@@ -833,6 +835,21 @@ components:
           minLength: 1
           maxLength: 255
         channels:
+          type: array
+          items:
+            type: integer
+      x-tags:
+        - Models
+    Tree_req:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        channel_ids:
           type: array
           items:
             type: integer
