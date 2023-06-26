@@ -425,10 +425,7 @@ paths:
                     name: string
                     channels:
                     - 0
-                meta:
-                  type: object
-                  properties: {}
-                  description: Empty meta object; reserved for use later.
+                meta: {}
         '422':
           description: The Channel was not valid. See the response for more details.
           content:
