@@ -25,7 +25,7 @@ You will find key value pairs for default form text in `/assets/lang/en.json`, a
 ```
 
 ### Login form redirect
-By default, customers are redirected to `/account.php` upon login, but you have the option to redirect customers to another relative URL. You can do this by passing the parameter `id="redirect_to"` with a `value={path}` on a hidden form field within the `<form>` element in the template. For example:
+By default, customers are redirected to `/account.php` upon login, but you can redirect customers to another relative URL. You can do this by passing the parameter `id="redirect_to"` with a `value={path}` on a hidden form field within the `<form>` element in the template. For example:
 
 ```html
 <input type="hidden" id="redirect_to" name="redirect_to" value="/shop-all">
@@ -33,3 +33,7 @@ By default, customers are redirected to `/account.php` upon login, but you have 
 When the form is submitted, a `POST` request is sent to BigCommerce to validate the login information. At this point, the customer will be redirected to the page you defined.
 
 Only relative URLs are supported for security reasons.
+
+<Callout type="warning">
+The redirect does not work if select "Allow customers to access items in their shopping cart across multiple devices." is enabled in the control panel (**Settings > Advanced > Checkout > General Settings > Cart**) and the customer has an active cart.
+</Callout>
