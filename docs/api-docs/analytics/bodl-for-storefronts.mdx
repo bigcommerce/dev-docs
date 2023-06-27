@@ -106,7 +106,7 @@ When the shopper clicks on the button to initiate a checkout process, the follow
 
 ### Add shipping information
 
-When the shopper clicks a button to finalize a purchase, the following fields appear in the BODL object for the `bodl_v1_add_shipping_information` event:
+Each time the shopper adds shipping information, the following fields appear in the BODL object for the `bodl_v1_add_shipping_information` event. This event can trigger multiple times for a single order.
 
 | Event field | Type | Description | BigCommerce data map |
 |:---|:---|:---|:---|
@@ -120,7 +120,7 @@ When the shopper clicks a button to finalize a purchase, the following fields ap
 
 ### Add payment information
 
-When the shopper clicks a button to finalize a purchase, the following fields appear in the BODL object for the `bodl_v1_add_payment_information` event:
+Each time the shopper adds payment information, the following fields appear in the BODL object for the `bodl_v1_add_payment_information` event. This event can trigger multiple times for a single order.
 
 | Event field | Type | Description | BigCommerce data map |
 |:---|:---|:---|:---|
