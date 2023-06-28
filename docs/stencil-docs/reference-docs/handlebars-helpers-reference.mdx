@@ -746,7 +746,7 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 {{getImageManagerImageSrcset path}}
 ```
 
-Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`.
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`. To return an image with a specified image width and height size, we recommend using the `getImageManagerImage` helper.
 
 #### Parameters
 
@@ -757,11 +757,11 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 ```handlebars showLineNumbers
 {{getImageManagerImageSrcset "asset.jpg"}}
 <!-- =>
-https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w -->
+https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg -->
 
-{{getImageManagerImageSrcset "folder/asset.jpg" width=123}}
+{{getImageManagerImageSrcset "folder/asset.jpg"}}
  <!-- =>
-https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg 2560w -->
+https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js).
