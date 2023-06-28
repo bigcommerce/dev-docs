@@ -8671,10 +8671,12 @@ components:
                   properties:
                     field_id:
                       type: string
-                      description: ''
+                      description: 'You must provide the form field ID value as the `field_id`.'
                     field_value:
-                      type: string
+                      type: string  
                       description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
+                  required:
+                    - field_id
           line_items:
             type: array
             description: ''
