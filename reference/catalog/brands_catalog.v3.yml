@@ -113,6 +113,12 @@ paths:
             Filter items by name.
           schema:
             type: string
+        - name: name:like
+          in: query
+          description: |-
+            Filter items by part of a name. For example, `name:like=new` returns brands with names that include `new`.
+          schema:
+            type: string
         - name: page_title
           in: query
           description: |
@@ -139,6 +145,13 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
+        - name: sort
+          in: query
+          description: 'Field name to sort by.'
+          schema:
+            type: string
+            enum:
+              - name
       responses:
         '200':
           description: ''
