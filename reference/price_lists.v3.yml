@@ -1401,7 +1401,8 @@ paths:
 
         **Notes**
 
-        * Batch updates are supported by this endpoint, meaning that several price objects can be updated in one request. This allows you to do the same work as many individual requests to singleton endpoints
+        * Batch updates are supported by this endpoint, meaning you can update several price objects in one request. This update allows you to do the same work as many individual requests to singleton endpoints.
+        * When updating a product with variants, or multiple SKUs, don't include records for the parent product SKU.
         * Batch requests support up to 1,000 items per request.
         * Up to 2 concurrent batch upsert requests are supported with this API. Running more than the allowed concurrent requests in parallel on the **same store** will cause a `429` error, and your additional requests will fail. You are encouraged to run requests sequentially with as many records per request as possible to maximize performance.
       operationId: setPriceListRecordCollection
