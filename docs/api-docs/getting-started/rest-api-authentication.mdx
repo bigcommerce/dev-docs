@@ -126,6 +126,7 @@ Where both types of API account are supported, review the preceding sections to 
 | [Current Customer API](/api-docs/getting-started/authentication#client-id) |  | &times; |  |
 | [Payments API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; | &times; |  |
 | [Apps that host REST Provider APIs (provider apps)](/api-docs/getting-started/authentication#developer-configured-authentication) |  | &times; |  |
+| [Apps that create App Extensions](/app-extensions/overview) |  | &times; |  |
 | Apps hosted in the store control panel (single-click apps) |  | &times; |  |
 | Manual connection between a third-party app and a store | &times; |  | &times; |
 | Single-store frontend scripts |  | &times; |  |
@@ -187,6 +188,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
+| App Extensions | manage | `store_app_extensions_manage` | Manage App Extensions; requires an app-level API account | [GraphQL Admin API](/app-extensions/overview) |
 | Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
 | Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
 | Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [Scripts V3](/docs/rest-management/scripts#create-a-script) |
