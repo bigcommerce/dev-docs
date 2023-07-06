@@ -3345,6 +3345,10 @@ components:
           type: boolean
           description: Whether the product has been refunded.
           example: false
+        quantity_refunded:
+          type: number
+          description: The total quantity of product refunded from this transaction.
+          example: 0
         refunded_amount:
           type: string
           description: The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer)
