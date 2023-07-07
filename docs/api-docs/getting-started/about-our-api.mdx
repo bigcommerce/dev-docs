@@ -106,7 +106,7 @@ A media type is the format of the request or response body. BigCommerce APIs acc
 
 #### Request headers
 
-Store Management and Payments API requests require the `Accept`, `X-Auth-Token`, and `Content-Type` headers.
+Store Management requests require the `Accept`, `X-Auth-Token`, and `Content-Type` headers.
 
 | Header | Allowed Values | Description | Example |
 |:-------|:---------------|:------------|:--------|
@@ -116,9 +116,11 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user. |
 
 #### Request content type
+
 When performing a request that contains a body, specify the type of content you are sending with the `Content-Type` header. This typically applies to `PUT` and `POST` requests.
 
 #### Request structure
+
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
 ```json filename="Example request body: Product object" showLineNumbers copy
@@ -150,8 +152,8 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `Transfer-Encoding` | `chunked` | Specifies the form of encoding used to transfer the resource. | `chunked`
 | `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate-limited and would receive an HTTP 429 response. | `16101491` |
 | `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `16101495` |
-| `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
-| `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
+| `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 15000 milliseconds – so, 15000 milliseconds after this request, the API quota will be refreshed. |`15000 `|
+| `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `30000` |
 
 #### Response content type
 When requesting a resource that returns a body, specify the type of content you want to receive with the `Accept` header. Alternatively, you can supply an extension to the resource you're requesting.

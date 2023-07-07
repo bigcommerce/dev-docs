@@ -30,7 +30,7 @@ We encourage you to write robust, resilient code that will not break or leak mem
 
 ## Use webhooks to listen for changes
 
-To keep your app's data up to date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
+To keep your app's data up to date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use a [store-level or app-level API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
 
 When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
@@ -76,22 +76,17 @@ A store’s overall quota is distributed across all apps that are accessing that
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
 ```http filename="Example: Rate limit headers"
-X-Rate-Limit-Requests-Left: 6
-X-Rate-Limit-Requests-Quota: 25
-X-Rate-Limit-Time-Reset-Ms: 3000
-X-Rate-Limit-Time-Window-Ms: 5000
+X-Rate-Limit-Requests-Quota: 16101495
+X-Rate-Limit-Time-Window-Ms: 30000
+X-Rate-Limit-Requests-Left: 16099995
+X-Rate-Limit-Time-Reset-Ms: 15000
 ```
 
-| Name | Description |
-|:-----|:------------|
-| `X-Rate-Limit-Time-Window-Ms`| Shows the size of your current rate limiting window. In this case, it’s 5000 milliseconds.|
-| `X-Rate-Limit-Time-Reset-Ms` | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds. 3000 milliseconds after this request, the API quota will be refreshed. |
-| `X-Rate-Limit-Requests-Quota` | Shows how many API requests are allowed in the current window for your client. In this case, the number is 25 requests. |
-| `X-Rate-Limit-Requests-Left` | Details how many remaining requests your client can make in the current window before being rate limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate limited and would receive an HTTP 429 response.|
+For more about these headers, see [About Our API](/api-docs/getting-started/about-our-api#response-headers).
 
 If your implementation's request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response, it is encountering rate limits.
 
-The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying the time in milliseconds that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
+Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota has refreshed. Retry the request after this time has elapsed.
 
 ### Example of 429 status code
 
@@ -116,7 +111,7 @@ After waiting for the given number of milliseconds, your client can go back to m
 
 ### Making requests in parallel
 
-You might wish to increase the amount of work your app can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your app should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
+You can increase the amount of work your app can do in a given unit of time by sending multiple HTTP requests in parallel. This is perfectly acceptable. However, your app should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include the following:
 * Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
 * Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
 
