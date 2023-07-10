@@ -6,6 +6,10 @@ Find solutions to some unexpected issues encountered when using the BigCommerce 
 
 Reading an error log is the first step in diagnosing common issues and error messages. To effectively troubleshoot problems the error logs and diagnostics setting must be enabled for the plugin. From the WordPress admin panel select **BigCommerce** > **Settings** > **Diagnostics** and click **Enable Error Logs and Get Diagnostics**. Now you're set to determine which topic listed here can help you get back up and running.
 
+<Callout type="info">
+  Sometimes errors don't appear in the BigCommerce for WordPress plugin logs but they can still affect the plugin. If you have exhausted your error log searches then it's suggested that you also enable server error logs. You can usually find these settings in your server's control panel or admin dashboard.
+</Callout>
+
 ## Account
 
 These are the most common account issues: 
@@ -14,7 +18,7 @@ These are the most common account issues:
 
 The full list of scopes is on the [Multi-site Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multisite#api-account-name-field) page.
 
-## Password reset email trouble
+### Password reset email trouble
 
 If the reset password email doesn't appear in your inbox, check that your server/service isn't blocking it. Also, check that the email functionality is on. The plugin relies on the settings set in WordPress.
 
@@ -233,9 +237,10 @@ This issue occurs during a product/category image import. The issue is environme
 
 ## Resources
 
-If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our Developer Community(opens in a new tab).
+If you repeatedly encounter the same error or warning and this page doesn't solve your issues then please create an Issue in our [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). When creating an issue for submission do include as many details as possible to better expedite your request.
 
 ## Related articles
 
 * [Creating Reliable Cron Jobs](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs)
 * [Site Launch Checklist](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/site-launch-checklist
+* [Multi-site Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multisite#api-account-name-field)
