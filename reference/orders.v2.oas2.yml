@@ -169,8 +169,9 @@ paths:
               Removing a product from an order:
                 value:
                   products:
-                    - product_id: 123
-                      quantity: 0
+                    - id: 117
+                      product_id: 123
+                      quantity: 1
                       product_options:
                         id: 56
                         value: 12
@@ -4578,8 +4579,8 @@ components:
                 $ref: '#/components/schemas/formFields'
     orderCustomProduct_Put:
       type: object
-      title: orderCustomProduct_Put
-      description: |
+      title: Custom product
+      description: |-
         **Usage notes:**
       
         To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a non-empty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
@@ -4627,7 +4628,7 @@ components:
         - price_inc_tax
       x-internal: false
     orderCatalogProduct_Put:
-      title: orderCatalogProduct_Put
+      title: Catalog product
       description: |
         **Usage notes**
         
@@ -4650,6 +4651,43 @@ components:
               description: The order product `id`. To add a product to an existing order, donʼt include `id` in the payload. `id` is required when updating an order product.
         - $ref: '#/components/schemas/orderCatalogProduct_Post'
       x-internal: false
+    orderRemoveProduct_Put:
+      title: Remove Product from Order
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |-
+            The `id` returned from a request to the [List order products](/docs/rest-management/orders/order-products#list-order-products) or the [Get an order product](/docs/rest-management/orders/order-products#get-an-order-product) endpoint.
+          example: 123
+        product_id:
+          type: integer
+          description: The numeric ID of the product.
+          example: 117
+        quantity:
+          type: number
+          description: The quantity of product being removed.
+          example: 1
+        product_options:
+          type: array
+          description: List of product variant options and modifiers. `product_options` are required when removing a product with variants and not specifying the `variant_id`, or when products have mandatory modifiers.
+          items:
+            type: object
+            properties:  
+              cost_price_inc_tax:
+                type: string
+                description: |- 
+                  The product’s cost price including tax. (Float, Float-As-String, Integer)
+                  The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only.
+                  readOnly: true
+                example: '0.0000' 
+              price_ex_tax:  
+                type: string
+                description: |-
+                  The products cost price excluding tax. (Float, Float-As-String, Integer)
+                  The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only.
+                  readOnly: true
+                example: '0.0000'
     orderCatalogProduct_Post:
       title: orderCatalogProduct_Post
       description: |
@@ -4928,6 +4966,7 @@ components:
                 anyOf:
                   - $ref: '#/components/schemas/orderCatalogProduct_Put'
                   - $ref: '#/components/schemas/orderCustomProduct_Put'
+                  - $ref: '#/components/schemas/orderRemoveProduct_Put'
             refunded_amount:
               description: The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) 
               example: '0.0000'
