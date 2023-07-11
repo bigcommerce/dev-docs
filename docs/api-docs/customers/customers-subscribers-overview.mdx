@@ -5,10 +5,12 @@ keywords: address,
 
 # Customers and Subscribers
 
+The following overview covers the authentication patterns and API endpoints that BigCommerce offers for customer management.
+
 ## OAuth scopes
 
 | Name | Permission | Parameter |
-| -- | -- | -- |
+|:-----|:-----------|:----------|
 | Customers | modify | `store_v2_customers` |
 | Customers | read-only | `store_v2_customers_read_only` |
 
@@ -23,8 +25,8 @@ A customer is anyone who makes a purchase on a store and creates an account. Big
 Customer groups allow you to organize your customers, give them discounts, and restrict access to specific products or categories. For more information, see [Customer Groups](https://support.bigcommerce.com/s/article/Customer-Groups).
 
 <Callout type="info">
-#### Customer groups by plan
-Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
+  #### Customer groups by plan
+  Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
 </Callout>
 
 ## What is a subscriber?
@@ -185,24 +187,22 @@ When possible, use the V3 Customers API as BigCommerce will eventually deprecate
 
 Password validation is only available on the V2 Customers API at this time. We recommend using the V3 Customers API to reset or input a new password as BigCommerce intends to deprecate the V2 Customers API.
 
-## Related resources
+## Resources
 
-### Articles
-
-*[Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields)
-*[Checkout Settings](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#checkout-settings)
+* [Adding and Editing Fields in the Account Signup Form (Help Center)](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields)
+* [Checkout Settings (Help Center)](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#checkout-settings)
 
 ### Endpoints
 
-*[Customer Login API](/api-docs/storefront/customer-login-api)
-*[Current Customer API](/api-docs/storefront/current-customer-api)
-*[Customers V3 API](/docs/rest-management/customers)
-*[Customer Groups](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) (Customers V2 API)
-*[Password Validation](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) (Customers V2 API)
-*[Password Confirmation](/docs/rest-management/customers-v2#create-a-new-customer) (Customers V2 API)
-*[Storefront Subscriptions](/docs/rest-storefront/subscriptions)
-*[Subscribers API](/docs/rest-management/subscribers)
+* [Customer Login API](/api-docs/storefront/customer-login-api)
+* [Current Customer API](/api-docs/storefront/current-customer-api)
+* [Customers V3 API](/docs/rest-management/customers)
+* [Customer Groups](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) (Customers V2 API)
+* [Password Validation](/docs/rest-management/customers-v2/customer-passwords#validate-a-password) (Customers V2 API)
+* [Password Confirmation](/docs/rest-management/customers-v2#create-a-new-customer) (Customers V2 API)
+* [Storefront Subscriptions](/docs/rest-storefront/subscriptions)
+* [Subscribers API](/docs/rest-management/subscribers)
 
 ### Webhooks
 
-*[Customer](/api-docs/store-management/webhooks/webhook-events#customer)
+* [Customer](/api-docs/store-management/webhooks/webhook-events#customer)
