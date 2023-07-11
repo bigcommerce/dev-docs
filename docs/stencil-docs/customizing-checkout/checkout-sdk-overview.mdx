@@ -4,11 +4,11 @@
 
 The Checkout JS SDK is a JavaScript library of methods for performing actions related to checkout. It includes methods for logging in a customer, adding addresses to the checkout object, and surfacing the shipping and payment methods that a merchant has configured. It’s everything you need to build your own custom checkout page on BigCommerce.
 
-Our [sample checkout React app](https://github.com/bigcommerce/checkout-js) is a great place to get started if you prefer to develop within a framework. However, the SDK, built with VanillaJS, is framework agnostic.
+Our [sample checkout React app](https://github.com/bigcommerce/checkout-js) is a great place to start if you prefer to develop within a framework. However, the SDK, built with VanillaJS, is framework agnostic.
 
 
 
-This tutorial will walk you through the first steps of building a custom checkout directly into the control panel to illustrate this point. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
+This tutorial will walk you through the first steps of building a custom checkout directly into the control panel to illustrate this point. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console-logged the checkout object.
 
 
 
@@ -26,24 +26,24 @@ For example, `cd cornerstone`
 
 `npm install --save @bigcommerce/checkout-sdk`
 
-## Creating a checkout-loader.js file
+3. To execute only on checkout, add the following script to `templates/pages/checkout.html`.
 
-In your text editor, create a file called checkout-loader.js in `templates` > `components` > `faceted-search` > `index.html` with the following content:
+```html
+{{#partial "head"}}
 
-```var script = document.createElement('script'); copy
-script.onload = function () {
-    checkoutKitLoader.load('checkout-sdk')
-        .then(function (module) {
-            var checkoutService = module.createCheckoutService();
-            return checkoutService.loadCheckout(window.checkoutConfig.checkoutId);
-        })
-        .then(function (state) {
-            console.log('Checkout SDK Quickstart', state.data.getCheckout());
-            document.getElementById(window.checkoutConfig.containerId).innerHTML = 'Checkout ID: ' + state.data.getCheckout().id;
-        });
-};
-script.src = 'https://checkout-sdk.bigcommerce.com/v1/loader.js';
-document.head.appendChild(script);
+{{{ checkout.checkout_head }}}
+{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{ getFontsCollection }}
+
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+</script>
+
+<script type="text/javascript">
+    console.log('MY CHECKOUT-SDK BITS')
+</script>
+
+{{{head.scripts}}}
 ```
 
 ## Installing your custom checkout
