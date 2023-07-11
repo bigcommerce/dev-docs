@@ -5,6 +5,8 @@ keywords: checkout, stencil, headless, currency, currencies,
 
 # Optimized One-Page Checkout
 
+This article covers styling and display options for Optimized One-Page Checkout.
+
 ## Working with the optimized checkout SCSS file
 
 Cornerstone includes a SCSS file that styles the Optimized Checkout page. In your local installation, this file is located at <span class="fn">`cornerstone/assets/scss/optimized-checkout.scss`</span>.
@@ -13,9 +15,8 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 
 <Callout type="warning">
-
-#### Customizing checkout restrictions
-When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
+  #### Customizing checkout restrictions
+  When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
 </Callout>
 
 
@@ -71,7 +72,7 @@ You can enable the display of alternate currencies on your Stencil theme's Optim
 
 Note that regardless of the display options you set below, you will always process transactions in the store's single default currency. To change that setting, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
-To allow shoppers to view prices in multiple currencies, you will need to add the desired currencies via the BigCommerce control panel.
+To allow shoppers to view prices in multiple currencies, you will need to add the desired currencies in the store control panel.
 
 Shoppers will then be able to use the Currency drop-down list throughout the storefront to switch displayed prices among the enabled currencies.
 
@@ -79,7 +80,6 @@ At checkout, the shopper still receives the bill in the store's default currency
 
 ![checkout template](https://storage.googleapis.com/bigcommerce-production-dev-center/images/checkout-template.png)
 
-## Related resources
+## Resources
 
-### Related articles
 * [The Complete Guide to Checkout Customization on BigCommerce (Developer Blog)](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9)
