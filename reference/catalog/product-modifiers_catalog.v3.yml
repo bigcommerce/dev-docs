@@ -948,7 +948,7 @@ paths:
                     required:
                       type: boolean
                       description: |
-                        Whether or not this modifer is required or not at checkout. Required in a /POST.
+                        Whether or not this modifier is required or not at checkout. Required in a /POST.
                       x-required:
                         - post
                     sort_order:
@@ -1103,6 +1103,11 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                         description: 'Part of Modifier Value Response '
+                    display_name:
+                      type: string
+                      description: |
+                        The name of the option shown on the storefront.
+                      example: Donation
                   description: Common Modifier properties.
         required: true
       responses:
