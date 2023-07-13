@@ -231,9 +231,15 @@ The wallet buttons appear on the PDP as follows:
 
 ### For Cornerstone themes below version 6.7 
 
-You'll need to perform another step to make wallet buttons work as expected for themes below version 6.7. After you enter the code snippet above, insert the following code into your theme markup.
+You'll need to perform another step to make wallet buttons work as expected for themes below version 6.7. After you enter the code snippet above, insert the following code into your theme markup to look as follows:
 
-```html
+```handlebars filename="add-to-cart.html" showLineNumbers copy
+{{#if this.with_wallet_buttons}}
+  {{#if wallet_buttons}}
+    <div class="your-class-for-wallet-buttons-list">
+      {{{wallet_buttons}}}
+    </div>
+
 <script type="text/javascript">
     init();
 
@@ -330,6 +336,9 @@ You'll need to perform another step to make wallet buttons work as expected for 
         }));
     }
 </script>
+
+  {{/if}}
+{{/if}}
 ```
 
 
