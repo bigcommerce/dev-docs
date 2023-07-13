@@ -501,9 +501,13 @@ query brands {
 
 ## Complexity limits
 
-The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. When you send a valid GraphQL request, the API returns the query complexity as an integer using the HTTP response header `x-bc-graphql-complexity` .
+Complexity scores estimate the load that a single GraphQL request may generate. BigCommerce calculates the complexity score using an algorithm before executing the call, based on the provided query.
 
-If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following:
+The API sets a complexity limit of 10,000 for each request to prevent excessive loads. Because all work is generated per request, the limit is fixed per request, regardless of the number of requests sent.
+
+When you send a valid GraphQL request, the API returns the query complexity as an integer using the HTTP response header `X-Bc-Graphql-Complexity` .
+
+If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following: 
 
 
 ```json filename="Example response with complexity error" showLineNumbers copy
@@ -610,6 +614,8 @@ To reduce complexity, reduce the number of objects requested. For example, do th
 * Limit collections to a smaller page size (for example, `first:10` instead of `first:50`).
 * Reduce the number of items in nested collections, exponentially affecting complexity.
 * Request fewer fields on objects, and don't request fields you don't need.
+
+Mutations have higher complexity than queries; you may only send one mutation in a single request. Pagination info and increases in query depth also contribute to complexity.
 
 ## Platform limitations
 
