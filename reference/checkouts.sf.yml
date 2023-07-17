@@ -2838,6 +2838,9 @@ components:
                               type: number
                               description: The total value of all discounts applied to this item (excluding coupon).
                               format: double
+                            brand:
+                              type: string
+                              description: The product's brand.
                             couponAmount:
                               type: number
                               description: The total value of all coupons applied to this item.
