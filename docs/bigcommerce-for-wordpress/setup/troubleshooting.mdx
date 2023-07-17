@@ -4,7 +4,7 @@ Find solutions to some unexpected issues encountered when using the BigCommerce 
 
 ## First steps
 
-Reading an error log is the first step in diagnosing common issues and error messages. To effectively troubleshoot problems the error logs and diagnostics setting must be enabled for the plugin. From the WordPress admin panel select **BigCommerce** > **Settings** > **Diagnostics** and click **Enable Error Logs and Get Diagnostics**. Now you're set to determine which topic listed here can help you get back up and running.
+Reading an error log is the first step in diagnosing common issues and error messages. To effectively troubleshoot problems, you must enable error logs and diagnostics for the plugin. From the WordPress admin panel, select **BigCommerce** > **Settings** > **Diagnostics** and click **Enable Error Logs and Get Diagnostics**. Now you're set to determine which topic listed here can help you get back up and running.
 
 ## Account
 
@@ -24,7 +24,7 @@ The following topics cover solutions for product sync and import type errors.
 
 ### Sync stuck. No handler found for the current import state
 
-If your product sync is stuck or if you've come across the message below, there are steps available to get things back in sync.
+If your product sync is stuck or you've come across the message below, steps are available to get things back in sync.
 
 ```shell showLineNumbers copy
 BigCommerce.NOTICE: No handler found for current import state {"state":"completed"}
@@ -37,41 +37,41 @@ The following steps will get your products syncing once again.
 3. Now try to restart the import. Check to see if WP-Cron is working and if there aren't any server issues. 
 
 <Callout type="info">
-  If the import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
+  If the import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible, including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
 </Callout>
 
 ### Price is not correct on the single product page (Fast Import)
 
-Often times the price on the product page has the wrong value because of heavy caching. This can happen due to an expired `X-Nonce` for price request. Fix this issue by removing that nonce from the price request. 
+The price on the product page often has the wrong value because of heavy caching. This incorrect value can happen due to an expired `X-Nonce` for price request. Fix this issue by removing that nonce from the price request. 
 
-The following step should be taken:
+You should take the following step:
 
-* Go to the **Appearance** > **Customizer** > **BigCommerce** > **Product Single** > **Pricing nonce field(for advanced use only)** and disable nonce.
+* Go to the **Appearance** > **Customizer** > **BigCommerce** > **Product Single** > **Pricing nonce field(for advanced use only)** and turn off nonce.
 
 ### Not all products from the BigCommerce store appear on the WordPress site
 
-If products are missing in the WordPress control panel, verify that the products are assigned to the corresponding channels. Make sure that the `Automatic Listing` option for `Full` import isn't disabled in the plugin's settings.
+If products are missing in the WordPress control panel, verify that you have assigned the products to the corresponding channels. Ensure you have not turned off the `Automatic Listing` option for `Full` import in the plugin's settings.
 
 ### Import is too slow
 
-The import time depends on the number of products that you have synced from your catalog. In general, if you have more than 200 products and use `Full` import,  then it is normal for the import to run for more than 30 minutes. 
+The import time depends on the number of products synced from your catalog. In general, if you have more than 200 products and use `Full` import,  then it is normal for the import to run for more than 30 minutes. 
 
-Note that the import process also relies on WP-Cron. Import tasks are processed only when the site has visitors. To avoid this kind of issue follow the [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) guide.
+Note that the import process also relies on WP-Cron. Import tasks are processed only when the site has visitors. To avoid this kind of issue, follow the [Server Side Cron](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) guide.
 
 ### Inactive channel. Product import canceled
 
-If the product import is canceled, or you see the following error below, make sure your channel is properly connected.
+If you cancel the product import or see the following error below, ensure your channel is properly connected.
 
 ```shell showLineNumbers copy
 [502] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings)
 [504] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings/listing_id)
 ```
 
-Check that your WordPress store is connected to BigCommerce and that you set the primary channel under **BigCommerce** > **Settings** > **Channel**. If you did not set the primary channel, re-install the plugin and connect it to the correct store channel.
+Check that you have connected your WordPress store to BigCommerce and set the primary channel under **BigCommerce** > **Settings** > **Channel**. If you did not set the primary channel, re-install the plugin and connect it to the correct store channel.
 
 ### Products are not updated after import
 
-If products are no longer updating after an import, flush the cache on your WordPress setup. In some cases, pages and product information are cached and old information is shown.
+If products are no longer updating after an import, flush the cache on your WordPress setup. In some cases, pages and product information are cached, and old information displays.
 
 ### New/Updated since the last sync doesn't work on Fast import
 
@@ -83,13 +83,13 @@ Check your primary channel settings in BigCommerce (example url: `https://store-
 
 ### E-commerce pages(categories, products single page, checkout) are not visible for the non-logged user
 
-Make sure that your channel that's attached to WordPress isn't in pre-launch status. If it is in pre-launch status, change it to active and perform an import on the WordPress side.
+Ensure that your channel attached to WordPress isn't in pre-launch status. If it is in pre-launch status, change it to active and perform an import on the WordPress side.
 
 ### WP-Cron
 
 If products are no longer syncing, or progress has stalled, check to see if WP-Cron is working. Determine if your WP-Cron job is running by using the plugin WP Crontorl. 
 
-Make sure that you have a browser window open on the site, otherwise the product import will continue to fail. If WP-Cron isn't working, then reach out to the site's hosting provider.
+Ensure you have a browser window open on the site; otherwise, the product import will continue to fail. If WP-Cron isn't working, contact the site's hosting provider.
 
 ## Cart and checkout
 
@@ -175,7 +175,7 @@ BigCommerce.ERROR: Could not retrieve the token
 }
 ```
 
-When using the `Fast` (headless) import, apply the right scopes to your API keys. The Storefront API tokens, and Storefront API impersonation token, scopes are required. Create a new token with the correct scopes by going to **Dashboard** > **Settings** > **Store-level API accounts**.
+When using the `Fast` (headless) import, apply the accurate scopes to your API keys. The Storefront API tokens and the Storefront API impersonation tokens require scopes. Create a new token with the correct scopes by going to **Dashboard** > **Settings** > **Store-level API accounts**.
 
 ### PHP errors in server logs related to the plugin
 
@@ -203,7 +203,7 @@ Use the following steps to reset the webhook settings:
 
 ### Cart/Checkout URL doesn't work or gives a 404 error
 
-If you get a 404 error, or are confronting an issue with the URL, you can fix this in the WordPress control panel. Be sure to set the correct permalink structure in the WordPress admin panel by clicking **Settings** > **Permalinks**. For correct plugin work, enable any permalink structure except a plain one.
+If you get a 404 error or are confronting an issue with the URL, you can fix this in the WordPress control panel. Set the correct permalink structure in the WordPress admin panel by clicking **Settings** > **Permalinks**. For correct plugin work, enable any permalink structure except a plain one.
 
 ### Product entity exists. Skipping
 
@@ -233,10 +233,10 @@ This issue occurs during a product/category image import. The issue is environme
 
 ## Resources
 
-If you repeatedly encounter the same error or warning and this page doesn't solve your issues then please create an Issue in our [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
+If you repeatedly encounter the same error or warning and this page doesn't solve your issues, please create an Issue in our [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible, including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
 
 <Callout type="info">
-  Sometimes errors don't appear in the BigCommerce for WordPress plugin logs but they can still affect the plugin. If you have exhasted all triaging steps then it's suggested that you enable server error logs. You can usually find these settings in your server's control panel or admin dashboard.
+  Sometimes errors don't appear in the BigCommerce for WordPress plugin logs, but they can still affect the plugin. If you have exhausted all triaging steps, then it's suggested that you enable server error logs. Usually, these settings are in your server's control panel or admin dashboard.
 </Callout>
 
 ## Related articles
