@@ -76,6 +76,17 @@ paths:
       summary: Get an Order
       tags:
         - Orders
+      parameters: 
+        - name: include
+          in: query
+          description: |-
+            * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint.
+            * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. 
+          schema:
+            type: string  
+            enum:
+              - consignments
+              - consignments.line_items
       responses:
         '200':
           $ref: '#/components/responses/order_Resp'
@@ -899,6 +910,14 @@ paths:
         name: order_id
         in: path
         required: true
+      - name: include
+        in: query
+        description: |-
+          * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments.
+        schema:
+          type: string  
+          enum:
+            - consignments.line_items
     get:
       summary: Get Consignments
       tags:
