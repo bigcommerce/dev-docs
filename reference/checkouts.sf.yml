@@ -2771,7 +2771,7 @@ components:
                         description: The discounted amount applied within a given context.
                         format: double
                 lineItems:
-                  type: array
+                  type: object
                   description: ''
                   items:
                     title: Line Item
