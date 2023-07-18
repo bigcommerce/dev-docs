@@ -153,7 +153,7 @@ properties:
     description: 'If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false.'
   region_code:
     type: string
-    description: The [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code is an international standard denomination for country subdivisions. The first part is the country's ISO 3166-1 alpha-2 code, and the second part is a string of up to three alphanumeric characters representing the country's subdivision (province or state). Example: Texas's ISO 3166-2 code is US-TX; therefore, the region code is TX.
+    description: The [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code is an international standard denomination for country subdivisions. The first part is the country's ISO 3166-1 alpha-2 code, and the second part is a string of up to three alphanumeric characters representing the country's subdivision (province or state). For example, Texas's ISO 3166-2 code is US-TX; therefore, the region code is TX.
   request:
     type: object
     description: Object that contains details about the HTTP request.
