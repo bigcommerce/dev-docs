@@ -5,13 +5,11 @@ info:
     Populate different versions of catalog pricing and assign them to different [customer groups](/docs/rest-management/customers-v2/customer-groups) at the variant level.
 
     ## Price Lists
-
     You can associate a Price List with a customer group either through the control panel or by using the [Customer Groups API](/docs/rest-management/customers-v2/customer-groups).
 
     You can create [Price List Assignments](/docs/rest-management/price-lists/price-lists-assignments#create-price-list-assignments) to assign Price Lists to a specific [channel](/docs/rest-management/channels/channel-listings). Price Lists assigned to a channel apply to all shoppers on that channel, unless there are more specific assignments or customer group discounts set up for the shopper's customer group.
 
     If an active Price List does not contain prices for a variant, the catalog pricing will be used.
-
     Price Lists provide overridden price values to the Stencil storefront. You can further customize the final price display using Stencil's [handlebars objects](/theme-objects).
 
     To learn more about Price Lists, see [Price Lists API](/api-docs/store-management/price-list-overview).
@@ -19,37 +17,37 @@ info:
     ## Price Lists Assignments
 
     ### Order of operations
-
+    
     **IF** Price List assigned to current customer group **AND** Price List assigned to current channel:
     * Use this Price List -- any prices not found fall back to the catalog price (or in the case of multi-currency, auto-converted prices)
-
+    
     **ELSE IF** Price List assigned to current customer group:
     * Use this Price List -- any prices not found fall back to the catalog price (or in the case of multi-currency, auto-converted prices)
-
+    
     **ELSE IF** Customer group discounts:
     * Use them -- any prices not found fall back to the catalog price (or in the case of multi-currency, auto-converted prices)
-
+    
     **ELSE IF** Channel has a default Price List:
     * Use this Price List -- any prices not found fall back to the catalog price (or in the case of multi-currency, auto-converted prices)
-
+    
     **ELSE**:
     * Fall back to the catalog price (or in the case of multi-currency, auto-converted prices)
 
     ## Usage notes
-    - Price Lists cannot be assigned to a customer group that has customer group discounts -- the customer group discounts must be deleted first.
+
+    - You cannot assign Price Lists to a customer group with customer group discounts -- You must delete the customer group discounts first.
     - Bulk pricing Tiers may additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
-    - If a variant has a Price Record, any existing product-level bulk pricing will not apply in the cart. For variants without Price Records, any existing product bulk pricing will apply.
+    - If a variant has a Price Record, any existing product-level bulk pricing will not apply to the cart. For variants without Price Records, any existing product bulk pricing will apply.
     - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a `429` error and the request will fail.
     - There are webhooks available for Price Lists assignments. The price list assignment webhook fires when a price list assignment is assigned, reassigned, or unassigned. Note that since Price Lists directly relate to products, neither product nor SKU webhooks are going to fire for corresponding changes, such as pricing.
 
     ## Additional information
 
     ### Webhooks
-
-    * [Price list assignments] (/api-docs/channels/guide/webhooks#price-list-assignments)
+    
+    * [Price list assignments](/api-docs/channels/guide/webhooks#price-list-assignments)
     * [Products](/api-docs/store-management/webhooks/events#products)
     * [SKU](/api-docs/store-management/webhooks/events#sku)
-
     ### Related endpoints
     * [Get All Price Lists](/docs/rest-management/price-lists#get-all-price-lists)
   termsOfService: 'https://www.bigcommerce.com/terms'
@@ -69,7 +67,6 @@ security:
   - X-Auth-Token: []
 tags:
   - name: Price Lists
-    description: BigCommerce Price Lists API Definition.
   - name: Price Lists Assignments
   - name: Price Lists Records
 paths:
@@ -433,7 +430,6 @@ paths:
                       The error title describing the particular error.
                   type:
                     type: string
-      x-codegen-request-body-name: PriceList
     delete:
       tags:
         - Price Lists
@@ -748,14 +744,12 @@ paths:
                       The error title describing the particular error.
                   type:
                     type: string
-      x-codegen-request-body-name: PriceList
     delete:
       tags:
         - Price Lists
       summary: Delete a Price List
       description: |-
         Deletes a *Price List*. All associated price records are also removed.
-
         **Limits**
         * Limit of 1 concurrent request.
       operationId: deletePriceList
@@ -770,6 +764,37 @@ paths:
       responses:
         '204':
           description: Action has been enacted and no further information is to be supplied. `null` is returned.
+  '/pricelists/records':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    put: 
+      tags:
+        - Price Lists Records
+      description: Creates a batch of `Price List Records`; may include price list records from more than one price list.  Concurrency limit of 1.
+      operationId: UpsertPriceListRecords
+      requestBody: 
+        description: A BigCommerce `PriceRecord` request.
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PriceRecordCollectionPutWithPriceListId'
+        required: true
+      responses:
+        '200':
+          description: |
+            Success response for batch PUT of `Price Records`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessBatchResponse'
+        '422':
+          description: |
+            Error response for batch PUT of `Price Records`.  May include errors during partial update in non-strict mode.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceRecordBatchErrorResponse'
+      x-codegen-request-body-name: PriceRecordBatch        
   '/pricelists/{price_list_id}/records':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -974,6 +999,7 @@ paths:
                                 The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
                               format: double
                               example: 24.64
+                              readOnly: true
                             date_created:
                               type: string
                               description: |
@@ -989,8 +1015,9 @@ paths:
                             product_id:
                               type: integer
                               description: |
-                                The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
+                                The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
                               example: 158
+                              readOnly: true
                         - title: Price Record Identifiers
                           type: object
                           description: Price Record object used in batch create or update.
@@ -1005,12 +1032,12 @@ paths:
                                 variant_id:
                                   type: integer
                                   description: |
-                                    The variant with which this price set is associated. Either variant_id or SKU is required.
+                                    The variant with which this price set is associated. Either `variant_id` or `sku` is required.
                                   example: 325
                                 sku:
                                   type: string
                                   description: |
-                                    The variant with which this price set is associated. Either SKU or variant_id is required.
+                                    The variant with which this price set is associated. Either `sku` or `variant_id` is required.
                                 currency:
                                   type: string
                                   description: |
@@ -1395,16 +1422,12 @@ paths:
       summary: Upsert Price List Records
       description: |-
         Creates or updates *Price List Records*. 
-
         **Required Fields**
         * currency
-
         **Notes**
-
-        * Batch updates are supported by this endpoint, meaning you can update several price objects in one request. This update allows you to do the same work as many individual requests to singleton endpoints.
-        * When updating a product with variants, or multiple SKUs, don't include records for the parent product SKU.
         * Batch requests support up to 1,000 items per request.
         * Up to 2 concurrent batch upsert requests are supported with this API. Running more than the allowed concurrent requests in parallel on the **same store** will cause a `429` error, and your additional requests will fail. You are encouraged to run requests sequentially with as many records per request as possible to maximize performance.
+        * When updating a product with variants, or multiple SKUs, don't include records for the parent product SKU.
       operationId: setPriceListRecordCollection
       parameters:
         - name: price_list_id
@@ -1436,12 +1459,12 @@ paths:
                       variant_id:
                         type: integer
                         description: |
-                          The variant ID with which this price set is associated. Either variant_id or SKU is required.
+                          The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
                         example: 331
                       sku:
                         type: string
                         description: |
-                          The SKU for the variant with which this price set is associated. Either SKU or variant_id is required.
+                          The SKU for the variant with which this price set is associated. Either `sku` or `variant_id` is required.
                         example: SMB-123
                       currency:
                         type: string
@@ -1564,12 +1587,12 @@ paths:
                                 variant_id:
                                   type: integer
                                   description: |
-                                    The variant ID with which this price set is associated. Either variant_id or SKU is required.
+                                    The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
                                   example: 325
                                 sku:
                                   type: string
                                   description: |
-                                    The variant with which this price set is associated. Either SKU or variant_id is required.
+                                    The variant with which this price set is associated. Either `sku` or `variant_id` is required.
                                 currency:
                                   type: string
                                   description: |
@@ -1693,6 +1716,7 @@ paths:
                                 The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
                               format: double
                               example: 24.64
+                              readOnly: true
                             date_created:
                               type: string
                               description: |
@@ -1708,8 +1732,9 @@ paths:
                             product_id:
                               type: integer
                               description: |
-                                The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
+                                The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
                               example: 158
+                              readOnly: true
                         - title: Price Record Identifiers
                           description: Price Record object used in batch create or update.
                           properties:
@@ -1721,12 +1746,12 @@ paths:
                             variant_id:
                               type: integer
                               description: |
-                                The variant ID with which this price set is associated. Either variant_id or SKU is required.
+                                The variant ID with which this price set is associated. Either `variant_id` or `sku` is required.
                               example: 325
                             sku:
                               type: string
                               description: |
-                                The variant ID with which this price set is associated. Either SKU or variant_id is required.
+                                The variant ID with which this price set is associated. Either `sku` or `variant_id` is required.
                             currency:
                               type: string
                               description: |
@@ -1878,7 +1903,6 @@ paths:
       summary: Get a Price Record by Currency Code
       description: |- 
         Returns a *Price List Record* using the currency code. You can use optional parameters.
-
         **Notes**
         * Supports up to 40 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
       operationId: getPriceListRecord
@@ -1908,7 +1932,8 @@ paths:
         - name: include
           in: query
           description: |
-            Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other valies will be ignored.
+            Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
+            Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
           schema:
             type: string
             enum:
@@ -1936,6 +1961,7 @@ paths:
                               The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
                             format: double
                             example: 24.64
+                            readOnly: true
                           date_created:
                             type: string
                             description: |
@@ -1951,8 +1977,9 @@ paths:
                           product_id:
                             type: integer
                             description: |
-                              The ID of the `Product` this `Price Record`'s variant_id is associated with. Read only.
+                              The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
                             example: 158
+                            readOnly: true
                       - title: Price Record Identifiers
                         type: object
                         description: Price Record object used in batch create or update requests.
@@ -1967,12 +1994,12 @@ paths:
                               variant_id:
                                 type: integer
                                 description: |
-                                  The variant with which this price set is associated. Either variant_id or SKU is required.
+                                  The variant with which this price set is associated. Either `variant_id` or `sku` is required.
                                 example: 325
                               sku:
                                 type: string
                                 description: |
-                                  The variant with which this price set is associated. Either SKU or variant_id is required.
+                                  The variant with which this price set is associated. Either `sku` or `variant_id` is required.
                               currency:
                                 type: string
                                 description: |
@@ -2086,7 +2113,6 @@ paths:
       summary: Set Price List Record by Currency Code
       description: |-
         Creates or updates a *Price List Record* using the currency code.
-
         **Notes**
         * Supports up to 40 simultaneous PUT requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error, and your additional requests will fail.
       operationId: setPriceListRecord
@@ -2203,6 +2229,7 @@ paths:
                             description: |
                               The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
                             example: 24.64
+                            readOnly: true
                           date_created:
                             type: string
                             format: date-time
@@ -2218,8 +2245,9 @@ paths:
                           product_id:
                             type: integer
                             description: |
-                              The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
+                              The ID of the `Product` this `Price Record`ʼs `variant_id` is associated with. Read only.
                             example: 158
+                            readOnly: true
                       - description: Price Record object used in a batch create or update request.
                         allOf:
                           - properties:
@@ -2231,12 +2259,12 @@ paths:
                               variant_id:
                                 type: integer
                                 description: |
-                                  The variant with which this price set is associated. Either variant_id or SKU is required.
+                                  The variant with which this price set is associated. Either `variant_id` or `sku` is required.
                                 example: 325
                               sku:
                                 type: string
                                 description: |
-                                  The variant with which this price set is associated. Either SKU or variant_id is required.
+                                  The variant with which this price set is associated. Either `sku` or `variant_id` is required.
                               currency:
                                 type: string
                                 format: ISO-4217
@@ -2426,7 +2454,6 @@ paths:
                     type: /api-docs/getting-started/api-status-codes
                     errors: {}
             examples: {}
-      x-codegen-request-body-name: PriceRecord
     delete:
       tags:
         - Price Lists Records
@@ -2548,7 +2575,6 @@ paths:
         - Price Lists Assignments
       description: |-
         Creates a batch of `Price List Assignments`. 
-
         **Note:** The batch limit for `Price List Assignments` is 25.
       summary: Create Price List Assignments
       operationId: CreatePriceListAssignments
@@ -2623,137 +2649,6 @@ components:
       description: Filter results by a comma-separated list of `channel_id`s.
       schema:
         type: string
-    FilterIdParam:
-      name: id
-      description: |
-        Filter items by id.
-      required: false
-      in: query
-      schema:
-        type: integer
-    FilterSkuParam:
-      name: sku
-      description: |
-        Filter items by SKU.
-      required: false
-      in: query
-      schema:
-        type: string
-    FilterProductIdParam:
-      schema:
-        type: string
-      name: 'product_id:in'
-      in: query
-      required: false
-      description: |
-        A comma-separated list of IDs of `Product`s for which prices were requested.
-    FilterNameParam:
-      name: name
-      description: |
-        Filter items by name.
-      required: false
-      in: query
-      schema:
-        type: string
-    FilterPriceParam:
-      name: price
-      description: |
-        Filter items by price.
-      required: false
-      in: query
-      schema:
-        type: number
-    FilterSalePriceParam:
-      name: sale_price
-      description: |
-        Filter items by sale_price.
-      required: false
-      in: query
-      schema:
-        type: number
-    FilterRetailPriceParam:
-      name: retail_price
-      description: |
-        Filter items by retail_price.
-      required: false
-      in: query
-      schema:
-        type: number
-    FilterMapPriceParam:
-      name: map_price
-      description: |
-        Filter items by map_price.
-      required: false
-      in: query
-      schema:
-        type: number
-    FilterCalculatedPriceParam:
-      name: calculated_price
-      description: |
-        Filter items by calculated_price.
-      required: false
-      in: query
-      schema:
-        type: number
-    VariantIdParam:
-      name: variant_id
-      in: path
-      description: |
-        ID of the variant on a product, or on an associated Price List Record.
-      required: true
-      schema:
-        type: integer
-    FilterDateModifiedParam:
-      name: date_modified
-      description: 'Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2022-06-15`'
-      required: false
-      in: query
-      schema:
-        type: string
-        format: date-time
-    FilterDateCreatedParam:
-      name: date_created
-      description: |
-        Filter items by date_created.
-      required: false
-      in: query
-      schema:
-        type: string
-        format: date-time
-    FilterIncludePriceRecordParam:
-      name: include
-      description: |
-        Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`.  Other values will be ignored.
-      required: false
-      in: query
-      schema:
-        type: string
-        enum:
-          - bulk_pricing_tiers
-          - sku
-    FilterCurrencyParam:
-      name: currency
-      description: |
-        Filter items by currency.
-      required: false
-      in: query
-      schema:
-        type: string
-        format: ISO-4217
-    PageParam:
-      name: page
-      description: Specifies the page number in a limited (paginated) list of products.
-      required: false
-      in: query
-      schema:
-        type: integer
-    LimitParam:
-      name: limit
-      description: Controls the number of items per page in a limited (paginated) list of products.
-      required: false
-      in: query
-      schema:
-        type: integer
     PriceListIdParam:
       schema:
         type: integer
@@ -2762,22 +2657,6 @@ components:
       description: |
         The ID of the `Price List` requested.
       required: true
-    PriceRecordCurrencyParam:
-      name: currency_code
-      in: path
-      description: |
-        The currency code associated with the price record being acted upon.
-      required: true
-      schema:
-        type: string
-        format: ISO-4217
-    FilterVariantIdParam:
-      schema:
-        type: integer
-      name: 'variant_id:in'
-      in: query
-      required: false
-      description: The ID of the `Variant` for which prices were requested.
     Accept:
       name: Accept
       in: header
@@ -2889,6 +2768,114 @@ components:
               example: 2
         meta:
           $ref: '#/components/schemas/Meta'
+    PriceRecordCollectionPutWithPriceListId:
+      type: array
+      items:
+        $ref: '#/components/schemas/PriceRecordBatchItem'
+    PriceRecordBatchItem:
+      description: The `Price Record` object used in batch create or update.
+      allOf:
+      - type: array
+        items:
+          $ref: '#/components/schemas/PriceRecordBase'
+        properties:
+          price_list_id:
+            type: integer
+            description: The price list ID the price record is associated with.
+          variant_id:
+            type: integer
+            description: The price list with which the price record is associated. Either `variant_id` or `sku` is required.
+          sku:
+            type: string
+            description: The SKU for the variant with which this price record is associated.  Either `sku`` or `variant_id is required.
+          currency:
+            type: string
+            description: The 3-letter country code with which this price record is associated.
+            format: ISO:4217
+    PriceRecordBase:
+      type: object
+      properties: 
+        price: 
+          type: number
+          description: The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
+        
+          format: double
+        sale_price:
+          type: number
+          description: The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
+          format: double
+        retail_price:
+          type: number
+          description: The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product.  If empty, the retail price will be treated as not being set on this variant.
+          format: double
+        map_price:
+          type: number
+          description: The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the `map_ price` will be treated as not being set on this variant.
+          format: double
+        bulk_pricing_tiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkPricingTier'
+      description: Common Price Record properties.
+    BulkPricingTier:
+      type: object
+      properties:
+        quantity_min:
+          type: integer
+          description: The cart's minimum quantity of associated variants needed to qualify for this tier's pricing.
+        quantity_max:
+          type: integer
+          description: The cart's maximum allowed quantity of associated variants to qualify for this tier's pricing.
+        type:
+          type: string
+          description: |- 
+            The type of adjustment that is made. 
+            Acceptable values: 
+            * price – the adjustment amount per product 
+            * percent – the adjustment as a percentage of the original price 
+            * fixed – the adjusted absolute price of the product
+          enum:
+            - fixed
+            - price
+            - percent
+        amount:
+          type: number
+          description: The price adjustment amount. This value and the type will decide the price per variant for the pricing tier.
+          format: double
+    SuccessBatchResponse: 
+      type: object
+      description: Empty object for Success case for Batch API.
+    PriceRecordBatchErrorResponse:
+      type: object
+      properties: 
+        data:
+          $ref: '#/components/schemas/PriceRecordIdentifiers'
+        field_errors:
+          $ref: '#/components/schemas/DetailedErrors'
+      description: Error during `Price Record` batch PUT. Includes data sent in the request and errors.
+    PriceRecordIdentifiers:
+      type: object
+      description: The `Price Record` object used in batch create or update.
+      allOf:
+      - type: object
+        properties:
+          price_list_id:
+            type: integer
+            description: The Price List with which this price record is associated.
+          variant_id:
+            type: integer
+            description:  The variant with which this price record is associated. Either `variant_id`` or `sku` is required.
+          sku: 
+            type: string
+            description: The variant with which this price record is associated. Either `sku`` or `variant_id`` is required.
+          currency:
+            type: string
+            description: The 3-letter currency code with which this price set is associated.
+            format: ISO-4217
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
     PriceListAssignmentsBatchErrorResponse:
       type: object
       x-internal: false
@@ -2944,1146 +2931,6 @@ components:
         meta:
           $ref: '#/components/schemas/CollectionMeta'
       x-internal: false
-    PriceListCollectionResponse:
-      description: Get All PriceLists.
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            allOf:
-              - properties:
-                  id:
-                    type: integer
-                    description: |
-                      The unique numeric ID of the `Price List`; this number increments sequentially.
-                    example: 3
-                  date_created:
-                    type: string
-                    format: date-time
-                    description: |
-                      The date on which the `Price List` was created.
-                    example: '2022-04-05T16:05:12Z'
-                  date_modified:
-                    type: string
-                    format: date-time
-                    description: |
-                      The date on which the `Price List` was created.
-                    example: '2022-04-05T16:05:12Z'
-              - type: object
-                description: Common Price List properties.
-                title: PriceList Base
-                properties:
-                  name:
-                    type: string
-                    description: |
-                      The unique name of the Price List. Required in a POST request. 
-                    x-required:
-                      - post
-                    example: Wholesale
-                  active:
-                    type: boolean
-                    description: |
-                      Whether or not this `Price List` and its prices are active. Defaults to `true`.
-                    example: true
-                required:
-                  - name
-            title: Price List
-            type: object
-        meta:
-          type: object
-          description: 'Data about the response, including pagination and collection totals.'
-          properties:
-            pagination:
-              type: object
-              description: 'Data about the response, including pagination and collection totals.'
-              title: Pagination
-              properties:
-                total:
-                  type: integer
-                  description: |
-                    Total number of items in the result set.
-                  example: 36
-                count:
-                  type: integer
-                  description: |
-                    Total number of items in the collection response.
-                  example: 36
-                per_page:
-                  type: integer
-                  description: |
-                    The amount of items returned in the collection per page, controlled by the limit parameter.
-                  example: 50
-                current_page:
-                  type: integer
-                  description: |
-                    The page you are currently on within the collection.
-                  example: 1
-                total_pages:
-                  type: integer
-                  description: |
-                    The total number of pages in the collection.
-                  example: 1
-                links:
-                  type: object
-                  description: |
-                    Pagination links for the previous and next parts of the whole collection.
-                  properties:
-                    previous:
-                      type: string
-                      description: |
-                        Link to the previous page returned in the response.
-                    current:
-                      type: string
-                      description: |
-                        Link to the current page returned in the response.
-                      example: '?page=1&limit=50'
-                    next:
-                      type: string
-                      description: |
-                        Link to the next page returned in the response.
-          title: Collection Meta
-      title: PriceList Collection Response
-      x-internal: false
-    PriceListResponse:
-      description: |-
-        PriceList Response returns for:
-
-        * Create a PriceList
-        * Get a PriceList
-        * Update a PriceList
-      type: object
-      properties:
-        data:
-          allOf:
-            - properties:
-                id:
-                  type: integer
-                  description: |
-                    The unique numeric ID of the `Price List`; increments sequentially.
-                  example: 3
-                date_created:
-                  type: string
-                  format: date-time
-                  description: |
-                    The date on which the `Price List` was created.
-                  example: '2022-04-05T16:05:12Z'
-                date_modified:
-                  type: string
-                  format: date-time
-                  description: |
-                    The date on which the `Price List` was created.
-                  example: '2022-04-05T16:05:12Z'
-            - type: object
-              description: Common Price List properties.
-              title: PriceList Base
-              properties:
-                name:
-                  type: string
-                  description: |
-                    The unique name of the Price List. Required in a POST request. 
-                  x-required:
-                    - post
-                  example: Wholesale
-                active:
-                  type: boolean
-                  description: |
-                    Whether or not this `Price List` and its prices are active. Defaults to `true`.
-                  example: true
-              required:
-                - name
-          title: Price List
-          type: object
-        meta:
-          $ref: '#/components/schemas/Meta'
-      title: Price List Response
-      x-internal: false
-    PriceListBase:
-      type: object
-      description: Common Price List properties.
-      title: PriceList Base
-      properties:
-        name:
-          type: string
-          description: |
-            The unique name of the Price List. Required in a POST request. 
-          x-required:
-            - post
-          example: Wholesale
-        active:
-          type: boolean
-          description: |
-            Whether or not this `Price List` and its prices are active. Defaults to `true`.
-          example: true
-      required:
-        - name
-      x-internal: false
-    PriceList:
-      allOf:
-        - properties:
-            id:
-              type: integer
-              description: |
-                The unique numeric ID of the `Price List`; increments sequentially.
-              example: 3
-            date_created:
-              type: string
-              format: date-time
-              description: |
-                The date on which the `Price List` was created.
-              example: '2022-04-05T16:05:12Z'
-            date_modified:
-              type: string
-              format: date-time
-              description: |
-                The date on which the `Price List` was created.
-              example: '2022-04-05T16:05:12Z'
-        - type: object
-          description: Common Price List properties.
-          title: PriceList Base
-          properties:
-            name:
-              type: string
-              description: |
-                The unique name of the Price List. Required in a POST request. 
-              x-required:
-                - post
-              example: Wholesale
-            active:
-              type: boolean
-              description: |
-                Whether or not this `Price List` and its prices are active. Defaults to `true`.
-              example: true
-          required:
-            - name
-      title: Price List
-      type: object
-      x-internal: false
-    PriceListPost:
-      type: object
-      allOf:
-        - type: object
-          description: Common Price List properties.
-          title: PriceList Base
-          properties:
-            name:
-              type: string
-              description: |
-                The unique name of the Price List. Required in a POST request. 
-              x-required:
-                - post
-              example: Wholesale
-            active:
-              type: boolean
-              description: |
-                Whether or not this `Price List` and its prices are active. Defaults to `true`.
-              example: true
-          required:
-            - name
-      required:
-        - name
-      title: PriceList Post
-      description: 'Creates a Price List. '
-      x-internal: false
-    PriceListPut:
-      type: object
-      allOf:
-        - type: object
-          description: Common Price List properties.
-          title: PriceList Base
-          properties:
-            name:
-              type: string
-              description: |
-                The unique name of the Price List. Required in a POST request. 
-              x-required:
-                - post
-              example: Wholesale
-            active:
-              type: boolean
-              description: |
-                Whether or not this `Price List` and its prices are active. Defaults to `true`.
-              example: true
-          required:
-            - name
-      title: PriceList Put
-      description: Update a PriceList
-      x-internal: false
-    PriceRecordCollectionResponse:
-      description: |-
-        PriceRecord Collection Response returns for:
-        * Get All PriceList Records
-        * Get PriceList Records by Variant Id
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            description: The Price Record object.
-            allOf:
-              - properties:
-                  calculated_price:
-                    type: number
-                    format: double
-                    description: |
-                      The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                    example: 24.64
-                  date_created:
-                    type: string
-                    format: date-time
-                    description: |
-                      The date on which the Price entry was created.
-                    example: '2022-08-23T19:59:23Z'
-                  date_modified:
-                    type: string
-                    format: date-time
-                    description: |
-                      The date on which the Price entry was created.
-                    example: '2022-08-23T19:59:23Z'
-                  product_id:
-                    type: integer
-                    description: |
-                      The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
-                    example: 158
-              - description: Price Record object used in batch create or update.
-                allOf:
-                  - properties:
-                      price_list_id:
-                        type: integer
-                        description: |
-                          The Price List with which this price set is associated.
-                        example: 2
-                      variant_id:
-                        type: integer
-                        description: |
-                          The variant ID with which this price set is associated. Either variant_id or SKU is required.
-                        example: 325
-                      sku:
-                        type: string
-                        description: |
-                          The SKU with which this price set is associated. Either SKU or variant_id is required.
-                      currency:
-                        type: string
-                        format: ISO-4217
-                        description: |
-                          The 3-letter currency code with which this price set is associated.
-                        example: usd
-                title: Price Record Identifiers
-                type: object
-              - type: object
-                description: Common Price Record properties.
-                title: PriceRecord Base
-                properties:
-                  price:
-                    type: number
-                    format: double
-                    description: |
-                      The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                    x-required:
-                      - put
-                    example: 3.99
-                  sale_price:
-                    type: number
-                    format: double
-                    description: |
-                      The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                  retail_price:
-                    type: number
-                    format: double
-                    description: |
-                      The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                  map_price:
-                    type: number
-                    format: double
-                    description: |
-                      The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                  bulk_pricing_tiers:
-                    type: array
-                    items:
-                      type: object
-                      title: Bulk Pricing Tier
-                      properties:
-                        quantity_min:
-                          type: integer
-                          description: |
-                            The minimum quantity of associated variant in the cart needed to qualify for this pricing of this tier.
-                          example: 1
-                        quantity_max:
-                          type: integer
-                          description: |
-                            The maximum allowed quantity of associated variant in the cart to qualify for the pricing of this tier.
-                          example: 10
-                        type:
-                          type: string
-                          enum:
-                            - fixed
-                            - price
-                            - percent
-                          description: |
-                            The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                          example: price
-                        amount:
-                          type: number
-                          format: double
-                          description: |
-                            The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                          example: 3
-                  sku:
-                    type: string
-                    description: |
-                      The SKU code associated with this `Price Record` if requested and it exists.
-                    example: SMB-123
-            title: Price Record
-            type: object
-        meta:
-          type: object
-          description: 'Data about the response, including pagination and collection totals.'
-          properties:
-            pagination:
-              type: object
-              description: 'Data about the response, including pagination and collection totals.'
-              title: Pagination
-              properties:
-                total:
-                  type: integer
-                  description: |
-                    Total number of items in the result set.
-                  example: 36
-                count:
-                  type: integer
-                  description: |
-                    Total number of items in the collection response.
-                  example: 36
-                per_page:
-                  type: integer
-                  description: |
-                    The amount of items returned in the collection per page, controlled by the limit parameter.
-                  example: 50
-                current_page:
-                  type: integer
-                  description: |
-                    The page you are currently on within the collection.
-                  example: 1
-                total_pages:
-                  type: integer
-                  description: |
-                    The total number of pages in the collection.
-                  example: 1
-                links:
-                  type: object
-                  description: |
-                    Pagination links for the previous and next parts of the whole collection.
-                  properties:
-                    previous:
-                      type: string
-                      description: |
-                        Link to the previous page returned in the response.
-                    current:
-                      type: string
-                      description: |
-                        Link to the current page returned in the response.
-                      example: '?page=1&limit=50'
-                    next:
-                      type: string
-                      description: |
-                        Link to the next page returned in the response.
-          title: Collection Meta
-      title: PriceRecord Collection Response
-      x-internal: false
-    PriceRecordResponse:
-      description: Response payload for the BigCommerce API.
-      type: object
-      properties:
-        data:
-          description: The Price Record object.
-          allOf:
-            - properties:
-                calculated_price:
-                  type: number
-                  format: double
-                  description: |
-                    The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-                  example: 24.64
-                date_created:
-                  type: string
-                  format: date-time
-                  description: |
-                    The date on which the Price entry was created.
-                  example: '2022-08-23T19:59:23Z'
-                date_modified:
-                  type: string
-                  format: date-time
-                  description: |
-                    The date on which the Price entry was created.
-                  example: '2022-08-23T19:59:23Z'
-                product_id:
-                  type: integer
-                  description: |
-                    The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
-                  example: 158
-            - description: Price Record object used in batch create or update.
-              allOf:
-                - properties:
-                    price_list_id:
-                      type: integer
-                      description: |
-                        The Price List with which this price set is associated.
-                      example: 2
-                    variant_id:
-                      type: integer
-                      description: |
-                        The variant_id with which this price set is associated. Either variant_id or SKU is required.
-                      example: 325
-                    sku:
-                      type: string
-                      description: |
-                        The SKU with which this price set is associated. Either SKU or variant_id is required.
-                    currency:
-                      type: string
-                      format: ISO-4217
-                      description: |
-                        The 3-letter currency code with which this price set is associated.
-                      example: usd
-              title: Price Record Identifiers
-              type: object
-            - type: object
-              description: Common Price Record properties.
-              title: PriceRecord Base
-              properties:
-                price:
-                  type: number
-                  format: double
-                  description: |
-                    The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                  x-required:
-                    - put
-                  example: 3.99
-                sale_price:
-                  type: number
-                  format: double
-                  description: |
-                    The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-                retail_price:
-                  type: number
-                  format: double
-                  description: |
-                    The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-                map_price:
-                  type: number
-                  format: double
-                  description: |
-                    The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-                bulk_pricing_tiers:
-                  type: array
-                  items:
-                    type: object
-                    title: Bulk Pricing Tier
-                    properties:
-                      quantity_min:
-                        type: integer
-                        description: |
-                          The minimum quantity of associated variant in the cart needed to qualify for this tiers pricing.
-                        example: 1
-                      quantity_max:
-                        type: integer
-                        description: |
-                          The maximum allowed quantity of associated variant in the cart to qualify for this tiers pricing.
-                        example: 10
-                      type:
-                        type: string
-                        enum:
-                          - fixed
-                          - price
-                          - percent
-                        description: |
-                          The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                        example: price
-                      amount:
-                        type: number
-                        format: double
-                        description: |
-                          The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                        example: 3
-                sku:
-                  type: string
-                  description: |
-                    The SKU code associated with this `Price Record` if requested and it exists.
-                  example: SMB-123
-          title: Price Record
-          type: object
-        meta:
-          $ref: '#/components/schemas/Meta'
-      title: Price Record Response
-      x-internal: false
-    PriceRecordBase:
-      type: object
-      description: Common Price Record properties.
-      title: PriceRecord Base
-      properties:
-        price:
-          type: number
-          format: double
-          description: |
-            The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-          x-required:
-            - put
-          example: 3.99
-        sale_price:
-          type: number
-          format: double
-          description: |
-            The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-        retail_price:
-          type: number
-          format: double
-          description: |
-            The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-        map_price:
-          type: number
-          format: double
-          description: |
-            The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-        bulk_pricing_tiers:
-          type: array
-          items:
-            type: object
-            title: Bulk Pricing Tier
-            properties:
-              quantity_min:
-                type: integer
-                description: |
-                  The minimum quantity of associated variant in the cart needed to qualify for this tiers pricing.
-                example: 1
-              quantity_max:
-                type: integer
-                description: |
-                  The maximum allowed quantity of associated variant in the cart to qualify for this tiers pricing.
-                example: 10
-              type:
-                type: string
-                enum:
-                  - fixed
-                  - price
-                  - percent
-                description: |
-                  The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                example: price
-              amount:
-                type: number
-                format: double
-                description: |
-                  The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                example: 3
-        sku:
-          type: string
-          description: |
-            The SKU code associated with this `Price Record` if requested and it exists.
-          example: SMB-123
-      x-internal: false
-    PriceRecord:
-      description: The Price Record object.
-      allOf:
-        - properties:
-            calculated_price:
-              type: number
-              format: double
-              description: |
-                The price of the variant as seen on the storefront if a price record is in effect. It will be equal to the `sale_price`, if set, and the `price` if there is not a `sale_price`. Read only.
-              example: 24.64
-            date_created:
-              type: string
-              format: date-time
-              description: |
-                The date on which the Price entry was created.
-              example: '2022-08-23T19:59:23Z'
-            date_modified:
-              type: string
-              format: date-time
-              description: |
-                The date on which the Price entry was created.
-              example: '2022-08-23T19:59:23Z'
-            product_id:
-              type: integer
-              description: |
-                The id of the `Product` this `Price Record`'s variant_id is associated with.  Read only.
-              example: 158
-        - description: Price Record object used in batch create or update.
-          allOf:
-            - properties:
-                price_list_id:
-                  type: integer
-                  description: |
-                    The Price List with which this price set is associated.
-                  example: 2
-                variant_id:
-                  type: integer
-                  description: |
-                    The variant ID with which this price set is associated. Either variant_id or SKU is required.
-                  example: 325
-                sku:
-                  type: string
-                  description: |
-                    The SKU with which this price set is associated. Either SKU or variant_id is required.
-                currency:
-                  type: string
-                  format: ISO-4217
-                  description: |
-                    The 3-letter currency code with which this price set is associated.
-                  example: usd
-          title: Price Record Identifiers
-          type: object
-        - type: object
-          description: Common Price Record properties.
-          title: PriceRecord Base
-          properties:
-            price:
-              type: number
-              format: double
-              description: |
-                The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-              x-required:
-                - put
-              example: 3.99
-            sale_price:
-              type: number
-              format: double
-              description: |
-                The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-            retail_price:
-              type: number
-              format: double
-              description: |
-                The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-            map_price:
-              type: number
-              format: double
-              description: |
-                The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-            bulk_pricing_tiers:
-              type: array
-              items:
-                type: object
-                title: Bulk Pricing Tier
-                properties:
-                  quantity_min:
-                    type: integer
-                    description: |
-                      The minimum quantity of associated variant in the cart needed to qualify for this tiers pricing.
-                    example: 1
-                  quantity_max:
-                    type: integer
-                    description: |
-                      The maximum allowed quantity of associated variant in the cart to qualify for this tiers pricing.
-                    example: 10
-                  type:
-                    type: string
-                    enum:
-                      - fixed
-                      - price
-                      - percent
-                    description: |
-                      The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                    example: price
-                  amount:
-                    type: number
-                    format: double
-                    description: |
-                      The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                    example: 3
-            sku:
-              type: string
-              description: |
-                The SKU code associated with this `Price Record` if requested and it exists.
-              example: SMB-123
-      title: Price Record
-      type: object
-      x-internal: false
-    BulkPricingTier:
-      type: object
-      title: Bulk Pricing Tier
-      properties:
-        quantity_min:
-          type: integer
-          description: |
-            The minimum quantity of associated variant in the cart needed to qualify for this pricing tier.
-          example: 1
-        quantity_max:
-          type: integer
-          description: |
-            The maximum allowed quantity of associated variant in the cart to qualify for this pricing tier.
-          example: 10
-        type:
-          type: string
-          enum:
-            - fixed
-            - price
-            - percent
-          description: |
-            The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-          example: price
-        amount:
-          type: number
-          format: double
-          description: |
-            The price adjustment amount. This value together with the adjustment type determines the price per variant for the pricing tier.
-          example: 3
-      x-internal: false
-    PriceRecordPut:
-      type: object
-      allOf:
-        - type: object
-          description: Common Price Record properties.
-          title: PriceRecord Base
-          properties:
-            price:
-              type: number
-              format: double
-              description: |
-                The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-              x-required:
-                - put
-              example: 3.99
-            sale_price:
-              type: number
-              format: double
-              description: |
-                The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-            retail_price:
-              type: number
-              format: double
-              description: |
-                The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-            map_price:
-              type: number
-              format: double
-              description: |
-                The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-            bulk_pricing_tiers:
-              type: array
-              items:
-                type: object
-                title: Bulk Pricing Tier
-                properties:
-                  quantity_min:
-                    type: integer
-                    description: |
-                      The minimum quantity of associated variant in the cart needed to qualify for the pricing of this tier.
-                    example: 1
-                  quantity_max:
-                    type: integer
-                    description: |
-                      The maximum allowed quantity of associated variant in the cart to qualify for the pricing of this tier.
-                    example: 10
-                  type:
-                    type: string
-                    enum:
-                      - fixed
-                      - price
-                      - percent
-                    description: |
-                      The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                    example: price
-                  amount:
-                    type: number
-                    format: double
-                    description: |
-                      The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
-                    example: 3
-            sku:
-              type: string
-              description: |
-                The SKU code associated with this `Price Record` if requested and it exists.
-              example: SMB-123
-      title: Price Record Put
-      x-internal: false
-    PriceRecordCollectionPut:
-      type: array
-      items:
-        description: Price Record object used in a batch create or update request.
-        allOf:
-          - properties:
-              variant_id:
-                type: integer
-                description: |
-                  The variant ID with which this price set is associated. Either variant_id or SKU is required.
-                example: 331
-              sku:
-                type: string
-                description: |
-                  The SKU for the variant with which this price set is associated. Either SKU or variant_id is required.
-                example: SMB-123
-              currency:
-                type: string
-                format: ISO-4217
-                description: |
-                  The 3-letter currency code with which this price set is associated.
-                example: usd
-          - type: object
-            description: Common Price Record properties.
-            title: PriceRecord Base
-            properties:
-              price:
-                type: number
-                format: double
-                description: |
-                  The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-                x-required:
-                  - put
-                example: 3.99
-              sale_price:
-                type: number
-                format: double
-                description: |
-                  The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-              retail_price:
-                type: number
-                format: double
-                description: |
-                  The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-              map_price:
-                type: number
-                format: double
-                description: |
-                  The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-              bulk_pricing_tiers:
-                type: array
-                items:
-                  type: object
-                  title: Bulk Pricing Tier
-                  properties:
-                    quantity_min:
-                      type: integer
-                      description: |
-                        The minimum quantity of associated variant in the cart needed to qualify for this pricing tier.
-                      example: 1
-                    quantity_max:
-                      type: integer
-                      description: |
-                        The maximum allowed quantity of associated variant in the cart to qualify for this pricing tier.
-                      example: 10
-                    type:
-                      type: string
-                      enum:
-                        - fixed
-                        - price
-                        - percent
-                      description: |
-                        The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                      example: price
-                    amount:
-                      type: number
-                      format: double
-                      description: |
-                        The price adjustment amount. This value together with the adjustment type will determine the price per variant for the pricing tier.
-                      example: 3
-              sku:
-                type: string
-                description: |
-                  The SKU code associated with this `Price Record` if requested and it exists.
-                example: SMB-123
-        title: PriceRecord Batch Item
-        type: object
-      title: Price Record Collection Put
-      x-internal: false
-    PriceRecordBatchItem:
-      description: Price Record object used in batch create or update request.
-      allOf:
-        - properties:
-            variant_id:
-              type: integer
-              description: |
-                The variant ID with which this price set is associated. Either variant_id or SKU is required.
-              example: 331
-            sku:
-              type: string
-              description: |
-                The SKU for the variant with which this price set is associated. Either SKU or variant_id is required.
-              example: SMB-123
-            currency:
-              type: string
-              format: ISO-4217
-              description: |
-                The 3-letter currency code with which this price set is associated.
-              example: usd
-        - type: object
-          description: Common Price Record properties.
-          title: PriceRecord Base
-          properties:
-            price:
-              type: number
-              format: double
-              description: |
-                The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product.
-              x-required:
-                - put
-              example: 3.99
-            sale_price:
-              type: number
-              format: double
-              description: |
-                The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-            retail_price:
-              type: number
-              format: double
-              description: |
-                The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
-            map_price:
-              type: number
-              format: double
-              description: |
-                The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
-            bulk_pricing_tiers:
-              type: array
-              items:
-                type: object
-                title: Bulk Pricing Tier
-                properties:
-                  quantity_min:
-                    type: integer
-                    description: |
-                      The minimum quantity of associated variant in the cart needed to qualify for this pricing tier.
-                    example: 1
-                  quantity_max:
-                    type: integer
-                    description: |
-                      The maximum allowed quantity of associated variant in the cart to qualify for this pricing tier.
-                    example: 10
-                  type:
-                    type: string
-                    enum:
-                      - fixed
-                      - price
-                      - percent
-                    description: |
-                      The type of adjustment that is made. Acceptable values: price – the adjustment amount per product; percent – the adjustment as a percentage of the original price; fixed – the adjusted absolute price of the product.
-                    example: price
-                  amount:
-                    type: number
-                    format: double
-                    description: |
-                      The price adjustment amount. This value together with the adjustment type will determine the price per variant for the pricing tier.
-                    example: 3
-            sku:
-              type: string
-              description: |
-                The SKU code associated with this `Price Record` if requested and it exists.
-              example: SMB-123
-      title: PriceRecord Batch Item
-      type: object
-      x-internal: false
-    PriceRecordIdentifiers:
-      description: Price Record object used in batch create or update request.
-      allOf:
-        - properties:
-            price_list_id:
-              type: integer
-              description: |
-                The Price List with which this price set is associated.
-              example: 2
-            variant_id:
-              type: integer
-              description: |
-                The variant ID with which this price set is associated. Either variant_id or SKU is required.
-              example: 325
-            sku:
-              type: string
-              description: |
-                The SKU with which this price set is associated. Either SKU or variant_id is required.
-            currency:
-              type: string
-              format: ISO-4217
-              description: |
-                The 3-letter currency code with which this price set is associated.
-              example: usd
-      title: Price Record Identifiers
-      type: object
-      x-internal: false
-    SuccessBatchResponse:
-      type: object
-      description: Empty object.
-      title: Success Batch Response
-      x-internal: false
-    PriceRecordBatchErrorResponse:
-      description: Errors during batch usage for the BigCommerce API.
-      type: object
-      properties:
-        batch_errors:
-          type: array
-          items:
-            description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
-            type: object
-            properties:
-              data:
-                description: Price Record object used in a batch create or update request.
-                allOf:
-                  - properties:
-                      price_list_id:
-                        type: integer
-                        description: |
-                          The Price List with which this price set is associated.
-                        example: 2
-                      variant_id:
-                        type: integer
-                        description: |
-                          The variant ID with which this price set is associated. Either variant_id or SKU is required.
-                        example: 325
-                      sku:
-                        type: string
-                        description: |
-                          The SKU with which this price set is associated. Either SKU or variant_id is required.
-                      currency:
-                        type: string
-                        format: ISO-4217
-                        description: |
-                          The 3-letter currency code with which this price set is associated.
-                        example: usd
-                title: Price Record Identifiers
-                type: object
-              field_errors:
-                type: object
-                properties: {}
-                additionalProperties: true
-                title: Detailed Errors
-            title: PriceRecord Batch Error Set
-      title: PriceRecord Batch Error Response
-      x-internal: false
-    PriceRecordBatchErrorSet:
-      description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
-      type: object
-      properties:
-        data:
-          description: Price Record object used in batch create or update request.
-          allOf:
-            - properties:
-                price_list_id:
-                  type: integer
-                  description: |
-                    The Price List with which this price set is associated.
-                  example: 2
-                variant_id:
-                  type: integer
-                  description: |
-                    The variant ID with which this price set is associated. Either variant_id or SKU is required.
-                  example: 325
-                sku:
-                  type: string
-                  description: |
-                    The SKU with which this price set is associated. Either SKU or variant_id is required.
-                currency:
-                  type: string
-                  format: ISO-4217
-                  description: |
-                    The 3-letter currency code with which this price set is associated.
-                  example: usd
-          title: Price Record Identifiers
-          type: object
-        field_errors:
-          type: object
-          properties: {}
-          additionalProperties: true
-          title: Detailed Errors
-      title: PriceRecord Batch Error Set
-      x-internal: false
     CollectionMeta:
       type: object
       description: 'Data related the response, including pagination and collection totals.'
@@ -4138,55 +2985,6 @@ components:
                     Link to the next page returned in the response.
       title: Collection Meta
       x-internal: false
-    Pagination:
-      type: object
-      description: 'Data related to the response, including pagination and collection totals.'
-      title: Pagination
-      properties:
-        total:
-          type: integer
-          description: |
-            Total number of items in the result set.
-          example: 36
-        count:
-          type: integer
-          description: |
-            Total number of items in the collection response.
-          example: 36
-        per_page:
-          type: integer
-          description: |
-            The amount of items returned in the collection per page, controlled by the limit parameter.
-          example: 50
-        current_page:
-          type: integer
-          description: |
-            The page you are currently on within the collection.
-          example: 1
-        total_pages:
-          type: integer
-          description: |
-            The total number of pages in the collection.
-          example: 1
-        links:
-          type: object
-          description: |
-            Pagination links for the previous and next parts of the whole collection.
-          properties:
-            previous:
-              type: string
-              description: |
-                Link to the previous page returned in the response.
-            current:
-              type: string
-              description: |
-                Link to the current page returned in the response.
-              example: '?page=1&limit=50'
-            next:
-              type: string
-              description: |
-                Link to the next page returned in the response.
-      x-internal: false
     Meta:
       title: Response meta
       type: object
@@ -4221,42 +3019,6 @@ components:
               title: Detailed Errors
       title: Error Response
       x-internal: false
-    BaseError:
-      type: object
-      description: |
-        Error payload for the BigCommerce API.
-      properties:
-        status:
-          description: |
-            The HTTP status code.
-          type: integer
-        title:
-          description: |
-            The error title describing the particular error.
-          type: string
-        type:
-          type: string
-        instance:
-          type: string
-      title: Base Error
-      x-internal: false
-    NotFound:
-      description: Error payload for the BigCommerce API.
-      type: object
-      properties:
-        status:
-          description: |
-            404 HTTP status code.
-          type: integer
-        title:
-          description: The error title describing the particular error.
-          type: string
-        type:
-          type: string
-        instance:
-          type: string
-      title: Not Found
-      x-internal: false
     CreateBatchPriceListAssignmentsRequest:
       type: array
       description: Batch of price list assignments.
@@ -4289,4 +3051,3 @@ components:
         For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
       type: apiKey
       in: header
-
