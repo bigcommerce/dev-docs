@@ -507,7 +507,7 @@ The API sets a complexity limit of 10,000 for each request to prevent excessive 
 
 When you send a valid GraphQL request, the API returns the query complexity as an integer using the HTTP response header `X-Bc-Graphql-Complexity` .
 
-If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following: 
+If a query's complexity score exceeds the complexity limit, an error response similar to the following appears: 
 
 
 ```json filename="Example response with complexity error" showLineNumbers copy
