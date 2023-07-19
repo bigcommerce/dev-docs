@@ -610,7 +610,7 @@ query {
 }
 ```
 
-A query's complexity may also exceed the limit due to high query depth.
+In addition to the complexity limit, there is a query depth limit. The limit is 16.
 
 ```graphql filename="Example query with high query depth" showLineNumbers copy
 // Each child category adds an additional level of depth.
