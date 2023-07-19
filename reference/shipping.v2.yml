@@ -1539,7 +1539,7 @@ paths:
         
         
         Example response: 
-          
+        
         ```json
         {
           "name": "Rate per Weight",
@@ -1904,6 +1904,32 @@ paths:
         
         Royal Mail has no connection object properties.
         
+        ### Shipping Provider API
+        
+        Please note that this endpoint is not intended for adding connection settings. 
+        
+        Its purpose is solely to establish a connection between your BigCommerce store and the carrier. If the carrier has no connection settings configured, please leave the connection property empty. However, if the carrier already has connection settings configured, you can utilize this endpoint to establish the connection using the existing connection properties.
+        
+        PUT or POST example request when your carrier is not configured with any connection settings:
+        
+        ```json filename="No connection settings configured" showLineNumbers copy
+        {
+          "carrier_id" : "carrier_{your_carrier_id}",
+          "connection" : {}
+        }
+        ```
+        
+        PUT or POST example request when your carrier is configured with connection settings:
+        
+        ```json filename="Connection settings configured" showLineNumbers copy
+        {
+          "carrier_id" : "carrier_{your_carrier_id}",
+          "connection" : {
+            "your_configured_key_1": "value_1",
+            "your_configured_key_2": "value_2
+          }
+        }
+        ```
         
         ### Zoom2U
         
