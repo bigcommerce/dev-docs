@@ -50,14 +50,19 @@ If you're unsure about the configurations you may need, leave them unspecified f
 
 There are two types of configuration options: "connection" and "settings". For each configuration option, please provide the following details:
 
-*Code*: An identifier for this option. This identifier and the merchant's input value for this configuration will be provided on the rate or check and validate connection endpoints.
-*Type*: The display element for this option. Valid types include: `text`, `checkbox`, `select`, `multiselect`, or `password`.
-*Label*: Text displayed on the BigCommerce control panel for this option.
-*Description*: A concise and clear description explaining the purpose of this option.
-*Required*: Indicate whether this option is mandatory or optional.
-*Map[only required if the type is select or multiselect]*: If the option type is select or multiselect, provide a key-value pair to send.
+- *Code*: An identifier for this option. This identifier and the merchant's input value for this configuration will be provided on the rate or check and validate connection endpoints.
 
-Here's an example:
+- *Type*: The display element for this option. Valid types include: `text`, `checkbox`, `select`, `multiselect`, or `password`.
+
+- *Label*: Text displayed on the BigCommerce control panel for this option.
+
+- *Description*: A concise and clear description explaining the purpose of this option.
+
+- *Required*: Indicate whether this option is mandatory or optional.
+
+- *Map[only required if the type is select or multiselect]*: If the option type is select or multiselect, provide a key-value pair to send.
+
+Here are examples:
 
 ```json filename="Connection Configurations" showLineNumbers copy
 [
