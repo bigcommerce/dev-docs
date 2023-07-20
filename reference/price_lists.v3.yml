@@ -36,7 +36,7 @@ info:
     ## Usage notes
 
     - You cannot assign Price Lists to a customer group with customer group discounts -- You must delete the customer group discounts first.
-    - Bulk pricing Tiers may additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
+    - Bulk pricing Tiers can additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
     - If a variant has a Price Record, any existing product-level bulk pricing will not apply to the cart. For variants without Price Records, any existing product bulk pricing will apply.
     - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a `429` error and the request will fail.
     - There are webhooks available for Price Lists assignments. The price list assignment webhook fires when a price list assignment is assigned, reassigned, or unassigned. Note that since Price Lists directly relate to products, neither product nor SKU webhooks are going to fire for corresponding changes, such as pricing.
@@ -770,7 +770,8 @@ paths:
     put: 
       tags:
         - Price Lists Records
-      description: Creates a batch of `Price List Records`; may include price list records from more than one price list.  Concurrency limit of 1.
+      summary: Create Batch of Price Lists Records
+      description: Creates a batch of `Price Lists Records`; may include price list records from more than one price list.  Concurrency limit of 1.
       operationId: UpsertPriceListRecords
       requestBody: 
         description: A BigCommerce `PriceRecord` request.
