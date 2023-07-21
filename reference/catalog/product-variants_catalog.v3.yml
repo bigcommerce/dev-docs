@@ -1374,7 +1374,21 @@ paths:
       tags:
         - Variants (Batch)
       summary: Update Variants (Batch)
-      description: 'Updates a batch of `variant` objects. At the time of writing, the limit is 50 variants. This limit is subject to change.'
+      description: |-
+        Updates a batch of `variant` objects. Currently the limit is 50 variants however this is subject to change.
+
+        **Required Fields**
+
+        To update an existing variant:
+        * id (variant id)
+
+        To create a new variant:
+        * product_id
+        * sku
+        * option_values
+          - id (option_value ID - Example: 146)
+          - option_id (Option ID - Example: 151)
+
       operationId: updateVariantsBatch
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1399,30 +1413,35 @@ paths:
                         description: The cost price of the variant. Not affected by Price List prices.
                         format: double
                         x-nullable: true
+                        example: 40
                       price:
                         minimum: 0
                         type: number
                         description: 'This variant’s base price on the storefront. If a Price List ID is used, the Price List value will be used. If a Price List ID is not used, and this value is `null`, the product’s default price (set in the Product resource’s `price` field) will be used as the base price.'
                         format: double
                         x-nullable: true
+                        example: 40
                       sale_price:
                         minimum: 0
                         type: number
                         description: 'This variant’s sale price on the storefront. If a Price List ID is used, the Price List value will be used. If a Price List ID is not used, and this value is null, the product’s sale price (set in the Product resource’s `price` field) will be used as the sale price.'
                         format: double
                         x-nullable: true
+                        example: 40
                       retail_price:
                         minimum: 0
                         type: number
                         description: 'This variant’s retail price on the storefront. If a Price List ID is used, the Price List value will be used. If a Price List ID is not used, and this value is null, the product’s retail price (set in the Product resource’s `price` field) will be used as the retail price.'
                         format: double
                         x-nullable: true
+                        example: 40
                       weight:
                         minimum: 0
                         type: number
                         description: 'This variant’s base weight on the storefront. If this value is null, the product’s default weight (set in the Product resource’s weight field) will be used as the base weight.'
                         format: double
                         x-nullable: true
+                        example: 5
                       width:
                         minimum: 0
                         type: number
@@ -1430,6 +1449,7 @@ paths:
                           Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default width (set in the Product resource's `width` field) will be used as the base width.
                         format: double
                         x-nullable: true
+                        example: 5
                       height:
                         minimum: 0
                         type: number
@@ -1437,6 +1457,7 @@ paths:
                           Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default height (set in the Product resource's `height` field) will be used as the base height.
                         format: double
                         x-nullable: true
+                        example: 5
                       depth:
                         minimum: 0
                         type: number
@@ -1444,6 +1465,7 @@ paths:
                           Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default depth (set in the Product resource's `depth` field) will be used as the base depth.
                         format: double
                         x-nullable: true
+                        example: 5
                       is_free_shipping:
                         type: boolean
                         description: |
@@ -1467,6 +1489,7 @@ paths:
                         type: string
                         description: The UPC code used in feeds for shopping comparison sites and external channel integrations.
                         x-nullable: true
+                        example: "1234"
                       inventory_level:
                         type: integer
                         description: |- 
@@ -1479,11 +1502,13 @@ paths:
                           The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
                         x-nullable: true
                         maximum: 2147483647
+                        example: 21474
                       inventory_warning_level:
                         type: integer
                         description: 'When the variant hits this inventory level, it is considered low stock.'
                         x-nullable: true
                         maximum: 2147483647
+                        example: 5474
                       bin_picking_number:
                         maxLength: 255
                         minLength: 0
@@ -1495,6 +1520,7 @@ paths:
                     properties:
                       id:
                         type: integer
+                        example: 154
                         x-required:
                           - put
         required: true
