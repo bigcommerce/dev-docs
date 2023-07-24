@@ -214,7 +214,9 @@ paths:
         
         **Notes**
         
-        The default sort is by order id, from lowest to highest.
+        * The default sort is by order id, from lowest to highest.
+        * By default, requests sent without parameters will only return 50 orders. 
+
       tags:
         - Orders
       parameters:
@@ -1238,6 +1240,7 @@ components:
       in: query
       description: |-
         * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint.
+        
         * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. 
       schema:
         type: string  
