@@ -1,6 +1,6 @@
 FROM node:current-alpine
 
-ENV REVIEWDOG_VERSION=v0.11.0
+ENV REVIEWDOG_VERSION=v0.14.2
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
