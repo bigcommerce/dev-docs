@@ -6,22 +6,23 @@ info:
     
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                                   |
-    |-----------------------------------------|-------------------------------------------------------------------------------|
+    |:----------------------------------------|:------------------------------------------------------------------------------|
     | Customers                               | Identity and account details for customers shopping on BigCommerce stores     |
-    | Customers Addresses                     | Postal address belonging to a customer.                                       |
+    | Customers Addresses                     | Postal address belonging to a customer                                        |
     | Customers Groups                        | Groupings of customers who share the same level of access and discounts       |
     | Customers Validate Password             | Validate customer passwords                                                   |
     
     ## Usage Notes
     **Customer Groups**
     * Customer Groups are only available on specific plans.
+
     **Customers vs. Subscribers**
     * A subscriber is not always a customer. Someone can sign up for the newsletter only and not create an account.
     * A customer is not always a subscriber. Signing up for the newsletter is a separate action from creating an account and purchasing an item.
     * A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are a customer and a subscriber.
     ## Resources
     ### Related APIs / Endpoints
-      [Customer Login API](/api-docs/customers/customer-login-api)
+    - [Customer Login API](/api-docs/customers/customer-login-api)
     - [Current Customer API](/api-docs/customers/current-customer-api)
     - [Customers API (v3)](/docs/rest-management/customers)
     - [Subscribers API](/docs/rest-management/subscribers)
@@ -55,7 +56,7 @@ paths:
       tags:
         - Customers
       summary: Get All Customers
-      description: 'Returns a list of all *Customers*. Default sorting is by customer id, from lowest to highest. Optional parameters can be passed in.'
+      description: Returns a list of all *Customers*. Default sorting is by `customer_ID`, from lowest to highest. Optional parameters can be passed in.
       operationId: getAllCustomers
       parameters:
         - name: first_name
@@ -165,12 +166,13 @@ paths:
         ```
         ## Forcing Password Resets 
         To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
-        ```json
+        ```js showLineNumbers copy
         {
             "_authentication": {
                 "force_reset": true
             }
         }
+        ```
       operationId: createANewCustomer
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -183,7 +185,7 @@ paths:
                 _authentication:
                   type: object
                   properties: {}
-                  description: 'This can vary depending on the action being taken to update, validate or force a password change. See Update Customer'
+                  description: This can vary depending on the action being taken to update, validate or force a password change. See [Customers V2, Update a customer (Deprecated)](/docs/rest-management/customers-v2#update-a-customer).
                 company:
                   type: string
                 first_name:
@@ -217,7 +219,7 @@ paths:
       tags:
         - Customers
       summary: Delete Customers
-      description: 'By default, it deletes all *Customers*. Up to 100 customers per batch can be deleted. '
+      description: By default, it deletes all *Customers*. Up to 100 customers per batch can be deleted.
       operationId: deleteAllCustomers
       responses:
         '204':
@@ -273,6 +275,7 @@ paths:
       summary: Update a Customer
       description: |-
         Updates a *Customer*.
+
         **Read Only Fields**
         *   id
         *   date_created
@@ -280,21 +283,25 @@ paths:
         *   accepts_marketing
         *   addresses
         *   form_fields
+
         ## Notes 
         The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
         When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
         ## Updating Passwords 
         To manually update a customer password in the same way as the control panel, supply a value for the `password` field:
-        ```
+        
+        ```js showLineNumbers copy
         {
             "_authentication": {
                 "password": "12w69Y217PYR96J"
             }
         }
+        
         ```
+        
         #### Confirming Passwords 
         An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
-        ```
+        ```js showLineNumbers copy
         {
             "_authentication": {
                "password": "12w69Y217PYR96J"
@@ -304,7 +311,7 @@ paths:
         ```
         #### Forcing Password Resets 
         To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
-        ```
+        ```js showLineNumbers copy
         {
             "_authentication": {
                 "force_reset": true
@@ -338,7 +345,7 @@ paths:
                       type: string
                     password_confirmation:
                       type: string
-                  description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
+                  description: Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.
                 company:
                   type: string
                   description: The name of the company for which the customer works.
@@ -368,7 +375,7 @@ paths:
                     Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 store_credit:
                   type: string
-                  description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
+                  description: The amount of credit the customer has. (Float, Float as String, Integer)
                   example: '0'
                 registration_ip_address:
                   type: string
@@ -383,10 +390,10 @@ paths:
                   description: Store-owner notes on the customer.
                 tax_exempt_category:
                   type: string
-                  description: 'If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration. '
+                  description: If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
                 accepts_marketing:
                   type: boolean
-                  description: 'If the customer accepts product review emails or abandon cart emails. Read-Only. '
+                  description: Describes whether the customer accepts product review emails and abandon cart emails. Read-Only.
                   readOnly: true
                   example: true
                 addresses:
@@ -410,11 +417,11 @@ paths:
                     properties:
                       name:
                         type: string
-                        description: Name of the form field
-                        example: License Id
+                        description: Name of the form field.
+                        example: License ID
                       value:
                         type: string
-                        description: Value of the form field
+                        description: Value of the form field.
                         example: 123BAF
                 reset_pass_on_login:
                   type: boolean
@@ -448,7 +455,7 @@ paths:
       tags:
         - Customers
       summary: Get a Count of Customers
-      description: 'Returns a count of all *Customers*. '
+      description: Returns a count of all *Customers*.
       operationId: getACountOfCustomers
       responses:
         '200':
@@ -497,16 +504,16 @@ paths:
       description: |-
         **This endpoint has special rate limiting protections to protect against abuse.**
 
-        Provided a password, will return a true/false response indicating if the provided password matches the customer’s current password. This endpoint is useful if you want to power the login of another system using BigCommerce’s stored customer accounts, or as a safe way to migrate passwords to another system (by checking them against BigCommerce’s password, and if correct, storing it in another system securely.)If the password matches what’s stored against the customer account, the response will be:
+        Provided a password, will return a true/false response indicating if the provided password matches the customer’s current password. This endpoint is useful if you want to power the login of another system using BigCommerce’s stored customer accounts, or as a safe way to migrate passwords to another system (by checking them against BigCommerce’s password, and if correct, storing it in another system securely.) If the password matches what’s stored against the customer account, the response will be:
 
-        ```json
+        ```js showLineNumbers copy
         {
             "success": "true"
         }
         ```
         If the password does NOT match, the response will instead be:
 
-        ```json
+        ```js showLineNumbers copy
         {
             "success": "false"
         }
@@ -550,14 +557,14 @@ paths:
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
@@ -618,14 +625,14 @@ paths:
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
@@ -649,14 +656,14 @@ paths:
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
@@ -675,6 +682,7 @@ paths:
       summary: Update a Customer Address
       description: |-
         Updates a *Customer Address*. 
+
         **Read Only Fields**
         *   id
         *   country_iso2
@@ -719,11 +727,11 @@ paths:
                   example: BigCommerce
                 street_1:
                   type: string
-                  description: 'The customer’s street address, line 1.'
+                  description: The customer’s street address, line 1.
                   example: 123 Main Street
                 street_2:
                   type: string
-                  description: 'The customer’s street address, line 2.'
+                  description: The customer’s street address, line 2.
                 city:
                   type: string
                   description: The customer’s city/town/suburb.
@@ -803,14 +811,14 @@ paths:
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
@@ -832,28 +840,34 @@ paths:
       tags:
         - Customer Groups
       summary: Get All Customer Groups
-      description: 'Returns a list of *Customer Groups*. Default sorting is by customer-group id, from lowest to highest.'
+      description: Returns a list of *Customer Groups*. Default sorting is by customer-group ID, from lowest to highest.
       operationId: getAllCustomerGroups
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: name
           in: query
-          description: 'Filter customer groups by exact name match. Can use `name:like` to filter using a fuzzy matching method. This is good for implementing search.'
+          description: |- 
+            Filter customer groups by exact name match. 
           schema:
             type: string
+        - name: 'name:like'
+          in: query
+          description: Filter customer groups by name, using a fuzzy matching method.
+          schema:
+             type: string
         - name: is_default
           in: query
           description: Whether customers who sign up are added to this group by default.
@@ -861,7 +875,7 @@ paths:
             type: boolean
         - name: is_group_for_guests
           in: query
-          description: If the groups is for guests. There can only be one customer group for guests at a time.
+          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
           schema:
             type: boolean
       responses:
@@ -879,6 +893,7 @@ paths:
       summary: Create a Customer Group
       description: |-
         Creates a *Customer Group*. 
+
         **Required Fields**
         * name
       operationId: createACustomerGroup
@@ -898,7 +913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/customerGroup_Full'
         '207':
-          description: 'The customer group was created, but the sitewide discount update failed. You may retry the request.'
+          description: The customer group was created, but the sitewide discount update failed. You may retry the request.
           content:
             application/json:
               schema:
@@ -935,21 +950,21 @@ paths:
       parameters:
         - name: page
           in: query
-          description: Number of pages
+          description: Number of pages.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: limit
           in: query
-          description: Count per page
+          description: Count per page.
           schema:
             exclusiveMaximum: false
             exclusiveMinimum: false
             type: number
         - name: name
           in: query
-          description: Name of the customer groups
+          description: Name of the customer groups.
           schema:
             type: string
         - name: is_default
@@ -998,7 +1013,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/customerGroup_Full'
         '207':
-          description: 'The customer group was updated, but the sitewide discount update failed. You may retry the request.'
+          description: The customer group was updated, but the sitewide discount update failed. You may retry the request.
           content:
             application/json:
               schema:
@@ -1020,6 +1035,7 @@ paths:
       summary: Delete a Customer Group
       description: |-
         Deletes a *Customer Group*. 
+
         **Notes**
         All existing customers are unassigned from the group when it is deleted.
       operationId: deleteACustomerGroup
@@ -1041,7 +1057,7 @@ paths:
       tags:
         - Customer Groups
       summary: Get a Count of Customer Groups
-      description: 'Returns a count of all *Customer Groups*. '
+      description: Returns a count of all *Customer Groups*.
       operationId: getACountOfCustomerGroups
       responses:
         '200':
@@ -1112,11 +1128,11 @@ components:
             properties:
               name:
                 type: string
-                description: Name of the form field
-                example: License Id
+                description: Name of the form field.
+                example: License ID
               value:
                 type: string
-                description: Value of the form field
+                description: Value of the form field.
                 example: 123BAF
       x-internal: false
     customerFormFields:
@@ -1125,11 +1141,11 @@ components:
       properties:
         name:
           type: string
-          description: Name of the form field
-          example: License Id
+          description: Name of the form field.
+          example: License ID
         value:
           type: string
-          description: Value of the form field
+          description: Value of the form field.
           example: 123BAF
       x-internal: false
     shippingAddress_Full:
@@ -1138,7 +1154,7 @@ components:
       properties:
         url:
           type: string
-          description: URL of the shipping address for api requests
+          description: URL of the shipping address for API requests.
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
         resource:
           type: string
@@ -1221,11 +1237,11 @@ components:
       properties:
         id:
           type: integer
-          description: Id of the customer group
+          description: ID of the customer group.
           example: 1
         name:
           type: string
-          description: Name of the group
+          description: Name of the group.
           example: Wholesale
         is_default:
           type: boolean
@@ -1235,7 +1251,7 @@ components:
           $ref: '#/components/schemas/categoryAccessLevel_Full'
         discount_rules:
           type: array
-          description: A collection of discount rules that are automatically applied to customers who are members of the group
+          description: A collection of discount rules that are automatically applied to customers who are members of the group.
           items:
             type: object
             properties:
@@ -1254,16 +1270,24 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified
-                example: '"5.0000" (Float, Float as String, Integer)'
+                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
+                example: '"5.0000"'
               price_list_id:
                 type: integer
-                description: 'If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.'
+                description: If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.
                 example: 3
+        date_created:
+          type: string
+          description: Date on which the customer group was created.
+          example: 2023-07-17 06:30:41
+        date_modified:
+          type: string
+          description: Date on which the customer group was last modified.
+          example: 2023-07-25 01:15:19
         is_group_for_guests:
           type: boolean
-          description: If the groups is for guests. There can only be one customer group for guests at a time.
-      description: 'When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior via API.'
+          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
+      description: When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior with the API.
       x-internal: false
     country_Full:
       title: country_Full
@@ -1271,7 +1295,7 @@ components:
       properties:
         id:
           type: integer
-          description: Id of the country.
+          description: ID of the country.
           example: 13
         country:
           type: string
@@ -1346,7 +1370,7 @@ components:
       properties:
         name:
           type: string
-          description: Name of the group
+          description: Name of the group.
           example: Wholesale
         is_default:
           type: boolean
@@ -1356,7 +1380,7 @@ components:
           $ref: '#/components/schemas/categoryAccessLevel_Full'
         discount_rules:
           type: array
-          description: A collection of discount rules that are automatically applied to customers who are members of the group
+          description: A collection of discount rules that are automatically applied to customers who are members of the group.
           items:
             type: object
             properties:
@@ -1375,23 +1399,31 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified
-                example: '"5.0000" (Float, Float as String, Integer)'
+                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
+                example: '"5.0000"'
               price_list_id:
                 type: integer
-                description: 'If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.'
+                description: If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.
                 example: 3
+        date_created:
+          type: string
+          description: Date on which the customer group was created.
+          example: 2023-07-17 06:30:41
+        date_modified:
+          type: string
+          description: Date on which the customer group was last modified.
+          example: 2023-07-25 01:15:19
         is_group_for_guests:
           type: boolean
-          description: If the groups is for guests. There can only be one customer group for guests at a time.
-      description: 'When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior via API.'
+          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
+      description: When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior with the API.
       x-internal: false
     validatePassword:
       type: object
       properties:
         success:
           type: boolean
-          description: Will return `true` or `false`
+          description: Will return `true` or `false`.
       x-internal: false
     customer_Base:
       title: customer_Base
@@ -1400,7 +1432,7 @@ components:
       properties:
         _authentication:
           type: object
-          description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
+          description: Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.
           properties:
             force_reset:
               type: boolean
@@ -1430,7 +1462,7 @@ components:
           example: '1234567890'
         store_credit:
           type: string
-          description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
+          description: The amount of credit the customer has. (Float, Float as String, Integer)
           example: '0'
         registration_ip_address:
           type: string
@@ -1446,10 +1478,10 @@ components:
         
         tax_exempt_category:
           type: string
-          description: 'If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
+          description: If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
         accepts_marketing:
           type: boolean
-          description: 'If the customer accepts product review emails or abandon cart emails. Read-Only. '
+          description: Describes whether the customer accepts product review emails or abandon cart emails. Read-Only.
           example: true
           readOnly: true
         addresses:
@@ -1474,11 +1506,11 @@ components:
             properties:
               name:
                 type: string
-                description: Name of the form field
-                example: License Id
+                description: Name of the form field.
+                example: License ID
               value:
                 type: string
-                description: Value of the form field
+                description: Value of the form field.
                 nullable: true
         reset_pass_on_login:
           type: boolean
@@ -1619,7 +1651,7 @@ components:
     is_group_for_guests:
       name: is_group_for_guests
       in: query
-      description: If the groups is for guests. There can only be one customer group for guests at a time.
+      description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
       schema:
         type: boolean
   securitySchemes:
