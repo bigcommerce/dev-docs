@@ -461,7 +461,7 @@ MYSQL_PORT={mysql port}
 2. At the top of the file, add the following imports:
 
 ```ts filename="Add imports mysql.ts" showLineNumbers copy
-import * as mysql from 'mysql';
+import * as mysql from 'mysql2';
 import { promisify } from 'util';
 import { SessionProps, StoreData } from '../../types';
 ```
