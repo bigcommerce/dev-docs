@@ -44,16 +44,16 @@ To write a `package.json` file with default values, run `npm init -y` instead. D
 
 ## Install npm packages
 
-1. Install `big-design`, `next`, `react`, `react-dom`, and `styled-components`.
+1. Install `big-design`, `big-design-icons`, `big-design-theme`, `dotenv`, `next`, `react`, `react-dom`, and `styled-components`.
 
 ```shell copy filename="Install dependencies"
-npm install --save @bigcommerce/big-design next react react-dom styled-components
+npm install --save @bigcommerce/big-design @bigcommerce/big-design-icons @bigcommerce/big-design-theme dotenv next react react-dom styled-components
 ```
 
 2. Install dev dependencies.
 
 ```shell copy filename="Install devDependencies"
-npm install --save-dev babel-plugin-styled-components @types/node @types/react typescript
+npm install --save-dev babel-plugin-styled-components @types/node @types/react @types/react-dom @types/styled-components typescript
 ```
 
 [babel-plugin-styled-components](https://www.npmjs.com/package/babel-plugin-styled-components) is a supplement to the styled-components library that, among other things, offers improved debugging and minification of styles.
@@ -77,13 +77,31 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start -p $PORT",
   }
 }
 ```
 
 3. Save your changes.
+
+## Add the node and npm engines
+
+1. Open `package.json` in your text editor.
+
+2. Add an `engines` property with the following values:
+
+```json filename="Add engines" showLineNumbers copy
+{
+  ...
+  "engines": {
+    "node": ">=16 <20",
+    "npm": ">=8 <10"
+  },
+}
+```
+
+3. Save your changes.
+
 
 ## Create a starter page
 

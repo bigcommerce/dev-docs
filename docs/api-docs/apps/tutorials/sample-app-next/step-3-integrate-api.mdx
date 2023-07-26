@@ -19,16 +19,34 @@ If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
 npm install --save firebase jsonwebtoken swr
 ```
 
-If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
+If using MySQL, install `mysql2`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell copy filename="Install packages MySQL"
-npm install --save mysql jsonwebtoken swr
+npm install --save mysql2 jsonwebtoken swr
 ```
 
 <Callout type="info">
   #### Firebase version
   These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
 </Callout>
+
+## Add scripts
+
+1. Open `package.json` in your text editor.
+
+2. Update the `scripts` property to include the `db:setup` script.
+
+```json filename="Add npm scripts" showLineNumbers copy
+{
+  ...
+  "scripts": {
+    ...,
+    "db:setup": "node scripts/db.js"
+  }
+}
+```
+
+3. Save your changes.
 
 ## Add TypeScript definitions
 
@@ -93,7 +111,7 @@ export * from './db';
 
 <Callout type="info">
   #### Ngrok expiration and callbacks
-  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `{ngrok_url}` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 </Callout>
 
 
@@ -328,7 +346,7 @@ FIRE_PROJECT_ID={firebaseConfig.projectId}
 
 <Callout type="info">
   #### Restart after adding environment variables
-  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
 </Callout>
 
 ### Configure the Firebase database
@@ -433,7 +451,7 @@ MYSQL_PORT={mysql port}
 
 <Callout type="info">
   #### Restart dev server when .env changes
-  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
 </Callout>
 
 ### Configure MySQL
@@ -531,6 +549,13 @@ switch (DB_TYPE) {
 export default db;
 ```
 
+## Run the initial database migration
+
+Whether you're using Firebase or MySQL, set up the initial tables or collections by navigating to the root directory of your project and running the following script:
+
+```shell filename="Initial database migration" copy
+npm run db:setup
+```
 
 ## Upgrade the endpoints
 
