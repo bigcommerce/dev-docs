@@ -1,3 +1,8 @@
+---
+title: API Accounts & OAuth Scopes
+keywords: address, authentication, authorization, x-auth-token, access_token, access token, app extensions, 
+---
+
 # API Accounts & OAuth Scopes
 
 BigCommerce offers three types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: store-level credentials, app-level credentials, and account-level credentials. This article describes the difference between the three, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
@@ -202,7 +207,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
 | Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
 | Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
-| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) |
+| Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) <br />[Promotions V3](/promotions/rest-management/coupon-codes-bulk)|
 | Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) |
 | Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |

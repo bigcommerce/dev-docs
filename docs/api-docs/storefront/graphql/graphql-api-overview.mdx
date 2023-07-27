@@ -1,3 +1,8 @@
+---
+title: GraphQL Storefront API Overview
+keywords: graphql, storefront, storefronts, cors, headless, 
+---
+
 # GraphQL Storefront API Overview
 
 <Callout type="info">
@@ -478,7 +483,7 @@ You can retrieve the next thirty by making a new query and passing in the `endCu
 ```graphql filename="Example query using slices and cursor" showLineNumbers copy
 query brands {
   site {
-    brands (first: 30, after:"YXJyYXljb25uZWN0aW9uOjM="  {
+    brands (first: 30, after:"YXJyYXljb25uZWN0aW9uOjM=")  {
       pageInfo {
         startCursor
         endCursor
@@ -496,9 +501,13 @@ query brands {
 
 ## Complexity limits
 
-The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. When you send a valid GraphQL request, the API returns the query complexity as an integer using the HTTP response header `x-bc-graphql-complexity` .
+Complexity scores estimate the load that a single GraphQL request may generate. BigCommerce calculates the complexity score using an algorithm before executing the call, based on the provided query.
 
-If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following:
+The API sets a complexity limit of 10,000 for each request to prevent excessive loads. Because all work is generated per request, the limit is fixed per request, regardless of the number of requests sent.
+
+When you send a valid GraphQL request, the API returns the query complexity as an integer using the HTTP response header `X-Bc-Graphql-Complexity` .
+
+If a query's complexity score exceeds the complexity limit, an error response similar to the following appears: 
 
 
 ```json filename="Example response with complexity error" showLineNumbers copy
@@ -601,10 +610,86 @@ query {
 }
 ```
 
+Filter arguments and character limits don't contribute to complexity.
+
+```graphql filename="Example query" showLineNumbers copy
+query {
+  site {
+    content {
+      blog {
+        posts (filters: {tags:["Most Popular"]}) { // Filter argument
+          edges {
+            node {
+              plainTextSummary (characterLimit: 100) // Character limit
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 To reduce complexity, reduce the number of objects requested. For example, do the following:
 * Limit collections to a smaller page size (for example, `first:10` instead of `first:50`).
 * Reduce the number of items in nested collections, exponentially affecting complexity.
 * Request fewer fields on objects, and don't request fields you don't need.
+
+Mutations have a higher complexity than queries; you can only send one mutation in a single request. [Pagination info](#pagination) also contributes to complexity.
+
+### Query depth
+
+In addition to the complexity limit, there is a query depth limit. The limit is 16. Queries must not exceed the query depth limit and the complexity limit.
+
+Every parent type adds an additional level of depth, as shown in the following examples. 
+
+```graphql filename="Example query with depth of 11" showLineNumbers copy
+query {                                 // depth 0
+  site {                                // depth 1
+    products {                          // depth 2
+      edges {                           // depth 3
+        node {                          // depth 4
+          entityId                      // depth 5
+          variants {                    // depth 5
+            edges {                     // depth 6
+              node {                    // depth 7
+                entityId                // depth 8
+                options {               // depth 8
+                  edges {               // depth 9
+                    node {              // depth 10
+                      entityId          // depth 11
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+```graphql filename="Example query with depth of six" showLineNumbers copy
+query {                                 // depth 0
+  site {                                // depth 1
+    categoryTree {                      // depth 2
+      ...CategoryFields                 // depth 3
+      children {                        // depth 3  
+        ...CategoryFields               // depth 4
+        children {                      // depth 4
+          ...CategoryFields             // depth 5
+        }
+      }
+    }
+  }
+}
+
+fragment CategoryFields on CategoryTreeItem {
+  name
+}
+```
 
 ## Platform limitations
 
