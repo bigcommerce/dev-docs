@@ -129,36 +129,7 @@ Accept: application/json
 | &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
-| Platform            | Accepted Type |
-|:--------------------|:--------------|
-| `square`            | `pos` |
-| `stripe`            | `pos` |
-| `vend`              | `pos` |
-| `clover`            | `pos` |
-| `talech`            | `pos` |
-| `facebook by meta`  | `marketplace`, `marketing` |
-| `instagram by meta` | `marketplace`, `marketing` |
-| `amazon`            | `marketplace` |
-| `ebay`              | `marketplace` |
-| `pinterest`         | `marketplace` |
-| `wayfair`           | `marketplace` |
-| `overstock`         | `marketplace` |
-| `etsy`              | `marketplace` |
-| `wish`              | `marketplace` |
-| `walmart`           | `marketplace` |
-| `bigcommerce`       | `storefront` |
-| `gatsby`            | `storefront` |
-| `wordpress`         | `storefront` |
-| `drupal`            | `storefront` |
-| `acquia`            | `storefront` |
-| `bloomreach`        | `storefront` |
-| `deity`             | `storefront` |
-| `next`              | `storefront` |
-| `vue`               | `storefront` |
-| `google_shopping`\* | `marketing` |
-| `google` | `marketing` |
-| `google` | `marketplace` |
-| `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference.
 
 <Callout type="info">
   We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
