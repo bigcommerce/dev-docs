@@ -23,7 +23,6 @@ To use this API from a coupled storefront, use the following HTTP configuration:
     method: 'POST',
     credentials: 'same-origin',
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + {{storefrontToken}}
     },
@@ -42,7 +41,6 @@ To use this API server-to-server, use the following HTTP configuration:
   POST https://{{storeDomain}}/graphql
   Authorization: Bearer {{storefrontOrCustomerImpersonationToken}}
   X-BC-Customer-ID: 123 # optional once a customer is signed in
-  Accept: application/json
   Content-Type: application/json
 ```
 
