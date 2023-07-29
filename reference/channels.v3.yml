@@ -18,34 +18,43 @@ info:
 
     A channel's `type` and `platform` combination must be a valid pair as indicated in the table below.
 
-    | Platform          | Accepted Type             |
-    |-------------------|---------------------------|
-    | `square`          | `pos`                     |
-    | `stripe`          | `pos`                     |
-    | `vend`            | `pos`                     |
-    | `clover`          | `pos`                     |
-    | `talech`          | `pos`                     |
-    | `facebook by meta`| `marketplace`,`marketing` |
-    | `instagram by meta`| `marketplace`,`marketing`|
-    | `amazon`          | `marketplace`             |
-    | `ebay`            | `marketplace`             |
-    | `pinterest`       | `marketplace`             |
-    | `wayfair`         | `marketplace`             |
-    | `overstock`       | `marketplace`             |
-    | `etsy`            | `marketplace`             |
-    | `wish`            | `marketplace`             |
-    | `walmart`         | `marketplace`             |
-    | `bigcommerce`     | `storefront`              |
-    | `gatsby`          | `storefront`              |
-    | `wordpress`       | `storefront`              |
-    | `drupal`          | `storefront`              |
-    | `acquia`          | `storefront`              |
-    | `bloomreach`      | `storefront`              |
-    | `deity`           | `storefront`              |
-    | `next`            | `storefront`              |
-    | `vue`             | `storefront`              |
-    | `google_shopping` | `marketing`               |
-    | `custom`          | `storefront`, `pos`, `marketing`, `marketplace` |
+    | Platform            | Accepted Type |
+    |:--------------------|:--------------|
+    | `clover`            | `pos` |
+    | `square`            | `pos` |
+    | `stripe`            | `pos` |
+    | `talech`            | `pos` |
+    | `vend`              | `pos` |
+    | `amazon`            | `marketplace` |
+    | `belk`              | `marketplace` |
+    | `catch`             | `marketplace` |
+    | `ebay`              | `marketplace` |
+    | `etsy`              | `marketplace` |
+    | `facebook`  | `marketplace`, `marketing` |
+    | `hudsons_bay`       | `marketplace` |
+    | `google`            | `marketplace`, `marketing` |
+    | `google_shopping` (deprecated)   | `marketing` |
+    | `instagram` | `marketplace`, `marketing` |
+    | `macys`             | `marketplace` |
+    | `mirakl`            | `marketplace` |
+    | `overstock`         | `marketplace` |
+    | `pinterest`         | `marketplace` |
+    | `target_plus`       | `marketplace` |
+    | `tiktok`            | `marketplace` |
+    | `wayfair`           | `marketplace` |
+    | `wish`              | `marketplace` |
+    | `walmart`           | `marketplace` |
+    | `acquia`            | `storefront` |
+    | `bigcommerce`       | `storefront` |
+    | `bloomreach`        | `storefront` |
+    | `deity`             | `storefront` |
+    | `drupal`            | `storefront` |
+    | `gatsby`            | `storefront` |
+    | `next`              | `storefront` |
+    | `vue`               | `storefront` |
+    | `wordpress`         | `storefront` |
+    | `custom`            | `storefront`, `pos`, `marketing`, `marketplace` |
+        
 
     ### Status
 
