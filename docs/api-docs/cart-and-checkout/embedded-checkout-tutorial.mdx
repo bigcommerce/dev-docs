@@ -149,7 +149,7 @@ The response contains a cart ID you can use in subsequent requests:
 }
 ```
 
-To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/cart-redirect-urls#create-cart-redirect-url) endpoint. Use the cart ID returned with the [Create a cart](https://developer.bigcommerce.com/docs/rest-management/carts/carts-single#create-a-cart) response as the cartId path parameter value.
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. Use the cart ID returned with the [Create a cart](https://developer.bigcommerce.com/docs/rest-management/carts/carts-single#create-a-cart) response as the cartId path parameter value.
 
 ```http filename="Example response: Create cart redirect URLs" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
@@ -221,7 +221,7 @@ This will render the checkout to an HTML element with the `id` you chose.
 <div id="foo-bar-checkout"></div>
 ```
 
-Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
+Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/EmbeddedCheckoutOptions.md).
 
 ## FAQ
 
