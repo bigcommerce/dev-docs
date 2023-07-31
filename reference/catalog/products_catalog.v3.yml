@@ -484,7 +484,7 @@ paths:
                     open_graph_use_meta_description: true
                     open_graph_use_product_name: true
                     open_graph_use_image: true
-                    brand_name or brand_id: Common Good
+                    brand_name: Common Good
                     gtin: string
                     mpn: string
                     reviews_rating_sum: 3
@@ -603,7 +603,7 @@ paths:
                         open_graph_use_meta_description: true
                         open_graph_use_product_name: true
                         open_graph_use_image: true
-                        brand_name or brand_id: Common Good
+                        brand_name: Common Good
                         gtin: string
                         mpn: string
                         reviews_rating_sum: 3
@@ -958,7 +958,7 @@ paths:
                 open_graph_use_meta_description: true
                 open_graph_use_product_name: true
                 open_graph_use_image: true
-                brand_name or brand_id: Common Good
+                brand_name: Common Good
                 gtin: string
                 mpn: string
                 reviews_rating_sum: 3.2
@@ -1568,7 +1568,7 @@ paths:
                 open_graph_use_meta_description: true
                 open_graph_use_product_name: true
                 open_graph_use_image: true
-                brand_name or brand_id: Common Good
+                brand_name: Common Good
                 gtin: string
                 mpn: string
                 reviews_rating_sum: 3.2
@@ -7868,7 +7868,7 @@ components:
             open_graph_use_meta_description: true
             open_graph_use_product_name: true
             open_graph_use_image: true
-            brand_name or brand_id: Common Good
+            brand_name: Common Good
             gtin: string
             mpn: string
             reviews_rating_sum: 3.2
@@ -8144,7 +8144,7 @@ components:
           open_graph_use_meta_description: true
           open_graph_use_product_name: true
           open_graph_use_image: true
-          brand_name or brand_id: Common Good
+          brand_name: Common Good
           gtin: string
           mpn: string
           reviews_rating_sum: 3.2
@@ -8294,7 +8294,11 @@ components:
           minimum: 0
           type: integer
           description: |
-            A product can be added to an existing brand during a product /PUT or /POST.
+            You can add a product to an existing brand during a product /PUT or /POST. Use either the `brand_id` or the `brand_name` field. The response body can include `brand_id`.
+        brand_name:
+          type: string
+          description: You can create the brand during a product PUT or POST request. If the brand already exists, the product /PUT or /POST request adds the product to the brand. If not, the product /PUT or /POST request creates the brand and then adds the product to the brand. Brand name is not case-sensitive; "Common Good" and "Common good" are the same. Use either the `brand_id` or the `brand_name` field. The response body does not include `brand_name`.
+          example: Common Good
         inventory_level:
           maximum: 2147483647
           minimum: 0
@@ -8519,10 +8523,6 @@ components:
           type: boolean
           description: |
             Flag to determine if product image or open graph image is used.
-        brand_name or brand_id:
-          type: string
-          description: The brand can be created during a product PUT or POST request. If the brand already exists then the product will be added. If not the brand will be created and the product added. If using `brand_name` it performs a fuzzy match and adds the brand. eg. "Common Good" and "Common good" are the same. Brand name does not return as part of a product response. Only the `brand_id`.
-          example: Common Good
         gtin:
           type: string
           description: Global Trade Item Number
