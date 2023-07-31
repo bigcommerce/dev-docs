@@ -55,19 +55,12 @@ Accept: application/json
   "type": "storefront",
   "platform": "deity",
   ...
-  }
+}
 ```
 
 ### Accepted values
 
-| Platform     | Accepted Type                                   |
-| ------------ | ----------------------------------------------- |
-| `wordpress`  | `storefront`                                    |
-| `drupal`     | `storefront`                                    |
-| `acquia`     | `storefront`                                    |
-| `bloomreach` | `storefront`                                    |
-| `deity`      | `storefront`                                    |
-| `custom`     | `storefront`, `pos`, `marketing`, `marketplace` |
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference. You can use any platform with `storefront` as an accepted type.
 
 ## Configuring UI sections
 
@@ -80,13 +73,13 @@ Content-Type: application/json
 Accept: application/json
 
 {
-   "bigcommerce_protected_app_sections":[],
-   "custom_app_sections":[
-      {
-         "title":"Overview",
-         "query_path":"overview"
-      }
-   ]
+  "bigcommerce_protected_app_sections": [],
+  "custom_app_sections": [
+    {
+      "title": "Overview",
+      "query_path": "overview"
+    }
+  ]
 }
 ```
 
@@ -116,12 +109,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-   "bigcommerce_protected_app_sections": [
-      "storefront_settings",
-      "currencies",
-      "domains"
-   ],
-   "custom_app_sections":[]
+  "bigcommerce_protected_app_sections": [
+    "storefront_settings",
+    "currencies",
+    "domains"
+  ],
+  "custom_app_sections": []
 }
 ```
 
