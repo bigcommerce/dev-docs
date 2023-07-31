@@ -43,7 +43,7 @@ ngrok http 3000
 
 ## Register the app
 
-Next, register the draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
+Next, create a draft app profile in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
 
 1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an app**.
@@ -124,7 +124,7 @@ API_URL=api.bigcommerce.com
 * If using MySQL, enter your project's MySQL database config keys (host, database, user/pass and optionally port).
 * If using Heroku with ClearDB, the database should create the necessary Config Var, namely, `CLEARDB_DATABASE_URL`.
 
-7. To set up the initial tables or collections, navigate to the root directory of your project and run the database migration using the following npm script:
+7. If you're using MySQL, set up the initial tables by navigating to the root directory of your project, then run the database migration using the following npm script:
 
 ```shell filename="Initial database migration" copy
 npm run db:setup
