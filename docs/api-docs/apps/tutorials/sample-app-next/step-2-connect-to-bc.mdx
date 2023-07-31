@@ -195,9 +195,9 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
   Avoid using the unsecured HTTP URL to prevent security policy errors.
 </Callout>
 
-* For Auth Callback URL, enter the URL of your app followed by `/api/auth`.
-* For Load Callback URL, enter the URL of your app followed by `/api/load`.
-* For Uninstall Callback URL, enter the URL of your app followed by `/api/uninstall`.
+* For Auth Callback URL, enter the ngrok URL of your app followed by `/api/auth`.
+* For Load Callback URL, enter the ngrok URL of your app followed by `/api/load`.
+* For Uninstall Callback URL, enter the ngrok URL of your app followed by `/api/uninstall`.
 
 ![Callback URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-06.png "Callback URL")
 
@@ -216,7 +216,7 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 
 You should see your app listed under **My Apps** in your **Developer Portal** account. 
 
-## Add your Client ID and Client Secret Key
+## Add your client ID and client secret
 
 It is best practice to declare environment variables in the `.env` environment file. You use the `.env` file to store your Client ID and Client Secret Key. 
 
@@ -230,7 +230,10 @@ Next.js comes pre-equipped to handle environment variables. It loads environment
 CLIENT_ID={app client id}
 CLIENT_SECRET={app secret}
 
-AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
+AUTH_CALLBACK=https://{ngrok_url}/api/auth
+
+# Most users do not need to change this
+API_URL=api.bigcommerce.com
 ```
 
 <Callout type="warning">
@@ -240,8 +243,8 @@ AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 
 
 3. Navigate to [Developer Portal > My Apps](https://devtools.bigcommerce.com/my/apps). Locate your app and click **View Client ID** to retrieve your app's credentials.
-4. Copy the app's Client ID and Client Secret and paste them into the `.env` file.
-5. Update `AUTH_CALLBACK` in `.env` with your `ngrok_id`. Because `env` variables are loaded on build, make sure to save your changes. 
+4. Copy the app's client ID and client secret and paste them into the `.env` file.
+5. Update `AUTH_CALLBACK` in `.env` with your `{ngrok_url}`. Because `env` variables are loaded on build, make sure to save your changes. 
 6. Switch to the terminal window where the dev server is currently running and restart the dev environment. 
 
 ```shell copy filename="Restart dev server"
@@ -250,7 +253,7 @@ npm run dev
 
 <Callout type="info">
   #### Ngrok expiration and callbacks
-  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `{ngrok_url}` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 </Callout>
 
 ## Install and launch the app
@@ -269,4 +272,4 @@ You should see your app embedded in the BigCommerce platform.
 
 ![Embedded app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-09.png "Embedded app")
 
-[Next: Integrate the BigCommerce API and Add a Database](/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)
+[Next: Integrate the BigCommerce API and Add a Database](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-3-integrate)

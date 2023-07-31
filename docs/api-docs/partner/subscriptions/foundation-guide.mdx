@@ -52,13 +52,13 @@ To install your app on your sandbox store, complete the following steps:
 
 1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_url}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
 
 | Callback | URL value |
 |:---------|:----|
-| Auth Callback | `https://{ngrok_id}.ngrok.io/api/auth` |
-| Load Callback | `https://{ngrok_id}.ngrok.io/api/load` |
-| Uninstall Callback | `https://{ngrok_id}.ngrok.io/api/uninstall` |
+| Auth Callback | `https://{ngrok_url}/api/auth` |
+| Load Callback | `https://{ngrok_url}/api/load` |
+| Uninstall Callback | `https://{ngrok_url}/api/uninstall` |
 
 3. In the **OAuth scopes** section, add the following scopes:
 
@@ -158,7 +158,7 @@ To configure test mode, complete the following steps:
    c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
    ```http filename="Your app's Stripe callback URI" showLineNumbers copy
-   https://{ngrok_id}.ngrok.io/stripe/callback
+   https://{ngrok_url}/stripe/callback
    ```
 
 ## Configure the BigCommerce store
@@ -243,7 +243,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#install-and-launch-the-app).
+After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#install-and-launch-the-app).
 
 ## Replacing Postgres
 
