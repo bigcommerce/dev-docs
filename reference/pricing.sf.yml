@@ -339,6 +339,11 @@ paths:
                         maximum: 1
                         discount_amount: 1
                         discount_type: percent
+                        tax_discount_amount:
+                        - as_entered: 10
+                          tax_inclusive: 10
+                          tax_exclusive: 10
+                          entered_inclusive: false
                 meta: {}
 components:
   schemas:
@@ -359,6 +364,24 @@ components:
             - price
             - percent
             - fixed
+        tax_discount_amount:
+          type: array
+          description: Formats the `bulk_pricing.discount_amount` into the tax price amounts.
+          items:
+            type: object
+            properties:
+              as_entered:
+                type: number
+                description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
+              tax_inclusive:
+                type: number
+                description: The estimated tax inclusive price for this product based on the provided customer group.
+              tax_exclusive:
+                type: number
+                description: The estimated tax exclusive price for this product based on the provided customer group.
+              entered_inclusive:
+                type: boolean
+                description: Determines whether the 'as_entered' price is inclusive or exclusive of tax based on the store's tax jurisdiction.
       x-internal: false
     PricingResponse:
       type: object
@@ -551,12 +574,14 @@ components:
                       description: The maximum quantity (or 0 for unlimited) to trigger this bulk pricing discount.
                     discount_amount:
                       type: number
+                      description: The price reduction set by the merchant for this bulk pricing discount.
                     discount_type:
                       type: string
                       enum:
                         - price
                         - percent
                         - fixed
+                      description: The format of the price reduction set by the merchant for this bulk pricing discount.
                     tax_discount_amount:
                       type: array
                       description: Formats the `bulk_pricing.discount_amount` into the tax price amounts.
