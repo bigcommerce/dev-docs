@@ -1276,6 +1276,16 @@ paths:
             Filter items by is_featured.
           schema:
             type: integer
+        - name: 'id:in'
+          in: query
+          description:
+            Filter by product ID(s).
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
         - name: inventory_level
           in: query
           description: |
