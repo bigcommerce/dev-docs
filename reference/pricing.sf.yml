@@ -45,39 +45,45 @@ paths:
               properties:
                 channel_id:
                   type: integer
-                  description: The channel context that pricing should be evaluated within. The default BC storefront is channel 1
+                  description: The channel ID that pricing evaluates within. The default BigCommerce storefront is channel 1.
                   example: 1
                 currency_code:
                   type: string
-                  description: The currency of prices to be returned for this request
+                  description: The currency code of prices this request returns.
+
                   example: USD
                 customer_group_id:
                   type: integer
-                  description: 'The customer group relevant for any customer group pricing, tax values, etc.'
+                  description: The customer group ID that's relevant for any customer group pricing, tax values, etc.
                 items:
                   type: array
-                  description: The items to fetch prices for
+                  description: The items for which to fetch prices.
+
                   items:
                     type: object
                     properties:
                       product_id:
                         type: integer
-                        description: The (required) product ID of the item
+                        description: The (required) product ID of the item.
                       variant_id:
                         type: number
-                        description: The (optional) variant ID of the item
+                        description: The (optional) variant ID of the item.
                       options:
                         type: array
-                        description: The (optional) option configuration of the product. May be "partially" configured for estimates.
+                        description: The option configuration of the product (optional); might be partially configured for estimates.
                         items:
                           type: object
                           properties:
                             option_id:
                               type: integer
-                              description: The ID of the variant option or modifier option being configured for this product
+                              description: The ID of the variant option or modifier option that is being configured for this product.
                             value_id:
                               type: integer
-                              description: 'The ID of the value matching the option being configured. Note: must be ID, not the value.'
+                              description: |-
+                                The ID of the value matching the option that's being configured. 
+                                
+                                **Note:*** This must be the ID, not the value.
+
                     description: Details/configuration for the product to request a price for.
         required: true
       responses:
@@ -96,19 +102,20 @@ paths:
                       properties:
                         product_id:
                           type: integer
-                          description: The product ID this price was generated for
+                          description: The (required) product ID of the item.
                         variant_id:
                           type: integer
-                          description: The (optional) variant ID this price was generated for
+                          description: The (optional) variant ID of the item.
                         options:
                           type: array
-                          description: The optional product option configuration this price was generated for
+                          description: The optional product option configuration for which this price was generated.
+
                           items:
                             type: object
                             properties:
                               option_id:
                                 type: integer
-                                description: The ID of the variant option or modifier option configured for this price
+                                description: The ID of the variant option or modifier option configured for this price.
                               value_id:
                                 type: integer
                                 description: The selected value ID for the configured option.
@@ -117,81 +124,81 @@ paths:
                           properties:
                             as_entered:
                               type: number
-                              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                             entered_inclusive:
                               type: boolean
-                              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                             tax_exclusive:
                               type: number
-                              description: The estimated tax exclusive price for this product based on the provided customer group
+                              description: The estimated tax exclusive price for this product based on the provided customer group.
                             tax_inclusive:
                               type: number
-                              description: The estimated tax inclusive price for this product based on the provided customer group
+                              description: The estimated tax inclusive price for this product based on the provided customer group.
                           description: The (optional) RRP/retail price configured for this product. Used for price comparison and storefront display purposes.
                         sale_price:
                           type: object
                           properties:
                             as_entered:
                               type: number
-                              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                             entered_inclusive:
                               type: boolean
-                              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                             tax_exclusive:
                               type: number
-                              description: The estimated tax exclusive price for this product based on the provided customer group
+                              description: The estimated tax exclusive price for this product based on the provided customer group.
                             tax_inclusive:
                               type: number
-                              description: The estimated tax inclusive price for this product based on the provided customer group
+                              description: The estimated tax inclusive price for this product based on the provided customer group.
                           description: The merchant-entered sale price for a product overwrites the default price. The sale_price is optional.
                         minimum_advertised_price:
                           type: object
                           properties:
                             as_entered:
                               type: number
-                              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                             entered_inclusive:
                               type: boolean
-                              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                             tax_exclusive:
                               type: number
-                              description: The estimated tax exclusive price for this product based on the provided customer group
+                              description: The estimated tax exclusive price for this product based on the provided customer group.
                             tax_inclusive:
                               type: number
-                              description: The estimated tax inclusive price for this product based on the provided customer group
+                              description: The estimated tax inclusive price for this product based on the provided customer group.
                           description: The minimum advertised price (MAP) allowed to be shown on a storefront. A value supplied by the merchant and used for display purposes.
                         price:
                           type: object
                           properties:
                             as_entered:
                               type: number
-                              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                             entered_inclusive:
                               type: boolean
-                              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                             tax_exclusive:
                               type: number
-                              description: The estimated tax exclusive price for this product based on the provided customer group
+                              description: The estimated tax exclusive price for this product based on the provided customer group.
                             tax_inclusive:
                               type: number
-                              description: The estimated tax inclusive price for this product based on the provided customer group
+                              description: The estimated tax inclusive price for this product based on the provided customer group.
                           description: The merchant-entered price for a product could be including or excluding tax. Price must be defined when creating a product and serves as the default price.
                         calculated_price:
                           type: object
                           properties:
                             as_entered:
                               type: number
-                              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                             entered_inclusive:
                               type: boolean
-                              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                             tax_exclusive:
                               type: number
-                              description: The estimated tax exclusive price for this product based on the provided customer group
+                              description: The estimated tax exclusive price for this product based on the provided customer group.
                             tax_inclusive:
                               type: number
-                              description: The estimated tax inclusive price for this product based on the provided customer group
-                          description: 'The shopper price for a product including modifier, option, and option set rules.  Calculated_price may include or exclude estimates for tax.'
+                              description: The estimated tax inclusive price for this product based on the provided customer group.
+                          description: The shopper price for a product including modifier, option, and option set rules. The `calculated_price` may include or exclude estimates for tax.
                         price_range:
                           type: object
                           properties:
@@ -200,33 +207,33 @@ paths:
                               properties:
                                 as_entered:
                                   type: number
-                                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                                 entered_inclusive:
                                   type: boolean
-                                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                                 tax_exclusive:
                                   type: number
-                                  description: The estimated tax exclusive price for this product based on the provided customer group
+                                  description: The estimated tax exclusive price for this product based on the provided customer group.
                                 tax_inclusive:
                                   type: number
-                                  description: The estimated tax inclusive price for this product based on the provided customer group
-                              description: The price for a product including estimates for tax
+                                  description: The estimated tax inclusive price for this product based on the provided customer group.
+                              description: The price for a product including estimates for tax.
                             maximum:
                               type: object
                               properties:
                                 as_entered:
                                   type: number
-                                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                                 entered_inclusive:
                                   type: boolean
-                                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                                 tax_exclusive:
                                   type: number
-                                  description: The estimated tax exclusive price for this product based on the provided customer group
+                                  description: The estimated tax exclusive price for this product based on the provided customer group.
                                 tax_inclusive:
                                   type: number
-                                  description: The estimated tax inclusive price for this product based on the provided customer group
-                              description: The price for a product including estimates for tax
+                                  description: The estimated tax inclusive price for this product based on the provided customer group.
+                              description: The price for a product including estimates for tax.
                           description: The minimum and maximum price that will typically apply to this product. Only used for complex products (products with variants).
                         retail_price_range:
                           type: object
@@ -236,33 +243,33 @@ paths:
                               properties:
                                 as_entered:
                                   type: number
-                                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                                 entered_inclusive:
                                   type: boolean
-                                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                                 tax_exclusive:
                                   type: number
-                                  description: The estimated tax exclusive price for this product based on the provided customer group
+                                  description: The estimated tax exclusive price for this product based on the provided customer group.
                                 tax_inclusive:
                                   type: number
-                                  description: The estimated tax inclusive price for this product based on the provided customer group
-                              description: The price for a product including estimates for tax
+                                  description: The estimated tax inclusive price for this product based on the provided customer group.
+                              description: The price for a product including estimates for tax.
                             maximum:
                               type: object
                               properties:
                                 as_entered:
                                   type: number
-                                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                                 entered_inclusive:
                                   type: boolean
-                                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                                 tax_exclusive:
                                   type: number
-                                  description: The estimated tax exclusive price for this product based on the provided customer group
+                                  description: The estimated tax exclusive price for this product based on the provided customer group.
                                 tax_inclusive:
                                   type: number
-                                  description: The estimated tax inclusive price for this product based on the provided customer group
-                              description: The price for a product including estimates for tax
+                                  description: The estimated tax inclusive price for this product based on the provided customer group.
+                              description: The price for a product including estimates for tax.
                           description: The productʼs variants that will typically apply to this product.
                         bulk_pricing:
                           type: array
@@ -340,10 +347,10 @@ components:
       properties:
         minimum:
           type: integer
-          description: The minumum quantity required to trigger this bulk pricing discount
+          description: The minimum quantity required to trigger this bulk pricing discount.
         maximum:
           type: integer
-          description: The maximum quantity (or 0 for unlimited) to trigger this bulk pricing discount
+          description: The maximum quantity (or 0 for unlimited) to trigger this bulk pricing discount.
         discount_amount:
           type: number
         discount_type:
@@ -363,10 +370,10 @@ components:
             properties:
               product_id:
                 type: integer
-                description: The product ID this price was generated for
+                description: The (required) product ID of the item.
               variant_id:
                 type: integer
-                description: The (optional) variant ID this price was generated for
+                description: The (optional) variant ID of the item.
               options:
                 type: array
                 description: The optional product option configuration this price was generated for
@@ -384,81 +391,81 @@ components:
                 properties:
                   as_entered:
                     type: number
-                    description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                    description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                   entered_inclusive:
                     type: boolean
-                    description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                    description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                   tax_exclusive:
                     type: number
-                    description: The estimated tax exclusive price for this product based on the provided customer group
+                    description: The estimated tax exclusive price for this product based on the provided customer group.
                   tax_inclusive:
                     type: number
-                    description: The estimated tax inclusive price for this product based on the provided customer group
-                description: The (optional) RRP/retail price configured for this product
+                    description: The estimated tax inclusive price for this product based on the provided customer group.
+                description: The (optional) RRP/retail price configured for this product.
               sale_price:
                 type: object
                 properties:
                   as_entered:
                     type: number
-                    description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                    description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                   entered_inclusive:
                     type: boolean
-                    description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                    description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                   tax_exclusive:
                     type: number
-                    description: The estimated tax exclusive price for this product based on the provided customer group
+                    description: The estimated tax exclusive price for this product based on the provided customer group.
                   tax_inclusive:
                     type: number
-                    description: The estimated tax inclusive price for this product based on the provided customer group
-                description: The price for a product including estimates for tax
+                    description: The estimated tax inclusive price for this product based on the provided customer group.
+                description: The price for a product including estimates for tax.
               minimum_advertised_price:
                 type: object
                 properties:
                   as_entered:
                     type: number
-                    description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                    description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                   entered_inclusive:
                     type: boolean
-                    description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                    description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                   tax_exclusive:
                     type: number
-                    description: The estimated tax exclusive price for this product based on the provided customer group
+                    description: The estimated tax exclusive price for this product based on the provided customer group.
                   tax_inclusive:
                     type: number
-                    description: The estimated tax inclusive price for this product based on the provided customer group
-                description: The price for a product including estimates for tax
+                    description: The estimated tax inclusive price for this product based on the provided customer group.
+                description: The price for a product including estimates for tax.
               price:
                 type: object
                 properties:
                   as_entered:
                     type: number
-                    description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                    description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                   entered_inclusive:
                     type: boolean
-                    description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                    description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                   tax_exclusive:
                     type: number
-                    description: The estimated tax exclusive price for this product based on the provided customer group
+                    description: The estimated tax exclusive price for this product based on the provided customer group.
                   tax_inclusive:
                     type: number
-                    description: The estimated tax inclusive price for this product based on the provided customer group
-                description: The price for a product including estimates for tax
+                    description: The estimated tax inclusive price for this product based on the provided customer group.
+                description: The price for a product including estimates for tax.
               calculated_price:
                 type: object
                 properties:
                   as_entered:
                     type: number
-                    description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                    description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                   entered_inclusive:
                     type: boolean
-                    description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                    description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                   tax_exclusive:
                     type: number
-                    description: The estimated tax exclusive price for this product based on the provided customer group
+                    description: The estimated tax exclusive price for this product based on the provided customer group.
                   tax_inclusive:
                     type: number
-                    description: The estimated tax inclusive price for this product based on the provided customer group
-                description: The price for a product including estimates for tax
+                    description: The estimated tax inclusive price for this product based on the provided customer group.
+                description: The price for a product including estimates for tax.
               price_range:
                 type: object
                 properties:
@@ -467,34 +474,34 @@ components:
                     properties:
                       as_entered:
                         type: number
-                        description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                        description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                       entered_inclusive:
                         type: boolean
-                        description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                        description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                       tax_exclusive:
                         type: number
-                        description: The estimated tax exclusive price for this product based on the provided customer group
+                        description: The estimated tax exclusive price for this product based on the provided customer group.
                       tax_inclusive:
                         type: number
-                        description: The estimated tax inclusive price for this product based on the provided customer group
-                    description: The price for a product including estimates for tax
+                        description: The estimated tax inclusive price for this product based on the provided customer group.
+                    description: The price for a product including estimates for tax.
                   maximum:
                     type: object
                     properties:
                       as_entered:
                         type: number
-                        description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                        description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                       entered_inclusive:
                         type: boolean
-                        description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                        description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                       tax_exclusive:
                         type: number
-                        description: The estimated tax exclusive price for this product based on the provided customer group
+                        description: The estimated tax exclusive price for this product based on the provided customer group.
                       tax_inclusive:
                         type: number
-                        description: The estimated tax inclusive price for this product based on the provided customer group
-                    description: The price for a product including estimates for tax
-                description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                        description: The estimated tax inclusive price for this product based on the provided customer group.
+                    description: The price for a product including estimates for tax.
+                description: For estimated prices, the minimum/maximum price that will typically apply to this product.
               retail_price_range:
                 type: object
                 properties:
@@ -503,34 +510,34 @@ components:
                     properties:
                       as_entered:
                         type: number
-                        description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                        description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                       entered_inclusive:
                         type: boolean
-                        description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                        description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                       tax_exclusive:
                         type: number
-                        description: The estimated tax exclusive price for this product based on the provided customer group
+                        description: The estimated tax exclusive price for this product based on the provided customer group.
                       tax_inclusive:
                         type: number
-                        description: The estimated tax inclusive price for this product based on the provided customer group
-                    description: The price for a product including estimates for tax
+                        description: The estimated tax inclusive price for this product based on the provided customer group.
+                    description: The price for a product including estimates for tax.
                   maximum:
                     type: object
                     properties:
                       as_entered:
                         type: number
-                        description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                        description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                       entered_inclusive:
                         type: boolean
-                        description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                        description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                       tax_exclusive:
                         type: number
-                        description: The estimated tax exclusive price for this product based on the provided customer group
+                        description: The estimated tax exclusive price for this product based on the provided customer group.
                       tax_inclusive:
                         type: number
-                        description: The estimated tax inclusive price for this product based on the provided customer group
+                        description: The estimated tax inclusive price for this product based on the provided customer group.
                     description: The price for a product including estimates for tax
-                description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                description: For estimated prices, the minimum/maximum price that will typically apply to this product.
               bulk_pricing:
                 type: array
                 items:
@@ -538,10 +545,10 @@ components:
                   properties:
                     minimum:
                       type: integer
-                      description: The minumum quantity required to trigger this bulk pricing discount
+                      description: The minimum quantity required to trigger this bulk pricing discount.
                     maximum:
                       type: integer
-                      description: The maximum quantity (or 0 for unlimited) to trigger this bulk pricing discount
+                      description: The maximum quantity (or 0 for unlimited) to trigger this bulk pricing discount.
                     discount_amount:
                       type: number
                     discount_type:
@@ -550,6 +557,24 @@ components:
                         - price
                         - percent
                         - fixed
+                    tax_discount_amount:
+                      type: array
+                      description: Formats the `bulk_pricing.discount_amount` into the tax price amounts.
+                      items:
+                        type: object
+                        properties:
+                          as_entered:
+                            type: number
+                            description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
+                          tax_inclusive:
+                            type: number
+                            description: The estimated tax inclusive price for this product based on the provided customer group.
+                          tax_exclusive:
+                            type: number
+                            description: The estimated tax exclusive price for this product based on the provided customer group.
+                          entered_inclusive:
+                            type: boolean
+                            description: Determines whether the 'as_entered' price is inclusive or exclusive of tax based on the store's tax jurisdiction.
         meta:
           type: object
           properties: {}
@@ -564,70 +589,71 @@ components:
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
         maximum:
           type: object
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
-      description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
+      description: For estimated prices, the minimum/maximum price that will typically apply to this product.
       x-internal: false
     TaxPrice:
       type: object
       properties:
         as_entered:
           type: number
-          description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+          description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
         entered_inclusive:
           type: boolean
-          description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+          description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
         tax_exclusive:
           type: number
-          description: The estimated tax exclusive price for this product based on the provided customer group
+          description: The estimated tax exclusive price for this product based on the provided customer group.
         tax_inclusive:
           type: number
-          description: The estimated tax inclusive price for this product based on the provided customer group
-      description: The price for a product including estimates for tax
+          description: The estimated tax inclusive price for this product based on the provided customer group.
+      description: The price for a product including estimates for tax.
       x-internal: false
     ItemPricing:
       type: object
       properties:
         product_id:
           type: integer
-          description: The product ID this price was generated for
+          description: The (required) product ID of the item.
         variant_id:
           type: integer
-          description: The (optional) variant ID this price was generated for
+          description: The (optional) variant ID of the item.
         options:
           type: array
-          description: The optional product option configuration this price was generated for
+          description: The optional product option configuration for which this price was generated.
+
           items:
             type: object
             properties:
               option_id:
                 type: integer
-                description: The ID of the variant option or modifier option configured for this price
+                description: The ID of the variant option or modifier option configured for this price.
               value_id:
                 type: integer
                 description: The selected value ID for the configured option.
@@ -636,81 +662,81 @@ components:
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The (optional) RRP/retail price configured for this product
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The (optional) RRP/retail price configured for this product.
         sale_price:
           type: object
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines wether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
         minimum_advertised_price:
           type: object
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
         price:
           type: object
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
         calculated_price:
           type: object
           properties:
             as_entered:
               type: number
-              description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+              description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
             entered_inclusive:
               type: boolean
-              description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+              description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
             tax_exclusive:
               type: number
-              description: The estimated tax exclusive price for this product based on the provided customer group
+              description: The estimated tax exclusive price for this product based on the provided customer group.
             tax_inclusive:
               type: number
-              description: The estimated tax inclusive price for this product based on the provided customer group
-          description: The price for a product including estimates for tax
+              description: The estimated tax inclusive price for this product based on the provided customer group.
+          description: The price for a product including estimates for tax.
         price_range:
           type: object
           properties:
@@ -719,34 +745,34 @@ components:
               properties:
                 as_entered:
                   type: number
-                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                 entered_inclusive:
                   type: boolean
-                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                 tax_exclusive:
                   type: number
-                  description: The estimated tax exclusive price for this product based on the provided customer group
+                  description: The estimated tax exclusive price for this product based on the provided customer group.
                 tax_inclusive:
                   type: number
-                  description: The estimated tax inclusive price for this product based on the provided customer group
-              description: The price for a product including estimates for tax
+                  description: The estimated tax inclusive price for this product based on the provided customer group.
+              description: The price for a product including estimates for tax.
             maximum:
               type: object
               properties:
                 as_entered:
                   type: number
-                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                 entered_inclusive:
                   type: boolean
-                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                  description: Determines whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax. jurisdiction
                 tax_exclusive:
                   type: number
-                  description: The estimated tax exclusive price for this product based on the provided customer group
+                  description: The estimated tax exclusive price for this product based on the provided customer group.
                 tax_inclusive:
                   type: number
-                  description: The estimated tax inclusive price for this product based on the provided customer group
-              description: The price for a product including estimates for tax
-          description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                  description: The estimated tax inclusive price for this product based on the provided customer group.
+              description: The price for a product including estimates for tax.
+          description: For estimated prices, the minimum/maximum price that will typically apply to this product.
         retail_price_range:
           type: object
           properties:
@@ -755,34 +781,34 @@ components:
               properties:
                 as_entered:
                   type: number
-                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                 entered_inclusive:
                   type: boolean
-                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                  description: Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                 tax_exclusive:
                   type: number
-                  description: The estimated tax exclusive price for this product based on the provided customer group
+                  description: The estimated tax exclusive price for this product based on the provided customer group.
                 tax_inclusive:
                   type: number
-                  description: The estimated tax inclusive price for this product based on the provided customer group
-              description: The price for a product including estimates for tax
+                  description: The estimated tax inclusive price for this product based on the provided customer group.
+              description: The price for a product including estimates for tax.
             maximum:
               type: object
               properties:
                 as_entered:
                   type: number
-                  description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
+                  description: The price provided by the merchant as entered in their catalog/price list; may include or exclude tax.
                 entered_inclusive:
                   type: boolean
-                  description: 'Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction'
+                  description: Whether the `as_entered` price is inclusive or exclusive of tax, based on the stores tax jurisdiction.
                 tax_exclusive:
                   type: number
-                  description: The estimated tax exclusive price for this product based on the provided customer group
+                  description: The estimated tax exclusive price for this product based on the provided customer group.
                 tax_inclusive:
                   type: number
-                  description: The estimated tax inclusive price for this product based on the provided customer group
-              description: The price for a product including estimates for tax
-          description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                  description: The estimated tax inclusive price for this product based on the provided customer group.
+              description: The price for a product including estimates for tax.
+          description: For estimated prices, the minimum/maximum price that will typically apply to this product.
         bulk_pricing:
           type: array
           items:
@@ -793,10 +819,10 @@ components:
       properties:
         product_id:
           type: integer
-          description: The (required) product ID of the item
+          description: The (required) product ID of the item.
         variant_id:
           type: number
-          description: The (optional) variant ID of the item
+          description: The (optional) variant ID of the item.
         options:
           type: array
           description: The (optional) option configuration of the product. May be "partially" configured for estimates.
@@ -805,10 +831,14 @@ components:
             properties:
               option_id:
                 type: integer
-                description: The ID of the variant option or modifier option being configured for this product
+                description: The ID of the variant option or modifier option being configured for this product.
               value_id:
                 type: integer
-                description: 'The ID of the value matching the option being configured. Note: must be ID, not the value.'
+                description: |- 
+                  The ID of the value matching the option being configured. 
+                  
+                  **Note:** must be ID, not the value.
+
       description: Details/configuration for the product to request a price for.
       x-internal: false
     PricingRequest:
@@ -816,27 +846,28 @@ components:
       properties:
         channel_id:
           type: integer
-          description: The channel context that pricing should be evaluated within. The default BC storefront is channel 1
+          description: The channel ID that pricing evaluates within. The default BigCommerce storefront is channel 1.
           example: 1
         currency_code:
           type: string
-          description: The currency of prices to be returned for this request
+          description: The currency of prices to be returned for this request.
           example: USD
         customer_group_id:
           type: integer
-          description: 'The customer group relevant for any customer group pricing, tax values, etc.'
+          description: The customer group relevant for any customer group pricing, tax values, etc.
         items:
           type: array
-          description: The items to fetch prices for
+          description: The items for which to fetch prices.
+
           items:
             type: object
             properties:
               product_id:
                 type: integer
-                description: The (required) product ID of the item
+                description: The (required) product ID of the item.
               variant_id:
                 type: number
-                description: The (optional) variant ID of the item
+                description: The (optional) variant ID of the item.
               options:
                 type: array
                 description: The (optional) option configuration of the product. May be "partially" configured for estimates.
@@ -845,10 +876,14 @@ components:
                   properties:
                     option_id:
                       type: integer
-                      description: The ID of the variant option or modifier option being configured for this product
+                      description: The ID of the variant option or modifier option being configured for this product.
                     value_id:
                       type: integer
-                      description: 'The ID of the value matching the option being configured. Note: must be ID, not the value.'
+                      description: |-
+                        The ID of the value matching the option being configured. 
+                        
+                        **Note:** This must be the ID, not the value.
+                         
             description: Details/configuration for the product to request a price for.
       x-internal: false
   securitySchemes:
