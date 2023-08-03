@@ -1405,14 +1405,6 @@ components:
                 type: integer
                 description: If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.
                 example: 3
-        date_created:
-          type: string
-          description: Date on which the customer group was created.
-          example: 2023-07-17 06:30:41
-        date_modified:
-          type: string
-          description: Date on which the customer group was last modified.
-          example: 2023-07-25 01:15:19
         is_group_for_guests:
           type: boolean
           description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
