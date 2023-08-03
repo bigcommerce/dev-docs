@@ -261,6 +261,9 @@ components:
           type: number
           description: Quantity of this item.
           format: double
+        brand:
+          type: string
+          description: The product's brand.
         isTaxable:
           type: boolean
           description: Whether the item is taxable.
@@ -297,7 +300,7 @@ components:
           format: double
         type:
           type: string
-          description: the product type - physical or digital
+          description: the product type - physical or digital.
         addedByPromotion:
           type: boolean
           description: Whether this item has been added automatically by a promotion.
@@ -360,6 +363,9 @@ components:
           type: number
           description: Quantity of this item.
           format: double
+        brand:
+          type: string
+          description: The item's brand.
         isTaxable:
           type: boolean
           description: Whether the item is taxable.
@@ -672,6 +678,9 @@ components:
                       properties: {}
                   discountAmount:
                     type: integer
+                  brand:
+                    type: string
+                    description: The product's brand.
                   listPrice:
                     type: number
                   salePrice:
