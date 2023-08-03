@@ -375,7 +375,7 @@ paths:
                     Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 store_credit:
                   type: string
-                  description: The amount of credit the customer has. (Float, Float as String, Integer)
+                  description: The amount of credit the customer has. Format may be Float, Float as String, or Integer.
                   example: '0'
                 registration_ip_address:
                   type: string
@@ -1003,7 +1003,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/customerGroup_Full'
+              $ref: '#/components/schemas/customerGroup_Update'
         required: false
       responses:
         '200':
@@ -1270,7 +1270,7 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
+                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
                 example: '"5.0000"'
               price_list_id:
                 type: integer
@@ -1288,6 +1288,60 @@ components:
           type: boolean
           description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
       description: When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior with the API.
+      x-internal: false
+    customerGroup_Update:
+      title: customerGroup_Update
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the group.
+          example: Wholesale
+        is_default:
+          type: boolean
+          description: Determines whether new customers are assigned to this group by default.
+          example: false
+        category_access:
+          $ref: '#/components/schemas/categoryAccessLevel_Full'
+        discount_rules:
+          type: array
+          description: A collection of discount rules that are automatically applied to customers who are members of the group.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                  - price_list
+                  - all
+                  - category
+                  - product
+              method:
+                type: string
+                enum:
+                  - percent
+                  - fixed
+                  - price
+              amount:
+                type: string
+                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
+                example: '"5.0000"'
+              price_list_id:
+                type: integer
+                description: If a customer group is assigned to a price list, `method` and `amount` are not shown. `type` and `price_list_id` are returned.
+                example: 3
+        date_created:
+          type: string
+          description: Date on which the customer group was created.
+          example: 2023-07-17 06:30:41
+        date_modified:
+          type: string
+          description: Date on which the customer group was last modified.
+          example: 2023-07-25 01:15:19
+        is_group_for_guests:
+          type: boolean
+          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
+      description: When updating a customer group category discount using the API, it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories." There are currently no settings to change this behavior with the API.
       x-internal: false
     country_Full:
       title: country_Full
@@ -1399,7 +1453,7 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
+                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
                 example: '"5.0000"'
               price_list_id:
                 type: integer
@@ -1454,7 +1508,7 @@ components:
           example: '1234567890'
         store_credit:
           type: string
-          description: The amount of credit the customer has. (Float, Float as String, Integer)
+          description: The amount of credit the customer has. Format may be Float, Float as String, or Integer.
           example: '0'
         registration_ip_address:
           type: string
