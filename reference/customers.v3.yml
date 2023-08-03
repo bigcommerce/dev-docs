@@ -347,22 +347,11 @@ paths:
                     last_name: string
                     company: string
                     phone: string
+                    registration_ip_address: string
                     notes: string
                     tax_exempt_category: string
                     customer_group_id: 0
                     id: 1
-                    addresses: 
-                    - address1: string
-                      address2: string
-                      address_type: string
-                      city: string
-                      company: string
-                      country_code: string
-                      first_name: string
-                      last_name: string
-                      phone: string
-                      postal_code: string
-                      state_or_province: string
                     authentication:
                       force_password_reset: true
                       new_password: string123
