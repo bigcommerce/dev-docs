@@ -295,8 +295,8 @@ paths:
                     country_iso2: US
                     email: janedoe@example.com
                   products: 
-                    - product_id: 118,
-                      quantity: 1,
+                    - product_id: 118
+                      quantity: 1
                       variant_id: 93            
               Custom Product:
                 value:
@@ -3339,7 +3339,7 @@ components:
         quantity:
           description: Quantity of the product ordered.
           example: 1
-          type: number
+          type: integer
         base_cost_price:
           description: The product’s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer) Read Only
           example: '0.0000'
@@ -3716,7 +3716,7 @@ components:
                 type: integer
                 example: 87
               quantity:
-                type: number
+                type: integer
                 example: 2
       x-internal: false
     orderConsignments_Resource:
@@ -4093,7 +4093,7 @@ components:
                 type: integer
                 example: 5
               quantity:
-                type: number
+                type: integer
                 example: 2
     orderShipment_Put:
       type: object
@@ -4635,7 +4635,7 @@ components:
           example: Towel Type 1
           description: The product name that is shown to merchant in control panel.
         quantity:
-          type: number
+          type: integer
         price_ex_tax:
           type: number
         price_inc_tax:
@@ -4691,7 +4691,7 @@ components:
           description: The numeric ID of the product.
           example: 117
         quantity:
-          type: number
+          type: integer
           description: The quantity of product being removed.
           example: 1
         product_options:
@@ -4792,7 +4792,7 @@ components:
                 description: The product option value that is shown to a customer in storefront.`xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.
                 minLength: 1
         quantity:
-          type: number
+          type: integer
         price_inc_tax:
           type: number
         price_ex_tax:
@@ -4849,7 +4849,7 @@ components:
           example: Towel Type 1
           description: The product name that is shown to merchant in control panel.
         quantity:
-          type: number
+          type: integer
         price_inc_tax:
           type: number
         price_ex_tax:
