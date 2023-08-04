@@ -290,7 +290,18 @@ paths:
             type: integer
         - name: include
           in: query
-          description: 'Sub-resources to include on a product, in a comma-separated list. If `options` or `modifiers` is used, results are limited to 10 per page.'
+          description: |-
+            Sub-resources to include on a product, in a comma-separated list. If `options` or `modifiers` is used, results are limited to 10 per page.
+            
+            **Note:** The following sub-resources include:
+              * variants
+              * images
+              * custom_fields
+              * bulk_pricing_rules
+              * primary_images
+              * modifiers
+              * options
+              * videos
           schema:
             type: string
             enum:
