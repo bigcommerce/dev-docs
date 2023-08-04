@@ -24,14 +24,14 @@ script.src = 'https://checkout-sdk.bigcommerce.com/v1/loader.js';
 document.head.appendChild(script);
 ```
 <Callout type="info">
-Comparing the content of this newly created file and the code from the Getting Started with [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart#installing-the-checkout-js-sdk), you should see a clear resemblance between the two.
+Comparing the content of this newly created file and the code from the [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart#installing-the-checkout-js-sdk), you should see a clear resemblance between the two.
 </Callout>
 
 ## Use WebDAV to upload the checkout-loader.js file
 
 You can upload the checkout-loader.js file to your store's server using WebDAV. The instructions to upload the /dist folder to the BigCommerce server using WebDav are below:
 
-1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client. For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client. For more information on how to use Cyberduck, refer to [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 2. From your store control panel, navigate to **Settings** > **Advanced** > **File access (WebDAV)**.
   * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
   * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
@@ -45,14 +45,14 @@ To install a custom checkout on a store, follow these steps:
 2. Under **Checkout Type**, select **Custom Checkouts**.
 3. Type the following in the Script URL field:
 
-```js 
+```js copy
 webdav:checkout/checkout-loader-<version>.js
 ```
 
 
 NOTES:
 
-* Prepending `webdav`: Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
+* Prepending `webdav`: indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
 
 * It is best practice to include a `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
 
@@ -67,7 +67,7 @@ NOTES:
 2. Add an item to your cart and proceed to the checkout page. The checkout page will be blank below the header.
 3. From your developer’s console, execute the following command to fetch checkout content:
 
-```js
+```js copy
 state.data.getCheckout();
 ```
 
