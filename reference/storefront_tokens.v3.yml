@@ -26,7 +26,7 @@ info:
     |Property|Type|Description|
     |-|-|-|
     |`channel_id`|int| Must be a valid channel ID on the store (required) |
-    |`expires_at`|int| Unix timestamp (required) |
+    |`expires_at`|int| Unix timestamp in seconds (required). Does not support milliseconds, microseconds, or nanoseconds. |
     |`allowed_cors_origins`|array[str]| Allowed origins for cross origin requests (required) |
 
     [**Response:**](/docs/storefront-auth/tokens#create-a-token)
@@ -250,7 +250,7 @@ components:
           example: 1
         expires_at:
           type: integer
-          description: Unix timestamp (UTC time) defining when the token should expire.
+          description: Unix timestamp (UTC time) defining when the token should expire. Supports seconds, but does not support milliseconds, microseconds, or nanoseconds.
           example: 1885635176
           minimum: 0
       required:
