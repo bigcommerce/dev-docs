@@ -1,17 +1,14 @@
 # Getting Started with Checkout SDK
 
-
 The Checkout SDK is a JavaScript library of methods for performing actions related to checkout. It includes methods for logging in a customer, adding addresses to the checkout object, and surfacing the shipping and payment methods a merchant configures. It’s everything you need to build your own custom checkout page on BigCommerce.
 
 Our [reference implementation](https://github.com/bigcommerce/checkout-js) is a great place to start if you prefer to develop within a framework. However, the SDK, built with VanillaJS, is framework agnostic. 
 
 This article will walk you through becoming familiar with Checkout SDK and experimenting with building checkouts using Cornerstone. At the end of the article, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console-logged the checkout object.
 
-
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
-* The theme should be set up for [local development](/stencil-docs/installing-stencil-cli/installing-stencil). Use Stencil CLI to preview your changes.
-
+* The theme should be set up for [local development](/stencil-docs/installing-stencil-cli/installing-stencil). Use Stencil CLI to preview your local changes.
 
 ## Installing the Checkout JS SDK
 
@@ -103,7 +100,7 @@ The checkout.html page should look like this:
 state.data.getCart();
 ```
 
-In the developer console, you will see the entire available cart object. The output will look like this:
+In the developer console, you can see the entire available cart object. The output will look like this:
 
 ```json showLineNumbers copy
 {
@@ -169,7 +166,7 @@ In the developer console, you will see the entire available cart object. The out
 ```
 
 <Callout type="info">
-We can, for example, get or set shipping and billing addresses. sign in customers, apply coupons or gift certificates, initialize payment, or complete orders.
+We can, for example, get or set shipping and billing addresses, sign in customers, apply coupons or gift certificates, initialize payment, or complete orders.
 </Callout>
 
 
