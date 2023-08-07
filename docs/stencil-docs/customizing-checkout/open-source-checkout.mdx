@@ -1,6 +1,6 @@
 # Installing an Open Source Checkout
 
-You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file and install a custom checkout using the control panel.
+You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article outlines how to package a custom checkout file and install a custom checkout using the control panel.
 
 This article will address using both [Open Source Checkout](https://github.com/bigcommerce/checkout-js) and [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) powered checkouts.
 
@@ -29,7 +29,7 @@ cd checkout-js
 npm ci
 ```
 
-2. Start webpack in watch mode and launch dev server.
+2. Start webpack in watch mode and launch the dev server.
 
 ```bash showLineNumbers copy
 npm run dev & npm run dev:server
@@ -45,7 +45,7 @@ When using Open Source Checkout to view changes and test implementations through
 
 ## Hosting a custom checkout
 
-You'll need to host the custom checkout file online so the store can serve it. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine. Or you can host it on your store using WebDAV.
+You'll need to host the custom checkout file online so the store can serve it. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host gives you the freedom to automate the build process if you wish and push updates automatically from your local machine. Or you can host it on your store using WebDAV.
 
 The steps to host a custom checkout on BigCommerce are below:
 1. Use WebDAV to upload a custom checkout. For details, see [Use WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) to upload the checkout-loader.js file. 
