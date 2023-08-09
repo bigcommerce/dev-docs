@@ -1305,7 +1305,7 @@ components:
       content:
         application/json:
           schema:
-            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
             x-internal: false
             type: object
             properties:
@@ -2934,7 +2934,7 @@ components:
     metafield_Post:
       title: metafield_Post
       type: object
-      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
       properties:
         namespace:
@@ -2996,7 +2996,7 @@ components:
     metafield_Put:
       title: metafield_Put
       type: object
-      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
       properties:
         namespace:
