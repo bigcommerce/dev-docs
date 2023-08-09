@@ -43,6 +43,7 @@ description: |-
   * giftcertificates_balance      
   * giftcertificates_redeem 
   * default* 
+  * orderconfirmation
   * page*      
   * product* 
   * amp_product_options 
