@@ -65,7 +65,7 @@ The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded str
 header_b64.payload_claims_b64.signature_b64
 ```
 
-Use a library package or [compatible BigCommerce API client](#helpful-tools) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
+Use a [compatible BigCommerce API client](#helpful-tools) or a [standard library package (jwt.io)](https://jwt.io/libraries) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
 
 ## Work with payload claims
 
@@ -112,8 +112,8 @@ The following is an example of the payload claims encoded in the `signed_payload
 | `iat` | integer, UNIX time | The *issued at* time; when the JWT was issued. |
 | `nbf` | integer, UNIX time | The *not valid before* time; when the JWT became or becomes valid. The value is always the same as `iat`.  |
 | `exp` | integer, UNIX time | The *expiration* time; when the JWT becomes invalid. Currently, 24 hours after `nbf`. |
-| `jti` | string, UUID | A unique identifier for the JWT. |
-| `sub` | string | The path that identifies the store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
+| `jti` | string, UUID | The *JWT ID*; a unique identifier for the JWT. |
+| `sub` | string | Identifies the *subject* store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
 | `user.id` | integer | The ID of the user who initiates the callback. |
 | `user.email` | string | The email address of the user who initiates the callback. |
 | `user.locale` | string | The [BCP 47](https://www.rfc-editor.org/info/bcp47) language tag of the user who initiates the callback. |
