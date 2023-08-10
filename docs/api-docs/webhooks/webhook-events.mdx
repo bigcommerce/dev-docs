@@ -281,7 +281,7 @@ Consult the [channel events section of the Channel Webhooks Guide](/api-docs/cha
 |:-------------------------|:------------|
 | store/customer/* | Fires for all store/customer events. |
 | store/customer/created | Fires when a new customer is created.|
-| store/customer/updated | Fires when a customer is updated. Does not currently track changes to the customer address. Tracks changes to customer attributes only if the changes are made using the Control Panel. |
+| store/customer/updated | Fires when a customer is updated. Does not currently track changes to the customer address. <br /><br />Tracks changes to customer attributes only if the changes are made through the Control Panel. This triggers the same event `type` and payload as updating a customer; the payload does not include customer attributes. |
 | store/customer/deleted | Fires when a customer is deleted. |
 | store/customer/address/created | Fires when a customer address is created. |
 | store/customer/address/updated | Fires when a customer address is updated. |
