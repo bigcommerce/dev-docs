@@ -375,7 +375,7 @@ paths:
                     Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 store_credit:
                   type: string
-                  description: The amount of credit the customer has. Format may be Float, Float as String, or Integer.
+                  description: The amount of credit the customer has. (Float, Float as String, Integer)
                   example: '0'
                 registration_ip_address:
                   type: string
@@ -859,8 +859,7 @@ paths:
             type: number
         - name: name
           in: query
-          description: |- 
-            Filter customer groups by exact name match. 
+          description: Filter customer groups by exact name match. 
           schema:
             type: string
         - name: 'name:like'
@@ -870,12 +869,47 @@ paths:
              type: string
         - name: is_default
           in: query
-          description: Whether customers who sign up are added to this group by default.
+          description: Filter by customers who sign up are added to this group by default.
           schema:
             type: boolean
+        - name: date_created
+          in: query
+          description: Filter customer groups by date_created. `date_created=2018-09-05T13:43:54`
+          schema:
+            type: string
+            format: date-time
+        - name: 'date_created:max'
+          in: query
+          description: Filter customer groups by maximum date_created. `date_created:max=2018-09-10`
+          schema:
+            type: string
+        - name: 'date_created:min'
+          in: query
+          description: Filter customer groups by date_created. `date_created:min=2018-09-05`
+          schema:
+            type: string
+            format: date-time
+        - name: date_modified
+          in: query
+          description: Filter customer groups by date_modified. `date_modified=2018-09-05T13:45:03`
+          schema:
+            type: string
+            format: date-time
+        - name: '`date_modified:min`'
+          in: query
+          description: Filter customer groups by minimum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`
+          schema:
+            type: string
+            format: date-time
+        - name: '`date_modified:max`'
+          in:  query
+          description: Filter customer groups by maximum date_modified. `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`
+          schema:
+            type: string
+            format: date-time
         - name: is_group_for_guests
           in: query
-          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
+          description: Filter whether the group is for guests. There can only be one customer group for guests at a time.
           schema:
             type: boolean
       responses:
@@ -967,6 +1001,40 @@ paths:
           description: Name of the customer groups.
           schema:
             type: string
+        - name: date_created
+          in: query
+          description: 'Filter items by date_created. `date_created=2018-09-05T13:43:54`'
+          schema:
+            type: string
+            format: date-time
+        - name: 'date_created:max'
+          in: query
+          description: 'Filter items by maximum date_created. `date_created:max=2018-09-10`'
+          schema:
+            type: string
+        - name: 'date_created:min'
+          in: query
+          description: 'Filter items by date_created. `date_created:min=2018-09-05`'
+          schema:
+            type: string
+            format: date-time
+        - name: date_modified
+          in: query
+          description: 'Filter items by date_modified. `date_modified=2018-09-05T13:45:03`'
+          schema:
+            type: string
+            format: date-time
+        - name: 'date_modified:min'
+          in: query
+          description: 'Filter items by minimum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
+          schema:
+            type: string
+        - name: 'date_modified:max'
+          in: query
+          description: 'Filter items by maximum date_modified. `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
+          schema:
+            type: string
+            format: date-time
         - name: is_default
           in: query
           description: Whether customers who sign up are added to this group by default.
@@ -1003,7 +1071,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/customerGroup_Update'
+              $ref: '#/components/schemas/customerGroup_Full'
         required: false
       responses:
         '200':
@@ -1238,7 +1306,7 @@ components:
         id:
           type: integer
           description: ID of the customer group.
-          example: 1
+          example: 1     
         name:
           type: string
           description: Name of the group.
@@ -1270,7 +1338,7 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
+                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
                 example: '"5.0000"'
               price_list_id:
                 type: integer
@@ -1288,60 +1356,6 @@ components:
           type: boolean
           description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
       description: When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior with the API.
-      x-internal: false
-    customerGroup_Update:
-      title: customerGroup_Update
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the group.
-          example: Wholesale
-        is_default:
-          type: boolean
-          description: Determines whether new customers are assigned to this group by default.
-          example: false
-        category_access:
-          $ref: '#/components/schemas/categoryAccessLevel_Full'
-        discount_rules:
-          type: array
-          description: A collection of discount rules that are automatically applied to customers who are members of the group.
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-                enum:
-                  - price_list
-                  - all
-                  - category
-                  - product
-              method:
-                type: string
-                enum:
-                  - percent
-                  - fixed
-                  - price
-              amount:
-                type: string
-                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
-                example: '"5.0000"'
-              price_list_id:
-                type: integer
-                description: If a customer group is assigned to a price list, `method` and `amount` are not shown. `type` and `price_list_id` are returned.
-                example: 3
-        date_created:
-          type: string
-          description: Date on which the customer group was created.
-          example: 2023-07-17 06:30:41
-        date_modified:
-          type: string
-          description: Date on which the customer group was last modified.
-          example: 2023-07-25 01:15:19
-        is_group_for_guests:
-          type: boolean
-          description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
-      description: When updating a customer group category discount using the API, it defaults to "products in this category and its subcategories". In the [store control panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing), this can be changed to either "products in this category only" or "products in this category and its subcategories." There are currently no settings to change this behavior with the API.
       x-internal: false
     country_Full:
       title: country_Full
@@ -1453,12 +1467,20 @@ components:
                   - price
               amount:
                 type: string
-                description: A float that specifies the value applied to the price modified. Format may be Float, Float as String, or Integer.
+                description: A float that specifies the value applied to the price modified. (Float, Float as String, Integer)
                 example: '"5.0000"'
               price_list_id:
                 type: integer
                 description: If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.
                 example: 3
+        date_created:
+          type: string
+          description: Date on which the customer group was created.
+          example: 2023-07-17 06:30:41
+        date_modified:
+          type: string
+          description: Date on which the customer group was last modified.
+          example: 2023-07-25 01:15:19
         is_group_for_guests:
           type: boolean
           description: Describes whether the group is for guests. There can only be one customer group for guests at a time.
@@ -1508,7 +1530,7 @@ components:
           example: '1234567890'
         store_credit:
           type: string
-          description: The amount of credit the customer has. Format may be Float, Float as String, or Integer.
+          description: The amount of credit the customer has. (Float, Float as String, Integer)
           example: '0'
         registration_ip_address:
           type: string
