@@ -8301,7 +8301,7 @@ components:
           minLength: 0
           type: string
           description: |
-            Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to BigCommerce's Avalara Premium integration can calculate sales taxes more accurately. Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see Avalara's documentation.
+            Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerce's Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax provider's documentation.
         categories:
           type: array
           description: |
