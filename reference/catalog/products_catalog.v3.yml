@@ -8228,7 +8228,7 @@ components:
           minLength: 0
           type: string
           description: |
-            A unique user-defined product code/stock keeping unit (SKU).
+            A unique user-defined alphanumeric product code/stock keeping unit (SKU).
           example: SM-13
         description:
           type: string
@@ -8291,9 +8291,9 @@ components:
           type: number
           description: Minimum Advertised Price
         tax_class_id:
-          maximum: 1000000000
+          maximum: 255
           minimum: 0
-          type: integer
+          type: number
           description: |
             The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)
         product_tax_code:
@@ -8309,7 +8309,9 @@ components:
           x-required:
             - post
           items:
-            type: integer
+            type: number
+          maximum: 1000
+          minimum: 0
         brand_id:
           maximum: 1000000000
           minimum: 0
@@ -8427,11 +8429,11 @@ components:
           items:
             type: integer
         sort_order:
-          maximum: 2147483647
-          minimum: -2147483648
           type: integer
           description: |
             Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results.
+          maximum: 2147483647
+          minimum: -2147483648
         condition:
           type: string
           description: |
@@ -8464,6 +8466,8 @@ components:
             Custom title for the product page. If not defined, the product name will be used as the meta title.
         meta_keywords:
           type: array
+          maxLength: 65535
+          minLength: 0
           description: |
             Custom meta keywords for the product page. If not defined, the store's default keywords will be used.
           items:
@@ -8567,6 +8571,9 @@ components:
           example: 80
         custom_fields:
           type: array
+          minimum: 0
+          maximum: 255
+          description: 200 maximum custom fields per product. 255 maximum characters per custom field.
           items:
             $ref: '#/components/schemas/productCustomField_Put'
         bulk_pricing_rules:
