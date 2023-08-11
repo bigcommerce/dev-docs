@@ -224,6 +224,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorRequest'
+        '409':
+          description: 'A category with the same name exists within the given category tree or parent category.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
         '422':
           description: 'The Category was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           content:
