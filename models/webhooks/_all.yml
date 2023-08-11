@@ -180,7 +180,8 @@ properties:
     allOf:
       - $ref: ./store_customer_payment_instrument_default_updated.yml
   store/customer/updated:
-    description: Fires when a customer is updated. Does not currently track changes to the customer address.
+    description: Fires when a customer is updated. It does not currently track changes to the customer address. <br /><br />Tracks changes to customer attributes only if you make the changes through the control panel. This change triggers the same event `type` and payload as updating a customer; the payload does not include customer attributes.
+
     type: object
     allOf:
       - $ref: ./store_customer_updated.yml
