@@ -119,9 +119,9 @@ If your application reads pages-related data, be sure to filter by the appropria
 
 ### Widgets
 
-Widget templates, widgets, and widget placements are all associated with a particular site. Any previously existing widget-related objects are assigned to the default site, the ID of which is `1000` for each merchant store.
+Widget templates, widgets, and widget placements are all associated with a particular channel. Any previously existing widget-related objects are assigned to the default channel, which is the first channel that was created on the store.
 
-Going forward, we recommend that you use the query parameters on each Widgets API endpoint to pass the `site_id` of the storefront for which you are managing content. This will restrict the scope of your requests to the target site. When you create new widget objects, be sure to include the correct `site_id`.
+Going forward, we recommend that you use the query parameters on each Widgets API endpoint to pass the `channel_id` of the storefront for which you are managing content. This will restrict the scope of your requests to the target channel. When you create new widget objects, be sure to include the correct `channel_id`.
 
 ### 301 Redirects
 
