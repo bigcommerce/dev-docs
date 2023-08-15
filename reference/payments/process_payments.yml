@@ -80,6 +80,7 @@ paths:
                         - $ref: '#/components/schemas/StoredPayPalAccount'
                         - $ref: '#/components/schemas/GiftCertificate'
                         - $ref: '#/components/schemas/StoreCredit'
+                        - $ref: '#/components/schemas/TokenizedCard'
                     payment_method_id:
                       description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
                       type: string
@@ -133,6 +134,17 @@ paths:
                     instrument:
                       type: store_credit
                     payment_method_id: bigcommerce.store_credit
+              Tokenized Card:
+                value:
+                  payment: 
+                    instrument:
+                      type: tokenized_card
+                      token: K7KW-M9GX-6PQ3
+                      iin: 4111111
+                      last_four_digits: 1111
+                      expiration_month: 12
+                      expiration_year: 2030
+                    payment_method_id: bolt.card
         required: true
         x-examples:
           application/json:
@@ -487,6 +499,44 @@ components:
       x-examples:
         example-1:
           type: store_credit
+    TokenizedCard:
+      title: Tokenized Card
+      type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          type: tokenized_card
+          token: K7KW-M9GX-6PQ3
+          iin: 4111111
+          last_four_digits: 1111
+          expiration_month: 12
+          expiration_year: 2030
+      properties:
+        type:
+          type: string
+          description: Type to classify this payment instrument (required).
+          enum:
+            - tokenized_card
+        token:
+          description: Identifier representing the tokenized card (required).
+          type: string
+          minLength: 64
+          maxLength: 64
+        iin:
+          type: string
+          description: Issuer identification number.
+        last_four_digits:
+          type: string
+          description: Last four numbers of this card.
+        expiration_month:
+          type: string
+          description: Expiry month of this card.
+        expiration_year:
+          type: string
+          description: Expiry year of this card.
+      required:
+          - type
+          - token
   securitySchemes:
     BearerPAT:
       description: |-
