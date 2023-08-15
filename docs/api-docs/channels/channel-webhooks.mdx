@@ -493,6 +493,9 @@ The following sites webhook events fire in response to actions that affect a sit
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/settings/site/updated`       | Fires when a site associated with the specified channel is updated, created, or deleted. | [Update a channel site](/docs/rest-management/channels/channel-site#update-a-channel-site), [Update a site](/docs/rest-management/sites#update-a-site), [Create a channel site](/docs/rest-management/channels/channel-site#create-a-channel-site), [Create a site](/docs/rest-management/sites#create-a-site), [Delete a channel site](/docs/rest-management/channels/channel-site#delete-a-channel-site), or [Delete a site](/docs/rest-management/sites#delete-a-site) |
+| `store/channel/{channel_id}/settings/site/checkoutUrl/updated` | Fires when checkout domain per channel is updated. | [Upsert a site's checkout URL](/docs/rest-management/channels/channel-site-checkout-url)|
+| `store/channel/{channel_id}/settings/site/checkoutUrl/deleted` | Fires when checkout domain per channel is deleted. | [Delete a site's checkout URL](/docs/rest-management/channels/channel-site-checkout-url#delete-a-sites-checkout-url)|
+
 
 Site payload objects take the form that follows:
 
