@@ -221,6 +221,8 @@ function subscribeOnBodlEvents() {
     !window ||
     // window.bodlEvents is not defined
     typeof window.bodlEvents === 'undefined' ||
+    // window.bodlEvents.banner is not defined
+    typeof window.bodlEvents.banner === 'undefined' ||
     // window.bodlEvents.checkout is not defined
     typeof window.bodlEvents.checkout === 'undefined' ||
     // window.bodlEvents.cart is not defined
@@ -236,7 +238,19 @@ function subscribeOnBodlEvents() {
 
   // if window.dataLayer doesn't exist, make it an empty array
   window.dataLayer = window.dataLayer || [];
-    
+
+  // If window.bodlEvents.banner.viewed is available, then...
+  if (typeof window.bodlEvents.banner.viewed === 'function') {
+    // run the viewed function to get the payload
+    window.bodlEvents.banner.viewed((payload) => {
+      // log the event payload
+      console.log(
+        'window.bodlEvents.banner.viewed ~ payload',
+        payload
+      );
+    });
+  }    
+
   // If window.bodlEvents.product.pageViewed is available, then...
   if (typeof window.bodlEvents.product.pageViewed === 'function') {
     // run the pageViewed function to get the payload
