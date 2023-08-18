@@ -76,7 +76,7 @@ paths:
       summary: Get an Order
       tags:
         - Orders
-      parameters: 
+      parameters:
         - $ref: '#/components/parameters/order_includes'
       responses:
         '200':
@@ -284,7 +284,7 @@ paths:
                 value:
                   status_id: 0
                   customer_id: 1
-                  billing_address: 
+                  billing_address:
                     first_name: Jane
                     last_name: Doe
                     street_1: 123 Main Street
@@ -294,10 +294,10 @@ paths:
                     country: United States
                     country_iso2: US
                     email: janedoe@example.com
-                  products: 
+                  products:
                     - product_id: 118
                       quantity: 1
-                      variant_id: 93            
+                      variant_id: 93
               Custom Product:
                 value:
                   status_id: 0
@@ -619,10 +619,16 @@ paths:
         *   items
         
         **Usage notes**
+
+        There are three methods for generating a tracking link for a shipment:
+
+        1. Use `shipping_provider` and `tracking_number`: This generates an automatic tracking link that you can click from the BigCommerce control panel and customer-facing emails. However, the `tracking_link` property in the API response will remain empty.
+
+        2. Use `tracking_carrier` and `tracking_number`: This also creates an automatic tracking link that you can click in both the BigCommerce control panel and customer-facing emails. Like the previous method, the `tracking_link` property in the API response will be empty.
+
+        3. Supply a custom `tracking_link`: By providing a value for the `tracking_link` property, you can use your own tracking link within the BigCommerce control panel and in customer-facing emails. The API response will return your supplied `tracking_link` as part of the response. 
         
-        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in non-clickable text in the customer facing email.
-        
-        Acceptable values for `shipping_provider` include an empty string (`""`), auspost, canadapost, endicia, usps, fedex, royalmail, ups, upsready, upsonline, or shipperhq.
+        Acceptable values for `shipping_provider` include an empty string (`""`), `auspost`, `carrier_{your_carrier_id}` (only used if the carrier is a [third-party Shipping Provider](/api-docs/providers/shipping)), `canadapost`, `endicia`, `usps`, `fedex`, `royalmail`, `ups`, `upsready`, `upsonline`, or `shipperhq`.
         
         Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
       summary: Create Order Shipment
@@ -910,7 +916,7 @@ paths:
         description: |-
           * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments.
         schema:
-          type: string  
+          type: string
           enum:
             - consignments.line_items
     get:
@@ -1241,12 +1247,12 @@ components:
       description: |-
         * `consignments` - include the response returned from the request to the `/orders/{order_id}/consignments` endpoint.
         
-        * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`. 
+        * `consignments.line_items` - include the response returned from the request to the `/orders/{order_id}/products` endpoint in consignments. This implies `include=consignments`.
       schema:
-        type: string  
+        type: string
         enum:
           - consignments
-          - consignments.line_items 
+          - consignments.line_items
   responses:
     orderStatusCollection_Resp:
       description: Get All Order Status Collection Response.
@@ -1987,7 +1993,7 @@ components:
       content:
         application/json:
           schema:
-              $ref: '#/components/schemas/orderProducts'
+            $ref: '#/components/schemas/orderProducts'
           examples:
             Product:
               value:
@@ -2042,75 +2048,75 @@ components:
                 product_options: []
             Product with file upload:
               value:
-              - id: 35
-                order_id: 125
-                product_id: 127
-                variant_id: 99
-                order_address_id: 18
-                name: Journal
-                name_customer: Journal
-                name_merchant: Journal
-                sku: Jour-BLK
-                upc: ''
-                type: physical
-                base_price: '45.0000'
-                price_ex_tax: '41.5700'
-                price_inc_tax: '45.0000'
-                price_tax: '3.4300'
-                base_total: '45.0000'
-                total_ex_tax: '41.5700'
-                total_inc_tax: '45.0000'
-                total_tax: '3.4300'
-                weight: '0.0000'
-                width: '0.0000'
-                height: '0.0000'
-                depth: '0.0000'
-                quantity: 1
-                base_cost_price: '0.0000'
-                cost_price_inc_tax: '0.0000'
-                cost_price_ex_tax: '0.0000'
-                cost_price_tax: '0.0000'
-                is_refunded: false
-                quantity_refunded: 0
-                refund_amount: '0.0000'
-                return_id: 0
-                wrapping_name: ''
-                base_wrapping_cost: '0.0000'
-                wrapping_cost_ex_tax: '0.0000'
-                wrapping_cost_inc_tax: '0.0000'
-                wrapping_cost_tax: '0.0000'
-                wrapping_message: ''
-                quantity_shipped: 0
-                event_name: null
-                event_date: ''
-                fixed_shipping_cost: '0.0000'
-                ebay_item_id: ''
-                ebay_transaction_id: ''
-                option_set_id: null
-                parent_order_product_id: null
-                is_bundled_product: false
-                bin_picking_number: ''
-                external_id: null
-                fulfillment_source: ''
-                brand: BigCommerce
-                applied_discounts: []
-                product_options:
-                  - id: 18
-                    option id: 38
-                    order_product_id: 35
-                    product_option_id: 121
-                    display_name: Custom Logo Engraving
-                    display_name_customer: Custom Logo Engraving
-                    display_name_merchant: Custom Logo Engraving
-                    display_value: BigCommerceLogo.jpeg
-                    display_value_customer: BigCommerceLogo.jpeg
-                    display_value_merchant: BigCommerceLogo.jpeg
-                    value: {\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}
-                    type: File upload field
-                    name: Custom Logo Engraving
-                    display_style: ""
-                configurable_fields: []
-                gift_certificate_id: null
+                - id: 35
+                  order_id: 125
+                  product_id: 127
+                  variant_id: 99
+                  order_address_id: 18
+                  name: Journal
+                  name_customer: Journal
+                  name_merchant: Journal
+                  sku: Jour-BLK
+                  upc: ''
+                  type: physical
+                  base_price: '45.0000'
+                  price_ex_tax: '41.5700'
+                  price_inc_tax: '45.0000'
+                  price_tax: '3.4300'
+                  base_total: '45.0000'
+                  total_ex_tax: '41.5700'
+                  total_inc_tax: '45.0000'
+                  total_tax: '3.4300'
+                  weight: '0.0000'
+                  width: '0.0000'
+                  height: '0.0000'
+                  depth: '0.0000'
+                  quantity: 1
+                  base_cost_price: '0.0000'
+                  cost_price_inc_tax: '0.0000'
+                  cost_price_ex_tax: '0.0000'
+                  cost_price_tax: '0.0000'
+                  is_refunded: false
+                  quantity_refunded: 0
+                  refund_amount: '0.0000'
+                  return_id: 0
+                  wrapping_name: ''
+                  base_wrapping_cost: '0.0000'
+                  wrapping_cost_ex_tax: '0.0000'
+                  wrapping_cost_inc_tax: '0.0000'
+                  wrapping_cost_tax: '0.0000'
+                  wrapping_message: ''
+                  quantity_shipped: 0
+                  event_name: null
+                  event_date: ''
+                  fixed_shipping_cost: '0.0000'
+                  ebay_item_id: ''
+                  ebay_transaction_id: ''
+                  option_set_id: null
+                  parent_order_product_id: null
+                  is_bundled_product: false
+                  bin_picking_number: ''
+                  external_id: null
+                  fulfillment_source: ''
+                  brand: BigCommerce
+                  applied_discounts: []
+                  product_options:
+                    - id: 18
+                      option id: 38
+                      order_product_id: 35
+                      product_option_id: 121
+                      display_name: Custom Logo Engraving
+                      display_name_customer: Custom Logo Engraving
+                      display_name_merchant: Custom Logo Engraving
+                      display_value: BigCommerceLogo.jpeg
+                      display_value_customer: BigCommerceLogo.jpeg
+                      display_value_merchant: BigCommerceLogo.jpeg
+                      value: {\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}
+                      type: File upload field
+                      name: Custom Logo Engraving
+                      display_style: ""
+                  configurable_fields: []
+                  gift_certificate_id: null
             Custom Product:
               value:
                 id: 238
@@ -2224,63 +2230,63 @@ components:
                 applied_discounts: []
             Product with custom message:
               value:
-              - id: 143
-                option_id: 96
-                order_product_id: 240
-                product_option_id: 242
-                display_name: Color
-                display_name_customer: Color
-                display_name_merchant: Color
-                display_value: Red
-                display_value_customer: Red
-                display_value_merchant: Red
-                value: '211'
-                type: Swatch
-                name: Color1549572910-201
-                display_style: ''
-              - id: 144
-                option_id: 114
-                order_product_id: 240
-                product_option_id: 263
-                display_name: PickList PriceList
-                display_name_customer: PickList PriceList
-                display_name_merchant: PickList PriceList
-                display_value: Able Brewing System
-                display_value_customer: Able Brewing System
-                display_value_merchant: Able Brewing System
-                value: '237'
-                type: Product Pick List
-                name: PickList-PriceList1549572910-201
-                display_style: Pick list with photos
-              - id: 145
-                option_id: 97
-                order_product_id: 240
-                product_option_id: 243
-                display_name: T-Shirt Size
-                display_name_customer: T-Shirt Size
-                display_name_merchant: T-Shirt Size
-                display_value: Small T-Shirt
-                display_value_customer: Small T-Shirt
-                display_value_merchant: Small T-Shirt
-                value: '214'
-                type: Multiple choice
-                name: T-Shirt-Size1545071633-201
-                display_style: Rectangle
-              - id: 146
-                option_id: 105
-                order_product_id: 240
-                product_option_id: 254
-                display_name: Custom Message
-                display_name_customer: Custom Message
-                display_name_merchant: Custom Message
-                display_value: BigCommerce
-                display_value_customer: BigCommerce
-                display_value_merchant: BigCommerce
-                value: BigCommerce
-                type: Text field
-                name: Custom-Message1549572912-201
-                display_style: ''
-                configurable_fields:
+                - id: 143
+                  option_id: 96
+                  order_product_id: 240
+                  product_option_id: 242
+                  display_name: Color
+                  display_name_customer: Color
+                  display_name_merchant: Color
+                  display_value: Red
+                  display_value_customer: Red
+                  display_value_merchant: Red
+                  value: '211'
+                  type: Swatch
+                  name: Color1549572910-201
+                  display_style: ''
+                - id: 144
+                  option_id: 114
+                  order_product_id: 240
+                  product_option_id: 263
+                  display_name: PickList PriceList
+                  display_name_customer: PickList PriceList
+                  display_name_merchant: PickList PriceList
+                  display_value: Able Brewing System
+                  display_value_customer: Able Brewing System
+                  display_value_merchant: Able Brewing System
+                  value: '237'
+                  type: Product Pick List
+                  name: PickList-PriceList1549572910-201
+                  display_style: Pick list with photos
+                - id: 145
+                  option_id: 97
+                  order_product_id: 240
+                  product_option_id: 243
+                  display_name: T-Shirt Size
+                  display_name_customer: T-Shirt Size
+                  display_name_merchant: T-Shirt Size
+                  display_value: Small T-Shirt
+                  display_value_customer: Small T-Shirt
+                  display_value_merchant: Small T-Shirt
+                  value: '214'
+                  type: Multiple choice
+                  name: T-Shirt-Size1545071633-201
+                  display_style: Rectangle
+                - id: 146
+                  option_id: 105
+                  order_product_id: 240
+                  product_option_id: 254
+                  display_name: Custom Message
+                  display_name_customer: Custom Message
+                  display_name_merchant: Custom Message
+                  display_value: BigCommerce
+                  display_value_customer: BigCommerce
+                  display_value_merchant: BigCommerce
+                  value: BigCommerce
+                  type: Text field
+                  name: Custom-Message1549572912-201
+                  display_style: ''
+                  configurable_fields:
             product_options:
               value:
                 - id: 143
@@ -3312,7 +3318,7 @@ components:
           example: '0.0000'
           type: string
         base_total:
-          description: |- 
+          description: |-
             Total base price. (Float, Float-As-String, Integer)
 
             **Note**: The `base_total` is affected by the tax options set up in the control panel and is altered on tax-free orders. See more details on how `base_total` is affected by visiting the [Responsive Tax Display Settings](https://support.bigcommerce.com/s/article/Manual-Tax-Setup) overview. If the `base_total` is `$0`, it's due to the store's tax settings. To learn more about tax settings in the control panel, check out this [Tax Settings](https://support.bigcommerce.com/s/article/Tax-Overview?language=en_US#tax-settings) support article.
@@ -3330,7 +3336,7 @@ components:
           description: |-
             Total tax applied to products.
             For example, if quantity if 2, base price is 5 and tax rate is 10%. price_tax will be $.50 and total_tax will be $1.00.
-          
+
             If there is a manual discount applied total_tax is calculated as the following:
             `(price_ex_tax - discount)*tax_rate=total_tax`.
             (Float, Float-As-String, Integer)
@@ -3582,7 +3588,7 @@ components:
           example: 1
           type: integer
         order_id:
-          description: |- 
+          description: |-
             The unique numeric identifier of the order to which the tax was applied. NOTE: Not included if the store was using the automatic tax feature.
           example: 129
           type: integer
@@ -3596,7 +3602,7 @@ components:
           example: 1
           type: integer
         tax_class_id:
-          description: |- 
+          description: |-
             The unique numeric identifier of the tax class object. NOTE: Will be 0 if automatic tax was enabled, or if the default tax class was used.
           example: 0
           type: integer
@@ -3677,6 +3683,7 @@ components:
           enum:
             - auspost
             - canadapost
+            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/api-docs/providers/shipping))
             - endicia
             - usps
             - fedex
@@ -3684,7 +3691,7 @@ components:
             - upsready
             - upsonline
             - shipperhq
-            - ' '
+            - ''
         tracking_carrier:
           type: string
           title: Tracking Carrier
@@ -4053,6 +4060,11 @@ components:
           description: Tracking number of the shipment.
           example: w4se4b6ASFEW4T
           maxLength: 50
+        tracking_link:
+          type: string
+          description: Tracking link that is associated with your shipment.
+          example: https://www.mycustomtrackinglink.com/tracking
+          maxLength: 500
         shipping_method:
           description: |
             Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
@@ -4065,6 +4077,7 @@ components:
           enum:
             - auspost
             - canadapost
+            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/api-docs/providers/shipping))
             - endicia
             - usps
             - fedex
@@ -4083,7 +4096,7 @@ components:
           description: Comments the shipper wishes to add.
           maxLength: 65535
         items:
-          description: |- 
+          description: |-
             The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {"order_product_id":16,"product_id": 0,"quantity":2} ]
           type: array
           items:
@@ -4119,6 +4132,7 @@ components:
           enum:
             - auspost
             - canadapost
+            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/api-docs/providers/shipping))
             - endicia
             - usps
             - fedex
@@ -4132,6 +4146,11 @@ components:
           description: |-
             Tracking carrier for the shipment.
             Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
+        tracking_link:
+          type: string
+          description: Tracking link that is associated with your shipment.
+          example: https://www.mycustomtrackinglink.com/tracking
+          maxLength: 500
         comments:
           type: string
           description: Comments the shipper wishes to add.
@@ -4263,7 +4282,7 @@ components:
           type: string
           description: |-
             IPv4 Address of the customer, if known.
-          
+
             Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address` value will reset the `ip_address_v6` value and vice versa.
           example: 12.345.678.910
           maxLength: 30
@@ -4271,7 +4290,7 @@ components:
           type: string
           description: |-
             IPv6 Address of the customer, if known.
-          
+
             Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address_v6` value will reset the `ip_address` value and vice versa.
           example: '2001:db8:3333:4444:5555:6666:7777:8888'
           maxLength: 39
@@ -4492,7 +4511,7 @@ components:
           example: '0.0000'
           type: string
         shipping_cost_tax_class_id:
-          description: |- 
+          description: |-
             Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)
           example: 2
           type: integer
@@ -4503,7 +4522,7 @@ components:
         handling_cost_tax_class_id:
           description: |-
             A read-only value. Do not attempt to set or modify this value in a POST or PUT request. 
-          
+
             (NOTE: Value ignored if automatic tax is enabled on the store.)
           example: 2
           type: integer
@@ -4513,9 +4532,9 @@ components:
           type: string
         wrapping_cost_tax_class_id:
           description: |-
-           A read-only value. Do not attempt to set or modify this value in a POST or PUT request.  
+            A read-only value. Do not attempt to set or modify this value in a POST or PUT request.  
 
-           NOTE: Value ignored if automatic tax is enabled on the store.
+            NOTE: Value ignored if automatic tax is enabled on the store.
           example: 3
           type: integer
         payment_status:
@@ -4608,10 +4627,10 @@ components:
       title: Custom product
       description: |-
         **Usage notes:**
-      
+
         To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a non-empty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
         To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. You cannot change omitted fields.
-      
+
         Note the following constraints and default field values:
          - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
          - `name` and `name_customer` always hold the same value; updating either `name` or `name_customer` will change the value for both of those fields.
@@ -4660,7 +4679,7 @@ components:
         
          To `add` a product to an existing order, don't include `id` in the payload. When adding a product with variants, `product_options` are required.
          To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. The fields that you omit will not be changed.
-         
+
          Note the following constraints and default field values:
          - `xxx` and `xxx_customer` always hold the same value. Updating either `xxx` or `xxx_customer` will change the value of both fields.
          - If both fields `xxx` and `xxx_customer` are present, they must have same value.
@@ -4699,15 +4718,15 @@ components:
           description: List of product variant options and modifiers. `product_options` are required when removing a product with variants and not specifying the `variant_id`, or when products have mandatory modifiers.
           items:
             type: object
-            properties:  
+            properties:
               cost_price_inc_tax:
                 type: string
-                description: |- 
+                description: |-
                   The product’s cost price including tax. (Float, Float-As-String, Integer)
                   The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only.
                   readOnly: true
-                example: '0.0000' 
-              price_ex_tax:  
+                example: '0.0000'
+              price_ex_tax:
                 type: string
                 description: |-
                   The products cost price excluding tax. (Float, Float-As-String, Integer)
@@ -4885,7 +4904,7 @@ components:
             channel_id:
               description: Shows where the order originated. The channel_id will default to 1.
               example: 1
-              type: integer            
+              type: integer
             consignments:
               $ref: '#/components/schemas/orderConsignment_Put'
             customer_id:
@@ -4949,7 +4968,7 @@ components:
               type: string
               description: |-
                 IPv4 Address of the customer, if known.
-              
+
                 Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address` value will reset the `ip_address_v6` value and vice versa.
               example: 12.345.678.910
               maxLength: 30
@@ -4957,7 +4976,7 @@ components:
               type: string
               description: |-
                 IPv6 Address of the customer, if known.
-              
+
                 Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address_v6` value will reset the `ip_address` value and vice versa.
               example: '2001:db8:3333:4444:5555:6666:7777:8888'
               maxLength: 39
@@ -4976,7 +4995,7 @@ components:
             order_is_digital:
               description: Whether this is an order for digital products.
               example: false
-              type: boolean  
+              type: boolean
             payment_method:
               type: string
               description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
@@ -4994,7 +5013,7 @@ components:
                   - $ref: '#/components/schemas/orderCustomProduct_Put'
                   - $ref: '#/components/schemas/orderRemoveProduct_Put'
             refunded_amount:
-              description: The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) 
+              description: The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer)
               example: '0.0000'
               type: string
             shipping_cost_ex_tax:
