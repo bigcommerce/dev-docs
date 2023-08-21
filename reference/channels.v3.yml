@@ -252,7 +252,7 @@ paths:
         - $ref: '#/components/parameters/ContentType'
       summary: Create Multiple Channels Currency Assignments
       operationId: createMultipleChannelsCurrencyAssignments
-      description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -274,7 +274,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: updateMultipleChannelsCurrencyAssignments
-      description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -311,7 +311,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: createSingleChannelCurrencyAssignments
-      description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -333,7 +333,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: updateSingleChannelCurrencyAssignments
-      description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:

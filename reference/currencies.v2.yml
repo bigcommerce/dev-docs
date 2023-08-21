@@ -10,13 +10,13 @@ info:
     | -- | -- |
     | Default Currency | Storeʼs default currency is the one from which any auto-conversion of pricing (product, tax, shipping, promotions) will happen.|
     | Display Currency | Currency that is displayed on the storefront. This might or might not mean that shopper can actually transact in that currency. Display currency is also often called "presentment currency" in the payments industry. |
-    | Transactional Currency | Transactional currency is what currency and amount BC passes to the payment provider and the currency/amount that the shopper will be charged to their bank account. If thereʼs a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate that will be used will be outside of BCʼs purview. |
-    | Settlement Currency | This is the currency in which the merchant gets paid out to their bank account. If thereʼs a discrepancy between the currency that shopper transacts in and the currency in which merchant settles, merchant has to pay a conversion fee and the conversion rate used will be outside of BCʼs purview. Merchant is able to set their settlement currency through their payment provider. |
+    | Transactional Currency | Transactional currency is what currency and amount BigCommerce passes to the payment provider and the currency/amount that the shopper will be charged to their bank account. If thereʼs a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate that will be used will be outside of BigCommerceʼs purview. |
+    | Settlement Currency | This is the currency in which the merchant gets paid out to their bank account. If thereʼs a discrepancy between the currency that shopper transacts in and the currency in which merchant settles, merchant has to pay a conversion fee and the conversion rate used will be outside of BigCommerceʼs purview. Merchant is able to set their settlement currency through their payment provider. |
     |BigCommerce Conversion Rate | Any conversion rate set on BigCommerce used to convert product’s default currency pricing into a new non-default currency. Conversion rate could be static or dynamic. |
     | Static Conversion Rate | One of the two auto-converted pricing options. If a merchant manually enters a static conversion rate, then the conversion rate will remain the same until/unless merchant updates their currency settings to use a different conversion rate. The advantage of using this method is to avoid constantly fluctuating price in non-default currencies. |
     | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, theyʼve tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the storeʼs default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use API to automatically update the exchange rate from their trusted source. |
-    | Bank Conversion Rate | Conversion rate used by merchant’s or shopper’s payment or credit card provider when auto-converting from store’s transactional currency. This rate might not align to the BC conversion rate and BC has no visibility into it. |
-    | Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BC conversion rate, merchant has a choice to set price per product per currency. This will be implemented through price lists. |
+    | Bank Conversion Rate | Conversion rate used by merchant’s or shopper’s payment or credit card provider when auto-converting from store’s transactional currency. This rate might not align with the BigCommerce conversion rate and BigCommerce has no visibility into it. |
+    | Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BigCommerce conversion rate, merchant has a choice to set price per product per currency. This will be implemented through price lists. |
 
     ## FAQ
 
@@ -26,11 +26,11 @@ info:
 
     ## Resources
 
-    - [How Currencies Work](/api-docs/catalog/currencies/how-currencies-work)
-    - [Price List API](/docs/rest-management/price-lists)
-    - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
-    - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
-    - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
+    - [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
+    - [Price List API Reference](/docs/rest-management/price-lists)
+    - [Using Price Lists (Help Center)](https://support.bigcommerce.com/s/article/Price-Lists)
+    - [Managing Currencies (Help Center)](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) 
+    - [Tax (Help Center)](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1)
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
@@ -52,7 +52,6 @@ tags:
 paths:
   /currencies:
     parameters:
-      
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
@@ -94,7 +93,7 @@ paths:
         * date_modified
 
 
-        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. To change the storeʼs default currency in the BigCommerce control panel, please see [Managing Currencies](https://support.bigcommerce.com/articles/Public/Managing-Currencies/?q=currency&l=en_US&fs=Search&pn=1#default).
+        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. To change the storeʼs default currency in the BigCommerce control panel, please see [Managing Currencies (Help Center)](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta).
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -125,7 +124,6 @@ paths:
                 type: object
   /currencies/{id}:
     parameters:
-      
       - $ref: '#/components/parameters/Accept'
       - name: id
         in: path
@@ -202,14 +200,14 @@ components:
     currency_Base:
       title: currency_Base
       required:
-      - currency_code
-      - currency_exchange_rate
-      - decimal_places
-      - decimal_token
-      - name
-      - thousands_token
-      - token
-      - token_location
+        - currency_code
+        - currency_exchange_rate
+        - decimal_places
+        - decimal_token
+        - name
+        - thousands_token
+        - token
+        - token_location
       type: object
       properties:
         is_default:
