@@ -7008,7 +7008,7 @@ components:
         image_file:
           type: string
           description: |
-            The local path to the original image file uploaded to BigCommerce. Limit of 1MB per file.
+            The local path to the original image file uploaded to BigCommerce. Limit of 8MB per file.
         is_thumbnail:
           type: boolean
           description: |
