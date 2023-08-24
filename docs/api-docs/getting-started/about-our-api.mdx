@@ -20,7 +20,7 @@ BigCommerce's Store Management and Payment APIs (for example, the [Catalog API](
 
 ### REST Storefront API
 
-The [REST Storefront API](/docs/rest-storefront/carts) allows you to manage customer carts, checkouts, and order information client-side. Example use cases include the following:
+The [REST Storefront API](/docs/rest-storefront/carts) lets you manage customer carts, checkouts, and order information client-side. Example use cases include the following:
 * Add an item with JavaScript to a shopper's cart from a Stencil storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
@@ -29,7 +29,7 @@ The [REST Storefront API](/docs/rest-storefront/carts) allows you to manage cust
 
 ### GraphQL Storefront API
 
-BigCommerce's [GraphQL Storefront API](/docs/graphql-storefront) allows you to query and mutate products, customers, and carts, then launch a checkout on a headless storefront as well as from a native storefront's frontend. Example use cases include the following:
+BigCommerce's [GraphQL Storefront API](/docs/graphql-storefront) lets you query and mutate products, customers, and carts, then launch a checkout on a headless storefront as well as from a native storefront's frontend. Example use cases include the following:
 * Add additional product data to a Stencil storefront
 * Access customer data on the frontend of a site
 * Manage shopper's carts on a headless storefront
@@ -45,7 +45,7 @@ The [Customer Login API](/api-docs/storefront/customer-login-api) lets you progr
 
 ### Current Customer API
 
-BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) allows you to determine which customer is logged in to a storefront during a session.
+BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) lets you determine which customer is logged in to a storefront during a session.
 * Confirm a customer's identity in the browser
 * Validate a customer's identity to display specific information to them from an external app 
 
@@ -76,7 +76,7 @@ Make BigCommerce API requests in the context of the **storefront**, BigCommerce 
 | Resource | Description |
 |:---------|:------------|
 | [Catalog](/docs/rest-catalog) | The Catalog API manages products, brands, and categories for a store. |
-| [Store Infomation](/docs/rest-management/store-information) | Get system timestamp and basic store information. |
+| [Store Information](/docs/rest-management/store-information) | Get system timestamp and basic store information. |
 | [Currency](/docs/rest-management/currencies) | Manage currency displayed on the storefront. |
 | [Geography](/docs/rest-management/geography) | Get a list of states and countries.  |
 | [Tax Class](/docs/rest-management/tax-classes) | Manage tax classes available on a store. |
@@ -185,6 +185,7 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `X-Request-ID` |  |  |  |
 
 #### Response content type
+
 When requesting a resource that returns a body, specify the type of content you want to receive with the `Accept` header. Alternatively, you can supply an extension to the resource you're requesting.
 
 The priorities with which you can process these methods are:
@@ -192,6 +193,7 @@ The priorities with which you can process these methods are:
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
 
 ### Request Structure
+
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
 ```http filename="Example JSON request body" showLineNumbers copy
@@ -203,12 +205,12 @@ The body of a JSON request is an object containing a set of key-value pairs. A s
 ```
 
 ### Response structure
+
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
 ```http filename="Example request: Get a category"
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
 ```
-
 
 ```json filename="Example response: Get a category" showLineNumbers copy
 {
@@ -241,12 +243,15 @@ GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{ca
 ## Support
 
 ### Developer community
-The [developer community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
+
+The [developer community](/community) is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
 
 ### BigCommerce at Stack Overflow
-Are you a more experienced developer or have a programming language-specific question? [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce) is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform.
+
+Are you a more experienced developer or have a programming language-specific question? [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform.
 
 ## Resources
-* [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+
+* [Developer Community](/community)
 * [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
+* [BigCommerce on Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce)
