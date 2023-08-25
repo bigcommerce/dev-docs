@@ -123,25 +123,22 @@ A media type is the format of the request or response body. BigCommerce APIs acc
 
 For more information about required request headers, consult the [API reference](/docs/api) for the endpoint or graph you want to use.
 
-#### Standard headers
+#### Standard request headers
 
 | Header | Expected value or type | Description | Example |
 |:-------|:---------------|:------------|:--------|
-| `Accept` | MIME types | The MIME type format that indicates which response type the request expects. For more information, see [](). | `application/json` |
-| `Content-Type` | MIME types | The MIME type of the request body. The API uses this value to validate and parse the request. For more information, see [](). | `application/json` |
-| `User-Agent` | String | We ask that you specify a user agent to identify your integration or client. |
-| `Authorization` | String | Requests to the [Process payments]() endpoint and the [GraphQL Storefront API]() use the `Authorization` header to authenticate. For more information, see [](). |
-| `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user. |
-| `X-Correlation-Id` | UUID in an 8-4-4-4-12 format | An identifier unique to a set of related requests. For use on headless storefronts, excluding BigCommerce for WordPress. For more information, see [Best Practices](/api-docs/getting-started/best-practices#correlating-requests) or the [Headless Guide](/api-docs/storefronts/guide/overview#correlating-requests).  |
+| `Accept` | MIME types | The MIME type format that indicates which response type the request expects. For more information, see [HTTP Docs: Accept Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). | `application/json` |
+| `Content-Type` | MIME types | The MIME type of the request body. The API uses this value to validate and parse the request. For more information, see [HTTP Docs: Content-Type Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type). | `application/json` |
+| `User-Agent` | String | We ask that you specify a user agent to identify your integration or client. | `PostmanRuntime/7.32.3` |
+| `Authorization` | String | Requests to the [Process payments](/docs/rest-payments/processing) endpoint and the [GraphQL Storefront API](/docs/graphql-storefront) use the `Authorization` header to authenticate. For more information, see [HTTP Docs: Authorization Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization). | `Bearer {{storefront_token}}` or `PAT {{payment_access_token}}` |
 
-#### BigCommerce-specific headers
+#### BigCommerce-specific request headers
 
 | Header | Expected value or type | Description |
 |:-------|:-----------------------|:------------|
 | `X-Auth-Token` | API account access token | Requests to the REST Management, Catalog, GraphQL Admin, and GraphQL Account APIs use this header to authenticate. Some Payments endpoints also use this header. |
-| `X-Auth-Client` | API account client ID | No longer required for any requests to BigCommerce. |  |
-| `X-Correlation-ID` | UUID in an 8-4-4-4-12 format | Headless storefronts should pass this header with each unique storefront request. If the storefront request requires multiple API calls to BigCommerce, each of those calls should contain the same correlation ID. 
- |
+| `X-Auth-Client` | API account client ID | No longer required for any requests to BigCommerce. |
+| `X-Correlation-Id` | UUID in an 8-4-4-4-12 format | An identifier unique to a set of related requests. For use on headless storefronts, excluding BigCommerce for WordPress. For more information, see [Best Practices](/api-docs/getting-started/best-practices#correlating-requests) or the [Headless Guide](/api-docs/storefronts/guide/overview#correlating-requests).  |
 
 #### Request content type
 
@@ -165,7 +162,7 @@ The body of a JSON request is an object containing a set of key-value pairs. A s
 
 HTTP response header names are case-insensitive; see the [HTTP specification on field names](https://www.rfc-editor.org/rfc/rfc9110.html#name-field-names) for more information. For example, your application may receive `x-rate-limit-requests-left` rather than `X-Rate-Limit-Requests-Left`, so plan your implementation accordingly. Most open source HTTP clients treat headers with the appropriate case insensitivity.
 
-#### Standard headers
+#### Standard response headers
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
@@ -176,9 +173,10 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `Location` | A URI | The URI of a newly created resource. Sent with a `201 Created` response. | `/api/v2/products/7` |
 | `Content-Encoding` | `gzip` | Allows API clients to request content to be compressed before being sent back in the response to an API request. | `gzip` |
 | `Transfer-Encoding` | `chunked` | Specifies the form of encoding used to transfer the resource. | `chunked` |
-| `Strict-Transport-Security` |  |  |  |
 
-#### BigCommerce-specific headers
+{/* | `Strict-Transport-Security` |  |  |  | */}
+
+#### BigCommerce-specific response headers
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
@@ -189,7 +187,8 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `15` |
 | `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). | `987` |
 | `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |
-| `X-Request-ID` |  |  |  |
+
+{/* | `X-Request-ID` |  |  |  | */}
 
 #### Response content type
 
