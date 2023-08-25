@@ -1,3 +1,8 @@
+---
+title: API Best Practices
+keywords: rate limits, best practices, 
+---
+
 # API Best Practices
 
 ## Keep your integration up to date
@@ -6,7 +11,7 @@ BigCommerce frequently enhances its core product and is actively enhancing REST 
 
 ## Anticipate changes to BigCommerce APIs
 
-At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes. 
+At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes.
 
 In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to alpha and beta endpoints, or when analytics indicate that an endpoint has no traffic.
 
@@ -129,6 +134,11 @@ Endpoints that accept bulk requests may have specific limitations on the number 
 * [Guide to API Accounts](/api-docs/getting-started/api-accounts)[webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events)
 * [Changelog](/changelog)
 
+## Correlating requests
+
+When building a headless storefront, it's best practice to group related requests using the `X-Correlation-Id` header. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#request-headers). For an example and a more in-depth explanation, see the [Introduction to Headless Commerce](/api-docs/storefronts/guide/overview#correlating-requests). 
+
+## Resources
 ### Related articles
 
 * [Webhook Events](/api-docs/store-management/webhooks/webhook-events)

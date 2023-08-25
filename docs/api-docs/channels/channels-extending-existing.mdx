@@ -1,3 +1,8 @@
+---
+title: Extending Sales Channel Apps with Channels Toolkit
+keywords: channels, apps, headless, toolkit
+---
+
 # Extending Sales Channel Apps with Channels Toolkit
 
 This article provides a guide to partners who would like to update or replace their existing sales channel apps to leverage new functionality available via Channels Toolkit.
@@ -52,7 +57,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ## App requirements
 
-Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](/api-docs/channels/channels-toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
+Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
 
 The above "updating existing app" data applies; however, non-POS channel apps are not necessarily required to use the same sections and user flows shown in the example app screenshots.
 
@@ -124,23 +129,7 @@ Accept: application/json
 | &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
-| Platform          | Accepted Type             |
-|-------------------|---------------------------|
-| `square `         | `pos`                     |
-| `vend`            | `pos`                     |
-| `clover`          | `pos`                     |
-| `facebook`        | `marketplace`,`marketing` |
-| `amazon`          | `marketplace`             |
-| `ebay`            | `marketplace`             |
-| `wordpress`       | `storefront`              |
-| `drupal`          | `storefont`               |
-| `acquia`          | `storefront`              |
-| `bloomreach`      | `storefront`              |
-| `deity`           | `storefront`              |
-| `google_shopping`\* | `marketing` |
-| `google` | `marketing` |
-| `google` | `marketplace` |
-| `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference.
 
 <Callout type="info">
   We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.

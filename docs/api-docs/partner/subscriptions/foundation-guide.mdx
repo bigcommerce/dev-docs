@@ -37,7 +37,7 @@ After you successfully install the packages, prepare to expose the app to the in
 
 Because you must serve apps over fully-qualified publicly accessible URLs, this guide uses a tool called [ngrok](https://ngrok.com/docs) to open HTTP tunnels that securely expose `localhost` ports to the internet.  
 
-To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
+To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
 <Callout type="info">
   #### Make note of your ngrok ID
@@ -52,13 +52,13 @@ To install your app on your sandbox store, complete the following steps:
 
 1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_url}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
 
 | Callback | URL value |
 |:---------|:----|
-| Auth Callback | `https://{ngrok_id}.ngrok.io/api/auth` |
-| Load Callback | `https://{ngrok_id}.ngrok.io/api/load` |
-| Uninstall Callback | `https://{ngrok_id}.ngrok.io/api/uninstall` |
+| Auth Callback | `https://{ngrok_url}/api/auth` |
+| Load Callback | `https://{ngrok_url}/api/load` |
+| Uninstall Callback | `https://{ngrok_url}/api/uninstall` |
 
 3. In the **OAuth scopes** section, add the following scopes:
 
@@ -158,7 +158,7 @@ To configure test mode, complete the following steps:
    c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
    ```http filename="Your app's Stripe callback URI" showLineNumbers copy
-   https://{ngrok_id}.ngrok.io/stripe/callback
+   https://{ngrok_url}/stripe/callback
    ```
 
 ## Configure the BigCommerce store
@@ -199,7 +199,7 @@ Open the `.env` file you just created and update the following environment varia
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
-| `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel?source=subscription-foundation)  |
+| `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#create-an-https-tunnel)  |
 | `DATABASE_URL` | A URL that connects to a database | On this page, see [Run migration and start the server](#run-migration-and-start-the-server) |
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
@@ -243,7 +243,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#install-and-launch-the-app).
+After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#install-and-launch-the-app).
 
 ## Replacing Postgres
 
@@ -307,7 +307,7 @@ The BigCommerce Subscription Foundation framework enables you to deploy your app
 
 To deploy your app with Vercel:
 
-1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file.
+1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation) file.
 2. Scroll down the page to the **Deploy with Vercel** section and click **Deploy**.
 
 ![vercel-install-button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-install-button.png)
@@ -357,7 +357,7 @@ To manually switch the database provider, complete the following steps:
 
 ## Resources
 ### Related articles
-* [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md)
+* [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Introducing the Subscription Foundation](https://medium.com/bigcommerce-developer-blog/introducing-the-subscription-foundation-afd6dfd22757?source=friends_link&sk=7ce53b66fee0dc660c603ab8f2bca22a)
 * [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers)

@@ -1,3 +1,8 @@
+---
+title: Building Storefront Channels
+keywords: storefront, channels, currency, currencies, headless,  
+---
+
 # Building Storefront Channels
 
 This article documents how to use [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference) to install a storefront channel in a store's [Channel Manager (Help Center)](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app](/api-docs/apps/guide/types) installation. This article assumes you're an experienced app and headless storefront developer familiar with channels on BigCommerce.
@@ -50,19 +55,12 @@ Accept: application/json
   "type": "storefront",
   "platform": "deity",
   ...
-  }
+}
 ```
 
 ### Accepted values
 
-| Platform     | Accepted Type                                   |
-| ------------ | ----------------------------------------------- |
-| `wordpress`  | `storefront`                                    |
-| `drupal`     | `storefront`                                    |
-| `acquia`     | `storefront`                                    |
-| `bloomreach` | `storefront`                                    |
-| `deity`      | `storefront`                                    |
-| `custom`     | `storefront`, `pos`, `marketing`, `marketplace` |
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference. You can use any platform with `storefront` as an accepted type.
 
 ## Configuring UI sections
 
@@ -75,13 +73,13 @@ Content-Type: application/json
 Accept: application/json
 
 {
-   "bigcommerce_protected_app_sections":[],
-   "custom_app_sections":[
-      {
-         "title":"Overview",
-         "query_path":"overview"
-      }
-   ]
+  "bigcommerce_protected_app_sections": [],
+  "custom_app_sections": [
+    {
+      "title": "Overview",
+      "query_path": "overview"
+    }
+  ]
 }
 ```
 
@@ -111,12 +109,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-   "bigcommerce_protected_app_sections": [
-      "storefront_settings",
-      "currencies",
-      "domains"
-   ],
-   "custom_app_sections":[]
+  "bigcommerce_protected_app_sections": [
+    "storefront_settings",
+    "currencies",
+    "domains"
+  ],
+  "custom_app_sections": []
 }
 ```
 

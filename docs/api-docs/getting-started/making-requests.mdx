@@ -1,3 +1,8 @@
+---
+title: Quick Start
+keywords: cors, 
+---
+
 # Quick Start
 
 This quick start guide will take you through making your first requests with BigCommerce's APIs.
@@ -58,7 +63,7 @@ Accept: application/json
 
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
-  "expires_at": 1602288000,   // double utc unix timestamp (required)
+  "expires_at": 1602288000,   // double UTC unix timestamp in seconds (required)
   "allowed_cors_origins": [   // array (accepts 1 origin currently)
     "https://example.com"
   ]
