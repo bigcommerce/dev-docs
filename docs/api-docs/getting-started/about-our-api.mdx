@@ -180,10 +180,10 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
-| `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate-limited and would receive an HTTP 429 response. | `16101491` |
-| `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `16101495` |
+| `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window, in milliseconds. | `30000` |
 | `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 15000 milliseconds – so, 15000 milliseconds after this request, the API quota will be refreshed. |`15000 `|
-| `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `30000` |
+| `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `150` |
+| `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 35 more requests in the next 15000 milliseconds; on the 36th request within 15000 milliseconds, you would be rate-limited and receive an HTTP 429 response. | `35` |
 | `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `15` |
 | `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). | `987` |
 | `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |

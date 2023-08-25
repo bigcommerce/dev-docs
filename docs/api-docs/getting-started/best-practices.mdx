@@ -80,18 +80,16 @@ A store’s overall quota is distributed across all apps that are accessing that
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
-```http filename="Example: Rate limit headers"
-X-Rate-Limit-Requests-Quota: 16101495
+```http filename="Standard plan example: Rate limit headers"
 X-Rate-Limit-Time-Window-Ms: 30000
-X-Rate-Limit-Requests-Left: 16099995
 X-Rate-Limit-Time-Reset-Ms: 15000
+X-Rate-Limit-Requests-Quota: 150
+X-Rate-Limit-Requests-Left: 35
 ```
 
-For more about these headers, see [About Our API](/api-docs/getting-started/about-our-api#response-headers).
+If your implementation's request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response, it is encountering rate limits. Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota refreshes. Retry the request after this time has elapsed.
 
-If your implementation's request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response, it is encountering rate limits.
-
-Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota has refreshed. Retry the request after this time has elapsed.
+For more about rate limit headers and how to calculate the timing of your requests to reduce the risk of encoutering rate limits, see [About Our API](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers).
 
 ### Example of 429 status code
 
@@ -109,7 +107,7 @@ Your client can sleep on the specified interval:
 
 ```php filename="PHP example for delaying response" showLineNumbers copy
   $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
-  usleep($milliseconds * 1000);
+  usleep($milliseconds);
 ```
 
 After waiting for the given number of milliseconds, your client can go back to making API requests.
