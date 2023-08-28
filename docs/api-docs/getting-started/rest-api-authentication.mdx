@@ -93,7 +93,7 @@ To delete an app-level API account, consult our article on [Managing Apps in the
 
 ## Account-level API accounts
 
-Account-level API accounts are designed to work with the GraphQL Account API, which manages resources beyond the scope of a single store. For example, [managing control panel users](/docs/graphql-users/overview) in the BigCommerce ecosystem. Current and future features available using the GraphQL Account API toolset allow developers to build custom integrations and solutions that require high-level access to store and platform resources. Using this API, you can integrate with third-party applications, streamline and automate business processes, and manage multiple merchant stores per account.
+Account-level API accounts are designed to work with the GraphQL Account API, which manages resources beyond the scope of a single store. For example, [managing control panel users](/docs/graphql-account/users-overview) in the BigCommerce ecosystem. Current and future features available using the GraphQL Account API toolset allow developers to build custom integrations and solutions that require high-level access to store and platform resources. Using this API, you can integrate with third-party applications, streamline and automate business processes, and manage multiple merchant stores per account.
 
 ### Creating account-level credentials
 
@@ -122,7 +122,7 @@ Where both types of API account are supported, review the preceding sections to 
 
 | API or Use Case | Store-level API account | App-level API account | Account-level API account |
 |:----------------|:-----------------------:|:---------------------:|:-------------------------:|
-| [GraphQL Account API](/api-docs/getting-started/authentication#access-tokens), including [Users](/docs/graphql-users/overview) |  |  | &times; |
+| [GraphQL Account API](/api-docs/getting-started/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview)  |  |  | &times; |
 | [GraphQL Admin API](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
 | [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; |  |  |
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
@@ -201,8 +201,8 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Customers | modify | `store_v2_customers` | View and modify customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/api-docs/storefront/customer-login-api) |
-| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) |
-| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) |
+| Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings) |
+| Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings)|
 | Store Inventory | modify | `store_inventory` | View and modify store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
 | Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
 | Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |

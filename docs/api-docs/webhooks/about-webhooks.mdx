@@ -90,9 +90,9 @@ The following process will determine whether the destination URI gets blockliste
 1. Once a webhook is triggered, the service checks if your callback URI is on the blocklist.
 2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**.
 3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blocklisted for **three minutes**.
-4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blocklisted and once the retry queue time has elapsed.
+4. Some webhook events triggered during this time are sent to our retry queues for execution later after the domain per specific `client_id` is no longer blocklisted and once the retry queue time has elapsed.
 
-Once a domain is no longer blocklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blocklisting period will be delivered according to the retry queue schedule.
+Blocklisting occurs to the specific `client_id`, not the entire domain. The webhook service can execute requests for a `client_id` with less traffic or properly formed requests while blocklisting another `client_id` on the same domain.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 

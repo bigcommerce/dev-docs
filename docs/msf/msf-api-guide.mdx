@@ -9,7 +9,7 @@ keywords: multistorefront, channels, multi-channel, multichannel, sort, graphql,
 
 When your integration creates a cart or checkout, make sure it specifies the `channel_id` for the storefront or other channel the shopper is using. 
 
-If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [Sites API](/docs/rest-management/sites#create-a-site), both [cart redirect URLs](/docs/rest-management/carts/cart-redirect-urls#create-cart-redirect-url) and [embedded checkout URLs](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview) will refer the shopper to the correct site. 
+If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [Sites API](/docs/rest-management/sites#create-a-site), both [cart redirect URLs](/docs/rest-management/carts/redirects#create-cart-redirect-url) and [embedded checkout URLs](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview) will refer the shopper to the correct site. 
 
 ## Categories
 
@@ -119,9 +119,9 @@ If your application reads pages-related data, be sure to filter by the appropria
 
 ### Widgets
 
-Widget templates, widgets, and widget placements are all associated with a particular site. Any previously existing widget-related objects are assigned to the default site, the ID of which is `1000` for each merchant store.
+Widget templates, widgets, and widget placements are all associated with a particular channel. Any previously existing widget-related objects are assigned to the default channel, which is the first channel that was created on the store.
 
-Going forward, we recommend that you use the query parameters on each Widgets API endpoint to pass the `site_id` of the storefront for which you are managing content. This will restrict the scope of your requests to the target site. When you create new widget objects, be sure to include the correct `site_id`.
+Going forward, we recommend that you use the query parameters on each Widgets API endpoint to pass the `channel_id` of the storefront for which you are managing content. This will restrict the scope of your requests to the target channel. When you create new widget objects, be sure to include the correct `channel_id`.
 
 ### 301 Redirects
 
