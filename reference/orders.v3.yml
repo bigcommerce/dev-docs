@@ -380,7 +380,75 @@ paths:
   '/orders/payment_actions/refunds':
     parameters:
       - $ref: '#/components/parameters/Accept'
-  '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
+    get:
+      summary: Get All Refunds
+      description: |-
+        Returns a list of refunds ordered by refund ID in ascending order.
+
+        Requires at least one of the following scopes:
+        * `store_v2_transactions_read_only`
+        * `store_v2_transactions`
+        * `store_v2_orders_read_only`
+        * `store_v2_orders`
+      operationId: getrefunds
+      tags:
+        - Payment Actions
+      parameters:
+        - name: 'order_id:in'
+          in: query
+          description: Filter by `order_id`. Accepts multiple as comma-separated values.
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:in'
+          in: query
+          description: Filter by refund `id`. Accepts multiple as comma-separated values.
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - in: query
+          name: 'created:min'
+          description: |-
+            Filter results so they are later than or equal to provided date.
+
+
+            Must be in url-encoded RFC 3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
+            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: 'created:max'
+          description: |-
+            Filter results so they are earlier than or equal to provided date.
+
+            Must be in url-encoded RFC 3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
+            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: page
+          description: Specifies the page number in a limited (paginated) list of items.
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          description: Controls the number of items per page in a limited (paginated) list of items.
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/RefundCollection_Resp'
+  '/orders/payment_actions/refund_quotes':
     post:
       summary: Create Refund Quotes - BATCH
       description: |-
@@ -493,87 +561,6 @@ paths:
       tags:
         - Payment Actions
       x-private: true
-    parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
-  '/stores/{store_hash}/v3/orders/payment_actions/refunds':
-    get:
-      summary: Get All Refunds
-      description: |-
-        Returns a list of refunds ordered by refund ID in ascending order.
-
-        Requires at least one of the following scopes:
-        * `store_v2_transactions_read_only`
-        * `store_v2_transactions`
-        * `store_v2_orders_read_only`
-        * `store_v2_orders`
-      operationId: getrefunds
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: 'order_id:in'
-          in: query
-          description: Filter by `order_id`. Accepts multiple as comma-separated values.
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
-        - name: 'id:in'
-          in: query
-          description: Filter by refund `id`. Accepts multiple as comma-separated values.
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
-        - in: query
-          name: 'created:min'
-          description: |-
-            Filter results so they are later than or equal to provided date.
-
-
-            Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
-            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
-          schema:
-            type: string
-            format: date-time
-        - in: query
-          name: 'created:max'
-          description: |-
-            Filter results so they are earlier than or equal to provided date.
-
-
-            Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
-            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
-          schema:
-            type: string
-            format: date-time
-        - in: query
-          name: page
-          description: Specifies the page number in a limited (paginated) list of items.
-          schema:
-            type: integer
-        - in: query
-          name: limit
-          description: Controls the number of items per page in a limited (paginated) list of items.
-          schema:
-            type: integer
-      responses:
-        '200':
-          $ref: '#/components/responses/RefundCollection_Resp'
-      tags:
-        - Payment Actions
   '/orders/{order_id}/metafields':
     parameters:
       - $ref: '#/components/parameters/Accept'
