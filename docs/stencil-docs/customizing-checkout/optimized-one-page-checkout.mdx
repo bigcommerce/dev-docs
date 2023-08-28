@@ -1,6 +1,6 @@
 # Optimized One-Page Checkout
 
- 
+This article covers styling and display options for Optimized One-Page Checkout.
 
 ## Working with the optimized checkout SCSS file
 
@@ -10,9 +10,8 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 
 <Callout type="warning">
-
-#### Customizing checkout restrictions
-When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
+  #### Customizing checkout restrictions
+  When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
 </Callout>
 
 
@@ -34,9 +33,8 @@ To set up optimized checkout's responsive features within the `optimized-checkou
 
 Below are the classes provided in Cornerstone's `optimized-checkout.scss`, with the corresponding page elements that they style.  These class names and mappings are subject to change, so please check the inline comments in the `optimized-checkout.scss` file that you downloaded with your current Cornerstone release.
 
-
-| **Class** | **Styles this Optimized One-Page Checkout element:** |
-|-|-|
+| Class | Styles this Optimized One-Page Checkout element |
+|:------|:------|
 | `.optimizedCheckout-header` | Page header. |
 | `.optimizedCheckout-headingPrimary` | Top-level headings. |
 | `.optimizedCheckout-headingSecondary` | Certain lower-level elements, such as descriptions of cart items. |
@@ -52,13 +50,9 @@ Below are the classes provided in Cornerstone's `optimized-checkout.scss`, with 
 
 ## Providing customizable options in Page Builder
 
-
 You can determine which aspects of Optimized One-Page Checkout merchants will customize with the Page Builder tool.
 
-
 In Cornerstone's `optimized-checkout.scss`, each SCSS class and property available has a corresponding key/value pair in the `config.json` file, which can be used as the `id` value in schema.json when [creating customizable Page Builder options](https://github.com/bigcommerce/cornerstone/blob/master/schema.json).
-
-
 
 <a id="optimized_currency"></a>
 
@@ -67,15 +61,13 @@ In Cornerstone's `optimized-checkout.scss`, each SCSS class and property availab
 You can enable the display of alternate currencies on your Stencil theme's Optimized One-Page Checkout and order confirmation pages.
 
 <Callout type="warning">
-
-#### Restrictions
-The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
+  #### Restrictions
+  The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
 </Callout>
-
 
 Note that regardless of the display options you set below, you will always process transactions in the store's single default currency. To change that setting, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
-To allow shoppers to view prices in multiple currencies, you will need to add the desired currencies via the BigCommerce control panel.
+To allow shoppers to view prices in multiple currencies, you will need to add the desired currencies in the store control panel.
 
 Shoppers will then be able to use the Currency drop-down list throughout the storefront to switch displayed prices among the enabled currencies.
 
@@ -85,5 +77,4 @@ At checkout, the shopper still receives the bill in the store's default currency
 
 ## Related resources
 
-### Related articles
-* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
+* [The Complete Guide to Checkout Customization on BigCommerce (Developer Blog)](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9)

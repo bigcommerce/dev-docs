@@ -1,8 +1,6 @@
-
 # Handlebars Helpers Reference
 
 This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of acceptlisted [standard helpers](#standard-helpers).
-
 
 ## Custom helpers
 
@@ -210,9 +208,9 @@ In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` dir
 
 #### CDN custom endpoints
 
-You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
+You can define custom CDN endpoints to use with the `{{cdn}}` helper. By doing so you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
+You can also use a local version of the image in development and a remote version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 For example:
 
@@ -230,19 +228,19 @@ For example:
 }
 ```
 
-After defining the endpoint, you can use the short name in the same way as you would use a `webdav:` protocol:
+After defining the endpoint, you can use the short name in the same way as you use a `webdav:` protocol:
 
 ```handlebars showLineNumbers
 <img src="{{cdn 'customcdn:img/image.jpg'}}" />
 ```
 
-In local development, that helper would return:
+In local development, the helper returns the following:
 
 ```handlebars showLineNumbers
 <img src="/assets/cdn/customcdn/img/image.jpg"/>
 ```
 
-Whereas in production, it would return:
+In production environment, the helper returns the following:
 
 ```handlebars showLineNumbers
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
@@ -308,22 +306,19 @@ Retrieves the provided URL and produces an early hint to communicate important w
 
 - `crossorigin` (String): Optional. Valid arguments are `no` (default), `anonymous`, and `use-credentials`.
 
-
-
 #### Examples
 
 ```handlebars showLineNumbers
 {{earlyHint 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' 'preload' as='script' crossorigin='anonymous'}}
 ```
+
 This example produces an early hint in a `Link` header that looks like:
 
 ```handlebars showLineNumbers
 <https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js>; rel=preload; as=script; crossorigin=anonymous
 ```
 
-
 The following example uses the `getFontsCollection` and `stylesheet` helpers. These helpers produce early hints by default, without using the `earlyHint` helper directly. 
-
 
 ```handlebars showLineNumbers
 <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
@@ -337,7 +332,7 @@ The following example uses the `getFontsCollection` and `stylesheet` helpers. Th
 
 The output displays in a `Link` header that looks like:
 
-```handlebars showLineNumbers
+``` showLineNumbers
 Link: <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.head_async.js>; rel=preload; as=script; crossorigin=anonymous, 
 <https://fonts.googleapis.com/css?family=Montserrat:700,500,400%7CKarla:400&display=block>; rel=preload; as=style, <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/dist/theme-bundle.font.js>; rel=preload; as=script
 <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac13303cc0f/css/theme-6bec0d40-d17a-013b-e9d8-02ea0e5c37ab.css>; rel=preload; as=style
@@ -345,8 +340,6 @@ Link: <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/earlyHint.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#)
-
-
 
 ### moment
 
@@ -356,9 +349,7 @@ Link: <https://cdn.staging.zone/s-cq2iowdr0q/stencil/94e324f0-d179-013b-2a85-0ac
 
 Use [momentjs](https://momentjs.com/) to format and calculate dates.
 
-
 #### Examples
-
 
 ```handlebars showLineNumbers
 {{moment "5 hours ago" "MM/DD/YYYY HH:mm"}}
@@ -449,7 +440,6 @@ Returns `<link>` elements for configured fonts.
 Returns a string with HTML entities encoded. You may optionally pass additional encoding arguments.
 
 #### Parameters
-
 
 - `string` (String): String to encode with HTML entities.
 - `args` (Boolean): Acceptlist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
@@ -746,7 +736,7 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 {{getImageManagerImageSrcset path}}
 ```
 
-Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`.
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`. To return an image with a specified image width and height size, we recommend using the `getImageManagerImage` helper.
 
 #### Parameters
 
@@ -757,9 +747,9 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 ```handlebars showLineNumbers
 {{getImageManagerImageSrcset "asset.jpg"}}
 <!-- =>
-https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w -->
+https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w  -->
 
-{{getImageManagerImageSrcset "folder/asset.jpg" width=123}}
+{{getImageManagerImageSrcset "folder/asset.jpg"}}
  <!-- =>
 https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg 2560w -->
 ```

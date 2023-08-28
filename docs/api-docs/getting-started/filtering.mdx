@@ -4,9 +4,9 @@ To filter collections down to a particular set of items, you can add filters to 
 
 The maximum number of products returned is 250. Viewing more products requires creating a script that can loop through each subsequent page.
 
-These are the most common filter options available for the REST Management API: 
+These are the most common filter options available for the REST Management API:
 
-| Operator | Expression  | Example | 
+| Operator | Expression  | Example |
 |--|--|--|
 | Equals/equivalency | attribute=value  | `/v3/catalog/products?price=10` `/v3/catalog/products?name=My Product` |
 | Greater than or equal to (for numbers or dates) | attribute:min=value  | `/v3/catalog/products?price:min=10` |
@@ -21,7 +21,7 @@ Available filters vary by endpoint. For up-to-date information on supported filt
 
 ## Include
 
-Certain endpoints support the `include` query parameter used to include sub-resources and specific attributes in the primary `GET` response for a parent object. For example, you can include a product's variants and images with the product response: 
+Certain endpoints support the `include` query parameter used to include sub-resources and specific attributes in the primary `GET` response for a parent object. For example, you can include a product's variants and images with the product response:
 
 `/v3/catalog/products?include=variants,images`
 
@@ -31,7 +31,7 @@ For more information about whether an endpoint supports the `include` parameter,
 
 ## Include and exclude fields
 
-Many of BigCommerce's REST API endpoints support both `include_fields` and `exclude_fields` query parameters. 
+Many of BigCommerce's REST API endpoints support both `include_fields` and `exclude_fields` query parameters.
 
 - `include_fields` query parameter will return ONLY the specified fields in the response.
 - `exclude_fields` query parameter will omit the specified fields from the response.
@@ -49,9 +49,9 @@ GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?includ
             "id": 77,
             "name": "Red printed scarf",
             "price": 12
-        }    
+        }
     ]
-} 
+}
 ```
 
 The availability of the `include_fields` and `exclude_fields` query parameters varies by endpoint. For up-to-date filter information, refer to the `GET` method documentation of each endpoint.

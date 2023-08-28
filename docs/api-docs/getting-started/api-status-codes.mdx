@@ -1,12 +1,16 @@
-# API Status Codes
+---
+title: API Status Codes
+keywords: rest, http, error, status, rate limits, 
+---
 
+# API Status Codes
 
 BigCommerce **REST APIs** and **GraphQL APIs** respond to each request with an HTTP status code that depends on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
 This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-api-http-status-codes) status codes and error messages.
 
 ## REST API HTTP status codes
-### 2xx Success 
+### 2xx Success
 
 2xx codes are returned for requests that were understood and processed successfully.
 
@@ -18,7 +22,7 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **204** | **No Content** | For a successful request that produced no response (such as `DELETE` requests). |
 | **207** | **Multi-Status** | Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred.|
 
-### 3xx Redirection 
+### 3xx Redirection
 
 3xx codes are returned for requests that require further action.
 
@@ -27,7 +31,7 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
 | **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date.|
 
-### 4xx Client Error 
+### 4xx Client Error
 
 4xx codes are returned for requests that could not be processed due to problems with the request or the data.
 
@@ -43,9 +47,10 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **413** | **Request Entity Too Large** | When the client requests too many objects. For example, the `limit` parameter exceeded the maximum. |
 | **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.  |
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
+| **423** | **Locked Status Code** | The requested resource is currently locked and unavailable.|
 | **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#best-practices_rate-limits) for API requests to a store. |
 
-### 5xx Server Error 
+### 5xx Server Error
 
 5xx codes are returned for requests that could not be processed due to an internal error with the API or server.
 

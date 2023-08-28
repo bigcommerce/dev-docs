@@ -1,3 +1,8 @@
+---
+title: Managing Carts
+keywords: carts, rest, management, currency, currencies, locales, storefronts, headless,
+---
+
 # Managing Carts
 
 This article explains how to use the Carts API to create and manage carts. It also discusses how to redirect shoppers from headless storefronts to BigCommerce-hosted cart and checkout pages.
@@ -157,7 +162,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 
 ### Using the Create a cart redirect URL endpoint
 
-To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/cart-redirect-urls#create-cart-redirect-url) endpoint. Use the `id` returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response for the `cartId` path parameter.
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. Use the `id` returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response for the `cartId` path parameter.
 
 ```http filename="Create cart redirect URL" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
@@ -223,7 +228,7 @@ If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/emb
 
 ## Deleting a line item
 
-To delete a line item from a cart, send a request to the [Delete cart line item](/docs/rest-management/carts/cart-items#delete-cart-line-item) endpoint, passing the associated `cartId` and `itemId` as path parameters.
+To delete a line item from a cart, send a request to the [Delete cart line item](/docs/rest-management/carts/items#delete-cart-line-item) endpoint, passing the associated `cartId` and `itemId` as path parameters.
 
 ```http filename="Delete a line item" showLineNumbers copy
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
