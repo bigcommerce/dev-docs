@@ -43,7 +43,7 @@ When an event your app is listening for occurs, BigCommerce sends a payload with
 
 Client-side applications should avoid polling the [REST Storefront Cart API](/docs/rest-storefront/carts) on interval. Millions of browsers could poll this API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
 
-As an alternative, consider using a server-side app to subscribe to [cart webhook events](/api-docs/store-management/webhooks/webhook-events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs. You may also be interested in the [growing list of events](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas) available to native storefronts that have our Open Data Layer enabled. 
+As an alternative, consider using a server-side app to subscribe to [cart webhook events](/api-docs/store-management/webhooks/webhook-events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for updating cart information across browser tabs. You may also be interested in the [growing list of events](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas) available to native storefronts with our Open Data Layer enabled. 
 
 ## Thread API requests
 
@@ -53,7 +53,7 @@ The [BigCommerce Ruby API client](https://github.com/bigcommerce/bigcommerce-api
 
 ## API rate limits
 
-Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store plan and resource requested.
+Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store plan and resources requested.
 
 | Plans & sandboxes | Quotas |
 |:------------------|:-------|
