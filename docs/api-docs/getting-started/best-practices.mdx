@@ -13,7 +13,7 @@ BigCommerce frequently enhances its core product and is actively enhancing REST 
 
 At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes.
 
-In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to alpha and beta endpoints and graph nodes, or when analytics indicate that an endpoint has no traffic.
+In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to alpha and beta endpoints and graph nodes, or when analytics indicate that an endpoint has no traffic for three months.
 
 Examples of breaking changes include:
 
@@ -63,7 +63,7 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
 <Callout type="warning">
-  \* The **Unlimited** rate plan for select BigCommerce Enterprise clients means that these stores are not rate limited by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. For more on resource constraints, consult our article on [object-related limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+  \* The **Unlimited** rate plan for select BigCommerce Enterprise clients means that these stores are not rate limited by number of requests per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. For more on resource constraints, consult our article on [object-related limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
   
   BigCommerce reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). 
 </Callout>
