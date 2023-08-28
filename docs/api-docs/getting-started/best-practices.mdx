@@ -156,6 +156,10 @@ As an alternative, consider using a server-side application to subscribe to [car
 
 BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) for more details.
 
+## Correlating requests
+
+When building a headless storefront, it's best practice to group related requests using the `X-Correlation-Id` header. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#request-headers). For an example and a more in-depth explanation, see the [Introduction to Headless Commerce](/api-docs/storefronts/guide/overview#correlating-requests). 
+
 ## Resources
 ### Related articles
 * [API Status Codes](/api-docs/getting-started/api-status-codes)
