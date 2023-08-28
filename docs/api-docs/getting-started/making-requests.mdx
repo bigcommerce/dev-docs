@@ -7,17 +7,17 @@ keywords: cors,
 
 This quick start guide will take you through making your first requests with BigCommerce's APIs.
 
-## REST API
+## REST Management API
 
 ### Create an API account
 
-See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/api-accounts) for instructions on creating API accounts.
+See the [Guide to API Accounts](/api-docs/getting-started/api-accounts) for instructions on creating API accounts.
 
 ### Use Request Runner
 
-The easiest way to experiment with BigCommerce REST APIs is using the **Request Runner** built in to the [API Reference](/docs/api) for most endpoints.
+You can experiment with our REST Management APIs using the **Request Runner**, which is built in to the [API Reference](/docs/api) for most endpoints.
 
-Just copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
+Copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
 
 ### Visual Studio Code REST Client
 
@@ -37,26 +37,30 @@ Accept: application/json
 
 Save and you'll see the **send request** link above `GET`. Click **send request** and the response will open in a split window.
 
-### Import API spec file with Postman
+### Postman
 
-You can import many of our API Specification Files into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files) to try out endpoints and view responses.
+To try out REST endpoints and view responses, you can import our API specification files into [Postman](https://www.getpostman.com/) or any other tool that can import [Open API Specification](https://swagger.io/specification/) files.
 
 To view sample JSON request bodies for each REST API resource, see the [API Reference](/docs/api) for that resource.
 
-## Storefront API quick start
+## REST Storefront API quick start
 
-To make your first requests in a browser with the Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis).
+To make your first requests in a browser with the REST Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis).
 
-## GraphQL API
+## GraphQL Storefront API
 
 ### Create a storefront token
-We'll use **Request Runner** for making an initial request to create a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/api-accounts#creating-store-level-api-credentials).
 
-Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
+This example uses **Request Runner** to make an initial request that creates a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/api-accounts#creating-store-level-api-credentials).
 
-**`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
+In the `allowed_cors_origins` array, include the URL(s) of the storefront from which you plan to use the token.
 
-```json
+```http filename="Example request: Create a storefront token" copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token
+X-Auth-Token: {{access_token}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
   "expires_at": 1602288000,   // double UTC unix timestamp in seconds (required)
@@ -67,7 +71,8 @@ Include the URL of the storefront you will be making the request from as the `al
 ```
 
 ### Create sample request in the browser
-While viewing your storefront in a browser, navigate to the integrated JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](/docs/rest-catalog/products#get-a-product) for the `entityId`:
+
+While viewing your storefront in a browser, open the developer tools JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Add your API token to the authorization header in the following code sample and add a valid [Product ID](/docs/rest-catalog/products#get-a-product) for the `entityId`, then run the code in the console:
 
 ```js filename="Example query" copy showLineNumbers
   fetch('/graphql', {
@@ -81,7 +86,7 @@ While viewing your storefront in a browser, navigate to the integrated JavaScrip
     body: JSON.stringify({
       query: `query SingleProduct {
         site {
-          products (entityIds: product ID) {
+          products (entityIds: {{product ID}}) {
             edges {
               node {
                 id
