@@ -1012,8 +1012,6 @@ components:
           properties:
             countries:
               type: string
-            ?
-            : type: string
         shipping_methods:
           type: array
           description: This is a list of shipping-method names. A shipping method
