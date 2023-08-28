@@ -224,7 +224,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
 | Carts | modify | `store_cart` | View and modify carts | [Carts V3](/docs/rest-management/carts) |
 | Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/docs/rest-management/carts) |
-| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/docs/rest-storefront/checkouts) |
+| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/docs/rest-storefront/checkouts)  |
 | Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/docs/rest-storefront/checkouts) |
 | Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
 | Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
@@ -239,6 +239,9 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Account Users | write | `account_users_write` | Add a user to an account | [GraphQL Account API](/docs/graphql-users) |
 | Account Users | write | `account_users_write` | Create a user with a password for an account | [GraphQL Account API](/docs/graphql-users) |
 | Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Account API](/docs/graphql-users) |
+| Subscriptions | read-only| `subscriptions_read_only` | View or cancel subscriptions | [GraphQL Account API](/docs/graphql-users) |
+| Checkouts | modify | `account_checkouts` | View or cancel checkouts | [GraphQL Account API](/docs/graphql-users) |
+| Charges | modify | `account_charges` | Create or delete charges | [GraphQL Account API](/docs/graphql-users) |
 
 ## Resources
 
