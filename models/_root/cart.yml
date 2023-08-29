@@ -13,7 +13,7 @@ properties:
       type: string
   coupons:
     type: array
-    description: 'List of coupons applied to the cart; default sorting is by coupon id, from lowest to highest.'
+    description: List of coupons applied to the cart; default sorting is by coupon ID, from lowest to highest.
     items:
       type: object
       properties:
@@ -28,8 +28,15 @@ properties:
         discountedAmount:
           type: number
   discount:
-    type: 'null'
+    type: object
     description: Discount being applied to the cart in the current session.
+    properties:
+      formatted:  
+        type: string
+      value:
+        type: integer
+      currency: 
+        string
   gift_certificates:
     type: array
     description: List of gift certificates applied to the cart.
@@ -66,8 +73,6 @@ properties:
                 type: string
         message:
           type: string
-        '':
-          type: string
   gift_wrapping_cost:
     type: object
     description: Price object that defines the cost associated with adding gift wrapping to the items in the cart.
@@ -80,7 +85,7 @@ properties:
         type: integer
   grand_total:
     type: object
-    description: 'Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping.'
+    description: Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping.
     properties:
       currency:
         type: string
@@ -95,6 +100,15 @@ properties:
       properties:
         availability:
           type: string
+        base_price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
         brand:
           type: object
           properties:
@@ -102,9 +116,13 @@ properties:
               type: string
         can_modify:
           type: boolean
+        category_names:
+          type: array
+          items:  
+            type: string
         configurable_fields:
           type: array
-          items:
+          items: 
             type: object
         custom_fields:
           type: array
@@ -121,18 +139,43 @@ properties:
           type: string
           description: Unique ID of the coupon.
         image:
-          $ref: ../common/image.yml
+          type: object
+          properties:
+            alt:
+              type: string
+              description: Corresponding text to display for missing images, accessible screen readers, etc.
+            data:
+              type: string
+              description: Internal URL to the image.
         max_purchase_quantity:
-          type: 'null'
+          type: integer
         min_purchase_quantity:
-          type: 'null'
+          type: integer
         name:
           type: string
         options:
           type: array
           items:
             type: object
+          properties:
+              id:
+                type: string
+              name:
+                type: string
+              value:
+                type: string
+              is_file:
+                type: boolean
         price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        price_discounted:
           type: object
           properties:
             currency:
@@ -161,6 +204,15 @@ properties:
               type: string
             value:
               type: integer
+        sale_price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
         show_gift_wrapping:
           type: boolean
           description: Boolean indicating whether the wrapping options are shown.
@@ -175,10 +227,21 @@ properties:
               type: string
             value:
               type: number
+        total_discounted:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
         type:
           type: string
         url:
           type: string
+        variant_id:
+          type: integer
   quantity:
     type: integer
   shipping_handling:
@@ -216,7 +279,7 @@ properties:
       selected_country:
         type: string
       selected_state:
-        type: 'null'
+        type: string
         description: The state/province/region that the customer selected for the shipping estimate.
       selected_zip:
         type: string
@@ -236,7 +299,7 @@ properties:
               type: string
   show_multiple_address_shipping:
     type: boolean
-    description: 'Boolean: If >1 physical items are in the cart, and checkout button is displayed: whether to also display the "Ship to multiple addresses"/"Multiple Shipping Addresses” user option.'
+    description: 'Boolean: If > 1 physical items are in the cart, and checkout button is displayed: whether to also display the "Ship to multiple addresses" / "Multiple Shipping Addresses" user option.'
   show_primary_checkout_button:
     type: boolean
     description: Boolean that determines whether to show a checkout button.
@@ -251,7 +314,7 @@ properties:
           type: number
   sub_total:
     type: object
-    description: 'Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping.'
+    description: Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping.
     properties:
       currency:
         type: string
