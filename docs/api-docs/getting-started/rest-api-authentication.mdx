@@ -189,7 +189,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Storefront API Tokens | modify | `store_storefront_api` | Create GraphQL Storefront API bearer tokens | [Storefront API Token V3](/docs/storefront-auth/tokens#create-a-token) |
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create GraphQL Storefront API bearer tokens that allow customer impersonation | [Storefront API Token V3, Customer Impersonation](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) |
 
-### Resource scopes
+### Store resource scopes
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
@@ -232,6 +232,11 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/docs/rest-management/channels) |
 | Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
+
+### Account resource scopes
+
+| UI Name | Permission | Parameter | Description | Resources |
+|:--------|:-----------|:----------|:------------|:----------|
 | Account | read-only | `account_read` | View account details | [GraphQL Account API](/docs/graphql-users) |
 | Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Account API](/docs/graphql-users) |
 | Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Account API](/docs/graphql-users) |
