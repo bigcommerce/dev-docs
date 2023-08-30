@@ -774,7 +774,7 @@ components:
       allOf:
         - properties:
             data:
-              type: array
+              type: object
               items:
                 $ref: '#/components/schemas/Page'
             meta:
