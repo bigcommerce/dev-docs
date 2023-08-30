@@ -3114,10 +3114,11 @@ components:
               coupons:
                 $ref: '#/components/schemas/coupons_Resource'
               external_id:
-                description: ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order. This field can be updated in a POST request, but using a PUT request to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.
+                description: (Read-only) ID of the order in another system. For example, the Amazon order ID if this is an Amazon order.
                 example: null
                 type: string
                 nullable: true
+                readOnly: true
               external_merchant_id:
                 description: ID of the merchant.
                 example: null
@@ -3467,9 +3468,10 @@ components:
           items:
             $ref: '#/components/schemas/orderProductOptions'
         external_id:
-          description: ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order. This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.
+          description: (Read-only) ID of the order in another system. For example, the Amazon order ID if this is an Amazon order.
           type: string
           nullable: true
+          readOnly: true
         upc:
           type: string
           maxLength: 255
@@ -4242,11 +4244,11 @@ components:
           example: '0'
           type: string
         external_id:
-          description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a POST request, but a PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.
+          description: (Read-only) The order ID in another system, such as the Amazon order ID if this is an Amazon order.
           example: null
-          oneOf:
-            - type: string
+          type: string
           nullable: true
+          readOnly: true
         external_merchant_id:
           description: The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a POST request, but a PUT request to update the order will return a 400 error. Please remove it from your request before trying again.
           example: null
@@ -4372,7 +4374,7 @@ components:
         external_order_id:
           type: string
           example: external-order-id
-          description: The external id of the order.
+          description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request.
         total_ex_tax:
           description: Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
           example: '225.0000'
@@ -4928,11 +4930,11 @@ components:
               example: '0'
               type: string
             external_id:
-              description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a POST request, but a PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.
+              description: (Read-only) The order ID in another system, such as the Amazon Order ID if this is an Amazon order.  
               example: null
-              oneOf:
-                - type: string
+              type: string
               nullable: true
+              readOnly: true
             external_merchant_id:
               description: The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a POST request, but a PUT request to update the order will return a 400 error. Please remove it from your request before trying again.
               example: null
@@ -5066,7 +5068,7 @@ components:
             external_order_id:
               type: string
               example: external-order-id
-              description: The external id of the order.
+              description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request. 
             total_ex_tax:
               description: Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
               example: '225.0000'
