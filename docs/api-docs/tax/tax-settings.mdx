@@ -1,0 +1,87 @@
+# Tax Settings
+
+Tax settings allow you to choose how a store handles tax calculation and price display. For example, you can set how a store handles taxes if an enabled tax service is unavailable. You can also choose whether prices include taxes when displayed on orders and invoices. For more info, see [Tax Settings](https://support.bigcommerce.com/s/article/Tax-Overview?language=en_US#tax-settings).
+
+This guide shows you how to use the Tax Settings API. For more info, see the [Tax Settings API Reference](/docs/rest-management/tax-settings). 
+
+## Get tax settings
+
+To get tax settings, send a request to the [Get tax settings](/docs/rest-management/tax-settings#get-tax-settings) endpoint.
+
+<Tabs items={[`Request`, `Response`]}>
+  <Tab>
+    ```http filename="Example request: Get tax settings" showLineNumbers copy
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/settings
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
+    ```
+  </Tab>
+  <Tab>
+  ```json filename="Example response: Get tax settings" showLineNumbers copy
+  {
+    "data": {
+      "tax_entered_with_prices": true,
+      "price_display_settings": {
+        "show_inclusive_in_control_panel": true,
+        "invoice_price_display_strategy": "ZONE"
+      },
+      "fallback_strategy": "DISABLE",
+      "should_subtract_store_tax": false
+    },
+    "meta": {}
+  }
+  ```
+  </Tab>
+</Tabs>
+
+<Callout type="info">
+  When a merchant enters tax-inclusive prices, the `should_subtract_store_tax` field allows you to choose how a store calculates the tax-inclusive price displayed to shoppers. This setting affects the tax-inclusive price displayed to a shopper if the shopper and merchant are in different tax zones. For more information, see the [Tax Settings API Reference](/docs/rest-management/tax-settings). 
+</Callout>
+
+## Update tax settings
+
+To update tax settings, send a request to the [Update tax settings](/docs/rest-management/tax-settings#update-tax-settings) endpoint. The request updates only the fields that you specify.
+
+<Tabs items={[`Request`, `Response`]}>
+
+<Tab>
+```json filename="Example request: Update tax settings" showLineNumbers copy
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/settings
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tax_entered_with_prices": false,
+  "price_display_settings": {
+    "invoice_price_display_strategy": "INCLUSIVE"
+  }
+}
+```
+</Tab>
+
+<Tab>
+```json filename="Example response: Update tax settings" showLineNumbers copy
+{
+  "data": {
+    "tax_entered_with_prices": false,
+    "price_display_settings": {
+      "show_inclusive_in_control_panel": true,
+      "invoice_price_display_strategy": "INCLUSIVE"
+    },
+    "fallback_strategy": "DISABLE",
+    "should_subtract_store_tax": false
+  },
+  "meta": {}
+}
+```
+</Tab>
+
+</Tabs>
+
+## Resources
+
+- [Tax Settings API Reference](/docs/rest-management/tax-settings)
+- [Get Tax Settings](/docs/rest-management/tax-settings#get-tax-settings)
+- [Update Tax Settings](/docs/rest-management/tax-settings#update-tax-settings)
