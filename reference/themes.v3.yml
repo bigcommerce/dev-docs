@@ -465,7 +465,7 @@ paths:
                         additionalProperties: true
                         title: Detailed Errors
                 title: Error Response
-      description: 'Returns a theme *Job*. If job is completed, the result is included in the response.'
+      description: 'Returns a theme *Job*. When the job is complete, the results array provides a generated link to access the theme. The link is active for 60 seconds.'
     parameters:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/JobIdParam'
