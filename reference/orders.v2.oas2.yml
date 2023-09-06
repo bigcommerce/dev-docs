@@ -1940,6 +1940,7 @@ components:
                       display_style: Pick list
                   configurable_fields: []
                   gift_certificate_id: null
+                  discounted_total_inc_tax: '63.6400'
                 - id: 66
                   order_id: 149
                   product_id: 86
@@ -1988,6 +1989,7 @@ components:
                   product_options: []
                   configurable_fields: []
                   gift_certificate_id: null
+                  discounted_total_inc_tax: '0.0000'
     orderProductLineItem_Resp:
       description: ''
       content:
@@ -2046,6 +2048,7 @@ components:
                 brand: BigCommerce
                 applied_discounts: []
                 product_options: []
+                discounted_total_inc_tax: '37.2300'
             Product with file upload:
               value:
                 - id: 35
@@ -3496,6 +3499,15 @@ components:
           example: 52
           description: ID of the associated gift certificate.
           nullable: true
+        discounted_total_inc_tax:
+          type: string
+          example: '0.0000'
+          description: |-
+            Represent the correct total amount of the line item after deducting all the discounts and including the tax. This number can be used for accounting purpose.
+            
+            This makes it easier to have the "shopper paid" value for a line item and api user doesn't have to do any calculation to deduct discount on the client side.
+
+            This field includes all types of discounts (automatic, coupon, manual) and therefore if you use this value, you don't need to deduct any more discounts at line item level or order level.
     orderCount:
       title: orderCount
       example:
