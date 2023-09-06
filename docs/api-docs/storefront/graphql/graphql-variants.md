@@ -17,13 +17,10 @@ This page walks you through how to retrieve info for a variant. To retrieve info
 
 Query a variant by specifying a variant identifier. For instance, use the variant `entityId` or `optionValueId` for the `variants` field as shown here:
 
-<!--
-type: tab
-title: Variant entity ID
--->
+<Tabs items={['Variant entity ID', 'Variant option value entity ID']}>
+<Tab>
 
-
-```graphql title="Get a variant using the variant entity ID" lineNumbers
+```graphql filename="Get a variant using the variant entity ID" showLineNumbers copy
 # This example retrieves 1 variant. 
 # Specify multiple variant entityIds to retrieve multiple variants.
 
@@ -42,12 +39,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Variant option value entity ID
--->
+</Tab>
+<Tab>
 
-```graphql title="Get a variant using variant option values" lineNumbers
+```graphql filename="Get a variant using variant option values" showLineNumbers copy
 # This query retrieves one variant.
 # You must specify the entity ID for the value of each variant option.
 
@@ -68,7 +63,7 @@ query {
 
 &nbsp;
 
-```graphql title="Get a variant using variant option values" lineNumbers
+```graphql filename="Get a variant using variant option values" showLineNumbers copy
 # This query retrieves two variants.
 # For each variant, you must specify the entity ID for the value of each variant option.
 # This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
@@ -99,7 +94,8 @@ fragment VariantFields on Variant {
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 Query all variants by omitting an argument for `variants`.
 
@@ -107,13 +103,10 @@ Query all variants by omitting an argument for `variants`.
 
 Query a variant by specifying a variant identifier for the `product` field. Use the variant's entity ID, variant option value entity IDs, or variant SKU:
 
-<!--
-type: tab
-title: Variant entity ID
--->
+<Tabs items={['Variant entity ID', 'Variant option value entity ID', 'Variant SKU']}>
+<Tab>
 
-
-```graphql title="Get a variant using the variant entity ID" lineNumbers
+```graphql filename="Get a variant using the variant entity ID" showLineNumbers copy
 # This query retrieves one variant. 
 
 query {
@@ -125,12 +118,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Variant option value entity ID
--->
+</Tab>
+<Tab>
 
-```graphql title="Get a variant using variant option values" lineNumbers
+```graphql filename="Get a variant using variant option values" showLineNumbers copy
 # This query retrieves one variant.
 # You must specify the entity ID for the value of each variant option.
 
@@ -146,12 +137,10 @@ query {
 }
 
 ```
-<!--
-type: tab
-title: Variant SKU
--->
+</Tab>
+<Tab>
 
-```graphql title="Get a variant using the variant sku" lineNumbers
+```graphql filename="Get a variant using the variant sku" showLineNumbers copy
 # This query retrieves one variant. 
 
 query {
@@ -163,7 +152,8 @@ query {
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 Specifying a variant identifier for the `product` field returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product, the variant's info will be returned. This allows you to directly query a variant.
 
@@ -171,12 +161,10 @@ Specifying a variant identifier for the `product` field returns variant informat
 
 Query identifying info for variants by using the following query:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get basic info for a variant" lineNumbers
+```graphql filename="Example query: Get basic info for a variant" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -196,12 +184,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get basic info for a variant" lineNumbers
+```json filename="Example response: Get basic info for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -224,18 +210,17 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get variant prices and dimensions
 
 Query the prices and dimensions for variants. The following query retrieves prices and dimensions for the specified variant:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get prices and dimensions for a variant" lineNumbers
+```graphql filename="Example query: Get prices and dimensions for a variant" showLineNumbers copy
 # This query uses fragments. For more, see https://graphql.org/learn/queries/#fragments.
 
 query {
@@ -287,12 +272,10 @@ fragment DimensionFields on Measurement {     # fields on the Measurement object
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get prices and dimensions for a variant" lineNumbers
+```json filename="Example response: Get prices and dimensions for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -344,7 +327,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get variant options and variant option values
 
@@ -356,12 +340,10 @@ All variant options are [multiple choice](https://support.bigcommerce.com/s/arti
 
 The following example shows how to get the first two variant options that are associated with the base product for the specified variant:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get variant options for a variant" lineNumbers
+```graphql filename="Example query: Get variant options for a variant" showLineNumbers copy
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -391,12 +373,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get variant options for a variant" lineNumbers
+```json filename="Example response: Get variant options for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -436,7 +416,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ### Get variant option values
 
@@ -445,7 +426,7 @@ All variant options are [multiple choice](https://support.bigcommerce.com/s/arti
 Multiple choice values are made up of various types, like swatch or radio buttons. Each type of multiple choice value has a specific schema that implements the `CatalogProductOptionValue` interface (meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value). For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.   
 
 
-```graphql title="CatalogProductOptionValue interface" lineNumbers
+```graphql filename="CatalogProductOptionValue interface" showLineNumbers copy
 # Fields common among multiple choice values 
 
 interface CatalogProductOptionValue {
@@ -457,12 +438,10 @@ interface CatalogProductOptionValue {
 
 The following example retrieves variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields. The example query retrieves only the first two variant options associated with the base product.
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get variant option values for a variant" lineNumbers
+```graphql filename="Example query: Get variant option values for a variant" showLineNumbers copy
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -500,12 +479,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get variant option values for a variant" lineNumbers
+```json filename="Example response: Get variant option values for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -562,16 +539,15 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 Retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. The example query retrieves only the first two variant options associated with the base product.
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get variant option values for a variant" lineNumbers
+```graphql filename="Example query: Get variant option values for a variant" showLineNumbers copy
 query {
   site {
     product(entityId: 113) {
@@ -604,12 +580,10 @@ query {
 
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get variant option values for a variant" lineNumbers
+```json filename="Example response: Get variant option values for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -665,18 +639,17 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get variant images
 
 Query the images for variants. The following query retrieves the image for the specified variant:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get images for a variant" lineNumbers
+```graphql filename="Example query: Get images for a variant" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -697,12 +670,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get images for a variant" lineNumbers
+```json filename="Example response: Get images for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -726,24 +697,24 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get variant metafields
 
 Query variant metafields by specifying the namespace for the variant metafields. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-<!-- theme:info -->
-> #### Variant vs product metafields
-> The query returns only **variant** metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve **product** metafields. 
+<Callout type="info">
+  #### Variant vs product metafields
+  The query returns only **variant** metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve **product** metafields. 
+</Callout>
 
 The following query retrieves the first variant metafield for the specified variant:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get variant metafields for a variant" lineNumbers
+```graphql filename="Example query: Get variant metafields for a variant" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -768,12 +739,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get variant metafields for a variant" lineNumbers
+```json filename="Example response: Get variant metafields for a variant" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -803,7 +772,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Resources
 

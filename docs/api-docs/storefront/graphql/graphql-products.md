@@ -17,7 +17,7 @@ This page walks you through the process of retrieving info for a product. If you
 
 You can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
-```graphql title="Get a product with the product field" lineNumbers
+```graphql filename="Get a product with the product field" showLineNumbers copy
 # This query retrieves one product.
 
 query {
@@ -29,9 +29,7 @@ query {
 }
 ```
 
-&nbsp;
-
-```graphql title="Get a product with the product field" lineNumbers
+```graphql filename="Get a product with the product field" showLineNumbers copy
 # This query retrieves two products.
 # This query uses aliases and fragments. To learn more about queries, see https://graphql.org/learn/queries.
 
@@ -51,16 +49,17 @@ fragment ProductFields on Product {
 }
 ```
 
-<!-- theme:info -->
-> #### Get product versus variant
-> The Product object is also used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
-> See [Get a variant](/api-docs/storefront/graphql/variants#get-a-variant) for more info.
+<Callout type="info">
+  #### Get product versus variant
+  The Product object is also used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
+  See [Get a variant](/api-docs/storefront/graphql/variants#get-a-variant) for more info.
+</Callout>
 
 ### Get a product with the `products` field
 
 Query a list of products by using the `products` field and specifying product identifiers, for example, the product `entityID`s:
 
-```graphql title="Get a product with the products field" lineNumbers
+```graphql filename="Get a product with the products field" showLineNumbers copy
 # This example retrieves one product.
 # Specify multiple entityIds to retrieve multiple products.
 
@@ -85,12 +84,10 @@ You can also query for featured products, related products, and more. See the [G
 
 Query basic info for products. The following query retrieves both product identifiers and basic information for the specified product:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get basic info for a product" lineNumbers
+```graphql filename="Example query: Get basic info for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 111) {
@@ -109,12 +106,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get basic info for a product" lineNumbers
+```json filename="Example response: Get basic info for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -134,19 +129,18 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product prices and dimensions
 
 Query prices and dimensions for a product. The following query retrieves prices and dimensions for the specified product:
 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get prices and dimensions for a product" lineNumbers
+```graphql filename="Example query: Get prices and dimensions for a product" showLineNumbers copy
 # This query uses fragments. To learn more about fragments, see https://graphql.org/learn/queries/#fragments.
 
 query {
@@ -193,12 +187,10 @@ fragment DimensionFields on Measurement {     # fields on the Measurement object
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get prices and dimensions for a product" lineNumbers
+```json filename="Example response: Get prices and dimensions for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -242,7 +234,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product options 
 
@@ -250,7 +243,7 @@ Query the [product options](https://support.bigcommerce.com/s/article/Product-Op
 
 There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types) available. Checkbox and multiple choice are some examples of the many option types available. Each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for any type of product option. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
-```graphql title="CatalogProductOption interface" lineNumbers
+```graphql filename="CatalogProductOption interface" showLineNumbers copy
 # Fields common among product option types
 
 interface CatalogProductOption {
@@ -263,12 +256,10 @@ interface CatalogProductOption {
 
 The following example shows how to get the first three product options associated with a product. In the response, all product options include queried fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get product options for a product" lineNumbers
+```graphql filename="Example query: Get product options for a product" showLineNumbers copy
 # This query uses interfaces. To learn more about interfaces, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -298,12 +289,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get product options for a product" lineNumbers
+```json filename="Example response: Get product options for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -346,11 +335,12 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 When you get product options, you can retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc) (i.e. product option values). These values are made up of various types, swatch or radio buttons, for example. Each type of multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value.   
 
-```graphql title="CatalogProductOptionValue interface" lineNumbers
+```graphql filename="CatalogProductOptionValue interface" showLineNumbers copy
 # Fields common among multiple choice values
 
 interface CatalogProductOptionValue {
@@ -362,12 +352,10 @@ interface CatalogProductOptionValue {
 
 The following example shows a query that includes values for product options that are multiple choice. In the response, all product option values include queried fields from the `CatalogProductOptionValue` interface, and product option values that are swatch types include additional fields. The example query retrieves only the first product option and the first two values for that product option.
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get product options for a product" lineNumbers
+```graphql filename="Example query: Get product options for a product" showLineNumbers copy
 # This query uses interfaces. To learn more about interfaces, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -404,12 +392,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get product options for a product" lineNumbers
+```json filename="Example response: Get product options for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -462,7 +448,8 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product images
 
@@ -470,12 +457,10 @@ Query the images for products. Note that the default image is a thumbnail for th
 
 The following example retrieves the first two images and the default image for the specified product:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get product images for a product" lineNumbers
+```graphql filename="Example query: Get product images for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -500,12 +485,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get product images for a product" lineNumbers
+```json filename="Example response: Get product images for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -541,16 +524,15 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 You can query product images at different resolutions. The following query retrieves the first image for the specified product at various resolutions: 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get product images at different resolutions" lineNumbers
+```graphql filename="Example query: Get product images at different resolutions" showLineNumbers copy
 # This query retrieves four images.
 # This query uses aliases. To learn more about aliases, see https://graphql.org/learn/queries/#aliases.
 
@@ -572,12 +554,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get product images at different resolutions" lineNumbers
+```json filename="Example response: Get product images at different resolutions" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -600,24 +580,24 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product metafields
 
 Query product metafields by specifying the product metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-<!-- theme:info -->
-> #### Product vs variant metafields 
-> The query retrieves only **product** metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve **variant** metafields. 
+<Callout type="info">
+  #### Product vs variant metafields 
+  The query retrieves only **product** metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve **variant** metafields. 
+</Callout>
 
 The following query retrieves the first two product metafields for the specified product:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get product metafields for a product" lineNumbers
+```graphql filename="Example query: Get product metafields for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -636,12 +616,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get product metafields for a product" lineNumbers
+```json filename="Example response: Get product metafields for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -671,18 +649,17 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product custom fields
 
 Query the custom fields for products. The following example retrieves the first two custom fields for the specified product:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get custom fields for a product" lineNumbers
+```graphql filename="Example query: Get custom fields for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -700,12 +677,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get custom fields for a product" lineNumbers
+```json filename="Example response: Get custom fields for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -733,18 +708,17 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product gift wrapping options
 
 Query gift wrapping options that are available for a product. The following example retrieves the first two gift wrapping options for the specified product:
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get gift wrapping options for a product" lineNumbers
+```graphql filename="Example query: Get gift wrapping options for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -763,12 +737,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get gift wrapping options for a product" lineNumbers
+```json filename="Example response: Get gift wrapping options for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -798,18 +770,17 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 ## Get product reviews
 
 Query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product: 
 
-<!--
-type: tab
-title: Query
--->
+<Tabs items={['Request', 'Response']}>
+<Tab>
 
-```graphql title="Example query: Get reviews for a product" lineNumbers
+```graphql filename="Example query: Get reviews for a product" showLineNumbers copy
 query {
   site {
     product (entityId: 113) {
@@ -834,12 +805,10 @@ query {
 }
 ```
 
-<!--
-type: tab
-title: Response
--->
+</Tab>
+<Tab>
 
-```json title="Example response: Get reviews for a product" lineNumbers
+```json filename="Example response: Get reviews for a product" showLineNumbers copy
 {
   "data": {
     "site": {
@@ -867,7 +836,8 @@ title: Response
   }
 }
 ```
-<!-- type: tab-end -->
+</Tab>
+</Tabs>
 
 
 ## Resources
