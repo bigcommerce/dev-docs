@@ -1,4 +1,5 @@
-# Variants with the GraphQL Storefront API
+**GraphQL Storefront API**
+# Guide to Working with Product Variants
 
 BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [variants](https://support.bigcommerce.com/s/article/Variants-and-Modifiers) from a store. These built-in capabilities also allow Stencil developers to customize their storefronts with variant information.
 
