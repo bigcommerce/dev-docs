@@ -22,13 +22,13 @@ Query a variant by specifying a variant identifier. For instance, use the varian
   <Tab>
 
   ```graphql filename="Get a variant using the variant entity ID" showLineNumbers copy
-  # This example retrieves 1 variant. 
+  # This example retrieves 1 variant.
   # Specify multiple variant entityIds to retrieve multiple variants.
 
   query {
     site {
-      product (entityId: 113) {           # product entity ID 
-        variants (entityIds: [98]) {      # variant entity ID(s)
+      product (entityId: 113) {         
+        variants (entityIds: [98]) {    
           edges {
             node {
               # fields on the Variant object type
@@ -49,7 +49,7 @@ Query a variant by specifying a variant identifier. For instance, use the varian
 
   query {
     site {
-      product (entityId: 113) {       # product entity ID 
+      product (entityId: 113) {       
         variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
           edges {
             node {
@@ -69,7 +69,7 @@ Query a variant by specifying a variant identifier. For instance, use the varian
 
   query {
     site {
-      product (entityId: 113) {       # product entity ID 
+      product (entityId: 113) {       
         v1: variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
           edges {
             node {
@@ -127,7 +127,7 @@ Query a variant by specifying a variant identifier for the `product` field. Use 
   query {
     site {
       product (
-        entityId: 113       # product entity ID
+        entityId: 113       
         optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]
       ) {
         # fields on the Product object type
@@ -161,55 +161,55 @@ Specifying a variant identifier for the `product` field returns variant informat
 Query identifying information for variants by using the following query:
 
 <Tabs items={['Request', 'Response']}>
-<Tab>
+  <Tab>
 
-```graphql filename="Example query: Get basic information for a variant" showLineNumbers copy
-query {
-  site {
-    product (entityId: 113) {
-      variants (entityIds: [127]) {
-        edges {
-          node {
-            id
-            entityId
-            sku  
-            upc
-            mpn
+  ```graphql filename="Example query: Get basic information for a variant" showLineNumbers copy
+  query {
+    site {
+      product (entityId: 113) {
+        variants (entityIds: [127]) {
+          edges {
+            node {
+              id
+              entityId
+              sku  
+              upc
+              mpn
+            }
           }
-        }
-      }   
+        }   
+      }
     }
   }
-}
-```
+  ```
 
-</Tab>
-<Tab>
+  </Tab>
+  <Tab>
 
-```json filename="Example response: Get basic information for a variant" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "product": {
-        "variants": {
-          "edges": [
-            {
-              "node": {
-                "id": "VmFyaWFudDoxMjc=",
-                "entityId": 127,
-                "sku": "ABC-1111-PI-SM-CO-RE",
-                "upc": "123346",
-                "mpn": "9876543210"
+  ```json filename="Example response: Get basic information for a variant" showLineNumbers copy
+  {
+    "data": {
+      "site": {
+        "product": {
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "id": "VmFyaWFudDoxMjc=",
+                  "entityId": 127,
+                  "sku": "ABC-1111-PI-SM-CO-RE",
+                  "upc": "123346",
+                  "mpn": "9876543210"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     }
   }
-}
-```
-</Tab>
+  ```
+  </Tab>
 </Tabs>
 
 ## Get variant prices and dimensions
@@ -217,119 +217,119 @@ query {
 Query the prices and dimensions for variants. The following query retrieves prices and dimensions for the specified variant:
 
 <Tabs items={['Request', 'Response']}>
-<Tab>
+  <Tab>
 
-```graphql filename="Example query: Get prices and dimensions for a variant" showLineNumbers copy
-# This query uses fragments. For more, see https://graphql.org/learn/queries#fragments.
+  ```graphql filename="Example query: Get prices and dimensions for a variant" showLineNumbers copy
+  # This query uses fragments. For more, see https://graphql.org/learn/queries#fragments.
 
-query {
-  site {
-    product (entityId: 113) {
-      variants (entityIds: [98]) {
-        edges {
-          node {
-            prices {
-              price {
-                ...PriceFields
+  query {
+    site {
+      product (entityId: 113) {
+        variants (entityIds: [98]) {
+          edges {
+            node {
+              prices {
+                price {
+                  ...PriceFields
+                }
+                salePrice {
+                  ...PriceFields
+                }
+                basePrice {
+                  ...PriceFields
+                }
+                retailPrice {
+                  ...PriceFields
+                }
               }
-              salePrice {
-                ...PriceFields
+              width {
+                ...DimensionFields
               }
-              basePrice {
-                ...PriceFields
+              height {
+                ...DimensionFields
               }
-              retailPrice {
-                ...PriceFields
+              depth {
+                ...DimensionFields
               }
-            }
-            width {
-              ...DimensionFields
-            }
-            height {
-              ...DimensionFields
-            }
-            depth {
-              ...DimensionFields
-            }
-            weight {
-              ...DimensionFields
+              weight {
+                ...DimensionFields
+              }
             }
           }
         }
       }
     }
   }
-}
-      
-# fields on the Money object type
-fragment PriceFields on Money {               
-  value
-  currencyCode
-}
+        
+  # fields on the Money object type
+  fragment PriceFields on Money {               
+    value
+    currencyCode
+  }
 
-# fields on the Measurement object type
-fragment DimensionFields on Measurement {     
-  value
-  unit
-}
-```
+  # fields on the Measurement object type
+  fragment DimensionFields on Measurement {     
+    value
+    unit
+  }
+  ```
 
-</Tab>
-<Tab>
+  </Tab>
+  <Tab>
 
-```json filename="Example response: Get prices and dimensions for a variant" showLineNumbers copy
-{
-  "data": {
-    "site": {
-      "product": {
-        "variants": {
-          "edges": [
-            {
-              "node": {
-                "prices": {
-                  "price": {
-                    "value": 4.5,
-                    "currencyCode": "USD"
+  ```json filename="Example response: Get prices and dimensions for a variant" showLineNumbers copy
+  {
+    "data": {
+      "site": {
+        "product": {
+          "variants": {
+            "edges": [
+              {
+                "node": {
+                  "prices": {
+                    "price": {
+                      "value": 4.5,
+                      "currencyCode": "USD"
+                    },
+                    "salePrice": {
+                      "value": 5,
+                      "currencyCode": "USD"
+                    },
+                    "basePrice": {
+                      "value": 10,
+                      "currencyCode": "USD"
+                    },
+                    "retailPrice": {
+                      "value": 20,
+                      "currencyCode": "USD"
+                    }
                   },
-                  "salePrice": {
-                    "value": 5,
-                    "currencyCode": "USD"
+                  "width": {
+                    "value": 2,
+                    "unit": "in"
                   },
-                  "basePrice": {
-                    "value": 10,
-                    "currencyCode": "USD"
+                  "height": {
+                    "value": 2,
+                    "unit": "in"
                   },
-                  "retailPrice": {
-                    "value": 20,
-                    "currencyCode": "USD"
+                  "depth": {
+                    "value": 2,
+                    "unit": "in"
+                  },
+                  "weight": {
+                    "value": 37,
+                    "unit": "oz"
                   }
-                },
-                "width": {
-                  "value": 2,
-                  "unit": "in"
-                },
-                "height": {
-                  "value": 2,
-                  "unit": "in"
-                },
-                "depth": {
-                  "value": 2,
-                  "unit": "in"
-                },
-                "weight": {
-                  "value": 37,
-                  "unit": "oz"
                 }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     }
   }
-}
-```
-</Tab>
+  ```
+  </Tab>
 </Tabs>
 
 ## Get variant options and variant option values
