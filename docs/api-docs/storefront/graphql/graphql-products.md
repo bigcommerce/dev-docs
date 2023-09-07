@@ -1,16 +1,26 @@
+>>> change files to mdx
 **GraphQL Storefront API**
 # Guide to Working with Products
 
 BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [products](https://support.bigcommerce.com/s/article/Product-Identifiers) from a store. These built-in capabilities allow Stencil developers to customize their storefronts with product information.
+>>>> revise to include both hosted and headless storefronts; maybe "frontend developers"
+>>>> it's not the merchant who is retrieving; no need to include the merchant in this paragraph
 
 The GraphQL Storefront API lets you retrieve the following product features, and more:
+>>>> they're not features, they're attributes; rework sentences throughout
+>>>> no comma before and "more"
 - Price info in a store's transacting currency   
 - Product options associated with a product (variant and modifier options) 
+>>>> information, not info; change throughout
+>>>> make parentheticals a main part of the sentence
 - Product metafields that have storefront access
 
 You can access these features for a product if a merchant makes a product visible on storefronts.
 
 This page walks you through the process of retrieving info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) on how to retrieve variant info. For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
+>>>> it's not a page, it's a guide. see diataxis.fr content types
+>>>> change playground link throughout
+>>>> change title to other new doc
 
 ## Get a Product
 
@@ -57,6 +67,7 @@ fragment ProductFields on Product {
 </Callout>
 
 ### Get a product with the `products` field
+>>>> remove backticks from titles
 
 Query a list of products by using the `products` field and specifying product identifiers, for example, the product `entityID`s:
 
@@ -87,6 +98,7 @@ Query basic info for products. The following query retrieves both product identi
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
+>>>> indent tabs so the inner portions can be collapsed; in VSCode, highlight all the inside portion and click **Tab**
 
 ```graphql filename="Example query: Get basic info for a product" showLineNumbers copy
 query {
@@ -182,6 +194,7 @@ fragment PriceFields on Money {               # fields on the Money object type
   value
 }
 
+>>>> for readability, put the code comments on their own line when the line opens a bracketed pair
 fragment DimensionFields on Measurement {     # fields on the Measurement object type
   value
   unit
@@ -240,6 +253,8 @@ fragment DimensionFields on Measurement {     # fields on the Measurement object
 
 ## Get product options 
 
+>>>> when talking about objects you can retrieve by API, use the link to API reference unless there's a reason why linking to KB is more appropriate
+>>>> to support screen reader users, when links are external to the dev center, add a parenthetical at the end of the link to describe where it goes. for KB, use (Help Center) or the team can discuss using something else throughout if (Help Center) doesn't seem right
 Query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. The response includes both variant options and modifer options. To retrieve only variant options, use a [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) query. 
 
 There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types) available. Checkbox and multiple choice are some examples of the many option types available. Each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for any type of product option. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
@@ -587,11 +602,16 @@ query {
 ## Get product metafields
 
 Query product metafields by specifying the product metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+>>>> turn the parenthetical into its own sentence
+>>>> are these real permissions? how do metafield storefront permissions work? can you do this with API? where do i set these permissions? is there another place in the docs that answers these questions?
+>>> passive voice -- maybe "The API only returns..."
 
 <Callout type="info">
   #### Product vs variant metafields 
   The query retrieves only **product** metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve **variant** metafields. 
 </Callout>
+>>>> per style guide, type out "versus"
+
 
 The following query retrieves the first two product metafields for the specified product:
 
@@ -848,3 +868,5 @@ query {
 - [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/api-docs/storefront/graphql/explorer)
 - [GraphQL Storefront API Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground)
 - [GraphQL language documentation](https://graphql.org/learn/queries) (graphql.org)
+>>>> add all the links that end up in this doc
+>>>> for screen readers, move the parenthetical about where the link goes inside the link itself
