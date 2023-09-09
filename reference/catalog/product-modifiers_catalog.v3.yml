@@ -846,14 +846,6 @@ paths:
       description: Returns a single *Product Modifier*. Optional parameters can be passed in.
       operationId: getModifierById
       parameters:
-        - name: modifier_id
-          in: path
-          description: |
-            The ID of the `Modifier`.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -906,13 +898,6 @@ paths:
       operationId: updateModifier
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: modifier_id
-          in: path
-          description: |
-            The ID of the `Modifier`.
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -1486,14 +1471,6 @@ paths:
       summary: Delete a Modifier
       description: Deletes a *Product Modifier*.
       operationId: deleteModifierById
-      parameters:
-        - name: modifier_id
-          in: path
-          description: |
-            The ID of the `Modifier`.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
