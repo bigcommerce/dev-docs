@@ -507,11 +507,6 @@ paths:
           description: Filter configurations by a variation_uuid.
     parameters:
       - $ref: '#/components/parameters/Accept'
-      - schema:
-          type: string
-        name: uuid
-        in: path
-        required: true
       - in: query
         name: 'site_id:in'
         description: Filter configurations by a list of site_ids
