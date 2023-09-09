@@ -1,6 +1,6 @@
 ## API Request Architecture
 
-The **Unlimited** rate plan for BigCommerce Enterprise clients means that these stores are not rate limited by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. 
+The **Unlimited** rate plan for BigCommerce Enterprise clients does not impose rate limits by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. 
 
 Regardless of whether your store or the stores your app serves are rate limited, good design patterns are both responsible stewards of our API ecosystem and critical to healthy, performant apps and headless storefronts. This article describes three tenets of good SaaS design patterns; [efficiency](#efficiency), [mindfulness](#mindfulness), and [responsiveness](#responsiveness).
 
@@ -10,28 +10,40 @@ Regardless of whether your store or the stores your app serves are rate limited,
 
 When interacting with a resource on a store, consider how many calls it takes to accomplish the goal. When you fetch information, investigate whether you can use a bulk endpoint instead of retrieving resources one by one. If possible, use the bulk endpoint and filter the data to retrieve only what you need. For example, the [REST Catalog API](/docs/rest-catalog/products) contains both [Get a product](/docs/rest-catalog/products#get-a-product) and [Get all products](/docs/rest-content/pages#get-pages). If your app or storefront requests one or more products, you can use [Get all products](/docs/rest-content/pages#get-pages) and filter which products you'd like to retrieve using the `id:in` query parameter.
 
-The same principle applies for bulk endpoints. The base number of resources returned from a bulk request is 50. If you need to retrieve 5,000 products, the default response pagination limit requires you to make 100 API calls to the bulk endpoint. Instead, you can use query parameters to set the response limit to 250 and request the same information in 20 calls.
+The same principle applies to bulk endpoints. The base number of resources returned from a bulk request is 50. If you need to retrieve 5,000 products, the default response pagination limit requires you to make 100 API calls to the bulk endpoint. Instead, you can use query parameters to set the response limit to 250 and request the same information in 20 calls.
 
 The same efficency principle extends to creating and updating resources.
 
-In addition, consider using conditional logic to avoid making API calls when they are not needed. If the resource hasn't changed or the app conditions are such that more API data is not helpful at that time. You can use [webhooks (Overview)](/docs/webhooks/overview) to trigger fetch and update requests as they become relevant, rather than polling the API.
+In addition, consider using conditional logic to avoid making API calls when they are not needed. For example, when the resource hasn't changed or the app conditions are such that more API data is not helpful at that time, don't request more data. You can use [Webhooks](/docs/webhooks/overview) to trigger requests as they become relevant, rather than polling the API.
 
 ## Mindfulness
 
-**There should be a distinct purpose behind each API call.** 
+**There should be a distinct purpose for each API call.** 
 
-The existence of unlimited API does not predicate making unlimited requests. This is in the same vein of an unlimited data plan, in that yes they will allow you unlimited data on the network but after a certain point if you are abusing it (constantly downloading/uploading/streaming) they will throttle you.
+Using an API with no artificial rate limit does not confer the privilege of making unlimited requests. For an analogy, consider an unlimited mobile data plan. Although the provider allows unlimited data transfer without additional cost, the volume of traffic is considered abusive if you constantly download, upload, or stream over the cellular network. A bit of mindfulness would mitigate the cost to the cellular infrastructure by streaming over WiFi when available and downloading large files prior to leaving WiFi.
 
-Resource calls requiring a body (typically creation and updating) are more resource intensive than requesting or deleting. When a resource is updated there should be an inciting action, either the resource in our end being affected (verifying by webhook) or a change in an external resource controller requiring the product in BC to be changed to match.
+Resource calls that contain a body - typically POST and PUT requests - are more resource intensive than GET or DELETE requests. When your app or implementation updates a resource, there should be an inciting action, such as a BigCommerce webhook or a change instigated by an external resource controller that requires updates to the BigCommerce Product object.
 
 ## Responsiveness
 
 **Shift tactics when your requests return errors.**
 
-Larger merchants typically will have resources that shift more often. These types of merchants typically will utilize our APIs in a much more aggressive way given their business model. However the interaction between ERP and BC is a two-way street. Proper error handling is a requirement from the erp. If we are telling you to stop using http codes, your service should consider what is happening rather than continuing to send requests to resources.
+Stores with more business have resources that change more frequently. These stores typically use APIs aggressively. However, interaction between an ERP and BigCommerce is a two way street. ERPs require proper error handling. When BigCommerce servers return HTTP codes that indicate your app's requests are failing, your service should compensate for what is happening rather than continuing to send unsuccessful requests. 
 
-4xx errors: 404 and 422 errors are common with sync systems. A resource gets moved, changed, or removed so we return a 404 on it. This should indicate to the ERP that it should re-evaluate where this resource is and act accordingly. Similarly with 422, if a resource is attempting to be updated incorrectly and we are informing you of it, you should heed the warning and reflect on what is being sent.
+The following sections describe responsive error handling organized by the HTTP code that BigCommerce returns, using ERP sync systems as an example.
+
+### 404 and 422 errors
+
+Sync systems commonly return `404 Not Found` and `422 Unprocessable Entity` statuses. 
+
+When a resource is moved, changed, or removed, the expected behavior is that some requests for that resource return 404 statuses. In this case, the ERP connector should re-evaluate where the desired resource is located and adjust its requests accordingly. 
+
+Changes to the attributes of resource can also render subsequent requests to it unintelligible, resulting in 422 errors. In this case, the ERP should re-evaluate the properties of the target resource and adjust its requests accordingly.
+
+### 429 errors
 
 429: These should be heeded without question. If your ERP starts receiving intermittent 429s on a call (typically to the same resource) it needs to halt. Utilize our pre-existing retry header features as necessary, but when we are telling you you are going to fast you need to listen.
+
+### 500 errors
 
 5xxs: In the event of a 500 error there should be a retry mechanism in place to attempt the transaction again. When updating or creating resources the chances are higher that there is a contention for the resource your are actively trying to update, so this retry attempt should be held for a bit longer than for example requesting the resource. If many separate uris are returning 5xxs then consider pausing the sync and checking status.bigcommerce.com
