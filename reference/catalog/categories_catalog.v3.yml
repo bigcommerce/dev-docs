@@ -718,14 +718,6 @@ paths:
       description: Returns a single *Category*. Optional parameters can be passed in.
       operationId: getCategoryById
       parameters:
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -785,13 +777,6 @@ paths:
       operationId: updateCategory
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -1144,14 +1129,6 @@ paths:
       summary: Delete a Category
       description: Deletes a *Category*.
       operationId: deleteCategoryById
-      parameters:
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
@@ -1167,14 +1144,6 @@ paths:
       description: Returns a list of *Metafields* on a *Category*. Optional filter parameters can be passed in.
       operationId: getCategoryMetafieldsByCategoryId
       parameters:
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: id
           in: query
           description: |
@@ -1347,13 +1316,6 @@ paths:
       operationId: createCategoryMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -1450,21 +1412,6 @@ paths:
       description: Returns a single *Category Metafield*. Optional parameters can be passed in.
       operationId: getCategoryMetafieldByCategoryId
       parameters:
-        - name: metafield_id
-          in: path
-          description: |
-            The ID of the `Metafield`.
-          required: true
-          schema:
-            type: integer
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -1529,20 +1476,6 @@ paths:
       operationId: updateCategoryMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: metafield_id
-          in: path
-          description: |
-            The ID of the `Metafield`.
-          required: true
-          schema:
-            type: integer
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -1603,21 +1536,6 @@ paths:
       summary: Delete a Category Metafield
       description: Deletes a *Category Metafield*.
       operationId: deleteCategoryMetafieldById
-      parameters:
-        - name: metafield_id
-          in: path
-          description: |
-            The ID of the `Metafield`.
-          required: true
-          schema:
-            type: integer
-        - name: category_id
-          in: path
-          description: |
-            The ID of the `Category` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
