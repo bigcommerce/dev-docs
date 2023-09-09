@@ -65,6 +65,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - name: id
         in: path
+        description: Web Analytics Provider ID.
         required: true
         schema:
           type: integer
@@ -72,12 +73,6 @@ paths:
       summary: Get a Web Analytics Provider
       description: Returns a single web analytics provider data for a default channel.
       parameters:
-        - name: id
-          in: path
-          description: Web Analytics Provider ID.
-          required: true
-          schema:
-            type: integer
         - $ref: '#/components/parameters/ChannelIdParam'
       responses:
         '200':
@@ -105,12 +100,6 @@ paths:
       description: Updates a single web analytics provider data for a default channel.
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: id
-          in: path
-          description: Web Analytics Provider ID.
-          required: true
-          schema:
-            type: integer
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
