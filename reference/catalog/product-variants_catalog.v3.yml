@@ -379,14 +379,6 @@ paths:
       description: Returns a single product *Variant*. Optional parameters can be passed in.
       operationId: getVariantById
       parameters:
-        - name: variant_id
-          in: path
-          description: |
-            ID of the variant on a product, or on an associated Price List Record.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -473,13 +465,6 @@ paths:
       operationId: updateVariant
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: variant_id
-          in: path
-          description: |
-            ID of the variant on a product, or on an associated Price List Record.
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -572,14 +557,6 @@ paths:
       summary: Delete a Product Variant
       description: Deletes a product *Variant*.
       operationId: deleteVariantById
-      parameters:
-        - name: variant_id
-          in: path
-          description: |
-            ID of the variant on a product, or on an associated Price List Record.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
