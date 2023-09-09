@@ -32,18 +32,32 @@ Stores with more business have resources that change more frequently. These stor
 
 The following sections describe responsive error handling organized by the HTTP code that BigCommerce returns, using ERP sync systems as an example.
 
-### 404 and 422 errors
+### 404 and 422 client errors
 
-Sync systems commonly return `404 Not Found` and `422 Unprocessable Entity` statuses. 
+Sync systems commonly return [404 Not Found (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) and [422 Unprocessable Entity (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422) statuses. 
 
 When a resource is moved, changed, or removed, the expected behavior is that some requests for that resource return 404 statuses. In this case, the ERP connector should re-evaluate where the desired resource is located and adjust its requests accordingly. 
 
 Changes to the attributes of resource can also render subsequent requests to it unintelligible, resulting in 422 errors. In this case, the ERP should re-evaluate the properties of the target resource and adjust its requests accordingly.
 
-### 429 errors
+### 429 client errors
 
-429: These should be heeded without question. If your ERP starts receiving intermittent 429s on a call (typically to the same resource) it needs to halt. Utilize our pre-existing retry header features as necessary, but when we are telling you you are going to fast you need to listen.
+All infrastructure has physical limits. Even an unlimited rate plan may sometimes receive the [429 Too Many Requests (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) status. 
 
-### 500 errors
+If your ERP starts receiving intermittent 429 statuses, use our [retry headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers) to queue your requests. Regardless of developer intention, BigCommerce considers implementations abusive when they do not handle 429 errors skillfully. Design applications that devote serious attention to avoiding consecutive 429 responses.
 
-5xxs: In the event of a 500 error there should be a retry mechanism in place to attempt the transaction again. When updating or creating resources the chances are higher that there is a contention for the resource your are actively trying to update, so this retry attempt should be held for a bit longer than for example requesting the resource. If many separate uris are returning 5xxs then consider pausing the sync and checking status.bigcommerce.com
+### 500 through 504 server errors
+
+Each of the five [500-type statuses (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) indicates a different server-related error. 
+
+* [500 Internal Server Error (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+* [501 Not Implemented (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501)
+* [502 Bad Gateway (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502)
+* [503 Service Unavailable (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+* [504 Gateway Timeout (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504)
+
+Each 500-type status warrants a slightly different retry logic.
+
+When the ERP is creating or updating resources, there's a higher probability that multiple entities are accessing that same resource. You should wait longer to send a retry request when you're performing a write operation; read operations are faster and have lower error rates.
+
+To handle 503 statuses and cases when multiple URIs return 500 statuses, consider subscribing your implementation to our RSS feed, available on our status page, [status.bigcommerce.com](https://status.bigcommerce.com). You can also expose those errors in the ERP's UI and direct sync operators to manually pause the process and check the status page.
