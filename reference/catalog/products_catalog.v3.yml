@@ -3543,14 +3543,6 @@ paths:
       description: Returns a single *Complex Rule*. Optional parameters can be passed in.
       operationId: getComplexRuleById
       parameters:
-        - name: complex_rule_id
-          in: path
-          description: |
-            The ID of the `ComplexRule`.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -3744,14 +3736,6 @@ paths:
       operationId: updateComplexRule
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: complex_rule_id
-          in: path
-          description: |
-            The ID of the `ComplexRule`.
-          required: true
-          schema:
-            type: integer
-
       requestBody:
         content:
           application/json:
@@ -4075,14 +4059,6 @@ paths:
       summary: Delete a Complex Rule
       description: Deletes a product *Complex Rule*.
       operationId: deleteComplexRuleById
-      parameters:
-        - name: complex_rule_id
-          in: path
-          description: |
-            The ID of the `ComplexRule`.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
