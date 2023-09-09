@@ -2878,13 +2878,6 @@ paths:
       description: Returns a single *Product Video*. Optional parameters can be passed in.
       operationId: getProductVideoById
       parameters:
-        - name: id
-          in: path
-          description: The BigCommerce ID of the `Video`
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -2952,12 +2945,6 @@ paths:
       operationId: updateProductVideo
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: id
-          in: path
-          description: The BigCommerce ID of the `Video`
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -3098,13 +3085,6 @@ paths:
       summary: Delete a Product Video
       description: Deletes a *Product Video*.
       operationId: deleteProductVideo
-      parameters:
-        - name: id
-          in: path
-          description: The BigCommerce ID of the `Video`
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
