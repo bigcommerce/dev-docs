@@ -5822,14 +5822,6 @@ paths:
       description: Returns a single *Product Review*. Optional parameters maybe passed in.
       operationId: getProductReviewById
       parameters:
-        - name: review_id
-          in: path
-          description: |
-            The ID of the `review` that is being operated on.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -5962,13 +5954,6 @@ paths:
       operationId: updateProductReview
       parameters:
         - $ref: '#/components/parameters/ContentType'
-        - name: review_id
-          in: path
-          description: |
-            The ID of the `review` that is being operated on.
-          required: true
-          schema:
-            type: integer
       requestBody:
         description: |
           A BigCommerce `ProductReview` object.
@@ -6135,14 +6120,6 @@ paths:
       summary: Delete a Product Review
       description: Deletes a *Product Review*.
       operationId: deleteProductReview
-      parameters:
-        - name: review_id
-          in: path
-          description: |
-            The ID of the `review` that is being operated on.
-          required: true
-          schema:
-            type: integer
       responses:
         '204':
           description: ''
