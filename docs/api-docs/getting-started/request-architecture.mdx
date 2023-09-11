@@ -2,7 +2,11 @@
 
 The **Unlimited** rate plan for BigCommerce Enterprise clients does not impose rate limits by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. 
 
-Regardless of whether your store or the stores your app serves are rate limited, good design patterns are both responsible stewards of our API ecosystem and critical to healthy, performant apps and headless storefronts. This article describes three tenets of good SaaS design patterns; [efficiency](#efficiency), [mindfulness](#mindfulness), and [responsiveness](#responsiveness).
+Regardless of whether your store or the stores your app serves are rate limited, good design patterns are both responsible stewards of our API ecosystem and critical to healthy, performant apps and headless storefronts. 
+
+This article describes three tenets of good SaaS design patterns; [efficiency](#efficiency), [mindfulness](#mindfulness), and [responsiveness](#responsiveness). It also outlines some behaviors that BigCommerce considers abusive. 
+
+To maintain service quality at scale, BigCommerce observes API traffic. We reserve the right to throttle or take offline abusive apps or stores per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). Following the happy paths laid out in this article can help you write robust, resilient implementations that provide the greatest business benefit with the smallest infrastructure footprint. 
 
 ## Efficiency
 
