@@ -32,7 +32,7 @@ Resource calls that contain a body - typically POST and PUT requests - are more 
 
 **Shift tactics when your requests return errors.**
 
-Stores with more business have resources that change more frequently. These stores typically use APIs aggressively. However, interaction between enterprise resource planning systems, or _ERPs_, and BigCommerce is a two way street. ERPs require proper error handling. When BigCommerce servers return HTTP codes that indicate your app's requests are failing, your service should compensate for what is happening rather than continuing to send unsuccessful requests. 
+Stores with more business have resources that change more frequently. These stores typically generate a high volume of API traffic. However, interaction between enterprise resource planning systems, or _ERPs_, and BigCommerce is a two way street. ERPs require proper error handling. When BigCommerce servers return HTTP codes that indicate your app's requests are failing, your service should compensate for what is happening rather than continuing to send unsuccessful requests. 
 
 The following sections describe responsive error handling organized by the HTTP code that BigCommerce returns, using ERP sync systems as an example.
 
