@@ -59,6 +59,23 @@ paths:
       summary: Get All Currencies
       description: Returns a list of all store *Currency*.
       operationId: getAllCurrencies
+      parameters:
+        - name: page
+          description: |
+            Specifies the page number in a limited (paginated) list of currencies.
+          required: false
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          description: |
+            Controls the number of items per page in a limited (paginated) list of currencies.
+          required: false
+          in: query
+          schema:
+            type: integer
+            default: 50
       responses:
         '200':
           description: ""
