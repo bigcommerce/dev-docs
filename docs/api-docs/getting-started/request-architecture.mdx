@@ -48,7 +48,7 @@ Changes to the attributes of resource can also render subsequent requests to it 
 
 All infrastructure has physical limits. Even an unlimited rate plan may sometimes receive the [429 Too Many Requests (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) status. 
 
-If your ERP starts receiving intermittent 429 statuses, use our [retry headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers) to queue your requests. Regardless of developer intention, BigCommerce considers implementations abusive when they do not handle 429 errors skillfully. Design applications that devote serious attention to avoiding consecutive 429 responses.
+If your ERP starts receiving intermittent 429 statuses, use our [retry headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers) to queue your requests. Regardless of developer intention, BigCommerce considers implementations abusive when they do not handle 429 errors responsively. Design applications that devote serious attention to avoiding consecutive 429 responses.
 
 ### 500 through 504 server errors
 
