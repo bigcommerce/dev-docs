@@ -1,4 +1,4 @@
-## API Request Architecture
+## Best Practices for API Integration Design
 
 The **Unlimited** rate plan for BigCommerce Enterprise clients does not impose rate limits by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. 
 
@@ -86,6 +86,7 @@ To handle 503 statuses and cases when multiple URIs return 500 statuses, conside
 
 * [404 Not Found (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
 * [422 Unprocessable Entity (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422)
+* [429 Too Many Requests (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
 * [500-type statuses (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
 * [500 Internal Server Error (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 * [501 Not Implemented (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501)
