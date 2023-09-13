@@ -79,13 +79,13 @@ components:
           description: Field name
         custom:
           type: boolean
-          description: Wether is a custom field or system built-in field.
+          description: Whether this is a custom field or system built-in field.
         label:
           type: string
           description: User-friendly label
         required:
           type: boolean
-          description: Wether this field is required or not
+          description: Whether this field is required or not
         default:
           type: string
           description: The field unique ID
