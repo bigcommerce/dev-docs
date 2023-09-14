@@ -377,7 +377,7 @@ enum
 resource_type
 resource_id
 date_created
-metafield's
+metafieldʼs
 date_modified
 metafield
 shipping.shipperhq
@@ -411,11 +411,12 @@ ReactJS
 Quickstart
 async
 breakpoint
-Zipfile's
+Zipfile
+Zipfileʼs
 substeps
 spacebar
 prepending
-test.jpg.
+test.jpg
 jpg
 jpeg
 png
@@ -439,7 +440,7 @@ viewports
 templating
 templated
 theming
-Dont's
+Donʼts
 SitePoint
 Treehouse
 chocolatey.org
@@ -649,17 +650,17 @@ un-optimized
 Zurb
 product.html.
 this.page.identifier
-sso
+SSO
 params
 headlessly
 JWT
 sku
+SKU
 sh1
 product_id
 DTS
 ui
 pci
- - docs/api-docs/cart-and-checkout/working-sf-apis.md
 postData
 cartItems
 bigcommerce.com
@@ -670,14 +671,13 @@ optionId
 optionValues
 cartId
 deleteCartItem
+GitHub
 itemId
 checkoutId
 lineItems
 lineItem
- - docs/api-docs/catalog/currencies/how-currencies-work.md
 S-2-S
 https
- - docs/api-docs/catalog/products-overview.md
 video_id
 SM-BLU
 SM-MED
@@ -688,9 +688,7 @@ YELLOW-2L
 YELLOW-3L
 YELLOW-8L
 product_id
- - docs/api-docs/customers/current-customer-api.md
 JWT.IO
- - docs/api-docs/customers/customer-login-api.md
 IdP
 customer_login
 store_hash
@@ -700,9 +698,7 @@ JWT.io.
 iss
 iat
 jti
- - docs/api-docs/getting-started/about-our-api.md
 xml
- - docs/api-docs/getting-started/authentication.md
 store_v2_content
 store_v2_content_read_only
 store_content_checkout
@@ -710,14 +706,12 @@ store_content_checkout_read_only
 store_v2_customers
 customer_groups
 store_v2_customers_read_only
- - docs/api-docs/getting-started/best-practices.md
 60k
 20k
 storeHash
 priceListId
 7mil
 30sec
- - docs/api-docs/getting-started/building-apps-bigcommerce/building-apps.md
 user.id
 user.email
 owner.id
@@ -727,80 +721,56 @@ owner.email
 auth
 external_install
 us-central1
- - docs/api-docs/getting-started/filtering.md
 csv
 not_in
- - docs/api-docs/getting-started/webhooks/about-webhooks.md
 3_xx_
 2_xx_
- - docs/api-docs/getting-started/webhooks/setting-up-webhooks.md
 index.js.
 Res.send
 res.send
 http
- - docs/api-docs/getting-started/webhooks/webhook-events.md
 statusUpdated
 sku
 couponApplied
 lineItem
 cartId
- - docs/api-docs/partner/app-store-approval-requirements.md
 130px
 200x200px
 200px
 158px
- - docs/api-docs/partner/becoming-a-partner.md
 15-day
- - docs/api-docs/getting-started/api-status-codes.md
 2xx
 3xx
 4xx
 5xx
- - docs/api-docs/payments/payments-api-overview.md
 vnd.bc.v1
- - docs/api-docs/store-management/shipping/shipping-provider-api.md
 70x70
- - docs/stencil-docs/configure-store-design-ui/defining-global-styles.md
 http
 _color.scss
- - docs/stencil-docs/configure-store-design-ui/store-design-overview.md
-schema.json.
+schema.json
 100x250
 175x275
 300x300
- - docs/stencil-docs/deploying-a-theme/checking-a-themes-size.md
 img
- - docs/stencil-docs/developing-further/google-amp.md
 css
- - docs/stencil-docs/developing-further/stored-credit-card-management.md
 pre-2
- - docs/stencil-docs/getting-started/about-stencil.md
-6.x.
- - docs/stencil-docs/installing-stencil-cli/installing-stencil.md
+6.x
 2.7.x
- - docs/stencil-docs/installing-stencil-cli/live-previewing-a-theme.md
 pre
- - docs/stencil-docs/installing-stencil-cli/troubleshooting-your-setup.md
 TR-300
 Node.js.
 bitbucket
- - docs/stencil-docs/javascript-and-event-hooks/dynamic-content-rendering.md
 Utting
- - docs/stencil-docs/javascript-and-event-hooks/npm-tutorials.md
 Foundation-datepicker
- - docs/stencil-docs/localization/translation-keys.md
 rw-r
- - docs/stencil-docs/reference-docs/common-objects.md
 x21B3
 sku
 url
- - docs/stencil-docs/reference-docs/global-objects-and-properties.md
 Is_Ajax
 cart_id
 shippingaddressform
 editaccount
 rss
- - docs/stencil-docs/reference-docs/handlebars-helpers-reference.md
 withBefore
 withAfter
 withLast
@@ -811,14 +781,12 @@ cdn
 customcdn
 _or_
 dot.cases
- - docs/stencil-docs/reference-docs/other-objects-and-properties-overview.md
 chooseprefix
 class_name
 private_id
 singleline
 singleselect
 expires_at
- - docs/stencil-docs/reference-docs/stencil-utils-api-reference.md
 Utils
 utils
 getPage
@@ -829,9 +797,7 @@ itemRemove
 itemId
 params
 configureCart
- - docs/stencil-docs/storefront-customization/custom-templates.md
 abcdefghijklmnop
 brandname
 252d
- - docs/stencil-docs/storefront-customization/using-disqus.md
 product.id
