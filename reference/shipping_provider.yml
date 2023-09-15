@@ -853,7 +853,7 @@ components:
                       type: string
                       maxLength: 50
                     discounted_cost:
-                      description: Value object for a money amount.
+                      description: Value object for a money amount. Optional field; merchants may request features.
                       type: object
                       properties:
                         currency:
@@ -869,6 +869,7 @@ components:
                     dispatch_date:
                       type: string
                       format: date
+                      description: Date at which carrier dispatches to the shipping destination. Optional field; merchants may request features.
                     transit_time:
                       type: object
                       properties:
@@ -972,7 +973,7 @@ components:
                 type: string
                 maxLength: 50
               discounted_cost:
-                description: Value object for a money amount.
+                description: Value object for a money amount. Optional field; merchants may request features.
                 type: object
                 properties:
                   currency:
@@ -988,6 +989,7 @@ components:
               dispatch_date:
                 type: string
                 format: date
+                description: Date at which carrier dispatches to the shipping destination. Optional field; merchants may request features.
               transit_time:
                 type: object
                 properties:
@@ -1252,7 +1254,7 @@ components:
           type: string
           maxLength: 50
         discounted_cost:
-          description: Value object for a money amount.
+          description: Value object for a money amount. Optional field; merchants may request features.
           type: object
           properties:
             currency:
@@ -1268,6 +1270,7 @@ components:
         dispatch_date:
           type: string
           format: date
+          description: Date at which carrier dispatches to the shipping destination. Optional field; merchants may request features.
         transit_time:
           type: object
           properties:
