@@ -194,55 +194,57 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
 | App Extensions | manage | `store_app_extensions_manage` | Manage App Extensions; requires an app-level API account | [GraphQL Admin API](/app-extensions/overview) |
-| Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
-| Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
+| Carts | modify | `store_cart` | View and modify carts | [Carts V3](/docs/rest-management/carts) |
+| Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/docs/rest-management/carts) |
+| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [Channels V3](/docs/rest-management/channels) |
+| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/docs/rest-management/channels) |
+| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
+| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
+| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/docs/rest-storefront/checkouts)  |
+| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/docs/rest-storefront/checkouts) |
 | Checkout Content | modify | `store_content_checkout` | View and modify content on checkout pages | [Scripts V3](/docs/rest-management/scripts#create-a-script) |
 | Checkout Content | read-only | `store_content_checkout_read_only` | View content on checkout pages | [Scripts V3](/docs/rest-management/scripts#create-a-script) |
+| Content | modify | `store_v2_content` | View and modify store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
+| Content | read-only | `store_v2_content_read_only` | View store content | [Pages V2](/docs/rest-content/store-content/pages#get-all-pages) <br />[Blog V2](/docs/rest-content/store-content/blog-posts#get-all-blog-posts) <br />[Redirects V2](/docs/rest-content/store-content/redirects#get-all-redirects) <br />[Widgets V3](/docs/rest-content/widgets) |
 | Customers | modify | `store_v2_customers` | View and modify customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/api-docs/storefront/customer-login-api) |
+| Fulfillment Methods| modify | `store_fulfillment_methods_manage` | View and modify order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
+| Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
 | Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings) |
 | Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings)|
-| Store Inventory | modify | `store_inventory` | View and modify store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
-| Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
-| Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
-| Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
 | Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) <br />[Promotions V3](/promotions/rest-management/coupon-codes-bulk)|
 | Marketing | read-only | `store_v2_marketing_read_only` | View marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) |
 | Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Order Fulfillment | modify | `store_order_fulfillment_manage` | View and modify order fulfillments | [Pickup V3](/buy-online-pick-up-in-store/rest-management/pickup) |
 | Order Fulfillment | read-only | `store_order_fulfillment_read_only` | View order fulfillments | [Pickup V3](/buy-online-pick-up-in-store/rest-management/pickup) |
-| Fulfillment Methods| modify | `store_fulfillment_methods_manage` | View and modify order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
-| Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
 | Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
 | Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
 | Payments - Get accepted methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments - Get accepted methods](/docs/rest-payments/methods#get-accepted-payment-methods) |
 | Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [Catalog V3](/docs/rest-catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
 | Products | read-only | `store_v2_products_read_only` | View products | [Catalog V3](/docs/rest-catalog) <br />[Price Lists V3](/docs/rest-management/price-lists) |
-| Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/docs/rest-content/themes) |
-| Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
-| Carts | modify | `store_cart` | View and modify carts | [Carts V3](/docs/rest-management/carts) |
-| Carts | read-only | `store_cart_read_only` | View carts | [Carts V3](/docs/rest-management/carts) |
-| Checkouts | modify | `store_checkout` | View and modify a checkout | [Checkouts V3](/docs/rest-storefront/checkouts)  |
-| Checkouts | read-only | `store_checkout_read_only` | View checkout content | [Checkouts V3](/docs/rest-storefront/checkouts) |
 | Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
 | Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
-| Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [Channels V3](/docs/rest-management/channels) |
-| Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [Channels V3](/docs/rest-management/channels) |
-| Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
-| Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [Channels V3, Listings](/docs/rest-management/channels/channel-listings#get-channel-listings) |
+| Store Inventory | modify | `store_inventory` | View and modify store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
+| Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
+| Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
+| Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
+| Stored Payment Instruments | read-only | `store_stored_payment_instruments_read_only` | View stored payment instruments | [Stored Instruments V3](/stored-instruments/rest-payments/manage) |
+| Stored Payment Instruments | modify | `store_stored_payment_instruments` | View and modify stored payment instruments |[Stored Instruments V3](/stored-instruments/rest-payments/manage) |
+| Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/docs/rest-content/themes) |
+| Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
 
 ### Account resource scopes
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
 | Account | read-only | `account_read` | View account details | [GraphQL Account API](/docs/graphql-users) |
-| Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Account API](/docs/graphql-users) |
-| Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Account API](/docs/graphql-users) |
-| Account Users | read-only | `account_users_read` | View the users associated with an account | [GraphQL Account API](/docs/graphql-users) |
-| Account Users | write | `account_users_write` | Add and update users | [GraphQL Account API](/docs/graphql-users) |
-| Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Account API](/docs/graphql-users) |
+| Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
+| Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
+| Account Users | read-only | `account_users_read` | View the users associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
+| Account Users | write | `account_users_write` | Add and update users | [GraphQL Account API](/docs/graphql-account/users-overview) |
+| Account Users | delete | `account_users_delete` | Remove a user from an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
 
 ## Resources
 
