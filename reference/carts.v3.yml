@@ -2924,6 +2924,20 @@ components:
                     type: number
                     description: The product option value identifier in number format.
                     example: 128
+            gift_wrapping:
+              description: The gift wrapping details for this item.
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Gift Wrap 1
+                message:
+                  type: string
+                  example: Happy Birthday!
+                amount:
+                  type: number
+                  format: float
+                  example: 1.99
           required:
             - variant_id
             - product_id
