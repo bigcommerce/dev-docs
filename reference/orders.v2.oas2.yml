@@ -2114,7 +2114,7 @@ components:
                     display_value: BigCommerceLogo.jpeg
                     display_value_customer: BigCommerceLogo.jpeg
                     display_value_merchant: BigCommerceLogo.jpeg
-                    value: {\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}
+                    value: "{\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}"
                     type: File upload field
                     name: Custom Logo Engraving
                     display_style: ""
