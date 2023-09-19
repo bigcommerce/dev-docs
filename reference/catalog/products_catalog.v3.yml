@@ -875,6 +875,7 @@ paths:
 
         **Limits**
         - 250 characters product name length.
+        - A product can have up to 1000 images. Each image file or image uploaded by URL can be up to 8 MB.
 
         **Usage Notes**
         * This endpoint accepts a `video` array. To create a product video that accepts a `video` object, see [Create a Product Video](/docs/rest-catalog/products/videos#create-a-product-video) for information.
@@ -1484,6 +1485,9 @@ paths:
       description: |
         Updates a *Product*.
 
+        **Limits**
+        - A product can have up to 1000 images. Each image file or image uploaded by URL can be up to 8 MB.
+
         **Read-Only Fields**
         - id
         - date_created
@@ -1986,9 +1990,10 @@ paths:
 
         **Usage Notes**
         - `image_url` - `255` character limit
-        - For file uploads, use the `multipart/form-data` media type
-        - Only one image at a time can be created
+        - For file uploads, use the `multipart/form-data` media type.
+        - You can create only one image at a time. A product can have up to 1000 images.
         - Supported image file types are BMP, GIF, JPEG, PNG, WBMP, XBM, and WEBP.
+        - Each image file or image uploaded by URL can be up to 8 MB.
       operationId: createProductImage
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -2060,7 +2065,7 @@ paths:
                     image_file:
                       type: string
                       description: |
-                        Must be sent as a multipart/form-data field in the request body. Limit of 1MB per file.
+                        Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
           multipart/form-data:
             schema:
               title: Product Image Post
@@ -2131,7 +2136,7 @@ paths:
                     image_file:
                       type: string
                       description: |
-                        Must be sent as a multipart/form-data field in the request body. Limit of 1MB per file.
+                        Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
         required: true
       responses:
         '200':
@@ -2403,6 +2408,7 @@ paths:
 
         **Usage Notes**
         - `image_url` - `255` character limit
+        - Each image file or image uploaded by URL can be up to 8 MB.
         - For file uploads, send a POST request using the `multipart/form-data` media type
       operationId: updateProductImage
       parameters:
@@ -6849,7 +6855,7 @@ components:
         image_file:
           type: string
           description: |
-            The local path to the original image file uploaded to BigCommerce. Limit of 8MB per file.
+            The local path to the original image file uploaded to BigCommerce. Limit of 8 MB per file.
         is_thumbnail:
           type: boolean
           description: |
