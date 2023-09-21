@@ -110,6 +110,16 @@ paths:
           in: query
           name: 'id:in'
           description: 'Query parameter that lets you filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:min'
+          description: 'Query parameter that lets you filter by the minimum date created in [Unix time](https://www.unixtimestamp.com/), for example, `?date_created:min=1657688400`. Returns logs created after this date.'
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:max'
+          description: 'Query parameter that lets you filter by the maximum date created in [Unix time](https://www.unixtimestamp.com/), for example, `?date_created:min=1658379600`. Returns logs created before this date.'
     parameters: []
 components:
   schemas:
