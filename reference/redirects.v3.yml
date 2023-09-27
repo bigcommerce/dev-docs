@@ -20,7 +20,7 @@ security:
   - X-Auth-Token: []
 tags:
   - name: Redirects
-  - name: Redirect Import-Export
+  - name: Import-Export
 paths:
   '/storefront/redirects':
     parameters:
@@ -161,7 +161,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Get Redirect Import-Export Jobs
       description: Returns a collection of the storeʼs 301 redirects across all sites.
       operationId: getRedirectImportExportJobs
@@ -217,7 +217,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     post:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Create Redirects Export Job
       description: Creates a new 301 Redirects export job.
       operationId: createRedirectExportJob
@@ -262,7 +262,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     post:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Create Redirects Import Job
       description: Creates a new 301 Redirects import job.
       operationId: createRedirectImportJob
@@ -320,7 +320,7 @@ paths:
       - $ref: '#/components/parameters/ImportExportIdParam'
     get:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Open Redirect Export Event Stream
       description: Opens an event stream to receive live updates from an export job.
       operationId: getRedirectExportEvents
@@ -340,7 +340,7 @@ paths:
       - $ref: '#/components/parameters/ImportExportIdParam'
     get:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Open Redirect Import Event Stream
       description: Opens an event stream to receive live updates from an import job.
       operationId: getRedirectImportEvents
@@ -360,7 +360,7 @@ paths:
       - $ref: '#/components/parameters/ImportExportIdParam'
     get:
       tags:
-        - Redirect Import-Export
+        - Import-Export
       summary: Download Redirect Export
       description: Downloads the CSV file containing the results of an export job.
       operationId: getRedirectExportDownload
@@ -635,8 +635,8 @@ components:
 
         | UI Name | Permission | Parameter |
         |:--------|:-----------|:----------|
-        |  Content | modify | `store_v2_content` |
-        |  Content | read-only | `store_v2_content_read_only` |
+        | Content | modify | `store_v2_content` |
+        | Content | read-only | `store_v2_content_read_only` |
 
         ### Authentication header
         
