@@ -8,6 +8,7 @@ info:
 paths:
   '/countries':
     get:
+      operationId: get-all-countries
       description: 'Get a list of all countries available. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get All Countries
       parameters:
@@ -60,6 +61,7 @@ paths:
         - Countries
   '/countries/{id}':
     get:
+      operationId: get-a-country
       description: 'Returns a single *Country*.  Gets a country. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get a Country
       parameters:
@@ -99,6 +101,7 @@ paths:
 
   '/countries/{country_id}/states':
     get:
+      operationId: get-all-country-states
       description: |-
         Returns a list of *States* belonging to a *Country*. 
         A state or province, identifiable by an ISO 3166 subdivision code.
@@ -166,6 +169,7 @@ paths:
 
   '/countries/{country_id}/states/{id}':
     get:
+      operationId: get-a-state
       description: |-
         Returns a *State*. 
         A state or province, identifiable by an ISO 3166 subdivision code.
@@ -232,10 +236,11 @@ paths:
       summary: Get a Count of All Countries
       tags:
         - Countries
-      operationId: countriesCount
+      operationId: get-count-countries
       description: Returns a count of all countries.
   '/countries/states/count':
     get:
+      operationId: get-count-states
       responses:
         '200':
           $ref: '#/components/responses/countResponse'
@@ -245,6 +250,7 @@ paths:
       description: Returns a count of all states.
   '/countries/states':
     get:
+      operationId: get-all-states
       responses:
         '200':
           $ref: '#/components/responses/countriesStatesCollectionResponse'
@@ -265,6 +271,7 @@ paths:
           description: The ordered grouping of results to return.
   '/countries/{country_id}/states/count':
     get:
+      operationId: get-count-country-states
       responses:
         '200':
           $ref: '#/components/responses/countResponse'
