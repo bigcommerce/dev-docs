@@ -1,0 +1,133 @@
+# Headless Tutorial
+This tutorial will walk you through creating a cart, checkout, an order, and processing a payment for a headless storefront. 
+
+This article assumes you have familiarity with the following concepts:
+
+* Creating a channel and channel site.
+* Retrieving product data using the GraphQL Storefront API calls 
+
+
+### Prerequisites
+
+* Store API credentials with the following permissions.
+	- **Carts:** `Modify`
+	- **Checkout:** `Modify`
+  - **Orders:** `Modify`
+	- **Products:** `Read Only`
+
+For more information, see [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+
+## Creating a cart
+
+### Step 1: Generate the cart ID.
+To generate the cart ID, send a request to the [create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint. The response will contain the `id`, which we will use as the `cart_id`.
+
+**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
+
+**Create a Cart POST request**
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+```json filename="Example request: Create a cart" showLineNumbers copy
+{
+  "customer_id": 0,
+  "line_items": [
+    {
+      "quantity": 2,
+      "product_id": 120,
+      "list_price": 15,
+      "name": "mug"
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "USD"
+  },
+  "locale": "en-US"
+}
+```
+</Tab>
+  <Tab>
+  ```json filename="Example response: Create a cart" showLineNumbers copy
+  {
+    "data": {
+        "id": "3cae6525-d0e8-4252-afec-0890fbb710c5",
+        "customer_id": 0,
+        "channel_id": 1,
+        "email": "",
+        "currency": {
+            "code": "USD"
+        },
+        "tax_included": false,
+        "base_amount": 30,
+        "discount_amount": 4.5,
+        "cart_amount": 25.5,
+        "coupons": [],
+        "line_items": {
+            "physical_items": [
+                {
+                    "id": "ca9ef0d1-1da9-48e5-a505-7051eb575432",
+                    "parent_id": null,
+                    "variant_id": 118,
+                    "product_id": 120,
+                    "sku": "SM-13",
+                    "name": "mug",
+                    "url": "https://arabic-store.mybigcommerce.com/bigcommerce-coffee-mug/",
+                    "quantity": 2,
+                    "taxable": true,
+                    "image_url": "https://cdn11.bigcommerce.com/r-4b20dad619e29ebf3490f7f35369a8220637ce48/themes/ClassicNext/images/ProductDefault.gif",
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "original_price": 15,
+                    "list_price": 15,
+                    "sale_price": 13.86,
+                    "extended_list_price": 30,
+                    "extended_sale_price": 27.72,
+                    "is_require_shipping": true,
+                    "is_mutable": true
+                }
+            ],
+            "digital_items": [],
+            "gift_certificates": [],
+            "custom_items": []
+        },
+        "created_time": "2023-09-28T20:30:33+00:00",
+        "updated_time": "2023-09-28T20:30:33+00:00",
+        "locale": "en-US"
+    },
+    "meta": {}
+}
+```
+  </Tab>
+  </Tabs>
+
+  ### Step 2: Generate the redirect URL
+
+To generate the redirect URL, send a request to the [create cart redirect URL](https://developer.bigcommerce.com/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You will need to use the cart ID generated in step 1 above. The response will contain the `cart_url` and the `checkout_url`. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages.
+
+**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{cartId}/redirect_urls`
+
+**Create Cart Redirect URL POST request**
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+```json filename="Example request: Create cart redirect URL" showLineNumbers copy
+{}
+```
+</Tab>
+<Tab>
+  ```json filename="Example response: Create cart redirect URL" showLineNumbers copy
+  {
+    "data": {
+        "cart_url": "https://arabic-store.mybigcommerce.com/cart.php?action=load&id=3cae6525-d0e8-4252-afec-0890fbb710c5&token=888dbf8bc89d5bc925ed40d39996387574f8deceaf759c64c101679d1f164f4f",
+        "checkout_url": "https://arabic-store.mybigcommerce.com/cart.php?action=loadInCheckout&id=3cae6525-d0e8-4252-afec-0890fbb710c5&token=888dbf8bc89d5bc925ed40d39996387574f8deceaf759c64c101679d1f164f4f",
+        "embedded_checkout_url": "https://arabic-store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=3cae6525-d0e8-4252-afec-0890fbb710c5&token=888dbf8bc89d5bc925ed40d39996387574f8deceaf759c64c101679d1f164f4f"
+    },
+    "meta": {}
+}
+```
+</Tab>
+</Tabs>
+
+## Creating a checkout
