@@ -1911,10 +1911,7 @@ paths:
                   data:
                     type: array
                     items:
-                      title: Product Image
-                      type: object
-                      allOf:
-                        - $ref: '#/components/schemas/productImage_Full'
+                      $ref: '#/components/schemas/productImage_Full'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
                 description: |
@@ -2011,11 +2008,6 @@ paths:
                       type: integer
                       description: |
                         The unique numeric identifier for the product with which the image is associated.
-                    image_file:
-                      type: string
-                      description: |-
-                        The local path to the original image file uploaded to BigCommerce.
-                        A `multipart/form-data` media type.
                     url_zoom:
                       readOnly: true
                       type: string
@@ -2065,7 +2057,9 @@ paths:
                     image_file:
                       type: string
                       description: |
-                        Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
+                        The local path to the original image file uploaded to BigCommerce. A `multipart/form-data` media type.
+                        
+                        Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file.
           multipart/form-data:
             schema:
               title: Product Image Post
@@ -2082,11 +2076,6 @@ paths:
                       type: integer
                       description: |
                         The unique numeric identifier for the product with which the image is associated.
-                    image_file:
-                      type: string
-                      description: |-
-                        The local path to the original image file uploaded to BigCommerce.
-                        A `multipart/form-data` media type.
                     url_zoom:
                       readOnly: true
                       type: string
@@ -2136,6 +2125,8 @@ paths:
                     image_file:
                       type: string
                       description: |
+                        The local path to the original image file uploaded to BigCommerce. A `multipart/form-data` media type.
+                        
                         Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
         required: true
       responses:
@@ -2162,12 +2153,6 @@ paths:
                             type: integer
                             description: |
                               The unique numeric identifier for the product with which the image is associated.
-                          image_file:
-                            type: string
-                            description: |-
-                              The local path to the original image file uploaded to BigCommerce.
-
-                              A `multipart/form-data` media type.
                           url_zoom:
                             readOnly: true
                             type: string
@@ -2223,6 +2208,8 @@ paths:
                             description: |-
                               The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                               A `multipart/form-data` media type.
+
+                              Must be sent as a multipart/form-data field in the request body. Limit of 8 MB per file.
                           url_zoom:
                             readOnly: true
                             type: string
@@ -2443,10 +2430,6 @@ paths:
                             type: integer
                             description: |
                               The unique numeric identifier for the product with which the image is associated.
-                          image_file:
-                            type: string
-                            description: |
-                              The local path to the original image file uploaded to BigCommerce.
                           url_zoom:
                             readOnly: true
                             type: string
@@ -2501,6 +2484,8 @@ paths:
                             type: string
                             description: |
                               The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+
+                              Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file.
                           url_zoom:
                             readOnly: true
                             type: string
@@ -6855,7 +6840,9 @@ components:
         image_file:
           type: string
           description: |
-            The local path to the original image file uploaded to BigCommerce. Limit of 8 MB per file.
+            The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+
+            Must be sent as a `multipart/form-data` field in the request body. Limit of 8 MB per file.
         is_thumbnail:
           type: boolean
           description: |
