@@ -633,8 +633,6 @@ components:
       properties:
         tree_id:
           type: integer
-      required:
-        - tree_id
     CategoryData:
       allOf:
         - type: object
