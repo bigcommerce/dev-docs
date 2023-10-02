@@ -132,7 +132,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Creating a checkout
 
-To change a cart to a checkout, you must have a `checkoutID` and a billing address. The `checkoutID` is the same as the `cart_id` you generated in [step 1](#creating-a-cart) of creating a cart. To add a billing address, send a POST request to the  [Add Checkout Billing Address](https://developer.bigcommerce.com/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
+In this section, we will add a billing address to your checkout. You must have a `checkoutID`. The `checkoutID` is the same as the `cart_id` you generated in [step 1](#creating-a-cart) of creating a cart. To add a billing address, send a POST request to the  [Add Checkout Billing Address](https://developer.bigcommerce.com/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -254,7 +254,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 </Tab>
 </Tabs>
 
-Now that you have transformed your headless cart into a checkout, you must add a consignment with a shipping address, line items, and a shipping option. You can do so by following this two-step process:
+Now that you have transformed your headless cart into a proper checkout with a billing address, you can add a consignment with a shipping address, line items, and a shipping option. You can do so by following this two-step process:
 
 ### Step 1: Add a new consignment to the checkout
 
