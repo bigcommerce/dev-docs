@@ -2623,7 +2623,10 @@ paths:
     put:
       tags:
         - Price Lists Assignments
-      description: Upsert a single `Price List Assignment` for a `Price List`.
+      description: |-
+        Upsert a single `Price List Assignment` for a `Price List`.
+        **Note:**
+        * Supports up to 25 simultaneous PUT requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error and your additional requests will fail.        
       summary: Upsert Price List Assignment
       operationId: upsertPriceListAssignment
       parameters:
