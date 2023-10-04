@@ -104,7 +104,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
   ### Step 2: Generate the redirect URLs
 
-To generate the redirect URLs, send a POST request to the [create cart redirect URL](https://developer.bigcommerce.com/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You will need to use the cart ID generated in [step 1](#creating-a-cart) above. The response will contain the `cart_url` and the `checkout_url`. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages.
+To generate the redirect URLs, send a POST request to the [create cart redirect URL](https://developer.bigcommerce.com/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You must use the cart ID generated in [step 1](#creating-a-cart) above. The response will contain the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -269,7 +269,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 [
   {
-    "address": {
+    "shipping_address": {
       "first_name": "Test",
       "last_name": "User",
       "email": "Test.User@example.com",
@@ -288,10 +288,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
         "item_id": "ca9ef0d1-1da9-48e5-a505-7051eb575432",
         "quantity": 2
       }
-    ],
-    "pickup_option": {
-      "pickup_method_id": 1
-    }
+    ]
   }
 ]
 ```
@@ -460,7 +457,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 </Tab>
 </Tabs>
-The response will contain an array of `available_shipping_options`. You will use one of the available shipping options to update the consignment in the next step.
+The response will contain an array of `available_shipping_options`. In the next step, you will use one of the available shipping options to update the consignment.
 
 ```json filename="available shipping options" showLineNumbers copy
 "available_shipping_options": [
@@ -499,41 +496,207 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/co
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-[
-  {
-    "address": {
-      "first_name": "Test",
-      "last_name": "User",
-      "email": "newTestEmail@example.com",
-      "company": "BigCommerce",
-      "address1": "555 Main Street",
-      "address2": "",
-      "city": "Austin",
-      "state_or_province": "Texas",
-      "state_or_province_code": "TX",
-      "country_code": "US",
-      "postal_code": "78701",
-      "phone": "555-555-5555",
-      "custom_fields": [
-        {
-          "field_id": "string",
-          "field_value": "string"
-        }
-      ]
-    },
-    },
-    "line_items": [
-      {
-        "item_id": "ca9ef0d1-1da9-48e5-a505-7051eb575432",
-        "quantity": 2
-      }
-    ],
-    "shipping_option_id": "6ded13392879983ee32a3563f5fa6a7b",
-    "pickup_option": {
-      "pickup_method_id": 1
-    }
-  }
-]
+{
+    "shipping_option_id": "6ded13392879983ee32a3563f5fa6a7b"
+}
+  
 ```
 </Tab>
 <Tab>
+```http filename="Example response" Update checkout consignment" showLineNumbers copy
+{
+    "data": {
+        "id": "c3bf9d8c-2cae-43e0-a618-60e72255c75b",
+        "cart": {
+            "id": "c3bf9d8c-2cae-43e0-a618-60e72255c75b",
+            "customer_id": 0,
+            "channel_id": 1,
+            "email": "Test.User@email.com",
+            "currency": {
+                "code": "USD"
+            },
+            "tax_included": false,
+            "base_amount": 100,
+            "discount_amount": 13.5,
+            "cart_amount_inc_tax": 0,
+            "cart_amount_ex_tax": 0,
+            "coupons": [],
+            "discounts": [],
+            "line_items": {
+                "physical_items": [
+                    {
+                        "id": "b2f0d1b2-f505-479a-b79a-813b33ce2771",
+                        "parent_id": null,
+                        "variant_id": 118,
+                        "product_id": 120,
+                        "sku": "SM-13",
+                        "name": "BigCommerce Coffee Mug",
+                        "url": "https://arabic-store.mybigcommerce.com/bigcommerce-coffee-mug/",
+                        "quantity": 1,
+                        "is_taxable": true,
+                        "image_url": "https://cdn11.bigcommerce.com/r-4b20dad619e29ebf3490f7f35369a8220637ce48/themes/ClassicNext/images/ProductDefault.gif",
+                        "discounts": [],
+                        "coupons": [],
+                        "discount_amount": 10,
+                        "coupon_amount": 0,
+                        "original_price": 10,
+                        "list_price": 10,
+                        "sale_price": 0,
+                        "extended_list_price": 10,
+                        "extended_sale_price": 0,
+                        "is_require_shipping": true,
+                        "gift_wrapping": null,
+                        "is_mutable": true
+                    },
+                    {
+                        "id": "275a516e-c59b-58fc-9e5d-10b5f277919b",
+                        "parent_id": null,
+                        "variant_id": 118,
+                        "product_id": 120,
+                        "sku": "SM-13",
+                        "name": "BigCommerce Coffee Mug",
+                        "url": "https://arabic-store.mybigcommerce.com/bigcommerce-coffee-mug/",
+                        "quantity": 9,
+                        "is_taxable": true,
+                        "image_url": "https://cdn11.bigcommerce.com/r-4b20dad619e29ebf3490f7f35369a8220637ce48/themes/ClassicNext/images/ProductDefault.gif",
+                        "discounts": [],
+                        "coupons": [],
+                        "discount_amount": 76.5,
+                        "coupon_amount": 0,
+                        "original_price": 10,
+                        "list_price": 10,
+                        "sale_price": 1.5,
+                        "extended_list_price": 90,
+                        "extended_sale_price": 13.5,
+                        "is_require_shipping": true,
+                        "gift_wrapping": null,
+                        "is_mutable": false
+                    }
+                ],
+                "digital_items": [],
+                "gift_certificates": [],
+                "custom_items": []
+            },
+            "created_time": "2023-10-04T18:32:27+00:00",
+            "updated_time": "2023-10-04T19:45:40+00:00"
+        },
+        "billing_address": {
+            "id": "651db12447abc",
+            "first_name": "Test",
+            "last_name": "User",
+            "email": "Test.User@email.com",
+            "company": "BigCommerce",
+            "address1": "555 Main Street",
+            "address2": "",
+            "city": "Austin",
+            "state_or_province": "Texas",
+            "state_or_province_code": "TX",
+            "country": "United States",
+            "country_code": "US",
+            "postal_code": "78701",
+            "phone": "555-555-5555",
+            "custom_fields": []
+        },
+        "consignments": [
+            {
+                "id": "651dbc9311976",
+                "shipping_cost_inc_tax": 0,
+                "shipping_cost_ex_tax": 0,
+                "handling_cost_inc_tax": 0,
+                "handling_cost_ex_tax": 0,
+                "coupon_discounts": [],
+                "discounts": [],
+                "line_item_ids": [
+                    "275a516e-c59b-58fc-9e5d-10b5f277919b"
+                ],
+                "selected_shipping_option": {
+                    "id": "6ded13392879983ee32a3563f5fa6a7b",
+                    "type": "shipping_pickupinstore",
+                    "description": "Pickup In Store",
+                    "image_url": "",
+                    "cost": 0,
+                    "transit_time": "",
+                    "additional_description": ""
+                },
+                "shipping_address": {
+                    "first_name": "Test",
+                    "last_name": "User",
+                    "email": "Test.User@example.com",
+                    "company": "BigCommerce",
+                    "address1": "555 Main Street",
+                    "address2": "",
+                    "city": "Austin",
+                    "state_or_province": "Texas",
+                    "state_or_province_code": "TX",
+                    "country": "United States",
+                    "country_code": "US",
+                    "postal_code": "78701",
+                    "phone": "555-555-5555",
+                    "custom_fields": []
+                },
+                "address": {
+                    "first_name": "Test",
+                    "last_name": "User",
+                    "email": "Test.User@example.com",
+                    "company": "BigCommerce",
+                    "address1": "555 Main Street",
+                    "address2": "",
+                    "city": "Austin",
+                    "state_or_province": "Texas",
+                    "state_or_province_code": "TX",
+                    "country": "United States",
+                    "country_code": "US",
+                    "postal_code": "78701",
+                    "phone": "555-555-5555",
+                    "custom_fields": []
+                }
+            }
+        ],
+        "taxes": [],
+        "coupons": [],
+        "order_id": null,
+        "shipping_cost_total_inc_tax": 0,
+        "shipping_cost_total_ex_tax": 0,
+        "handling_cost_total_inc_tax": 0,
+        "handling_cost_total_ex_tax": 0,
+        "tax_total": 0,
+        "subtotal_inc_tax": 13.5,
+        "subtotal_ex_tax": 13.5,
+        "grand_total": 0,
+        "created_time": "2023-10-04T18:32:27+00:00",
+        "updated_time": "2023-10-04T19:45:40+00:00",
+        "customer_message": "",
+        "fees": []
+    },
+    "meta": {}
+}
+```
+
+## Creating an order
+
+Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](https://developer.bigcommerce.com/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status will be set to incomplete.
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+    ```http filename="Example request: Create an order" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/orders
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+  ```
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Create an order" showLineNumbers copy
+    {
+      "data": {
+        "id": 125
+      },
+      "meta": {}
+    }
+    ```
+
+  </Tab>
+</Tabs>
