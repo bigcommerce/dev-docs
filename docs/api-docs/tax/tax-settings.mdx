@@ -4,9 +4,9 @@ Tax settings allow you to choose how a store handles tax calculation and price d
 
 ## Estimate taxes and display prices based on tax zone
 
-The Tax Settings API supports cross-border transactions. You can localize storefront prices for shoppers from different regions. For example, you can display tax-inclusive or exclusive prices depending on the tax zone. This benefits single-storefront stores that sell to shoppers from different regions. This functionality applies to Stencil and GraphQL-powered storefronts that use basic tax.
+The Tax Settings API supports cross-border transactions. You can localize storefront prices for shoppers from different regions. For example, you can display tax-inclusive or exclusive prices depending on the tax zone. This benefits single-storefront stores that sell to shoppers from different regions. This functionality applies to Stencil and GraphQL-powered storefronts.
 
-To support cross-border transactions, the store identifies a tax zone for the shopper. The store then applies the tax zone and its settings to estimate taxes and display prices. For logged-in customers, the store uses the customer address to identify the tax zone. For guest shoppers, the store can use the shopper's geolocation to identify the zone. Otherwise, the store uses the provided guest shopper tax zone ID.
+To support cross-border transactions, the store identifies a tax zone for the shopper. The store then applies the tax zone and its settings to estimate taxes and display prices. For logged-in customers, the store uses the customer address to identify the tax zone. For guest shoppers, the store can use the shopper's geolocation to identify the zone if you enable this setting. Otherwise, the store uses the provided guest shopper tax zone ID.
 
 This guide shows you how to use the Tax Settings API. For more info, see the [Tax Settings API Reference](/docs/rest-management/tax-settings). 
 
