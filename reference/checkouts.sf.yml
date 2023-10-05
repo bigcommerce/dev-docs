@@ -2845,6 +2845,9 @@ components:
                               type: number
                               description: The total value of all coupons applied to this item.
                               format: double
+                            originalPrice:
+                              type: number
+                              description: The item’s original price is the same as the product’s default price.
                             listPrice:
                               type: number
                               description: The item’s list price, as quoted by the manufacturer or distributor.
@@ -2954,6 +2957,9 @@ components:
                               type: number
                               description: The total value of all coupons applied to this item.
                               format: double
+                            originalPrice:
+                              type: number
+                              description: The item’s original price is the same as the product’s default price.
                             listPrice:
                               type: number
                               description: The item’s list price, as quoted by the manufacturer or distributor.
