@@ -403,7 +403,7 @@ paths:
             example:
               - id: 0
                 name: string
-                channel_ids:
+                channels:
                   - 0
       responses:
         '200':
@@ -844,7 +844,7 @@ components:
           type: string
           minLength: 1
           maxLength: 255
-        channel_ids:
+        channels:
           type: array
           items:
             type: integer
