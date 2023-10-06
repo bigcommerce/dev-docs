@@ -2915,6 +2915,14 @@ components:
         bin_picking_number:
           description: Bin picking number for the physical product.
           type: string
+        external_id:
+          description: (Read-only) ID of the order in another system. For example, the Amazon order ID if this is an Amazon order.
+          type: string
+          nullable: true
+          readOnly: true
+        brand: 
+          description: The productʼs brand.
+          type: string
         applied_discounts:
           description: Array of objects containing discounts applied to the product.
           type: array
@@ -2925,11 +2933,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/orderProductOptions'
-        external_id:
-          description: (Read-only) ID of the order in another system. For example, the Amazon order ID if this is an Amazon order.
-          type: string
-          nullable: true
-          readOnly: true
         upc:
           type: string
           maxLength: 255
