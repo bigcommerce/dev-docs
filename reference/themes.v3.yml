@@ -712,10 +712,6 @@ components:
                     per_page: 50
                     current_page: 1
                     total_pages: 1
-                    links:
-                      previous: nostrud in
-                      current: '?page=1&limit=50'
-                      next: in
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
