@@ -783,6 +783,7 @@ paths:
   '/settings/store/locale':
     parameters:
       - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ChannelIdParam'
     get:
       summary: Get Locale Settings
       description: Returns global locale settings.
@@ -810,7 +811,10 @@ paths:
         - Store Locale
     put:
       summary: Update Locale Settings
-      description: Updates global locale settings.
+      description: |-
+        Updates global locale settings.
+
+        Set a channel override by using the `channel_id` query parameter. To remove a channel override, set `null` for a field. The field then inherits the global value.
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
