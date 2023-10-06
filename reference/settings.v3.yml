@@ -1627,8 +1627,8 @@ components:
       default: relevance
       enum:
         - relevance
-        - atoz
-        - ztoa
+        - alphaasc
+        - alphadesc
       title: ContentSortEnumValues
       x-internal: false
     DetailedErrors:
@@ -2085,11 +2085,12 @@ components:
         - featured
         - bestselling
         - newest
-        - atoz
-        - ztoa
-        - highestprice
-        - lowestprice
-        - bestreviewed
+        - alphaasc
+        - alphadesc
+        - pricedesc
+        - priceasc
+        - avgcustomerreview
+        - relevance
       title: ProductSortEnumValues
       x-internal: false
     RobotsTxtSettings:
@@ -2239,6 +2240,11 @@ components:
           type: boolean
         search_suggest:
           type: boolean
+      required:
+        - content_product_sort
+        - default_product_sort
+        - product_filtering_enabled
+        - search_suggest
       x-internal: false
     StorefrontSecuritySettings:
       type: object
@@ -2318,7 +2324,7 @@ components:
                 properties:
                   '':
                     type: string
-                    example: 'Incorrect value [current__only], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [besling], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
+                    example: 'Incorrect value [current__only], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [besling], it should match one of: featured, newest, bestselling, alphaasc, alphadesc, avgcustomerreview, priceasc, pricedesc, relevance'
                     minLength: 1
               status:
                 type: number
@@ -2334,7 +2340,7 @@ components:
             x-examples:
               example-1:
                 errors:
-                  '': 'Incorrect value [], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
+                  '': 'Incorrect value [], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [], it should match one of: featured, newest, bestselling, alphaasc, alphadesc, avgcustomerreview, priceasc, pricedesc, relevance'
                 status: 422
                 title: JSON data is missing or invalid
                 type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
