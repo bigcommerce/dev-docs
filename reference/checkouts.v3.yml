@@ -4730,13 +4730,16 @@ paths:
         - Checkout Consignments
       summary: Update Checkout Consignment
       description: |-
-        Updates an existing consignment. The address, line item IDs, and the shipping option ID can be updated using this endpoint. 
+        Updates an existing consignment. The address, line item IDs, and shipping option ID can be updated using this endpoint.
+
+        Use a separate `PUT` request to update the shipping option IDs if you also want to update the address and line item IDs.  
         
-        To add a new address and shipping options with line items, complete the following steps. 
+        To add new shipping options, complete the following steps: 
+        * Use the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint to add a new [consignment] to a checkout. 
+        * Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. 
         
-        1. Add a new [consignment](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) to a checkout. 
+        To update an existing address and line item IDs, assign a new address and line item IDs by sending a `PUT` request.
         
-        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
       parameters:
         - $ref: '#/components/parameters/Content-Type'
@@ -8703,10 +8706,8 @@ components:
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
-      type: array
-      items:
-        type: object
-        properties:
+      type: object
+      properties:
           address:
             title: Address Properties
             required:
