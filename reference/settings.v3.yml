@@ -781,12 +781,12 @@ paths:
       tags:
         - Search Filters
   '/settings/store/locale':
-    parameters:
-      - $ref: '#/components/parameters/Accept'
-      - $ref: '#/components/parameters/ChannelIdParam'
     get:
       summary: Get Locale Settings
       description: Returns global locale settings.
+      parameters:
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ChannelIdParam'
       responses:
         '200':
           description: ''
@@ -816,7 +816,9 @@ paths:
 
         Set a channel override by using the `channel_id` query parameter. To remove a channel override, set `null` for a field. The field then inherits the global value.
       parameters:
+        - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/ContentType'
+        - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
           application/json:
