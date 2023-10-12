@@ -2,7 +2,7 @@
 
 [Settings API reference documentation](/docs/rest-management/settings)
 
-BigCommerce's Settings APIs can manage many of the configuration settings that are exposed to merchants in their store control panel, such as the store's name and contact information, SEO settings, and search filters.
+BigCommerce's Settings APIs can manage many of the configuration settings that are exposed to retailers in their store control panel, such as the store's name and contact information, SEO settings, and search filters.
 
 These Settings APIs can be used to simplify the setup of new storefronts and other new sales channels, as well as to automate ongoing configuration changes. They enable developers to build configuration management tools that may be more efficient than the store control panel for a particular use case. 
 
@@ -14,11 +14,11 @@ Unlike many of BigCommerce's APIs, Settings APIs usually don't involve large col
 
 ![settings-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/settings-diagram.webp)
 
-The majority of BigCommerce merchants sell their products exclusively through the storefront website that comes preconfigured with their plan. When these merchants configure their store settings, they're modifying the **global default** versions of their settings.
+The majority of BigCommerce retailers sell their products exclusively through the storefront website that comes preconfigured with their plan. When these retailers configure their store settings, they're modifying the **global default** versions of their settings.
 
-Once a merchant starts to take advantage of multi-storefront or other multi-channel functionality, they often want to configure settings differently for each sales channel.
+Once a retailer starts to take advantage of multi-storefront or other multi-channel functionality, they often want to configure settings differently for each sales channel.
 
-Each new channel will use the store's global default values unless the merchant chooses to override them by defining **channel-specific** settings.
+Each new channel will use the store's global default values unless the retailer chooses to override them by defining **channel-specific** settings.
 
 The Settings APIs use query parameters to distinguish which set of settings a request is accessing.
 
@@ -50,9 +50,9 @@ Accept: application/json
 </Tab>
 </Tabs>
 
-Because the request did not specify any query parameters, the API returned the **global default** configuration for this merchant. Responses that return global configuration data will contain values for all properties of the requested object.
+Because the request did not specify any query parameters, the API returned the **global default** configuration for this retailer. Responses that return global configuration data will contain values for all properties of the requested object.
 
-The merchant's global configuration is used for all storefronts and other channels that have not specified different, channel-specific configuration settings.
+The retailer's global configuration is used for all storefronts and other channels that have not specified different, channel-specific configuration settings.
 
 To check whether channel-specific values for a setting are defined, send the `channel_id` as a query parameter in your requests to settings endpoints.
 
@@ -103,7 +103,7 @@ Accept: application/json
 </Tab>
 </Tabs>
 
-Because a custom store name exists for channel 123, the channel-specific store name overrides the global default. Shoppers who interact with this channel will see the custom store name at each place it appears in the channel. When the global default `store_name` in the merchant's store profile settings changes, this channel will not reflect that change. However, any other changes to the global default store profile will affect channel 123, because `store_name` is the only channel-specific value defined. 
+Because a custom store name exists for channel 123, the channel-specific store name overrides the global default. Shoppers who interact with this channel will see the custom store name at each place it appears in the channel. When the global default `store_name` in the retailer's store profile settings changes, this channel will not reflect that change. However, any other changes to the global default store profile will affect channel 123, because `store_name` is the only channel-specific value defined. 
 
 The following request-response pair shows an example of a channel with a complete set of channel-specific store profile settings configured.
 

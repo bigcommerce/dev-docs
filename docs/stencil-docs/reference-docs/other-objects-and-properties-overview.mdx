@@ -47,7 +47,7 @@ keywords: bigpay, configurable_fields, sort,
 | max_purchase_quantity | Maximum quantity that can be purchased at once |
 | can_purchase | Boolean that indicates whether the product is available for purchase |
 | out_of_stock | Boolean that indicates whether the product is out of stock |
-| out_of_stock_message | Merchant-defined label to display when a product is out of stock |
+| out_of_stock_message | Retailer-defined label to display when a product is out of stock |
 | cart_url | URL to the customer’s shopping cart |
 | add_to_wishlist_url | URL to add the product to the customer’s wishlist |
 | customizations | Product customizations (for example, a T-shirt size); these correspond to [configurable fields](https://support.bigcommerce.com/articles/Public/What-are-configurable-fields-and-how-do-I-create-them) and [numeric-text](https://support.bigcommerce.com/s/article/Options-SKUs-Rules#text) [product options](https://support.bigcommerce.com/articles/Public/Adding-Product-Options) in the BigCommerce control panel |
@@ -88,13 +88,13 @@ keywords: bigpay, configurable_fields, sort,
 | num_reviews | Number of reviews the product has |
 | bulk_discount_rates  | List of discount rates for the current product |
 | condition | Condition of the product |
-| stock_level | Current stock level of the product; will be null if storefront stock display is disabled by the merchant, or if the product lacks inventory tracking |
+| stock_level | Current stock level of the product; will be null if storefront stock display is disabled by the retailer, or if the product lacks inventory tracking |
 | shipping | Shipping properties for the product |
 | &nbsp;&nbsp;fixed | Boolean that indicates whether the product’s shipping price is fixed |
 | &nbsp;&nbsp;price | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the shipping cost for this product (if shipping cost is fixed) |
 | &nbsp;&nbsp;calculated | Boolean that indicates whether the product’s shipping price is calculated at checkout |
 | stock_label | Shows whether the product stock level is for on-hand merchandise or pre-orders. |
-| availability | Optional availability message set by the merchant |
+| availability | Optional availability message set by the retailer |
 | pre_order | Availability of the product for pre-order |
 | release_date | Release date, if the product is set to pre-order status |
 | error_message | Potential error on the page (e.g.: out of stock, form validations) |
@@ -106,8 +106,8 @@ keywords: bigpay, configurable_fields, sort,
 | images | List of all images for this product, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) (as configured in config.json; used with the `getImage` Handlebars helper) |
 | pinterest_js | Property to display Pinterest button |
 | facebook_like | Property to display Facebook Like button |
-| warranty | Optional warranty text set by the merchant |
-| meta_keywords | Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches |
+| warranty | Optional warranty text set by the retailer |
+| meta_keywords | Optional search keywords that retailers may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches |
 | tags | Keywords by which this product can also be identified |
 | &nbsp;&nbsp;name | Name of the tag |
 | custom_fields  | Extra details to display about the product  |
@@ -218,7 +218,7 @@ keywords: bigpay, configurable_fields, sort,
 | &nbsp;&nbsp;days_remaining | Number of days left in customer’s access/subscription to this item |
 | &nbsp;&nbsp;downloads_remaining | Number of times customer may download this item |
 | &nbsp;&nbsp;size | File size of this digital item (string, responsively formatted as: 240 KB, 1.1 MB, etc.) |
-| &nbsp;&nbsp;description | Description (if entered by merchant) for this item |
+| &nbsp;&nbsp;description | Description (if entered by retailer) for this item |
 | &nbsp;&nbsp;id | ID for this item |
 | &nbsp;&nbsp;images | List of all images for the product associated with this list of downloadable items [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
 | &nbsp;&nbsp;thumbnail | "Primary" image for the product associated with this list of downloadable items [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
@@ -246,15 +246,15 @@ keywords: bigpay, configurable_fields, sort,
 | Property | Description |
 |---|---|
 | id | Unique ID for the category  |
-| name | Merchant-defined category name |
+| name | Retailer-defined category name |
 | url | URL for the category-specific page |
-| description | Merchant-defined description of the category |
+| description | Retailer-defined description of the category |
 | image | Image representing this category, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
 | subcategories | List of any child categories |
 | &nbsp;&nbsp;id | Unique ID for the subcategory  |
 | &nbsp;&nbsp;name | Name of the subcategory |
 | &nbsp;&nbsp;url | URL to the subcategory |
-| &nbsp;&nbsp;description | Merchant-defined description of the subcategory  |
+| &nbsp;&nbsp;description | Retailer-defined description of the subcategory  |
 | &nbsp;&nbsp;image | Image representing this subcategory, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
 | &nbsp;&nbsp;product_count | Number of products in the subcategory. (Counts at the current level only &ndash; not recursive to deeper levels.) |
 | detail_messages | Message displayed when a product is out of stock, and inventory settings are configured to redirect to a category: "Sorry, the product you tried to view is currently out of stock, here are some similar products we have available." (This phrasing is set by the BigCommerce App.) |
@@ -299,7 +299,7 @@ keywords: bigpay, configurable_fields, sort,
 
 | Property | Description |
 |---|---|
-| show_compare | Boolean corresponding to merchant’s control panel selection whether or not to enable product comparisons |
+| show_compare | Boolean corresponding to retailer’s control panel selection whether or not to enable product comparisons |
 | url | URL of the brand page |
 | name | Name of the brand  |
 | pagination | References the pagination model |
@@ -356,11 +356,11 @@ keywords: bigpay, configurable_fields, sort,
 | show_multiple_address_shipping | Boolean: If **> 1** physical items are in the cart, and checkout button is displayed: whether to also display the ”Ship to multiple addresses”/”Multiple Shipping Addresses” user option |
 | discount | Discount being applied to the cart in the current session |
 | gift_wrapping_cost | Price object that defines the cost associated with adding gift wrapping to the items in the cart |
-| sub_total | Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping. |
+| sub_total | Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the retailer has configured. Excludes shipping, discounts, and gift wrapping. |
 | grand_total | Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping. |
 | shipping_handling | Current configuration of the shipping estimator for this session’s current cart; will be null/undefined if the cart contains no physical products |
 | &nbsp;&nbsp;handling_cost | Price object that defines the handling cost for the carted items (if any) |
-| &nbsp;&nbsp;show_estimator | Boolean indicating whether the merchant wants to show the shipping estimator to customers |
+| &nbsp;&nbsp;show_estimator | Boolean indicating whether the retailer wants to show the shipping estimator to customers |
 | &nbsp;&nbsp;&nbsp;countries | Countries available to ship to |
 | &nbsp;&nbsp;&nbsp;states | List of states/provinces/regions for the country |
 | &nbsp;&nbsp;&nbsp;selected_state | The state/province/region that the customer selected for the shipping estimate |
@@ -407,7 +407,7 @@ keywords: bigpay, configurable_fields, sort,
 | &nbsp;&nbsp;name | Product name of the cart item |
 | &nbsp;&nbsp;url | Link to the product page for the cart item |
 | &nbsp;&nbsp;sku | SKU value for this cart item |
-| &nbsp;&nbsp;availability | An optional availability message set by the merchant |
+| &nbsp;&nbsp;availability | An optional availability message set by the retailer |
 | &nbsp;&nbsp;image | Product image for the cart item |
 | can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item (read-only field)|
 | &nbsp;&nbsp;event_date | Chosen event date for event-based products |
@@ -534,7 +534,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | total | Price object that defines the order’s total value |
 | status | Order status code |
 | status_text | Status text associated with the status code for the order |
-| returns_enabled | Boolean that indicates whether merchant allows products from the order to be returned |
+| returns_enabled | Boolean that indicates whether retailer allows products from the order to be returned |
 | reorder_url | URL to place reorders for items in this order |
 | invoice_url | URL to display an invoice for this order |
 | is_complete | Boolean indicating that the order has been completed |
@@ -669,7 +669,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | return_url | URL for returning items in this order |
 | reorder_url | URL for reordering items in this order |
 | details_url | URL for details about this order |
-| payment_instructions | Text field defined by merchant as to payment instructions for manual gateways such as “Bank Deposit” |
+| payment_instructions | Text field defined by retailer as to payment instructions for manual gateways such as “Bank Deposit” |
 | image | Image of the order’s first product, in Stencil image format |
 | items | Array of products in this order |
 | &nbsp;&nbsp;name | Name of this product |
@@ -695,8 +695,8 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | date_requested | Date on which the customer requested this return |
 | id | The ID for this return |
 | quantity | Quantity of items returned |
-| reason | Reason for return; merchants can define actions beyond the default strings created with each store, which are: Received Wrong Product, Wrong Product Ordered, Not Satisfied With The Product, and There Was A Problem With The Product |
-| action | Return action; merchants can define actions beyond the default set created with each store (Repair, Replacement, or Store Credit) |
+| reason | Reason for return; retailers can define actions beyond the default strings created with each store, which are: Received Wrong Product, Wrong Product Ordered, Not Satisfied With The Product, and There Was A Problem With The Product |
+| action | Return action; retailers can define actions beyond the default set created with each store (Repair, Replacement, or Store Credit) |
 | comments | Comments that the customer entered with the return request |
 | status | Status of the return: Pending, Received, Authorized, Repaired,
 Refunded, Rejected, or Cancelled |
@@ -719,7 +719,7 @@ Refunded, Rejected, or Cancelled |
 |---|---|
 | order_id | ID for the original order |
 | reasons | Reasons for return |
-| actions | Return actions: an array of strings arbitrarily defined by the merchant: refund, exchange, credit, etc. |
+| actions | Return actions: an array of strings arbitrarily defined by the retailer: refund, exchange, credit, etc. |
 | order_products | Array of products from the order that are available to return |
 | &nbsp;&nbsp;id | ID for the product |
 | &nbsp;&nbsp;name | Name of this product |
@@ -741,7 +741,7 @@ Refunded, Rejected, or Cancelled |
 |---|---|
 | recaptcha | Objects for integrating the Google reCAPTCHA service to distinguish human visitors from ’bots (automated agents) |
 | &nbsp;&nbsp;enabled | Boolean indicating whether reCAPTCHA is enabled for this store |
-| &nbsp;&nbsp;public_key | Public key (site key) that reCAPTCHA returns upon merchant’s enabling CAPTCHA security in **Store Settings > Display Settings** |
+| &nbsp;&nbsp;public_key | Public key (site key) that reCAPTCHA returns upon retailer’s enabling CAPTCHA security in **Store Settings > Display Settings** |
 | address_fields | Array of form fields that define each shipping address for this customer; for details, see the [Cornerstone template form component](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms) |
 | &nbsp;&nbsp;class_name | Specifies a CSS class (defined in the theme's `/assets/scss/` subdirectory) to apply to a field within the array; for corresponding control-panel steps, see [Editing Form Fields](https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings)  |
 | account_fields | Object of form fields; for details, see the [Cornerstone template form component](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms) |
@@ -985,7 +985,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 ### Gift Certificate Form
 
-**Description:****<em> </em>**Form object used to create and edit a gift certificate object for the merchant's store. Called on the default `<theme-name>templates/pages/gift-certificate/purchase.html` template. <br />
+**Description:****<em> </em>**Form object used to create and edit a gift certificate object for the retailer's store. Called on the default `<theme-name>templates/pages/gift-certificate/purchase.html` template. <br />
 
 **Handlebars Expression:** `{{forms.gift_certificate}}`
 
@@ -1016,7 +1016,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 ### Contact Us Form
 
-**Description:** Form object used to manage merchants’ "Contact Us" pages. Called on the default `<theme-name>/templates/pages/contact-us.html`template.
+**Description:** Form object used to manage retailers’ "Contact Us" pages. Called on the default `<theme-name>/templates/pages/contact-us.html`template.
 
 **Handlebars Expression:** `{{forms.contact}}`
 
@@ -1037,7 +1037,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | recaptcha.markup | Adds reCaptcha V2 |
 ### Login Account Form
 
-**Description:** Form object used to manage merchants’ "Login" page. Called on the default `<theme-name>/templates/pages/create-login.html`template.
+**Description:** Form object used to manage retailers’ "Login" page. Called on the default `<theme-name>/templates/pages/create-login.html`template.
 
 **Handlebars Expression:** `{{forms.login}}`
 

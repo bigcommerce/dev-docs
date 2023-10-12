@@ -2,15 +2,15 @@
 
  
 
-[Store Design](https://support.bigcommerce.com/s/article/Store-Design) is a browser-based tool that enables BigCommerce merchants to rapidly modify and customize a storefront's look and feel without writing any code. A merchant using Store Design can customize a storefront theme by modifying characteristics from a variety of menu options such as **Styles, Colors, Typography, Buttons**, and more. 
+[Store Design](https://support.bigcommerce.com/s/article/Store-Design) is a browser-based tool that enables BigCommerce retailers to rapidly modify and customize a storefront's look and feel without writing any code. A retailer using Store Design can customize a storefront theme by modifying characteristics from a variety of menu options such as **Styles, Colors, Typography, Buttons**, and more. 
 
-As a theme developer, you can configure your own settings for Store Design. Your configuration determines the theme's customizable aspects. For example, by customizing the configuration of Store Design, you can modify how merchants can customize colors, fonts, display of page features, and number of products to display per feature.
+As a theme developer, you can configure your own settings for Store Design. Your configuration determines the theme's customizable aspects. For example, by customizing the configuration of Store Design, you can modify how retailers can customize colors, fonts, display of page features, and number of products to display per feature.
 
 ## Configuration Files
 
 Each theme contains two related JSON files of key-value pairs: <span class="fn">config.json</span> and <span class="fn">schema.json.</span> These files' keys provide the following features:
 
-Keys that you include in <span class="fn">schema.json</span> – together with their corresponding <span class="fn">config.json</span> default values – define the settings that merchants can customize through Store Design's graphical interface.
+Keys that you include in <span class="fn">schema.json</span> – together with their corresponding <span class="fn">config.json</span> default values – define the settings that retailers can customize through Store Design's graphical interface.
 Other <span class="fn">config.json</span> keys contain metadata about the theme, such as the theme's name, version, and resource controls.
 Keys located in <span class="fn">config.json</span>'s `variations` object define variations of the theme. For example, a theme might have a "Light" variation and a "Bold" variation, each with different typography and colors. Each theme can include as many variations as you like.
 Keys located under both files' `settings` objects define the theme's look, feel, and functionality.
@@ -33,13 +33,13 @@ When store administrators use Store Design to customize your theme for their sto
 
 ## Theme Upgrades and Settings
 
-When a merchant upgrades your theme to a newer version, all key-value pairs that were saved to the BigCommerce configuration service are carried forward. For example, assume this customization/upgrade scenario:
+When a retailer upgrades your theme to a newer version, all key-value pairs that were saved to the BigCommerce configuration service are carried forward. For example, assume this customization/upgrade scenario:
 
 You release your Star Glow theme, version 1. This theme's <span class="fn">config.json</span> includes a key named `logo_size`, establishing a default value of 100x250. The combination of the key and the value compose a `logo_size` setting.
-The merchant uses Store Design to change the `logo_size` setting to 175x275. This customized setting is stored in the BigCommerce configuration service.
+The retailer uses Store Design to change the `logo_size` setting to 175x275. This customized setting is stored in the BigCommerce configuration service.
 You release Star Glow, version 1.1. In this theme revision, you have changed the `logo_size` to 300x300.
-When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175x275 remains in effect.
-If you the merchant creates a second store and applies Star Glow version 1.1 to it, that store has no custom `logo_size` setting – so it will default to the new theme version's 300x300 value.
+When the retailer applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175x275 remains in effect.
+If you the retailer creates a second store and applies Star Glow version 1.1 to it, that store has no custom `logo_size` setting – so it will default to the new theme version's 300x300 value.
 
 ## Resources
 

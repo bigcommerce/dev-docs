@@ -9,7 +9,7 @@ _We're gratefully sharing techniques devised by Ken Utting, Web Developer for Bi
 
 ## Why Dynamic Content?
 
-At GORUCK, we've customized our Stencil theme (currently using the [Merchant](https://www.bigcommerce.com/theme/merchant-light/?_ga=2.52710120.1984523106.1539568940-967431010.1523308107) theme) to provide several ways to update our site content without requiring changes to the theme itself. This allows our content folks to make changes to our theme without having to wait on our software developers.
+At GORUCK, we've customized our Stencil theme (currently using the [Retailer](https://www.bigcommerce.com/theme/retailer-light/?_ga=2.52710120.1984523106.1539568940-967431010.1523308107) theme) to provide several ways to update our site content without requiring changes to the theme itself. This allows our content folks to make changes to our theme without having to wait on our software developers.
 
 Also, by pushing content out of the theme, these techniques reduce the differences between our customized theme and the out-of-the-box (base) theme – which makes it easier to integrate ongoing updates into our theme. Finally, these techniques allow us share identical content across pages without copying and pasting.
 
@@ -66,7 +66,7 @@ Here is an example of some HTML that we actually use:
 
 ### Dropzones JavaScript
 
-The content is moved from the default location to the dropzone by JavaScript we added to the PageManager class. In BigCommerce's Cornerstone base theme, Pixel Union's Merchant theme, and other Stencil themes, PageManager is the parent class of all page classes. So, its methods get invoked on every page. This makes it a great place to put code like this, which needs to run every time a page is loaded.
+The content is moved from the default location to the dropzone by JavaScript we added to the PageManager class. In BigCommerce's Cornerstone base theme, Pixel Union's Retailer theme, and other Stencil themes, PageManager is the parent class of all page classes. So, its methods get invoked on every page. This makes it a great place to put code like this, which needs to run every time a page is loaded.
 
 We modified our theme's PageManager.before method to invoke a new method named `gr_moveHtmlToDropzones`:
 

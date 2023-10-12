@@ -11,15 +11,15 @@ This article details how you can surface currencies throughout BigCommerce APIs,
 
 When you configure multiple currencies, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
 
-Catalog search and filtering by price only work for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
+Catalog search and filtering by price only work for the default currency and auto-converted pricing for non-default transactional currencies. If a retailer sets up pricing through **Price Lists** and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
 
-* `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through price lists and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
+* `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If retailer sets up pricing through price lists and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
 
-BigCommerce does not dynamically convert currency. To convert, the merchant will need to do one of the following:
+BigCommerce does not dynamically convert currency. To convert, the retailer will need to do one of the following:
 
 * Manually update their conversion rate from default currency to other transactional currencies.
 * Set up automatic updates to their conversion rate through APIs.
-* Set up explicit pricing per each currency using price lists (only available to Enterprise merchants).
+* Set up explicit pricing per each currency using price lists (only available to Enterprise retailers).
 * Pricing by currency only, not by country.
 
 ## Currencies
@@ -297,7 +297,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 **Details:**
 * **Product Level Fixed Shipping** - Shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
 * **Flat Rate Shipping** - Flat rate shipping is converted based on the store's currency. 
-* **Shipping Carriers** - The currency is sent to the carrier and, depending on the carrier, quotes are returned in the store's transactional currency. If the shipping carrier can not return in the transactional currency, the store will convert it using the transactional currency exchange rate set by the merchant. If you've set the checkout to be viewed in a display currency, the store will convert it to the transactional currency for payment. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
+* **Shipping Carriers** - The currency is sent to the carrier and, depending on the carrier, quotes are returned in the store's transactional currency. If the shipping carrier can not return in the transactional currency, the store will convert it using the transactional currency exchange rate set by the retailer. If you've set the checkout to be viewed in a display currency, the store will convert it to the transactional currency for payment. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
 
 ## Refunds
 

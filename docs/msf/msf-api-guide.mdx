@@ -62,7 +62,7 @@ The V3 Price List Assignments API allows you to assign price lists to channels, 
 * If a price list assignment is found that both matches the shopper's current channel **AND** does not specify a customer group, it will be used; otherwise,
 * The catalog default pricing will be used.
 
-If your implementation uses price lists to manage pricing, we recommend that you start using the V3 Price List Assignments API so that your app fully understands and can reason about the pricing state for the customers, orders, and channels on the merchant's store.
+If your implementation uses price lists to manage pricing, we recommend that you start using the V3 Price List Assignments API so that your app fully understands and can reason about the pricing state for the customers, orders, and channels on the retailer's store.
 
 If your use case is primarily concerned with what the price will be for a given shopper, consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to fetch data about the shopper's view in real time.
 
@@ -79,7 +79,7 @@ It is important to understand the difference between assigning a product to a ca
 
 ![products-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/products-diagram.webp)
 
-If your app provides merchants with a sales channel, such as an integration with a third-party marketplace, we recommend that you check the merchant's catalog to determine their existing channel assignments. This will help your app understand and communicate with the merchant about which products the integration's channel is currently permitted to offer for sale. For extended product information relevant to your channel, consult the [Channel Listings API](/docs/rest-management/channels/channel-listings#get-channel-listings).
+If your app provides retailers with a sales channel, such as an integration with a third-party marketplace, we recommend that you check the retailer's catalog to determine their existing channel assignments. This will help your app understand and communicate with the retailer about which products the integration's channel is currently permitted to offer for sale. For extended product information relevant to your channel, consult the [Channel Listings API](/docs/rest-management/channels/channel-listings#get-channel-listings).
 
 If your application interacts with shoppers, you can use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to get the correct product availability and data for a given shopper in real time.
 
@@ -99,17 +99,17 @@ Removing a product from one or all of a channel's categories without revoking th
 
 ### Scripts
 
-Scripts are associated with a particular site. Any scripts that were created previously have been assigned to the default site, the ID of which is `1000` for each merchant store. If you do not supply a `site_id` when you create a script, it will be assigned to the default site. To support multi-storefront stores, you should explicitly assign scripts to the site on which you intended them to render. If you want a particular script to show up on several sites, you must create that script separately on each site.
+Scripts are associated with a particular site. Any scripts that were created previously have been assigned to the default site, the ID of which is `1000` for each retailer store. If you do not supply a `site_id` when you create a script, it will be assigned to the default site. To support multi-storefront stores, you should explicitly assign scripts to the site on which you intended them to render. If you want a particular script to show up on several sites, you must create that script separately on each site.
 
 ![scripts-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/scripts-diagram.webp)
 
 [Scripts API reference documentation](/docs/rest-management/scripts)
 
-From a UX perspective, you may wish to make it clear to merchants who are setting up your app that they must explicitly select one or more storefront sites on which to install your app's storefront functionality. You should also provide ways to remove your scripts from each site and install your scripts on any new sites the merchant creates in the future.
+From a UX perspective, you may wish to make it clear to retailers who are setting up your app that they must explicitly select one or more storefront sites on which to install your app's storefront functionality. You should also provide ways to remove your scripts from each site and install your scripts on any new sites the retailer creates in the future.
 
 ### Pages
 
-Pages are associated with a particular site. Any pages that were created previously have been assigned to the default site, the ID of which is `1000` for each merchant store.
+Pages are associated with a particular site. Any pages that were created previously have been assigned to the default site, the ID of which is `1000` for each retailer store.
 
 ![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
 
@@ -131,7 +131,7 @@ Going forward, we recommend that you use the query parameters on each Widgets AP
 
 [Redirects API documentation](/docs/rest-management/redirects)
 
-Redirects are associated with a particular site. Any redirects that were created previously have been assigned to the default site, the ID of which is `1000` for each merchant store.
+Redirects are associated with a particular site. Any redirects that were created previously have been assigned to the default site, the ID of which is `1000` for each retailer store.
 
 The new V3 Redirects API services multi-storefront use cases and provides several of the efficiency benefits that V3 APIs offer in comparison with their V2 equivalents. The V3 Redirects API has `site_id` as a required parameter.
 
@@ -172,7 +172,7 @@ Because each theme can define its own configuration, the response from the [Get 
 
 Each subscriber now has an `origin_channel_id` property that identifies the channel on which the subscriber consented to receive a newsletter. When not supplied, the `origin_channel_id` will default to `1`. To comply with electronic consent and privacy regulations, we recommend that your implementation specify the `origin_channel_id` for every subscriber.
 
-If your application deals with subscribers, be sure to check the `origin_channel_id` to understand exactly where the subscriber signed up. If you are integrating with an email marketing system, you may want to allow the merchant to pick which email lists will be used for which channels.
+If your application deals with subscribers, be sure to check the `origin_channel_id` to understand exactly where the subscriber signed up. If you are integrating with an email marketing system, you may want to allow the retailer to pick which email lists will be used for which channels.
 
 <Callout type="info">
 #### Subscriber webhooks roadmap

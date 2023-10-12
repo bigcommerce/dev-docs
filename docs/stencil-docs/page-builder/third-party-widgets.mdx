@@ -8,7 +8,7 @@ This article outlines the three main steps involved in using third-party widgets
 
 ## Creating third-party widgets
 
-Widgets are injected into the storefront using the [Widgets API](/docs/rest-content/widgets). You can apply [widgets](/api-docs/store-management/widgets/overview#widgets) and [widget templates](/api-docs/store-management/widgets/overview#widget-templates) in a merchant’s store using one of the following methods:
+Widgets are injected into the storefront using the [Widgets API](/docs/rest-content/widgets). You can apply [widgets](/api-docs/store-management/widgets/overview#widgets) and [widget templates](/api-docs/store-management/widgets/overview#widget-templates) in a retailer’s store using one of the following methods:
 
 - OAuth token
 - App Marketplace
@@ -19,7 +19,7 @@ To use this method, you will need to obtain API credentials with OAuth content s
 
 ### App Marketplace
 
-The [App Marketplace](https://www.bigcommerce.com/apps/) is an area inside the control panel where merchants can browse for apps available for installation on their BigCommerce store.
+The [App Marketplace](https://www.bigcommerce.com/apps/) is an area inside the control panel where retailers can browse for apps available for installation on their BigCommerce store.
 
 To create a widget using the App Marketplace, you will need to create a marketplace application that injects new widgets into the storefront using the Widgets API.
 
@@ -39,7 +39,7 @@ You can extend a BigCommerce-provided widget by modifying the existing API param
 
 ### Configuring settings for a widget
 
-To modify a BigCommerce-provided widget, re-configure the existing settings in the widget template’s `schema` property when creating a widget template via the API. The settings you define in this property will be exposed in the Page Builder UI, providing merchants the ability to modify how the widget appears on their storefront.
+To modify a BigCommerce-provided widget, re-configure the existing settings in the widget template’s `schema` property when creating a widget template via the API. The settings you define in this property will be exposed in the Page Builder UI, providing retailers the ability to modify how the widget appears on their storefront.
 
 You can change widget's customization options by modifying the template's `schema`. Once you have modified the `schema`, place the modified JSON object in the request body as the `schema` value, and make a `POST` request for the [Widget Template](/docs/rest-content/widgets/widget-template#create-a-widget-template) to expose the new customization options on Page Builder.
 

@@ -2,25 +2,25 @@
 
  
 
-As a theme developer, you can use the catalog price object to highlight the savings that a merchant is offering over the MSRP directly on the storefront by referencing the product's `price` object and the correct property for the product.
+As a theme developer, you can use the catalog price object to highlight the savings that a retailer is offering over the MSRP directly on the storefront by referencing the product's `price` object and the correct property for the product.
 
-Merchants can use control panel options to set the following prices for a catalog product:
+Retailers can use control panel options to set the following prices for a catalog product:
 
 | Field | Description |
 | ----------- | ----------- |
 | Default Price | This is the product’s standard store price. The **Excluding/Including Tax** indicator to the right of the **Default Price** field is applicable to all price fields (**Cost**, **MSRP**, **Sale Price**).|
-| Cost | The product's `cost` property is never returned to the storefront by design. Generally, merchants would not want to reveal the true cost of goods to shoppers. The **Cost** field is meant for reports and third-party accounting integrations.|
+| Cost | The product's `cost` property is never returned to the storefront by design. Generally, retailers would not want to reveal the true cost of goods to shoppers. The **Cost** field is meant for reports and third-party accounting integrations.|
 | MSRP | This field contains the manufacturer's suggested retail price, a price recommended for the sale of an item in all retail outlets. |
 | Sale Price | This field is the product's reduced store price. |
 
 
-These options and assigned values are each represented in the catalog price object, allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a merchant.
+These options and assigned values are each represented in the catalog price object, allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a retailer.
 
 ## Catalog price object examples excluding tax
 
 ### No sale price defined in control panel
 
-Assume that a merchant has defined the following for a product in the control panel:
+Assume that a retailer has defined the following for a product in the control panel:
 
 * **Default Price**
 * **Cost**
@@ -75,7 +75,7 @@ In this example:
 
 ### Sale price defined in control panel
 
-Assume that a merchant has defined the following for a product in the control panel:
+Assume that a retailer has defined the following for a product in the control panel:
 
 * **Default Price**
 * **Cost**
@@ -168,7 +168,7 @@ This display setting affects how values are returned in the catalog price object
 
 ### No sale price defined in control panel
 
-Assume that a merchant has defined the following tax configurations for a product in the control panel:
+Assume that a retailer has defined the following tax configurations for a product in the control panel:
 
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax
@@ -222,7 +222,7 @@ In this example:
 
 ### Sale price defined in control panel
 
-Assume that a merchant has defined the following tax configurations for a product in the control panel, alongside a defined sale price:
+Assume that a retailer has defined the following tax configurations for a product in the control panel, alongside a defined sale price:
 
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax

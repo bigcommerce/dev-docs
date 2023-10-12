@@ -5,7 +5,7 @@ keywords: payments, bigpay, currencies, currency, rest, v3, payment access token
 
 # Payments API
 
-The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Store Management Checkouts API](/docs/rest-storefront/checkouts) endpoint or the [Orders API](/docs/rest-management/orders#create-an-order).
+The Payments API enables you to process payments through the store’s connected payment gateway. Retailers can receive a payment for an order that was created using either the [Store Management Checkouts API](/docs/rest-storefront/checkouts) endpoint or the [Orders API](/docs/rest-management/orders#create-an-order).
 
 Process payments by making a sequence of requests to the following two API endpoints:
 * Create a payment token:  `https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens`
@@ -25,7 +25,7 @@ You can process payments charged to either of two main forms of payment: [stored
 
 BigCommerce is only responsible for the security of payment methods while the payment is en route from payment request to payment processor. As a third-party developer, you are responsible for developing your applications in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers from an external Qualified Security Assessor (QSA).
 
-Each recurring billing app that uses the BigCommerce Payments API and collects merchants or shoppers' personally identifiable information (PII) must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
+Each recurring billing app that uses the BigCommerce Payments API and collects retailers or shoppers' personally identifiable information (PII) must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 <Callout type="warning">
 #### PCI compliance
@@ -47,7 +47,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Bolt              | &check;            | &check;         |
 | CardConnect       |                    | &check;         |
 | Chase Integrated Payments |            | &check;         |
-| Chase Merchant Services   | &check;    | &check;         | 
+| Chase Retailer Services   | &check;    | &check;         | 
 | Checkout.com      | &check;            | &check;         |
 | Commonwealth Bank | &check;            | &check;         |
 | Cybersource       | &check;            | &check;         |
@@ -59,7 +59,7 @@ The following table lists the payment gateways that are compatible with our publ
 | MIGS              |                    | &check;         |
 | Mollie            | &check;            |                 |
 | Moneris           | &check;            | &check;         |
-| MyVirtualMerchant | &check;            | &check;         |
+| MyVirtualRetailer | &check;            | &check;         |
 | NMI               |                    | &check;         |
 | Opayo by Elavon   | &check;            | &check;         |
 | Paymetric         | &check;            | &check;         |
@@ -569,8 +569,8 @@ You can create orders using the [Server to Server API Endpoints](/docs/rest-mana
 |-|-|  - |  - |
 | `10000` | We're experiencing difficulty processing your transaction. Please try again later.  |  Connection error | Try the request again |
 | `10001` | Unable to process the payment because invalid data was supplied with the transaction. | Missing or incorrect Fields |  Check the request for any data that is incorrect or is missing |
-| `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
-| `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br /> Reach out to the payment gateway to check that the information is correct. |
+| `30000` | Retailer payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
+| `30001` | Retailer payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br /> Reach out to the payment gateway to check that the information is correct. |
 | `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
 | `30003` | Order could not be found. | The order does not exist. <br /> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/docs/rest-management/orders#get-all-orders) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br /> Recreate the order <br /> Ensure the store settings for taxes and discounts are setup correctly|

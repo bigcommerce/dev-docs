@@ -21,7 +21,7 @@ This article explains how to add wallet buttons to the Product Detail Page, or _
 
 ## Adding wallet buttons
 
-By default, wallet buttons are not enabled on the PDP. To add wallet buttons, you must first prepare your theme by adding a checkbox to Page Builder. The checkbox allows the merchant to control the display of wallet buttons on the PDP on your store. Perform the following steps to add the checkbox:
+By default, wallet buttons are not enabled on the PDP. To add wallet buttons, you must first prepare your theme by adding a checkbox to Page Builder. The checkbox allows the retailer to control the display of wallet buttons on the PDP on your store. Perform the following steps to add the checkbox:
 
 1. In `config.json`, add a `show_quick_payment_buttons` property and provide a default value.
 
@@ -40,7 +40,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 }
 ```
 
-2. To create a checkbox for the merchant to toggle the feature on and off in Page Builder, add the following code to the Products section of `schema.json`:
+2. To create a checkbox for the retailer to toggle the feature on and off in Page Builder, add the following code to the Products section of `schema.json`:
 
 ```json filename="schema.json" showLineNumbers copy
 {
@@ -86,7 +86,7 @@ To set the number of wallet buttons visible on the product page, perform the fol
  If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
  </Callout>
 
-2. To add a Page Builder dialog for the merchant to configure the number of visible wallet buttons, add the following code to the Payments section of `schema.json`:
+2. To add a Page Builder dialog for the retailer to configure the number of visible wallet buttons, add the following code to the Payments section of `schema.json`:
 
 ```json filename="schema.json" showLineNumbers copy
 {
@@ -127,7 +127,7 @@ In Page Builder, the dialog appears as follows:
 
 ## Sorting wallet buttons
 
-Adding a sorting features allows merchants to choose the order in which wallet buttons appear to shoppers. To add a sorting feature, perform the following steps:
+Adding a sorting features allows retailers to choose the order in which wallet buttons appear to shoppers. To add a sorting feature, perform the following steps:
 
 1. In `config.json`, add a `paymentbuttons-provider-sorting` property and provide a default value.
 

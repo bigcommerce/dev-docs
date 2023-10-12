@@ -25,7 +25,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### All partners
 
-- [Create a Channel](/docs/rest-management/channels) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
+- [Create a Channel](/docs/rest-management/channels) (for each platform the app enables a retailer to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for retailers, once the app has been installed.
 
 - [Create a Channel](/docs/rest-management/channels) request must include `app_id` at a minimum in the [app config object](#sample-configuration).
 
@@ -50,8 +50,8 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ## Step 3: Migrate existing data
 
-- **Channels** - Register a channel for all existing merchants using the app.
-- **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
+- **Channels** - Register a channel for all existing retailers using the app.
+- **Orders** - Add `channel_id` with the corresponding channel ID for the retailer and which channel the order was placed on, if orders are synced to BigCommerce.
 - **Listings (optional)** - Create channel specific [product listings](/docs/rest-management/channels). This is primarily necessary for storefronts, marketplaces, and marketing type of channels.
 
 
@@ -88,13 +88,13 @@ Accept: application/json
 [{
     "type": "type of channel",
     "platform": "sales channel platform",
-    "name": "name of the sales channel",  // Name displayed to merchant
+    "name": "name of the sales channel",  // Name displayed to retailer
     "external_id": "",
     "status": "connected",
     "config_meta": {
       "app": {
         "id": 123,                        // ID of the app
-        "sections": [{                    // Label displayed to merchant in BigCommerce navigation bar
+        "sections": [{                    // Label displayed to retailer in BigCommerce navigation bar
           "title": "Overview",            // query param passed app iframe
           "query_path": "overview"
          }, {
@@ -119,13 +119,13 @@ Accept: application/json
 | --- | --- | --- |
 | `type` | str | Allowed Values: pos, marketplace, storefront, marketing |
 | `platform` | str | Allowed Values: see below or in [API Reference](/docs/rest-management/channels#create-a-channel) |
-| `name` | str | The name the merchant will see |
+| `name` | str | The name the retailer will see |
 | `external_id` | str | Associated ID within a system / platform outside of BC. |
 | `status` | str | Allowed Values: active, inactive, connected, disconnected, archived |
 | `app` | obj | App configuration |
 | ↳ `id` | int | ID of the app |
 | ↳ `sections` | array[obj] | User interface section options |
-| &nbsp;&nbsp; ↳ `title` | str | Label displayed to merchants in navigation bar |
+| &nbsp;&nbsp; ↳ `title` | str | Label displayed to retailers in navigation bar |
 | &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
@@ -142,7 +142,7 @@ For a complete Channel API reference (including request schemas and property des
 |Term|Definition|
 |-|-|
 | **Channels Toolkit** | Channels Toolkit is a set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel. |
-| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
+| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help retailers grow their business.|
 
 <Callout type="info">
   Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.

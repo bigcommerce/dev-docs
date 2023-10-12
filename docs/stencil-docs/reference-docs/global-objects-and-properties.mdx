@@ -61,11 +61,11 @@ Global objects and properties are common components shared across the entire Big
 | `image` | Path to the image file used on this slide. |
 | `alt_text` | Alt text for the image. |
 | `url` | URL to which the image will link. |
-| `heading` | Heading message defined by the merchant. |
+| `heading` | Heading message defined by the retailer. |
 | `heading_color` | Color of the heading text. |
-| `text` | Subheading defined by the merchant. |
+| `text` | Subheading defined by the retailer. |
 | `text_color` | Color of the subheading text. |
-| `button_text` | Text displayed on a call-to-action button defined by the merchant. |
+| `button_text` | Text displayed on a call-to-action button defined by the retailer. |
 | `button_text_color` | Color of the button. | 
 
 ## Cart
@@ -286,7 +286,7 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ## Page Content
 
-**Description:** Defines elements of merchant’s store page
+**Description:** Defines elements of retailer’s store page
 
 **Handlebars Expression:** `{{page}}`
 
@@ -371,7 +371,7 @@ All possible values for `{{page_type}}` are:
 
 ## Search
 
-**Description:** Defines search parameters for the merchant’s site
+**Description:** Defines search parameters for the retailer’s site
 
 **Handlebars Expression:** `{{forms.search}}`
 
@@ -411,7 +411,7 @@ All possible values for `{{page_type}}` are:
 | `type` | Either post (for blog posts) or page (for storefront pages). |
 | `product_results` | Results of customer’s last search by product (each result contains the below properties). |
 | `products` | List of search results for a product; points to [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model). |
-| `show_compare` | Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons.  |
+| `show_compare` | Boolean corresponding to retailer’s control-panel selection whether or not to enable product comparisons.  |
 | `faceted_search_enabled` | Boolean that defines whether product-filtering search is enabled for the store. |
 | `facets` | All available search filters. |
 | `pagination` | References pagination model. |
@@ -447,12 +447,12 @@ All possible values for `{{page_type}}` are:
 | `absolute_path` |The absolute URL requested. **Never** use request.path in the actual body of the page<sup>1</sup>. |
 | `locale` |The browser's locale. Allows for varying experience based on shopper locale. |
 | `secure_base_url` | The SSL-enabled, secure, shop URL. |
-| `address` | Store’s complete physical address, as entered by merchant in the [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings).|
+| `address` | Store’s complete physical address, as entered by retailer in the [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings).|
 | `store_name` | Name of the BigCommerce store. |
 | `store_logo` | The store’s logo. |
 |  `title` | Title for the logo – the text configured in the control panel under **Storefront > Logo**. |
 |  `image` | Optional image file, as a Stencil image object. To access the store_logo use: `{{settings.store_logo.image.data}}` and `{{settings.store_logo.image.alt}}` to access the alt tag. These are pulled from the Stencil image object. |
-| `privacy_cookie` | If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false. |
+| `privacy_cookie` | If enabled, a string containing retailer-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false. |
 | `urls` | Global URLs that the template can access – for example, the template could link to the cart page using `{{urls.cart}}`. |
 |  `home` | Store’s home page. |
 |  `account` | Collection of (customer and storefront) account-related URLs:|
@@ -465,7 +465,7 @@ All possible values for `{{page_type}}` are:
 | `returns` | List of returns `/account.php?action=view_returns`. |
 | `addresses` | List of addresses; default sorting is by address id, from lowest to highest `/account.php?action=address_book`. |
 | `inbox` | List of messages in customer’s inbox `/account.php?action=inbox`. |
-| `send_message` | URL to submit a message to the merchant `/account.php?action=send_message`. |
+| `send_message` | URL to submit a message to the retailer `/account.php?action=send_message`. |
 | `add_address` | Link to add shipping address form `/account.php?action=add_shipping_address`. |
 | `wishlists` | Collection of wishlist-related URLs: |
 | `add` | URL to the Add Wishlist form `/wishlist.php?action=addwishlist`. |
@@ -519,15 +519,15 @@ All possible values for `{{page_type}}` are:
 | `decimal_places` | Number of decimal places to display. |
 | `thousands_token` | Symbol for thousands separator. |
 | `returns_enabled` | Boolean that indicates whether the control-panel setting for the returns system is enabled. |
-| `tax_label` | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in an active MSF-enabled control panel’s **Settings > Tax** page for display to customers. |
+| `tax_label` | Defines the Tax Label (VAT, Sales Tax, etc.) that a retailer can set in an active MSF-enabled control panel’s **Settings > Tax** page for display to customers. |
 | `add_this` | Object that defines links for the AddThis social sharing component. |
 | `buttons` | Array of buttons to display for AddThis social sharing `{{#each settings.add_this.buttons}}{{service}}{{/each}}` `{{#each settings.add_this.buttons}}{{annotations}}{{/each}}`. |
 | `service` | String containing the name of this button's social-media service (facebook, email, print, twitter, linkedin, google, etc.). |
 | `annotation` | String containing HTML attributes associated with this button. |
 | `maintenance` | Object that manages information about the store when in maintenance (offline) mode. |
 | `header` | If store is in maintenance mode, string containing header text for the "Down for Maintenance" window displayed to visitors; otherwise, null. |
-| `message` | If store is in maintenance mode, string containing merchant-customizable body text (and optionally, HTML) for the "Down for Maintenance" window displayed to visitors; otherwise, null. |
-| `notice` | If store is in maintenance mode, one of three strings identifying the store's status, and generating a corresponding text notice to merchants about how to proceed: AdminPrelaunchNotice for preview stores, AdminMaintenanceNotice for active stores taken down for maintenance, or AdminHibernationModeNotice for deactivated stores; otherwise, null. |
+| `message` | If store is in maintenance mode, string containing retailer-customizable body text (and optionally, HTML) for the "Down for Maintenance" window displayed to visitors; otherwise, null. |
+| `notice` | If store is in maintenance mode, one of three strings identifying the store's status, and generating a corresponding text notice to retailers about how to proceed: AdminPrelaunchNotice for preview stores, AdminMaintenanceNotice for active stores taken down for maintenance, or AdminHibernationModeNotice for deactivated stores; otherwise, null. |
 | `phone_number` | The contact phone number for the store located in the [stores profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings).  |
 | `rss_item_limit` | An integer that sets a limit on the number of RSS items to display. |
 | `password_requirements` | Collection of properties representing BigCommerce requirements for customer-account passwords: |
@@ -585,7 +585,7 @@ All possible values for `{{page_type}}` are:
 | Property | Description |
 |:----|:----|
 | `name` | Internal name of this social-media platform (e.g., "googleplus"). |
-| `url` | URL to point to, set by merchant in control panel (https://www.facebook.com/BigCommerce, etc.). |
+| `url` | URL to point to, set by retailer in control panel (https://www.facebook.com/BigCommerce, etc.). |
 | `position` | Display sort order for this platform within the social-media list. |
 | `display_name` | Displayed/formatted name of this social-media platform (e.g., "Google+").  |
 
@@ -651,7 +651,7 @@ products:
 | `returns` | List of returns `/account.php?action=view_returns`. |
 | `addresses` | List of addresses; default sorting is by address id, from lowest to highest `/account.php?action=address_book`. |
 | `inbox` | List of messages in customer’s inbox `/account.php?action=inbox`. |
-| `send_message` | URL to submit a message to the merchant `/account.php?action=send_message`. |
+| `send_message` | URL to submit a message to the retailer `/account.php?action=send_message`. |
 | `add_address` | Link to add shipping address form `/account.php?action=add_shipping_address`. |
 | `wishlists` | Collection of wishlist-related URLs: |
 | `add` | URL to the Add Wishlist form `/wishlist.php?action=addwishlist`. |

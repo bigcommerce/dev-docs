@@ -20,7 +20,7 @@ For scripts to successfully use BODL to access storefront data, the following mu
 
 - Enable BODL on the subject storefront using the control panel or the [GraphQL Admin API's Enable data layer mutation](/api-docs/store-management/graphql/data-layer#enable-data-layer)
 - The storefront must use a stencil theme
-- If a merchant enables cookie tracking consent on the subject storefront, the shopper must consent to the [appropriate category](#category-of-consent)
+- If a retailer enables cookie tracking consent on the subject storefront, the shopper must consent to the [appropriate category](#category-of-consent)
 
 ## BODL event schemas
 
@@ -203,7 +203,7 @@ The `line_item` object has many common fields for browser events, including the 
 
 You can use the [Scripts API](/docs/rest-management/scripts) or control panel [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) to add scripts to a BigCommerce-hosted storefront.
 
-Merchants must enable BODL in the store control panel for your script to subscribe to BODL events. Once BODL is enabled, BigCommerce checks every storefront page for the BODL object once per page render. 
+Retailers must enable BODL in the store control panel for your script to subscribe to BODL events. Once BODL is enabled, BigCommerce checks every storefront page for the BODL object once per page render. 
 
 ### Example script
 
@@ -380,7 +380,7 @@ window.addEventListener('load', subscribeOnBodlEvents, false);
 
 <Callout type="info">
 #### Category of consent
-If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+If a retailer enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
 </Callout>
 
 ### Scripts API example

@@ -5,11 +5,11 @@ keywords: address, providers, apps, tax, invoices,
 
 # Tax Providers
 
-The [Tax Provider API](/docs/apps-api/tax) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
+The [Tax Provider API](/docs/apps-api/tax) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to retailers in the control panel; it can also be used to submit documents for tax reconciliation purposes.
 
 The [Tax Provider API](/docs/apps-api/tax) works in conjunction with a BigCommerce app, so you will need to [build an app](/api-docs/apps/guide/intro) that integrates the [Tax Provider API](/docs/apps-api/tax).
 
-Multi-tenant tax providers can publish their BigCommerce app so that it's discoverable by anyone or publish their app as unlisted so it can only be installed using a URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances and will only work on the specified stores.
+Multi-tenant tax providers can publish their BigCommerce app so that it's discoverable by anyone or publish their app as unlisted so it can only be installed using a URL. Furthermore, tax solutions that have been built in-house or for specific retailers by digital agencies are also supported as private instances and will only work on the specified stores.
 
 
 ## Obtaining an app ID
@@ -32,10 +32,10 @@ Once your tax provider configuration is ready, we'll let you know through email.
 | App ID | Required | Integer | Tells us which tax provider configuration to use after the app is installed. | `123456` |
 | Tax provider name | Required | String | Displayed in the control panel (e.g. **Settings > Setup > Tax > Add tax service**). | `Sample Tax` |
 | Tax provider type | Required | Production, Sandbox | Hierarchy of tax provider configurations, Production is primary and Sandboxes are secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information. | `Production` |
-| Partner support email | Required | Email | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request. | `support@sampletax.example.com` |
-| Links displayed in the control panel | Optional | URL, Title, Description | Link(s) displayed to merchants when they navigate to **Settings > Setup > Tax > _TaxProviderName_**. One or multiple links supported. | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.` |
+| Partner support email | Required | Email | Used by BigCommerce to contact tax provider, in the case we need to forward a retailer support request. | `support@sampletax.example.com` |
+| Links displayed in the control panel | Optional | URL, Title, Description | Link(s) displayed to retailers when they navigate to **Settings > Setup > Tax > _TaxProviderName_**. One or multiple links supported. | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.` |
 **Coverage** | | | | |
-| Tax provider visibility | Required | Show, Hide | Tells us if tax provider should be displayed to merchants in the control panel before the tax providers app is installed on the associated store. | `Show` |
+| Tax provider visibility | Required | Show, Hide | Tells us if tax provider should be displayed to retailers in the control panel before the tax providers app is installed on the associated store. | `Show` |
 | Platform availability | Required | All stores, Private instance | Tells us if tax provider should work on all stores or only on the stores where a store hash has been provided. | `All stores` |
 | Supported store(s) | Required if platform availability is **private instance** | Store hashes | As a private instance, tax provider configuration will only work on store hashes provided. | `dwvjntfqv,epq54yymgq` |
 | Supported / unsupported countries | Required | ISO 3166-1 alpha-2 | Comma separated ISO 3166-1 alpha-2 country codes for supported countries. | `US,CA,GB,FR,AU,NZ` |
@@ -47,19 +47,19 @@ Once your tax provider configuration is ready, we'll let you know through email.
 | **Testing** | | | | |
 | Partner sandbox store domain | Required | Domain name | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store). | `https://sampletax-test-store.mybigcommerce.com/` |
 
-<sup>+</sup> You have the option of supporting a URL that merchants can customize. See [Tax Profile](#tax-profile-optional).
+<sup>+</sup> You have the option of supporting a URL that retailers can customize. See [Tax Profile](#tax-profile-optional).
 
 ### Tax profile (optional)
 
 BigCommerce sets the tax provider registry with your URLs for [Tax Provider API](/docs/apps-api/tax) requests. BigCommerce sends requests to these URLs, for example, when a shopper requests tax estimates.
-If you would like to support multiple connections for a merchant, BigCommerce can set the registry with flexible URLs that use our new profile option. 
-These URLs would include a reserved string, for example, `https://{profile}/estimate`, allowing merchants to customize the base domain.   
+If you would like to support multiple connections for a retailer, BigCommerce can set the registry with flexible URLs that use our new profile option. 
+These URLs would include a reserved string, for example, `https://{profile}/estimate`, allowing retailers to customize the base domain.   
 
-When connecting or installing your app, you must allow merchants to enter the URL's base domain in the control panel. Merchants need to be able to self-serve updates to the URL through your app. 
-When you [Establish a Tax Provider connection](#establishing-a-connection), include the `profile` base domain along with credentials associated with the merchant's account. 
+When connecting or installing your app, you must allow retailers to enter the URL's base domain in the control panel. Retailers need to be able to self-serve updates to the URL through your app. 
+When you [Establish a Tax Provider connection](#establishing-a-connection), include the `profile` base domain along with credentials associated with the retailer's account. 
 
 <Callout type="info">
-  You must liaise with the merchant to provide them with customized URLs. BigCommerce merely consumes the URL values the merchant enters and uses the provided string value for Tax Provider API requests.
+  You must liaise with the retailer to provide them with customized URLs. BigCommerce merely consumes the URL values the retailer enters and uses the provided string value for Tax Provider API requests.
 </Callout>
 
 ### Sandbox tax provider configuration
@@ -68,8 +68,8 @@ Sandbox tax provider configurations are nested within your production tax provid
 
 Additionally, when providing the details for a sandbox tax provider configuration, it's unnecessary to specify the below properties because they are inherited from the primary production tax provider configuration (all other properties are still required):
 
-* Merchant support email
-* Merchant support URL
+* Retailer support email
+* Retailer support URL
 * Tax provider visibility
 * Platform availability, i.e. all stores or only specified store hashes
 * Supported / unsupported countries
@@ -81,7 +81,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 ## Building the app
 
-Tax providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits. For example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorization of API scopes during app install, and configure tax provider settings through an iFrame in the control panel.
+Tax providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits. For example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for retailer authorization of API scopes during app install, and configure tax provider settings through an iFrame in the control panel.
 
 Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
@@ -94,7 +94,7 @@ Make sure to also review our [app development best practices](/api-docs/apps/gui
 
 ## Installing the app
 
-When the merchant clicks **Install** on a tax provider's single-click app, it's essential that the app successfully handle the OAuth flow before moving on to the next step of establishing a connection with the [Tax Provider API](/docs/apps-api/tax). The [Apps Guide](/api-docs/apps/guide/auth) provides an overview of the OAuth flow.
+When the retailer clicks **Install** on a tax provider's single-click app, it's essential that the app successfully handle the OAuth flow before moving on to the next step of establishing a connection with the [Tax Provider API](/docs/apps-api/tax). The [Apps Guide](/api-docs/apps/guide/auth) provides an overview of the OAuth flow.
 
 When handling the OAuth flow, tax providers must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection).
 
@@ -102,29 +102,29 @@ When handling the OAuth flow, tax providers must ensure their app is requesting 
 
 A tax provider is ready to establish a connection with the Tax Provider API when all of the following are true:
 
-* Tax provider has shared their tax provider details with BigCommerce through email, and we've replied confirming the tax provider configuration is now ready on all supplied merchant and/or partner test stores (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
+* Tax provider has shared their tax provider details with BigCommerce through email, and we've replied confirming the tax provider configuration is now ready on all supplied retailer and/or partner test stores (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
 * BigCommerce has shared the `provider_id` of the tax provider configuration with the tax provider through email (see [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)).
 * Tax provider has built a draft app that successfully handles the OAuth flow during app installation (see [Building the app](#building-the-app)).
-* During the OAuth flow the app requested the merchant to authorize read and write permissions on the Information and Settings API scopes (see [Installing the app](#installing-the-app)).
+* During the OAuth flow the app requested the retailer to authorize read and write permissions on the Information and Settings API scopes (see [Installing the app](#installing-the-app)).
 * During the OAuth flow the `client_id` and `access_token` was received and stored by the tax provider (see [Installing the app](#installing-the-app)).
 
 For context, the [Tax Provider API Connection endpoints](/docs/apps-api/tax-app-connection) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
 
-If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from merchants. Learn more about designing the app UI [here](/api-docs/apps/guide/ui).
+If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from retailers. Learn more about designing the app UI [here](/api-docs/apps/guide/ui).
 
 If the tax provider is a private instance, then they may choose to provide the basic authentication credentials themselves.
 
 In either case, the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, and `X-Auth-Token`(`access_token`) values.
 
-We recommend calling the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Settings > Setup > Tax** page in the control panel.
+We recommend calling the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when retailers navigate to the **Settings > Setup > Tax** page in the control panel.
 
 The [Get a Connection](/docs/apps-api/tax-app-connection#get-connection-status) request may be used at any time to retrieve the connection status of the specified tax provider in the context of a store.
 
 ## Enabling tax providers in the control panel
 
-Once you have successfully installed the tax provider's app and provided basic authentication credentials through the Update a Connection request, merchants can enable the tax provider on all test stores supplied by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+Once you have successfully installed the tax provider's app and provided basic authentication credentials through the Update a Connection request, retailers can enable the tax provider on all test stores supplied by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
-To enable the tax provider, merchants must navigate to **Settings > Setup > Tax** in the control panel and click **Enable** next to the associated tax provider.
+To enable the tax provider, retailers must navigate to **Settings > Setup > Tax** in the control panel and click **Enable** next to the associated tax provider.
 
 If document submission is supported, navigate to the provider's settings menu, found at **Settings > Setup > Tax > _TaxProviderName_** in the control panel and ensure the **Submit Order Data** checkbox is checked.
 
@@ -150,7 +150,7 @@ Estimate requests are not expected after the following events.
 Estimate calls will also be made in the control panel when using flows like the following:
 
 * Line-item refund flows
-* Test connection functionality when merchants navigate to **Settings > Setup > Tax > _TaxProviderName_** in the control panel
+* Test connection functionality when retailers navigate to **Settings > Setup > Tax > _TaxProviderName_** in the control panel
 
 <Callout type="info">
   Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to return a valid tax estimate.
@@ -159,7 +159,7 @@ Estimate calls will also be made in the control panel when using flows like the 
 
 ### Responding to tax estimate requests
 
-When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in the control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
+When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in the control panel, retailers have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
 
 [View the Estimate Taxes API reference](/docs/apps-api/tax#estimate-taxes).
 
@@ -175,14 +175,14 @@ If document submission is supported, navigate to **Settings > Setup > Tax > _Tax
 
 ## Testing
 
-Prior to testing a tax provider, the merchant or partner test store should have the following configured in the control panel:
+Prior to testing a tax provider, the retailer or partner test store should have the following configured in the control panel:
 
 * The store default country, found by navigating to **Settings > Setup > Store profile**, is set to a country that is supported by the tax provider
 * The shipping origin address, found by navigating to **Settings > Setup > Shipping**, is configured. This value is included in tax estimate requests
 * The tax provider, found by navigating to **Settings > Setup > Tax**, is enabled
 * If document submission is supported, navigate to **Settings > Setup > Tax > _TaxProviderName_** and ensure the **Submit Order Data** checkbox is checked
 
-To test the tax provider connection, navigate to **Settings > Setup > Tax > _TaxProviderName_** in the control panel and click **Test Connection**. This selection will trigger a sample tax estimate request to be sent to the estimate URL provided by the tax provider. If the connection is unsuccessful, merchants can navigate to **Settings > Advanced > Store logs** in the control panel to view the error and its description to assist with triaging the issue.
+To test the tax provider connection, navigate to **Settings > Setup > Tax > _TaxProviderName_** in the control panel and click **Test Connection**. This selection will trigger a sample tax estimate request to be sent to the estimate URL provided by the tax provider. If the connection is unsuccessful, retailers can navigate to **Settings > Advanced > Store logs** in the control panel to view the error and its description to assist with triaging the issue.
 
 ## Support
 

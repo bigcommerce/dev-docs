@@ -24,7 +24,7 @@ For more information on OAuth Scopes and authentication, see our [Guide to API A
 
 
 Products can be physical or digital:
-* **Physical** - Exist in a physical form, have a weight, and are sold by merchants to ship to customers.
+* **Physical** - Exist in a physical form, have a weight, and are sold by retailers to ship to customers.
 
 * **Digital** - Non-physical products, including downloadable files (for example, computer software, ebooks, or music) and services (for example, haircuts, consulting, or lawn care).
 
@@ -556,12 +556,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Modifier options
 
-[Modifier options](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
+[Modifier options](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) are any choices that the shopper can make to change how the retailer fulfills the product. Examples include:
 * A checkbox to add shipping insurance
 * Text to be engraved on the product
 * A selected color for an unfinished product before it’s shipped
 
-Critically, the modifier will not change the SKU/variant fulfilled, and you cannot track inventory against combinations of modifier values. Modifiers typically would not change which product is “picked off the shelf” in the warehouse, but they change what happens to that product before sending it to the shopper, or how a merchant can send it.
+Critically, the modifier will not change the SKU/variant fulfilled, and you cannot track inventory against combinations of modifier values. Modifiers typically would not change which product is “picked off the shelf” in the warehouse, but they change what happens to that product before sending it to the shopper, or how a retailer can send it.
 
 Modifier options:
 * May be required or non-required
@@ -713,7 +713,7 @@ To fix this error:
 
 ## Complex rules
 
-[Complex rules](/docs/rest-catalog/products/complex-rules#get-complex-rules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on the shopper's option selections:
+[Complex rules](/docs/rest-catalog/products/complex-rules#get-complex-rules) allow retailers to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on the shopper's option selections:
 * Price
 * Weight
 * Image
@@ -721,7 +721,7 @@ To fix this error:
 
 Adjustments made by complex rules are displayed to shoppers in real-time on the storefront.
 
-For most merchant use cases, **best practice** will be to either assign values (such as a price) directly to a variant or use adjusters on the modifier option itself. However, complex rules exist for rare cases where a rule condition is too complex to express in those forms easily.
+For most retailer use cases, **best practice** will be to either assign values (such as a price) directly to a variant or use adjusters on the modifier option itself. However, complex rules exist for rare cases where a rule condition is too complex to express in those forms easily.
 
 Use complex rules when an adjustment should be triggered by:
 * The selection of values across multiple modifier options.

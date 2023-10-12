@@ -317,7 +317,7 @@ Most of the use cases for using V2 rules can be solved by making adjustments dir
 Any variant created in v3 with non-null core properties (price, weight, image, purchasability) will create a rule under the hood. The same goes for modifier adjusters. These will show in v2 as product rules, and any edits to them will be shared across API versions.
 
 ### Option Sets
-In our control panel’s Add/Edit Product section, any products created by the V3 API will not have an option set applied, but merchants can still edit the options. If the merchant applies an option set to a V3 product, the product's variants will be removed. Currently, the Add/Edit Product area consumes the V2 API, so products created and managed through the control panel will be converted to the V2 model, using option sets.
+In our control panel’s Add/Edit Product section, any products created by the V3 API will not have an option set applied, but retailers can still edit the options. If the retailer applies an option set to a V3 product, the product's variants will be removed. Currently, the Add/Edit Product area consumes the V2 API, so products created and managed through the control panel will be converted to the V2 model, using option sets.
 
 ## Recommendations
 When the resource is available in [V3](/docs/rest-catalog/products), it is best practice to use the V3 endpoint. For resources that do not have a V3 counterpart, like Orders, use V2. Both the V2 and V3 APIs authenticate with Oauth and are designed to be used concurrently within a single application.

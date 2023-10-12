@@ -14,7 +14,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 <Callout type="info">
   #### Account configuration requirements
   * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
-  * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+  * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled retailer store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 </Callout>
 
 To configure your accounts, complete the following steps:
@@ -84,20 +84,20 @@ Make sure to remain signed in to the Dev Portal.
 
 ## Configure Stripe
 
-Subscription Foundation uses Stripe Connect so that your app can use one single connection to submit payments to the previously configured Stripe accounts of multiple BigCommerce merchants. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
+Subscription Foundation uses Stripe Connect so that your app can use one single connection to submit payments to the previously configured Stripe accounts of multiple BigCommerce retailers. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for retailer configuration instructions.
 
-When the app initiates subscription charges, it will use the **merchant's dedicated public key** with the **app's dedicated secret key**. This ensures that a subscriber's entire purchase history is available in the merchant's Stripe Dashboard and store control panel.
+When the app initiates subscription charges, it will use the **retailer's dedicated public key** with the **app's dedicated secret key**. This ensures that a subscriber's entire purchase history is available in the retailer's Stripe Dashboard and store control panel.
 
 During development, you'll work with two Stripe accounts. You'll create them both in the next section. The following table lists them in the order of creation:
 
 | Order of creation | Description |
 |:------------------|:------------|
-| Merchant account | This account simulates a merchant's pre-existing account |
+| Retailer account | This account simulates a retailer's pre-existing account |
 | App account      | You'll configure this account as the app's dedicated Stripe Connect-enabled account |
 
 <Callout type="info">
   #### Multi-tenant setup
-  Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the merchant's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
+  Prior to installing the app, add the retailer account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the retailer's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
 </Callout>
 
 ![platform-configuration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/platform-configuration.png "Multi-Tenant Stripe Platform Configuration")
@@ -106,15 +106,15 @@ During development, you'll work with two Stripe accounts. You'll create them bot
 
 To create a Stripe account, complete the following steps:
 
-1. To create the Stripe account that simulates your merchant's pre-existing Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register). Your app uses this account's client ID to process subscriber payments and manage subscriptions. Make sure to give it a merchant-specific name.
+1. To create the Stripe account that simulates your retailer's pre-existing Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register). Your app uses this account's client ID to process subscriber payments and manage subscriptions. Make sure to give it a retailer-specific name.
 
 2. Sign in to the [Stripe Dashboard](https://dashboard.stripe.com/).
 
 3. On the [Stripe Dashboard](https://dashboard.stripe.com/), create and configure a second app-specific Stripe account. The app uses this account's client secret to process subscription payments.
 
-   a. In the top left corner of your Stripe Dashboard, click the name of your merchant-specific account. Select **+ New Account** from the drop-down list.
+   a. In the top left corner of your Stripe Dashboard, click the name of your retailer-specific account. Select **+ New Account** from the drop-down list.
 
-   b. Give the new account a name that clearly identifies it as app-specific to differentiate it from the merchant-specific payment and subscription management account. This guide uses **BigCommerce App** as an example.
+   b. Give the new account a name that clearly identifies it as app-specific to differentiate it from the retailer-specific payment and subscription management account. This guide uses **BigCommerce App** as an example.
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
    

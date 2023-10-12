@@ -5,18 +5,18 @@ keywords: shipping, address
 
 # Shipping Providers
 
-Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers wishing to offer shipping services and rates to BigCommerce retailers and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping carrier registry, retailers will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to retailers in the store's control panel and to shoppers on the storefront.
 
-Merchants can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
+Retailers can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
 Some use cases for the Shipping Provider API are:
 
 - A drop-shipper that requires their own rates
-- A merchant that already has a shipping table
+- A retailer that already has a shipping table
 - Third-party logistics
 - Create a combination of in-store pickup and shipping options for shoppers
 
-This article is a guide to developing an app that will make your shipping rates available to merchants and shoppers on demand.
+This article is a guide to developing an app that will make your shipping rates available to retailers and shoppers on demand.
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ If you're unsure about the configurations you may need, leave them unspecified f
 
 There are two types of configuration options: "connection" and "settings". For each configuration option, please provide the following details:
 
-- *Code*: An identifier for this option. This identifier and the merchant's input value for this configuration will be provided on the rate or check and validate connection endpoints.
+- *Code*: An identifier for this option. This identifier and the retailer's input value for this configuration will be provided on the rate or check and validate connection endpoints.
 
 - *Type*: The display element for this option. Valid types include: `text`, `checkbox`, `select`, `multiselect`, or `password`.
 
@@ -121,7 +121,7 @@ Here are examples:
 ```
 
 ## Sign up
-When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
+When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for retailers and shoppers to use. Register your app and get a carrier ID to get started.
 
 
 ### Register your app
@@ -161,11 +161,11 @@ Replace `example.com` and `rate` with your own host and path.
 
 ### Routes
 
-You should create a URL to provide shipping quotes on your API and check the available shipping rates. The second URL (optional) checks to ensure the merchant’s connection settings are valid. It can perform any checks necessary to do so, such as looking up credentials in your database or calling a downstream service to verify them.
+You should create a URL to provide shipping quotes on your API and check the available shipping rates. The second URL (optional) checks to ensure the retailer’s connection settings are valid. It can perform any checks necessary to do so, such as looking up credentials in your database or calling a downstream service to verify them.
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/apps-api/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/apps-api/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/apps-api/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/apps-api/shipping#request-shipping-rates). Format the request to check for retailer app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -189,7 +189,7 @@ In the case of errors, include human-readable error messages in the response pay
 
 To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click).
 
-Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
+Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request retailer authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
 For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
@@ -233,7 +233,7 @@ Accept: application/json
 It is best practice to authenticate the user and store against your database or the downstream provider service.
 </Callout>
 
-Once you install the app, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
+Once you install the app, it will be made available for configuration by retailers and API users. A retailer can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
 
 ## API installation workflow
 
@@ -534,7 +534,7 @@ A 70x70 pixel logo that represents the shipping carrier app.
 
 **Configuration fields**
 
-Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type, or packing method.
+Any shipping zone-specific or connection-specific fields to be made available to retailers or APIs for configuration. Configuration fields can include which rates to offer, packaging type, or packing method.
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
@@ -543,7 +543,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 | Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Configuration Fields            | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there.                                                                                                                                                                               |
+| Configuration Fields            | The fields the retailer will see in the control panel. Retailers can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there.                                                                                                                                                                               |
 | Quote URL                       | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL, see a typical app workflow below.                                                                                                                                                                                                                                                                                                                                                        |
 | Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.                                                                                                                                                                                                                                                                                                                                                                                           |
 | Countries Available             | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
@@ -552,7 +552,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 | Check Connection Options URL    | A URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid. This is an optional step.                                                                                                                                                                                                                                                                                               |
 | Shipping Quote                  | An estimation of the cost to ship a set of items from an origin to a destination.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Shipping Zone                   | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.                                                                                                                                                                                                                                                                                                                                                                                            |
-| Shipping Origin                 | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.                                                                                                                                                                                                                                                                                                                                                                     |
+| Shipping Origin                 | The location from which goods are shipped. This origin determines which shipping carriers are available for the retailer to configure in the control panel.                                                                                                                                                                                                                                                                                                                                                                     |
 
 ## FAQ
 

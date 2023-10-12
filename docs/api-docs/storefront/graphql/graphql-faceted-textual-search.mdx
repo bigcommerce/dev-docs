@@ -5,7 +5,7 @@ keywords: graphql, storefront, storefronts, search, get products, get all produc
 
 # Faceted and Textual Search with the GraphQL Storefront API
 
-Faceted search is a method of helping shoppers navigate a store's product inventory by categorizing products into various categories, brands, product features, and more. Textual search is a method of retrieving products based on product fields, for example, product name and description. BigCommerce's GraphQL Storefront API lets merchants on headless storefronts use faceted and textual search powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to take advantage of our search engine. 
+Faceted search is a method of helping shoppers navigate a store's product inventory by categorizing products into various categories, brands, product features, and more. Textual search is a method of retrieving products based on product fields, for example, product name and description. BigCommerce's GraphQL Storefront API lets retailers on headless storefronts use faceted and textual search powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to take advantage of our search engine. 
 
 The GraphQL Storefront API's faceted and textual search lets you create the following features:
 - Load category pages with no selections, including both the facets and products relevant to the search results 
@@ -14,7 +14,7 @@ The GraphQL Storefront API's faceted and textual search lets you create the foll
 - Quickly search products by using search terms (textual search)
 - Sort products alphabetically, from newest to oldest, and more
 
-You can access these features by querying the `SearchProducts` field. Note that you can query facets, filter by rating, or filter by "in-stock" only if the merchant is on a Pro or Enterprise plan. A merchant must [enable product filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
+You can access these features by querying the `SearchProducts` field. Note that you can query facets, filter by rating, or filter by "in-stock" only if the retailer is on a Pro or Enterprise plan. A retailer must [enable product filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a retailer marks as visible in their Product Filtering settings will be returned. 
 
 This page walks you through how to filter and query products and facets to display on your storefront. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.  
 
@@ -217,7 +217,7 @@ query {
 </Tab>
 </Tabs>
 
-The `sort` affects only the list of products returned. A merchant's [product filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determine how facets are sorted. 
+The `sort` affects only the list of products returned. A retailer's [product filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determine how facets are sorted. 
 
 <Callout type="info">
   For a list of product fields that `searchTerm` searches, see the [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices) article.
@@ -547,7 +547,7 @@ query {
 </Tab>
 </Tabs>
 
-If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
+If a retailer has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
 ```json filename="Example" showLineNumbers copy
 {

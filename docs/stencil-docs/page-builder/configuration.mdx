@@ -4,7 +4,7 @@
 
 ## Enabling Page Builder Theme Styles options
 
-Each theme contains two related JSON files: `config.json` and `schema.json`. To provide merchants with Theme Styles customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
+Each theme contains two related JSON files: `config.json` and `schema.json`. To provide retailers with Theme Styles customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
 
 As users select and save options within the Page Builder UI, Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
 
@@ -23,7 +23,7 @@ For documentation on the Cornerstone theme's principal keys, see Cornerstone's [
 
 ### File management requirements
 
-For any theme setting to be merchant-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually.
+For any theme setting to be retailer-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually.
 
 Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
 
@@ -31,10 +31,10 @@ Each key that you create in `schema.json` must have a corresponding `config.json
 
 Your entries in the `schema.json` and `config.json` directly shape users' options in Theme Styles:
 * Theme variations always appear at the top of the Theme Styles panel. These variations are defined only in `config.json`, and their definition order in that file governs their display order in Theme Styles.
-* Merchants must select one variation to edit at a time. The selections that they make in the remainder of Page Builder's UI will apply only to that selected variation.
+* Retailers must select one variation to edit at a time. The selections that they make in the remainder of Page Builder's UI will apply only to that selected variation.
 * Theme Styles remaining sequence of top-level section headings corresponds directly to the top-level section objects that you declare in `schema.json`. The options displayed within these expandable section headings correspond directly to the key-value pairs that you nest within `schema.json`'s corresponding section objects.
 
-In all, the structure that you give your theme's `config.json` and `schema.json` files directly governs the UI that Page Builder exposes to merchants. 
+In all, the structure that you give your theme's `config.json` and `schema.json` files directly governs the UI that Page Builder exposes to retailers. 
 
 ## Theme Styles data types
 
@@ -83,11 +83,11 @@ Within `schema.json`, you will also see `"type": "heading"` statements like the 
 }
 ```
 
-These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Page Builder UI's subcategories – the middle level nested within the section headings, but outside the individual options from which merchants can select. Inner options are designated by `"label": <label-text>` statements.
+These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Page Builder UI's subcategories – the middle level nested within the section headings, but outside the individual options from which retailers can select. Inner options are designated by `"label": <label-text>` statements.
 
 ## Theme Styles data structure in `schema.json` 
 
-The `schema.json` nesting structure maps directly to the Page Builder UI displayed to merchants. Below the `variations` section, which contains data imported from `config.json`, the order and nesting of Page Builder's UI options directly match the order and nesting of your `schema.json` entries.
+The `schema.json` nesting structure maps directly to the Page Builder UI displayed to retailers. Below the `variations` section, which contains data imported from `config.json`, the order and nesting of Page Builder's UI options directly match the order and nesting of your `schema.json` entries.
 
 ## Best practices
 
@@ -115,13 +115,13 @@ When store administrators use Theme Styles to customize their store's theme, the
 
 ## Theme upgrades and settings
 
-When a merchant upgrades your theme to a newer version, they carry forward all key-value pairs saved to the BigCommerce configuration service. For example, assume this customization/upgrade scenario:
+When a retailer upgrades your theme to a newer version, they carry forward all key-value pairs saved to the BigCommerce configuration service. For example, assume this customization/upgrade scenario:
 
 You release your Star Glow theme, version 1.0. This theme's `config.json` includes a key named `logo_size`, establishing a default value of 100 x 250px. The combination of the key and the value composes a `logo_size` setting.
-The merchant uses Page Builder to change the `logo_size` setting to 175 x 275px and stores this customized setting in the BigCommerce configuration service.
+The retailer uses Page Builder to change the `logo_size` setting to 175 x 275px and stores this customized setting in the BigCommerce configuration service.
 You release Star Glow, version 1.1. In this theme revision, you have changed the `logo_size` to 300 x 300px.
-When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175 x 275px remains in effect.
-If the merchant creates a second store and applies Star Glow version 1.1 to it, that store will not have a custom `logo_size` setting and will default to the new theme version's 300 x 300px value.
+When the retailer applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175 x 275px remains in effect.
+If the retailer creates a second store and applies Star Glow version 1.1 to it, that store will not have a custom `logo_size` setting and will default to the new theme version's 300 x 300px value.
 
 ## Troubleshooting
 

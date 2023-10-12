@@ -16,7 +16,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the final response of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response) `auth` callback, create a channel on the merchant's store. Creating a dedicated channel for a storefront allows merchants to assign the storefront selected product listings and configure storefront-specific settings. To create a storefront channel, set `type` to `storefront` in a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
+After receiving the final response of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response) `auth` callback, create a channel on the retailer's store. Creating a dedicated channel for a storefront allows retailers to assign the storefront selected product listings and configure storefront-specific settings. To create a storefront channel, set `type` to `storefront` in a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels

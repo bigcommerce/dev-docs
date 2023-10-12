@@ -11,7 +11,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/docs/rest-management/channels#create-a-channel) request.
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the retailer's store. This allows retailers to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/docs/rest-management/channels#create-a-channel) request.
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
