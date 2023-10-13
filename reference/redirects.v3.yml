@@ -66,6 +66,7 @@ paths:
               - from_path
               - type
               - site_id
+              - id
         - name: direction
           in: query
           description: 'Sort direction. Acceptable values are `asc`, `desc`.'
