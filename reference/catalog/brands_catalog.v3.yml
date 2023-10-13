@@ -591,7 +591,12 @@ paths:
       tags:
         - Brands
       summary: Delete Brands
-      description: 'By default, it deletes all *Brand* objects. A filter should be added to avoid deleting all *Brand* objects in a store.'
+      description: |-
+        To delete brand objects, you must include a filter.
+
+        **Required Fields**
+         - name
+
       operationId: deleteBrands
       parameters:
         - name: name
