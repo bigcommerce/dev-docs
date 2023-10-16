@@ -1,5 +1,5 @@
 # Headless Tutorial
-This tutorial will walk you through creating a cart, checkout, an order, and processing a payment for a headless storefront. 
+This tutorial will walk you through creating a cart, checkout, an order, and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](https://developer.bigcommerce.com/docs/rest-management/checkouts) Rest Management APIs to build a headless storefront. For information on using REST Storefront APIs to build a headless site, see the [Working with the REST Storefront Cart an Checkout APIs](/api-docs/storefront/tutorials/working-sf-apis) tutorial.
 
 This article assumes you have familiarity with the following concepts:
 
@@ -258,8 +258,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
 
 ### Step 1: Add a new consignment to the checkout
 
-Send a `POST` request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
-
+Send a `POST` request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return available shipping options. You will use one of the available shipping options to update the consignment in [step 2](#step-2-update-the-consignment).
 <Tabs items={['Request', 'Response']}>
   <Tab>
 ```http filename="Example request: Add Consignment to checkout" showLineNumbers copy
@@ -406,10 +405,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
                     "phone": "5129247111",
                     "custom_fields": []
                 },
-                "selected_pickup_option": {
-                    "pickup_method_id": 1
-                },
-                "available_shipping_options": [
+               "available_shipping_options": [
                     {
                         "id": "6ded13392879983ee32a3563f5fa6a7b",
                         "type": "shipping_pickupinstore",
@@ -420,11 +416,20 @@ X-Auth-Token: {{ACCESS_TOKEN}}
                         "additional_description": ""
                     },
                     {
-                        "id": "4d0bbe7bc107882751ef27f0f072c2ae",
-                        "type": "fixedshipping",
-                        "description": "Fixed Shipping",
+                        "id": "26fb2db4ad77b0f039328d22d2869617",
+                        "type": "shipping_flatrate",
+                        "description": "Flat Rate",
                         "image_url": "",
-                        "cost": 20,
+                        "cost": 5,
+                        "transit_time": "",
+                        "additional_description": ""
+                    },
+                    {
+                        "id": "508540c73074d5ffa2cc3dced0adc552",
+                        "type": "shipping_byweight",
+                        "description": "Ship by Weight",
+                        "image_url": "",
+                        "cost": 8,
                         "transit_time": "",
                         "additional_description": ""
                     }
@@ -460,7 +465,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 The response will contain an array of `available_shipping_options`. In the next step, you will use one of the available shipping options to update the consignment.
 
 ```json filename="available shipping options" showLineNumbers copy
-"available_shipping_options": [
+ "available_shipping_options": [
                     {
                         "id": "6ded13392879983ee32a3563f5fa6a7b",
                         "type": "shipping_pickupinstore",
@@ -471,22 +476,31 @@ The response will contain an array of `available_shipping_options`. In the next 
                         "additional_description": ""
                     },
                     {
-                        "id": "4d0bbe7bc107882751ef27f0f072c2ae",
-                        "type": "fixedshipping",
-                        "description": "Fixed Shipping",
+                        "id": "26fb2db4ad77b0f039328d22d2869617",
+                        "type": "shipping_flatrate",
+                        "description": "Flat Rate",
                         "image_url": "",
-                        "cost": 20,
+                        "cost": 5,
+                        "transit_time": "",
+                        "additional_description": ""
+                    },
+                    {
+                        "id": "508540c73074d5ffa2cc3dced0adc552",
+                        "type": "shipping_byweight",
+                        "description": "Ship by Weight",
+                        "image_url": "",
+                        "cost": 8,
                         "transit_time": "",
                         "additional_description": ""
                     }
                 ]
-         }
+            }
         ],
 ```
 
 ### Step 2: Update the consignment
 
-Use one of the available shipping options to update the consignment you created in [Step 1](#creating-a-checkout) of creating a checkout.
+Use one of the available shipping options to update the consignment you created in the previous step.
 Send a `PUT` request to the [Update Checkout Consignment](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) endpoint.
 
 <Tabs items={['Request', 'Response']}>
@@ -671,6 +685,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "meta": {}
 }
 ```
+</Tab>
+</Tabs>
 
 ## Creating an order
 
