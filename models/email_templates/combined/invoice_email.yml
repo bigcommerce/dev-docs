@@ -28,7 +28,7 @@ properties:
             items:
               type: object
               properties: 
-          address: '123 Fake St, Dallas, TX 75225'
+          address:
             type: object
             properties:
               email:
@@ -162,7 +162,7 @@ properties:
         properties:
           is_managed_by_amazon:
             type: boolean
-          address: '123 Fake St, Dallas, TX 75225'
+          address:
             type: object
             properties:
               email:
@@ -359,7 +359,7 @@ properties:
             type: string
           shipping_method:
             type: string
-          shipping_to_address: '123 Fake St, Dallas, TX 75225'
+          shipping_to_address:
             type: string
           your_order_will_be_shipped_by:
             type: string
@@ -371,7 +371,7 @@ properties:
             type: string
           price:
             type: string
-          email_address: '123 Fake St, Dallas, TX 75225'
+          email_address:
             type: string
 examples:
   order: 
@@ -384,7 +384,7 @@ examples:
     account_order_status_url: #url
     shipping: 
       methods: 
-      address: '123 Fake St, Dallas, TX 75225'
+      address:
         email: 'test@gmail.com'
         phone: +112233445566
         first_name: John
@@ -434,7 +434,7 @@ examples:
         value: 0
     billing: 
       is_managed_by_amazon: false
-      address: '123 Fake St, Dallas, TX 75225'
+      address:
         email: 'test@gmail.com'
         phone: +112233445566
         first_name: John

@@ -198,7 +198,7 @@ oneOf:
               type: string
             path:
               type: string
-            address: '123 Fake St, Dallas, TX 75225'
+            address:
               type: string
             phone_number:
               type: string
@@ -280,7 +280,7 @@ oneOf:
             description: 'Path to the store (i.e., domain + protocol)'
           path:
             type: string
-          address: '123 Fake St, Dallas, TX 75225'
+          address:
             type: string
           language:
             type: object
