@@ -227,7 +227,7 @@ paths:
                               description: You can pass in any number of custom headers to validate webhooks being returned.
                             is_active:
                               type: boolean
-                              description: If the webhook is active or not.
+                              description: If the webhook is active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
                               default: true
                             created_at:
                               type: integer
@@ -365,7 +365,7 @@ components:
       name: is_active
       in: query
       description: |
-        Enables user to filter for webhooks that are active or not.
+        Enables user to filter for webhooks that are active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
       schema:
         type: boolean
         example: true
@@ -3030,7 +3030,7 @@ components:
         is_active:
           type: boolean
           example: true
-          description: Boolean value that indicates whether the webhook is active or not.
+          description: Boolean value that indicates whether the webhook is active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
         events_history_enabled:
           type: boolean
           example: true
