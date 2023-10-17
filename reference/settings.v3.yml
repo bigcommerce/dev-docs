@@ -37,6 +37,7 @@ tags:
   - name: Favicon Image
   - name: Store Profile
   - name: Storefront Product
+  - name: Units of Measurement
 paths:
   '/settings/analytics':
     parameters:
@@ -1434,6 +1435,66 @@ paths:
       tags:
         - Inventory
       description: Update inventory settings
+  /settings/store/units-of-measurement:
+    get:
+      summary: Get Units of Measurement Settings
+      description: |- 
+        Get settings for [units of measurements](https://support.bigcommerce.com/s/article/Store-Settings?language=en_US#physical).
+      tags:
+        - Units of Measurement
+      responses:
+        '200':
+          description: 'OK. When you request channel-level settings, `null` indicates that a channel does not have overrides.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/MeasurementUnitsSettings'
+                  meta:
+                    type: object
+        '422':
+          description: The provided settings could not be applied. See detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Units of Measurement Settings
+      description: |- 
+        Update settings for [units of measurements](https://support.bigcommerce.com/s/article/Store-Settings?language=en_US#physical).
+
+        The endpoint does not support partial updates. Provide all fields to update global or channel-level settings.
+
+        Create channel-level settings, or overrides for a channel, using the `channel_id`  query parameter. 
+
+        To delete overrides for a channel, supply `null` as a value for all fields. A channel then inherits global values.
+
+        The endpoint does not support 'null' as a value for global-level settings.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeasurementUnitsSettings'
+      responses:
+        '200':
+          description: 'OK. When you request channel-level settings, `null` indicates that a channel does not have overrides.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/MeasurementUnitsSettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - Units of Measurement
 components:
   parameters:
     Accept:
@@ -2302,6 +2363,40 @@ components:
           type: string
       title: ''
       x-internal: false
+    MeasurementUnitsSettings:
+      type: object
+      properties:
+        weight_measurement:
+          type: string
+          example: Ounces
+          enum:
+            - LBS
+            - Ounces
+            - KGS
+            - Grams
+            - Tonnes
+        length_measurement:
+          type: string
+          example: Inches
+          enum:
+            - Inches
+            - Centimeters
+        decimal_token:
+          type: string
+          example: '.'
+        thousands_token:
+          type: string
+          example: ','
+        decimal_places:
+          type: integer
+          example: 2
+        factoring_dimension:
+          type: string
+          example: depth
+          enum:
+            - depth
+            - height
+            - width
   responses:
     200-storefront-product-settings:
       description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
