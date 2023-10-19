@@ -44,6 +44,19 @@ paths:
             exclusiveMinimum: false
             type: integer
             format: int32
+        - name: include
+          in: query
+          description: Sub-resources to include in an Order, in a comma-separated list. The ID and the specified fields will be returned.
+          schema:
+            type: string
+            enum:
+              - lineItems
+              - billingAddress
+              - coupons
+              - currency
+              - taxes
+              - payments
+              - consignments
       responses:
         '200':
           description: ''
