@@ -7,7 +7,7 @@ keywords: address, providers, apps, tax, invoices,
 
 The [Tax Provider API](/docs/apps-api/tax) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
 
-The [Tax Provider API](/docs/apps-api/tax) works in conjunction with a BigCommerce app, so you will need to [build an app](/api-docs/apps/guide/intro) that integrates the [Tax Provider API](/docs/apps-api/tax).
+The [Tax Provider API](/docs/apps-api/tax) works in conjunction with a BigCommerce app, so you will need to [build an app](/docs/integrations/apps) that integrates the [Tax Provider API](/docs/apps-api/tax).
 
 Multi-tenant tax providers can publish their BigCommerce app so that it's discoverable by anyone or publish their app as unlisted so it can only be installed using a URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances and will only work on the specified stores.
 
@@ -16,7 +16,7 @@ Multi-tenant tax providers can publish their BigCommerce app so that it's discov
 
 To get your app ID, start by creating an app in the [Developer Portal](https://devtools.bigcommerce.com/), and fill out the information in the [Technical](/api-docs/apps/guide/publishing#add-technical-information) tab. In the URL, you will see your unique app ID.
 
-[Learn more about finding your app's ID](/api-docs/apps/tutorials/id).
+[Learn more about finding your app's ID](/docs/integrations/apps/guide/id).
 
 ## Sharing provider details with BigCommerce
 
@@ -45,7 +45,7 @@ Once your tax provider configuration is ready, we'll let you know through email.
 | <sup>+</sup>Adjust URL | Optional | URL | URL BigCommerce should use for Tax Provider API quote requests. | `https://sampletax.example.com/doc/adjust` |
 | <sup>+</sup>Void URL | Optional | URL | URL BigCommerce should use for Tax Provider API quote requests. | `https://sampletax.example.com/doc/void` 
 | **Testing** | | | | |
-| Partner sandbox store domain | Required | Domain name | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store). | `https://sampletax-test-store.mybigcommerce.com/` |
+| Partner sandbox store domain | Required | Domain name | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](/docs/start/about/sandboxes). | `https://sampletax-test-store.mybigcommerce.com/` |
 
 <sup>+</sup> You have the option of supporting a URL that merchants can customize. See [Tax Profile](#tax-profile-optional).
 
@@ -85,7 +85,7 @@ Tax providers must build a BigCommerce [single-click app](/api-docs/apps/guide/t
 
 Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
-Make sure to also review our [app development best practices](/api-docs/apps/guide/best-practices) for some tips.
+Make sure to also review our [app development best practices](/docs/integrations/apps/guide/best-practices) for some tips.
 
 <Callout type="info">
   If you have registered your app in the Developer Portal but have not submitted it for approval because it's still in development, the app will be in a Draft state. This means your app can only be installed on stores owned by the same email address as the Developer Portal account email.
@@ -94,7 +94,7 @@ Make sure to also review our [app development best practices](/api-docs/apps/gui
 
 ## Installing the app
 
-When the merchant clicks **Install** on a tax provider's single-click app, it's essential that the app successfully handle the OAuth flow before moving on to the next step of establishing a connection with the [Tax Provider API](/docs/apps-api/tax). The [Apps Guide](/api-docs/apps/guide/auth) provides an overview of the OAuth flow.
+When the merchant clicks **Install** on a tax provider's single-click app, it's essential that the app successfully handle the OAuth flow before moving on to the next step of establishing a connection with the [Tax Provider API](/docs/apps-api/tax). The [Apps Guide](/docs/integrations/apps/guide/auth) provides an overview of the OAuth flow.
 
 When handling the OAuth flow, tax providers must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection).
 
@@ -110,7 +110,7 @@ A tax provider is ready to establish a connection with the Tax Provider API when
 
 For context, the [Tax Provider API Connection endpoints](/docs/apps-api/tax-app-connection) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
 
-If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from merchants. Learn more about designing the app UI [here](/api-docs/apps/guide/ui).
+If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from merchants. Learn more about designing the app UI [here](/docs/integrations/apps/guide/ui).
 
 If the tax provider is a private instance, then they may choose to provide the basic authentication credentials themselves.
 

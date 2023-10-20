@@ -9,9 +9,9 @@ keywords: multistorefront, channels, multi-channel, multichannel, sort, graphql,
 
 When your integration creates a cart or checkout, make sure it specifies the `channel_id` for the storefront or other channel the shopper is using. 
 
-If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [Sites API](/docs/rest-management/sites#create-a-site), both [cart redirect URLs](/docs/rest-management/carts/redirects#create-cart-redirect-url) and [embedded checkout URLs](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview) will refer the shopper to the correct site. 
+If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [Sites API](/docs/rest-management/sites#create-a-site), both [cart redirect URLs](/docs/rest-management/carts/redirects#create-cart-redirect-url) and [embedded checkout URLs](/docs/storefront/cart-checkout/embedded-checkout) will refer the shopper to the correct site. 
 
-If your application interacts with shoppers, you can use the [GraphQL Storefront API: Carts and Checkout](/api-docs/storefront/graphql/carts-and-checkout) to access cart and checkout data for shoppers in real time.
+If your application interacts with shoppers, you can use the [GraphQL Storefront API: Carts and Checkout](/docs/storefront/cart-checkout/guide/graphql-storefront) to access cart and checkout data for shoppers in real time.
 
 ## Categories
 
@@ -33,7 +33,7 @@ Accept: application/json
   Currently, a tree may only be assigned to a maximum of one channel. BigCommerce's roadmap includes relaxing this restriction in the future so that several channels can share a common tree.
 </Callout>
 
-If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to get the active category tree for shopper's channel in real time.
+If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/docs/storefront/graphql) to get the active category tree for shopper's channel in real time.
 
 ## Customers
 

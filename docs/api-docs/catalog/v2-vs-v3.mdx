@@ -15,7 +15,7 @@ While every effort has been made to provide reasonable forwards and backwards co
 For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
 
 <Callout type="info">
-  * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets).
+  * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/docs/start/best-practices/sunsets).
   * BigCommerce will not introduce new resources in V2 APIs.
   * BigCommerce will eventually migrate all existing V2 resources to V3.
   * Not all V2 resources have V3 counterparts. 
@@ -89,7 +89,7 @@ To reduce the number of API calls made, you can include variants with a `GET` re
 
 ### Product option sets
 
-The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](/legacy/v2-catalog-products/v2-option-set-options) or the control panel. 
+The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](/archive/store-operations/v2-catalog-products/v2-option-set-options) or the control panel. 
 
 On all new stores, the [V3 Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products-v3) experience uses the V3 Catalog API. On some older stores, the control panel's [Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products) section consumes the V2 API, and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, you will remove the product's variants.
 

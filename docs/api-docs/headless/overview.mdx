@@ -13,13 +13,13 @@ If you are looking to build a headless storefront powered by a BigCommerce backe
 
 If you need to build a custom solution, BigCommerce has APIs and [SDKs](/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
 
-* [Create a channel and a channel site](/api-docs/storefronts/guide/channels)
-* [Fetch and manage product data](/api-docs/storefronts/guide/products)
-* [Create a cart](/api-docs/storefronts/guide/carts)
-* [Move a cart to checkout](/api-docs/storefronts/guide/checkout)
-* [Log in a customer](/api-docs/storefronts/guide/customers)
-* [Create an order](/api-docs/storefronts/guide/orders)
-* [Learn about PCI compliance](/api-docs/storefronts/guide/pci-compliance)
+* [Create a channel and a channel site](/docs/storefront/headless/channels)
+* [Fetch and manage product data](/docs/storefront/headless/products)
+* [Create a cart](/docs/storefront/headless/cart-checkout/carts)
+* [Move a cart to checkout](/docs/storefront/headless/cart-checkout/checkout)
+* [Log in a customer](/docs/storefront/headless/customers)
+* [Create an order](/docs/storefront/headless/orders)
+* [Learn about PCI compliance](/docs/storefront/headless/pci-compliance)
 
 ## Sample integration
 
@@ -35,7 +35,7 @@ In the diagram below, the storefront is where the shopper interacts with product
 
 ## Correlating requests
 
-Completing an operation on a headless storefront may require several API calls. For example, [processing a payment](/api-docs/store-management/payments-api-overview) and [refunding an order](/api-docs/store-management/order-refunds) each require reading and writing information using multiple endpoints. When you perform a multi-part operation on a headless storefront, group the constituent requests by generating one UUID to represent the whole operation, then use the `X-Correlation-Id` request header to send that UUID with every request in the group. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-request-headers).
+Completing an operation on a headless storefront may require several API calls. For example, [processing a payment](/docs/store-operations/payments) and [refunding an order](/docs/store-operations/orders/refunds) each require reading and writing information using multiple endpoints. When you perform a multi-part operation on a headless storefront, group the constituent requests by generating one UUID to represent the whole operation, then use the `X-Correlation-Id` request header to send that UUID with every request in the group. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-request-headers).
 
 When you're using the BigCommerce for WordPress plugin, there is no need to send the `X-Correlation-Id` header.
 

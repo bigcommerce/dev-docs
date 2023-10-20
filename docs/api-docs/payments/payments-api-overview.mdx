@@ -13,7 +13,7 @@ Process payments by making a sequence of requests to the following two API endpo
 
 <Callout type="info">
 #### Required OAuth scopes
-Consult the [Payments API Reference](/docs/rest-payments) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/api-accounts) needs.
+Consult the [Payments API Reference](/docs/rest-payments) to determine which OAuth permission scopes your application's [API Account](/docs/start/authentication/api-accounts) needs.
 Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
 </Callout>
 
@@ -442,7 +442,7 @@ If the purchase was successful, the response returns a status of success. The or
 
 The Payments API allows developers to store a credit card while processing a payment.
 
-When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
+When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 ```http filename="Example request: Process payment and save credit card" showLineNumbers copy
 POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
@@ -468,7 +468,7 @@ Content-Type: application/json
 
 ## Using the Orders API
 
-It is possible to take payment for an order created using the [Orders API](/api-docs/store-management/orders). When creating the order using the Orders API, make sure to set `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest by either setting the `customer_id:0` or leaving it blank. After the order is created, follow the steps to pay with a [credit card](#credit-cards), a [stored card, or a PayPal account](#stored-cards-and-paypal-accounts).
+It is possible to take payment for an order created using the [Orders API](/docs/store-operations/orders). When creating the order using the Orders API, make sure to set `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest by either setting the `customer_id:0` or leaving it blank. After the order is created, follow the steps to pay with a [credit card](#credit-cards), a [stored card, or a PayPal account](#stored-cards-and-paypal-accounts).
 
 
 ```http filename="Example request: Create an order" showLineNumbers copy

@@ -171,7 +171,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce-hosted checkout into a headless site using an iFrame.
+The response will contain `cart_url` and `checkout_url` properties. Use these URLs to redirect the customer to the BigCommerce-hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk) to embed the BigCommerce-hosted checkout into a headless site using an iFrame.
 
 ```json filename="Example response: Create cart redirect URL" showLineNumbers copy
 {
@@ -198,7 +198,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Signing customers in before redirecting
 
-Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
+Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/docs/start/authentication/customer-login) to manage the redirection flow.
 
 <Callout type="info">
   #### API account notes
@@ -224,7 +224,7 @@ A successful call to the [Send login token](/docs/storefront-auth/customer-login
   The Customer Login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
 </Callout>
 
-If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/docs/storefront-auth/customer-login#login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
+If you are using [Embedded Checkout](/docs/storefront/cart-checkout/embedded-checkout), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/docs/storefront-auth/customer-login#login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
 
 ## Deleting a line item
 
@@ -252,7 +252,7 @@ In practice, removing all cart items also essentially deletes the cart.
 
 ## Next step
 
-- [Learn how to move from cart to checkout](/api-docs/storefronts/guide/checkout)
+- [Learn how to move from cart to checkout](/docs/storefront/headless/cart-checkout/checkout)
 
 ## Resources
 

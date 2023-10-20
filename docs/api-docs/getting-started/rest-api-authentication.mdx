@@ -7,7 +7,7 @@ keywords: address, authentication, authorization, x-auth-token, access_token, ac
 
 BigCommerce offers three types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: store-level credentials, app-level credentials, and account-level credentials. This article describes the difference between the three, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
 
-In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
+In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authentication and Example Requests](/docs/start/authentication).
 
 ## API accounts
 
@@ -41,7 +41,7 @@ Most APIs that work with store-level API accounts use the `access_token` to auth
 
 To create a store-level API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating).
 
-To get started making requests, see [Getting Started](/api-docs/getting-started/making-requests).
+To get started making requests, see [Getting Started](/archive/start/making-requests).
 
 ### Revoking store-level API credentials
 
@@ -65,7 +65,7 @@ You can [create app-level API accounts](#creating-app-level-api-credentials) in 
 
 Some APIs use app-level API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
 
-For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
+For more on working with apps, see our [Guide to Building Apps](/docs/integrations/apps). The sections on [Implementing OAuth](/docs/integrations/apps/guide/auth) and [Callback Handlers](/docs/integrations/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
 ### Creating app-level API credentials
 
@@ -131,7 +131,7 @@ Where both types of API account are supported, review the preceding sections to 
 | [Current Customer API](/api-docs/getting-started/authentication#client-id) |  | &times; |  |
 | [Payments API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; | &times; |  |
 | [Apps that host REST Provider APIs (provider apps)](/api-docs/getting-started/authentication#developer-configured-authentication) |  | &times; |  |
-| [Apps that create App Extensions](/app-extensions/overview) |  | &times; |  |
+| [Apps that create App Extensions](/docs/integrations/apps/app-extensions) |  | &times; |  |
 | Apps hosted in the store control panel (single-click apps) |  | &times; |  |
 | Manual connection between a third-party app and a store | &times; |  | &times; |
 | Single-store frontend scripts |  | &times; |  |
@@ -153,7 +153,7 @@ We recommend migrating from legacy API credentials to OAuth, if you haven't alre
 
 * **Webhook subscriptions**: OAuth API accounts can subscribe to real-time event notifications using BigCommerce’s webhooks.
 
-* **Shared secrets**: Use new APIs and endpoints that require shared secrets, including the [Customer Login](/api-docs/storefront/customer-login-api) and [Current Customer](/api-docs/storefront/current-customer-api) APIs.
+* **Shared secrets**: Use new APIs and endpoints that require shared secrets, including the [Customer Login](/docs/start/authentication/customer-login) and [Current Customer](/docs/start/authentication/current-customer) APIs.
 
 * **Zippier responses**: Responses to OAuth requests use gzip compression and less of your bandwidth.
 
@@ -239,7 +239,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
-| Account | read-only | `account_read` | View account details | [GraphQL Account API](/docs/graphql-users) |
+| Account | read-only | `account_read` | View account details | [GraphQL Account API](/docs/graphql-account/users-overview) |
 | Account Apps | read-only | `account_apps_read` | View the apps associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
 | Account Stores | read-only | `account_stores_read` | View the stores associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
 | Account Users | read-only | `account_users_read` | View the users associated with an account | [GraphQL Account API](/docs/graphql-account/users-overview) |
@@ -251,4 +251,4 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 * [Authentication and Example Requests](/api-docs/getting-started/authentication)
 * [Guide to Building Apps](/api-docs/apps/guide/intro)
 * [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
-* [API Status Codes](/api-docs/getting-started/api-status-codes)
+* [API Status Codes](/docs/start/about/status-codes)

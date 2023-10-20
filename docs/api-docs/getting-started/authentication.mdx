@@ -94,7 +94,7 @@ The following table lists the APIs that authenticate with a client ID. For OAuth
 
 | API description | Endpoint reference | API account type | Query parameter | Query argument |
 |:----------------|:-------------------|:-----------------|:----------------|:---------------|
-| [Current Customer API](/api-docs/storefront/current-customer-api) | [Get current customer](/docs/storefront-auth/current-customer#get-current-customer) | app | `app_client_id` | API account client ID |
+| [Current Customer API](/docs/start/authentication/current-customer) | [Get current customer](/docs/storefront-auth/current-customer#get-current-customer) | app | `app_client_id` | API account client ID |
 
 ### Current Customer API example request
 
@@ -155,8 +155,8 @@ The following table lists the APIs that use the `Authorization` header, along wi
 
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
-| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
-| [Payment processing](/api-docs/store-management/payments-api-overview) endpoint | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
+| [GraphQL Storefront API](/docs/storefront/graphql) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
+| [Payment processing](/docs/store-operations/payments) endpoint | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
 
 To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the appropriate [token creation OAuth scopes](/api-docs/getting-started/api-accounts#token-creation-scopes).
 
@@ -260,7 +260,7 @@ The following table lists the APIs that rely on user-generated JWTs. For OAuth s
 
 | API description | Create a JWT | Endpoint reference | API account type |
 |:----------------|:-------------|:-------------------|:-----------------|
-| [Customer Login API](/api-docs/storefront/customer-login-api) | See API description | [SSO API Reference](/docs/storefront-auth/customer-login) | app |
+| [Customer Login API](/docs/start/authentication/customer-login) | See API description | [SSO API Reference](/docs/storefront-auth/customer-login) | app |
 
 ### Customer Login API example request
 
@@ -295,7 +295,7 @@ BigCommerce-encrypted payload JWTs let control panel apps listen to and reason a
 * The app validates the JWT, then decrypts its payload
 * The payload's data informs what the app does next
 
-To learn more, see our [Apps Guide](/api-docs/apps/guide/intro), especially the articles on [authorization, installation](/api-docs/apps/guide/auth), and other [app callback events](/api-docs/apps/guide/callbacks).
+To learn more, see our [Apps Guide](/docs/integrations/apps), especially the articles on [authorization, installation](/docs/integrations/apps/guide/auth), and other [app callback events](/docs/integrations/apps/guide/callbacks).
 
 ## Same-origin CORS authentication
 
@@ -434,14 +434,14 @@ The following table describes the authentication characteristics of our REST Pro
 
 | API description | API reference | Configuration reference | Associated API account | Authentication method |
 |:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
-| [Shipping Provider API](/api-docs/providers/shipping) | [Shipping Provider Reference](/api-docs/provider-apis/shipping-provider-api) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys |
-| [Tax Provider API](/api-docs/providers/tax) | [Tax Provider Reference](/docs/apps-api/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
+| [Shipping Provider API](/docs/integrations/shipping) | [Shipping Provider Reference](/docs/integrations/shipping) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys |
+| [Tax Provider API](/docs/integrations/tax) | [Tax Provider Reference](/docs/apps-api/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
 
 In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer.
 
 ## Resources
 
 ### Related articles
-* [Creating API Accounts](/api-docs/getting-started/api-accounts)
+* [Creating API Accounts](/docs/start/authentication/api-accounts)
 * [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes)
 {/* <!-- jwts in apps, graphql storefront playground --> */}

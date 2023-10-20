@@ -35,9 +35,9 @@ We encourage you to write robust, resilient code that will not break or leak mem
 
 ## Use webhooks to listen for changes
 
-To keep your app's data up to date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use a [store-level or app-level API account](/api-docs/getting-started/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
+To keep your app's data up to date, [webhooks](/docs/integrations/webhooks) provide a great alternative to periodic API polling. Use a [store-level or app-level API account](/docs/start/authentication/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
 
-When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
+When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/docs/integrations/webhooks/events). Use the payload data points to make subsequent API requests for more details.
 
 ### Avoid polling the Storefront Cart API 
 
@@ -126,8 +126,8 @@ Endpoints that accept bulk requests may have specific limitations on the number 
 
 * [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits)
 * [API Terms of Service (bigcommerce.com)](https://www.bigcommerce.com/terms/api-terms/)
-* [Filtering Requests](/api-docs/getting-started/filtering)
-* [API Status Codes](/api-docs/getting-started/api-status-codes)
+* [Filtering Requests](/docs/start/about/common-query-params)
+* [API Status Codes](/docs/start/about/status-codes)
 * [About Our API: Response Headers](/api-docs/getting-started/about-our-api#response-headers)
 * [Guide to API Accounts](/api-docs/getting-started/api-accounts)[webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events)
 * [Changelog](/changelog)

@@ -15,7 +15,7 @@ To see an example request-response pair for creating a webhook, consult the crea
 
 | Property     | Description |
 |:-------------|:------------|
-| `scope` | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
+| `scope` | The [event](/docs/integrations/webhooks/events) registered when the webhook was created. |
 | `store_id` | A numerical identifier that is unique to each store. |
 | `data` | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
 | `hash` | The SHA-1 hash of the JSON-encoded payload data. Ensures users can detect duplicate events. |
@@ -902,8 +902,8 @@ Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/gu
 
 ### Related articles
 
-* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/store-management/webhooks/setting-up-webhooks)
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhooks Tutorial](/docs/integrations/webhooks/tutorial)
 * [Webhooks Reference](/docs/webhooks/webhooks)
-* [Channel Webhook Events](/api-docs/channels/guide/webhooks)
-* [Buy Online, Pick up in Store Webhook Events](/buy-online-pick-up-in-store/webhooks)
+* [Channel Webhook Events](/docs/integrations/webhooks/events/channels)
+* [Buy Online, Pick up in Store Webhook Events](/docs/integrations/webhooks/events/inventory-location)
