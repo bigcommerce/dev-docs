@@ -69,7 +69,7 @@ For more on checking which theme engine a storefront is using, see this article'
 
 ## Managing scripts using single-click app callbacks
 
-If you're using an [app-level API account](/api-docs/getting-started/api-accounts#app-level-api-accounts), we recommend inserting your scripts immediately following completion of the [auth callback](/docs/integrations/apps/guide/auth). The app can use the [uninstall callback](/docs/integrations/apps/guide/callbacks) to remove its scripts when a merchant uninstalls it, and the [remove_user callback](/docs/integrations/apps/guide/callbacks) to remove any scripts related to a particular user when they lose access privileges.
+If you're using an [app-level API account](/docs/start/authentication/api-accounts#app-level-api-accounts), we recommend inserting your scripts immediately following completion of the [auth callback](/docs/integrations/apps/guide/auth). The app can use the [uninstall callback](/docs/integrations/apps/guide/callbacks) to remove its scripts when a merchant uninstalls it, and the [remove_user callback](/docs/integrations/apps/guide/callbacks) to remove any scripts related to a particular user when they lose access privileges.
 
 Your implementation may use a [store-level API account](/api-docs/getting-started/api-accounts#store-level-api-accounts) to authenticate. If so, any references to app callbacks do not apply to your code.
 
