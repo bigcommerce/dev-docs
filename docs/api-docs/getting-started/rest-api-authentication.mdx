@@ -118,7 +118,7 @@ To delete an account-level API account, visit the [account control panel](https:
 
 ## Choosing the right kind of API account
 
-Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article.
+Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication and Example Requests](/docs/start/authentication) article.
 
 | API or Use Case | Store-level API account | App-level API account | Account-level API account |
 |:----------------|:-----------------------:|:---------------------:|:-------------------------:|
@@ -167,7 +167,7 @@ Before you update your API connections to use OAuth instead of legacy basic auth
 * If you use one of our [client libraries](/tools-resources), consult the library’s documentation for establishing an optimal OAuth configuration.
 * After you create your connection, update your connection parameters as follows:
   * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to `https://store-{{store_hash}}.mybigcommerce.com/api/v2/orders/{{order_id}}` or `https://my-custom-store-domain.com/api/v2/orders/{{order_id}}` will now use `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/{{order_id}}`.
-  * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authorization` header. For more information, see [Authentication](/api-docs/getting-started/authentication).
+  * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authorization` header. For more information, see [Authentication](/docs/start/authentication).
 
 Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/api-docs/getting-started/best-practices#api-rate-limits) of our API best practices article.
 
@@ -248,7 +248,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 ## Resources
 
-* [Authentication and Example Requests](/api-docs/getting-started/authentication)
+* [Authentication and Example Requests](/docs/start/authentication)
 * [Guide to Building Apps](/docs/integrations/apps)
 * [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
 * [API Status Codes](/docs/start/about/status-codes)
