@@ -116,7 +116,7 @@ If the tax provider is a private instance, then they may choose to provide the b
 
 In either case, the [Update Connection](/docs/rest-contracts/tax-app-connection#update-a-connection) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, and `X-Auth-Token`(`access_token`) values.
 
-We recommend calling the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Settings > Setup > Tax** page in the control panel.
+We recommend calling the [Update Connection](/docs/rest-contracts/tax-app-connection#update-a-connection) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Settings > Setup > Tax** page in the control panel.
 
 The [Get a Connection](/docs/apps-api/tax-app-connection#get-connection-status) request may be used at any time to retrieve the connection status of the specified tax provider in the context of a store.
 
@@ -171,7 +171,7 @@ Supporting document submission is optional. However, tax providers wishing to su
 
 If document submission is supported, navigate to **Settings > Setup > Tax > _TaxProviderName_** in the control panel and ensure the **Submit Order Data** checkbox is checked.
 
-[View the Commit Tax Quote API reference](/docs/apps-api/tax#commit-tax-quote).
+[View the Commit Tax Quote API reference](/docs/rest-contracts/tax#commit-tax-quote).
 
 ## Testing
 

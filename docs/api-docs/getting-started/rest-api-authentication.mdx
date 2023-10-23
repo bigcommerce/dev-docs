@@ -89,7 +89,7 @@ After one of these changes, the store owner will be prompted to review the chang
   When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
 </Callout>
 
-To delete an app-level API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
+To delete an app-level API account, consult our article on [Managing Apps in the Developer Portal](/docs/integrations/apps/guide/developer-portal#delete-an-app).
 
 ## Account-level API accounts
 
@@ -123,7 +123,7 @@ Where both types of API account are supported, review the preceding sections to 
 | API or Use Case | Store-level API account | App-level API account | Account-level API account |
 |:----------------|:-----------------------:|:---------------------:|:-------------------------:|
 | [GraphQL Account API](/docs/start/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview)  |  |  | &times; |
-| [GraphQL Admin API](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
+| [GraphQL Admin API](/docs/start/authentication#access-tokens) | &times; | &times; |  |
 | [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; |  |  |
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
 | [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) | &times; |  |  |
@@ -250,5 +250,5 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 
 * [Authentication and Example Requests](/docs/start/authentication)
 * [Guide to Building Apps](/docs/integrations/apps)
-* [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
+* [Rate Limits](/docs/start/best-practices#api-rate-limits)
 * [API Status Codes](/docs/start/about/status-codes)

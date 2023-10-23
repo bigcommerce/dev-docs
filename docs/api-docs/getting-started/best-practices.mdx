@@ -89,7 +89,7 @@ X-Rate-Limit-Requests-Left: 35
 
 If your implementation's request to the API triggers a [429: Too Many Requests](/docs/start/about/status-codes#4xx-client-error) response, it is encountering rate limits. Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota refreshes. Retry the request after this time has elapsed.
 
-For more about rate limit headers and how to calculate the timing of your requests to reduce the risk of encoutering rate limits, see [About Our API](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers).
+For more about rate limit headers and how to calculate the timing of your requests to reduce the risk of encoutering rate limits, see [About Our API](/docs/start/about#bigcommerce-specific-response-headers).
 
 ### Example of 429 status code
 
@@ -118,7 +118,7 @@ You can increase the amount of work your app can do in a given unit of time by s
 * Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
 * Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
 
-Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel requests to [Upsert price list records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) results in one or more error responses with the [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) status code. The current list of limitations is documented in our article on [resource-specific limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits). The [API reference](/docs/api) specification for each endpoint or mutation also documents any limits specific to that request.
+Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel requests to [Upsert price list records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) results in one or more error responses with the [429: Too Many Requests](/docs/start/about/status-codes#4xx-client-error) status code. The current list of limitations is documented in our article on [resource-specific limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits). The [API reference](/docs/api) specification for each endpoint or mutation also documents any limits specific to that request.
 
 ## Resources
 
@@ -142,7 +142,7 @@ When building a headless storefront, it's best practice to group related request
 
 * [Webhook Events](/docs/integrations/webhooks/events)
 * [About Webhooks](/docs/integrations/webhooks)
-* [Big Open Data Layer](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas)
+* [Big Open Data Layer](/docs/integrations/hosted-analytics#bodl-event-schemas)
 
 ### API references and clients
 

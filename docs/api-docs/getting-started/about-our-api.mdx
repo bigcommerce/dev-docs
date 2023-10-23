@@ -63,7 +63,7 @@ Make BigCommerce API requests in the context of the **storefront**, BigCommerce 
 |:----------------|:--------|
 | [GraphQL Account API](/docs/start/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview) | server |
 | [GraphQL Admin API](/api-docs/getting-started/) | server |
-| [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | storefront |
+| [GraphQL Storefront API](/docs/start/authentication#bigcommerce-generated-jwts) | storefront |
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | server |
 | [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) | storefront |
 | [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | storefront |
@@ -184,7 +184,7 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 15000 milliseconds – so, 15000 milliseconds after this request, the API quota will be refreshed. |`15000 `|
 | `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `150` |
 | `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 35 more requests in the next 15000 milliseconds; on the 36th request within 15000 milliseconds, you would be rate-limited and receive an HTTP 429 response. | `35` |
-| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `15` |
+| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/docs/start/best-practices#api-rate-limits) for more information. | `15` |
 | `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). | `987` |
 | `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |
 

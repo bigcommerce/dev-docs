@@ -27,7 +27,7 @@ The following OAuth Scopes are required:
 
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
-- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/docs/store-operations/currencies#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/docs/store-operations/currencies#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/docs/store-operations/currencies#display-vs-transactional).
 
 ```http filename="Example request: Get all price lists" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
@@ -142,4 +142,4 @@ There are webhooks available for Price Lists assignments. The price list assignm
 
 * [Price list assignments](/docs/integrations/webhooks/events/channels#price-list-assignments)
 * [Products](/docs/integrations/webhooks/events#webhook-events_products)
-* [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
+* [SKU](/docs/integrations/webhooks/events#webhook-events_sku)

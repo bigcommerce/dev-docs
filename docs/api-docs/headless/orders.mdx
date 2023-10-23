@@ -246,7 +246,7 @@ If a shopper does not have a payment method saved on file, you can process a pay
 
 1. Send a `POST` request to the [Create Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment.
 
-2. Send a `POST` request to the [Process Payment](/docs/rest-payments/processing#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/api-docs/store-management/payments-api-overview#credit-cards).
+2. Send a `POST` request to the [Process Payment](/docs/rest-payments/processing#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/docs/store-operations/payments#credit-cards).
 
 ```json filename="Example response: Process payment" showLineNumbers copy
 {
