@@ -24,7 +24,7 @@ For more about adding scripts with the UI, see our support article on [Using Scr
 
 ## Response
 
-This API call returns a JWT, sent as a plain-text string. See the [example response](/api-docs/getting-started/authentication#current-customer-api-example-request) on the tab next to the preceding example request.
+This API call returns a JWT, sent as a plain-text string. See the [example response](/docs/start/authentication#current-customer-api-example-request) on the tab next to the preceding example request.
 
 Decode the JWT using the client secret from the same app API account as the client ID you sent with the request. We recommend that your browser script send this JWT in a POST request to your server or a Function-as-a-Service (FaaS) that can work securely with your client secret. After your implementation decodes and validates the JWT, you can trust the payload as a source of truth about the signed-in customer's identity. You can now use the payload's customer information to make other API calls and display confidential data to the shopper.
 

@@ -340,7 +340,7 @@ Use the [Get Stored Instruments](/docs/rest-management/customers/customer-stored
 
 There are two steps to using a credit card to make a payment.
 
-1. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
+1. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments)
 2. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
@@ -643,4 +643,4 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 ### Webhooks
 * [Carts](/docs/integrations/webhooks/events#carts)
 * [Customer Payment Instrument](/docs/integrations/webhooks/events#customer)
-* [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+* [Orders](/docs/integrations/webhooks/events#orders)
