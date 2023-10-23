@@ -63,7 +63,7 @@ To delete a store-level API account, consult our Knowledge Base article on [Dele
 
 You can [create app-level API accounts](#creating-app-level-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). After a store owner installs and authorizes an app, most apps use access tokens generated from the API account's client ID, client secret, and a temporary grant code to read and change store data. [Generate access tokens](#app-level-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
-Some APIs use app-level API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
+Some APIs use app-level API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authentication and Example Requests](/docs/start/authentication).
 
 For more on working with apps, see our [Guide to Building Apps](/docs/integrations/apps). The sections on [Implementing OAuth](/docs/integrations/apps/guide/auth) and [Callback Handlers](/docs/integrations/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
@@ -210,7 +210,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Customers | read-only | `store_v2_customers_read_only` | View customer information | [Customers V2](/docs/rest-management/customers-v2#get-all-customers) <br />[Customer Groups V2](/docs/rest-management/customers-v2/customer-groups#get-all-customer-groups) <br />[Subscribers V3](/docs/rest-management/subscribers#get-subscribers) <br />[Wishlists V3](/docs/rest-management/wishlists#get-all-wishlists) |
 | Customers Login | modify | `store_v2_customers_login` | Sign customers in to your storefront | [Customer Login API](/docs/start/authentication/customer-login) |
 | Fulfillment Methods| modify | `store_fulfillment_methods_manage` | View and modify order fulfillment methods | [Pickup Methods V3](/docs/rest-management/pickup-methods) <br />[Pickup Options V3](/docs/rest-management/pickup-options) |
-| Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3](/buy-online-pick-up-in-store/rest-management/pickup-methods) <br />[Pickup Options V3](/buy-online-pick-up-in-store/rest-management/pickup-options) |
+| Fulfillment Methods| read-only | `store_fulfillment_methods_read_only` | View order fulfillment methods | [Pickup Methods V3](/docs/rest-management/pickup-methods) <br />[Pickup Options V3](/docs/rest-management/pickup-options) |
 | Information & Settings | modify | `store_v2_information` | View and modify store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings) |
 | Information & Settings | read-only | `store_v2_information_read_only` | View general store information and settings | [Store Information V2](/docs/rest-management/store-information#get-store-information) <br />[Time V2](/docs/rest-management/store-information#get-system-timestamp) <br />[Settings V3](/docs/rest-management/settings)|
 | Marketing | modify | `store_v2_marketing` | View and modify marketing information | [Coupons V2](/docs/rest-content/marketing/coupons#get-all-coupons) <br />[Gift Certificates V2](/docs/rest-content/marketing/gift-certificates#get-all-gift-certificates) <br />[Banners V2](/docs/rest-content/marketing/banners#get-all-banners) <br />[Promotions V3](/beta/promotions/rest-management/coupon-codes-bulk)|
@@ -218,7 +218,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Orders | modify | `store_v2_orders` | View and modify orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Orders | read-only | `store_v2_orders_read_only` | View orders | [Orders V2](/docs/rest-management/orders) <br />[Order Status V2](/docs/rest-management/orders/order-status#get-all-order-statuses) |
 | Order Fulfillment | modify | `store_order_fulfillment_manage` | View and modify order fulfillments | [Pickup V3](/docs/rest-management/pickup) |
-| Order Fulfillment | read-only | `store_order_fulfillment_read_only` | View order fulfillments | [Pickup V3](/buy-online-pick-up-in-store/rest-management/pickup) |
+| Order Fulfillment | read-only | `store_order_fulfillment_read_only` | View order fulfillments | [Pickup V3](/docs/rest-management/pickup) |
 | Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
 | Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [Orders V3, Transactions](/docs/rest-management/transactions) |
 | Payments - Get accepted methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [Payments - Get accepted methods](/docs/rest-payments/methods#get-accepted-payment-methods) |
@@ -227,11 +227,11 @@ All OAuth scopes except `default` provide `read-only` permissions scopes so that
 | Sites & Routes | modify | `store_sites` | View and modify sites and routes | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
 | Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [Sites V3, Routes, Certificates](/docs/rest-management/sites) <br /> [Channels V3 Sites](/docs/rest-management/channels/channel-site#get-a-channel-site) |
 | Store Inventory | modify | `store_inventory` | View and modify store inventory | [Inventory V3](/docs/rest-management/inventory) |
-| Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/buy-online-pick-up-in-store/rest-management/inventory) |
+| Store Inventory | read-only | `store_inventory_read_only` | View store inventory | [Inventory V3](/docs/rest-management/inventory) |
 | Store Locations | modify | `store_locations` | View and modify store locations | [Locations V3](/docs/rest-management/locations) |
-| Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3](/buy-online-pick-up-in-store/rest-management/locations) |
+| Store Locations | read-only | `store_locations_read_only` | View store locations | [Locations V3](/docs/rest-management/locations) |
 | Stored Payment Instruments | read-only | `store_stored_payment_instruments_read_only` | View stored payment instruments | [Stored Instruments V3](/beta/stored-instruments/rest-payments/manage) |
-| Stored Payment Instruments | modify | `store_stored_payment_instruments` | View and modify stored payment instruments |[Stored Instruments V3](/stored-instruments/rest-payments/manage) |
+| Stored Payment Instruments | modify | `store_stored_payment_instruments` | View and modify stored payment instruments |[Stored Instruments V3](/beta/stored-instruments/rest-payments/manage) |
 | Themes | modify | `store_themes_manage` | View and modify themes | [Themes V3](/docs/rest-content/themes) |
 | Themes | read-only | `store_themes_read_only` | View themes | [Themes V3](/docs/rest-content/themes) |
 
