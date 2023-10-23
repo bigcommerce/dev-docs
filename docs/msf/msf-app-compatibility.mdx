@@ -51,32 +51,32 @@ Price lists have been substantially upgraded to support multi-channel sales. Rea
 
 All storefront content that your app creates should be assigned to the channel of the merchant's choosing. Merchants should be able to customize storefront content on a channel-by-channel basis.
 
-1. Scripts installed using the Scripts API should include correct storefront site assignments. Read more about using the `site_id` to [assign a script to a site](/api-docs/multi-storefront/api-guide#scripts).
+1. Scripts installed using the Scripts API should include correct storefront site assignments. Read more about using the `site_id` to [assign a script to a site](/docs/storefront/multi-storefront/guide#scripts).
 
-2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](/api-docs/multi-storefront/api-guide#scripts) and consult the [Update a web analytics provider](/docs/rest-management/settings/analytics#update-a-web-analytics-provider) endpoint.
+2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](/docs/storefront/multi-storefront/guide#scripts) and consult the [Update a web analytics provider](/docs/rest-management/settings/analytics#update-a-web-analytics-provider) endpoint.
 
-3. If your app creates storefront content or features, merchants should be able to make it accessible on one or more channels. Read more about [channel-aware storefront content](/api-docs/multi-storefront/api-guide#storefront-and-content).
+3. If your app creates storefront content or features, merchants should be able to make it accessible on one or more channels. Read more about [channel-aware storefront content](/docs/storefront/multi-storefront/guide#storefront-and-content).
 
-4. Any widgets that your app creates should be available on one or more storefronts. Read more about [channel-aware widgets](/api-docs/multi-storefront/api-guide#widgets).
+4. Any widgets that your app creates should be available on one or more storefronts. Read more about [channel-aware widgets](/docs/storefront/multi-storefront/guide#widgets).
 
-5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](/api-docs/multi-storefront/api-guide#themes).
+5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](/docs/storefront/multi-storefront/guide#themes).
 
 6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](/docs/rest-content/widgets/widget-template#get-a-widget-template).
 
-7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](/api-docs/multi-storefront/api-guide#pages).
+7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](/docs/storefront/multi-storefront/guide#pages).
 
-8. Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](/api-docs/multi-storefront/api-guide#cart-and-checkout).
+8. Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](/docs/storefront/multi-storefront/guide#cart-and-checkout).
 
 ## Additional settings and content
 
 1. BigCommerce store settings synced to the app should include the correct channel assignments. Merchants should be able to configure store settings that the app creates for one or more channels. Read more about [managing store configuration](/docs/rest-management/settings).
 
-2. Newsletter subscribers synced to the app should include the correct storefront channel assignments. Merchants should be able to assign any subscribers that the app creates to one or more channels. Read more about [subscribers](/api-docs/multi-storefront/api-guide#subscribers).
+2. Newsletter subscribers synced to the app should include the correct storefront channel assignments. Merchants should be able to assign any subscribers that the app creates to one or more channels. Read more about [subscribers](/docs/storefront/multi-storefront/guide#subscribers).
 
 3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [Get store information endpoint](/docs/rest-management/store-information#get-store-information) to learn more about viewing and updating currency properties.
 
 
-4. 301 redirects synced from or written to a merchant's store must include the correct storefront's `site_id`. Read more about [channel-aware 301 redirects](/api-docs/multi-storefront/api-guide#redirects).
+4. 301 redirects synced from or written to a merchant's store must include the correct storefront's `site_id`. Read more about [channel-aware 301 redirects](/docs/storefront/multi-storefront/guide#redirects).
 
 
 5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](/docs/rest-management/settings/email-statuses#get-transactional-email-settings) and [Update transactional email settings](/docs/rest-management/settings/email-statuses#update-transactional-email-settings) endpoints.
