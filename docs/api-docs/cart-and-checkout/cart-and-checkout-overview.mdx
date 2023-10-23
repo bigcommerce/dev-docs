@@ -11,7 +11,7 @@ BigCommerce offers Storefront, REST Management, and GraphQL APIs for cart and ch
 
 The Storefront APIs manage the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
-The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 ### When to use the Storefront APIs
 * Analytics and Tracking
@@ -68,7 +68,7 @@ fetch('/api/storefront/carts', {
 ```
 <Callout type="info">
   #### Log order details
-  To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
+  To log order details to the console, use the [Scripts API](/docs/integrations/scripts) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
 </Callout>
 
 ```js filename="Log order details to the console" showLineNumbers copy
@@ -431,7 +431,7 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 ## Related resources
 
 ### Articles
-* [Working with the Storefront Cart and Checkout](/api-docs/cart-and-checkout/working-sf-apis)
+* [Working with the Storefront Cart and Checkout](/docs/storefront/cart-checkout/guide/rest-storefront)
 
 ### Endpoints
 * [Storefront Cart](/docs/rest-storefront/carts)

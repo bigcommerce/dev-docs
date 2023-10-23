@@ -5,7 +5,7 @@ keywords: address, providers, apps, tax, invoices,
 
 # Tax Providers
 
-The [Tax Provider API](/docs/apps-api/tax) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
+The [Tax Provider API](/docs/rest-contracts/tax) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
 
 The [Tax Provider API](/docs/apps-api/tax) works in conjunction with a BigCommerce app, so you will need to [build an app](/docs/integrations/apps) that integrates the [Tax Provider API](/docs/apps-api/tax).
 
@@ -83,7 +83,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 Tax providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits. For example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorization of API scopes during app install, and configure tax provider settings through an iFrame in the control panel.
 
-Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
+Review our [introduction to building apps](/docs/integrations/apps) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
 Make sure to also review our [app development best practices](/docs/integrations/apps/guide/best-practices) for some tips.
 
@@ -108,7 +108,7 @@ A tax provider is ready to establish a connection with the Tax Provider API when
 * During the OAuth flow the app requested the merchant to authorize read and write permissions on the Information and Settings API scopes (see [Installing the app](#installing-the-app)).
 * During the OAuth flow the `client_id` and `access_token` was received and stored by the tax provider (see [Installing the app](#installing-the-app)).
 
-For context, the [Tax Provider API Connection endpoints](/docs/apps-api/tax-app-connection) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
+For context, the [Tax Provider API Connection endpoints](/docs/rest-contracts/tax-app-connection) provide an added layer of security for tax providers. They set basic authentication credentials for the tax provider and these basic credentials are used to authenticate each API request to the tax provider from the associated store.
 
 If the tax provider supports all eligible stores, then they may choose to provide an account registration flow in their app iFrame in order to capture these basic authentication credentials from merchants. Learn more about designing the app UI [here](/docs/integrations/apps/guide/ui).
 

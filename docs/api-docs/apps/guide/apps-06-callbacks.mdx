@@ -19,7 +19,7 @@ The following table lists the app management callbacks that BigCommerce stores s
 
 | Endpoint | Required | Request Origin | Payload | Expected Response | Event Description |
 |:---------|:--------:|:---------------|:--------|:-----------------|:------------------|
-| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/api-docs/apps/guide/auth). |
+| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/docs/integrations/apps/guide/auth). |
 | `GET /load{:http}` | yes | browser | JWT | markup | The store owner or authorized user clicks to load the app. |
 | `GET /uninstall{:http}` | no | server | JWT | JSON | The store owner clicks to uninstall the app. |
 | `GET /remove_user{:http}` | no | server | JWT | JSON | The store owner revokes a user's access to the app. |
@@ -133,7 +133,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload_jwt`
 
 ## Next step
-* [Support multiple users](/api-docs/apps/guide/users)
+* [Support multiple users](/docs/integrations/apps/guide/users)
 
 ## Resources
 

@@ -69,7 +69,7 @@ For more on checking which theme engine a storefront is using, see this article'
 
 ## Managing scripts using single-click app callbacks
 
-If you're using an [app-level API account](/api-docs/getting-started/api-accounts#app-level-api-accounts), we recommend inserting your scripts immediately following completion of the [auth callback](/api-docs/apps/guide/auth). The app can use the [uninstall callback](/docs/integrations/apps/guide/callbacks) to remove its scripts when a merchant uninstalls it, and the [remove_user callback](/api-docs/apps/guide/callbacks) to remove any scripts related to a particular user when they lose access privileges.
+If you're using an [app-level API account](/api-docs/getting-started/api-accounts#app-level-api-accounts), we recommend inserting your scripts immediately following completion of the [auth callback](/docs/integrations/apps/guide/auth). The app can use the [uninstall callback](/docs/integrations/apps/guide/callbacks) to remove its scripts when a merchant uninstalls it, and the [remove_user callback](/docs/integrations/apps/guide/callbacks) to remove any scripts related to a particular user when they lose access privileges.
 
 Your implementation may use a [store-level API account](/api-docs/getting-started/api-accounts#store-level-api-accounts) to authenticate. If so, any references to app callbacks do not apply to your code.
 
@@ -124,7 +124,7 @@ Stencil templates must have the Handlebars expressions `{{head.scripts}}` and `{
 
 To ensure your app is compatible with as many themes as possible, we recommend `{{footer.scripts}}` over `{{head.scripts}}` for the `checkout`, `order_confirmation`, and `all_pages` contexts. 
 
-Read more about the [head object](/theme-objects/schemas#head) and [footer object](/theme-objects/schemas#footer).
+Read more about the [head object](/docs/storefront/stencil/themes/context/object-reference/schemas#head) and [footer object](/docs/storefront/stencil/themes/context/object-reference/schemas#footer).
 
 **Scripts do not render in the checkout or order confirmation contexts**
 
@@ -146,11 +146,11 @@ Stencil themes from the marketplace support [Optimized One-Page Checkout (Help C
 
 * [Guide to API Accounts](/docs/start/authentication/api-accounts)
 * [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes)
-* [Optimized One-Page Checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout)
+* [Optimized One-Page Checkout](/docs/storefront/cart-checkout/optimized-one-page-checkout)
 * [Apps Guide](/docs/integrations/apps)
 * [Apps Guide: Auth Flow](/api-docs/apps/guide/auth)
 * [Apps Guide: Callbacks](/api-docs/apps/guide/callbacks)
-* [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront)
+* [Multi-Storefront App Compatibility](/docs/integrations/apps/multi-storefront)
 
 ### Help center
 

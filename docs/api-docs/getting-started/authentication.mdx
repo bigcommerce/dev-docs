@@ -435,7 +435,7 @@ The following table describes the authentication characteristics of our REST Pro
 | API description | API reference | Configuration reference | Associated API account | Authentication method |
 |:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
 | [Shipping Provider API](/docs/integrations/shipping) | [Shipping Provider Reference](/docs/integrations/shipping) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys |
-| [Tax Provider API](/docs/integrations/tax) | [Tax Provider Reference](/docs/apps-api/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
+| [Tax Provider API](/docs/integrations/tax) | [Tax Provider Reference](/docs/rest-contracts/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
 
 In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer.
 

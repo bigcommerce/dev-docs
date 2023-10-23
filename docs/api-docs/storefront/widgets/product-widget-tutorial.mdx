@@ -13,7 +13,7 @@ In this tutorial, we will walk you through the process of creating a product wid
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API OAuth [access token](/docs/start/authentication/api-accounts) with the OAuth **Content** scope set to **modify**.
-* Understanding of [widgets](/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](/api-docs/store-management/widgets/overview).
+* Understanding of [widgets](/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](/docs/storefront/widgets).
 * Familiarity with [Page Builder](/docs/storefront/stencil/content/page-builder).
 
 The steps in this tutorial assume that you are familiar with BigCommerce’s Widgets API, and have obtained the API `access_token` with the `content` `modify` scope. The API `access_token` is required to inject, remove, and list widgets into any page of the store. To learn more about the Widgets API, see [Widgets API Overview](/api-docs/store-management/widgets/overview). For information on how to create an API account, see [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating).
@@ -146,7 +146,7 @@ Accept: application/json
 |`name`|string|The name of the widget template.|
 |`schema`|object|The widget settings JSON [schema](/docs/storefront/widgets/input-reference/schema) for [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) UI.|
 |`template`|string|The [widget template](/api-docs/store-management/widgets/overview#widget-templates) rendered as Handlebars HTML.|
-|`storefront_api_query`|string|[GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) query that provides widget data; accessed in a template via `{{_.data}}`.|
+|`storefront_api_query`|string|[GraphQL Storefront API](/docs/storefront/graphql) query that provides widget data; accessed in a template via `{{_.data}}`.|
 
 ### GraphQL queries
 
@@ -321,9 +321,9 @@ Accept: application/json
 
 ### Articles
 * [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
-* [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview)
+* [Page Builder Overview](/docs/storefront/stencil/content/page-builder)
 * [Widgets API Overview](/api-docs/store-management/widgets/overview)
-* [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
+* [Widget UI Schema](/docs/storefront/widgets/input-reference/schema)
 
 ### Endpoints 
 * [Widgets API](/docs/rest-content/widgets)
