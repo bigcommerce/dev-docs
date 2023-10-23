@@ -31,7 +31,7 @@ If you would like to start development on a new app that integrates Channels Too
 
 ## Gathering materials
 
-The BigCommerce APIs, webhooks, and UI components needed to build a channel app vary depending on the [type of channel](/api-docs/channels/guide/overview#types-of-channels), functionality, and where the app is marketed (Channel Manager vs. App Marketplace).
+The BigCommerce APIs, webhooks, and UI components needed to build a channel app vary depending on the [type of channel](/docs/integrations/channels#types-of-channels), functionality, and where the app is marketed (Channel Manager vs. App Marketplace).
 
 ### APIs and webhooks
 
@@ -39,7 +39,7 @@ The APIs that you integrate with and how you use them (read-only vs. modify) wil
 
 BigCommerce provides webhooks for third-party developers, enabling them to respond, in near real-time, to events that occur within the BigCommerce system. Depending on the frequency of updates that your channel app needs to manage, you can choose to either poll the API endpoints or integrate with webhooks. We recommended the latter choice if changes happen frequently or have downstream impacts, such as inventory changes that could impact a merchant's SLA with a marketplace.
 
-[See a list of required and recommended endpoints and their OAuth scopes](/api-docs/channels/guide/channels-toolkit-reference#endpoints).
+[See a list of required and recommended endpoints and their OAuth scopes](/docs/integrations/channels/toolkit-reference#endpoints).
 
 ### UI components
 
@@ -51,7 +51,7 @@ These components can dramatically accelerate the development process by providin
 
 ## Creating a channel
 
-After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-access_token-response) at the end of the [single-click app OAuth flow](/docs/integrations/apps/guide/auth), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
+After receiving the [POST response](/docs/integrations/apps/guide/auth#receiving-the-access_token-response) at the end of the [single-click app OAuth flow](/docs/integrations/apps/guide/auth), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a channel, send a `POST` request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
 
 ```http filename="Example request: Create a channel" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels

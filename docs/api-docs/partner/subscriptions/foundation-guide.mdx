@@ -2,7 +2,7 @@
 
 Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for building BigCommerce apps that empower shoppers to subscribe to products and services. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
 
-Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
+Subscription Foundation uses the [Channels toolkit](/docs/integrations/channels#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
 
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 18.15.0
@@ -13,7 +13,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 
 <Callout type="info">
   #### Account configuration requirements
-  * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
+  * Because there is a [store email address constraint](/docs/integrations/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
   * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 </Callout>
 
@@ -37,7 +37,7 @@ After you successfully install the packages, prepare to expose the app to the in
 
 Because you must serve apps over fully-qualified publicly accessible URLs, this guide uses a tool called [ngrok](https://ngrok.com/docs) to open HTTP tunnels that securely expose `localhost` ports to the internet.  
 
-To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
+To get started with ngrok, follow the [Create an HTTPS Tunnel](/docs/integrations/apps/tutorial/nextjs-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
 <Callout type="info">
   #### Make note of your ngrok ID
@@ -201,7 +201,7 @@ Open the `.env` file you just created and update the following environment varia
 |:---------------------|:------------|:-------------------|
 | `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/build-a-nextjs-sample-app/step-2-connect#create-an-https-tunnel)  |
 | `DATABASE_URL` | A URL that connects to a database | On this page, see [Run migration and start the server](#run-migration-and-start-the-server) |
-| `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
+| `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/docs/integrations/apps/guide/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Enable Stripe Connect for Platforms](#enable-stripe-connect-for-platforms) |
@@ -299,7 +299,7 @@ To add new subscription rules and edit existing ones, complete the following ste
   The app will create its own dedicated sales channel upon installation.
 </Callout>
 
-If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/api-docs/multi-storefront/api-guide#products) for more information.
+If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/docs/storefront/multi-storefront/guide#products) for more information.
 
 ## Deploying your app with Vercel
 

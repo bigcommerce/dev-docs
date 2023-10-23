@@ -9,7 +9,7 @@ If you have customized a theme originally downloaded from the BigCommerce Theme 
 
 Follow the link for your scenario:
 
-If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
+If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/stencil-cli/installing-stencil#installing_installing-stencils-js-utilities).
 
 
 <Callout type="warning">
@@ -33,7 +33,7 @@ Without these writable permissions, bundling your theme will fail, blocking its 
 
 ## Bundling your theme
 
-Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a zip file that contains all of your theme's essentials while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
+Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a zip file that contains all of your theme's essentials while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/docs/storefront/stencil/cli/unexpected-behavior#stencil-start-errors) your theme:
 
 
 ### Bundle only
@@ -45,7 +45,7 @@ The `bundle` command will notify you of its progress and completion, as well as 
 
 ####  Check/Adjust zipfile's size
 
-Check the resulting zip file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your zip file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme). However, if your zip file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a manageable size for upload to BigCommerce:
+Check the resulting zip file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your zip file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](/docs/storefront/stencil/deployment/upload#pushing-your-theme). However, if your zip file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a manageable size for upload to BigCommerce:
 
 
 * [Shrinking Your Theme by Excluding Static Assets (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual)

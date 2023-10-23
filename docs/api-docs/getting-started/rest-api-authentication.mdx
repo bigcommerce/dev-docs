@@ -69,7 +69,7 @@ For more on working with apps, see our [Guide to Building Apps](/docs/integratio
 
 ### Creating app-level API credentials
 
-To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#create-an-app).
+To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/docs/integrations/apps/guide/developer-portal#create-an-app).
 
 ### App-level access tokens
 
@@ -122,7 +122,7 @@ Where both types of API account are supported, review the preceding sections to 
 
 | API or Use Case | Store-level API account | App-level API account | Account-level API account |
 |:----------------|:-----------------------:|:---------------------:|:-------------------------:|
-| [GraphQL Account API](/api-docs/getting-started/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview)  |  |  | &times; |
+| [GraphQL Account API](/docs/start/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview)  |  |  | &times; |
 | [GraphQL Admin API](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
 | [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; |  |  |
 | [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |  |
@@ -169,7 +169,7 @@ Before you update your API connections to use OAuth instead of legacy basic auth
   * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to `https://store-{{store_hash}}.mybigcommerce.com/api/v2/orders/{{order_id}}` or `https://my-custom-store-domain.com/api/v2/orders/{{order_id}}` will now use `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/{{order_id}}`.
   * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authorization` header. For more information, see [Authentication](/docs/start/authentication).
 
-Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/api-docs/getting-started/best-practices#api-rate-limits) of our API best practices article.
+Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/docs/start/best-practices#api-rate-limits) of our API best practices article.
 
 ## OAuth scopes
 

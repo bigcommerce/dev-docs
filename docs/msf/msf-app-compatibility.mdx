@@ -27,14 +27,14 @@ Ensure that your app's settings acknowledge multiple storefronts and convey that
 
 In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use the [Channels API](/docs/rest-management/channels) to work with basic data about the store's channels. Use the [Sites API](/docs/rest-management/sites) to work with the channels' sites.
 
-Edit the app's profile in your [Developer Portal](https://devtools.bigcommerce.com/my/apps) to indicate that it supports multi-storefront functionality. See [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#indicate-multi-storefront-support).
+Edit the app's profile in your [Developer Portal](https://devtools.bigcommerce.com/my/apps) to indicate that it supports multi-storefront functionality. See [Managing Apps in the Developer Portal](/docs/integrations/apps/guide/developer-portal#indicate-multi-storefront-support).
 
 
 ## Reading from and writing to multiple channels
 
 An app that functions correctly with a store's multi-channel product catalog and customer base must be able to handle the following complexity. Ensure that your app meets these criteria before submitting it for approval.
 
-1. Products synced to the app should include correct channel assignments. Read more about [retrieving product channel assignments](/api-docs/multi-storefront/api-guide#products). Merchants who use your app to create products should be able to assign them to one or more channels.
+1. Products synced to the app should include correct channel assignments. Read more about [retrieving product channel assignments](/docs/storefront/multi-storefront/guide#products). Merchants who use your app to create products should be able to assign them to one or more channels.
 
 2. Categories synced to the app should include correct channel assignments. Read more about [identifying the category tree](/api-docs/multi-storefront/api-guide#categories) that's active on a sales channel. Your app should allow merchants to integrate new categories individually into each target channel's active category tree.
 

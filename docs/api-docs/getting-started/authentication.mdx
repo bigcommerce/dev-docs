@@ -11,7 +11,7 @@ This article provides an overview of the authentication schemes that our APIs us
 
 Regardless of the subject API's authentication scheme, BigCommerce **API accounts** play a role in every authenticated request to our servers.
 
-Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/api-accounts#choosing-the-right-kind-of-api-account) in our API accounts article.
+Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/docs/start/authentication/api-accounts#choosing-the-right-kind-of-api-account) in our API accounts article.
 
 ## Stable tokens
 
@@ -156,7 +156,7 @@ The following table lists the APIs that use the `Authorization` header, along wi
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
 | [GraphQL Storefront API](/docs/storefront/graphql) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
-| [Payment processing](/docs/store-operations/payments) endpoint | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
+| [Payment processing](/docs/store-operations/payments) endpoint | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
 
 To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the appropriate [token creation OAuth scopes](/api-docs/getting-started/api-accounts#token-creation-scopes).
 
@@ -434,8 +434,8 @@ The following table describes the authentication characteristics of our REST Pro
 
 | API description | API reference | Configuration reference | Associated API account | Authentication method |
 |:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
-| [Shipping Provider API](/docs/integrations/shipping) | [Shipping Provider Reference](/docs/integrations/shipping) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys |
-| [Tax Provider API](/docs/integrations/tax) | [Tax Provider Reference](/docs/rest-contracts/tax) | [Update a tax provider connection](/docs/apps-api/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
+| [Shipping Provider API](/docs/integrations/shipping) | [Shipping Provider Reference](/docs/integrations/shipping) | [Configure during registration](/docs/integrations/shipping#configuration-fields), and/or with [Update a carrier connection](/docs/rest-management/shipping-v2/shipping-carrier#update-a-carrier-connection) | implemented in an app | developer-defined request body keys |
+| [Tax Provider API](/docs/integrations/tax) | [Tax Provider Reference](/docs/rest-contracts/tax) | [Update a tax provider connection](/docs/rest-contracts/tax-app-connection#update-a-connection) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
 
 In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer.
 

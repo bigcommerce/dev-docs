@@ -43,7 +43,7 @@ When an event your app is listening for occurs, BigCommerce sends a payload with
 
 Client-side applications should avoid polling the [REST Storefront Cart API](/docs/rest-storefront/carts) on interval. Millions of browsers could poll this API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
 
-As an alternative, consider using a server-side app to subscribe to [cart webhook events](/api-docs/store-management/webhooks/webhook-events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for updating cart information across browser tabs. You may also be interested in the [growing list of events](/api-docs/partner/analytics-solutions/bodl#bodl-event-schemas) available to native storefronts with our Open Data Layer enabled. 
+As an alternative, consider using a server-side app to subscribe to [cart webhook events](/docs/integrations/webhooks/events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for updating cart information across browser tabs. You may also be interested in the [growing list of events](/docs/integrations/hosted-analytics#bodl-event-schemas) available to native storefronts with our Open Data Layer enabled. 
 
 ## Thread API requests
 
@@ -75,7 +75,7 @@ A store’s overall quota is distributed across all apps that are accessing that
 ### Playing nicely with the platform
 
 <Callout type="info">
-  As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/api-docs/getting-started/about-our-api#response-headers).
+  As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/docs/start/about#response-headers).
 </Callout>
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
@@ -87,7 +87,7 @@ X-Rate-Limit-Requests-Quota: 150
 X-Rate-Limit-Requests-Left: 35
 ```
 
-If your implementation's request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response, it is encountering rate limits. Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota refreshes. Retry the request after this time has elapsed.
+If your implementation's request to the API triggers a [429: Too Many Requests](/docs/start/about/status-codes#4xx-client-error) response, it is encountering rate limits. Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota refreshes. Retry the request after this time has elapsed.
 
 For more about rate limit headers and how to calculate the timing of your requests to reduce the risk of encoutering rate limits, see [About Our API](/api-docs/getting-started/about-our-api#bigcommerce-specific-response-headers).
 
@@ -134,7 +134,7 @@ Endpoints that accept bulk requests may have specific limitations on the number 
 
 ## Correlating requests
 
-When building a headless storefront, it's best practice to group related requests using the `X-Correlation-Id` header. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-request-headers). For an example and a more in-depth explanation, see the [Introduction to Headless Commerce](/api-docs/storefronts/guide/overview#correlating-requests). 
+When building a headless storefront, it's best practice to group related requests using the `X-Correlation-Id` header. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/api-docs/getting-started/about-our-api#bigcommerce-specific-request-headers). For an example and a more in-depth explanation, see the [Introduction to Headless Commerce](/docs/storefront/headless#correlating-requests). 
 
 ## Resources
 

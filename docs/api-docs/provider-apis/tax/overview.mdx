@@ -14,7 +14,7 @@ Multi-tenant tax providers can publish their BigCommerce app so that it's discov
 
 ## Obtaining an app ID
 
-To get your app ID, start by creating an app in the [Developer Portal](https://devtools.bigcommerce.com/), and fill out the information in the [Technical](/api-docs/apps/guide/publishing#add-technical-information) tab. In the URL, you will see your unique app ID.
+To get your app ID, start by creating an app in the [Developer Portal](https://devtools.bigcommerce.com/), and fill out the information in the [Technical](/docs/integrations/apps/guide/publishing#add-technical-information) tab. In the URL, you will see your unique app ID.
 
 [Learn more about finding your app's ID](/docs/integrations/apps/guide/id).
 
@@ -81,7 +81,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 ## Building the app
 
-Tax providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits. For example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorization of API scopes during app install, and configure tax provider settings through an iFrame in the control panel.
+Tax providers must build a BigCommerce [single-click app](/docs/integrations/apps/guide/types#single-click) to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits. For example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorization of API scopes during app install, and configure tax provider settings through an iFrame in the control panel.
 
 Review our [introduction to building apps](/docs/integrations/apps) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
@@ -114,7 +114,7 @@ If the tax provider supports all eligible stores, then they may choose to provid
 
 If the tax provider is a private instance, then they may choose to provide the basic authentication credentials themselves.
 
-In either case, the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, and `X-Auth-Token`(`access_token`) values.
+In either case, the [Update Connection](/docs/rest-contracts/tax-app-connection#update-a-connection) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, and `X-Auth-Token`(`access_token`) values.
 
 We recommend calling the [Update Connection](/docs/apps-api/tax-app-connection#update-a-connection) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Settings > Setup > Tax** page in the control panel.
 
@@ -161,7 +161,7 @@ Estimate calls will also be made in the control panel when using flows like the 
 
 When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in the control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
 
-[View the Estimate Taxes API reference](/docs/apps-api/tax#estimate-taxes).
+[View the Estimate Taxes API reference](/docs/rest-contracts/tax#estimate-taxes).
 
 ## Document submission
 

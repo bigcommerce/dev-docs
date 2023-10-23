@@ -16,7 +16,7 @@ The Catalog refers to a store's collection of physical and digital products. The
 | Products | modify     | `store_v2_products`           |
 | Products | read-only  | `store_v2_products_read_only` |
 
-For more information on OAuth Scopes and authentication, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+For more information on OAuth Scopes and authentication, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
 
 ## Products overview
 
@@ -699,7 +699,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
-    "type": "https://developer.bigcommerce.com/api#api-status-codes",
+    "type": "https://developer.bigcommerce.com/docs/start/about/status-codes",
     "errors": {
         "product_id": "The product is currently associated with an option set, please remove it before editing an option or modifier."
     }
@@ -774,7 +774,7 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 {
     "status": 422,
     "title": "The rule must contain multiple modifier conditions with unique modifier ids or a variant condition and modifier condition",
-    "type": "https://developer.bigcommerce.com/api#api-status-codes"
+    "type": "https://developer.bigcommerce.com/docs/start/about/status-codes"
 }
 ```
 
@@ -907,6 +907,6 @@ Product sorting methods:
 * [Catalog API](/docs/rest-catalog)
 
 ### Webhooks
-* [Products](/api-docs/store-management/webhooks/webhook-events#products)
+* [Products](/docs/integrations/webhooks/events#products)
 * [Categories](/api-docs/store-management/webhooks/webhook-events#category)
 * [SKU](/api-docs/store-management/webhooks/webhook-events#sku)
