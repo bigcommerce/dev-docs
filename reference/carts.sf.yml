@@ -5,9 +5,9 @@ info:
   description: |-
     Manage cart operations and data using frontend JavaScript on BigCommerce Stencil-powered storefronts.
     
-    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
-    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
@@ -164,7 +164,7 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
-        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints. You can also use carts mutations that are part of the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints. You can also use carts mutations that are part of the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 
         > #### Note

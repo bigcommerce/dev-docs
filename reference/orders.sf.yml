@@ -4,9 +4,9 @@ info:
   description: |- 
     Get order data immediately after an order is placed on the storefront.
 
-    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
-    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:

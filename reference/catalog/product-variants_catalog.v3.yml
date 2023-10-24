@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Catalog - Product Variants
   description: |-
-    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/api-docs/store-management/catalog/products-overview).
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
 
     A Product Variant is a version of a product that has its own SKU. For example, a catalog might model a particular style of high-top sneakers that come in both red and blue as one product - high-tops - with two variants - red and blue. From a storefront point of view, Product Variants are often what shoppers seek. They are also the object that maps to SKUs and tracks inventory. A Product with one only Variant is a _base variant_.
 
@@ -21,7 +21,7 @@ info:
     ## Resources
 
     ### Webhooks
-    Learn more about [Product webhook events](/api-docs/store-management/webhooks/webhook-events#products).
+    Learn more about [Product webhook events](/docs/integrations/webhooks/events#products).
 
     ### Additional Catalog endpoints
     * [Brands](/docs/rest-catalog/brands)
@@ -1214,7 +1214,7 @@ paths:
                                 
                                 If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
 
-                                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+                                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
                               x-nullable: true
                               maximum: 2147483647
                             inventory_warning_level:
@@ -1432,7 +1432,7 @@ paths:
                           
                           If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
 
-                          The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+                          The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
                         x-nullable: true
                         maximum: 2147483647
                         example: 21474
@@ -1557,7 +1557,7 @@ paths:
                                 
                                 If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
 
-                                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+                                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
                               x-nullable: true
                               maximum: 2147483647
                             inventory_warning_level:
@@ -1863,7 +1863,7 @@ components:
             
             If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
 
-            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
           nullable: true
           maximum: 2147483647
         inventory_warning_level:
@@ -2057,7 +2057,7 @@ components:
                 
                 If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
 
-                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+                The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
               nullable: true
               maximum: 2147483647
             inventory_warning_level:
@@ -2415,14 +2415,14 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header

@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Catalog - Categories
   description: |-
-    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/api-docs/store-management/catalog/products-overview).
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
 
     Our Catalog Categories endpoints let you [create individual categories](/docs/rest-catalog/categories#create-a-category) and [modify categories](/docs/rest-catalog/categories#update-a-category) that organize a store's products, as well as [delete categories](/docs/rest-catalog/categories#delete-a-category). 
     
@@ -12,14 +12,14 @@ info:
 
     This API family also contains endpoints to [update product sort order](/docs/rest-catalog/categories/sort-order#update-product-sort-order) within a category. 
 
-    These endpoints are primarily useful in applications for single storefront stores. To work with categories for an [MSF-enabled store](/api-docs/multi-storefront/overview), see [Category Trees](/docs/rest-catalog/category-trees).
+    These endpoints are primarily useful in applications for single storefront stores. To work with categories for an [MSF-enabled store](/docs/storefront/multi-storefront), see [Category Trees](/docs/rest-catalog/category-trees).
 
     > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
 
     ## Resources
 
     ### Webhooks
-    Learn more about [Category webhook events](/api-docs/store-management/webhooks/events#category).
+    Learn more about [Category webhook events](/docs/integrations/webhooks/events#category).
 
     ### Additional Catalog endpoints
     * [Brands](/docs/rest-catalog/brands)
@@ -2327,14 +2327,14 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header

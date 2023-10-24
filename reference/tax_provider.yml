@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Tax Provider API
   version: '1.0'
-  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](/docs/apps-api/tax#estimate-taxes), [adjust](/docs/apps-api/tax#adjust-tax-quote), [commit](/docs/apps-api/tax#commit-tax-quote), and [void](/docs/apps-api/tax#void-tax-quote) operations. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
+  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](/docs/rest-contracts/tax#estimate-taxes), [adjust](/docs/rest-contracts/tax#adjust-tax-quote), [commit](/docs/rest-contracts/tax#commit-tax-quote), and [void](/docs/rest-contracts/tax#void-tax-quote) operations. For more information, see [Tax Provider API Overview](/docs/integrations/tax).'
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -1317,9 +1317,9 @@ components:
       type: http
       scheme: basic
       description: |-
-        The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username`, `password`, and optionally `profile`, using the [Update a Connection](/docs/apps-api/tax-app-connection#update-a-connection) request. `profile` is an optional field and will be used with supporting providers only.
+        The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username`, `password`, and optionally `profile`, using the [Update a Connection](/docs/rest-contracts/tax-app-connection#update-a-connection) request. `profile` is an optional field and will be used with supporting providers only.
         
-        For more, see [developer-configured authentication](/api-docs/getting-started/authentication#developer-configured-authentication) for Provider APIs.
+        For more, see [developer-configured authentication](/docs/start/authentication#developer-configured-authentication) for Provider APIs.
 
 security:
   - Authorization: []

@@ -8,7 +8,7 @@ info:
     email: support@bigcommerce.com
   title: Channels
   description: |-
-    Create and manage sales [channels](/api-docs/channels/overview), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
+    Create and manage sales [channels](/docs/integrations/channels), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
 
     ## Channels
 
@@ -81,9 +81,9 @@ info:
     ## Resources
 
     * [Sites and Routes API Reference](/docs/rest-management/sites)
-    * [Building Channels Overview](/api-docs/channels/overview)
-    * [Building Channel Apps](/api-docs/channels/building-channel-apps)
-    * [Channels Toolkit Reference](/api-docs/channels/channels-toolkit-reference)
+    * [Building Channels Overview](/docs/integrations/channels)
+    * [Building Channel Apps](/docs/integrations/channels/guide)
+    * [Channels Toolkit Reference](/docs/integrations/channels/toolkit-reference)
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     variables:
@@ -2022,15 +2022,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
@@ -2309,11 +2309,11 @@ components:
       properties:
         app:
           type: object
-          description: 'A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
+          description: 'A [channel app](/docs/integrations/channels#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
           properties:
             id:
               type: integer
-              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/api-docs/apps/tutorials/id).'
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/docs/integrations/apps/guide/id).'
             sections:
               type: array
               description: 'Sections are now deprecated under config_meta. The new /channel-menus endpoints should be used instead. If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -2643,7 +2643,7 @@ components:
       x-internal: false
     BigCommerceProtectedAppSections:
       type: array
-      description: 'List of channel-specific control panel menu navigation items and corresponding settings pages an app developer can choose to enable for the subject channel. Protected settings override any settings set in those UI sections at the storewide level. Learn more in the [Building Storefront Channels](/api-docs/channels/tutorials/storefront#protected-ui-sections) tutorial.'
+      description: 'List of channel-specific control panel menu navigation items and corresponding settings pages an app developer can choose to enable for the subject channel. Protected settings override any settings set in those UI sections at the storewide level. Learn more in the [Building Storefront Channels](/docs/integrations/channels/guide/storefronts#protected-ui-sections) tutorial.'
       items:
         type: string
         enum:

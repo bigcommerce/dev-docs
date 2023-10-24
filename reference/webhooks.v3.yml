@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Webhooks v3
   version: ''
-  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](/api-docs/store-management/webhooks/overview).'
+  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](/docs/integrations/webhooks).'
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     email: support@bigcommerce.com
@@ -660,15 +660,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
@@ -692,7 +692,7 @@ components:
         This webhook fires on new cart creation when any of the following occur:
         * a storefront shopper adds their first product to a cart during a new session
         * an application makes a successful `POST` request to `/carts` using either the [REST Storefront](/docs/rest-storefront/carts#create-a-cart) API or the [REST Management](/docs/rest-management/carts/carts-single#create-a-cart) API
-        * a storefront makes a successful call to create a cart using the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout)
+        * a storefront makes a successful call to create a cart using the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront)
 
         Cart creation also fires the `store/cart/updated` webhook.
 

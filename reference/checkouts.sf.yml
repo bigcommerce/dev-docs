@@ -5,9 +5,9 @@ info:
     Manage checkout operations and data using front-end JavaScript on BigCommerce
     Stencil-powered storefronts.
 
-    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
-    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
@@ -373,7 +373,7 @@ paths:
       description: |-
         Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
 
-        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint or the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint or the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
@@ -1201,7 +1201,7 @@ paths:
               * Required Fields:
                 * `shipping_address` (deprecated) or `address`
                 * `lineItems`
-            2. Update the Consignment with Shipping Options using the [REST Storefront API](/checkouts/checkout-consignments#update-a-consignment), the [REST Management API](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) or the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+            2. Update the Consignment with Shipping Options using the [REST Storefront API](/checkouts/checkout-consignments#update-a-consignment), the [REST Management API](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) or the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
                   
           ### For **pickup** consignments:
             1. Create a new consignment object. 
@@ -1211,7 +1211,7 @@ paths:
                   * `pickupOption`
                   * `lineItems`
 
-        To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/api-docs/storefront/tutorials/carts).
+        To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/docs/storefront/cart-checkout/guide/rest-storefront).
 
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
@@ -1379,7 +1379,7 @@ paths:
         * `shippingOptionId` or `pickupOptionId`
         * `lineItems`
 
-        To learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).
+        To learn more about creating a Checkout Consignment see [Checkout Consignment API](/docs/storefront/cart-checkout/guide/consignments).
 
         > #### Note
         > * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address 

@@ -2011,19 +2011,19 @@ components:
           description: |-
             Describes when stock levels are updated.
 
-            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.  
         edit_order_stock_adjustment:
           type: boolean
           description: |-
             Describes whether stock levels automatically adjust when you edit an order.
 
-            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.  
         refund_order_stock_adjustment:
           type: boolean
           description: |-
             Describes whether stock levels automatically adjust when you refund or cancel an order.
 
-            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/api-docs/store-management/webhooks/webhook-events#products), [SKU](/api-docs/store-management/webhooks/webhook-events#skus), and [inventory](/buy-online-pick-up-in-store/webhooks#inventory) webhooks.  
+            Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel. These settings affect webhooks that trigger from order-related events, including [product](/docs/integrations/webhooks/events#products), [SKU](/docs/integrations/webhooks/events#skus), and [inventory](/docs/integrations/webhooks/events/inventory-location#inventory) webhooks.  
         stock_level_display:
           type: string
           enum:
@@ -2460,14 +2460,14 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header

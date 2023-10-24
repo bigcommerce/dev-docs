@@ -5,9 +5,9 @@ info:
   description: |-
     Manage customers and data via front-end JavaScript on BigCommerce Stencil-powered storefronts.
     
-    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
-    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:

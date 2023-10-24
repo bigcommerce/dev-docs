@@ -10,9 +10,9 @@ info:
   description: |-
     Specify shopper cookie consent preferences.
     
-    For info about API accounts, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts).
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
-    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
   version: Storefront
 tags:
   - name: Consent
@@ -73,7 +73,7 @@ components:
         3 - Analytics
         4 - Targeting; Advertising
 
-        For further definition of these categories, see [Scripts API](/api-docs/store-management/scripts).
+        For further definition of these categories, see [Scripts API](/docs/integrations/scripts).
       properties:
         allow:
           type: array

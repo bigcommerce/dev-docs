@@ -2,7 +2,7 @@ openapi: '3.0.1'
 info:
   title: Customers V2
   description: |-
-    Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview). 
+    Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/docs/store-operations/customers/customers-subscribers-overview). 
     
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                                   |
@@ -22,12 +22,12 @@ info:
     * A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are a customer and a subscriber.
     ## Resources
     ### Related APIs / Endpoints
-    - [Customer Login API](/api-docs/customers/customer-login-api)
-    - [Current Customer API](/api-docs/customers/current-customer-api)
+    - [Customer Login API](/docs/start/authentication/customer-login)
+    - [Current Customer API](/docs/start/authentication/current-customer)
     - [Customers API (v3)](/docs/rest-management/customers)
     - [Subscribers API](/docs/rest-management/subscribers)
     ### Webhooks
-    - [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
+    - [Customers](/docs/integrations/webhooks/events#customer)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -1737,15 +1737,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
 

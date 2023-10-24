@@ -7,7 +7,7 @@ info:
 
     ## [Sites](/docs/rest-management/sites)
 
-    Sites link [headless storefronts](/api-docs/storefronts/developers-guide-headless) to sales [channels](/docs/rest-management/channels). To [create a site](/docs/rest-management/sites#create-a-site), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites`.
+    Sites link [headless storefronts](/docs/storefront/headless) to sales [channels](/docs/rest-management/channels). To [create a site](/docs/rest-management/sites#create-a-site), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites`.
 
     ```http
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
@@ -43,7 +43,7 @@ info:
 
     ## Site routes
 
-    [Site routes](/docs/rest-management/sites/site-routes) tell BigCommerce how to link to pages on a [headless storefront](/api-docs/storefronts/developers-guide-headless). To [create a route](/docs/rest-management/sites/site-routes#create-a-site-route) for a [site](#sites), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
+    [Site routes](/docs/rest-management/sites/site-routes) tell BigCommerce how to link to pages on a [headless storefront](/docs/storefront/headless). To [create a route](/docs/rest-management/sites/site-routes#create-a-site-route) for a [site](#sites), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
 
     ```http
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
@@ -111,8 +111,8 @@ info:
 
     ### Related resources
     * [Channels and Listings Reference](/docs/rest-management/channels)
-    * [Channels Overview](/api-docs/channels/overview)
-    * [Building Headless Storefronts Guide](/api-docs/storefronts/developers-guide-headless)
+    * [Channels Overview](/docs/integrations/channels)
+    * [Building Headless Storefronts Guide](/docs/storefront/headless)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -166,13 +166,13 @@ paths:
           $ref: '#/components/responses/504_GatewayTimeout'
       tags:
         - Sites
-      description: 'Create a site that links a [headless storefront](/api-docs/storefronts/developers-guide-headless) to a sales [channel](/docs/rest-management/channels).'
+      description: 'Create a site that links a [headless storefront](/docs/storefront/headless) to a sales [channel](/docs/rest-management/channels).'
     get:
       responses:
         '200':
           $ref: '#/components/responses/site_RespCollection'
       summary: Get Sites
-      description: 'Get sites linked to a [headless storefront](/api-docs/storefronts/developers-guide-headless) sales channels.'
+      description: 'Get sites linked to a [headless storefront](/docs/storefront/headless) sales channels.'
       tags:
         - Sites
       parameters:
@@ -332,7 +332,7 @@ paths:
       tags:
         - Site Routes
       description: |-
-        Create routes that tell BigCommerce how to link to pages on a [headless storefront](/api-docs/storefronts/developers-guide-headless).
+        Create routes that tell BigCommerce how to link to pages on a [headless storefront](/docs/storefront/headless).
 
         ## Usage Notes
         * For a list of supported route types, see [Route types](/docs/rest-management/sites#route-types).
@@ -1260,15 +1260,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   parameters:

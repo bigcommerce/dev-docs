@@ -3,13 +3,13 @@ info:
   version: ''
   title: Shipping Providers
   description: |-
-    Implement endpoints consumed by BigCommerce for custom shipping integrations. To learn more, see [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api).
+    Implement endpoints consumed by BigCommerce for custom shipping integrations. To learn more, see [Shipping Provider API Overview](/docs/integrations/shipping).
 
     ## Authentication
 
     This specification file describes API requests BigCommerce will make to a registered shipping carrierʼs server to check connection options and retrieve rates. As such, the method of authentication is determined by the carrier server.
 
-    For more, see [developer-configured authentication](/api-docs/getting-started/authentication#developer-configured-authentication) for provider APIs.
+    For more, see [developer-configured authentication](/docs/start/authentication#developer-configured-authentication) for provider APIs.
 
     ## Subresources
 
@@ -22,10 +22,10 @@ info:
     ## Additional Information
 
     ### Webhooks
-    - [Shipment](/api-docs/store-management/webhooks/webhook-events#shipment)
+    - [Shipment](/docs/integrations/webhooks/events#shipment)
 
     ### Related API Resources
-    - [Shipping Provider](/docs/apps-api/shipping)
+    - [Shipping Provider](/docs/rest-contracts/shipping)
     - [Shipping V2 API](/docs/rest-management/shipping-v2)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:

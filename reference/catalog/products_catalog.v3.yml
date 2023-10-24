@@ -2,11 +2,11 @@ openapi: '3.0.3'
 info:
   title: Catalog - Products
   description: |-
-    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/api-docs/store-management/catalog/products-overview).
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
 
     Our Catalog Products endpoints let you [create products](/docs/rest-catalog/products#create-a-product), perform [batch operations on existing products](/docs/rest-catalog/products#update-products-batch) and work with [reviews](/docs/rest-catalog/products/reviews), [images](/docs/rest-catalog/products/images), and [videos](/docs/rest-catalog/products/videos). Note that after a product is created initially, you can manage the nuances of its variations using the [Product Modifier](/docs/rest-catalog/product-modifiers), [Product Variant](/docs/rest-catalog/product-variants), and [Product Variant Options](/docs/rest-catalog/product-variant-options) endpoints. 
 
-    Other core product endpoints focus on [bulk pricing](/docs/rest-catalog/products/bulk-pricing-rules), [complex rules](/docs/rest-catalog/products/complex-rules), [custom fields](/docs/rest-catalog/products/custom-fields), and [metafields](/docs/rest-catalog/products/metafields). Product Variant objects also contain [their own metafields](/docs/rest-catalog/product-variants/metafields). For [MSF-enabled](/api-docs/multi-storefront/overview) stores, the product object also contains product [channel assignments](/docs/rest-catalog/products/channel-assignments) and [category assignments](/docs/rest-catalog/products/category-assignments); read more about [products in the MSF context](/api-docs/multi-storefront/api-guide#products). 
+    Other core product endpoints focus on [bulk pricing](/docs/rest-catalog/products/bulk-pricing-rules), [complex rules](/docs/rest-catalog/products/complex-rules), [custom fields](/docs/rest-catalog/products/custom-fields), and [metafields](/docs/rest-catalog/products/metafields). Product Variant objects also contain [their own metafields](/docs/rest-catalog/product-variants/metafields). For [MSF-enabled](/docs/storefront/multi-storefront) stores, the product object also contains product [channel assignments](/docs/rest-catalog/products/channel-assignments) and [category assignments](/docs/rest-catalog/products/category-assignments); read more about [products in the MSF context](/docs/storefront/multi-storefront/guide#products). 
     
     This API family also contains an endpoint to [Get a catalog summary](/docs/rest-catalog/products/summary).
 
@@ -15,8 +15,8 @@ info:
     ## Resources
 
     ### Webhooks
-    * [Product webhook events](/api-docs/store-management/webhooks/webhook-events#products)
-    * [Product assignment webhook events](/api-docs/channels/guide/webhooks#product-assignments) 
+    * [Product webhook events](/docs/integrations/webhooks/events#products)
+    * [Product assignment webhook events](/docs/integrations/webhooks/events/channels#product-assignments) 
 
     ### Additional Catalog endpoints
     * [Brands](/docs/rest-catalog/brands)
@@ -6528,7 +6528,7 @@ components:
                                 
             If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
             
-            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
           nullable: true
           maximum: 2147483647
         inventory_warning_level:
@@ -6714,7 +6714,7 @@ components:
                                 
             If you exceed the limit, the store sets the variant inventory to the limit if no other variant inventories are set. If other variant inventories are set, the store does not save the variant inventory rather than setting the variant inventory to the remaining limit.
             
-            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
           nullable: true
           maximum: 2147483647
         inventory_warning_level:
@@ -8165,7 +8165,7 @@ components:
 
             The inventory for a product cannot exceed 2,147,483,647 in the catalog. If you exceed the limit, the store sets the inventory level to the limit.
 
-            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/buy-online-pick-up-in-store/inventory#limit-handling-in-inventory-versus-catalog-api). 
+            The Catalog API handles limits in a different way than the Inventory API. For more information, see [Limit handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
         inventory_warning_level:
           maximum: 2147483647
           minimum: 0
@@ -8709,14 +8709,14 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header

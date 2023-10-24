@@ -3,11 +3,11 @@ info:
   version: ''
   title: Payment Processing
   description: |
-    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payments-api-overview). 
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/docs/store-operations/payments). 
 
-    The Payment Processing API uses BigCommerce's PCI-compliant payments server and a supported payment gateway to charge customers. The payment portal you choose may support charging stored instruments and/or making refund transactions. For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/api-docs/store-management/payments-api-overview#compatible-payment-gateways).
+    The Payment Processing API uses BigCommerce's PCI-compliant payments server and a supported payment gateway to charge customers. The payment portal you choose may support charging stored instruments and/or making refund transactions. For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/docs/store-operations/payments#compatible-payment-gateways).
 
-    A Payment Access Token (_PAT_) is required to authorize payment processing requests. The X-Auth-Token header is not required in requests to the payment processing endpoint. To generate a PAT, use the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint or the `completeCheckout` mutation in the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments). For a payment processing authentication example request, see the related section in our [Authentication article](/api-docs/getting-started/authentication#bigcommerce-generated-jwts).
+    A Payment Access Token (_PAT_) is required to authorize payment processing requests. The X-Auth-Token header is not required in requests to the payment processing endpoint. To generate a PAT, use the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint or the `completeCheckout` mutation in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments). For a payment processing authentication example request, see the related section in our [Authentication article](/docs/start/authentication#bigcommerce-generated-jwts).
     
     Also note that payment processing requests use the BigCommerce Payments Gateway, which uses a different server than our other REST APIs. Please see the server URL for the payment processing endpoint.
 
@@ -15,9 +15,9 @@ info:
 
     ## Resources
 
-    * [Payments Overview](/api-docs/store-management/payments-api-overview)
-    * [Process payments authentication example request](/api-docs/getting-started/authentication#bigcommerce-generated-jwts)
-    * [Orders Overview](/api-docs/store-management/orders-api-overview)
+    * [Payments Overview](/docs/store-operations/payments)
+    * [Process payments authentication example request](/docs/start/authentication#bigcommerce-generated-jwts)
+    * [Orders Overview](/docs/store-operations/orders)
     
      ### Webhooks
     
@@ -55,7 +55,7 @@ paths:
       tags:
         - Processing
       operationId: PaymentsPost
-      description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payments-api-overview) for more information.'
+      description: 'Process payments for an order. See [Payment Processing](/docs/store-operations/payments) for more information.'
       parameters:
         - $ref: '#/components/parameters/AcceptPaymentResponse'
         - $ref: '#/components/parameters/ContentType'
@@ -552,9 +552,9 @@ components:
 
         ### Further reading
         
-        For an outline of the Process Payment API call flow and more information about authenticating, see [Authentication and Example Requests](/api-docs/getting-started/authentication#bigcommerce-generated-jwts).
+        For an outline of the Process Payment API call flow and more information about authenticating, see [Authentication and Example Requests](/docs/start/authentication#bigcommerce-generated-jwts).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: http
       scheme: bearer
       bearerFormat: 'PAT {{PAYMENT_ACCESS_TOKEN}}'

@@ -2,11 +2,11 @@ openapi: '3.0.1'
 info:
   title: Storefront Token
   description: |-
-    Get and manage tokens used to authenticate cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview).
+    Get and manage tokens used to authenticate cross-origin requests to the [GraphQL Storefront API](/docs/storefront/graphql).
 
-    ## [API tokens](/docs/storefront-auth/tokens#create-a-token)
+    ## [API tokens](/docs/rest-authentication/tokens#create-a-token)
 
-    Generate tokens (JWT) for authenticating cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview). To [create a token](/docs/storefront-auth/tokens#create-a-token), send a `POST` request to `/stores/{{STORE_HASH}}/v3/storefront/api-token`.
+    Generate tokens (JWT) for authenticating cross-origin requests to the [GraphQL Storefront API](/docs/storefront/graphql). To [create a token](/docs/rest-authentication/tokens#create-a-token), send a `POST` request to `/stores/{{STORE_HASH}}/v3/storefront/api-token`.
 
     ```http
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
@@ -29,7 +29,7 @@ info:
     |`expires_at`|int| Unix timestamp in seconds (required). Does not support milliseconds, microseconds, or nanoseconds. |
     |`allowed_cors_origins`|array[str]| Allowed origins for cross origin requests (required) |
 
-    [**Response:**](/docs/storefront-auth/tokens#create-a-token)
+    [**Response:**](/docs/rest-authentication/tokens#create-a-token)
 
     ```json
     {
@@ -42,9 +42,9 @@ info:
 
 
 
-    ## [Customer impersonation tokens](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token)
+    ## [Customer impersonation tokens](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token)
 
-    Generate tokens that can make queries from the perspective of a particular customer in headless or server-side code using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens). To [create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
+    Generate tokens that can make queries from the perspective of a particular customer in headless or server-side code using the [GraphQL Storefront API](/docs/storefront/graphql#customer-impersonation-tokens). To [create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
 
     ```http
     POST https://api.bigcommerce.com/stores/{STORE_HASH}/v3/storefront/api-token-customer-impersonation
@@ -53,7 +53,7 @@ info:
     Content-Type: application/json
     ```
 
-    [**Response:**](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token)
+    [**Response:**](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token)
 
     ```json
     {
@@ -65,7 +65,7 @@ info:
     }
     ```
 
-    Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer with the ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected. Consider this sample request using a [customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token) to run a request in the context of customer ID `123`.
+    Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer with the ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected. Consider this sample request using a [customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token) to run a request in the context of customer ID `123`.
 
     ```http
     POST https://store.example.com/graphql
@@ -85,7 +85,7 @@ info:
 
 
     ## Revoking tokens
-    To [revoke a token](/docs/storefront-auth/tokens#revoke-a-token), send a `DELETE` request to `/v3/storefront/api-token`.
+    To [revoke a token](/docs/rest-authentication/tokens#revoke-a-token), send a `DELETE` request to `/v3/storefront/api-token`.
 
     ```http
     DELETE /stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
@@ -96,7 +96,7 @@ info:
 
     ## Additional information
 
-    * [GraphQL API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
+    * [GraphQL API Overview](/docs/storefront/graphql)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -190,7 +190,7 @@ paths:
         - Customer Impersonation Token
       summary: Create a Token
       description: |-
-        Returns a Storefront API token that allows your application to impersonate customers when making GraphQL `POST` requests. For more information on how to use the returned token, see [customer impersonation tokens](/docs/storefront-auth/tokens/customer-impersonation-token#create-a-token).
+        Returns a Storefront API token that allows your application to impersonate customers when making GraphQL `POST` requests. For more information on how to use the returned token, see [customer impersonation tokens](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token).
 
         **Required Scopes**
         * `Manage` `Storefront API Customer Impersonation Tokens`
@@ -342,15 +342,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
 
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       name: X-Auth-Token
       in: header
 

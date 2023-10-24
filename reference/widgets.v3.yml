@@ -8,7 +8,7 @@ info:
     ## Subresources
 
     ### Widget templates
-    [Widget templates](/rest-content/widgets/widget-template) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
+    [Widget templates](/docs/rest-content/widgets/widget-template) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
 
     ### Widgets
     [Widgets](/docs/rest-content/widgets/widget) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
@@ -21,9 +21,9 @@ info:
 
     ## Additional Information
 
-    * [Widgets API Overview](/api-docs/store-management/widgets/overview)
-    * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
-    * [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
+    * [Widgets API Overview](/docs/storefront/widgets)
+    * [Widget UI Schema](/docs/storefront/widgets/input-reference/schema)
+    * [Widget UI Input Types](/docs/storefront/widgets/input-reference/settings)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -443,7 +443,7 @@ paths:
 
         **Template Files**
 
-        To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/api-docs/store-management/widgets/overview#placements).
+        To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/docs/storefront/widgets#placements).
     get:
       tags:
         - Placement
@@ -1294,15 +1294,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
@@ -1750,18 +1750,18 @@ components:
                 example: Product
               settings:
                 type: array
-                description: 'For examples of schema settings, see [Widget UI Input Types](/stencil-docs/page-builder/schema-settings).'
+                description: 'For examples of schema settings, see [Widget UI Input Types](/docs/storefront/widgets/input-reference/settings).'
                 items:
                   type: object
                   title: widgetSchemaSetting_Base
-                  description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+                  description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.'
                   properties:
                     type:
                       type: string
                       description: |-
                         The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-                        For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+                        For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.
                       enum:
                         - alignment
                         - boolean
@@ -1835,7 +1835,7 @@ components:
           type: string
         settings:
           type: array
-          description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+          description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.'
           items:
             $ref: '#/components/schemas/widgetSchemaSetting_Base'
       x-internal: false
@@ -1879,14 +1879,14 @@ components:
     widgetSchemaSetting_Base:
       type: object
       title: widgetSchemaSetting_Base
-      description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+      description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.'
       properties:
         type:
           type: string
           description: |-
             The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-            For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+            For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.
           enum:
             - alignment
             - boolean
@@ -1932,7 +1932,7 @@ components:
       x-internal: false
     widgetSchema:
       type: array
-      description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema). '
+      description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/docs/storefront/widgets/input-reference/schema). '
       title: ''
       items:
         anyOf:
@@ -1956,14 +1956,14 @@ components:
           items:
             type: object
             title: widgetSchemaSetting_Base
-            description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+            description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.'
             properties:
               type:
                 type: string
                 description: |-
                   The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-                  For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+                  For examples of each type of setting, see [Page Builder > Schema Settings](/docs/storefront/widgets/input-reference/settings#alignment) in Theme Docs.
                 enum:
                   - alignment
                   - boolean

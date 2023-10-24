@@ -3,22 +3,22 @@ info:
   version: ''
   title: Accepted Payment Methods
   description: |
-    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/api-docs/store-management/payments-api-overview).
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/docs/store-operations/payments).
 
     The [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) endpoint returns information about the payment methods each configured payment gateway accepts. This information optimizes your implementation's likelihood of making successful payments requests 
     that return errors solely when payment methods fail, without making API calls to the gateway prior to running the payment.
 
-    For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/api-docs/store-management/payments-api-overview#compatible-payment-gateways).
+    For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/docs/store-operations/payments#compatible-payment-gateways).
 
-    This endpoint uses the X-Auth-Token header to authenticate. For an X-Auth-Token example request, see the related section in our [Authentication article](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+    This endpoint uses the X-Auth-Token header to authenticate. For an X-Auth-Token example request, see the related section in our [Authentication article](/docs/start/authentication#x-auth-token-header-example-requests).
 
     > To learn more about authenticating Payments endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
     
     ## Resources
 
-    * [Payments Overview](/api-docs/store-management/payments-api-overview)
-    * [Process payments authentication example request](/api-docs/getting-started/authentication#bigcommerce-generated-jwts)
-    * [Orders Overview](/api-docs/store-management/orders-api-overview)
+    * [Payments Overview](/docs/store-operations/payments)
+    * [Process payments authentication example request](/docs/start/authentication#bigcommerce-generated-jwts)
+    * [Orders Overview](/docs/store-operations/orders)
     
     ### Webhooks
     
@@ -482,15 +482,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
 
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
 

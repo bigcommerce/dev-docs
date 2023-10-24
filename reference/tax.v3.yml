@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   title: Tax Provider Connection
   version: '3'
-  description: 'Manage the connection between a merchantʼs BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
+  description: 'Manage the connection between a merchantʼs BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/docs/integrations/tax).'
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -49,11 +49,11 @@ paths:
     delete:
       summary: Delete a Connection
       description: |
-        Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/api-docs/apps/guide/callbacks#uninstall-callback).
+        Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/docs/integrations/apps/guide/callbacks#uninstall-callback).
 
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
-        > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/api-accounts#oauth-scopes).
+        > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
       operationId: provider-connection-delete
       responses:
         '200':
@@ -96,11 +96,11 @@ paths:
         - (optional) Tax provider profile used in customized endpoint urls for tax provider calls. This is only available for tax providers that support this feature.
         
         The configured `username`, `password`, and `profile` (if available) is used to authenticate each API request to the Tax Provider from the associated store. 
-        The tax provider's `profile` will be included in the url for [Tax Provider API](/docs/apps-api/tax) endpoints. 
+        The tax provider's `profile` will be included in the url for [Tax Provider API](/docs/rest-contracts/tax) endpoints. 
 
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
-        > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/api-accounts#oauth-scopes).
+        > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
       summary: Update a Connection
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -138,7 +138,7 @@ paths:
         required: true
         schema:
           type: string
-        description: 'The Tax Providerʼs `provider_id` provided by BigCommerce after the provider [shares their provider details](/api-docs/providers/tax#sharing-provider-details-with-bigcommerce).'
+        description: 'The Tax Providerʼs `provider_id` provided by BigCommerce after the provider [shares their provider details](/docs/integrations/tax#sharing-provider-details-with-bigcommerce).'
 components:
   parameters:
     Accept:
@@ -179,15 +179,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
