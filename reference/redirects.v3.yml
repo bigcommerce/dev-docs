@@ -241,6 +241,10 @@ paths:
                     type: integer
                   default: []
                   description: A list of the redirect IDs you wish to export. If no redirect IDs are provided, the request exports all redirects for the given site selection.
+                include_dynamic_target_urls:
+                  type: boolean
+                  default: false
+                  description: If true, the exported CSV will contain an additional read-only column containing the target URL for dynamic redirects.
               description: Data necessary to create a new 301 Redirects export job.
         required: true
       responses:
@@ -281,13 +285,13 @@ paths:
 
                     The headers must be defined as follows:
 
-                    `Domain,Old Path,New URL/Path,Target Type,Target ID`
+                    `Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID`
 
                     Not every line will have a value for every column.
                   type: string
                   format: binary
                   example: |-
-                    Domain,Old Path,New URL/Path,Target Type,Target ID 
+                    Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID 
                     store.example.com,/old-path,/new-manual-path,, 
                     store.example.com,/old-product,,Product,12 
                     store.example.com,/old-brand,,Brand,34 
@@ -374,7 +378,7 @@ paths:
                 type: string
                 format: binary
                 example: |
-                  Domain,Old Path,New URL/Path,Target Type,Target ID
+                  Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID
                   store.example.com,/old-path,/redirect-target,,
         '404':
           description: The requested export download does not exist.
