@@ -33,7 +33,7 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 To see a simple example of the GraphQL Storefront API in action, check out the [Bootstrap + Vanilla JS GraphQL Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can render dynamic product information using the GraphQL Storefront API.
 
-Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/docs/rest-authentication/tokens#create-a-token) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
 
 
 ## Accessing the GraphQL Playground
@@ -107,7 +107,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
+Use the [Create a GraphQL Storefront API token](/docs/rest-authentication/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
 
 This type of token is the most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the GraphQL Storefront API, a [Customer Impersonation Token](#customer-impersonation-tokens) may be more appropriate for your use case. This special token is not necessary if you only wish to query information from an anonymous shopper's perspective.
 
@@ -163,7 +163,7 @@ This auto-generated token has an expiry period of 24-48 hours and will periodica
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/storefront-auth/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
+It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/rest-authentication/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -207,7 +207,7 @@ curl 'https://store.com/graphql' -H 'authorization: Bearer TOKEN_GOES_HERE' -H '
 ```
 
 <Callout type="info">
-  * If your token were to become compromised and you wish to sever the Storefront API connection for your token, you can use the [Revoke a token](/docs/storefront-auth/tokens#revoke-a-token) endpoint. Only use this in emergencies, and do not revoke tokens unnecessarily. Instead, use a shorter expiration and allow them to expire naturally.
+  * If your token were to become compromised and you wish to sever the Storefront API connection for your token, you can use the [Revoke a token](/docs/rest-authentication/tokens#revoke-a-token) endpoint. Only use this in emergencies, and do not revoke tokens unnecessarily. Instead, use a shorter expiration and allow them to expire naturally.
 </Callout>
 
 ### Customer login

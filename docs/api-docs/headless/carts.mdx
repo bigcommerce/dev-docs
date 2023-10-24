@@ -205,7 +205,7 @@ Registered customers have personally-identifiable information, or _PII_, saved i
   The Customer Login API requires **app API credentials**. To learn more, see the articles on the [Customer Login API](/docs/start/authentication/customer-login#api-account-notes) and [Authentication](/docs/start/authentication#user-generated-jwts).
 </Callout>
 
-The Customer Login API requires your application to generate a JWT, then send it as a path parameter of the [Send login token](/docs/storefront-auth/customer-login#login-token) endpoint.
+The Customer Login API requires your application to generate a JWT, then send it as a path parameter of the [Send login token](/docs/rest-authentication/customer-login#login-token) endpoint.
 
 The following table is a reference for the specifics of JWT claims in the context of this use case. For a complete listing of payload claims, both required and optional, see the [Customer Login API JWT payload reference](/docs/start/authentication/customer-login#customer-login-jwt-payload-reference).
 
@@ -217,14 +217,14 @@ The following table is a reference for the specifics of JWT claims in the contex
 | `customer_id` | integer | The ID of the shopper you associated with the cart.|
 | `redirect_to` | string | One of the redirect URLs you generated per the section on [Redirecting to checkout](#redirecting-to-checkout). |
 
-A successful call to the [Send login token](/docs/storefront-auth/customer-login#login-token) endpoint will redirect the user to the supplied relative URL. If you're calling the Customer Login API server-side, pass the redirect along to the frontend.
+A successful call to the [Send login token](/docs/rest-authentication/customer-login#login-token) endpoint will redirect the user to the supplied relative URL. If you're calling the Customer Login API server-side, pass the redirect along to the frontend.
 
 <Callout type="info">
   #### Channel ID is mandatory
   The Customer Login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
 </Callout>
 
-If you are using [Embedded Checkout](/docs/storefront/cart-checkout/embedded-checkout), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/docs/storefront-auth/customer-login#login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
+If you are using [Embedded Checkout](/docs/storefront/cart-checkout/embedded-checkout), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/docs/rest-authentication/customer-login#login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
 
 ## Deleting a line item
 

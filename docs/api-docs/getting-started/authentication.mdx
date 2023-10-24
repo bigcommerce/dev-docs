@@ -94,7 +94,7 @@ The following table lists the APIs that authenticate with a client ID. For OAuth
 
 | API description | Endpoint reference | API account type | Query parameter | Query argument |
 |:----------------|:-------------------|:-----------------|:----------------|:---------------|
-| [Current Customer API](/docs/start/authentication/current-customer) | [Get current customer](/docs/storefront-auth/current-customer#get-current-customer) | app | `app_client_id` | API account client ID |
+| [Current Customer API](/docs/start/authentication/current-customer) | [Get current customer](/docs/rest-authentication/current-customer#get-current-customer) | app | `app_client_id` | API account client ID |
 
 ### Current Customer API example request
 
@@ -155,7 +155,7 @@ The following table lists the APIs that use the `Authorization` header, along wi
 
 | API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
 |:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
-| [GraphQL Storefront API](/docs/storefront/graphql) | [Create a token](/docs/storefront-auth/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
+| [GraphQL Storefront API](/docs/storefront/graphql) | [Create a token](/docs/rest-authentication/tokens#create-a-token), Stencil context | [Create a Storefront query](/docs/graphql-storefront) | store | `Bearer {{TOKEN}}` |
 | [Payment processing](/docs/store-operations/payments) endpoint | [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token), `completeCheckout` with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments) | [Process a payment](/docs/rest-payments/processing#process-payment) | app or store | `PAT {{TOKEN}}` |
 
 To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the appropriate [token creation OAuth scopes](/docs/start/authentication/api-accounts#token-creation-scopes).
@@ -260,7 +260,7 @@ The following table lists the APIs that rely on user-generated JWTs. For OAuth s
 
 | API description | Create a JWT | Endpoint reference | API account type |
 |:----------------|:-------------|:-------------------|:-----------------|
-| [Customer Login API](/docs/start/authentication/customer-login) | See API description | [SSO API Reference](/docs/storefront-auth/customer-login) | app |
+| [Customer Login API](/docs/start/authentication/customer-login) | See API description | [SSO API Reference](/docs/rest-authentication/customer-login) | app |
 
 ### Customer Login API example request
 
