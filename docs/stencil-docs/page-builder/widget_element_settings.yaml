@@ -7,7 +7,7 @@ description: |-
 
   |Attribute|Description|
   |---|---|
-  |`visibility`|Displays an eyeball icon similar to the [Visibility](docs/stencil-docs/page-builder/widget_visibility.yaml) setting type|
+  |`visibility`|Displays an eyeball icon similar to the [Visibility](/docs/storefront/widgets/input-reference/settings#visibility) setting type |
   |`advanced`|Displays a brush icon that reveals a list of settings when clicked|
 
   <hr>

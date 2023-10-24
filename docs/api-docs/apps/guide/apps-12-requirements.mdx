@@ -29,17 +29,17 @@ Don't reference competitor platforms in the app's listing information or dashboa
 * Apps must work as intended and cannot conflict with BigCommerce functionality.
 * Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
 * Apps must serve all callback URLs over HTTPS.
-* Apps in the App Marketplace must be [multi-user enabled](/api-docs/apps/guide/users).
+* Apps in the App Marketplace must be [multi-user enabled](/docs/integrations/apps/guide/users).
 * Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team. New payment gateway app submissions may not be accepted for App Marketplace review.
 * Apps that access the Checkout Content scope will also be subject to a security assessment by BigCommerce's security team.
-* Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk).
-* Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](/api-docs/channels/guide/building-channel-apps) and follow [Channel App Requirements](/api-docs/channels/guide/channel-app-requirements).
+* Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk).
+* Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](/docs/integrations/channels/guide) and follow [Channel App Requirements](/docs/integrations/channels/guide/requirements).
 * Apps that create orders in the BigCommerce store need to properly mark accurate order source, payment method, and other order details.
 
 ## Installation
 
-* Apps should be [single-click](/api-docs/apps/guide/types#single-click) and use [OAuth flow](/api-docs/apps/guide/auth) to authenticate.
-* Apps must respond to install [callback](/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://developer.bigcommerce.com/big-design/) are preferred.
+* Apps should be [single-click](/docs/integrations/apps/guide/types#single-click) and use [OAuth flow](/docs/integrations/apps/guide/auth) to authenticate.
+* Apps must respond to install [callback](/docs/integrations/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://developer.bigcommerce.com/big-design/) are preferred.
 * Apps must store user tokens against the store hash, not the user's email address, to avoid problems with ownership changes and multiple user support.
 * Apps need to include options for new user registration as well as existing users.
 * Apps should autofill registration fields such as email address and store URL based on the store's information.
@@ -56,7 +56,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 For App Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
 
 ## Next steps
-* [Publish your app](/api-docs/apps/guide/publishing).
+* [Publish your app](/docs/integrations/apps/guide/publishing).
 
 ## Resources
 

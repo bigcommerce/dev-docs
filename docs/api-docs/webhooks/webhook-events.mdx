@@ -5,19 +5,19 @@ keywords: webhooks, currency, currencies, events, bopis, buy online pick up in s
 
 # Webhook Events
 
-This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
+This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/docs/integrations/webhooks#callback-payload).
 
 ## Creating a webhook
 
-To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks#creating-a-webhook).
+To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/docs/integrations/webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#creating-a-webhook).
 
 ## Callback structure
 
 | Property     | Description |
 |:-------------|:------------|
-| `scope` | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
+| `scope` | The [event](/docs/integrations/webhooks/events) registered when the webhook was created. |
 | `store_id` | A numerical identifier that is unique to each store. |
-| `data` | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
+| `data` | A lightweight description of the [event](/docs/integrations/webhooks/events) that triggered the webhook. Will vary depending on the event registered. |
 | `hash` | The SHA-1 hash of the JSON-encoded payload data. Ensures users can detect duplicate events. |
 | `created_at` | Hook creation date as a Unix timestamp.|
 | `producer` | Will always follow the pattern `stores/store_hash`. This is the store that created the webhook. |
@@ -71,7 +71,7 @@ Payload objects with the following scopes take the form that follows:
 ## Carts
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
+  For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#carts).
 </Callout>
 
 
@@ -172,7 +172,7 @@ Payload objects with the following scopes take the form that follows:
 ## Cart line items
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
+  For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#cart-line-items).
 </Callout>
 
 | Name / Scope            | Description |
@@ -207,7 +207,7 @@ Payload objects with the following scopes take the form that follows:
 ## Categories
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+  For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#categories).
 </Callout>
 
 | Name / Scope            | Description |
@@ -265,16 +265,16 @@ Payload objects with the following scopes take the form that follows:
 
 ## Category trees
 
-Consult the [category trees section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#category-trees).
+Consult the [category trees section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#category-trees).
 
 ## Channel events
 
-Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
+Consult the [channel events section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#channel-events).
 
 ## Customers
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
+  For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#customers).
 </Callout>
 
 | Name / Scope             | Description |
@@ -337,7 +337,7 @@ Payload objects with the following scopes take the form that follows:
 
 ## Emails
 
-Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
+Consult the [emails section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#emails).
 
 ## Inventory
 
@@ -369,11 +369,11 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
-Also, consult the [inventory section of the _Buy Online, Pick up in Store_ Webhook Events](/buy-online-pick-up-in-store/webhooks#inventory).
+Also, consult the [inventory section of the _Buy Online, Pick up in Store_ Webhook Events](/docs/integrations/webhooks/events/inventory-location#inventory).
 
 ## Locations
 
-Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Events](/buy-online-pick-up-in-store/webhooks#locations).
+Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Events](/docs/integrations/webhooks/events/inventory-location#locations).
 
 
 ## Metafields
@@ -407,12 +407,12 @@ Payload objects with the following scopes take the form that follows:
 ```
 ## Notifications
 
-Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
+Consult the [notifications section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#notifications).
 
 ## Orders
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
+  For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#orders).
 </Callout>
 
 | Name / Scope             | Description |
@@ -551,15 +551,15 @@ Payload objects with the following scopes take the form that follows:
 
 ## Pages
 
-Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
+Consult the [pages section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#pages).
 
 ## Price list assignments
 
-Consult the [price list assignments section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#price-list-assignments).
+Consult the [price list assignments section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#price-list-assignments).
 
 ## Product assignments
 
-Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
+Consult the [product assignment section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#product-assignment).
 
 ## Products
 
@@ -696,15 +696,15 @@ Payload objects with the following scopes take the form that follows:
 
 ## Routes
 
-Consult the [routes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#routes).
+Consult the [routes section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#routes).
 
 ## Scripts
 
-Consult the [scripts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#scripts).
+Consult the [scripts section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#scripts).
 
 ## Settings
 
-Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
+Consult the [settings section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#settings).
 
 ## Shipments
 
@@ -739,7 +739,7 @@ Payload objects with the following scopes take the form that follows:
 
 ## Sites
 
-Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#sites).
+Consult the [sites section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#sites).
 
 ## SKUs
 
@@ -810,7 +810,7 @@ Payload objects with the following scopes take the form that follows:
 
 ## Social media links
 
-Consult the [social media links section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#social-media-links).
+Consult the [social media links section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#social-media-links).
 
 ## Stores
 
@@ -896,14 +896,14 @@ Payload objects with the following scopes take the form that follows:
 
 ## Themes
 
-Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#themes).
+Consult the [themes section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#themes).
 
 ## Resources
 
 ### Related articles
 
-* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/store-management/webhooks/setting-up-webhooks)
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhooks Tutorial](/docs/integrations/webhooks/tutorial)
 * [Webhooks Reference](/docs/webhooks/webhooks)
-* [Channel Webhook Events](/api-docs/channels/guide/webhooks)
-* [Buy Online, Pick up in Store Webhook Events](/buy-online-pick-up-in-store/webhooks)
+* [Channel Webhook Events](/docs/integrations/webhooks/events/channels)
+* [Buy Online, Pick up in Store Webhook Events](/docs/integrations/webhooks/events/inventory-location)

@@ -1,8 +1,8 @@
 # Checkout SDK Tutorial
 
-This tutorial assumes you are familiar with the Checkout SDK. If you are unfamiliar with the Checkout SDK, refer to [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart) to get some general information. 
+This tutorial assumes you are familiar with the Checkout SDK. If you are unfamiliar with the Checkout SDK, refer to [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) to get some general information. 
 
-In this tutorial, we will create a custom checkout using a checkout loader file, building on the steps from the [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart) article. This tutorial will outline how to package a custom checkout file and install a custom checkout using the control panel.
+In this tutorial, we will create a custom checkout using a checkout loader file, building on the steps from the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) article. This tutorial will outline how to package a custom checkout file and install a custom checkout using the control panel.
 
 
 ## Creating a checkout-loader.js file
@@ -26,7 +26,7 @@ script.src = 'https://checkout-sdk.bigcommerce.com/v1/loader.js';
 document.head.appendChild(script);
 ```
 <Callout type="info">
-Comparing the content of this newly created file and the code from the [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart#installing-the-checkout-js-sdk), you should see a clear resemblance between the two.
+Comparing the content of this newly created file and the code from the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial#installing-the-checkout-js-sdk), you should see a clear resemblance between the two.
 </Callout>
 
 ## Use WebDAV to upload the checkout-loader.js file
@@ -75,7 +75,7 @@ state.data.getCheckout();
 
 In the developer console, you will see the checkout object, and you can test out additional `state.data` commands. 
 
-This tutorial also gives you the steps to build a custom checkout. Instead of working with code in our theme, as shown in the [Getting Started with Checkout SDK](/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart) article, we created a file and uploaded it to WebDAV, effectively taking over the entire checkout experience. 
+This tutorial also gives you the steps to build a custom checkout. Instead of working with code in our theme, as shown in the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) article, we created a file and uploaded it to WebDAV, effectively taking over the entire checkout experience. 
 
 
 

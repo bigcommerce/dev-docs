@@ -5,13 +5,13 @@ keywords: apps, app extensions, configuration, environment variables, env vars,
 
 # BigCommerce Apps Quick Start
 
-In this quick start tutorial, you will create a [single-click app](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
+In this quick start tutorial, you will create a [single-click app](/docs/integrations/apps/guide/types) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
 
 ## Prerequisites
 
 To successfully complete this tutorial, you will need the following:
 
-* [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to develop and test apps)
+* [BigCommerce sandbox store](/docs/start/about/sandboxes) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 * Experience using [npm](https://www.npmjs.com/)
 * The most recent LTS version of Node.js and its highest corresponding npm version
@@ -53,7 +53,7 @@ Next, create a draft app profile in the [Developer Portal](https://devtools.bigc
 6. Enter the **Load Callback URL** as `https://{ngrok_url}/api/load{:http}`.
 7. Enter the **Uninstall Callback URL** as `https://{ngrok_url}/api/uninstall{:http}`.
 8. If your app supports multiple users, locate the **App Features** section. Select **Multiple Users**, then enter the **Remove User Callback URL** as `https://{ngrok_url}/api/remove_user{:http}`.
-9. Because you will be using the API to modify the store's products, set the Products OAuth scope to `modify`. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+9. Because you will be using the API to modify the store's products, set the Products OAuth scope to `modify`. To learn more about the available OAuth scopes, see [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes).
 10. Click **Update & Close**.
 11. Click **View Client ID** to view this app's client ID and client secret, or _app-level API account_.
 
@@ -156,18 +156,18 @@ Congrats! You've created and installed a BigCommerce draft app.
 
 <Callout type="info">
   #### Becoming a partner
-  Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/api-docs/partner/app-store-approval-requirements).
+  Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/docs/integrations/apps/guide/requirements).
 </Callout>
 
 
 ## Next steps
-* [Learn more about building apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Learn more about building apps](/docs/integrations/apps)
 * [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner)
-* [Check out the BC App Marketplace approval requirements](/api-docs/partner/app-store-approval-requirements)
+* [Check out the BC App Marketplace approval requirements](/docs/integrations/apps/guide/requirements)
 
 ## Resources
 * [BC App Marketplace](https://www.bigcommerce.com/apps/)
-* [Guide to API Accounts](/api-docs/getting-started/api-accounts)
-* [Testing locally with ngrok](/api-docs/apps/guide/development#testing-locally-with-ngrok)
-* [Types of apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
-* [Becoming a partner](/api-docs/partner/becoming-a-partner)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)
+* [Testing locally with ngrok](/docs/integrations/apps/guide#testing-locally-with-ngrok)
+* [Types of apps](/docs/integrations/apps/guide/types)
+* [Becoming a partner](/docs/start/partner)
