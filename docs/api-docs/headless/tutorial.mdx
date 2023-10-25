@@ -1,8 +1,9 @@
 # Headless Tutorial
-This tutorial will walk you through [creating a cart](#creating-a-cart), [checkout](http://localhost:3000/preview#creating-a-checkout), an [order](http://localhost:3000/preview#creating-an-order), and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](https://developer.bigcommerce.com/docs/rest-management/checkouts) Rest Management APIs to build a headless storefront. 
+
+This tutorial will walk you through [creating a cart](#creating-a-cart), [checkout](#creating-a-checkout), an [order](#creating-an-order), and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](/docs/rest-management/checkouts) REST Management APIs to build a headless storefront. 
 
 <Callout type="info">
-You can use REST Storefront APIs if you are using a Stencil theme; see the [Working with the REST Storefront Cart an Checkout APIs](/api-docs/storefront/tutorials/working-sf-apis) tutorial for more information to build your headless site. 
+If you are using a Stencil theme, you can use REST Storefront APIs; see the [Working with the REST Storefront Cart and Checkout APIs](/docs/storefront/cart-checkout/guide/rest-storefront) tutorial for more information to build your headless site. 
 </Callout>
 
 This article assumes you are familiar with the following:
@@ -12,45 +13,46 @@ This article assumes you are familiar with the following:
 
 ### Prerequisites
 
-* Store API credentials with the following permissions.
+* A store-level API account with the following permissions.
 	- **Carts:** `Modify`
 	- **Checkout:** `Modify`
 	- **Orders:** `Modify`
 	- **Products:** `Read Only`
 
-For more information, see [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes).
 
 ## Creating a cart
 
 ### Step 1: Generate the cart ID
+
 To generate the cart ID, send a request to the [create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint. The response will contain the `id`, which we will use as the `cart_id`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
-```json filename="Example request: Create a cart" showLineNumbers copy
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
-Accept: application/json
-Content-Type: application/json
-X-Auth-Token: {{ACCESS_TOKEN}}
-{
-  "customer_id": 0,
-  "line_items": [
+    ```http filename="Example request: Create a cart" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
     {
-      "quantity": 2,
-      "product_id": 120,
-      "list_price": 15,
-      "name": "mug"
+    "customer_id": 0,
+    "line_items": [
+        {
+        "quantity": 2,
+        "product_id": 120,
+        "list_price": 15,
+        "name": "mug"
+        }
+    ],
+    "channel_id": 1,
+    "currency": {
+        "code": "USD"
+    },
+    "locale": "en-US"
     }
-  ],
-  "channel_id": 1,
-  "currency": {
-    "code": "USD"
-  },
-  "locale": "en-US"
-}
-```
+    ```
 </Tab>
-  <Tab>
+<Tab>
   ```json filename="Example response: Create a cart" showLineNumbers copy
   {
     "data": {
@@ -103,9 +105,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
   </Tab>
-  </Tabs>
+</Tabs>
 
-  ### Step 2: Generate the redirect URLs
+### Step 2: Generate the redirect URLs
 
 To generate the redirect URLs, send a POST request to the [create cart redirect URL](https://developer.bigcommerce.com/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You must use the cart ID generated in [step 1](#creating-a-cart) above. The response will contain the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
 

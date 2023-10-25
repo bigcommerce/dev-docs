@@ -4,11 +4,11 @@ Price lists allow you to populate different versions of catalog pricing and assi
 
 You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/docs/rest-management/price-lists/price-lists-assignments#create-price-list-assignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/docs/rest-management/customers-v2/customer-groups). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
 
-Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
+Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/docs/storefront/stencil/themes/context/object-reference/config).
 
 ### OAuth scopes
 The following OAuth Scopes are required:
-* [Products](/api-docs/getting-started/api-accounts#oauth-scopes)
+* [Products](/docs/start/authentication/api-accounts#oauth-scopes)
 
 ## Price list definitions
 * A **price list** is a collection of price records. Price records make up a price list.
@@ -27,7 +27,7 @@ The following OAuth Scopes are required:
 
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
-- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/docs/store-operations/currencies#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/docs/store-operations/currencies#display-vs-transactional).
 
 ```http filename="Example request: Get all price lists" showLineNumbers copy
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
@@ -140,6 +140,6 @@ Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is
 ### Webhooks
 There are webhooks available for Price Lists assignments. The price list assignment webhook fires when a price list assignment is assigned, reassigned, or unassigned. Note that since Price Lists directly relate to products, neither product nor SKU webhooks will fire for corresponding changes, such as pricing.
 
-* [Price list assignments](/api-docs/channels/guide/webhooks#price-list-assignments)
-* [Products](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products)
-* [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
+* [Price list assignments](/docs/integrations/webhooks/events/channels#price-list-assignments)
+* [Products](/docs/integrations/webhooks/events#webhook-events_products)
+* [SKU](/docs/integrations/webhooks/events#webhook-events_sku)

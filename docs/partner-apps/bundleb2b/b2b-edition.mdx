@@ -20,9 +20,9 @@ For a more complete list of B2B Edition feature enhancements, see our Help Cente
 
 The shopping frontend of B2B Edition for Stencil runs on Stencil storefronts alone, whereas the [B2B Edition Buyer Portal](https://support.bigcommerce.com/s/article/B2B-Edition-Buyer-Functions#buyer-portal) is storefront technology-agnostic. 
 
-The Buyer Portal uses the [Scripts API](/api-docs/store-management/scripts-overview) to deploy a React app that accomplishes many of the same things as B2B Edition for Stencil. It is Stencil-compatible, but does not use Stencil's context or Handlebars theme objects.
+The Buyer Portal uses the [Scripts API](/docs/integrations/scripts) to deploy a React app that accomplishes many of the same things as B2B Edition for Stencil. It is Stencil-compatible, but does not use Stencil's context or Handlebars theme objects.
 
-The Buyer Portal is also channel-aware and [MSF-optimized](/api-docs/apps/multi-storefront). The backend can manage B2B functionality on multiple storefronts.
+The Buyer Portal is also channel-aware and [MSF-optimized](/docs/integrations/apps/multi-storefront). The backend can manage B2B functionality on multiple storefronts.
 
 For more on the differences, see our Help Center article on the [Buyer Portal](https://support.bigcommerce.com/s/article/B2B-Edition-Buyer-Functions#buyer-portal). We encourage businesses who are installing B2B Edition for the first time to use the Buyer Portal, as the B2B Edition team is actively developing the Buyer Portal and adding new features regularly. If you choose to use the Buyer Portal, this article is not relevant to your implementation.
 
@@ -43,8 +43,8 @@ This section details how to edit the DOM, CSS, and display text in a B2B Edition
 ### Prerequisites for customizing B2B Edition
 
 - [Node.js 14+ and npm](https://nodejs.org/en/download/releases/)
-- The [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-- A Stencil-scoped [API account access_token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil), to push your custom B3-optimized theme to a store
+- The [Stencil CLI](/docs/storefront/stencil/cli/install)
+- A Stencil-scoped [API account access_token](/docs/storefront/stencil/cli/development-server#creating-store-level-api-accounts-for-stencil), to push your custom B3-optimized theme to a store
 - A text editor or IDE, such as [VS Code](https://visualstudio.microsoft.com)
 - Access to a BigCommerce store control panel with store owner permissions
 
