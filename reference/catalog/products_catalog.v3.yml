@@ -844,7 +844,7 @@ paths:
               example:
                 errors: {}
                 status: 413
-                title: The request payload is too large. The maximum items allowed in the array is 50
+                title: The request payload is too large. The maximum items allowed in the array is 10.
                 type: /api-docs/getting-started/api-status-codes
         '422':
           description: '`Product` was not valid. This is the result of missing required fields or invalid data. See the response for more details.'
