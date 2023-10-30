@@ -375,9 +375,10 @@ paths:
 
         If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoint or the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
-        > #### Note
+        > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.  
+        > * The Send a Test Request feature is not currently supported for this endpoint. 
+        > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
       operationId: CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdPut
       parameters:
         - name: checkoutId
@@ -1213,9 +1214,10 @@ paths:
 
         To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/docs/storefront/cart-checkout/guide/rest-storefront).
 
-        > #### Note
+        > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.  
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+        > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
       operationId: CheckoutsConsignmentsByCheckoutIdPost
       parameters:
         - name: checkoutId
@@ -1381,10 +1383,11 @@ paths:
 
         To learn more about creating a Checkout Consignment see [Checkout Consignment API](/docs/storefront/cart-checkout/guide/consignments).
 
-        > #### Note
+        > #### Notes
         > * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address 
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.  
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+        > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
       parameters:
         - name: checkoutId

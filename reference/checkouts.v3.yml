@@ -3934,6 +3934,9 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
+
         For more information about working with consignments, see [Checkout consignment](/docs/storefront/cart-checkout/guide/consignments).  
 
         Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/docs/rest-management/checkouts/checkout-orders#create-an-order) the `address` requires the following properties:
@@ -4739,6 +4742,8 @@ paths:
         * Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. 
         
         To update an existing address and line item IDs, assign a new address and line item IDs by sending a `PUT` request.
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
         
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
       parameters:

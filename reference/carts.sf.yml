@@ -104,10 +104,10 @@ paths:
       description: |-
         Adds a line items to the *Cart*.
 
-
-        > #### Note
+        > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+        > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
 
       operationId: addCartLineItem
       parameters:
@@ -167,9 +167,10 @@ paths:
         If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) endpoints. You can also use carts mutations that are part of the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 
-        > #### Note
+        > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.  
+        > * The Send a Test Request feature is not currently supported for this endpoint. 
+        > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
 
       operationId: updateCartLineItem
       parameters:
