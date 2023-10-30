@@ -8704,6 +8704,7 @@ components:
                   format: int32
           pickup_option:
             type: object
+            description: 'Assigns a pickup consignment. Note: You cannot assign a shipping method with a pickup consignment.'
             properties:
               pickup_method_id:
                 type: integer
