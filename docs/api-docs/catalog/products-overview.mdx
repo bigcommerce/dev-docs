@@ -473,7 +473,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
 <Callout type="info">
-  * Variants need to be created one at a time using this endpoint.
+  * If you want only some option combinations to have a variant, do not edit the variants in the control panel, as that will cause the store to autogenerate all missing variant SKUs.
   * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
   * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/docs/rest-catalog/products#create-a-product) endpoint during product creation.
 </Callout>
