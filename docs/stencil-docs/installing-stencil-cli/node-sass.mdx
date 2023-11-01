@@ -1,1 +1,42 @@
-# Deprecation and Sunset Support for node-sass
+# Deprecation and Sunset Support for Node-sass
+
+If you recently received an alert within your BigCommerce control panel regarding incompatible SCSS directives, we want you to know that BigCommerce is here for you. This article will guide you through the two possible scenarios to ensure you are not affected when we move to a more modern version of our node-sass compiler and deprecate older versions of node.js early next year.
+
+## Scenario 1: We’ve already provided a fix for your storefront.
+For most storefronts with incompatible SCSS issues, BigCommerce has provided an automated draft version of your storefront for your consideration. Please login to your control panel and navigate to your channel manager. If we can offer an automated fix, you will see a draft version of your storefront for your consideration with the name “Theme Name [SCSS AUTOFIXED]”. Please review and publish anytime prior to January 31, 2024.
+
+![Node sass image](https://storage.googleapis.com/bigcommerce-production-dev-center/images/node-sass-autofixed.png "Auto Fix")
+
+## Scenario 2: Manual Upgrade
+If you prefer a more technical/manual approach, we have updated Stencil CLI to only support node 18, so the “bundle” command will provide feedback if your storefront needs attention. We have also gone the extra mile and supplied a new stencil CLI command, “autofix-scss” to address many issues. Below are the steps required to ensure your storefront is up to date. 
+
+To ensure your storefront is up to date, please do the following:
+
+1. Using the latest version of stencil-cli, run the stencil bundle command to validate your theme’s code and note any errors in the console output.
+    
+    `stencil bundle`
+
+2. For most issues, we have supplied an option to run a script to update your files with the correct formatting. You can run the script by doing the following:
+   
+    a. We have created a dry run option to see your changes without actually changing/saving said changes.
+
+    `stencil -scss-autofix.js --dry`
+
+    b. To make the changes and revalidate, run the following:
+  
+    ```shell
+    stencil -scss-autofix.js
+    stencil bundle
+    ```
+
+    c. After making these changes, you can test your site to ensure no visual regressions. You can run stencil start as usual to preview the site.
+  
+    d. If everything looks good, you can run stencil push (or follow your normal theme deployment workflow) to push the changes live to your storefront.
+
+**If you are still experiencing issues, please get in touch with your development team, Customer Success Manager, or [BigCommerce customer support](https://support.bigcommerce.com/s/contact?language=en_US).**
+
+**How long do I have? When will the legacy SASS compiler (node-sass) be sunset?**
+
+Please make these changes immediately, as we are sunsetting node-sass on 1/31/2024. After this date, you must compile all SCSS files with the newer node-sass engine to avoid styling issues. This upgrade is necessary to ensure the security of our platform going forward and to ensure we’re not running any out-of-date software that may be at additional risk for security vulnerabilities.
+
+If you have any questions, please contact our [support team](https://support.bigcommerce.com/s/contact).
