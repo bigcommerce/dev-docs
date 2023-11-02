@@ -340,7 +340,7 @@ paths:
             type: integer
         - name: limit
           in: query
-          description: Controls the number of items per page in a limited (paginated) list of products.
+          description: Controls the number of items per page in a limited (paginated) list of products. The default product limit is 50 with a maximum limit of 250.
           schema:
             type: integer
         - name: direction
