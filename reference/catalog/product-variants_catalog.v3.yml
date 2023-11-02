@@ -2364,7 +2364,7 @@ components:
       name: product_id
       in: path
       description: |
-        The ID of the `Product` to which the resource belongs.
+        The ID of the `Product` to which the resource belongs. Product variant metafield endpoints that have the `product_id` in the request path are successful as long as the parameter is not empty. The `product_id` segment is there only for path consistency.
       required: true
       schema:
         type: integer
