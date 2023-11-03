@@ -14,15 +14,14 @@ The following OAuth Scopes are required:
 * A **price list** is a collection of price records. Price records make up a price list.
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
 
-```js filename="Price List Records" showLineNumbers copy
-{
-  "variant_id": 3121,
-  "price": 10.0,
-  "sale_price": 8.0,
-  "retail_price": 12.0,
-  "map_price": 6.0,
-  "currency": "EUR"
-}
+```js filename="Price List" showLineNumbers copy
+ {
+            "id": 2,
+            "name": "Retail",
+            "date_created": "2022-03-01T19:11:47Z",
+            "date_modified": "2022-05-11T19:57:09Z",
+            "active": true
+        }
 ```
 
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
