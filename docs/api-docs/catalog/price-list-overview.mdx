@@ -14,7 +14,7 @@ The following OAuth Scopes are required:
 * A **price list** is a collection of price records. Price records make up a price list.
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
 
-```js showLineNumbers copy
+```js filename="Price List Records" showLineNumbers copy
 {
   "variant_id": 3121,
   "price": 10.0,
@@ -35,33 +35,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 Content-Type: application/json
 
-{
-    "data": [
-        {
-            "id": 2,
-            "name": "Retail",
-            "date_created": "2022-03-01T19:11:47Z",
-            "date_modified": "2022-05-11T19:57:09Z",
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Test",
-            "date_created": "2022-05-11T19:42:49Z",
-            "date_modified": "2022-05-11T19:42:49Z",
-            "active": true
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 2,
-            "count": 2,
-            "per_page": 50,
-            "current_page": 1,
-            "total_pages": 1
-        }
-    }
-}
+{}
 ```
 
 ## Price list assignments
