@@ -198,19 +198,7 @@ The priorities with which you can process these methods are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
 
-### Request Structure
-
-The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
-
-```http filename="Example JSON request body" showLineNumbers copy
-{
- "id": 5,
- "name": "iPod",
- "description": "A portable MP3 music player."
-}
-```
-
-### Response structure
+#### Response structure
 
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
