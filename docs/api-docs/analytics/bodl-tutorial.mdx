@@ -1,0 +1,282 @@
+1. Show BODL in Browser console (link to BODL doc)
+
+Input
+
+```js showLineNumbers copy
+if (typeof window.bodlEvents.product.categoryViewed === 'function') {
+    window.bodlEvents.product.categoryViewed(function(payload) {
+        console.log(payload);
+    });
+}
+```
+
+Output 
+
+```json showLineNumbers copy
+{
+    category_id: 18
+    category_name: "Bath"
+    channel_id: 1
+    event_id: "b64a827c-c861-49b9-830e-edb17512ef64"
+    line_items: [
+        { 
+            base_price: null
+            brand_name: null
+            category_names: ['Bath']
+            currency: "USD"
+            discount: null
+            gift_certificate_id: null
+            gift_certificate_name: null
+            gift_certificate_theme: null
+            index: 0
+            product_id: "77"
+            product_name: "[Sample] Fog Linen Chambray Towel - Beige Stripe"
+            purchase_price: 49
+            quantity: null
+            retail_price: null
+            sale_price: null
+            sku: "SLCTBS"
+            variant_id: null
+        }
+    ]
+}
+```
+
+
+2. BODL transformed into GA4 properties
+
+Input
+
+```js showLineNumbers copy
+var measurementId = 'G-BTXJ20CFX1'
+
+function trasnformCategoryViewedPayload(payload) {
+    return addDestination({
+        item_list_id: payload.category_id,
+        item_list_name: payload.category_name,
+        items: payload.line_items && payload.line_items.map(transformItem)
+    });
+}
+
+function addDestination(payload) {
+    return Object.assign({}, payload, { send_to: measurementId });
+}
+
+function transformItem(item, index) {
+    var transformed =  {
+        item_id: item.sku || item.variant_sku || item.product_sku || item.variant_id || item.product_id,
+        item_name: item.product_name,
+        currency: item.currency,
+        discount: item.discount,
+        index: typeof item.index !== 'undefined' ? item.index : index,
+        item_brand: item.brand_name,
+        item_variant: item.sku || item.variant_sku || item.product_sku || item.product_id,
+        quantity: item.quantity,
+    };
+
+    var MAX_CATEGORIES_COUNT = 5;
+
+    if (item.category_name) {
+        transformed.item_category = item.category_name;
+    } else if (item.category_names && Array.isArray(item.category_names)) {
+        var categories = item.category_names.slice(0, MAX_CATEGORIES_COUNT);
+
+        categories.forEach(function (category, index) {
+            var key = 'item_category' + (index ? index + 1 : '');
+
+            transformed[key] = category;
+        });
+    }
+
+    if (item.purchase_price) {
+        transformed.price = item.purchase_price;
+    } else {
+        transformed.price = item.sale_price > 0 ? item.sale_price : item.price;
+    }
+
+    if (item.coupon) {
+        transformed.coupon = item.coupon;
+    }
+
+    return transformed;
+}
+
+if (typeof window.bodlEvents.product.categoryViewed === 'function') {
+    window.bodlEvents.product.categoryViewed(function(payload) {
+        console.log(trasnformCategoryViewedPayload(payload));
+    });
+}
+```
+
+Output
+
+```json showLineNumbers copy
+{
+    item_list_id: 18
+    item_list_name: "Bath"
+    items: [
+        { 
+            currency: "USD"
+            discount: null
+            index: 0
+            item_brand: null
+            item_category: "Bath"
+            item_id: "SLCTBS"
+            item_name: "[Sample] Fog Linen Chambray Towel - Beige Stripe"
+            item_variant: "SLCTBS"
+            price: 49
+            quantity: null
+        }
+    ]
+    send_to: "G-BTXJ20CFX1"
+}
+```
+
+
+3. Examine the gtag implementation example
+
+
+
+The following example is for gtag.js implementations:
+
+// payload in 3rd argument is in google format 
+
+gtag("event", "begin_checkout", {
+  currency: "USD",
+  value: 7.77,
+  coupon: "SUMMER_FUN",
+  items: [
+    {
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+      price: 9.99,
+      quantity: 1
+    }
+  ]
+});
+
+
+4. Add gtag, see in datalayer object 
+
+
+
+Browser console: 
+
+
+Note: used `'category_viewed'` instead of `GA_TO_BODL_PRODUCT_EVENTS.category_viewed` b/c didn't have that constant defined
+
+```js 
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+if (typeof window.bodlEvents.product.categoryViewed === 'function') {
+    window.bodlEvents.product.categoryViewed(function(payload) {
+        gtag('event', 'category_viewed', trasnformCategoryViewedPayload(payload));
+    });
+}
+```
+What is the data layer object? Pushed arguments to window.datalayer array. Then google takes over. Will see event name and properties (as transformed fields) in datalayer:
+
+Input
+
+```js
+window.dataLayer
+```
+
+Output
+
+```json
+[
+    {...}
+    {...}
+    {
+        0: "event"
+        1: "category_viewed"
+        2: {
+            item_list_id: 18
+            item_list_name: "Bath"
+            items: [
+                { 
+                    currency: "USD"
+                    discount: null
+                    index: 0
+                    item_brand: null
+                    item_category: "Bath"
+                    item_id: "SLCTBS"
+                    item_name: "[Sample] Fog Linen Chambray Towel - Beige Stripe"
+                    item_variant: "SLCTBS"
+                    price: 49
+                    quantity: null
+                }
+            ]
+            send_to: "G-BTXJ20CFX1"
+        }
+    }
+    ...
+]
+```
+
+Will also see requests sent in Network tab (see event in request payload). BC doesn't control request; google sends the request.
+
+i.e. We push to datalayer object. Google script will observe changes in datalayer object, and send to their server.
+
+i.e. Go to network tab (Network shows all requests being done on page).
+
+----------------------------------
+
+5. Building rest of our script:
+
+If installing GA4 on your website and have properties for tracking events, can do:
+
+For more on how to install google tab manually, see
+https://support.google.com/google-ads/answer/12985952?hl=en
+
+```js 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-123456789"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'TAG_ID');
+</script>
+```
+
+In script, subscribed on event.
+After enable BODL, can subscribe on any event provided by BODL (the same way as in script)
+
+--------------------------------------
+
+6. You actually need 2 scripts:
+
+Elements tab in browser:
+1: Google Script on all Storefront pages (script injected thru Scripts API or script manager by entering script as URL)
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-123456789"></script>
+
+2: Our script from this tutorial
+<script src="/app/assets/js/example_script.js"></script>
+
+
+
+
+------
+
+
+
+
+
