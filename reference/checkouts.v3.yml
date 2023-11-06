@@ -1598,7 +1598,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/discounts':
     post:
       tags:
@@ -2383,7 +2382,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/billing-address':
     post:
       tags:
@@ -3154,7 +3152,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       tags:
@@ -3925,7 +3922,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/consignments':
     post:
       tags:
@@ -3967,8 +3963,36 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateConsignmentRequest'
-        required: true
+                $ref: '#/components/schemas/CreateConsignmentRequest'
+            examples: 
+              Shipping Consignment:
+                value:
+                  - address:
+                      first_name: "Jane"
+                      last_name: "Doe"
+                      email: "Jane.Doe@email.com"
+                      company: "BigCommerce"
+                      address1: "100 Main Street"
+                      address2: "string"
+                      city: "Austin"
+                      state_or_province: "Texas"
+                      state_or_province_code: "string"
+                      country_code: "US"
+                      postal_code: "78701"
+                      phone: "555-555-5555"
+                      custom_fields:
+                        - field_id: "string"
+                          field_value: "string"
+                      line_items:
+                          item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
+                          quantity: 1 
+              Pickup Consignment:
+                value: 
+                  - line_items:
+                      - item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
+                        quantity: 1
+                    pickup_option:
+                      pickup_method_id: 1                 
       responses:
         '200':
           description: ''
@@ -4717,7 +4741,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     parameters:
       
@@ -5509,7 +5532,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      x-codegen-request-body-name: body
     delete:
       tags:
         - Checkout Consignments
@@ -7033,7 +7055,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       tags:
