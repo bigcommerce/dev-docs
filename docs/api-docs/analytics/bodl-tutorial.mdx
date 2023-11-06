@@ -1,11 +1,16 @@
 ```js showLineNumbers copy
 function subscribeOnBodlEvents(measurementId, developerId) {
+    // subscribe to all BODL events
+
+    // Create a data layer object. If not there, allow it to be empty array
     window.dataLayer = window.dataLayer || [];
 
+    // pushes information to datalayer object
     function gtag(){
         dataLayer.push(arguments);
     }
 
+    // In "Set up GA4" google doc, initialization step, configure IDs 
     gtag('js', new Date());
     gtag('set', 'developer_id.' + developerId, true);
     gtag('config', measurementId);
@@ -272,6 +277,7 @@ function subscribeOnBodlEvents(measurementId, developerId) {
         }
     }
 
+    // subscribe to events
     subscribeOnCheckoutEvents();
     subscribeOnCartEvents();
     subscribeOnProductEvents();
