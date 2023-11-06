@@ -5,9 +5,11 @@ keywords: if, stencil
 
 # Incompatible Directives
 
-As of this writing, BigCommerce is using a fork of node-sass that we plan to sunset in the future. Because Stencil CLI and BigCommerce's servers are running different versions of node-sass, there can be differences in the compiled CSS output.
+**Prior to January 31, 2024, you must update your SCSS file structure and syntax to compile correctly and avoid frontend styling issues.** This upgrade is necessary to ensure the security of our platform going forward and to ensure we’re not running any out-of-date software that may be at additional risk for security vulnerabilities.
 
-This article covers the known divergent behavior and describes how to avoid unexpected compiler errors until the node-sass fork sunsets.
+This article covers the known divergent behavior and describes how to avoid unexpected compiler errors due to the Stencil CLI and BigCommerce's servers running different versions of node-sass.
+
+To ensure that your storefront is up to date, review the [Deprecation and Sunset Support for Node-Sass](/docs/stencil-docs/installing-stencil-cli/node-sass.mdx#deprecation-and-sunset-support-for-node-sass) information to learn about the two possible options for updating your node-sass compiler.
 
 ## Examples
 
