@@ -8252,6 +8252,8 @@ components:
           type: string
           description: |
             Type of gift-wrapping options. Values: `any` - allow any gift-wrapping options in the store; `none` - disallow gift-wrapping on the product; `list` – provide a list of IDs in the `gift_wrapping_options_list` field.
+
+            Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
           enum:
             - any
             - none
@@ -8260,6 +8262,8 @@ components:
           type: array
           description: |
             A list of gift-wrapping option IDs.
+
+            Always included in the response body; not applicable for the `include_fields` and `exclude_fields` query parameters.
           items:
             type: integer
         sort_order:
