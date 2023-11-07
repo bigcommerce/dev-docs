@@ -1,4 +1,4 @@
-# Headless Tutorial
+# Headless Guide
 
 This tutorial will walk you through [creating a cart](#creating-a-cart), [checkout](#creating-a-checkout), an [order](#creating-an-order), and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](/docs/rest-management/checkouts) REST Management APIs to build a headless storefront. 
 
@@ -16,10 +16,10 @@ This article assumes you are familiar with the following:
 * A store-level or app-level API account with the following permissions.
 
 | UI Name  | Permission | Parameter                     |
-|----------|------------|-------------------------------|
+|----------|------------|-------------------------------| 
 | Carts    | modify     | `store_cart`                  |
 | Checkouts| modify     | `store_checkouts`             |
-| Orders   | modify     | `store_v2_orders_read_only`   |
+| Orders   | modify     | `store_v2_orders`             |
 | Products | read-only  | `store_v2_products_read_only` |
 
 For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes).
@@ -123,8 +123,8 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 {}
 ```
-</Tab>
-<Tab>
+  </Tab>
+  <Tab>
 ```http filename="Example response: Create cart redirect URLs" showLineNumbers copy
 {
     "data": {
@@ -135,7 +135,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "meta": {}
 }
 ```
-</Tab>
+  </Tab>
 </Tabs>
 
 ## Creating a checkout
@@ -165,7 +165,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
   </Tab>
-<Tab>
+  <Tab>
 ```http filename="Example response: Add Checkout Billing Address" showLineNumbers copy
 {
     "data": {
@@ -259,7 +259,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "meta": {}
 }
 ```
-</Tab>
+  </Tab>
 </Tabs>
 
 Now that you have transformed your headless cart into a proper checkout with a billing address, you can add a consignment with a shipping address, line items, and a shipping option. You can do so by following this two-step process:
@@ -267,6 +267,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
 ### Step 1: Add a new consignment to the checkout
 
 Send a `POST` request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return available shipping options. You will use one of the available shipping options to update the consignment in [step 2](#step-2-update-the-consignment).
+
 <Tabs items={['Request', 'Response']}>
   <Tab>
 ```http filename="Example request: Add Consignment to checkout" showLineNumbers copy
@@ -299,8 +300,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   }
 ]
 ```
-</Tab>
-<Tab>
+  </Tab>
+  <Tab>
 ```http filename="Example response: Add Consignment to checkout" showLineNumbers copy
 {
     "data": {
@@ -468,7 +469,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "meta": {}
 }
 ```
-</Tab>
+  </Tab>
 </Tabs>
 The response will contain an array of `available_shipping_options`. In the next step, you will use one of the available shipping options to update the consignment.
 
@@ -521,8 +522,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
   
 ```
-</Tab>
-<Tab>
+  </Tab>
+  <Tab>
 ```http filename="Example response" Update checkout consignment" showLineNumbers copy
 {
     "data": {
@@ -691,12 +692,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
     "meta": {}
 }
 ```
-</Tab>
+  </Tab>
 </Tabs>
 
 ## Creating an order
 
-Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](https://developer.bigcommerce.com/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status will be set to incomplete.
+Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status will be set to incomplete.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -707,9 +708,8 @@ Now that you have added a billing address and a consignment to your checkout, yo
     Content-Type: application/json
     X-Auth-Token: {{ACCESS_TOKEN}}
   ```
-
-  </Tab>
-  <Tab>
+   </Tab>
+   <Tab>
 
     ```json filename="Example response: Create an order" showLineNumbers copy
     {
@@ -722,3 +722,13 @@ Now that you have added a billing address and a consignment to your checkout, yo
 
   </Tab>
 </Tabs>
+
+## References
+* [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes)
+* [Carts](/docs/rest-management/carts/carts-single#create-a-cart)
+* [Checkout](/docs/rest-management/checkouts/checkout-orders#create-an-order) 
+* [Order](/docs/rest-management/checkouts/checkout-orders#create-an-order)
+* [Working with the REST Storefront Cart and Checkout APIs](/docs/storefront/cart-checkout/guide/rest-storefront)
+* [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url)
+* [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address)
+* [Update Checkout Consignment](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment)
