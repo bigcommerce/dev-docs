@@ -1,6 +1,6 @@
 # End-to-End Guide: Headless Checkout Flow with REST Management APIs
 
-This tutorial will walk you through [creating a cart](#creating-a-cart), [checkout](#creating-a-checkout), an [order](#creating-an-order), and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](/docs/rest-management/checkouts) REST Management APIs to build a headless storefront. 
+This tutorial walks you through [creating a cart](#creating-a-cart), [checkout](#creating-a-checkout), an [order](#creating-an-order), and processing a payment using the [Carts](/docs/rest-management/carts/carts-single#create-a-cart) and [Checkout](/docs/rest-management/checkouts) REST Management APIs to build a headless storefront. 
 
 This article assumes you are familiar with the following:
 
@@ -110,7 +110,7 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
   ### Step 2: Generate the redirect URLs
 
-  To generate the redirect URLs, send a request to the [Create a cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You use the cart ID generated in [Step 1](#creating-a-cart). The response will contain the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
+  To generate the redirect URLs, send a request to the [Create a cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You use the cart ID generated in [Step 1](#creating-a-cart). The response contains the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
 
   <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -140,7 +140,7 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
 ## Creating a checkout
 
-In this section, we will add a billing address to your checkout. You must have a `checkoutId`. The `checkoutId` is the same as the `cart_id` you generated in [step 1](#creating-a-cart) of creating a cart. To add a billing address, send a POST request to the  [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
+In this section, add a billing address to your checkout. You must have a `checkoutId`. The `checkoutId` is the same as the `cart_id` you generated in [step 1](#creating-a-cart) of creating a cart. To add a billing address, send a POST request to the  [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -268,7 +268,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
 
   ### Step 1: Add a new consignment to the checkout
 
-  Send a request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your request to return available shipping options. You will use one of the available shipping options to update the consignment in [step 2](#step-2-update-the-consignment).
+  Send a request to the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your request to return available shipping options. Use one of the available shipping options to update the consignment in [step 2](#step-2-update-the-consignment).
 
   <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -474,7 +474,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
     </Tab>
   </Tabs>
   
-  The response will contain an array of `available_shipping_options`. In the next step, you will use one of the available shipping options to update the consignment.
+  The response contains an array of `available_shipping_options`. In the next step, use one of the available shipping options to update the consignment.
 
   ```json filename="available shipping options" showLineNumbers copy
     "available_shipping_options": [
@@ -701,7 +701,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
 
 ## Creating an order
 
-After you add a billing address and a consignment to your checkout, you can create an order by sending a request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status will be set to incomplete.
+After you add a billing address and a consignment to your checkout, you can create an order by sending a request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status displays as incomplete.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
