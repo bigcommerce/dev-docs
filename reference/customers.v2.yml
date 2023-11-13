@@ -840,7 +840,11 @@ paths:
       tags:
         - Customer Groups
       summary: Get All Customer Groups
-      description: Returns a list of *Customer Groups*. Default sorting is by customer-group ID, from lowest to highest.
+      description: |-
+        Returns a list of *Customer Groups*. Default sorting is by customer-group ID, from lowest to highest.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: getAllCustomerGroups
       parameters:
         - name: page
@@ -930,6 +934,9 @@ paths:
 
         **Required Fields**
         * name
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: createACustomerGroup
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1105,7 +1112,8 @@ paths:
         Deletes a *Customer Group*. 
 
         **Notes**
-        All existing customers are unassigned from the group when it is deleted.
+        - All existing customers are unassigned from the group when it is deleted.
+        - The default rate limit for this endpoint is 40 concurrent requests.
       operationId: deleteACustomerGroup
       responses:
         '204':
