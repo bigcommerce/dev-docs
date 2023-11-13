@@ -4040,7 +4040,11 @@ paths:
       tags:
         - Custom Fields
       summary: Get Custom Fields
-      description: Returns a list of product *Custom Fields*. Optional parameters can be passed in.
+      description: |-
+        Returns a list of product *Custom Fields*. Optional parameters can be passed in.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: getCustomFields
       parameters:
         - name: include_fields
@@ -4138,9 +4142,8 @@ paths:
         **Read-Only:**
         - id
 
-        **Limits**
-        - 200 custom fields per product limit.
-        - 255 characters per custom field limit.
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests. 
       operationId: createCustomField
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -4484,7 +4487,11 @@ paths:
       tags:
         - Custom Fields
       summary: Delete a Custom Field
-      description: Deletes a product *Custom Field*.
+      description: |-
+        Deletes a product *Custom Field*.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: deleteCustomFieldById
       responses:
         '204':
@@ -8411,7 +8418,7 @@ components:
           type: array
           minimum: 0
           maximum: 255
-          description: 200 maximum custom fields per product. 255 maximum characters per custom field.
+          description: 200 maximum custom fields per product. 255 maximum characters per custom field. The default rate limit for this endpoint is 40 concurrent requests.
           items:
             $ref: '#/components/schemas/productCustomField_Put'
         bulk_pricing_rules:
