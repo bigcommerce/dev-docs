@@ -275,7 +275,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/countResponse'
-      summary: 'Get a Count of Country’s States '
+      summary: 'Get a Count of Country’s States'
       tags:
         - States
       description: Returns a count of a country's states.
