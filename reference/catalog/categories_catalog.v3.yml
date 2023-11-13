@@ -55,7 +55,11 @@ paths:
       tags:
         - Categories
       summary: Get All Categories
-      description: Returns a list of *Categories*. Optional filter parameters can be passed in.
+      description: |-
+        Returns a list of *Categories*. Optional filter parameters can be passed in.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: getCategories
       parameters:
         - name: id
@@ -365,7 +369,7 @@ paths:
       tags:
         - Categories
       summary: Create a Category
-      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
+      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit.\n\n **Note:**\n The default rate limit for this endpoint is 40 concurrent requests.\n"
       operationId: createCategory
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -509,7 +513,7 @@ paths:
                   meta:
                     $ref: '#/components/schemas/metaEmpty_Full'
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
             application/json:
               schema:
@@ -727,7 +731,11 @@ paths:
       tags:
         - Categories
       summary: Get a Category
-      description: Returns a single *Category*. Optional parameters can be passed in.
+      description: |-
+        Returns a single *Category*. Optional parameters can be passed in.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: getCategoryById
       parameters:
         - name: include_fields
@@ -786,6 +794,9 @@ paths:
 
         **Read-Only Fields**
         - id
+
+        **Note:** 
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: updateCategory
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1139,7 +1150,11 @@ paths:
       tags:
         - Categories
       summary: Delete a Category
-      description: Deletes a *Category*.
+      description: |-
+        Deletes a *Category*.
+        
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: deleteCategoryById
       responses:
         '204':
@@ -1324,7 +1339,7 @@ paths:
         **Read-Only Fields**
         - id
 
-        **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+        **Note:** The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createCategoryMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1659,7 +1674,7 @@ paths:
       tags:
         - Images
       summary: Delete a Category Image
-      description: Deletes a *Cateogory Image*.
+      description: Deletes a *Category Image*.
       operationId: deleteCategoryImage
       responses:
         '204':
