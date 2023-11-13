@@ -10,9 +10,40 @@ The GraphQL Storefront API lets you create the following URL redirect attributes
 
 ## Prerequisites
 To complete the guide you will need the following:
--
--
--
+- A BigCommerce Store
+- A storefront API token
+- An understanding of [Routes](/docs/storefront/headless/site-content#routes)
+
+For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
+
+## Create a Redirect
+
+Create a 301 redirect using the following example.
+
+
+
+``` graphql filename="Example query: Create a redirect" showLineNumbers copy 
+query {
+  site {
+    route(path: "/chambray-towel/", redirectBehavior: FOLLOW) {
+      node {
+        ... on Product {
+          name
+          entityId
+        }
+      }
+      redirect {
+        to {
+          __typename
+        }
+        toURL
+        fromPath
+      }
+    }
+  }
+}
+```
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
 ### FAQs
 
