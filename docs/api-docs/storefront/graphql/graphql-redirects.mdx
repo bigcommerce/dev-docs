@@ -1,48 +1,81 @@
 **GraphQL Storefront API**
 # Guide to Working with Redirects
 
-BigCommerce's GraphQL Storefront API lets frontend developers create [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with 301 Redirects.
+BigCommerce's GraphQL Storefront API lets frontend developers modify [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with URL Redirects.
 
-The GraphQL Storefront API lets you create the following URL redirect attributes and more:
--
--
--
+The GraphQL Storefront API lets you set the following URL redirect attributes and more:
+- Redirect to a blog post
+- Redirect to a brand
+- Redirect to a category
+- Redirect to a manually input URL
 
 ## Prerequisites
+
 To complete the guide you will need the following:
-- A BigCommerce Store
-- A storefront API token
+- A BigCommerce Store with Multi-Storefront
+- A [Storefront API](docs/rest-authentication/tokens#create-a-token) token
+- A 301 redirect set 
 - An understanding of [Routes](/docs/storefront/headless/site-content#routes)
 
 For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
 
-## Create a Redirect
+## Site Redirect on a Product
 
-Create a 301 redirect using the following example.
+Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old product URL, to a new product URL.
 
-
-
-``` graphql filename="Example query: Create a redirect" showLineNumbers copy 
-query {
-  site {
-    route(path: "/chambray-towel/", redirectBehavior: FOLLOW) {
-      node {
-        ... on Product {
-          name
-          entityId
+<tabs items={['Request', 'Response']}>
+  <tabs>
+    <tab>
+    ``` graphql filename="Example query request: Site Redirect" showLineNumbers copy 
+    query {
+      site {
+        route(path: "/chambray-towel-1/", redirectBehavior: FOLLOW) {
+          node {
+            ... on Product {
+              name
+              entityId
+            }
+          }
+          redirect {
+            to {
+              __typename
+            }
+            toUrl
+            fromPath
+          }
         }
       }
-      redirect {
-        to {
-          __typename
+    }
+    ```
+  </tab>
+  <tab>
+  ``` graphql filename="Example query response: Site Redirect" showLineNumbers copy
+  {
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "name": "Test Product",
+          "entityId": 127
+        },
+        "redirect": {
+          "to": {
+            "__typename": "ProductRedirect"
+          },
+          "toUrl": "https://www.test-store.com/test-product/",
+          "fromPath": "/chambray-towel-1/"
         }
-        toURL
-        fromPath
       }
     }
   }
 }
+
+
 ```
+    </tab>
+  </tabs>
+
+
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
 ### FAQs
