@@ -605,6 +605,8 @@ paths:
             Filter items by name.
           schema:
             type: string
+          required:
+            true
         - name: page_title
           in: query
           description: |
