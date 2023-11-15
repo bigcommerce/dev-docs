@@ -19,14 +19,14 @@ To complete the guide you will need the following:
 
 For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
 
-## Site Redirect on a Product
+## Site Redirect to a product
 
 Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old product URL, to a new product URL.
 
 <tabs items={['Request', 'Response']}>
   <tabs>
     <tab>
-    ``` graphql filename="Example query request: Site Redirect" showLineNumbers copy 
+    ``` graphql filename="Example query request: Site Redirect to a product" showLineNumbers copy 
     query {
       site {
         route(path: "/chambray-towel-1/", redirectBehavior: FOLLOW) {
@@ -76,8 +76,126 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   </tabs>
 
 
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=productredirect" target="_blank">**Try it in GraphQL Playground**</a>
+
+
+## Site redirect to a page
+
+Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old page URL, to a new page URL.
+
+<tabs items={['Request', 'Response']}>
+  <tabs>
+    <tab>
+    ``` graphql filename="Example query request: Site Redirect to a Page" showLineNumbers copy 
+    query {
+      site {
+        route(path: "/home-and-kitchen/", redirectBehavior: FOLLOW) {
+          node {
+            ... on WebPage{
+              name
+              entityId
+            }
+          }
+          redirect {
+            to {
+              __typename
+            }
+            toUrl
+            fromPath
+          }
+        }
+      }
+    }
+    ```
+  </tab>
+  <tab>
+  ``` graphql filename="Example query response: Site Redirect to a Page" showLineNumbers copy
+  {
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "name": "Towel Collection",
+          "entityId": 6
+        },
+        "redirect": {
+          "to": {
+            "__typename": "PageRedirect"
+          },
+          "toUrl": "https://www.test-store.com/chambray-towel/",
+          "fromPath": "/home-and-kitchen/"
+        }
+      }
+    }
+  }
+}
+```
+    </tab>
+  </tabs>
+
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=pageredirect" target="_blank">**Try it in GraphQL Playground**</a>
+
+
+## Site redirect to a blog post
+
+
+<tabs items={['Request', 'Response']}>
+  <tab>
+  ``` graphql filename="Example query request: Site Redirect to a Blog Post" showLineNumbers copy 
+  query {
+    site {
+      route(path: "/your-first-blog-post/", redirectBehavior: FOLLOW) {
+        node {
+          ... on BlogPost{
+            name
+            entityId
+          }
+        }
+        redirect {
+          to {
+            __typename
+          }
+          toUrl
+          fromPath
+        }
+      }
+    }
+  }
+  ```
+  </tab>
+  <tab>
+  ``` graphql filename="Example query response: Site Redirect to a Blog Post" showLineNumbers copy
+  {
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "name": "2023 Events Calendar",
+          "entityId": 3
+        },
+        "redirect": {
+          "to": {
+            "__typename": "BlogPostRedirect"
+          },
+          "toUrl": "https://www.test-store.com/blog/2024-events-calendar/",
+          "fromPath": "/your-first-blog-post/"
+        }
+      }
+    }
+  }
+  }
+  ```
+  </tab>
+</tabs>
+
+  <a href="https://developer.bigcommerce.com/graphql?playground_tab=blogpostredirect" target="_blank">**Try it in GraphQL Playground**</a>
 
 ### FAQs
+
+**Request is returning `Null` values**
+
+
+
 
 ## Resources
