@@ -2,10 +2,11 @@ openapi: '3.0.1'
 info:
   title: Wishlist
   description: |-
-    Create and manage customer [wishlists](https://support.bigcommerce.com/s/article/Wishlists).
+    Create and manage customer wishlists and wishlist items.
 
     ## Additional Information
-    * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
+    
+    * [Wishlists (Help Center)](https://support.bigcommerce.com/s/article/Wishlists)
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
@@ -23,7 +24,6 @@ security:
   - X-Auth-Token: []
 tags:
   - name: Wishlists
-    description: ''
   - name: Wishlists Items
 paths:
   '/wishlists':
@@ -241,23 +241,22 @@ paths:
                     type: string
                   type:
                     type: string
-      x-codegen-request-body-name: body
   '/wishlists/{wishlist_id}/items/{item_id}':
+    parameters:
+      - $ref: '#/components/parameters/WishlistID'
+      - $ref: '#/components/parameters/Accept'
+      - name: item_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
     delete:
       tags:
         - Wishlists Items
       summary: Delete Wishlist Item
       description: Deletes a wishlist item.
       operationId: WishlistsItemsByIdDelete
-      parameters:
-        - $ref: '#/components/parameters/WishlistID'
-        - $ref: '#/components/parameters/Accept'
-        - name: item_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
           description: ''
@@ -334,15 +333,15 @@ paths:
                   type:
                     type: string
   '/wishlists/{wishlist_id}':
+    parameters:
+    - $ref: '#/components/parameters/WishlistID'
+    - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Wishlists
       summary: Get a Wishlist
       description: Returns a single wishlist.
       operationId: WishlistsByIdGet
-      parameters:
-        - $ref: '#/components/parameters/WishlistID'
-        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
@@ -425,11 +424,9 @@ paths:
       description: |-
         Updates a wishlist.
 
-        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists/wishlists-items).
+        Use this endpoint to update existing wishlist items, change the wishlistʼs name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists/wishlists-items).
       operationId: WishlistsByIdPut
       parameters:
-        - $ref: '#/components/parameters/WishlistID'
-        - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
@@ -506,16 +503,12 @@ paths:
                     type: string
                   type:
                     type: string
-      x-codegen-request-body-name: body
     delete:
       tags:
         - Wishlists
       summary: Delete a Wishlist
       description: Deletes a wishlist.
       operationId: WishlistsByIdDelete
-      parameters:
-        - $ref: '#/components/parameters/WishlistID'
-        - $ref: '#/components/parameters/Accept'
       responses:
         '204':
           description: ''
@@ -551,6 +544,9 @@ paths:
                   type:
                     type: string
   '/wishlists/{wishlist_id}/items':
+    parameters:
+    - $ref: '#/components/parameters/WishlistID'
+    - $ref: '#/components/parameters/Accept'
     post:
       tags:
         - Wishlists Items
@@ -558,8 +554,6 @@ paths:
       description: Adds a wishlist item. More than one item can be added at a time.
       operationId: WishlistsItemsByIdPost
       parameters:
-        - $ref: '#/components/parameters/WishlistID'
-        - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
@@ -627,7 +621,6 @@ paths:
         '500':
           description: Internal server error.
           content: {}
-      x-codegen-request-body-name: body
 components:
   schemas:
     wishlist_Post:
@@ -806,18 +799,6 @@ components:
           format: int32
       description: 'Data about the response, including pagination and collection totals.'
       x-internal: false
-    error:
-      title: error
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-        title:
-          type: string
-        type:
-          type: string
-      x-internal: false
     metaCollection:
       title: metaCollection
       type: object
@@ -825,150 +806,7 @@ components:
         pagination:
           $ref: '#/components/schemas/pagination'
       x-internal: false
-  responses:
-    Unauthorized:
-      description: Authentication information is missing or invalid.
-      content:
-        application/json:
-          schema:
-            title: Error
-            type: object
-            properties:
-              status:
-                type: integer
-                format: int32
-              title:
-                type: string
-              type:
-                type: string
-    Wishlist_Resp:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/wishlist_Full'
-              meta:
-                type: object
-                properties: {}
-                additionalProperties: true
-                description: Response metadata.
-          example:
-            data:
-              id: 30
-              customer_id: 10
-              name: Christmas List
-              is_public: true
-              token: d2d55481-13eb-4d1e-9d79-9062b518570d
-              items:
-                - id: 44
-                  product_id: 77
-                  variant_id: 1
-                - id: 45
-                  product_id: 80
-                  variant_id: 1
-                - id: 46
-                  product_id: 81
-                  variant_id: 1
-                - id: 47
-                  product_id: 86
-                  variant_id: 1
-                - id: 48
-                  product_id: 88
-                  variant_id: 1
-            meta: {}
-    wishlist_Resp_Collection:
-      description: ''
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/wishlist_Full'
-              meta:
-                $ref: '#/components/schemas/metaCollection'
-          example:
-            data:
-              - id: 1
-                customer_id: 4
-                name: My Wish List
-                is_public: false
-                token: 02d55481-13eb-4d1e-9d79-9062b518570d
-                items: []
-              - id: 2
-                customer_id: 11
-                name: Christmas
-                is_public: false
-                token: 02d55481-13eb-4d1e-9d79-9062b518570e
-                items:
-                  - id: 1
-                    product_id: 167
-                  - id: 2
-                    product_id: 174
-                  - id: 3
-                    product_id: 184
-              - id: 3
-                customer_id: 20
-                name: Birthday
-                is_public: false
-                token: 02d55481-13eb-4d1e-9d79-9062b518570f
-                items:
-                  - id: 4
-                    product_id: 184
-                  - id: 5
-                    product_id: 183
-              - id: 4
-                customer_id: 20
-                name: Christmas
-                is_public: false
-                token: 02d55481-13eb-4d1e-9d79-9062b518570f
-                items:
-                  - id: 6
-                    product_id: 201
-              - id: 5
-                customer_id: 19
-                name: Wish List
-                is_public: false
-                token: 02d55481-13eb-4d1e-9d79-9062b518570f
-                items:
-                  - id: 7
-                    product_id: 173
-                  - id: 8
-                    product_id: 176
-            meta:
-              pagination:
-                total: 0
-                count: 5
-                per_page: 50
-                current_page: 1
-                total_pages: 0
   parameters:
-    FilterCustomerID:
-      name: customer_id
-      in: query
-      description: All wishlists relating to the customer.
-      schema:
-        type: integer
-        format: int32
-    FilterPage:
-      name: page
-      in: query
-      description: The page number of results per page. 1 is the default and starts from record 0.
-      schema:
-        type: integer
-        format: int32
-    FilterLimit:
-      name: limit
-      in: query
-      description: The numbers of items to return per page. Default is 50 and maximum is 250.
-      schema:
-        type: integer
-        format: int32
     WishlistID:
       name: wishlist_id
       in: path
