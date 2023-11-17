@@ -534,7 +534,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/cartId'
     get:
-      description: Returns a storeʼs *Cart*.
+      description: Returns a store's *Cart*.
       parameters:
         - name: include
           in: query
@@ -561,7 +561,7 @@ paths:
       operationId: getACart
     put:
       description: |-
-        Updates a *Cartʼs* `customer_id`.
+        Updates a *Cart's* `customer_id`.
 
         **Notes**
 
@@ -796,7 +796,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -823,8 +823,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MetafieldPost'
-            examples: {}
+              $ref: '#/components/schemas/MetafieldPost' 
+            example:
+                    {
+                      "permission_set": app_only,
+                      "namespace": Sales Department,
+                      "key": Staff Name,
+                      "value": Sam,
+                      "description": Name of staff member
+                      }
         description: ''
         required: true
       responses:
@@ -835,7 +842,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MetaFieldCollectionResponse'
-              examples: {}
+              example:
+                data: 
+                  "id": 24
+                  "key": Staff Name
+                  "value": Sam
+                  "namespace": Sales Department
+                  "permission_set": app_only
+                  "resource_type": cart
+                  "resource_id": b810114d-9926-45b7-bba5-7633b251154b
+                  "description": Name of staff member
+                  "date_created": 2023-11-15T15:16:35+00:00
+                  "date_modified": 2023-11-15T15:16:35+00:00
+                meta: {}
         '404':
           description: |
             The resource was not found.
@@ -866,7 +885,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -2107,7 +2126,7 @@ components:
           description: SKU of the variant.
         name:
           type: string
-          description: The item’s product name.
+          description: The item's product name.
           example: T-Shirt
         url:
           description: The product URL.
@@ -2354,7 +2373,7 @@ components:
       type: object
       title: Item Custom
       description: |-
-        Add a custom item to the shopperʼs cart.
+        Add a custom item to the shopper's cart.
 
         * Custom items are not added to the catalog.
         * The price should be set to match the store settings for taxes.
@@ -2378,7 +2397,7 @@ components:
       type: object
       title: Item Custom
       description: |-
-        Add a custom item to the shopperʼs cart.
+        Add a custom item to the shopper's cart.
 
         * Custom items are not added to the catalog.
         * The price should be set to match the store settings for taxes.
@@ -2989,7 +3008,7 @@ components:
             date_created:
               type: string
               format: date-time
-              description: Date and time of the metafieldʼs creation.
+              description: Date and time of the metafield's creation.
               example: '2022-06-16T18:39:00+00:00'
             date_modified:
               type: string
@@ -3135,7 +3154,7 @@ components:
         Response payload for the BigCommerce API.
       properties:
         data:
-          type: array
+          type: object
           items:
             $ref: '#/components/schemas/Metafield'
         meta:
@@ -3308,14 +3327,14 @@ components:
     MetafieldKeyParam:
       name: key
       in: query
-      description: Filter based on a metafieldʼs key.
+      description: Filter based on a metafield's key.
       required: false
       schema:
         type: string
     MetafieldNamespaceParam:
       name: namespace
       in: query
-      description: Filter based on a metafieldʼs key.
+      description: Filter based on a metafield's key.
       required: false
       schema:
         type: string
