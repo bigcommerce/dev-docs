@@ -65,7 +65,7 @@ paths:
         - name: id
           in: query
           description: |
-            Filter items by id.
+            Filter items by ID.
           schema:
             type: integer
         - name: 'id:in'
@@ -446,7 +446,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                    A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -469,7 +469,7 @@ paths:
                 image_url:
                   type: string
                   description: |
-                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                    Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                   example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                   x-url: true
                 custom_url:
@@ -586,7 +586,7 @@ paths:
       parameters:
         - name: id
           in: query
-          description: Filter items by id.
+          description: Filter items by ID.
           schema:
             type: integer
         - name: 'id:in'
@@ -879,7 +879,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                    A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -902,7 +902,7 @@ paths:
                 image_url:
                   type: string
                   description: |
-                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                    Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                   example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                   x-url: true
                 custom_url:
@@ -1017,7 +1017,7 @@ paths:
                         minLength: 0
                         type: string
                         description: |
-                          A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                          A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
                         example: category.html
                       is_visible:
                         type: boolean
@@ -1040,7 +1040,7 @@ paths:
                       image_url:
                         type: string
                         description: |
-                          Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                          Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
                         example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
                         x-url: true
                       custom_url:
@@ -1174,7 +1174,7 @@ paths:
         - name: id
           in: query
           description: |
-            Filter items by id.
+            Filter items by ID.
           schema:
             type: integer
         - name: 'id:in'
@@ -1339,7 +1339,7 @@ paths:
         **Read-Only Fields**
         - id
 
-        **Note:** The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+        **Note:** The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createCategoryMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -1845,7 +1845,7 @@ components:
           minLength: 0
           type: string
           description: |
-            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+            A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
           example: category.html
         is_visible:
           type: boolean
@@ -1868,7 +1868,7 @@ components:
         image_url:
           type: string
           description: |
-            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+            Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
           example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
           x-url: true
         custom_url:
@@ -1879,7 +1879,7 @@ components:
     metafield_Base:
       title: metafield_Base
       type: object
-      description: 'Metafield for products, categories, variants, and brands; the max number of metafields allowed on each is 50. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      description: 'Metafield for products, categories, variants, and brands; the max number of metafields allowed on each is 50. For more information, see [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
       properties:
         key:
@@ -2237,7 +2237,7 @@ components:
           minLength: 0
           type: string
           description: |
-            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+            A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
           example: category.html
     is_visible:
       title: is_visible
@@ -2254,7 +2254,7 @@ components:
         image_url:
           type: string
           description: |
-            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+            Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
           example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
           x-url: true
     meta_description:
