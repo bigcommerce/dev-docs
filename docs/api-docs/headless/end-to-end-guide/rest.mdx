@@ -26,7 +26,7 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
   ### Step 1: Generate the cart ID
 
-  To generate the cart ID, send a request to the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint. The response contain the `id`, which is the `cart_id` or `cartId` in subsequent calls.
+  To generate a cart ID, send a request to the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint. The response contains an `id`, which is the `cart_id` or `cartId` in subsequent calls.
 
   <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -110,8 +110,9 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
   ### Step 2: Generate the redirect URLs
 
-  To generate the redirect URLs, send a request to the [Create a cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You use the cart ID generated in [Step 1](#creating-a-cart). The response contains the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
+  After you generate the cart ID, generate URLs to redirect customers to the BigCommerce-hosted cart and checkout pages. 
   
+  To generate the redirect URLs, send a request to the [Create a cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You use the cart ID generated in [Step 1](#creating-a-cart). The response contains the `cart_url` and the `checkout_url`.
 
   <Tabs items={['Request', 'Response']}>
     <Tab>
@@ -141,7 +142,7 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
 ## Creating a checkout
 
-In this section, add a billing address to your checkout. You must have a `checkoutId`. The `checkoutId` is the same as the `cart_id` you generated in [step 1](#creating-a-cart) of creating a cart. To add a billing address, send a POST request to the  [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
+After you create a cart, transform it into a checkout by adding a billing address. You must have a `checkoutId`, which is the same as the `cart_id` you generated in [Step 1 of creating a cart](#creating-a-cart). To add a billing address, send a request to the  [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -263,7 +264,7 @@ In this section, add a billing address to your checkout. You must have a `checko
   </Tab>
 </Tabs>
 
-Now that you have transformed your headless cart into a proper checkout with a billing address, you can add a consignment with a shipping address, line items, and a shipping option. You can do so by following this two-step process:
+After you transform your headless cart into a proper checkout with a billing address, you can add a consignment with a shipping address, line items, and a shipping option. You can do so using the following two-step process:
 
 <Steps>
 
@@ -509,9 +510,9 @@ Now that you have transformed your headless cart into a proper checkout with a b
     ]
   ```
 
-  ### Step 2: Update the consignment
+  ### Step 2: Update the consignment with a shipping option
 
-  Use one of the available shipping options to update the consignment you created in the previous step.
+  After you create the consignment, update it with one of the available shipping options the previous request returned.
   Send a request to the [Update Checkout Consignment](/docs/rest-management/checkouts/checkout-consignments#update-checkout-consignment) endpoint.
 
   <Tabs items={['Request', 'Response']}>
@@ -702,7 +703,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
 
 ## Creating an order
 
-After you add a billing address and a consignment to your checkout, you can create an order by sending a request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The order status displays as incomplete.
+After you add a billing address and a consignment to your checkout, you can create an order by sending a request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. The initial order status is `incomplete`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
