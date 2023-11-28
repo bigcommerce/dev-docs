@@ -1,12 +1,15 @@
+---
+title: Set up Your Local Environment
+keywords: apps, next.js
+---
+
 # Step 1: Set up Your Local Environment
-
-
 
 Start by setting up your local development environment.
 
 ## Install Node
 
-For this tutorial, you need Node.js version 12.22+. To check your version of Node.js, run the following command in your terminal:
+For this tutorial, you need Node.js version 18+. To check your version of Node.js, run the following command in your terminal:
 
 ```shell copy filename="Check Node.js version"
 node -v
@@ -24,7 +27,7 @@ If you do not have Node.js installed, you can download it from [nodejs.org (down
 
 <Callout type="info">
   #### Node.js version and custom dependencies
-  * Make sure that you are using Node.js version 12.22+.
+  * Make sure that you are using Node.js version 18+ and npm version 8+.
   * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 </Callout>
 
@@ -41,16 +44,16 @@ To write a `package.json` file with default values, run `npm init -y` instead. D
 
 ## Install npm packages
 
-1. Install `big-design`, `next`, `react`, `react-dom`, and `styled-components`.
+1. Install `big-design`, `big-design-icons`, `big-design-theme`, `dotenv`, `next`, `react`, `react-dom`, and `styled-components`.
 
 ```shell copy filename="Install dependencies"
-npm install --save @bigcommerce/big-design next react react-dom styled-components
+npm install --save @bigcommerce/big-design @bigcommerce/big-design-icons @bigcommerce/big-design-theme dotenv next react react-dom styled-components
 ```
 
 2. Install dev dependencies.
 
 ```shell copy filename="Install devDependencies"
-npm install --save-dev babel-plugin-styled-components @types/node @types/react typescript
+npm install --save-dev babel-plugin-styled-components @types/node @types/react @types/react-dom @types/styled-components typescript
 ```
 
 [babel-plugin-styled-components](https://www.npmjs.com/package/babel-plugin-styled-components) is a supplement to the styled-components library that, among other things, offers improved debugging and minification of styles.
@@ -74,13 +77,32 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
 ```
 
 3. Save your changes.
+
+## Add the node and npm engines
+
+1. Open `package.json` in your text editor.
+
+2. Add an `engines` property with the following values:
+
+```json filename="Add engines" showLineNumbers copy
+{
+  ...
+  "engines": {
+    "node": ">=16 <20",
+    "npm": ">=8 <10"
+  },
+}
+```
+
+3. Save your changes.
+
 
 ## Create a starter page
 
@@ -206,4 +228,4 @@ npm run dev
 
 ![Hello world](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-01.png "Hello world")
 
-[Next: Connect Your App to BigCommerce](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
+[Next: Connect Your App to BigCommerce](/docs/integrations/apps/tutorial/nextjs-connect)

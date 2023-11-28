@@ -1,6 +1,9 @@
+---
+title: Embedded Checkout
+keywords: checkouts, draft order, headless, storefronts, 
+---
+
 # Embedded Checkout
-
-
 
 Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
@@ -18,7 +21,7 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
-For more information, see [OAuth Scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes).
 
 * The [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
 
@@ -100,13 +103,15 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](/docs/rest-management/carts)  `/cart` endpoint.
+To proceed to checkout, we'll need an active cart. To create one, send a request to the REST Management API's [Create a cart](/docs/rest-management/carts) endpoint.
 
-**`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
-**Create Cart POST request**
+```http filename="Example request: Create a cart" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
-```json showLineNumbers copy
 {
   "channel_id": 20266,
   "line_items": [
@@ -133,24 +138,25 @@ If you are creating a cart for a specific customer, pass in the `customer_id` in
 }
 ```
 
-Contained in the response is an `id` which we'll use as the `cart_id` in the next request:
+The response contains a cart ID you can use in subsequent requests:
 
-**Create Cart response**
-
-```json showLineNumbers copy
+```json filename="Example response: Create a cart" showLineNumbers copy
 {
     "data": {
         "id": "33608b81-ba34-4ff2-8bab-2771aeab3f73",
     ...
+    }
 }
 ```
-Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_id}}/redirect_urls`.
 
-**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. Use the cart ID returned with the [Create a cart](https://developer.bigcommerce.com/docs/rest-management/carts/carts-single#create-a-cart) response as the cartId path parameter value.
 
-**Generate Redirect URLs response**
+```http filename="Example response: Create cart redirect URLs" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
 
-```json showLineNumbers copy
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -158,29 +164,26 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 }
 ```
 
-### Redirecting a logged-in customer to embedded checkout
+### Redirecting a signed-in customer to embedded checkout
 
-For some use cases, you may want your customer to log in before they can begin the checkout process.
+For some use cases, you may want your customer to sign in before they can begin the checkout process.
 
-Customers can log in using the [Customer Login API](/api-docs/storefront/customer-login-api).
+Customers can sign in using the [Customer Login API](/docs/start/authentication/customer-login).
 
-You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/api-docs/storefront/customer-login-api#create-jwt-using-the-debugger-tool).
+You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/docs/start/authentication/customer-login#create-jwt-using-the-debugger-tool).
 
 Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
-**Customer Login Request**
-
-
-```json showLineNumbers copy
+```json filename="Example Customer Login JWT payload" showLineNumbers copy
 {
-"iss": {client_id},
-"iat": 1535393113,
-"jti": {uuid},
-"operation": "customer_login",
-"store_hash": {store_hash},
-"customer_id": 2
-"redirect_to": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
-"request_ip": "111.222.333.444"
+  "iss": {{client_id}},
+  "iat": 1535393113,
+  "jti": {{uuid}},
+  "operation": "customer_login",
+  "store_hash": {{store_hash}},
+  "customer_id": 2,
+  "redirect_to": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
+  "request_ip": "111.222.333.444"
 }
 ```
 
@@ -193,39 +196,32 @@ The `request_ip` field is optional.
 Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout.
 
 <Callout type="info">
-	
-  When the shopper is logged in, use the `https://{{store-url}}/login/token/{{token}}` URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
+  When the shopper is signed in, use the `https://{{store-url}}/login/token/{{token}}` URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
 </Callout>	
 
-
-**JSON object**
-```json showLineNumbers copy
+```json filename="JSON Object" showLineNumbers copy
 {
-"containerId": "foo-bar-checkout",
-"url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
-    }
+  "containerId": "foo-bar-checkout",
+  "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
+}
 ```
 
 Pass the object to the `embedCheckout` method of the Checkout SDK.
 
-
-**embedCheckout method**
-
-```js showLineNumbers copy
+```js filename="embedCheckout method" showLineNumbers copy
 embedCheckout({
-"containerId": "foo-bar-checkout",
-"url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
-    });
+  "containerId": "foo-bar-checkout",
+  "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
+});
 ```
 
 This will render the checkout to an HTML element with the `id` you chose.
 
-**HTML element**
-```html showLineNumbers copy
+```html filename="HTML element" showLineNumbers copy
 <div id="foo-bar-checkout"></div>
 ```
 
-Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
+Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/EmbeddedCheckoutOptions.md).
 
 ## FAQ
 
@@ -249,7 +245,7 @@ For Embedded Checkout to work correctly for shoppers using a browser with restri
 
 ### How do I make sure that authenticated shoppers who sign out from the checkout page are also signed out of the headless storefront?
 
-To ensure you log shoppers off from the checkout page and the headless storefront, developers should pass an `onSignOut` option to `embedCheckout` to handle sign out events from the checkout page. 
+To ensure you sign shoppers out of the checkout page and the headless storefront, pass the `onSignOut` option to `embedCheckout` to handle sign out events from the checkout page. 
 
 ## Related resources
 

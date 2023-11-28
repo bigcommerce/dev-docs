@@ -7,7 +7,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Product
 * Page
 
-This section explains how to author a custom template, map it to a URL, upload it to BigCommerce, and apply it to a storefront as a theme.
+This section explains how to author a custom template, map it to a URL, upload it to BigCommerce, and apply it to a storefront as a theme using Stencil CLI. Mapping a template to a URL is specifically for local testing.
 
 <Callout type="warning">
   #### Stencil versus blueprint themes
@@ -19,20 +19,19 @@ This section explains how to author a custom template, map it to a URL, upload i
 
 ## Authoring a custom template
 
-If you are a theme developer, your first step is to create a custom template page.
+If you're a theme developer, the first step is to create a custom template page. 
 
 To create a custom page:
 
-1. In the control panel navigate to **Storefront > Web Pages** in a non-active MSF-enabled control panel or if MSF is active on your store go to **Channel Manager > Channels > Edit Settings > Web Pages**. 
-2. First, create a `custom` subdirectory in the `templates/pages` directory. 
-3. Then, create the following four subdirectories under the `templates/pages/custom` directory: 
+1. Create a `custom` subdirectory in the `templates/pages` directory. 
+2. Create the following four subdirectories under the `templates/pages/custom` directory: 
 
 * brand
 * category
 * product
 * page
 
-4. Next, create the template file in .html format, and then place the file in the appropriate `templates/pages/custom/` subdirectory.
+3. Create an HTML template file in the appropriate `templates/pages/custom/` subdirectory.
 
 <Callout type="warning">
   #### File permissions required
@@ -66,7 +65,7 @@ When you create a local custom template page for products, you expect that page 
 
 To test your custom templates locally, edit your `.stencil` or `config.stencil.json` file (if you are using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. In the `.stencil` file or `config.stencil.json` file, look for the following section:
 
-```json title="customLayouts properties config.stencil.json" lineNumbers copy
+```json filename="customLayouts properties config.stencil.json" showLineNumbers copy
 "customLayouts": {
     "product": {},
     "brand": {},
@@ -77,7 +76,7 @@ To test your custom templates locally, edit your `.stencil` or `config.stencil.j
 
 In this section, populate each key with a URL to create a mapping. For example, if you have a custom product template named alternate-product.html, and you want to view that template locally at http://localhost:3000/test-url/, you need to populate the product key as shown in the following example:
 
-```json title="Populate product key" lineNumbers copy
+```json filename="Populate product key" showLineNumbers copy
 "product": {
     	"alternate-product.html":"/test-url/"
 },
@@ -86,7 +85,7 @@ In this section, populate each key with a URL to create a mapping. For example, 
 
 The following code sample provides a more extensive example where the brand, page, and category keys are also populated:
 
-```json title="Populated brand, page, and category keys" lineNumbers copy
+```json filename="Populated brand, page, and category keys" showLineNumbers copy
 {
   "normalStoreUrl": "http://cornerstone-light-demo.mybigcommerce.com",
   "port": 3000,
@@ -115,7 +114,7 @@ In the final entry of the `.stencil` or `config.stencil.json` (if you're using S
 In addition to mapping a single array to a URL you can also map an array of URLs to each template. This is shown in the following example for the product template:
 
 
-```json title="Map multiple URLs" lineNumbers copy
+```json filename="Map multiple URLs" showLineNumbers copy
   "customLayouts": {
     "product": {
       "featured-product.html": ["/special-product-one", "/special-product-two"],
@@ -129,7 +128,7 @@ In addition to mapping a single array to a URL you can also map an array of URLs
 
 ## Specifying custom front matter
 
-You can add front matter directly to a custom template. For more information on using front matter, see [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) 
+You can add front matter directly to a custom template. For more information on using front matter, see [Using Front Matter](/docs/storefront/stencil/themes/context/frontmatter) 
 
 The following example shows how to add front matter data to the `templates/pages/custom/brand/custom-brand.html` file. 
 
@@ -153,7 +152,7 @@ The following example shows how to add front matter data to the `templates/pages
 
 ## Uploading a theme 
 
-Before you can apply your custom template to pages you need to bundle and push the theme to BigCommerce. For detailed instructions, see [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing).
+Before you can apply your custom template to pages you need to bundle and push the theme to BigCommerce. For detailed instructions, see [Bundling and Pushing a Theme](/docs/storefront/stencil/deployment/upload).
 
 ## Applying custom templates to pages
 
@@ -185,7 +184,9 @@ If you have an old version of Stencil CLI installed, custom templates may not be
 ## Resources
 
 ### Related Articles
-* [Blueprint Themes](/legacy/blueprint-themes)
+
+* [Blueprint and Developer Mode](/archive/storefront/blueprint/themes/blueprint-and-developer-mode)
+
 * [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-templates) (BigCommerce Knowledge Base)
 
 ### Additional Resources

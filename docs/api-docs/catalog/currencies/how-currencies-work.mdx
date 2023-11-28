@@ -1,6 +1,11 @@
+---
+title: How Currencies Work
+keywords: currency, currencies, invoices, 
+---
+
 # How Currencies Work
 
-This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](/api-docs/catalog/currencies/currencies-overview).
+This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](/docs/store-operations/currencies).
 
 ## Catalog pricing
 
@@ -248,7 +253,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 * The shopper's order history shows the transactional currency, not the display currency. While the underlying historical data itself will remain unchanged, the page now surfaces the transactional currency and amount, rather than display currency and amount -- this change applies to all orders, including historical ones. 
 * `default_currency_code` - The transactional currency used in the order; previously the store's default currency.
 * `currency_code` - The display currency used to present prices to the shopper on the storefront.
-* `currency_exchange_rate` - The exchange between the store's default currency and the display currency; when you create the order via server-to-server endpoints, the value is always `1`; only in the storefront can this value differ from `1`.
+* `currency_exchange_rate` - The exchange between the store's default currency and the display currency; when you create the order using REST Management endpoints, the value is always `1`; only in the storefront can this value differ from `1`.
 * The following additional fields are returned on orders when multi-currency is enabled:
   * `store_default_currency_code` - The store's default currency.
   * `store_default_to_transactional_exchange_rate` - The exchange rate between the store's default currency and the transactional currency used in the order.

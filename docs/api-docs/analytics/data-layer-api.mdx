@@ -1,18 +1,23 @@
-# Data Layer API
+---
+title: Data Layer Settings in the GraphQL Admin API
+keywords: GA4, ga4, data, graphql, admin, google analytics 4, 
+---
 
-The GraphQL Admin API's data layer setting allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/api-docs/partner/analytics-solutions/bodl). Bigcommerce can build native integrations to analytics providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer using the GraphQL Admin API. The data layer is enabled at the global level.
+# Data Layer Settings in the GraphQL Admin API
 
-This guide shows you how to use the GraphQL Admin API's data layer queries and mutations. For full schema, see the [GraphQL Admin API reference](/graphql-admin-reference). 
+The GraphQL Admin API's data layer setting allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/docs/integrations/hosted-analytics). Bigcommerce can build native integrations to analytics providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer using the GraphQL Admin API. The data layer is enabled at the global level.
+
+This guide shows you how to use the GraphQL Admin API's data layer queries and mutations. For full schema, see the [GraphQL Admin API reference](/graphql-admin/reference). 
 
 ## Prerequisites
 
-You need a [store-level API account](/api-docs/getting-started/api-accounts#store-api-accounts) that contains the following [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes):
+You need a [store-level API account](/docs/start/authentication/api-accounts#store-level-api-accounts) that contains the following [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes):
 
 | UI Name | Permission | Parameter | Description |
 |:--------|:-----------|:----------|:------------|
 | Information & Settings | modify | `store_v2_information` | View and modify store information and settings |
 
-For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication).
+For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/docs/start/authentication).
 
 ## Get data layer
 
@@ -152,5 +157,5 @@ Send the following mutation to disable the data layer in the store:
 </Tabs>
 
 ## Resources
-- [GraphQL Admin API reference](/graphql-admin-reference)
-- [Big Open Data Layer](/api-docs/partner/analytics-solutions/bodl)
+- [GraphQL Admin API reference](/graphql-admin/reference)
+- [Big Open Data Layer](/docs/integrations/hosted-analytics)

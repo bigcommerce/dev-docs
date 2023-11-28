@@ -2,7 +2,7 @@
 
 POS Foundation provides a proof-of-concept [open source framework](https://github.com/bigcommerce/point-of-sale-foundation) for building point-of-sale (POS) checkout interfaces that serve BigCommerce merchants with physical locations. It provides a template for custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal can significantly accelerate development time. 
 
-POS Foundation scaffolds manual connector apps that use [store API accounts](/api-docs/getting-started/api-accounts#store-api-accounts). You do not need to create an app profile or use ngrok. The app will not appear in the store control panel and is only accessible to computers running on the same local network as the app's server. In contrast to [Subscription Foundation](/api-docs/partner/subscription-solutions/foundation-guide)-derived apps, POS Foundation apps do not create their own dedicated sales channels. If you're interested in contributing to this package, see [Contributing](#contributing).
+POS Foundation scaffolds manual connector apps that use [store-level API accounts](/docs/start/authentication/api-accounts#store-level-api-accounts). You do not need to create an app profile or use ngrok. The app will not appear in the store control panel and is only accessible to computers running on the same local network as the app's server. In contrast to [Subscription Foundation](/docs/integrations/subscription)-derived apps, POS Foundation apps do not create their own dedicated sales channels. If you're interested in contributing to this package, see [Contributing](#contributing).
 
 
 ## Software requirements
@@ -23,9 +23,9 @@ We recommend that you use a sandbox store that has the same multi-storefront sta
 
 To configure your accounts, complete the following steps:
 
-1. To develop and test safely, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation).
+1. To develop and test safely, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/docs/start/about/sandboxes?source=pos-foundation).
 
-2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/api-accounts#obtaining-store-api-credentials) and add the following OAuth scopes:
+2. In the control panel of your sandbox store, [create a store-level API account](/docs/start/authentication/api-accounts#creating-store-level-api-credentials) and add the following OAuth scopes:
  
 | UI Name | Permission | Parameter |
 |:--------|:-----------|:----------|
@@ -279,8 +279,8 @@ Want to help expand this foundation? We'd love to hear from you. Submit a pull r
 
 * [Point of Sale Foundation README (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
 * [Introducing the Point of Sale Foundation (Dev Blog)](https://medium.com/@stephen.hilliard/introducing-the-point-of-sale-foundation-70834efca76d)
-* [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation)
-* [Create a Store API Account](/api-docs/getting-started/api-accounts#obtaining-store-api-credentials)
+* [Create a Sandbox Store](/docs/start/about/sandboxes?source=pos-foundation)
+* [Create a Store-level API Account](/docs/start/authentication/api-accounts#creating-store-level-api-credentials)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Setting up an "In-Store Pickup" Shipping Method](https://support.bigcommerce.com/s/article/Free-Shipping#in-store)
 * [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#enabling) 

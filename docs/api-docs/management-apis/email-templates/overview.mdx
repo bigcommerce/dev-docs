@@ -9,13 +9,11 @@ This article provides an overview of BigCommerce's transactional email templates
 
 To edit transactional email templates in a store's control panel, [log in](https://support.bigcommerce.com/s/article/Logging-Into-Your-Store) and navigate to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails).
 
-Use [Handlebars expressions](/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
+Use [Handlebars expressions](/docs/store-operations/emails/object-reference) to localize email templates and access dynamic data (like a customer's first name in an order email).
 
 
-```html showLineNumbers copy
-<!-- Combined Order Status Email Template -->
-
- <p>{{ lang 'hello' name=order.customer_name }}. Below are the products you ordered.</p>
+```handlebars filename="Combined order status email template" showLineNumbers copy
+<p>{{ lang 'hello' name=order.customer_name }}. Below are the products you ordered.</p>
 
 {{#each order.products}}
 <tr>
@@ -122,5 +120,5 @@ Accept: application/json
 ## Resources
 
 * [Email Template API Reference](/docs/rest-content/email-templates)
-* [Email Template Handlebars Reference](/api-docs/store-management/email-templates/handlebars)
+* [Email Template Handlebars Reference](/docs/store-operations/emails/object-reference)
 * [Customizing Email Templates](https://support.bigcommerce.com/s/article/Customizing-Emails)

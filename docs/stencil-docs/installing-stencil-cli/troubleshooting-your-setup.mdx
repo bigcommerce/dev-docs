@@ -1,59 +1,69 @@
 # Troubleshooting Your Setup
 
 
+When you encounter unexpected behavior while developing your Stencil theme, start troubleshooting by checking the terminal window where you started Stencil CLI.
 
-For any unexpected behavior you encounter while developing your Stencil theme, we recommend checking the terminal window where you started Stencil CLI.
-
-In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
+In some cases, the terminal provides verbose error messages specifying where to look for problems. These have the potential to provide insight into the root cause of errors. For error messages that may not be helpful in revealing the issue you're experiencing, diagnostic suggestions are listed in this article.
 
 <Callout type="warning">
-BigCommerce is currently targeting 11/1/2023 to sunset its node-sass fork in favor of the latest [sass/node-sass](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the latest node version (Node 18) in Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#incompatible-scss-directives), which can cause issues with the styling of your storefront.
+  BigCommerce is currently targeting January 31, 2024 to sunset its node-sass fork in favor of the latest [sass/node-sass (GitHub)](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the [latest Node.js version with long-term support (Node 18 LTS)](https://nodejs.org/en) to run the Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](#incompatible-scss-directives), which can cause errors and consistency issues with your storefront's CSS.
 </Callout>
 
 ## Incompatible SCSS directives
 
 To ensure that your storefront is up to date, perform the following steps:
 
-1. Using the latest version of Stencil CLI, run the stencil bundle command to validate your theme's code. Note any errors in the console output.
+1. Using the latest version of Stencil CLI, run the `stencil bundle` command to validate your theme's code. Note any errors in the console output.
+
 ```shell copy
 stencil bundle
 ```
-2. Update your files to ensure the correct formatting by running the following script. This step allows you to see changes before merging.
+
+2. To ensure the correct formatting, update your theme files by running the following script. This step allows you to see changes before merging.
+
 ```shell copy
 stencil scss-autofix --dry
 ```
+
 3. To commit the changes and revalidate, run the following commands:
+
 ```shell showLineNumbers copy
 stencil scss-autofix 
 stencil bundle
 ```
+
 4. After making changes, you can test your site by running the following command:
+
 ```shell copy
 stencil start
 ```
-5. If everything looks good, push your changes live to your storefront with the following command.
+
+5. If everything looks good, use the following command to push and deploy your changes to the storefront.
+
 ```shell copy
 stencil push
 ```
 
+For more information, see [Incompatible Directives](/docs/storefront/stencil/cli/incompatible-directives).
+
 ## Unsupported Node version
 
-If you receive the following error message, please reinstall Node.js to a supported "LTS" ("Long-Term Support") version:
+If you receive the following error message, please reinstall Node.js to the [latest Node.js version with long-term support (Node 18 LTS)](https://nodejs.org/en):
 
-```text showLineNumbers copy
+```text filename="Error, no parse method" showLineNumbers copy
 Debug: internal, implementation, error
         TypeError: Uncaught error: Object #<Object> has no method 'parse'
         at internals.implementation
         (/usr/local/lib/node_modules/stencil-cli/server/plugins/CssCompiler/index.js:32:26)
 ```
 
-On Mac OS, we have tested Stencil CLI most robustly on Node.js version 4.4.0. On Linux, we have tested most robustly on version 4.1.2. On Windows, we have tested most robustly on version 4.6.1. You’ll find detailed steps (for each operating system) in these instructions' Installing Stencil Prerequisites by OS section.
+On MacOS, we have tested Stencil CLI most robustly on Node.js version 4.4.0. On Linux, we have tested most robustly on version 4.1.2. On Windows, we have tested most robustly on version 4.6.1. You’ll find detailed steps (for each operating system) in these instructions' Installing Stencil Prerequisites by OS section.
 
-## `npm install` errors
+## npm install errors
 
 The following headings represent errors that may occur when running the `npm install` command. The content under each heading issues a fix for the issue.
 
-### "Unmet peer dependency"
+### Unmet peer dependency error
 
 If you get any `Unmet Peer Dependency` errors when issuing the `npm install` command make sure you are running the `npm install` command **inside** your theme directory.
 
@@ -69,7 +79,7 @@ If running the `npm install ` command inside your theme directory does not resol
 
 If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on [Fixing npm Permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions) (docs.npmjs.com).
 
-### "js/bundle" errors
+### js/bundle errors
 
 If you get errors of the following type upon executing the `stencil init` command:
 
@@ -99,19 +109,68 @@ This should now execute properly.
 
 7. Verify your theme's launch at: http://localhost:3000.
 
-## `npm install` and `stencil init` errors
+### Stencil CLI as a non-global dependency
+
+If Stencil CLI is included as a dependency in a project's `package.json` file, you may get a long error message like the following when executing the `npm install` command:
+
+```text filename="Non-global invalid syntax error" showLineNumbers copy
+npm ERR! gyp ERR! stack Error: Command failed: /usr/local/bin/python -c import sys; print "%s.%s.%s" % sys.version_info[:3];
+npm ERR! gyp ERR! stack   File "<string>", line 1
+npm ERR! gyp ERR! stack     import sys; print "%s.%s.%s" % sys.version_info[:3];
+npm ERR! gyp ERR! stack                                ^
+npm ERR! gyp ERR! stack SyntaxError: invalid syntax
+```
+
+This error typically occurs when your `package.json` file includes an outdated version of Stencil CLI. In general, it's best to install Stencil CLI globally. It is not designed to function as a project dependency or devDependency.
+
+### Running stencil bundle errors
+
+Nowadays, `stencil bundle` runs several validation checks on a theme before it can be bundled and pushed to the store. 
+
+You may see those errors because your theme has some missing properties in its translations files or frontmatter that have recently become required.
+
+For example, if your theme is missing a translation key in the `i18n.HeaderAndFooter` property of its `schemaTranslations.json` file, running `stencil bundle` may result in the following error:
+
+```text showLineNumbers copy
+Error: Your theme's schemaTranslations.json has errors:
+missing translation key "i18n.HeaderAndFooter"
+```
+
+The following error occurs when some translation keys in the `schemaTranslations.json` file are missed and aren't available to the theme.
+
+```text showLineNumbers copy
+Error: Missed schemaTranslations.json file
+```
+
+```text showLineNumbers copy
+Error: Your theme's schemaTranslations.json has errors:
+unused translation key "i18n.ProductSaleBadges"
+unused translation key "i18n.ShowProductSaleBadges"
+```
+
+The following error indicates that there is a trailing comma in the frontmatter of the `home.html` file.
+
+```test showLineNumbers copy
+Error: Found unallowed trailing symbol in: "4,", while parsing frontmatter at ".....templates/pages/home.html".
+```
+
+### Node 18 support 
+
+When you update the Node.js version, you can check to see whether you can update other theme packages, such as webpack, for updated feature support.
+
+## npm install and stencil init errors
 
 If you get an unexpected error messages when issuing the `npm install` or `stencil init` commands, check your Node.js version and ensure it aligns with a version compatible for the Stencil framework.
 
-## `stencil init`/`stencil start` errors
+## stencil init/stencil start errors
 
 If you get an unexpected error message or unexpected results upon executing the `stencil init`, `stencil start`, or other Stencil CLI commands, make sure you are working in the subdirectory for the specific theme you intend to launch.
 
 One way of checking what directory you are working in is by running the `pwd` command in your terminal.
 
-## `stencil start` missing module errors
+## Troubleshooting stencil start missing module errors
 
-If executing `stencil start` provokes errors like the following
+If executing `stencil start` provokes errors like the following:
 
 ```text showLineNumbers copy
 module.js:327
@@ -135,11 +194,13 @@ switch to your theme directory and run `npm install`. Running this command will 
 
 If you receive the same error again after running `npm install`, you should completely uninstall and reinstall both the Stencil framework and Node.js.
 
-## Mac OS: `Xcode/iOS license...` errors
+## MacOS: Xcode/iOS license... errors
 
-On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
+On MacOS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
 
-`error: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.`
+```text
+error: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.
+```
 
 To resolve this error, do the following:
 * Launch Xcode.
@@ -151,7 +212,7 @@ To resolve this error, do the following:
 
 If you are running a version of Node.js higher than 4.4.0, and you receive an `ETIMEOUT` error when running Stencil CLI, re-install the latest version of Stencil CLI to resolve this error by following the workflow in Installing Stencil CLI/Framework.
 
-## `stencil` command not found
+## Troubleshooting stencil command not found
 
 ### Reinstall Stencil CLI
 
@@ -161,23 +222,27 @@ If you receive the error message -bash: `stencil: command not found`, ensure tha
 
 If you receive the error message -bash: stencil: command not found, enter echo $NVM_DIR. If this command returns nothing, then run source ~/.bash_profile and try running stencil commands again.
 
-### Check/Specify `nvm` version
+### Check/specify nvm version
 
 If you receive a `stencil: command not found` error message upon executing stencil start from inside your theme subdirectory: Check whether nvm has installed multiple versions of Node.js, by entering the following command:
 
-`ls ~/.nvm/versions/node`
+```shell copy
+ls ~/.nvm/versions/node
+```
 
 If this reports more than one version, specify your platform's supported Node.js `<version_number>` by entering:
 
-`nvm use <version_number>`
+```shell copy
+nvm use <version_number>
+```
 
 To prevent this error from recurring, add the same `nvm use <version_number>` command to your ~/.bash_profile file.
 
 <a id="troubleshooting_stencil-start-errors"></a>
 
-## `stencil start` errors
+## Troubleshooting stencil start errors
 
-### "Unauthorized...username/token" error
+### Unauthorized...username/token error
 
 If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) contain the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
@@ -189,7 +254,13 @@ If the Stencil server responds with a `403` error and you are using a proxy-base
 
 If you see errors like or _similar_ to below:
 
-`{"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}`
+```json
+{
+  "statusCode": 500,
+  "error": "Internal Server Error",
+  "message": "An internal server error occurred"
+}
+```
 
 They often indicate a template syntax error, such as unmatched or missing punctuation. Check your terminal window for more details.
 
@@ -201,7 +272,9 @@ If bundling your theme triggers multiple lint errors related to the `bundle.js` 
 
 If you see the following error when running stencil bundle, this is a past bug that has since been corrected.
 
-`[ModuleNotFoundError: Module not found: Error: Cannot resolve module 'pace' in...]`
+```text
+[ModuleNotFoundError: Module not found: Error: Cannot resolve module 'pace' in...]
+```
 
 To remove the error, please update your Cornerstone version.
 
@@ -209,11 +282,19 @@ To remove the error, please update your Cornerstone version.
 
 If JavaScript errors in your browser's developer tools are not reporting filenames and line numbers, try changing your `webpack.conf.js` file's sourcemap entry from:
 
-`devtool: 'eval-cheap-module-source-map'`
+```js copy
+{
+  devtool: 'eval-cheap-module-source-map'
+}
+```
 
 to:
 
-`devtool: 'eval-source-map'`
+```js copy
+{
+  devtool: 'eval-source-map'
+}
+```
 
 The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose.
 
@@ -233,14 +314,17 @@ Other reasons for this error include exceeding these stencil theme limitations:
 If you encounter persistent problems in initializing or starting Stencil, you have the option of completely removing Stencil CLI and doing a fresh reinstall. You would do so as follows:
 
 1. From your command line, issue the command:
-`npm uninstall -g @bigcommerce/stencil-cli`
+
+```shell copy
+npm uninstall -g @bigcommerce/stencil-cli
+```
 
 2. Navigate back to the Installing and Launching Stencil section and repeat all installation steps to reinstall dependencies and restore your theme, according to your development scenario.
 
-A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prerequisites (along with uninstalling Stencil CLI). We do not recommend this, as it might disable other Node.js applications on your local machine.
+A more drastic measure is to uninstall and reinstall Stencil CLI's Node.js prerequisites, along with uninstalling Stencil CLI. We do not recommend this, as it might disable other Node.js applications on your local machine.
 
 ## Resources
 
 ### Related articles
-* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-* [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands)
+* [Authorizing and Initializing the CLI](/docs/storefront/stencil/cli/install)
+* [Stencil CLI Options and Commands](/docs/storefront/stencil/cli/options-and-commands)

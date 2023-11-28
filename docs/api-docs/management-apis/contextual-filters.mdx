@@ -1,6 +1,9 @@
+---
+title: Contextual Filters
+keywords: sort, settings, headless, stencil, storefronts, 
+---
+
 # Contextual Filters
-
-
 
 The [Settings API](/docs/rest-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
@@ -207,7 +210,7 @@ To retrieve a list of filters available on a given category, include the `catego
 The filters returned from completing this `GET` request are the filters available for configuration on the given category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, you will be able to select from more filters.
 
 <Callout type="info">
-  To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/docs/rest-management/catalog/category#get-all-categories).
+  To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/docs/rest-catalog/categories#get-all-categories).
 </Callout>
 
 
@@ -387,4 +390,4 @@ You can also view the changes on the storefront.
 
 ### Endpoints
 * [Settings API](/docs/rest-management/settings)
-* [Get All Categories](/docs/rest-management/catalog/category#get-all-categories)
+* [Get All Categories](/docs/rest-catalog/categories#get-all-categories)

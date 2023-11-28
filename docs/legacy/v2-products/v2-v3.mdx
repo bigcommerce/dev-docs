@@ -1,6 +1,9 @@
+---
+title: V2 versus V3 API
+keywords: products, v2, catalog, v3, configurable_fields, options, modifiers
+---
+
 # V2 versus V3 API
-
-
 
 ## Advantages of V3 over V2
 
@@ -16,7 +19,7 @@ Lastly, the V3 API has been optimized for performance, allowing data to be synce
 
 ### Variants
 
-Every purchasable entity in the catalog is now a variant, including the product itself. This enables enhanced flows around inventory management, such as the ability to solely use the variants endpoint to manage inventory levels. For more on variants see [Variants](/api-docs/store-management/catalog/catalog-overview#variants).
+Every purchasable entity in the catalog is now a variant, including the product itself. This enables enhanced flows around inventory management, such as the ability to solely use the variants endpoint to manage inventory levels. For more on variants see [Variants](/docs/store-operations/catalog#variants).
 
 In V3 a variant needs to be created for every combination of option values. In V2 it was possible to create a SKU with a subset of product options.
 
@@ -29,7 +32,7 @@ We recommend creating products using V3 as BigCommerce starts to move operations
 
 ### Options and Modifiers
 
-There is now a clear separation of [options that define variants](/api-docs/store-management/catalog/catalog-overview#variant-options) versus [options that are modifiers of a variant](/api-docs/store-management/catalog/catalog-overview#modifier-options). This simplifies the creation and management of variant prices and modifier adjusters and removes the need to use complex rules, in all but the most extreme cases.
+There is now a clear separation of [options that define variants](/docs/store-operations/catalog#variant-options) versus [options that are modifiers of a variant](/docs/store-operations/catalog#modifier-options). This simplifies the creation and management of variant prices and modifier adjusters and removes the need to use complex rules, in all but the most extreme cases.
 
 In V3, options and modifiers are attached directly to the product, without the requirement to create an option set beforehand.
 
@@ -46,7 +49,7 @@ Creating Products and Variants on V3:
 
 Variants can be included with a GET request to lower the number of API calls being made using `?include=variants`.
 
-V3 includes endpoints for working with catalog trees. Stores that have multi-storefront enabled can have more than one tree. See the catagories section of the [Multi-Storefront API Guide](/api-docs/multi-storefront/api-guide#categories). Stores that are not MSF-enabled can use the same endponts. 
+V3 includes endpoints for working with catalog trees. Stores that have multi-storefront enabled can have more than one tree. See the catagories section of the [Multi-Storefront API Guide](/docs/storefront/multi-storefront/guide#categories). Stores that are not MSF-enabled can use the same endponts. 
 
 ## Interoperability between V2 and V3
 
@@ -56,14 +59,14 @@ Previously (prior to December 17th, 2018), when a product option, is created in 
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
-    "type": "/api#api-status-codes",
+    "type": "/docs/start/about/status-codes",
     "errors": {
         "product_id": "The product is currently associated with an option set, please remove it before editing an option or modifier."
     }
 }
 ```
 
-Instead of a 422 error, now it will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Options](/docs/rest-management/catalog/product-variant-options#get-all-product-variant-options) or [Product Modifiers](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) endpoints.
+Instead of a 422 error, now it will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options) or [Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) endpoints.
 
 **What this does is:**
 - Changes the `option_value` > `id`. Not the `option_id`.
@@ -317,7 +320,7 @@ Any variant created in v3 with non-null core properties (price, weight, image, p
 In our control panel’s Add/Edit Product section, any products created by the V3 API will not have an option set applied, but merchants can still edit the options. If the merchant applies an option set to a V3 product, the product's variants will be removed. Currently, the Add/Edit Product area consumes the V2 API, so products created and managed through the control panel will be converted to the V2 model, using option sets.
 
 ## Recommendations
-When the resource is available in [V3](/docs/rest-management/catalog), it is best practice to use the V3 endpoint. For resources that do not have a V3 counterpart, like Orders, use V2. Both the V2 and V3 APIs authenticate with Oauth and are designed to be used concurrently within a single application.
+When the resource is available in [V3](/docs/rest-catalog/products), it is best practice to use the V3 endpoint. For resources that do not have a V3 counterpart, like Orders, use V2. Both the V2 and V3 APIs authenticate with Oauth and are designed to be used concurrently within a single application.
 
 We have created a handy cheat sheet below that lists all the differences between V2 and V3 of the API.
 
@@ -898,7 +901,7 @@ This examples uses a checkbox which is created in two steps.
 
 `POST /v3/catalog/products/{product_id}/complex-rules`
 
-They are not recommended for V3 products since they can be created at the variant level. See [Complex Rules](/api-docs/store-management/catalog/catalog-overview#complex-rules) for more information.
+They are not recommended for V3 products since they can be created at the variant level. See [Complex Rules](/docs/store-operations/catalog#complex-rules) for more information.
 
 ```json showLineNumbers copy
 {

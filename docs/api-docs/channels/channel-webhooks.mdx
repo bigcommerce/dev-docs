@@ -1,12 +1,17 @@
+---
+title: Channel Webhooks
+keywords: webhooks, channels, currency, currencies, 
+---
+
 # Channel Webhooks
 
-Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. This article assumes that you're familiar with webhooks. It introduces channel-related events and is a reference for all BigCommerce channel webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload). For a more general introduction to webhooks, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
+Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. This article assumes that you're familiar with webhooks. It introduces channel-related events and is a reference for all BigCommerce channel webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/docs/integrations/webhooks#callback-payload). For a more general introduction to webhooks, see [Webhooks Overview](/docs/integrations/webhooks).
 
-To learn more about sales channels, see the [Channels Overview](/api-docs/channels/guide/overview). To learn more about how sales channels function in the context of multi-storefront or multi-channel sales, see the [channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels).
+To learn more about sales channels, see the [Channels Overview](/docs/integrations/channels). To learn more about how sales channels function in the context of multi-storefront or multi-channel sales, see the [channels section of the Multi-Storefront Overview](/docs/storefront/multi-storefront#channels).
 
 ## Creating a webhook
 
-To create a webhook, send a request to the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint. Follow the process described in the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook), and include a `channel_id` where indicated to subscribe to that channel's events.
+To create a webhook, send a request to the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint. Follow the process described in the [Webhooks Overview](/docs/integrations/webhooks#creating-a-webhook), and include a `channel_id` where indicated to subscribe to that channel's events.
 
 ```http filename="Example request: Create a webhook" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
@@ -26,11 +31,11 @@ Accept: application/json
   * It can take up to one minute for a newly created webhook to work.
 </Callout>
 
-For information on creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
+For information on creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/docs/integrations/webhooks#creating-a-webhook).
 
 ## Callback structure
 
-For webhook callback structure reference, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events#callback-structure)
+For webhook callback structure reference, see [Webhook Events](/docs/integrations/webhooks/events#callback-structure)
 
 ## Channel events 
 
@@ -108,9 +113,9 @@ The following cart line item webhook events fire in response to actions that aff
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/cart/lineItem/*`       | Fires on all cart line item changes associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/cart/lineItem/created`      | Fires when a new item is added to a cart associated with the specified channel. | [Add cart line items](/docs/rest-management/carts/cart-items#add-cart-line-items) |
-| `store/channel/{channel_id}/cart/lineItem/updated`      | Fires when an item's quantity or product options change in a cart associated with the specified channel.  | [Update Cart Line Item](/docs/rest-management/carts/cart-items#update-cart-line-item) |
-| `store/channel/{channel_id}/cart/lineItem/deleted`      | Fires when items are deleted from any cart associated with the specified channel. | [Delete cart line item](/docs/rest-management/carts/cart-items#delete-cart-line-item) |
+| `store/channel/{channel_id}/cart/lineItem/created`      | Fires when a new item is added to a cart associated with the specified channel. | [Add cart line items](/docs/rest-management/carts/items#add-cart-line-items) |
+| `store/channel/{channel_id}/cart/lineItem/updated`      | Fires when an item's quantity or product options change in a cart associated with the specified channel.  | [Update Cart Line Item](/docs/rest-management/carts/items#update-cart-line-item) |
+| `store/channel/{channel_id}/cart/lineItem/deleted`      | Fires when items are deleted from any cart associated with the specified channel. | [Delete cart line item](/docs/rest-management/carts/items#delete-cart-line-item) |
 
 Cart line items payload objects take the form that follows:
 
@@ -136,9 +141,9 @@ The following categories webhook events fire in response to actions that affect 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/category/*`            | Fires when subscribed to all category events for categories associated with the specified channel. | not applicable |
-| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/docs/rest-management/catalog/categories-batch#create-categories) |
-| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/docs/rest-management/catalog/categories-batch#update-categories)  |
-| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/docs/rest-management/catalog/categories-batch#delete-categories)|
+| `store/channel/{channel_id}/category/created`      | Fires on creation of a new category in the category tree that is assigned to the specified channel. | [Create categories](/docs/rest-catalog/category-trees/categories#create-categories) |
+| `store/channel/{channel_id}/category/updated`      | Fires on update of a category within the category tree that is assigned to the specified channel. | [Update categories](/docs/rest-catalog/category-trees/categories#update-categories)  |
+| `store/channel/{channel_id}/category/deleted`      | Fires when a category is removed from the category tree that is assigned to the specified channel. | [Delete categories](/docs/rest-catalog/category-trees/categories#delete-categories)|
 
 Categories payload objects take the form that follows:
 
@@ -161,7 +166,7 @@ The following category tree webhook event fires in response to actions that affe
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/docs/rest-management/catalog/category-trees#upsert-category-trees) or [Delete category trees](/docs/rest-management/catalog/category-trees#delete-category-trees) |
+| `store/channel/{channel_id}/categoryTree/updated` | Fires when the specified channel's category tree is updated, created, or deleted. | [Upsert category trees](/docs/rest-catalog/category-trees#upsert-category-trees) or [Delete category trees](/docs/rest-catalog/category-trees#delete-category-trees) |
 
 
 Category tree payload objects take the form that follows:
@@ -178,7 +183,6 @@ Category tree payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
- 
 
 ## Customers
 
@@ -207,6 +211,7 @@ Customers payload objects take the form that follows:
 ```
 
 ## Emails
+
 The following emails webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
@@ -232,24 +237,51 @@ Emails payload objects take the form that follows:
 }
 ```
 
+## Metafields
+
+The following metafield webhook events fire in response to actions that affect any channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| `store/channel/metafield/created/` | Fires when a channel metafield is created on any channel. | [Create a channel metafield](/docs/rest-management/channels/channel-metafields#create-a-channel-metafield) |
+| `store/channel/metafield/updated`  | Fires when any channel metafield is updated. | [Update a channel metafield](/docs/rest-management/channels/channel-metafields#update-a-channel-metafield) |
+| `store/channel/metafield/deleted`  | Fires when any channel metafield is deleted. |  [Delete a channel metafield](/docs/rest-management/channels/channel-metafields#delete-a-channel-metafield)
+
+Metafields payload objects take the form that follows:
+
+```json filename="Example metafields payload object" showLineNumbers copy
+{
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/metafield/created",
+  "data": {
+    "metafield_id": 21,
+    "resource_id": "1"    //channel ID
+  },
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
 ## Notifications
+
 The following notifications webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/notifications/abandonedCart/updated`        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) 
-| `store/channel/{channel_id}/notifications/inventory/updated`        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/docs/rest-management/settings/inventory-notifications#update-inventory-notifications-settings) |
+| `store/channel/{channel_id}/notifications/abandonedCart/updated` | Fires when an abandoned cart notification is updated in the specified channel. | [Update channel abandoned cart settings](/docs/rest-management/abandoned-carts/abandoned-carts-settings#update-channel-abandoned-cart-settings) 
+| `store/channel/{channel_id}/notifications/inventory/updated` | Fires when an inventory notification is updated in the specified channel. | [Update inventory notifications settings](/docs/rest-management/settings/inventory-notifications#update-inventory-notifications-settings) |
 
 Notifications payload objects take the form that follows:
 
 ```json filename="Example notifications payload object" showLineNumbers copy
 {
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/1/notifications/abandonedCart/updated",
- "data": {},
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+  "store_id": "11111",
+  "producer": "stores/abcde",
+  "created_at": 1641641646,
+  "scope": "store/channel/1/notifications/abandonedCart/updated",
+  "data": {},
+  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
 
@@ -309,7 +341,7 @@ Web pages payload objects take the form that follows:
 }
 ```
  
-For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
+For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/docs/integrations/webhooks/events).
 
 ## Price list assignments
 
@@ -344,10 +376,10 @@ The following product assignment webhook events fire in response to actions that
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/docs/rest-management/catalog/products-channel-assignments#create-products-channel-assignments) |
-| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/docs/rest-management/catalog/products-channel-assignments#delete-products-channel-assignments) |
-| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/docs/rest-management/catalog/products-category-assignments#create-products-category-assignments.) |
-| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/docs/rest-management/catalog/products-category-assignments#delete-products-category-assignments) |
+| `store/channel/{channel_id}/product/assigned`            | Fires when a product is assigned to the specified channel. | [Create product channel assignments](/docs/rest-catalog/products/channel-assignments#create-products-channel-assignments) |
+| `store/channel/{channel_id}/product/unassigned`          | Fires when a product is removed from the specified channel. | [Delete product channel assignments](/docs/rest-catalog/products/channel-assignments#delete-products-channel-assignments) |
+| `store/channel/{channel_id}/category/product/assigned`   | Fires when a product is assigned to a category in the specified channel's category tree. | [Create product category assignments](/docs/rest-catalog/products/category-assignments#create-products-category-assignments.) |
+| `store/channel/{channel_id}/category/product/unassigned` | Fires when a product is removed from a category in the specified channel's category tree. | [Delete product category assignments](/docs/rest-catalog/products/category-assignments#delete-products-category-assignments) |
 
 Product assignment payload objects take the form that follows:
 
@@ -428,7 +460,7 @@ The following settings webhook events fire in response to actions that affect a 
 | `store/channel/{channel_id}/settings/logo/updated`    | Fires when any of the global logo settings are updated.| [Update store logo settings](/docs/rest-management/settings/logo#update-store-logo-settings) |
 | `store/channel/{channel_id}/settings/logo/image/updated`  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
 | `store/channel/{channel_id}/settings/favicon/image/updated`  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
-| `store/channel/{channel_id}/settings/checkout/updated` | Fires when checkout settings that affect a specified channel are updated. | [Update channel cart settings](/docs/rest-management/carts/carts-settings#update-channel-cart-settings) |
+| `store/channel/{channel_id}/settings/checkout/updated` | Fires when checkout settings that affect a specified channel are updated. | [Update channel cart settings](/docs/rest-management/carts/settings#update-channel-cart-settings) |
 | `store/channel/{channel_id}/settings/SEO/updated` | Fires when SEO settings that affect the specified channel are updated. | [Update storefront SEO settings](/docs/rest-management/settings/storefront-seo#update-storefront-seo-settings) |
 | `store/channel/{channel_id}/settings/robots/updated` | Fires when search engine robot settings that affect the specified channel are updated. | [Update robots.txt settings](/docs/rest-management/settings/storefront-robotstxt#update-robots.txt-settings) |
 | `store/channel/{channel_id}/settings/category/updated` | Fires when category settings that affect the specified channel are updated. | [Update storefront category settings](/docs/rest-management/settings/storefront-category#update-storefront-category-settings) |
@@ -461,6 +493,9 @@ The following sites webhook events fire in response to actions that affect a sit
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
 | `store/channel/{channel_id}/settings/site/updated`       | Fires when a site associated with the specified channel is updated, created, or deleted. | [Update a channel site](/docs/rest-management/channels/channel-site#update-a-channel-site), [Update a site](/docs/rest-management/sites#update-a-site), [Create a channel site](/docs/rest-management/channels/channel-site#create-a-channel-site), [Create a site](/docs/rest-management/sites#create-a-site), [Delete a channel site](/docs/rest-management/channels/channel-site#delete-a-channel-site), or [Delete a site](/docs/rest-management/sites#delete-a-site) |
+| `store/channel/{channel_id}/settings/site/checkoutUrl/updated` | Fires when checkout domain per channel is updated. | [Upsert a site's checkout URL](/docs/rest-management/channels/channel-site-checkout-url)|
+| `store/channel/{channel_id}/settings/site/checkoutUrl/deleted` | Fires when checkout domain per channel is deleted. | [Delete a site's checkout URL](/docs/rest-management/channels/channel-site-checkout-url#delete-a-sites-checkout-url)|
+
 
 Site payload objects take the form that follows:
 
@@ -532,8 +567,8 @@ Theme payload objects take the form that follows:
 
 ### Related articles
 
-* [Webhooks Overview](/api-docs/store-management/webhooks/overview)
-* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
-* [Webhooks Events](/api-docs/store-management/webhooks/webhook-events)
-* [Channels Overview](/api-docs/channels/guide/overview)
-* [Multi-Storefront Overview](/api-docs/multi-storefront/overview)
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhooks Tutorial](/docs/integrations/webhooks/tutorial)
+* [Webhooks Events](/docs/integrations/webhooks/events)
+* [Channels Overview](/docs/integrations/channels)
+* [Multi-Storefront Overview](/docs/storefront/multi-storefront)

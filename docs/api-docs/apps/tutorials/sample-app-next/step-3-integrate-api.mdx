@@ -1,6 +1,9 @@
+---
+title: Integrate the BigCommerce API and Add a Database
+keywords: apps, if, next.js
+---
+
 # Step 3: Integrate the BigCommerce API and Add a Database
-
-
 
 Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
 
@@ -16,16 +19,34 @@ If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
 npm install --save firebase jsonwebtoken swr
 ```
 
-If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
+If using MySQL, install `mysql2`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell copy filename="Install packages MySQL"
-npm install --save mysql jsonwebtoken swr
+npm install --save mysql2 jsonwebtoken swr
 ```
 
 <Callout type="info">
   #### Firebase version
   These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
 </Callout>
+
+## Add scripts
+
+1. Open `package.json` in your text editor.
+
+2. Update the `scripts` property to include the `db:setup` script.
+
+```json filename="Add npm scripts" showLineNumbers copy
+{
+  ...
+  "scripts": {
+    ...,
+    "db:setup": "node scripts/db.js"
+  }
+}
+```
+
+3. Save your changes.
 
 ## Add TypeScript definitions
 
@@ -90,7 +111,7 @@ export * from './db';
 
 <Callout type="info">
   #### Ngrok expiration and callbacks
-  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `{ngrok_url}` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 </Callout>
 
 
@@ -325,7 +346,7 @@ FIRE_PROJECT_ID={firebaseConfig.projectId}
 
 <Callout type="info">
   #### Restart after adding environment variables
-  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
 </Callout>
 
 ### Configure the Firebase database
@@ -430,7 +451,7 @@ MYSQL_PORT={mysql port}
 
 <Callout type="info">
   #### Restart dev server when .env changes
-  In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
 </Callout>
 
 ### Configure MySQL
@@ -440,7 +461,7 @@ MYSQL_PORT={mysql port}
 2. At the top of the file, add the following imports:
 
 ```ts filename="Add imports mysql.ts" showLineNumbers copy
-import * as mysql from 'mysql';
+import * as mysql from 'mysql2';
 import { promisify } from 'util';
 import { SessionProps, StoreData } from '../../types';
 ```
@@ -528,6 +549,13 @@ switch (DB_TYPE) {
 export default db;
 ```
 
+## Run the initial database migration
+
+If you're using MySQL, set up the initial tables by navigating to the root directory of your project and running the following script:
+
+```shell filename="Initial database migration" copy
+npm run db:setup
+```
 
 ## Upgrade the endpoints
 
@@ -620,7 +648,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-The Products endpoint retrieves your products summary from the [Catalog API](/docs/rest-management/catalog).
+The Products endpoint retrieves your products summary from the [Catalog API](/docs/rest-catalog).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -764,7 +792,7 @@ export default Index;
 
 `summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
-For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/docs/rest-management/catalog/summary#get-a-catalog-summary). 
+For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/docs/rest-catalog/products/summary#get-a-catalog-summary). 
 
 ## Update the user interface
 
@@ -833,4 +861,4 @@ Now that you have synced up the database, your app should display information un
 
 ![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
 
-[Next: Enhance the User Experience with BigDesign](/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)
+[Next: Enhance the User Experience with BigDesign](/docs/integrations/apps/tutorial/nextjs-enhance)

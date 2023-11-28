@@ -1,3 +1,8 @@
+---
+title: V2 to V3 Catalog Operations Comparison
+keywords: products, complex, v2, v3, example
+---
+
 # V2 to V3 Catalog Operations Comparison
 
 
@@ -631,7 +636,7 @@ Modifiers are considered an option on V2. They follow the same workflow as descr
 
 ### Create a product with complex rules
 
-In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](/api-docs/store-management/catalog/catalog-overview#complex-rules).
+In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](/docs/store-operations/catalog#complex-rules).
 
 **V3 example**
 
@@ -745,7 +750,7 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](/docs/rest-management/catalog/variants#get-all-variants) or [Product Modifiers](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](/docs/rest-catalog/product-variant-options) or [Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) endpoints.
 
 Editing the V2 global product option using the V3 Catalog API will do the following:
 
@@ -1010,5 +1015,5 @@ Even though we edited only one option value, option value IDs for all other opti
 
 ### Articles
 
-* [Catalog Overview](/api-docs/store-management/products-overview)
-* [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets)
+* [Catalog Overview](/docs/store-operations/catalog)
+* [Deprecations and sunsets](/docs/start/best-practices/sunsets)

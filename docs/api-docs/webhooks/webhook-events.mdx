@@ -1,24 +1,29 @@
+---
+title: Webhook Events
+keywords: webhooks, currency, currencies, events, bopis, buy online pick up in store, inventory, sort, 
+---
+
 # Webhook Events
 
-This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
+This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/docs/integrations/webhooks#callback-payload).
 
 ## Creating a webhook
 
-To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks#creating-a-webhook).
+To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/docs/integrations/webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#creating-a-webhook).
 
 ## Callback structure
 
 | Property     | Description |
 |:-------------|:------------|
-| `scope` | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
+| `scope` | The [event](/docs/integrations/webhooks/events) registered when the webhook was created. |
 | `store_id` | A numerical identifier that is unique to each store. |
-| `data` | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
-| `hash` | The payload data JSON encoded then passed through SH1 encryption. |
+| `data` | A lightweight description of the [event](/docs/integrations/webhooks/events) that triggered the webhook. Will vary depending on the event registered. |
+| `hash` | The SHA-1 hash of the JSON-encoded payload data. Ensures users can detect duplicate events. |
 | `created_at` | Hook creation date as a Unix timestamp.|
 | `producer` | Will always follow the pattern `stores/store_hash`. This is the store that created the webhook. |
 
 
-Callback payloads take the following form. The `data` property will contain varying attributes specific to the type of event the webhook represents.
+Callback payloads take the following form. The `data` property contains varying attributes specific to the type of event the webhook represents.
 
 ```json filename="Example callback payload object" showLineNumbers copy
 {
@@ -33,23 +38,56 @@ Callback payloads take the following form. The `data` property will contain vary
   "producer": "stores/{store_hash}"
 }
 ```
+## Brands
+
+| Name / Scope            | Description |
+|:------------------------|:------------|
+| store/brand/metafield/* | Fires for all store/brand/metafield events. |
+| store/brand/metafield/created | Fires when a new brand metafield is created. |
+| store/brand/metafield/deleted | Fires when a brand metafield is deleted.     |   
+| store/brand/metafield/updated | Fires when a brand metafield is modified.    |
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/brand/metafield/created`
+* `store/brand/metafield/deleted`
+* `store/brand/metafield/updated`
+
+
+```json filename="Example brand metafield created payload object" showLineNumbers copy
+{
+  "scope": "store/brand/metafield/created",
+  "store_id": "1025646",
+  "data": {
+    "metafield_id": 16,
+    "resource_id": "38"  // Brand ID
+  },
+  "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
+  "created_at": 1561482670,
+  "producer": "stores/{store_hash}"
+}
+```
 
 ## Carts
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
+  For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#carts).
 </Callout>
 
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/cart/* | Subscribe to all cart events. This will also subscribe you to cart/lineItem. |
-| store/cart/created | This webhook will fire whenever a new cart is created, either when a storefront shopper adding their first item to the cart, or when a new cart is created by API. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before). For the API it means a `POST` to /carts, (V3 and Storefront API). The `store/cart/updated` hook will also fire.|
-| store/cart/updated | This webhook is fired whenever a cart is modified through the changes in its line items. Eg. When a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or when an existing item is deleted. The payload will include the ID of the cart being updated. <br /> This webhook also fires along with the cart created hook, because the first product being added to an empty cart triggers an update. It will also fire for the following events: <br /> - Logging into customer account after creating a cart (email is inherited from customer account email) <br />- Entering email address during guest checkout <br /> -Changing the email in guest checkout |
-| store/cart/deleted| This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
-| store/cart/couponApplied | This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code. |
-| store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
-| store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
+| store/cart/* | Fires for all store/cart events. Also fires for store/cart/lineItem events. |
+| store/cart/created | Fires when a new cart is created, either when a storefront shopper adding their first item to the cart, or when a new cart is created by API. If it is from the storefront, then it fires when the first product is added to a new session; the cart did not exist before. For the API it means a `POST` to /carts, both REST Management and REST Storefront. The `store/cart/updated` webhook also fires.|
+| store/cart/updated | Fires when a cart is modified through the changes in its line items. The payload includes the ID of the cart being updated. Qualifying events include the following: <br />- A new item is added to a cart <br />- An existing item’s quantity is updated <br />- An existing item is deleted <br />- A cart is created - the first product being added to an empty cart triggers an update <br />- The email is changed during guest checkout <br />- The shopper or session signs into a customer account after creating a cart - email is inherited from customer account email <br />- The shopper enters an email address during guest checkout <br /> - The shopper changes their email address during guest checkout |
+| store/cart/deleted| Fires when a cart is deleted. This occurs either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.|
+| store/cart/couponApplied | Fires when a new coupon code is applied to a cart. The payload includes the ID of the coupon code. |
+| store/cart/abandoned | Fires when a cart is abandoned. A cart is considered abandoned when no changes have been made for at least one hour after the last modified property. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
+| store/cart/converted | Fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes. |
+| store/cart/metafield/created | Fires when a new cart metafield is created. |
+| store/cart/metafield/deleted| Fires when a cart metafield is deleted. This occurs either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed by a `DELETE` request to an API. This ends the lifecycle of the cart. The  `store/cart/updated` webhook also fires when the last item is removed.|
+| store/cart/metafield/updated | Fires when a cart metafield is modified through the changes in its line items.  |
+
 
 <Callout type="info">
   The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
@@ -66,31 +104,31 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example cart created payload object" showLineNumbers copy
 {
-    "scope": "store/cart/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "cart", // can be cart or cart_line_item
-        "id": "09346904-4175-44fd-be53-f7e598531b6c" // id of the cart
-    },
-    "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
-    "created_at": 1561482670,
-    "producer": "stores/{store_hash}"
+  "scope": "store/cart/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "cart", // can be cart or cart_line_item
+    "id": "09346904-4175-44fd-be53-f7e598531b6c" // ID of the cart
+  },
+  "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
+  "created_at": 1561482670,
+  "producer": "stores/{store_hash}"
 }
 ```
 Payload objects with the `store/cart/couponApplied` scope take the form that follows:
 
 ```json filename="Example cart coupon applied payload object" showLineNumbers copy
 {
-    "scope": "store/cart/couponApplied",
-    "store_id": "1025646",
-    "data": {
-        "type": "cart", // can be cart or cart_line_item
-        "id": "09346904-4175-44fd-be53-f7e598531b6c", // ID of the cart
-        "couponId": 1 //ID of the coupon
-    },
-    "hash": "4b7297d295141b660e8db5a0d99dfcdf459fe825",
-    "created_at": 1561482761,
-    "producer": "stores/{store_hash}"
+  "scope": "store/cart/couponApplied",
+  "store_id": "1025646",
+  "data": {
+    "type": "cart", // can be cart or cart_line_item
+    "id": "09346904-4175-44fd-be53-f7e598531b6c", // ID of the cart
+    "couponId": 1 //ID of the coupon
+  },
+  "hash": "4b7297d295141b660e8db5a0d99dfcdf459fe825",
+  "created_at": 1561482761,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -98,31 +136,51 @@ Payload objects with the `store/cart/converted` scope take the form that follows
 
 ```json filename="Example cart converted payload object" showLineNumbers copy
 {
-    "scope": "store/cart/converted",
-    "store_id": "1025646",
-    "data": {
-        "type": "cart", // will always be cart
-        "id": "d30016e2-23c0-4a90-884f-2e92ac135476", // ID of the cart
-        "orderId": 252 // ID of the order created
-    },
-    "hash": "b86db7c77d7ef8f90d6a8aefa56de32ccd776923",
-    "created_at": 1561486893,
-    "producer": "stores/{store_hash}"
+  "scope": "store/cart/converted",
+  "store_id": "1025646",
+  "data": {
+    "type": "cart", // will always be cart
+    "id": "d30016e2-23c0-4a90-884f-2e92ac135476", // ID of the cart
+    "orderId": 252 // ID of the order created
+  },
+  "hash": "b86db7c77d7ef8f90d6a8aefa56de32ccd776923",
+  "created_at": 1561486893,
+  "producer": "stores/{store_hash}"
+}
+```
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/cart/metafield/created`
+* `store/cart/metafield/deleted`
+* `store/cart/metafield/updated`
+
+```json filename="Example cart metafield created payload object" showLineNumbers copy
+{
+  "scope": "store/cart/metafield/created",
+  "store_id": "1025646",
+  "data": {
+    "metafield_id": 20,
+    "resource_id": "29520ea6-2d39-4b39-836e-06ea14bf9f69" // Cart ID
+  },
+  "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
+  "created_at": 1561482670,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 ## Cart line items
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
+  For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#cart-line-items).
 </Callout>
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/cart/lineItem/* | Subscribe to all cart line item events. This webhook will fire when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
-| store/cart/lineItem/created | When a new item is added to the cart.  |
-| store/cart/lineItem/updated | When an item’s quantity has changed or the product options change. |
-| store/cart/lineItem/deleted | When an item is deleted from the cart.|
+| store/cart/lineItem/* | Subscribe to all cart line item events. Fires when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
+| store/cart/lineItem/created | Fires when a new item is added to the cart.  |
+| store/cart/lineItem/updated | Fires when an item’s quantity has changed or the product options change. |
+| store/cart/lineItem/deleted | Fires when an item is deleted from the cart.|
 
 Payload objects with the following scopes take the form that follows:
 
@@ -132,16 +190,16 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example cart line item payload object" showLineNumbers copy
 {
-    "scope": "store/cart/lineItem/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "cart_line_item", // can be cart or cart_line_item
-        "id": "743bfd94-d5dd-47c5-9c19-6eec32ca6119", // ID of the line item
-        "cartId": "b0386708-fef3-45de-9d8b-fbe3031450a4" // ID of the cart
-    },
-    "hash": "399321a1bf1ac1331e12826fb89f264b4c8d21a6",
-    "created_at": 1561481786,
-    "producer": "stores/{store_hash}"
+  "scope": "store/cart/lineItem/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "cart_line_item", // can be cart or cart_line_item
+    "id": "743bfd94-d5dd-47c5-9c19-6eec32ca6119", // ID of the line item
+    "cartId": "b0386708-fef3-45de-9d8b-fbe3031450a4" // ID of the cart
+  },
+  "hash": "399321a1bf1ac1331e12826fb89f264b4c8d21a6",
+  "created_at": 1561481786,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -149,15 +207,20 @@ Payload objects with the following scopes take the form that follows:
 ## Categories
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+  For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#categories).
 </Callout>
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
-| store/category/* | Subscribe to all store/category events. |
-| store/category/created | Category is created. |
-| store/category/updated | Category is updated. |
-| store/category/deleted | Category is deleted. |
+| store/category/* | Fires for all store/category events. |
+| store/category/created | Fires when a category is created. |
+| store/category/updated | Fires when a category is updated. |
+| store/category/deleted | Fires when a category is deleted. |
+| store/category/metafield/created | Fires when a category metafield is created. |
+| store/category/metafield/deleted | Fires when a category metfield is deleted. |
+| store/category/metafield/updated | Fires when a category metafield is updated. |
+
+
 
 Payload objects with the following scopes take the form that follows:
 
@@ -168,40 +231,62 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example category payload object" showLineNumbers copy
 {
-    "scope": "store/category/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "category", // will always be category
-        "id": 42 // ID of the category
-    },
-    "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
-    "created_at": 1561480214,
-    "producer": "stores/{store_hash}"
+  "scope": "store/category/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "category", // will always be category
+    "id": 42 // ID of the category
+  },
+  "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
+  "created_at": 1561480214,
+  "producer": "stores/{store_hash}"
+}
+```
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/category/metafield/created`
+* `store/category/metafield/deleted`
+* `store/category/metafield/updated`
+
+```json filename="Example category metafield created payload object" showLineNumbers copy
+{
+  "scope": "store/category/metafield/created",
+  "store_id": "1025646",
+  "data": {
+    "metafield_id": 17,
+    "resource_id": "24"  // Category ID
+  },
+  "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
+  "created_at": 1561480214,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 ## Category trees
 
-Consult the [category trees section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#category-trees).
+Consult the [category trees section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#category-trees).
+
 ## Channel events
 
-Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
+Consult the [channel events section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#channel-events).
+
 ## Customers
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
+  For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#customers).
 </Callout>
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/customer/* | Subscribe to all store/customer events. |
-| store/customer/created | A new customer is created.|
-| store/customer/updated | Customer is updated. Does not currently track changes to the customer address. |
-| store/customer/deleted | Customer is deleted. |
-| store/customer/address/created | Customer address is created. |
-| store/customer/address/updated | Customer address is updated. |
-| store/customer/address/deleted | Customer address is deleted. |
-| store/customer/payment/instrument/default/updated | Customer default payment instrument is updated. |
+| store/customer/* | Fires for all store/customer events. |
+| store/customer/created | Fires when a new customer is created.|
+| store/customer/updated | Fires when a customer is updated. It does not currently track changes to the customer address. <br /><br />Tracks changes to customer attributes only if you make the changes through the control panel. This change triggers the same event `type` and payload as updating a customer; the payload does not include customer attributes. |
+| store/customer/deleted | Fires when a customer is deleted. |
+| store/customer/address/created | Fires when a customer address is created. |
+| store/customer/address/updated | Fires when a customer address is updated. |
+| store/customer/address/deleted | Fires when a customer address is deleted. |
+| store/customer/payment/instrument/default/updated | Fires when a customer default payment instrument is updated. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -211,17 +296,17 @@ Payload objects with the following scopes take the form that follows:
 * `store/customer/payment/instrument/default/updated`
 
 
-```json filename="Example customer payload object" showLineNumbers copy
+```json filename="Example customer created payload object" showLineNumbers copy
 {
-    "scope": "store/customer/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "customer", // will always be customer
-        "id": 32 // ID of the customer
-    },
-    "hash": "8768ab15aa86c6d73c7e4c3efbaee072110ad1d2",
-    "created_at": 1561481571,
-    "producer": "stores/{store_hash}"
+  "scope": "store/customer/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "customer", // will always be customer
+    "id": 32 // ID of the customer
+  },
+  "hash": "8768ab15aa86c6d73c7e4c3efbaee072110ad1d2",
+  "created_at": 1561481571,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -232,49 +317,119 @@ Payload objects with the following scopes take the form that follows:
 * `store/customer/address/deleted`
 
 
-```json filename="Example customer address payload object" showLineNumbers copy
+```json filename="Example customer address created payload object" showLineNumbers copy
 {
-    "scope": "store/customer/address/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "customer", // will always be customer
-        "id": 60, // ID of the customer address
-        "address": {
-            "customer_id": 32 // ID of the customer
-        }
-    },
-    "hash": "416ca9c01779515de91824aa1cac9012ee691e7a",
-    "created_at": 1561481620,
-    "producer": "stores/{store_hash}"
+  "scope": "store/customer/address/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "customer", // will always be customer
+    "id": 60, // ID of the customer address
+    "address": {
+      "customer_id": 32 // ID of the customer
+    }
+  },
+  "hash": "416ca9c01779515de91824aa1cac9012ee691e7a",
+  "created_at": 1561481620,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 
 ## Emails
 
-Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
+Consult the [emails section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#emails).
 
+## Inventory
+
+| Name / Scope             | Description |
+|:-------------------------|:------------|
+| store/inventory/location/metafield/*        | Fires for all store/inventory/location/metafields events.  |
+| store/inventory/location/metafield/created  | Fires when a new inventory location metafield is created.  |
+| store/inventory/location/metafield/deleted  | Fires when an inventory location metafield is deleted. |
+| store/inventory/location/metafield/updated  | Fires when an already created inventory location metafield is updated. Any change to an existing inventory location metafield fires this webhook. |
+
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/inventory/location/metafield/created`
+* `store/inventory/location/metafield/deleted`
+* `store/inventory/location/metafield/updated`
+
+```json filename="Example inventory location metafield payload object" showLineNumbers copy
+{
+  "scope": "store/inventory/location/metafield/created",
+  "store_id": "1001197568",
+  "data": {
+    "metafield_id": 10,
+    "resource_id": "1" // Location ID
+  },
+  "hash": "e0c298b8097a6a2f39d17e593a9b360f5b2fef7d",
+  "created_at": 1683303055,
+  "producer": "stores/{store_hash}"
+}
+```
+
+Also, consult the [inventory section of the _Buy Online, Pick up in Store_ Webhook Events](/docs/integrations/webhooks/events/inventory-location#inventory).
+
+## Locations
+
+Consult the [locations section of the _Buy Online, Pick up in Store_ Webhook Events](/docs/integrations/webhooks/events/inventory-location#locations).
+
+
+## Metafields
+
+| Name / Scope             | Description |
+|:-------------------------|:------------|
+| store/metafield/*        | Fires for all store/metafields events.  |
+| store/metafield/created  | Fires when a new metafield on any object is created.  |
+| store/metafield/updated  | Fires when an already created metafield is updated. Any change to an existing metafield on any object fires this webhook, including inventory, carts, brands, categories, channels, orders, ShipperHQ, etc. |
+| store/metafield/deleted  | Fires when a metafield is deleted. |
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/metafield/created`
+* `store/metafield/updated`
+* `store/metafield/deleted`
+
+```json filename="Example metafield updated payload object" showLineNumbers copy
+{
+  "scope": "store/metafield/updated",
+  "store_id": "1001197568",
+  "data": {
+    "metafield_id": 10,
+    "resource_id": "1",  // Location ID
+    "resource_type": "location"
+  },
+  "hash": "e0c298b8097a6a2f39d17e593a9b360f5b2fef7d",
+  "created_at": 1683303055,
+  "producer": "stores/{store_hash}"
+}
+```
 ## Notifications
 
-Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
+Consult the [notifications section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#notifications).
 
 ## Orders
 
 <Callout type="info">
-  For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
+  For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#orders).
 </Callout>
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/order/* | Subscribe to all store/order events.  |
-| store/order/created |Fires if an order is created using the control panel, an app, or the API.|
-| store/order/updated| Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon, or changing an address.|
-| store/order/archived | Order is archived. |
-| store/order/statusUpdated | This will only fire if the order status has changed, such as Pending to Awaiting Payment. |
-| store/order/message/created | Order message is created by customer or in control panel. |
-| store/order/refund/created | A refund has been submitted against an order. |
+| store/order/* | Fires for all store/order events.  |
+| store/order/created | Fires when an order is created from the storefront, using the control panel, an app, or the API.|
+| store/order/updated| Fires when an already created order is updated. Any change to an existing order fires this webhook. Updates can include changing the status, updating a coupon, or changing an address.|
+| store/order/archived | Fires when an order is archived. |
+| store/order/statusUpdated | Fires only if the order status has changed, such as Pending to Awaiting Payment. |
+| store/order/message/created | Fires if order message is created by a customer or in the control panel. |
+| store/order/refund/created | Fires if a refund has been submitted against an order. |
 | store/order/transaction/created | Fires when a transaction record is created. |
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
+| store/order/metafield* | Fires for all store/order/metafield events.  |
+| store/order/metafield/created |Fires if an order metafield is created using the control panel, an app, or the API.|
+| store/order/metafield/updated| Fires when an existing order metafield is updated. Any change to an existing order metafield fires this webhook.|
+| store/order/metafield/deleted | Fires when an order metafield is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -282,17 +437,17 @@ Payload objects with the following scopes take the form that follows:
 * `store/order/updated`
 * `store/order/archived`
 
-```json filename="Example order payload object" showLineNumbers copy
+```json filename="Example order created payload object" showLineNumbers copy
 {
-    "scope": "store/order/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "order", // will always be order
-        "id": 250 // ID of the order
-    },
-    "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
-    "created_at": 1561479335,
-    "producer": "stores/{store_hash}"
+  "scope": "store/order/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "order", // will always be order
+    "id": 250 // ID of the order
+  },
+  "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
+  "created_at": 1561479335,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -300,19 +455,19 @@ Payload objects with the `store/order/statusUpdated` scope take the form that fo
 
 ```json filename="Example order status updated payload object" showLineNumbers copy
 {
-    "scope": "store/order/statusUpdated",
-    "store_id": "1025646",
-    "data": {
-        "type": "order", // will always be order
-        "id": 250, // ID of the order
-        "status": {
-            "previous_status_id": 0, // previous status
-            "new_status_id": 11 // new status
-        }
-    },
-    "hash": "7ee67cd1cf2ca60bc1aa9e5fe957d2de373be4ca",
-    "created_at": 1561479335,
-    "producer": "stores/{store_hash}"
+  "scope": "store/order/statusUpdated",
+  "store_id": "1025646",
+  "data": {
+    "type": "order", // will always be order
+    "id": 250, // ID of the order
+    "status": {
+      "previous_status_id": 0, // previous status
+      "new_status_id": 11 // new status
+    }
+  },
+  "hash": "7ee67cd1cf2ca60bc1aa9e5fe957d2de373be4ca",
+  "created_at": 1561479335,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -320,36 +475,36 @@ Payload objects with the `store/order/message/created` scope take the form that 
 
 ```json filename="Example order message payload object" showLineNumbers copy
 {
-    "scope": "store/order/message/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "order", // will always be order
-        "id": 250, // ID of the order
-        "message": {
-            "order_message_id": 3 // ID of the message on the order
-        }
-    },
-    "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
-    "created_at": 1561479923,
-    "producer": "stores/{store_hash}"
+  "scope": "store/order/message/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "order", // will always be order
+    "id": 250, // ID of the order
+    "message": {
+      "order_message_id": 3 // ID of the message on the order
+    }
+  },
+  "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
+  "created_at": 1561479923,
+  "producer": "stores/{store_hash}"
 }
 ```
 Payload objects with the `store/order/refund/created` scope take the form that follows:
 
 ```json filename="Example order refund payload object" showLineNumbers copy
 {
-    "scope": "store/order/refund/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "order", // will always be order
-        "id": 250, // ID of order
-        "refund": {
-            "refund_id": 3 // ID of the refund submitted against the order
-        }
-    },
-    "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
-    "created_at": 1561479923,
-    "producer": "stores/{store_hash}"
+  "scope": "store/order/refund/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "order", // will always be order
+    "id": 250, // ID of order
+    "refund": {
+      "refund_id": 3 // ID of the refund submitted against the order
+    }
+  },
+  "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
+  "created_at": 1561479923,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -360,42 +515,70 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example order transaction payload object" showLineNumbers copy
 {
-    "scope": "store/order/transaction/created",
-    "channel_id": null,
-    "store_id": "1025646",
-    "data": {
-        "type": "transaction", // will always be transaction
-        "order_id": 250, // ID of the order associated with the transaction
-        "transaction_id": "176342342" // ID of the transaction; created by the payment provider
-    },
-    "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
-    "created_at": 1561479335,
-    "producer": "stores/{store_hash}"
+  "scope": "store/order/transaction/created",
+  "store_id": "1025646",
+  "channel_id": null,
+  "data": {
+    "type": "transaction", // will always be transaction
+    "order_id": 250, // ID of the order associated with the transaction
+    "transaction_id": "176342342" // ID of the transaction; created by the payment provider
+  },
+  "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
+  "created_at": 1561479335,
+  "producer": "stores/{store_hash}"
+}
+```
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/order/metafield/created`
+* `store/order/metafield/updated`
+* `store/order/metafield/deleted`
+
+```json filename="Example order metafield payload object" showLineNumbers copy
+{
+  "scope": "store/order/metafield/created",
+  "store_id": "1001197568",
+  "data": {
+    "metafield_id": 14,
+    "resource_id": "270" // Order ID
+  },
+  "hash": "8fd18449531d7e531587782eb200950cbad8cffe",
+  "created_at": 1683315012,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 ## Pages
 
-Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
+Consult the [pages section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#pages).
 
 ## Price list assignments
 
-Consult the [price list assignments section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#price-list-assignments).
+Consult the [price list assignments section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#price-list-assignments).
 
 ## Product assignments
 
-Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
+Consult the [product assignment section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#product-assignment).
 
 ## Products
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/product/* | Subscribe to all store/product events. |
-|store/product/deleted| Product is deleted.|
-| store/product/created | A new product is created. |
-| store/product/updated |Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
-| store/product/inventory/updated| Product inventory is updated. |
-| store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
+| store/product/* | Fires for all store/product events. |
+| store/product/deleted| Fires when a product is deleted.|
+| store/product/created | Fires when a new product is created. |
+| store/product/updated | Fires when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
+| store/product/inventory/updated | Fires when inventory levels change for a _base product_. For products without variants, the webhook fires regardless of how you track inventory. <br /><br />For products with variants, the webhook only fires when the product's inventory properties are configured to track by _product_ and the _product-level_ inventory changes. <br /><br />Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page.  |
+| store/product/inventory/order/updated | Fires when _base product_ inventory levels change in response to the order-related events configured in [Inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). The settings for a channel apply when inventory changes through an order in a channel.<br /><br />The webhook always fires for products without variants. For products with variants, the webhook only fires when you configure the product's inventory properties to track by _product_. |
+| store/product/metafield/* | Fires for all store/product/metafield events.  |
+| store/product/metafield/created | Fires when a new product metafield is created. |
+| store/product/metafield/updated | Fires when product metafield details are edited. |
+| store/product/metafield/deleted | Fires when a product metafield is deleted.|
+| store/product/variant/metafield/* | Fires for all store/variant/metafield events. |
+| store/product/variant/metafield/created | Fires when a new product variant metafield is created. |
+| store/product/variant/metafield/updated | Fires when product variant metafield details are edited. |
+| store/product/variant/metafield/deleted | Fires when a product variant metafield is deleted.|
 
 Payload objects with the following scopes take the form that follows:
 
@@ -405,48 +588,20 @@ Payload objects with the following scopes take the form that follows:
 
 ```json filename="Example product payload object" showLineNumbers copy
 {
-    "scope": "store/product/deleted",
-    "store_id": "1025646",
-    "data": {
-        "type": "product", // will always be product
-        "id": 205 // ID of the product
-    },
-    "hash": "a833a57fadd56a32dc752fb6ca0841dc9602a495",
-    "created_at": 1561479233,
-    "producer": "stores/{store_hash}"
+  "scope": "store/product/deleted",
+  "store_id": "1025646",
+  "data": {
+    "type": "product", // will always be product
+    "id": 205 // ID of the product
+  },
+  "hash": "a833a57fadd56a32dc752fb6ca0841dc9602a495",
+  "created_at": 1561479233,
+  "producer": "stores/{store_hash}"
 }
 ```
-
-Payload objects with the following scopes take the form that follows:
-
-* `store/product/inventory/updated`
-* `store/product/inventory/order/updated`
-
-```json filename="Example product inventory payload object" showLineNumbers copy
-{
-    "scope": "store/product/inventory/updated",
-    "store_id": "1025646",
-    "data": {
-        "type": "product", // will always be product
-        "id": 167, // ID of the product
-        "inventory": {
-            "product_id": 167, // ID of the product
-            "method": "absolute", // absolute or relative
-                // absolute -- inventory updated using the API or the control panel
-		        // relative -- inventory updated by an order
-            "value": 100000000 // the number of items that the inventory changed by
-                // value can be negative if the inventory is decreased (-3) or positive if an item is returned to the inventory from an order, (+2)
-        }
-    },
-    "hash": "cba9eef399fbd6d384489bca6cacad24794b1086",
-    "created_at": 1561478843,
-    "producer": "stores/{store_hash}"
-}
-```
-
 ### Product update events
 
-Changes to any of the following fields will trigger a `store/product/updated` event:
+A change to any of the following fields triggers a `store/product/updated` event:
 
 * Availability
 * Category
@@ -456,40 +611,109 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 * Dimensions
 * Featured
 * Inventory
-* Modifier (deleted)
+* Modifier - deleted
 * Name
 * Number Sold
 * Price
 * Product Type
 * Sort Order
 * Tax Price
-* Thumbnail (new images only)*
-* Variant (deleted)
+* Thumbnail - new images only*
 * Visibility
 
 <Callout type="info">
-  Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
+  Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** triggers an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
 </Callout>
+
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/product/inventory/updated`
+* `store/product/inventory/order/updated`
+
+```json filename="Example product inventory updated payload object" showLineNumbers copy
+{
+  "scope": "store/product/inventory/updated",
+  "store_id": "1025646",
+  "data": {
+    "type": "product", // will always be product
+    "id": 167, // ID of the product
+    "inventory": {
+      "product_id": 167, // ID of the product
+      "method": "absolute", // absolute or relative
+            // absolute -- inventory updated using the API or the control panel
+            // relative -- inventory updated by an order
+      "value": 100000000 // the number of items that the inventory changed by
+                // value can be negative if the inventory is decreased (-3) or positive if an item is returned to the inventory from an order, (+2)
+    }
+  },
+  "hash": "cba9eef399fbd6d384489bca6cacad24794b1086",
+  "created_at": 1561478843,
+  "producer": "stores/{store_hash}"
+}
+```
+
+Payload objects with the following scopes take the form that follows:
+
+* `store/product/metafield/deleted`
+* `store/product/metafield/created`
+* `store/product/metafield/updated`
+
+```json filename="Example product metafield created payload object" showLineNumbers copy
+{
+  "scope": "store/metafield/created",
+  "store_id": "1001197568",
+  "data": {
+    "metafield_id": 12,
+    "resource_id": "118", // Product ID
+    "resource_type": "product"
+  },
+  "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
+  "created_at": 1683305167,
+  "producer": "stores/{store_hash}"
+}
+```
+Payload objects with the following scopes take the form that follows:
+
+* `store/product/variant/metafield/deleted`
+* `store/product/variant/metafield/created`
+* `store/product/variant/metafield/updated`
+
+```json filename="Example product variant metafield created payload object" showLineNumbers copy
+{
+  "scope": "store/metafield/created",
+  "store_id": "1001197568",
+  "data": {
+    "metafield_id": 12,
+    "resource_id": "118", // Variant ID
+    "resource_type": "variant"
+  },
+  "hash": "60f42bd247b52f0647cbd16b1205c84260287141",
+  "created_at": 1683305167,
+  "producer": "stores/{store_hash}"
+}
+```
 
 ## Routes
 
-Consult the [routes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#routes).
+Consult the [routes section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#routes).
 
 ## Scripts
 
-Consult the [scripts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#scripts).
+Consult the [scripts section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#scripts).
+
 ## Settings
 
-Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
+Consult the [settings section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#settings).
 
 ## Shipments
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/shipment/* | Subscribe to all store/shipment events. |
-| store/shipment/created | Shipment is created. |
-| store/shipment/updated | Shipment is updated. |
-| store/shipment/deleted | Shipment is deleted. |
+| store/shipment/* | Fires for all store/shipment events. |
+| store/shipment/created | Fires when a shipment is created. |
+| store/shipment/updated | Fires when a shipment is updated. |
+| store/shipment/deleted | Fires when a shipment is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -497,35 +721,36 @@ Payload objects with the following scopes take the form that follows:
 * `store/shipment/updated`
 * `store/shipment/deleted`
 
-```json filename="Example shipment payload object" showLineNumbers copy
+```json filename="Example shipment created payload object" showLineNumbers copy
 {
-    "scope": "store/shipment/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "shipment", // will always be shipment
-        "id": 12, // ID of the shipment
-        "orderId": 251 // ID of the order
-    },
-    "hash": "8b98021cb0faa7e3a58a0e4182d3696a4bdd24ab",
-    "created_at": 1561482857,
-    "producer": "stores/{store_hash}"
+  "scope": "store/shipment/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "shipment", // will always be shipment
+    "id": 12, // ID of the shipment
+    "orderId": 251 // ID of the order
+  },
+  "hash": "8b98021cb0faa7e3a58a0e4182d3696a4bdd24ab",
+  "created_at": 1561482857,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 
 ## Sites
 
-Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#sites).
+Consult the [sites section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#sites).
+
 ## SKUs
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/sku/* | Subscribe to all store/sku events. |
-| store/sku/created | A new sku is created. |
-| store/sku/updated | SKU is updated. |
-| store/sku/deleted | SKU is deleted. |
-| store/sku/inventory/updated | SKU is updated.|
-| store/sku/inventory/order/updated | Fires when the inventory is updated, when an order is placed, and when an order is refunded and the inventory returned to stock. This hook will fire based on a store's Inventory settings. |
+| store/sku/* | Fires for all store/sku events. |
+| store/sku/created | Fires when a new SKU is created.|
+| store/sku/updated | Fires when a SKU is updated. |
+| store/sku/deleted | Fires when a SKU is deleted. |
+| store/sku/inventory/updated | Fires when inventory levels change for a _variant_. This webhook does not fire for products without variants. <br /><br />For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_ and the _variant-level_ inventory changes. <br /><br />Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page. |
+| store/sku/inventory/order/updated | Fires when _variant_ inventory levels change in response to the order-related events configured in [Inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). Settings for a channel apply when inventory changes through an order in a channel.<br /><br />The webhook does not fire for products without variants. For products with variants, the webhook only fires when you configure the product's inventory properties to track by _variant_. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -534,21 +759,21 @@ Payload objects with the following scopes take the form that follows:
 * `store/sku/deleted`
 
 
-```json filename="Example sku payload object" showLineNumbers copy
+```json filename="Example sku created payload object" showLineNumbers copy
 {
-    "scope": "store/sku/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "sku", // will always be sku
-        "id": 461, // ID of the sku
-        "sku": {
-            "product_id": 206, // ID of the product
-            "variant_id": 509 // ID of the variant
-        }
-    },
-    "hash": "7a0866943b1f46cfda31c3218931f5aab83a4c73",
-    "created_at": 1561480465,
-    "producer": "stores/{store_hash}"
+  "scope": "store/sku/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "sku", // will always be sku
+    "id": 461, // ID of the sku
+    "sku": {
+      "product_id": 206, // ID of the product
+      "variant_id": 509 // ID of the variant
+    }
+  },
+  "hash": "7a0866943b1f46cfda31c3218931f5aab83a4c73",
+  "created_at": 1561480465,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -558,26 +783,26 @@ Payload objects with the following scopes take the form that follows:
 * `store/sku/inventory/updated`
 
 
-```json filename="Example sku inventory payload object" showLineNumbers copy
+```json filename="Example sku inventory updated payload object" showLineNumbers copy
 {
-    "scope": "store/sku/inventory/updated",
-    "store_id": "1025646",
-    "data": {
-        "type": "sku", // will always be sku
-        "id": 461, // ID of the sku
-        "inventory": {
-            "product_id": 206, // ID of the product
-            "method": "absolute", // absolute or relative
-                // absolute -- inventory updated using the API or the control panel
-		        // relative -- inventory updated by an order
-            "value": 5, //  the number of items that the inventory changed by. 
-                // This can be negative if the inventory is decreased (-3), or positive if an item is returned to the inventory from an order (+2).
-            "variant_id": 509 // ID of the variant
-        }
-    },
-    "hash": "116ddb29d7bc1b2322cc1a4dc295221ee3637d4b",
-    "created_at": 1561480673,
-    "producer": "stores/{store_hash}"
+  "scope": "store/sku/inventory/updated",
+  "store_id": "1025646",
+  "data": {
+    "type": "sku", // will always be sku
+    "id": 461, // ID of the sku
+    "inventory": {
+      "product_id": 206, // ID of the product
+      "method": "absolute", // absolute or relative
+            // absolute -- inventory updated using the API or the control panel
+            // relative -- inventory updated by an order
+      "value": 5, //  the number of items that the inventory changed by. 
+            // This can be negative if the inventory is decreased (-3), or positive if an item is returned to the inventory from an order (+2).
+      "variant_id": 509 // ID of the variant
+    }
+  },
+  "hash": "116ddb29d7bc1b2322cc1a4dc295221ee3637d4b",
+  "created_at": 1561480673,
+  "producer": "stores/{store_hash}"
 }
 ```
 
@@ -585,18 +810,18 @@ Payload objects with the following scopes take the form that follows:
 
 ## Social media links
 
-Consult the [social media links section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#social-media-links).
+Consult the [social media links section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#social-media-links).
 
 ## Stores
 
 | Name / Scope              | Description |
 |:--------------------------|:------------|
-| store/app/uninstalled     | Occurs when a client store is cancelled and uninstalled from the platform. |
-| store/information/updated | Occurs when changes are made to store settings. For a full list of fields that can trigger this event, consult the following section on [store information updated events](#store-information-updated-events). |
+| store/app/uninstalled     | Fires when a client store is cancelled and uninstalled from the platform. |
+| store/information/updated | Fires when changes are made to store settings. For a full list of fields that can trigger this event, consult the following section on [store information updated events](#store-information-updated-events). |
 
 ### Store information updated events
 
-Changes to the following store settings will trigger a `store/information/updated` event:
+A change to the following store settings triggers a `store/information/updated` event:
 
 * Store Name
 * Store Address
@@ -644,10 +869,10 @@ Changes to the following store settings will trigger a `store/information/update
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
-| store/subscriber/*       | Subscribe to all store/subscriber events. |
-| store/subscriber/created | Subscriber is created. |
-| store/subscriber/updated | Subscriber is updated. |
-| store/subscriber/deleted | Subscriber is deleted. |
+| store/subscriber/*       | Fires for all store/subscriber events. |
+| store/subscriber/created | Fires when a subscriber is created. |
+| store/subscriber/updated | Fires when a subscriber is updated. |
+| store/subscriber/deleted | Fires when a subscriber is deleted. |
 
 Payload objects with the following scopes take the form that follows:
 
@@ -655,29 +880,30 @@ Payload objects with the following scopes take the form that follows:
 * `store/subscriber/updated`
 * `store/subscriber/deleted`
 
-```json filename="Example subscriber payload object" showLineNumbers copy
+```json filename="Example subscriber created payload object" showLineNumbers copy
 {
-    "scope": "store/subscriber/created",
-    "store_id": "1025646",
-    "data": {
-        "type": "subscriber", // will always be subscriber
-        "id": 5 // id of the subscriber
-    },
-    "hash": "bdb6c9c2d17ca7036538e483db0bdd7debc4beb4",
-    "created_at": 1561482953,
-    "producer": "stores/{store_hash}"
+  "scope": "store/subscriber/created",
+  "store_id": "1025646",
+  "data": {
+    "type": "subscriber", // will always be subscriber
+    "id": 5 // id of the subscriber
+  },
+  "hash": "bdb6c9c2d17ca7036538e483db0bdd7debc4beb4",
+  "created_at": 1561482953,
+  "producer": "stores/{store_hash}"
 }
 ```
 
 ## Themes
 
-Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#themes).
+Consult the [themes section of the Channel Webhooks Guide](/docs/integrations/webhooks/events/channels#themes).
 
 ## Resources
 
 ### Related articles
 
-* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhooks Tutorial](/docs/integrations/webhooks/tutorial)
 * [Webhooks Reference](/docs/webhooks/webhooks)
-* [Channel Webhook Events](/api-docs/channels/guide/webhooks)
+* [Channel Webhook Events](/docs/integrations/webhooks/events/channels)
+* [Buy Online, Pick up in Store Webhook Events](/docs/integrations/webhooks/events/inventory-location)

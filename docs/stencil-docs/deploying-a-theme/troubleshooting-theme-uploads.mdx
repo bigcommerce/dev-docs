@@ -28,10 +28,10 @@ Custom theme uploads must meet these restrictions:
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
 | TR-902 | Two or more theme variations defined in the contained config.json file share an external ID. All external IDs must be unique. | 
-| TR-1000 | There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
-| TR-1001 | The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
-| TR-1400 | There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>. |
-| TR-1401 | There was a database validation error when saving <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a> to the database. |
+| TR-1000 | There was a problem processing the contained <a href="https://github.com/bigcommerce/cornerstone/blob/master/schema.json">schema.json</a> file. |
+| TR-1001 | The theme is missing its required <a href="https://github.com/bigcommerce/cornerstone/blob/master/schema.json">schema.json</a> file. |
+| TR-1400 | There was a problem processing template <a href="/docs/storefront/stencil/themes/context/frontmatter">front matter</a>. |
+| TR-1401 | There was a database validation error when saving <a href="/docs/storefront/stencil/themes/context/frontmatter">front matter</a> to the database. |
 | TR-1500 | There was a problem uploading your files due to multi-threading (multiple simultaneous uploads). Please try again. |
 | TR-1600 | There was a temporary problem on our system. Please try again. |
 | TR-1601 | There was a problem with processing screenshots. |
@@ -48,7 +48,7 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 | (These messages do not have numeric codes) |
 | Issue in processing this theme's thumbnail screenshot (`composed_image`). |
 | Issue in processing this theme's full-size screenshot (`desktop_screenshot`). |
-| Issue in processing this theme's mobile [screenshot](/stencil-docs/stencil-theme-editor/config-json-metadata) (`mobile_screenshot`). |
+| Issue in processing this theme's mobile [screenshot](/docs/storefront/stencil/themes/context/object-reference/config#configjson) (`mobile_screenshot`). |
 | Missing file: This theme does not support the Theme Editor, as it is missing its required `[schema.json]` file. |
 | One or more of this theme's screenshots are not image files. |
 | Theme is missing a valid thumbnail image (`composed_image`). |
@@ -65,4 +65,4 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 
 * If a custom theme does not render properly after you upload and apply it to a storefront, make sure you have created the theme's zip file using the `stencil bundle` command, on a Mac OS, Linux computer, or virtual machine. Using the `stencil bundle` command will exclude Windows-specific errors that have occurred on some bundles.
 
-* If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).
+* If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our [Developer Community](/community).

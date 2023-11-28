@@ -1,3 +1,8 @@
+---
+title: Catalog Overview
+keywords: products, get all products, get products, sort, 
+---
+
 # Catalog Overview
 
 
@@ -11,11 +16,11 @@ The Catalog refers to a store's collection of physical and digital products. The
 | Products | modify     | `store_v2_products`           |
 | Products | read-only  | `store_v2_products_read_only` |
 
-For more information on OAuth Scopes and authentication, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+For more information on OAuth Scopes and authentication, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
 
 ## Products overview
 
-[Products](/docs/rest-management/catalog/products) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
+[Products](/docs/rest-catalog/products) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
 
 
 Products can be physical or digital:
@@ -155,7 +160,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
   * A product can have only one thumbnail image at a time.
   * If only one image is on the product, it becomes both the thumbnail and the main product image.
-  * You can also add images to [variants](/docs/rest-management/catalog/product-variants).
+  * You can also add images to [variants](/docs/rest-catalog/product-variants).
 </Callout>
 
 
@@ -249,7 +254,7 @@ Currency display settings allow for more than four decimal places. In such cases
 
 ## Adding product metafields
 
-[Metafields](/docs/rest-management/catalog/product-metafields) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
+[Metafields](/docs/rest-catalog/products/metafields) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
 To add metafields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/metafields`.
@@ -304,7 +309,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variant options
 
-[Variant options](/docs/rest-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+[Variant options](/docs/rest-catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a variant option; red, orange, and green are variant option values.
@@ -322,7 +327,7 @@ This example results in selecting a combination of small and red on the storefro
 * Product pick list
 * Product pick list with images
 * Will automatically generate variants when created in the control panel
-* Are auto-generated from variants when you create a product with variants using the [Create a product](/docs/rest-management/catalog/products#create-a-product) endpoint
+* Are auto-generated from variants when you create a product with variants using the [Create a product](/docs/rest-catalog/products#create-a-product) endpoint
 
 ### Variant options example
 
@@ -340,7 +345,7 @@ This example results in selecting a combination of small and red on the storefro
 
 <Callout type="info">
   #### Create a variant option
-  Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Create product variants](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint.
+  Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Create product variants](/docs/rest-catalog/product-variants#create-a-product-variant) endpoint.
 </Callout>
 
 ### Create variant options
@@ -380,7 +385,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variants
 
-[Variants](/docs/rest-management/catalog/product-variants) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
+[Variants](/docs/rest-catalog/product-variants) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
@@ -404,9 +409,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Creating variants
 
 You can create variants in two ways:
-* From existing variant options, using [Create a Product Variant](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint.
+* From existing variant options, using [Create a Product Variant](/docs/rest-catalog/product-variants#create-a-product-variant) endpoint.
 
-* By adding variants with options and SKUs, using [Create a Product](/docs/rest-management/catalog/products#create-a-product) endpoint.
+* By adding variants with options and SKUs, using [Create a Product](/docs/rest-catalog/products#create-a-product) endpoint.
 
 
 The example below will go over using existing variant options to create the variants.
@@ -468,9 +473,9 @@ To combine the variant option values into variants and build out SKUs use the fo
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
 <Callout type="info">
-  * Variants need to be created one at a time using this endpoint.
+  * If you want only some option combinations to have a variant, do not edit the variant options in the control panel, as that will cause the store to autogenerate all missing variant SKUs.
   * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
-  * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/docs/rest-management/catalog/products#create-a-product) endpoint during product creation.
+  * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/docs/rest-catalog/products#create-a-product) endpoint during product creation.
 </Callout>
 
 
@@ -500,7 +505,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the [Products](/docs/rest-management/catalog/products#create-a-product) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
+The following example creates a base product, variant options, and variants in a single call to the [Products](/docs/rest-catalog/products#create-a-product) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
 ```http filename="Example request: Create a variant using the product endpoint" showLineNumbers copy
@@ -551,7 +556,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Modifier options
 
-[Modifier options](/docs/rest-management/catalog/product-modifiers#get-all-product-modifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
+[Modifier options](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
 * A checkbox to add shipping insurance
 * Text to be engraved on the product
 * A selected color for an unfinished product before it’s shipped
@@ -593,7 +598,7 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 
 
 
-To [create a modifier](/docs/rest-management/catalog/product-modifiers#create-a-product-modifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
+To [create a modifier](/docs/rest-catalog/product-modifiers#create-a-product-modifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -669,7 +674,7 @@ To [create a modifier](/docs/rest-management/catalog/product-modifiers#create-a-
 
 Since this is a checkbox with two states, you create two option values. The default `adjuster_value` is null.
 
-To [update the modifier value](/docs/rest-management/catalog/product-modifier-values#update-a-modifier-value), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
+To [update the modifier value](/docs/rest-catalog/product-modifiers/values#update-a-modifier-value), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
 ```http filename="Example request: Update a product modifier value" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
@@ -694,7 +699,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 {
     "status": 422,
     "title": "The product is currently associated with an option set, please remove it before editing an option or modifier.",
-    "type": "https://developer.bigcommerce.com/api#api-status-codes",
+    "type": "https://developer.bigcommerce.com/docs/start/about/status-codes",
     "errors": {
         "product_id": "The product is currently associated with an option set, please remove it before editing an option or modifier."
     }
@@ -708,7 +713,7 @@ To fix this error:
 
 ## Complex rules
 
-[Complex rules](/docs/rest-management/catalog/product-complex-rules#get-complex-rules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on the shopper's option selections:
+[Complex rules](/docs/rest-catalog/products/complex-rules#get-complex-rules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on the shopper's option selections:
 * Price
 * Weight
 * Image
@@ -769,13 +774,13 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 {
     "status": 422,
     "title": "The rule must contain multiple modifier conditions with unique modifier ids or a variant condition and modifier condition",
-    "type": "https://developer.bigcommerce.com/api#api-status-codes"
+    "type": "https://developer.bigcommerce.com/docs/start/about/status-codes"
 }
 ```
 
 ## Creating brands
 
-To create a [Brand](/docs/rest-management/catalog/brands#get-all-brands), send a `POST` request to `/v3/catalog/brands`.
+To create a [Brand](/docs/rest-catalog/brands#get-all-brands), send a `POST` request to `/v3/catalog/brands`.
 
 
 ```http filename="Example request: Create a brand" showLineNumbers copy
@@ -800,7 +805,7 @@ For general information on brands and their use cases, see [Managing Brands](htt
 
 ## Categories
 
-[Categories](/docs/rest-management/catalog/category#get-all-categories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
+[Categories](/docs/rest-catalog/categories#get-all-categories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
 
 BigCommerce's V3 REST API does not require products to be associated with a category during creation. You can add new products to a catalog without a category, which can be assigned later if desired. A store's category can contain multiple products or no products at all and still be valid. 
 
@@ -825,7 +830,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Category tree
 
-[Category Tree](/docs/rest-management/catalog/category-trees#get-a-category-tree) returns a simple view of the parent > child relationship of all categories in the store. You can use this endpoint to fetch the categories if building out a custom navigation for a store.
+[Category Tree](/docs/rest-catalog/category-trees#get-a-category-tree) returns a simple view of the parent > child relationship of all categories in the store. You can use this endpoint to fetch the categories if building out a custom navigation for a store.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
@@ -880,7 +885,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Product Sort Order
 
-[Product Sort Order](/docs/rest-management/catalog/product-sort-order#get-product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+[Product Sort Order](/docs/rest-catalog/categories/sort-order#get-product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
 
 ### Product sorting on a storefront 
 
@@ -899,9 +904,9 @@ Product sorting methods:
 ## Related resources
 
 ### Endpoints
-* [Catalog API]/docs/rest-management/catalog)
+* [Catalog API](/docs/rest-catalog)
 
 ### Webhooks
-* [Products](/api-docs/store-management/webhooks/webhook-events#products)
-* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
-* [SKU](/api-docs/store-management/webhooks/webhook-events#sku)
+* [Products](/docs/integrations/webhooks/events#products)
+* [Categories](/docs/integrations/webhooks/events#category)
+* [SKU](/docs/integrations/webhooks/events#sku)

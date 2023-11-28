@@ -1,3 +1,8 @@
+---
+title: Shipping Providers
+keywords: shipping, address
+---
+
 # Shipping Providers
 
 Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
@@ -15,8 +20,8 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/api-accounts#oauth-scopes) scopes: `Information and Settings`
-* BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
+* Required [OAuth](/docs/start/authentication/api-accounts#oauth-scopes) scopes: `Information and Settings`
+* BigCommerce [single-click app](/docs/integrations/apps/guide/types#single-click)
 
 
 ## Shipping app overview
@@ -37,13 +42,91 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 ![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
 
+### Carrier configurations
+
+The configurations schema is optional and defines the settings you should provide when setting up a shipping method or carrier connection in a store. BigCommerce then includes these settings in requests it makes to your service.
+
+If you're unsure about the configurations you may need, leave them unspecified for now and request to add them later.
+
+There are two types of configuration options: "connection" and "settings". For each configuration option, please provide the following details:
+
+- *Code*: An identifier for this option. This identifier and the merchant's input value for this configuration will be provided on the rate or check and validate connection endpoints.
+
+- *Type*: The display element for this option. Valid types include: `text`, `checkbox`, `select`, `multiselect`, or `password`.
+
+- *Label*: Text displayed on the BigCommerce control panel for this option.
+
+- *Description*: A concise and clear description explaining the purpose of this option.
+
+- *Required*: Indicate whether this option is mandatory or optional.
+
+- *Map[only required if the type is select or multiselect]*: If the option type is select or multiselect, provide a key-value pair to send.
+
+Here are examples:
+
+```json filename="Connection Configurations" showLineNumbers copy
+[
+    {
+        "code": "api_token",
+        "type": "password",
+        "label": "API Token",
+        "description": "API token to access the carrier.",
+        "required": true
+    },
+    {
+        "code": "account_key",
+        "type": "text",
+        "label": "Account Key",
+        "description": "Client ID for your carrier.",
+        "required": true
+    },
+    {
+        "code": "use_sandbox",
+        "type": "checkbox",
+        "label": "Sandbox",
+        "description": "When enabled sandbox mode is used",
+        "required": false
+    }
+]
+```
+
+
+```json filename="Settings Configurations" showLineNumbers copy
+[
+    {
+        "code": "destination_type",
+        "type": "select",
+        "label": "Destination Type",
+        "description": "Selection of either residential or commercial destination type.",
+        "required": false,
+        "map": {
+            "residential": "Residential",
+            "commercial": "Commercial"
+        }
+    },
+    {
+        "code": "delivery_services",
+        "type": "multiselect",
+        "label": "Delivery Services",
+        "description": "Checklist of delivery services to support",
+        "required": true,
+        "map": {
+            "1_day_air": "1 Day Air",
+            "2_day_air": "2 Day Air",
+            "1 day ground": "1 Day Ground Delivery",
+            "2 day ground": "2 Day Ground Delivery"
+        }
+    }
+]
+```
+
 ## Sign up
 When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
 
 
 ### Register your app
 
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID.
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/docs/integrations/apps/guide#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/docs/integrations/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID.
 
 ![App ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app%20id.png "App ID")
 
@@ -62,6 +145,7 @@ Please include the following information:
 - A description of the app
 - [Your service URLs](#your-service-urls)
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
+- [Carrier configurations](#carrier-configurations): Optional. If unsure, leave this out.
 
 ## Before development
 
@@ -81,7 +165,7 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/apps-api/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/apps-api/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/rest-contracts/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/rest-contracts/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -103,11 +187,11 @@ In the case of errors, include human-readable error messages in the response pay
 
 ## Developing the app
 
-To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click).
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/docs/integrations/apps/guide/types#single-click).
 
 Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
-For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
+For more information, see our [Introduction to Building Apps](/docs/integrations/apps).
 
 ## Control Panel installation workflow
 
@@ -412,6 +496,12 @@ When you uninstall an app with an associated shipping carrier, you also automati
   The response payload will display shipping quotes from lowest to highest price.
 </Callout>
 
+### Incomplete postcodes
+
+Shipping provider integrations should plan to handle incomplete postcodes when handling shipping quotes. Incomplete postcodes can occur when stores use [digital wallets](https://support.bigcommerce.com/s/article/Online-Payment-Methods?language=en_US#digital-wallet) as a payment method. Digital wallets truncate postcodes for shipping addresses in the UK and Canada as they only provide the first three characters to shipping provider integrations.
+
+Digital wallets truncate postcodes only when they generate shipping quotes. Complete postcodes are available once a shopper places the order. Shipping providers can read and fetch order data after order placement.
+
 ## Including product metadata in rate requests
 
 BigCommerce passes carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
@@ -427,8 +517,8 @@ The carrier registration process described in the [Sign up](#sign-up) section pr
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](/docs/rest-management/catalog/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](/docs/rest-management/catalog/product-variants-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](/docs/rest-catalog/products/metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](/docs/rest-catalog/product-variants/metafields)
 
 ## Submitting the app
 
@@ -477,16 +567,16 @@ No, you can only publish one app at a time. The others can be for use as testing
 ## Related resources
 
 ### Articles
-- [App Store Approval Requirements](/api-docs/apps/guide/requirements)
+- [App Store Approval Requirements](/docs/integrations/apps/guide/requirements)
 
 
 ### Endpoints
 
-- [Shipping Providers](/api-docs/provider-apis/shipping-provider-api)
+- [Shipping Providers](/docs/integrations/shipping)
 - [Shipping Zones](/docs/rest-management/shipping-v2/shipping-zones)
 - [Shipping Methods](/docs/rest-management/shipping-v2/shipping-method)
 - [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier)
 
 ### Webhooks
 
-- [Webhooks](/api-docs/store-management/webhooks/webhook-events#shipment)
+- [Webhooks](/docs/integrations/webhooks/events#shipment)

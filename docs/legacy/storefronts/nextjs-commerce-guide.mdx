@@ -1,0 +1,167 @@
+# Next.js Commerce Quick Start
+
+## Overview
+
+BigCommerce offers cloud-based multi-channel ecommerce solutions. We also offer themes with powerful design tools and features that let you build and host your storefront on our servers.
+
+<Callout type="error">
+This article is deprecated. Next.js Commerce has released a v2 with breaking changes. For Next.js Commerce v1, you can [view the code (GitHub)](https://github.com/vercel/commerce/tree/v1), [view the demo (vercel.store)](https://commerce-v1.vercel.store/), and [read the release notes (GitHub)](https://github.com/vercel/commerce/releases/tag/v1) at Vercel, and use this article to get started. 
+
+To work with the improved v2, see our article on [Next.js + BigCommerce](/docs/storefront/next-commerce).
+</Callout>
+
+### Headless BigCommerce
+
+BigCommerce's flexibility allows for headless architecture, the ability to integrate storefront frontends with the BigCommerce backend. Some of the headless setups have the advantage of providing the following:
+
+- Customize your frontend technologies without migrating your database
+- Preserve your legacy frontend while switching to BigCommerce as your ecommerce engine
+- Power multiple stores on multiple sales channels from a single BigCommerce dashboard.
+
+### Next.js Commerce
+
+Next.js Commerce is a headless integration to BigCommerce. Created in partnership with the Next.js and Vercel teams, Next.js Commerce showcases how powerful Next.js is when partnered with our open SaaS ecommerce platform.
+
+## Getting started
+
+To get started with Next.js Commerce, you can develop locally by cloning the v1 branch of the `vercel/commerce` repo. The following steps walk you through the process.
+
+### Prerequisites
+
+- An IDE
+- Knowledge of [Next.js (nextjs.org)](https://nextjs.org/)
+- Knowledge of [BigCommerce APIs](/docs/build)
+- A hosted Git repository account, such as GitHub, Bitbucket, or GitLab
+- Git and Node/NPM
+
+### Developing locally
+
+1. Clone the v1 version using the following command: 
+
+```shell copy
+git clone -b v1 https://github.com/vercel/commerce
+```
+2. Generate a store-level API account. Use the steps in our [Guide to API Accounts](/docs/start/authentication/api-accounts#creating-store-level-api-credentials), and make sure to download and keep the text file with the API credentials. In a development sandbox, you can grant the account all scopes. In a production store, grant the token only the scopes necessary to operate the storefront you build. If you think you may change the scopes, use an [app-level API account](/docs/start/authentication/api-accounts#app-level-api-accounts).
+
+3. Create a dedicated sales channel for your storefront. Use the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint to get started. To learn more about channels, see the [Channel Overview](/docs/integrations/channels).
+
+4. Use your API account and your channel ID to create a GraphQL Storefront customer impersonation token for your storefront. Use the [Create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token) endpoint to get started.
+
+5. Navigate to the local project's root directory and create a copy of the `.env.template` file. Rename the newly created file `.env.local` and add environment variables using the following reference:
+
+```bash
+cd commerce
+cp .env.template .env.local
+```
+
+```bash filename=".env.local" showLineNumbers copy
+COMMERCE_PROVIDER=bigcommerce
+BIGCOMMERCE_STOREFRONT_API_URL="https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql"
+BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
+BIGCOMMERCE_STORE_API_URL="https://api.bigcommerce.com/stores/${STORE_HASH}"
+BIGCOMMERCE_STORE_API_TOKEN=${API_ACCOUNT_ACCESS_TOKEN}
+BIGCOMMERCE_STORE_API_CLIENT_ID=${API_ACCOUNT_CLIENT_ID}
+BIGCOMMERCE_CHANNEL_ID=${CHANNEL_ID}
+BIGCOMMERCE_STORE_URL=https://store-${STORE_HASH}.mybigcommerce.com
+BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
+```
+
+| Environment variable | Description |
+|:---------------------|:------------|
+| `STORE_HASH` | A unique identifier for your store. See the API PATH in your API account text file; the store hash is in the following position in the path string. `https://api.bigcommerce.com/stores/${STORE_HASH}/v3`. |
+| `API_ACCOUNT_ACCESS_TOKEN` | See the ACCESS TOKEN in your API account text file from step 2. |
+| `API_ACCOUNT_CLIENT_ID` | See the CLIENT ID in your API account text file from step 2. |
+| `CHANNEL_ID` | Use the ID of the channel you created in step 3. |
+| `STOREFRONT_TOKEN` | Use the Storefront customer impersonation token you created in step 4.  |
+
+6. Install the project's dependencies using npm.
+
+```shell copy
+npm install
+```
+
+7. Next.js's dev script loads the environmental variables from `.env.local`, starts a local server, and compiles your project. When dependencies have finished installing, get things started by running the following: 
+
+```shell copy
+npm run dev
+```
+
+<Callout type="info">
+  Note: By default, Next.js runs on port 3000. If that port is not available in your environment, [consult the Next documentation (nextjs.org)](https://nextjs.org) to modify the start command.
+</Callout>
+
+8. To see your Next.js Commerce storefront running locally, open a browser window to the following address:
+
+```shell copy
+http://localhost:3000
+```
+
+## Application
+
+The architecture for Next.js Commerce is standard for a Next.js application. To learn Next.js basics, visit [the official Next.js tutorial (nextjs.org)](https://nextjs.org/learn/basics/create-nextjs-app).
+
+To understand how Commerce generates pages and updates product information on your storefront, continue reading.
+
+### Pre-rendering pages
+
+One of the main advantages of Next.js is the fast page load times you can achieve by pre-rendering your content. By default, Next.js pre-renders all pages.
+
+Next.js allows you to choose how pages are pre-rendered:
+
+- **Static Generation:** Next.js generates the HTML at build time and reuses on each request.
+- **Server-side Rendering:** Next.js generates the HTML on each request.
+
+Next.js Commerce statically generates pages while still keeping store information updated by using Incremental Static Regeneration.
+
+**Static Page Generation**
+
+Next.js pre-renders static content by calling the `getStaticProps()` function at build time on the server-side. Since `getStaticProps()` does not run on the client-side, you can do direct database queries or run other functions without exposing them to the client. To verify what Next.js eliminates from the client-side bundle, use Vercel's [Code Elimination (now.sh)](https://next-code-elimination.now.sh/) tool.
+
+**Incremental Static Regeneration**
+
+With `getStaticProps()`, you may still use dynamic content on your statically generated pages. Incremental Static Regeneration (ISR) updates existing pages by re-rendering them in the background when triggered by site traffic after a set timeout period. By default, data revalidation runs at most once every four hours, though you may customize this frequency.
+
+For more information and a demonstration on how ISR works, visit Vercel's [Static Reactions Demo (vercel.app)](https://reactions-demo.vercel.app/).
+
+By default, Next.js Commerce revalidates and updates product information from BigCommerce at most once every four hours.
+
+### Fetching and populating store data
+
+Next.js Commerce uses [storefront-data-hooks (GitHub)](https://github.com/bigcommerce/storefront-data-hooks) to connect your Next.js frontend with the BigCommerce backend. The package contains code-split React hooks for data fetching using [SWR (swr.vercel.app)](https://swr.vercel.app/) (stale-while-revalidate). SWR is a layer on top of React Hooks that automates cache management. Data can be transitively stale, but SWR re-fetches and synchronizes the correct data from BigCommerce.
+
+Storefront Data Hooks has helper functions to handle common user actions such as login, logout, and register.
+
+SWR uses FETCH for data fetching: [vercel/fetch: Opinionated fetch (with retrying and DNS caching) optimized for use inside microservices (GitHub)](https://github.com/vercel/fetch).
+
+## Application settings
+
+### SSL/TSL Certificate
+
+To use BigCommerce's [redirected checkout](/docs/storefront/headless/cart-checkout/checkout#redirecting-to-the-bigcommerce-checkout), make sure your Next.js Commerce storefront has an SSL/TSL certificate installed and you are using URL beginning with `https://`. You also need to [Create a channel site](/docs/rest-management/channels/channel-site#create-a-channel-site) and [Upsert the site checkout URL](/docs/rest-management/channels/channel-site-checkout-url#upsert-a-site's-checkout-url) to add the URL where you want to host the checkout.
+
+### Next SEO
+
+Next.js Commerce includes the [Next SEO (GitHub)](https://github.com/garmeeh/next-seo) plugin to simplify SEO settings so that Next.js Commerce appears correctly in search results and is more readily shareable on social media. To learn how to configure Next SEO settings, visit the [Next SEO GitHub repository (GitHub)](https://github.com/garmeeh/next-seo).
+
+### Component styling
+
+Next.js Commerce uses [Tailwind (tailwindcss.com)](https://tailwindcss.com/) to style components. Next.js Commerce's root directory contains a `tailwind.config.js` file where you can customize much of the project's styling. For more information on how to configure the `tailwind.config.js` file, visit [Tailwind CSS - Configuration (tailwindcss.com)](https://tailwindcss.com/docs/configuration).
+
+### Internationalized routing
+
+Next.js supports internationalized (i18n) routing and Next.js Commerce uses [sub-path routing (nextjs.org)](https://nextjs.org/docs/advanced-features/i18n-routing#sub-path-routing) which puts the locale in the URL path. By default, the `next.config.js` file has US English (`en-US`) and Spanish (`es`) set as locales. `en-US` is the preset default.
+
+```javascript showLineNumbers copy
+i18n: {
+   locales: ['en-US', 'es'],
+   defaultLocale: 'en-US',
+}
+```
+
+For more information on i18n routing in Next.js, see the Next.js documentation on [internationalized routing (nextjs.org)](https://nextjs.org/docs/advanced-features/i18n-routing).
+
+## Resources
+
+- [Next.js Commerce (nextjs.org)](http://nextjs.org/commerce)
+- [Next.js Commerce Framework (GitHub)](https://github.com/vercel/commerce-framework)
+- [BigCommerce Storefront Data Hooks (GitHub)](https://github.com/bigcommerce/storefront-data-hooks)

@@ -1,6 +1,9 @@
+---
+title: Types of Apps
+keywords: app extensions
+---
+
 # Types of Apps
-
-
 
 The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can differ by [visibility](#visibility).
 
@@ -16,8 +19,10 @@ The app requests the user to grant permissions associated to scopes configured f
 
 Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
 
+Single-click apps can use [App Extensions](/docs/integrations/apps/app-extensions).
+
 ## Connector
-Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](/api-docs/getting-started/api-accounts#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
+Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners manually generate [store-level API credentials](/docs/start/authentication/api-accounts#revoking-store-level-api-credentials) and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
 
 - Customized integrations that vary per store.
 - Integrations that do not provide any content for an iFrame.
@@ -39,12 +44,12 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 
 
 ## Next steps
-[Begin app development](/api-docs/apps/guide/development).
+[Begin app development](/docs/integrations/apps/guide).
 
 ## Resources
 
 ### Related articles
-* [Building Apps Quick Start](/api-docs/apps/quick-start)
+* [Building Apps Quick Start](/docs/integrations/apps/quick-start)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)

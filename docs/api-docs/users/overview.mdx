@@ -2,18 +2,20 @@
 
 ## Introduction
 
-The GraphQL Users API is an account-level management GraphQL API that allows you to create, edit, and delete BigCommerce control panel users. This highly requested feature is primarily useful for Enterprise merchants who need to audit existing users or integrate with third-party user management systems.
+The GraphQL Users API is an account-level GraphQL API that allows you to create, edit, and delete BigCommerce control panel users. This highly requested feature is primarily useful for Enterprise merchants who need to audit existing users or integrate with third-party user management systems.
 
 ## What is a user
 
-A user is an account (email address) that can sign in to the BigCommerce control panel for an account or store.
+A user is an account that can sign in to the BigCommerce control panel for an account or store. A user corresponds with one email address.
 
 ## Prerequisites
 
 Before getting started with the GraphQL Users API, make sure you have the following:
 
 * BigCommerce store
-* A valid API account access token with sufficient permissions to make the desired requests (more on that in the  **Getting Started** segment below)
+* A valid access token from an account-level API account that has sufficient permissions to make the desired requests. 
+
+To learn more about making requests, see the next section on [Getting Started](#getting-started).
 
 ## OAuth scopes
 
@@ -26,7 +28,9 @@ Before getting started with the GraphQL Users API, make sure you have the follow
 | Account Users | write | Create and update users |
 | Account Users | delete | Remove users |
 
-For more information on available authentication methods, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+For more information on these OAuth scopes, see the [Guide to API Accounts](/docs/start/authentication/api-accounts#account-resource-scopes).
+
+For more information on access token authentication, see [Authentication and Example Requests](/docs/start/authentication#access-tokens).
 
 ## Getting started
 
@@ -34,7 +38,7 @@ The GraphQL Users API introduces a new way to manage control panel users. Using 
 
 Begin with the following steps to get started:
 
-1. Request an access token in **Settings** > **Account-level API accounts** from the control panel. Note that this is different from a Store-level API account credentials.
+1. Request an access token in the **Settings** > **Account-level API accounts** menu in the store control panel. Note that this is different from a store-level API account.
 2. Use a GraphQL client such as [Altair](https://altairgraphql.dev/) to test the API.
 3. In the client, set the request URL to `https://api.bigcommerce.com/accounts/{account_uuid}/graphql`.
 4. You can obtain the Account UUID identifier when creating the token or copy it from the API Path field.
@@ -149,14 +153,14 @@ The following query returns details about an account's users. Note that a standa
   </Tab>
 </Tabs>
 
-### Account stores
+### Account stores users
 
-The following query returns details about an account's stores:
+The following query returns details about the users of an account's stores:
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
 
-    ```graphql filename="Example query: Get account stores" showLineNumbers copy
+    ```graphql filename="Example query: Get account stores users" showLineNumbers copy
     query {
       account {
         id
@@ -173,6 +177,19 @@ The following query returns details about an account's stores:
                     email
                     firstName
                     lastName
+                    locale
+                    lastLoginAt
+                    permissions
+                    status
+                    updatedAt
+                    apps {
+                      edges {
+                        node {
+                          id
+                          name
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -194,7 +211,7 @@ The following query returns details about an account's stores:
   </Tab>
   <Tab>
 
-    ```json filename="Example query: Get account stores" showLineNumbers copy
+    ```json filename="Example query: Get account stores users" showLineNumbers copy
     {
       "data": {
         "account": {
@@ -203,8 +220,8 @@ The following query returns details about an account's stores:
             "edges": [
               {
                 "node": {
-                  "id": "bc/account/store/{store_id}",
-                  "name": "Mug Store",
+                  "id": "bc/account/account/{account_uuid}",
+                  "name": "Plant Market",
                   "storeHash": "{store_hash}",
                   "users": {
                     "edges": [
@@ -213,13 +230,442 @@ The following query returns details about an account's stores:
                           "id": "bc/account/user/{user_id}",
                           "email": "jane.doe@example.com",
                           "firstName": "Jane",
-                          "lastName": "Doe"
+                          "lastName": "Doe",
+                          "locale": "en-US",
+                          "lastLoginAt": "2023-04-12T15:17:25Z",
+                          "permissions": [
+                            "Manage_Products",
+                            "Create_Product",
+                            "Edit_Products",
+                            "Delete_Products",
+                            "Export_Products",
+                            "Import_Products",
+                            "Manage_Reviews",
+                            "Edit_Reviews",
+                            "Delete_Reviews",
+                            "Approve_Reviews",
+                            "Manage_Categories",
+                            "Create_Category",
+                            "Edit_Categories",
+                            "Delete_Categories",
+                            "Manage_Orders",
+                            "Edit_Orders",
+                            "Delete_Orders",
+                            "Export_Orders",
+                            "Add_Orders",
+                            "Import_Order_Tracking_Numbers",
+                            "Undelete_Orders",
+                            "Purge_Orders",
+                            "Refund_Orders",
+                            "Capture_Funds",
+                            "Customize_Order_Statuses",
+                            "Manage_Customers",
+                            "Add_Customer",
+                            "Edit_Customers",
+                            "Delete_Customers",
+                            "Export_Customers",
+                            "Import_Customers",
+                            "Manage_Store_Credit",
+                            "Manage_News",
+                            "Manage_Coupons",
+                            "Add_Coupons",
+                            "Edit_Coupons",
+                            "Delete_Coupons",
+                            "Newsletter_Subscribers",
+                            "Export_Froogle",
+                            "Manage_Settings",
+                            "Statistics_Overview",
+                            "Manage_Users",
+                            "Add_User",
+                            "Edit_Users",
+                            "Delete_Users",
+                            "Manage_Templates",
+                            "Manage_Pages",
+                            "Add_Pages",
+                            "Edit_Pages",
+                            "Delete_Pages",
+                            "Manage_Banners",
+                            "Manage_Brands",
+                            "Add_Brands",
+                            "Edit_Brands",
+                            "Delete_Brands",
+                            "Design_Mode",
+                            "Order_Messages",
+                            "Manage_Logs",
+                            "Manage_Returns",
+                            "Manage_GiftCertificates",
+                            "Manage_Addons",
+                            "Manage_ProductAttributes",
+                            "Customer_Groups",
+                            "Statistics_Products",
+                            "Statistics_Orders",
+                            "Statistics_Customers",
+                            "Statistics_Search",
+                            "Statistics_AbandonedCarts",
+                            "Statistics_JirafeOverview",
+                            "Statistics_JirafeRealTime",
+                            "Statistics_JirafeMerchandising",
+                            "Statistics_JirafeMarketing",
+                            "Statistics_JirafeOrders",
+                            "Statistics_JirafeCustomers",
+                            "Statistics_JirafePurchaseFunnel",
+                            "Statistics_JirafeAbandonedCarts",
+                            "Statistics_JirafeInsights",
+                            "Statistics_JirafeCarts",
+                            "Statistics_JirafeIntegrations",
+                            "Manage_ExportTemplates",
+                            "Manage_FormFields",
+                            "Add_FormFields",
+                            "Edit_FormFields",
+                            "Delete_FormFields",
+                            "Manage_Images",
+                            "View_XMLSitemap",
+                            "Manage_EmailAccounts",
+                            "Manage_DNS_Records",
+                            "See_Store_During_Maintenance",
+                            "Manage_Redirects",
+                            "Ebay_Selling",
+                            "Manage_EmailMarketing",
+                            "Facebook_Selling",
+                            "Shopping_Comparison",
+                            "Google_Adwords",
+                            "Yahoo_Search_Marketing",
+                            "Manage_AbandonedCartNotifications",
+                            "IntegratedApps_LoadApp",
+                            "IntegratedApps_InstallApp",
+                            "IntegratedApps_UninstallApp",
+                            "Manage_Payments",
+                            "Manage_Shipping",
+                            "Manage_Tax",
+                            "Manage_Promotions",
+                            "Add_Promotions",
+                            "Edit_Promotions",
+                            "Delete_Promotions",
+                            "Manage_PriceLists",
+                            "Manage_Scripts",
+                            "Purchase_Theme",
+                            "Manage_Order_Settings",
+                            "Manage_Customer_Settings",
+                            "Manage_Abandoned_Cart_Settings",
+                            "Manage_Cart_Settings",
+                            "Create_Channels",
+                            "Read_Channels",
+                            "Edit_Channels",
+                            "Delete_Channels",
+                            "Manage_Web_Analytics",
+                            "Manage_Data_Warehouses",
+                            "Manage_Customer_Data_Platforms",
+                            "Create_Locations",
+                            "Edit_Locations",
+                            "Delete_Locations",
+                            "Manage_Inventory",
+                            "Read_Locations",
+                            "Grant_High_Risk_Store_Permissions",
+                            "Create_Store_API_Tokens",
+                            "List_Store_API_Tokens",
+                            "Delete_Store_API_Tokens",
+                            "No_Permission_Required"
+                          ],
+                          "status": "ACTIVE",
+                          "updatedAt": "2023-04-12T17:46:27Z",
+                          "apps": {
+                            "edges": [
+                              {
+                                "node": {
+                                  "id": "bc/account/app/4869",
+                                  "name": "ShipperHQ"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/6824",
+                                  "name": "Mailchimp"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/7488",
+                                  "name": "Buy Buttons"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/13108",
+                                  "name": "Abandoned Cart Recovery by Chated.io"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/14282",
+                                  "name": "BigCommerce for WordPress"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/32120",
+                                  "name": "Avalara AvaTax"
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "bc/account/app/31621",
+                                  "name": "developer-app"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/user/{user_id}",
+                          "email": "tamara.test@example.com",
+                          "firstName": "Tamara",
+                          "lastName": "Test",
+                          "locale": "en",
+                          "lastLoginAt": "2022-11-19T09:10:25Z",
+                          "permissions": [
+                            "Manage_Orders",
+                            "Edit_Orders",
+                            "Add_Orders",
+                            "Manage_Returns",
+                            "Capture_Funds",
+                            "Refund_Orders",
+                            "Manage_Customers",
+                            "Edit_Customers",
+                            "Manage_Reviews",
+                            "Edit_Reviews",
+                            "Delete_Reviews",
+                            "Approve_Reviews",
+                            "Manage_Coupons",
+                            "Edit_Coupons",
+                            "Add_Coupons",
+                            "Delete_Coupons",
+                            "Manage_Promotions",
+                            "Edit_Promotions",
+                            "Add_Promotions",
+                            "Delete_Promotions",
+                            "Read_Channels",
+                            "Manage_Pages",
+                            "Add_Pages",
+                            "Edit_Pages",
+                            "Delete_Pages",
+                            "Manage_Banners",
+                            "Manage_GiftCertificates",
+                            "Manage_Images",
+                            "Create_Product",
+                            "Edit_Products",
+                            "Delete_Products",
+                            "Export_Products",
+                            "Manage_ProductAttributes",
+                            "Manage_Categories",
+                            "Create_Category",
+                            "Edit_Categories",
+                            "Delete_Categories",
+                            "Export_Orders",
+                            "Delete_Orders",
+                            "Purge_Orders",
+                            "Undelete_Orders",
+                            "Order_Messages",
+                            "Add_Customer",
+                            "Delete_Customers",
+                            "Manage_Store_Credit",
+                            "Export_Customers",
+                            "Manage_News",
+                            "Export_Froogle",
+                            "View_XMLSitemap",
+                            "Manage_Brands",
+                            "Add_Brands",
+                            "Edit_Brands",
+                            "Delete_Brands",
+                            "Newsletter_Subscribers",
+                            "Statistics_Overview",
+                            "Statistics_Products",
+                            "Statistics_AbandonedCarts",
+                            "Statistics_Orders",
+                            "Statistics_Customers",
+                            "Statistics_Search",
+                            "Manage_ExportTemplates",
+                            "Ebay_Selling",
+                            "Manage_EmailMarketing",
+                            "Manage_AbandonedCartNotifications",
+                            "Facebook_Selling",
+                            "Shopping_Comparison",
+                            "Statistics_JirafeCarts",
+                            "Create_Channels",
+                            "Edit_Channels",
+                            "Delete_Channels",
+                            "Statistics_JirafeOverview",
+                            "Statistics_JirafeRealTime",
+                            "Statistics_JirafeMerchandising",
+                            "Statistics_JirafeMarketing",
+                            "Statistics_JirafeOrders",
+                            "Statistics_JirafeCustomers",
+                            "Statistics_JirafePurchaseFunnel",
+                            "Statistics_JirafeAbandonedCarts",
+                            "Statistics_JirafeInsights",
+                            "Manage_PriceLists",
+                            "Add_User",
+                            "Edit_Users",
+                            "Delete_Users",
+                            "Manage_FormFields",
+                            "Add_FormFields",
+                            "Edit_FormFields",
+                            "Delete_FormFields",
+                            "Manage_Settings",
+                            "Manage_Payments",
+                            "Manage_Shipping",
+                            "Manage_Tax",
+                            "Manage_Order_Settings",
+                            "Manage_Customer_Settings",
+                            "Manage_Abandoned_Cart_Settings",
+                            "Manage_Cart_Settings",
+                            "Import_Products",
+                            "Import_Customers",
+                            "Import_Order_Tracking_Numbers",
+                            "Manage_Templates",
+                            "Design_Mode",
+                            "Manage_Logs",
+                            "Customer_Groups",
+                            "See_Store_During_Maintenance",
+                            "Manage_Redirects",
+                            "Manage_DNS_Records",
+                            "Customize_Order_Statuses",
+                            "Manage_Web_Analytics",
+                            "Manage_Data_Warehouses",
+                            "Manage_Customer_Data_Platforms",
+                            "Manage_Scripts",
+                            "Manage_Brands",
+                            "Manage_ProductAttributes",
+                            "IntegratedApps_LoadApp",
+                            "Create_Locations",
+                            "Edit_Locations",
+                            "Delete_Locations",
+                            "Manage_Inventory",
+                            "Read_Locations",
+                            "No_Permission_Required"
+                          ],
+                          "status": "ACTIVE",
+                          "updatedAt": "2021-11-03T15:09:49Z",
+                          "apps": {
+                            "edges": []
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/account/{account_uuid}",
+                          "email": "pepe.silvia@example.com",
+                          "firstName": "Pepe",
+                          "lastName": "Silvia",
+                          "locale": "en-US",
+                          "lastLoginAt": "2023-04-08T21:58:03Z",
+                          "permissions": [
+                            "Manage_Orders",
+                            "Edit_Orders",
+                            "Add_Orders",
+                            "Manage_Returns",
+                            "Capture_Funds",
+                            "Refund_Orders",
+                            "Manage_Customers",
+                            "Edit_Customers",
+                            "Manage_Reviews",
+                            "Edit_Reviews",
+                            "Delete_Reviews",
+                            "Approve_Reviews",
+                            "Manage_Coupons",
+                            "Edit_Coupons",
+                            "Add_Coupons",
+                            "Delete_Coupons",
+                            "Manage_Promotions",
+                            "Edit_Promotions",
+                            "Add_Promotions",
+                            "Delete_Promotions",
+                            "Read_Channels",
+                            "Manage_Pages",
+                            "Add_Pages",
+                            "Edit_Pages",
+                            "Delete_Pages",
+                            "Manage_Banners",
+                            "Manage_GiftCertificates",
+                            "Manage_Images",
+                            "IntegratedApps_LoadApp",
+                            "Read_Locations",
+                            "No_Permission_Required"
+                          ],
+                          "status": "ACTIVE",
+                          "updatedAt": "2023-04-08T21:58:03Z",
+                          "apps": {
+                            "edges": []
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/account/{account_uuid}",
+                          "email": "georgeglass@example.com",
+                          "firstName": "George",
+                          "lastName": "Glass",
+                          "locale": "en-US",
+                          "lastLoginAt": null,
+                          "permissions": [
+                            "No_Permission_Required",
+                            "No_Permission_Required"
+                          ],
+                          "status": "ACTIVE",
+                          "updatedAt": "2023-01-30T16:21:20Z",
+                          "apps": {
+                            "edges": []
+                          }
                         }
                       }
                     ]
                   },
                   "apps": {
-                    "edges": []
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "bc/account/app/4869",
+                          "name": "ShipperHQ"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/6824",
+                          "name": "Mailchimp"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/7488",
+                          "name": "Buy Buttons"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/13108",
+                          "name": "Abandoned Cart Recovery by Chated.io"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/14282",
+                          "name": "BigCommerce for WordPress"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/32120",
+                          "name": "Avalara AvaTax"
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "bc/account/app/44010",
+                          "name": "Store Rewards App"
+                        }
+                      }
+                    ]
                   }
                 }
               }
@@ -511,5 +957,5 @@ The following mutation removes a user from a store:
 
 ### Articles
 
-* [Authentication and Example Requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-* [Guide to API Accounts](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Authentication and Example Requests](/docs/start/authentication)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)

@@ -15,11 +15,11 @@ Your app's front-end views render inside an iFrame in the store control panel, s
 
 Your app is only required to handle the `GET /auth{:http}` and `GET /load{:http}` endpoints, but we recommend writing handlers for the others, as well. Please see the corresponding detail sections that follow for more about the consequences of not handling optional callback endpoints.
 
-The following table lists the app management callbacks that BigCommerce stores send: the three listed in the preceding paragraph, plus the auth callback described in [Single-Click App OAuth Flow](/api-docs/apps/guide/auth).
+The following table lists the app management callbacks that BigCommerce stores send: the three listed in the preceding paragraph, plus the auth callback described in [Single-Click App OAuth Flow](/docs/integrations/apps/guide/auth).
 
 | Endpoint | Required | Request Origin | Payload | Expected Response | Event Description |
 |:---------|:--------:|:---------------|:--------|:-----------------|:------------------|
-| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/api-docs/apps/guide/auth). |
+| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/docs/integrations/apps/guide/auth). |
 | `GET /load{:http}` | yes | browser | JWT | markup | The store owner or authorized user clicks to load the app. |
 | `GET /uninstall{:http}` | no | server | JWT | JSON | The store owner clicks to uninstall the app. |
 | `GET /remove_user{:http}` | no | server | JWT | JSON | The store owner revokes a user's access to the app. |
@@ -65,11 +65,11 @@ The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded str
 header_b64.payload_claims_b64.signature_b64
 ```
 
-Use a library package or [compatible BigCommerce API client](#helpful-tools) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
+Use a [compatible BigCommerce API client](#helpful-tools) or a [standard library package (jwt.io)](https://jwt.io/libraries) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
 
 ## Work with payload claims
 
-Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/api-docs/apps/guide/users). Refer to the following table for instructions:
+Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/docs/integrations/apps/guide/users). Refer to the following table for instructions:
 
 | Endpoint | Multiple Users Enabled | Multiple Users Not Enabled |
 |:---------|:-----------------------|:---------------------------|
@@ -112,8 +112,8 @@ The following is an example of the payload claims encoded in the `signed_payload
 | `iat` | integer, UNIX time | The *issued at* time; when the JWT was issued. |
 | `nbf` | integer, UNIX time | The *not valid before* time; when the JWT became or becomes valid. The value is always the same as `iat`.  |
 | `exp` | integer, UNIX time | The *expiration* time; when the JWT becomes invalid. Currently, 24 hours after `nbf`. |
-| `jti` | string, UUID | A unique identifier for the JWT. |
-| `sub` | string | The path that identifies the store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
+| `jti` | string, UUID | The *JWT ID*; a unique identifier for the JWT. |
+| `sub` | string | Identifies the *subject* store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
 | `user.id` | integer | The ID of the user who initiates the callback. |
 | `user.email` | string | The email address of the user who initiates the callback. |
 | `user.locale` | string | The [BCP 47](https://www.rfc-editor.org/info/bcp47) language tag of the user who initiates the callback. |
@@ -133,12 +133,12 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload_jwt`
 
 ## Next step
-* [Support multiple users](/api-docs/apps/guide/users)
+* [Support multiple users](/docs/integrations/apps/guide/users)
 
 ## Resources
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/docs/integrations/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -152,7 +152,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
-* [Figma UI Kit](https:https://figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Figma UI Kit](https://figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog posts

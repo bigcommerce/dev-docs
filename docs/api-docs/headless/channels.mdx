@@ -1,6 +1,9 @@
+---
+title: Creating Channels
+keywords: channels, headless, storefronts, rest, 
+---
+
 # Creating Channels
-
-
 
 This section demonstrates how to create a channel and a channel site for a headless storefront.
 
@@ -15,7 +18,7 @@ You can create both using the [Channels API](/docs/rest-management/channels).
 3. Create a headless storefront by setting the status of the default BigCommerce storefront to inactive and then create an active headless storefront within that one free storefront limit. 
 4. Give this channel the primary domain and set the checkout domain for the headless storefront by sending a `PUT` request to the `/channels/{channel_id}/site/checkout-url` endpoint.
 5. Optionally, you can add a 3P SSL certificate for the checkout domain by sending a `GET` request to the `/sites/{site_id}/certificate` endpoint. See [Upsert a Site’s SSL/TLS Certificate Information](/docs/rest-management/sites/site-certificate#upsert-a-site’s-ssl/tls-certificate-information) for details.
-6. After setting up the channel, you can authenticate cross-origin requests by [creating a JWT token](/docs/storefront-auth/tokens#create-a-token) through the GraphQL Storefront API. Create your GraphQL Storefront API token with the same channel ID as your headless platform; otherwise, your request will be rejected.
+6. After setting up the channel, you can authenticate cross-origin requests by [creating a JWT token](/docs/rest-authentication/tokens#create-a-token) through the GraphQL Storefront API. Create your GraphQL Storefront API token with the same channel ID as your headless platform; otherwise, your request will be rejected.
 
 <Callout type="info">
  #### Limits
@@ -24,8 +27,8 @@ You can create both using the [Channels API](/docs/rest-management/channels).
   
 ## Next steps
 
-- [Learn how to work with products](/api-docs/storefronts/guide/products)
+- [Learn how to work with products](/docs/storefront/headless/products)
 
 ## Resources
 
-- [Building Storefront Channels](/api-docs/channels/tutorials/storefront)
+- [Building Storefront Channels](/docs/integrations/channels/guide/storefronts)

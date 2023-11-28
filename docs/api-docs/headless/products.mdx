@@ -1,6 +1,9 @@
+---
+title: Working with Products
+keywords: products, headless, graphql, rest, cors, currency, currencies, storefronts, 
+---
+
 # Working with Products
-
-
 
 This section demonstrates how to use BigCommerce's GraphQL Storefront API and REST Products API to query and manage product data for headless storefronts.
 
@@ -98,9 +101,9 @@ query SingleProduct {
 
 ## Managing products
 
-The GraphQL Storefront API provides read-only data and cannot be used to manipulate products at this time. You will need to use BigCommerce's REST [Products API](/docs/rest-management/catalog/products) to manage products data. 
+The GraphQL Storefront API provides read-only data and cannot be used to manipulate products at this time. You will need to use BigCommerce's REST [Products API](/docs/rest-catalog/products) to manage products data. 
 
-To update products in batches, send a `PUT` request to the [Update Products (Batch)](/docs/rest-management/catalog/products#update-products-batch) endpoint. 
+To update products in batches, send a `PUT` request to the [Update Products (Batch)](/docs/rest-catalog/products#update-products-batch) endpoint. 
 
 ```http filename="Example request: Update products" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
@@ -124,7 +127,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ]
 ```
 
-To update a single product, send a `PUT` request to the [Update a Product](/docs/rest-management/catalog/products#update-a-product) endpoint.
+To update a single product, send a `PUT` request to the [Update a Product](/docs/rest-catalog/products#update-a-product) endpoint.
 
 ```http filename="Example request: Update a product" showLineNumbers copy
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}
@@ -145,8 +148,8 @@ It is best practice to cache product details in a database to improve performanc
  
 ## Next step
 
-- [Learn how to create a cart](/api-docs/storefronts/guide/carts)
+- [Learn how to create a cart](/docs/storefront/headless/cart-checkout/carts)
 
 ## Resources
 
-- [Catalog API Overview](/api-docs/store-management/catalog/catalog-overview)
+- [Catalog API Overview](/docs/store-operations/catalog)

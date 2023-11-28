@@ -1,4 +1,7 @@
-
+---
+title: Early Hints
+keywords: cors
+---
 
 # Early Hints
 
@@ -27,9 +30,9 @@ Assets loaded through the `{{stylesheet}}` or `{{getFontsCollection}}` Handlebar
 
 ### Theme scripts loaded using the cdn Handlebars helper
 
-JavaScript files within themes, such as the primary JavaScript bundle, are typically loaded using the [cdn helper](https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#cdn).
+JavaScript files within themes, such as the primary JavaScript bundle, are typically loaded using the [cdn helper](/docs/storefront/stencil/themes/context/handlebars-reference#cdn).
 
-To take advantage of Early Hints, theme developers must mark the highest-priority resources within their theme for preloading by adding the `resourceHint`, `rel`, and `cors` arguments to the `{{cdn}}` helper. For detailed information, see `{{cdn}}` on the [Handlebars helpers reference](https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#cdn).
+To take advantage of Early Hints, theme developers must mark the highest-priority resources within their theme for preloading by adding the `resourceHint`, `rel`, and `cors` arguments to the `{{cdn}}` helper. For detailed information, see `{{cdn}}` on the [Handlebars helpers reference](/docs/storefront/stencil/themes/context/handlebars-reference#cdn).
 
 The following is an example of using the Early Hints arguments on the `{{cdn}}` helper:
 

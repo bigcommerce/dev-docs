@@ -1,14 +1,19 @@
+---
+title: Orders Overview
+keywords: address, rest, management, v2, v3, orders, draft order, currency, currencies, 
+---
+
 # Orders Overview
 
-This article introduces BigCommerce's [Orders V2](/docs/rest-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](/docs/rest-management/orders) exposes endpoints for [creating](/docs/rest-management/orders#create-an-order), [reading](/docs/rest-management/orders#get-all-orders), [updating](/docs/rest-management/orders#update-an-order), and [deleting](/docs/rest-management/orders#delete-all-orders) orders; it also includes endpoints for managing [order shipments](/docs/rest-management/orders/order-shipments#delete-order-shipments) and [order shipping addresses](/docs/rest-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](/docs/rest-management/transactions#get-transactions) and [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](/docs/rest-management/orders) and [Orders V3](/docs/rest-management/transactions) REST API resources. [Orders V2](/docs/rest-management/orders) exposes endpoints for [creating](/docs/rest-management/orders#create-an-order), [reading](/docs/rest-management/orders#get-all-orders), [updating](/docs/rest-management/orders#update-an-order), and [deleting](/docs/rest-management/orders#delete-all-orders) orders; it also includes endpoints for managing [order shipments](/docs/rest-management/orders/order-shipments#delete-order-shipments) and [order shipping addresses](/docs/rest-management/orders/order-shipping-addresses). [Orders V3](/docs/rest-management/transactions) surfaces [order transactions](/docs/rest-management/transactions#get-transactions) and [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order) endpoints. For information on processing order payments by API, see [Payments API Overview](/docs/store-operations/payments).
 
 ### Prerequisites:
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
-* Access token for [API authentication](/api-docs/getting-started/api-accounts) with the following [scopes](/api-docs/getting-started/api-accounts#oauth-scopes):
+* Access token for [API authentication](/docs/start/authentication/api-accounts) with the following [scopes](/docs/start/authentication/api-accounts#oauth-scopes):
   * Orders - **modify**
   * Products - **read-only**
-* [Product](/docs/rest-management/catalog/products#create-a-product) with [variants](/docs/rest-management/catalog/product-variants#create-a-product-variant).
+* [Product](/docs/rest-catalog/products#create-a-product) with [variants](/docs/rest-catalog/product-variants#create-a-product-variant).
 
 ## Creating an order
 
@@ -201,7 +206,7 @@ Accept: application/json
 }
 ```
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-management/catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/docs/rest-management/catalog/product-variants#get-a-product-variant).
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/docs/rest-catalog/product-variants#get-a-product-variant). See the example response that follows, or consult the [response schema](/docs/rest-catalog/product-variants#get-a-product-variant).
 <Tabs items={['Request', 'Response']}>
 <Tab>
 ```http filename="Example request: Get product variants" showLineNumbers copy
@@ -244,7 +249,7 @@ Accept: application/json
 
 <Callout type= "info">
   * Custom products do not get added to the catalog.
-  * If the product's price is not specified in the [create order](/docs/rest-management/orders#create-an-order) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+  * If the product's price is not specified in the [create order](/docs/rest-management/orders#create-an-order) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/docs/store-operations/pricing/calculations) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
   * Marketing promotions currently do not apply to orders created with the Orders API.
   * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
   * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
@@ -496,7 +501,7 @@ To [get order transactions](/docs/rest-management/transactions#get-transactions)
 
 ## Handling refunds
 
-[Orders V3](/docs/rest-management/transactions) exposes endpoints for managing [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
+[Orders V3](/docs/rest-management/transactions) exposes endpoints for managing [order refunds](/docs/rest-management/transactions/payment-actions#get-refunds-for-order). For an overview on using these endpoints, see [Order Refunds in API Docs](/docs/store-operations/orders/refunds).
 
 ## Calculating totals
 
@@ -555,8 +560,8 @@ Not at this time. If you create an order either in the control panel or by API, 
 
 ### Articles
 
-* [Payments API Overview](/api-docs/payments/payments-api-overview)
-* [Order Refunds](/api-docs/orders/payment-actions)
+* [Payments API Overview](/docs/store-operations/payments)
+* [Order Refunds](/docs/store-operations/orders/refunds)
 * [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
 * [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
 
@@ -568,4 +573,4 @@ Not at this time. If you create an order either in the control panel or by API, 
 
 ### Webhooks
 
-* [Orders](/api-docs/store-management/webhooks/events#orders
+* [Orders](/docs/integrations/webhooks/events#orders

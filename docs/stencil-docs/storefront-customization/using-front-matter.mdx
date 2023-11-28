@@ -32,9 +32,8 @@ You can use front matter to specify attributes on the tops of pages in your `tem
 You **cannot** use front matter to accomplish this on pages in the following subdirectories:
 * `templates/components/`
 * `templates/layout/`
-* `templates/pages/custom/`
 
-* Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
+
 
 * Indent using only spaces, not tabs. (YAML forbids tabs, to avoid inconsistent encoding of tabs across platforms.) An indent of even one space indicates a child.
 
@@ -53,7 +52,7 @@ products:
     limit: 6
 ```
 
-Most keys have a default value, as listed in the [front matter attributes reference](/stencil-docs/reference-docs/front-matter-reference). Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
+Most keys have a default value, as listed in the [front matter attributes reference](/docs/storefront/stencil/themes/context/frontmatter-reference). Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
 
 ```yml filename="Example: Filtering attributes" showLineNumbers
 products:
@@ -85,7 +84,7 @@ products:
 
 <Callout type="info">
   #### Reading the Handlebars
-  In the above HTML, the `{{name}}` identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](/stencil-docs/reference-docs/handlebars-helpers-reference#Front-Matter-overview_declaring-objects) section on Handlebars objects.
+  In the above HTML, the `{{name}}` identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](/docs/storefront/stencil/themes/context/handlebars-reference#Front-Matter-overview_declaring-objects) section on Handlebars objects.
 </Callout>
 
 
@@ -118,4 +117,4 @@ product:
 ```
 
 ## Resources
-* [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference)
+* [Front Matter Reference](/docs/storefront/stencil/themes/context/frontmatter-reference)

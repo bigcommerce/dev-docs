@@ -1,3 +1,8 @@
+---
+title: Common Objects
+keywords: stencil, currency, currencies
+---
+
 # Common Objects
 
 Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it.
@@ -52,8 +57,7 @@ This consistent behavior is true for each of the common objects documented in th
 |  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br /> `"$25.98"` |
 | &#x21B3; value | Raw numeric value of the above price | number <br /> `25.98`|
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br /> `"Tax"`|
-| price_range | See [Price Range Object](/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
-
+| price_range | See [Price Range Object](/docs/storefront/stencil/themes/context/object-reference/config)
 ## Price
 
 **Description:** Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
@@ -152,7 +156,7 @@ This consistent behavior is true for each of the common objects documented in th
 | date_added | Date the product was added to this BigCommerce storefront | string Ex. `"Aug 15th 2018"` |
 | pre_order |Product’s availability for pre-order | boolean |
 | show_cart_action | Indicates whether the product is available for purchase | boolean |
-| has_options | Indicates whether customer is required to specify options when ordering the product | Boolean | 
+| has_options | Indicates whether the customer must specify options when ordering the product. A `false` variable appears when the product is out of stock, including its options.  | Boolean | 
 | stock_level | If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. | number or null |
 | low_stock_level | If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the `stock_level` property's value falls below this threshold. If inventory tracking is turned off: A "null" string. | number or "null" |
 | custom_fields | Array of [custom fields](https://support.bigcommerce.com/articles/Public/Custom-Fields) for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc. | array |

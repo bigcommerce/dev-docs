@@ -1,3 +1,8 @@
+---
+title: Customer Login API
+keywords: login, log in, sign in, sign-in, headless, embedded, checkouts
+---
+
 # Customer Login API
 
 ## Introduction
@@ -5,7 +10,7 @@
 In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens.
 
 <Callout type="info">
-You can also use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-login) to sign in and out of a customer's account.  
+You can also use the [GraphQL Storefront API](/docs/storefront/graphql#customer-login) to authorize your application to work with customer-specific storefront data.  
 </Callout>
     
 ## Overview
@@ -35,7 +40,7 @@ You are required to include the `channel_id` when using the login JWTs to embed 
 | `jti` | string | A unique request ID (ex. uuid).|
 | `operation` | string | Must contain the string `"customer_login"`.|
 | `store_hash` | string | The store hash identifying the store the shopper is signing in to.|
-| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. Depending on your implementation, omitting the `channel_id` can lead to CORS errors; for example, see [Managing Carts](/api-docs/storefronts/guide/carts#channel-id-is-mandatory). |
+| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. Depending on your implementation, omitting the `channel_id` can lead to CORS errors; for example, see [Managing Carts](/docs/storefront/headless/cart-checkout/carts#channel-id-is-mandatory). |
 | `customer_id` | integer | The ID of the shopper who is signing in.|
 | `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
 | `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to sign in.|
@@ -54,8 +59,8 @@ Be sure to set the Customers Login scope to Login.
 
 <Callout type="info">
  #### API account notes
- * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/api-accounts#app-api-accounts).
- * The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
+ * This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/docs/start/authentication/api-accounts#app-level-api-accounts).
+ * The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/docs/start/authentication#client-id) in the Authentication tutorial.
  </Callout>
 
 ## Enable single sign-on
@@ -218,12 +223,11 @@ To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/
 
 ### Articles
 
-* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/api-accounts#obtaining-store-api-credentials)
-* [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
-* [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts)
+* [Authenticating BigCommerce’s REST APIs](/docs/start/authentication/api-accounts#choosing-the-right-kind-of-api-account)
+* [BigCommerce APIs Quick Start](/archive/start/making-requests)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
 
 ### Endpoints
 
-* [Customer Login SSO](/docs/storefront-auth/customer-login)
+* [Customer Login SSO](/docs/rest-authentication/customer-login)
 * [Customers V3](/docs/rest-management/customers)

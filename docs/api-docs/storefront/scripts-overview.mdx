@@ -1,139 +1,159 @@
+---
+title: Scripts API
+keywords: scripts, channels, stencil, headless, storefronts, control panel, 
+---
+
 # Scripts API
 
-The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
+The BigCommerce Scripts API gives developers the ability to deploy scripts on storefront pages programmatically. Scripts are [channel-aware](/docs/integrations/apps/multi-storefront).
+
+This article explains the benefits and limitations of the Scripts API, then works through different strategies you might employ to migrate an existing app's script management mechanism from the control panel to the API. It assumes you're familiar with the BigCommerce app installation process. For more information on the app installation process from the merchant perspective, see our Help Center article on [Installing Apps](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel#installing). For information on responding to app installation callbacks, see our article on [Implementing OAuth](/docs/integrations/apps/guide/auth).
+
+## Scripts API and Script Manager
+
+The control panel counterpart of the Scripts API is the Script Manager, which is available in the channel settings for the subject storefront on non-[Blueprint](#blueprint-themes) stores. Scripts that you install with the Scripts API appear in the storefront's Script Manager, but can only be modified by the [API account](/docs/start/authentication/api-accounts#api-accounts) that created them. However, authorized control panel users can change the consent category or entirely delete any script using Script Manager, including scripts created using the API. To learn more, see our Help Center article on [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+
+Similarly, scripts added manually belong to control panel users collectively. When you use the API to [Get all scripts](/docs/rest-management/scripts#get-all-scripts), [Get a script](/docs/rest-management/scripts#get-a-script), [Update a script](/docs/rest-management/scripts#update-a-script), or [Delete a script](/docs/rest-management/scripts#delete-a-script), you can only retrieve, modify, and delete scripts added by [API account](/docs/start/authentication/api-accounts#api-accounts) you use to make the request. The Scripts API can’t update or delete scripts added using the control panel Script Manager.
+
+After a merchant installs your app, the app can freely update its own scripts. All the app's scripts are available in the Script Manager for the merchant to inspect. 
+
+The following list gives examples of the kinds of scripts you can add and manage using the Scripts API:
 
 * Analytics scripts
 * Single-click app scripts
 * Live chat and support plugins
 * Theme extensions or connector apps
 
+You can use the Scripts API to associate a script with a channel, including a React or other compiled JavaScript framework bundle.
 
-## Script Manager API partner guidelines
+Before installing any scripts using the Scripts API, we highly recommend checking a combination of the [Get store information](/docs/rest-management/store-information#get-store-information) and [Get all channels](/docs/rest-management/channels#get-all-channels) endpoints to determine Stencil or headless support for the subject storefront or storefronts.
 
+We also recommend leaving the `auto_uninstall` flag set to true, so that your app has the option of garbage collecting on uninstallation. 
 
-With the Script Manager API, your apps now can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. After installing your app, you can freely update these scripts and, if desired, automatically remove scripts if you uninstall your app.
+These steps can help prevent unexpected behavior.
 
-The process of installing apps on our latest theme (Stencil) is relatively straightforward. However, if your app is already live, you may have already asked merchants to paste a code snippet in one of these two sections in the control panel:
+### Limits
+- Each app can have 10 API-created scripts
+- Each channel can have 50 control panel-created scripts 
+- You can install up to five scripts in a single call
+- On a BigCommerce-hosted storefront, new or updated scripts take 20 seconds to cache
 
-- Footer Scripts
-- Web Analytics
+## Stencil themes
 
-Also, since our older (Blueprint-based) themes do not support the Script Manager API, you’ll still need some way of providing users of older themes the documentation they need, without burdening users of newer themes with additional, unnecessary steps.
+You can associate scripts with a Stencil template page or headless storefront location. On Stencil, you can specify whether scripts are added to the header object as `{{head.scripts}}` or the footer object as `{{footer.scripts}}`.
 
-To help you transition to the Script Manager API, we’ve provided some recommended strategies to deal with these different situations. 
+<Callout type="info">
+  When you are using Stencil CLI to develop a theme locally, scripts added with the Scripts API will not render.
+</Callout>
 
-#### Stencil vs Blueprint
+The following table describes the locations you can associate with Scripts API or Script Manager scripts on headless or Stencil storefronts:
 
-As mentioned above, BigCommerce supports two theme engines: Stencil and Blueprint. Stencil is our latest technology, and all new stores only have access to Stencil themes. However, older stores use our legacy theme engine, Blueprint, which cannot render scripts inserted through the Script Manager API.
-
-Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](/api/#oauth-scopes)).
-
-## Prerequisites
-This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
-
-## Upgrades and installation
-
-### Installing an app on Stencil
-
-We recommend inserting your scripts immediately after receiving the POST response during the Auth Callback flow for apps installed on Stencil stores. Add your scripts using the Create Script endpoint of the Script Manager API.
-
-We highly recommend leaving the `auto_uninstall` flag set to true, so that your app will properly clean itself up when uninstalled. Find more information about this flag <a href="#script_object-properties">here</a>.
-
-
-#### Upgrading existing apps on Stencil
-
-If you already released your app, you may have existing users with pasted-in code somewhere in their control panel. There are a few possible ways to deal with this situation.
-
-__Do nothing__
-
-
-If you don’t need to upgrade existing merchants to the Script Manager API, it’s perfectly fine to leave them. You’ll need to maintain documentation for the manual uninstallation process so that merchants with older installations know what to clean up. You won’t be able to update or add scripts for these users automatically. 
-
- __Prompt merchants to upgrade__
-
-
-If you want your merchants to update to the new Script Manager over time, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Script Manager to know whether you need to display this prompt. Make sure to check that they are running Stencil (via the Get Store Information endpoint) before prompting them to upgrade.
-
-Once a user decides to upgrade, you can walk them through removing the old pasted-in code in their control panel, and then, once the merchant clicks a button, install your scripts through the Script Manager API.
-
-__Silently upgrade to the Script Manager API__
-
-
-Finally, suppose your old, pasted-in scripts can live alongside the new Script Manager API scripts. In that case, you may be able to upgrade to using the Script Manager API without any user intervention required. Whether or not this is possible will vary depending on the implementation of your app.
-
-While your merchants will be loading more data on their storefront pages than necessary, this method will allow you to transition to using the Script Manager API for all of your installations immediately. Keep in mind you’ll still need to document the manual uninstallation process for existing installations.
-
-### Installing apps on Blueprint stores 
-
-As mentioned, the Blueprint theme engine does not support the Script Manager API. You will not be able to render any scripts inserted through this API on any storefront pages. To prevent unpredictable behavior, should a user change their theme, we highly recommend checking the Get Store Information endpoint for Stencil support before installing any scripts through the Script Manager API. Additionally, you’ll still want to show the old manual installation steps when a store does not support Stencil. 
-
-### Existing Blueprint installations 
-
-Existing blueprint installations won’t be affected, but remember that if you prompt existing Stencil users to upgrade to the Script Manager, you’ll want to suppress this message for Blueprint users. 
-
-### Fixing missing scripts
-
-It’s possible that your app installation may find itself unexpectedly missing one or more scripts. Below are some possible causes of this issue.
-
-1.) __The merchant deleted your script__ 
-
-Merchants receive a warning when attempting to delete a script belonging to an app, but we do allow them to do so.
-
-To handle this situation gracefully, we recommend you check the [Get Scripts](/docs/rest-management/scripts#get-all-scripts) endpoint on your App Detail Page (returned by the [Load Callback URI](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_processing-signed-payload) to determine whether the expected scripts are present. If they are not, you can prompt the user to click a button to repair their installation automatically.
-
-We ask that you request the user’s permission rather than doing this automatically, as they may have had a good reason for deleting the missing script. 
-
-2.) __The merchant's theme is not set up correctly__ 
-
-The theme templates must have the handlebars expressions `{{head.scripts}}` and `{{footer.scripts}}` in the pages to render scripts. If either of these is absent, scripts on that page with location set to head or footer (respectively) will not render correctly.
-
-Of particular note, `{{head.scripts}}` was only recently added to the checkout and order confirmation pages in our Cornerstone theme, and widespread adoption of this standard outside of Cornerstone is still an ongoing process.
-
-To ensure your app is compatible with as many themes as possible, we recommend footer overhead for checkout, order_confirmation, and all_pages visibilities. 
-
-3.) __Scripts are not rendering in the checkout and order confirmation__ 
-
-To render scripts, the store must have BigCommerce’s Optimized one-page checkout enabled. This is the default checkout type for all new Stencil stores. Existing stores have to change the checkout type as detailed in this article manually. 
-
-Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the optimized one-page checkout. In this case, the merchant must add the theme support, following the [one-page checkout steps](/stencil-docs/customizing-checkout/optimized-one-page-checkout).  
-
-## Notes
-
-- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can only create accounts.
-- Merchants will be able to see the scripts installed on the store in the Control Panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
-- Scripts can be located in the header `{{head.scripts}}` or footer `{{footer.scripts}}`.
-- Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.
-- The current visibility options are `storefront`, `checkout`, `all_pages`, and `order_confirmation`.
-- Scripts injected via the Scripts API will not render when you are developing a theme locally via Stencil CLI.
-- Each app can have 10 scripts. 
-- You can install up to five scripts in a single call. 
-
-```js filename="Example scripts" showLineNumbers copy
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'GA_TRACKING_ID');
-</script>
-```
-
-## Script visibility locations
-
-| Scope | Visibility |
-| -- | -- |
+| Script scope / template | Storefront page |
+|:------------------------|:----------------|
 | `all_pages` | Add Wishlist <br /> Blog List <br /> Blog Post<br /> Brand Pages <br /> All Brands Page <br /> Cart <br /> Category <br /> Checkout <br /> My Account <br /> Product Compare <br /> Order Confirmation <br /> Page <br /> Payment Methods<br /> Login <br /> Contact Form <br /> Product <br /> Search <br /> All Wishlist <br /> Wish List <br /> 404 page |
 | `storefront` |  Add Wishlist <br /> Blog List <br /> Blog Post<br /> Brand Pages <br /> All Brands Page <br /> Cart <br /> Category <br /> Product Compare <br /> Page <br /> Contact Form <br /> Product <br /> Search <br /> All Wishlist <br /> Wish List <br /> 404 page|
 | `checkout` | Checkout | 
 | `order_confirmation` | Order Confirmation | 
 
-Scripts can not be injected to:
+You cannot make a Scripts API script available on the following Stencil pages:
 - giftcertificates.php
 - sitemap.php
 
-## Related resources
+To associate scripts with a checkout page, you need the [Modify Checkout Content OAuth scope](/docs/start/authentication/api-accounts#oauth-scopes).
 
-### Endpoints
+## Blueprint themes
+
+Storefront-wise, all stores have access to Stencil themes and headless storefronts. In addition to those two frameworks, older stores may use our legacy theme engine, Blueprint, which does not support rendering scripts inserted using the Scripts API or the Script manager.
+
+For more on checking which theme engine a storefront is using, see this article's section on [Scripts API and Script Manager](#scripts-api-and-script-manager).
+
+## Managing scripts using single-click app callbacks
+
+If you're using an [app-level API account](/docs/start/authentication/api-accounts#app-level-api-accounts), we recommend inserting your scripts immediately following completion of the [auth callback](/docs/integrations/apps/guide/auth). The app can use the [uninstall callback](/docs/integrations/apps/guide/callbacks) to remove its scripts when a merchant uninstalls it, and the [remove_user callback](/docs/integrations/apps/guide/callbacks) to remove any scripts related to a particular user when they lose access privileges.
+
+Your implementation may use a [store-level API account](/docs/start/authentication/api-accounts#store-level-api-accounts) to authenticate. If so, any references to app callbacks do not apply to your code.
+
+## Upgrading
+
+If your app is already live, you may have previously asked merchants to paste a code snippet into one of these places:
+
+- The footer scripts or other in-template location in a Stencil or Blueprint theme
+- The **Web Analytics** control panel menu or its successor, **[Data solutions > Web analytics (SSF)](http://login.bigcommerce.com/deep-links/manage/data-solutions)** or **[Data solutions > Web analytics (MSF channel 1)](http://login.bigcommerce.com/deep-links/manage/channel/1/data-solutions)**
+- **Site verification tags** or its successor, **[Data Solutions > Site verification tags (SSF)](http://login.bigcommerce.com/deep-links/manage/data-solutions)** or **[Data solutions > Web analytics (MSF channel 1)](http://login.bigcommerce.com/deep-links/manage/channel/1/data-solutions)**
+- **[Script Manager (SSF)](http://login.bigcommerce.com/deep-links/manage/script-manager)** or **[Script Manager (MSF channel 1)](http://login.bigcommerce.com/deep-links/manage/1/script-manager)**
+
+Although Blueprint-based themes do not support Script Manager or the Scripts API, you may choose to add or continue Blueprint support. If so, you need some way of providing Blueprint stores access to the app's programmatically created scripts, without burdening users of Stencil or headless storefronts with additional unnecessary steps.
+
+To ease your app's transition to using the Scripts API, there are several possible strategies, depending on your app's ecosystem and customer base. 
+
+**Do nothing**
+
+You may decide that it doesn't make sense for your implementation to use the Scripts API.
+
+**Upgrade or encourage upgrade**
+
+If you want your merchants to upgrade to programmatically created scripts, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Scripts API to know whether you need to display this prompt. For more on checking which theme engine a storefront is using, see this article's section on [Scripts API and Script Manager](#scripts-api-and-script-manager).
+
+Once a user decides to upgrade, you can use a form to walk them through removing the old manual code in their control panel. When the merchant clicks submit, install your scripts using the Scripts API.
+
+**Silently upgrade**
+
+You may decide that your old pasted-in scripts can live alongside your new approach to script management. However, BigCommerce does not recommend upgrading without disclosure. See this article's [section on disclosure](#disclosure-is-best-practice). 
+
+## Disclosure is best practice
+
+Solutions that add dynamic script support using revisions to or additions of scripts pasted into the theme or inserted in a **Data Solutions > Web Analytics** menu should disclose the change to all client stores, including Blueprint users. 
+
+Release notes can work for all storefronts. Changes to the [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes) of apps that use [app-level API accounts](/docs/start/authentication/api-accounts#app-level-api-accounts) require the store owner or other authorized user to accept the new scopes, which could provide a mechanism to trigger release note display. Store owners aren't prompted to reauthorize until they next open an app in the control panel, so direct contact may be advisable from a conversion perspective. You can't change the OAuth scopes for a [store-level API account](/docs/start/authentication/api-accounts#store-level-api-accounts), so directly contacting the store or stores that you want to change may be your only option for disclosure.
+
+## Troubleshooting
+
+Your app installation may find itself unexpectedly missing one or more scripts. Below are some possible causes of this issue.
+
+**The merchant deleted your script**
+
+Merchants receive a warning when they attempt to delete a script belonging to an app, but they can.
+
+To determine whether the expected scripts are present, we recommend you check the [Get all scripts](/docs/rest-management/scripts#get-all-scripts) endpoint when your app receives the [load callback](/docs/integrations/apps/guide/callbacks). If they are not, you can prompt the user to click a button to repair their installation automatically.
+
+It's best practice to request the user’s permission rather than doing this automatically, as they may have had a good reason for deleting the missing script. See this article's [section on disclosure](#disclosure-is-best-practice). 
+
+**The merchant's theme is not set up correctly** 
+
+Stencil templates must have the Handlebars expressions `{{head.scripts}}` and `{{footer.scripts}}` in the pages to render scripts. If either of these is absent, scripts on that page with location set to head or footer, respectively, will not render.
+
+To ensure your app is compatible with as many themes as possible, we recommend `{{footer.scripts}}` over `{{head.scripts}}` for the `checkout`, `order_confirmation`, and `all_pages` contexts. 
+
+Read more about the [head object](/docs/storefront/stencil/themes/context/object-reference/schemas#head) and [footer object](/docs/storefront/stencil/themes/context/object-reference/schemas#footer).
+
+**Scripts do not render in the checkout or order confirmation contexts**
+
+To render scripts, the store must have BigCommerce’s [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout) enabled. This is the default checkout type for all new Stencil stores. Existing stores have to change the checkout type manually. To [change the checkout type](http://login.bigcommerce.com/deep-links/manage/settings/checkout), visit the store control panel. 
+
+Stencil themes from the marketplace support [Optimized One-Page Checkout (Help Center)](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout). However, there could be instances where the merchant maintains their private theme without the ability to support the optimized one-page checkout. In this case, the merchant must add the theme support, following the steps to customize [optimized one-page checkout](/docs/storefront/cart-checkout/optimized-one-page-checkout).  
+
+## Resources
+
+### Endpoint and theme reference
+
 * [Scripts](/docs/rest-management/scripts)
+* [Get store information](/docs/rest-management/store-information#get-store-information)
+* [Get all channels](/docs/rest-management/channels#get-all-channels)
+* [Stencil head object](/docs/storefront/stencil/themes/context/object-reference/schemas#head)
+* [Stencil footer object](/docs/storefront/stencil/themes/context/object-reference/schemas#footer)
+
+### Articles
+
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)
+* [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes)
+* [Optimized One-Page Checkout](/docs/storefront/cart-checkout/optimized-one-page-checkout)
+* [Apps Guide](/docs/integrations/apps)
+* [Apps Guide: Auth Flow](/docs/integrations/apps/guide/auth)
+* [Apps Guide: Callbacks](/docs/integrations/apps/guide/callbacks)
+* [Multi-Storefront App Compatibility](/docs/integrations/apps/multi-storefront)
+
+### Help center
+
+* [Installing Apps (Help Center)](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel?language=en_US#installing)
+* [Optimized One-Page Checkout (Help Center)](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup)
+

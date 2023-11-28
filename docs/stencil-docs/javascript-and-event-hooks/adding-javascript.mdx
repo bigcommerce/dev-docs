@@ -1,3 +1,8 @@
+---
+title: Adding JavaScript to Your Theme
+keywords: stencil, js, javascript, if, 
+---
+
 # Adding JavaScript to Your Theme
 
 ## Bundling and minification
@@ -212,7 +217,7 @@ export default class Cart extends PageManager {
         this.bindEvents();
     }
 
-		cartUpdate($target) {
+    cartUpdate($target) {
         const itemId = $target.data('cartItemid');
         const $el = $(`#qty-${itemId}`);
         const oldQty = parseInt($el.val(), 10);
@@ -233,11 +238,13 @@ export default class Cart extends PageManager {
                 type: 'error',
             });
         }
+    }
+}
 ```
 
 ## Mapping custom templates to JavaScript modules
 
-If you add [custom page templates](/stencil-docs/storefront-customization/custom-templates/) to your theme, you can edit the same `assets/js/app.js` file to map each custom template to an appropriate JavaScript module.
+If you add [custom page templates](/docs/storefront/stencil/themes/templates) to your theme, you can edit the same `assets/js/app.js` file to map each custom template to an appropriate JavaScript module.
 
 In the following example, we will map a custom JavaScript file, `assets/js/themes/custom.js` to a custom product page file `templates/pages/custom/product/customProd.html`.
 

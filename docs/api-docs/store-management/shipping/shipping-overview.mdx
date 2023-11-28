@@ -1,5 +1,9 @@
-# Shipping
+---
+title: Shipping
+keywords: address, shipping
+---
 
+# Shipping
 
 You can create shipments from orders, and it is possible to create multiple shipments from a single order. A [shipment](/docs/rest-management/orders/order-shipments#create-order-shipment) represents a grouping of order line items that you can ship to a customer. 
 
@@ -9,9 +13,9 @@ The Order Shipments resource creates a shipment for an order. You can specify th
 
 ## Checkout APIs
 
-The [Storefront Checkout](/docs/rest-management/checkouts) and [Server-to-Server Checkout APIs](/docs/rest-storefront/checkouts) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
+The [REST Storefront](/docs/rest-management/checkouts), [GraphQL Storefront](/docs/storefront/cart-checkout/guide/graphql-storefront), and [REST Management](/docs/rest-storefront/checkouts) APIs provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
 
-However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
+However, all of the listed APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
 
 A checkout will always have one consignment assigned to it, which is the first shipping address. A consignment supports multiple shipping addresses, with each address having its own line items.
 
@@ -34,10 +38,11 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 ## Related resources
 
 ### Articles
-* [Orders API Overview](/api-docs/orders/orders-api-overview)
+* [Orders API Overview](/docs/store-operations/orders)
 
 ### Endpoints
-* [Storefront Checkouts API](/docs/rest-management/checkouts)
-* [Server-to-Server Checkouts API](/docs/rest-storefront/checkouts)
+* [REST Storefront Checkouts API](/docs/rest-management/checkouts)
+* [REST Management Checkouts API](/docs/rest-storefront/checkouts)
+* [GraphQL Storefront Carts and Checkout](/docs/storefront/cart-checkout/guide/graphql-storefront)
 * [Order Shipping Addresses](/docs/rest-management/orders/order-shipping-addresses)
 * [Shipping v2](/docs/rest-management/shipping-v2)

@@ -7,17 +7,21 @@ This article is a guide to help you learn how to use Widget Builder.
 
 ## Prerequisites
 
-* Node.js 14
-* [npm](https://www.npmjs.com/) 6.14
-* A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
-* Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](/api-docs/getting-started/api-accounts#obtaining-store-api-credentials).
+* Node.js 18
+* [npm](https://www.npmjs.com/) 9.5.1
+* A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](/docs/start/about/sandboxes).
+* A [store-level or app-level API account](/docs/start/authentication/api-accounts) with the following OAuth scopes:
+
+| Name | Permission | Parameter |
+| :--- | :--------- | :-------- |
+| Content | manage | `store_v2_content` |
+| Other |  | As needed for the widget to function. |
 
 <Callout type="info">
-Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
+Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](/docs/start/about/sandboxes).
 </Callout>
 
-
-For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
+For more information on authentication, see [Authentication](/docs/start/authentication).
 
 ## Install Widget Builder
 
@@ -164,12 +168,12 @@ Publishing a widget from the same path will update or overwrite your existing wi
 
 To add published widgets to your store, open your store's control panel and navigate to **Storefront** **>** **My Themes**. Click the **Customize** button on your active theme, and locate your published widget in the **Custom** section of the left-side menu.
 
-If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](/api-docs/partner/becoming-a-partner).
+If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/categories/site-tools/tools-widgets/) and learn about [becoming a partner developer](/docs/start/partner).
 
 ## Resources
 
-* [Guide to API Accounts](/api-docs/getting-started/api-accounts)
-* [Widgets API Overview](/api-docs/store-management/widgets/overview)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)
+* [Widgets API Overview](/docs/storefront/widgets)
 * [Widget Builder GitHub repository](https://github.com/bigcommerce/widget-builder)
-* [Widgets on the App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/)
-* [Becoming a Partner Developer](/api-docs/partner/becoming-a-partner)
+* [Widgets on the App Marketplace](https://www.bigcommerce.com/apps/categories/site-tools/tools-widgets/)
+* [Becoming a Partner Developer](/docs/start/partner)

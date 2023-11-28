@@ -1,6 +1,9 @@
+---
+title: Enhance the User Experience with BigDesign
+keywords: products, bigdesign, apps, ux, webhooks, next.js, components, if, 
+---
+
 # Step 4: Enhance the User Experience with BigDesign
-
-
 
 [BigDesign](https://developer.bigcommerce.com/big-design) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
@@ -19,7 +22,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/docs/rest-management/catalog). You can [view list.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/list.ts).
+4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/docs/rest-catalog). You can [view list.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/list.ts).
 
 ```ts filename="Add logic list.ts" showLineNumbers copy
 export default async function list(req: NextApiRequest, res: NextApiResponse) {
@@ -755,4 +758,4 @@ You should now have a fully functional app that pulls data from BigCommerce's Ca
 
 This concludes our Next.js Sample App tutorial. To continue developing with BigCommerce, consider working through these supplemental materials:
 
-* [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal)
+* [Managing Apps in the Developer Portal](/docs/integrations/apps/guide/developer-portal)

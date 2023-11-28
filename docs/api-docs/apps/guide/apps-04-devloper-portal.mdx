@@ -1,6 +1,6 @@
 # Managing Apps in the Developer Portal
 
-Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development), we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).
+Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/docs/integrations/apps/guide), we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).
 
 <Callout type="info">
   #### Store email address constraint
@@ -9,11 +9,11 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 
 ## Create an app profile
 
-Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/api-accounts#app-api-accounts). To create an app, do the following:
+Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/docs/start/authentication/api-accounts#app-level-api-accounts). To create an app, do the following:
 
 <Callout type="info">
   #### Information optional
-  No app profile fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
+  No app profile fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/docs/integrations/apps/guide/publishing).
 </Callout>
 
 1. Sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com).
@@ -50,7 +50,7 @@ You can view the client ID and client secret any time; see the following section
 
 2. A dialog box opens to reveal your API account credentials.
 
-To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
+To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/docs/integrations/apps/guide/auth).
 
 ## Edit an app profile
 
@@ -96,7 +96,7 @@ If your app supports stores that sell through multiple storefronts or sales chan
 
 3. To save your change, click the **Update & Close** button on the edit dialog's lower right corner. 
 
-To read about designing or modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
+To read about designing or modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/docs/integrations/apps/multi-storefront)
 
 ## Submit an app for approval
 
@@ -106,13 +106,13 @@ To read about designing or modifying your app to support multi-storefront, see [
 
 2. The registration dialog opens; complete the app's profile. 
  
-To learn more about completing app registration fields and submitting apps for approval, consult our [App Publishing Guide](/api-docs/apps/guide/publishing).
+To learn more about completing app registration fields and submitting apps for approval, consult our [App Publishing Guide](/docs/integrations/apps/guide/publishing).
 
 ## Deleting apps
 
 Deleting an app also deletes its API account. This is a destructive action; you can't recover the app or its API account. Do not delete an app without serious consideration, particularly if it is in production. It is likely to have far-reaching negative impacts on your users' stores.
 
-To learn about mitigating the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/api-accounts#delete-apps-carefully).
+To learn about mitigating the risks of deleting an app and its API account, see the [Guide to API Accounts](/docs/start/authentication/api-accounts#delete-apps-carefully).
 
 1. To delete an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Delete App** trash can icon to the right of the app you want to edit. 
 
@@ -123,19 +123,19 @@ To learn about mitigating the risks of deleting an app and its API account, see 
 ![Delete App Dialog](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-delete-app-confirm.png "Delete App Dialog")
 
 ## Next steps
-* [Implement the OAuth flow](/api-docs/apps/guide/auth)
-* [Handle app callbacks](/api-docs/apps/guide/callbacks)
+* [Implement the OAuth flow](/docs/integrations/apps/guide/auth)
+* [Handle app callbacks](/docs/integrations/apps/guide/callbacks)
 
 ## Resources
 
 ### Related articles
 
-* [Introduction to Building Apps](/api-docs/apps/guide/intro)
-* [Beginning App Development](/api-docs/apps/guide/development)
-* [Implementing App OAuth](/api-docs/apps/guide/auth)
-* [App Approval Requirements](/api-docs/apps/guide/requirements)
-* [Publishing an App](/api-docs/apps/guide/publishing)
-* [Guide to API Accounts](/api-docs/getting-started/api-accounts)
+* [Introduction to Building Apps](/docs/integrations/apps)
+* [Beginning App Development](/docs/integrations/apps/guide)
+* [Implementing App OAuth](/docs/integrations/apps/guide/auth)
+* [App Approval Requirements](/docs/integrations/apps/guide/requirements)
+* [Publishing an App](/docs/integrations/apps/guide/publishing)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)
 
 ### Other resources
 

@@ -1,13 +1,44 @@
+---
+title: GraphQL Storefront API Example Queries
+keywords: storefront, graphql
+---
 # GraphQL Storefront API Example Queries
 
+Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of its usage and capabilities, see [GraphQL Storefront API Overview](/docs/storefront/graphql).
 
+## Configuring the request
 
-Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview).
+To get started, you need a BigCommerce store and a Storefront API token. For more information, see the [Authentication section of the GraphQL Storefront API Overview](/docs/storefront/graphql#authentication) or the [Authentication article](/docs/start/authentication#bigcommerce-generated-jwts).
 
-<Callout type="warning">
-  The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
-</Callout>
+For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
 
+To use this API from a coupled storefront, use the following HTTP configuration:
+
+```js filename="Example query: Same-origin GraphQL Storefront HTTP configuration" showLineNumbers copy
+  fetch('/graphql', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + {{storefrontToken}}
+    },
+    body: JSON.stringify({
+      query: gqlQueryString
+    })
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+```
+
+To use this API server-to-server, use the following HTTP configuration:
+
+```http filename="Server-to-server GraphQL Storefront HTTP configuration" showLineNumbers copy
+  POST https://{{storeDomain}}/graphql
+  Authorization: Bearer {{storefrontOrCustomerImpersonationToken}}
+  X-BC-Customer-ID: 123 # optional once a customer is signed in
+  Content-Type: application/json
+```
 
 ## Get a customer's details
 
@@ -158,219 +189,23 @@ query LookUpUrl {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get product images at different resolutions
+## Get popular brands
 
-```graphql filename="Example query: Get product images at different resolutions" showLineNumbers copy
-query SrcsetImages {
-  site {
-    product(entityId: 123) {
-      images {
-        edges {
-          node {
-            url320wide: url(width: 320)
-            url640wide: url(width: 640)
-            url960wide: url(width: 960)
-            url1280wide: url(width: 1280)
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=productImages" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get a product
-
-```graphql filename="Example query: Get a product" showLineNumbers copy
-query SingleProduct {
-  site {
-    products (entityIds: [4917]) {
-      edges {
-        node {
-          id
-          entityId
-          name
-          prices {
-            price {
-              value
-              currencyCode
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get variant details as a product object
-
-```graphql filename="Example query: Get variant details as a product object" showLineNumbers copy
-query VariantById {
-  site {
-    product(variantEntityId: 27098) {
-      name
-      sku
-      defaultImage {
-        url(width: 500, height: 500)
-      }
-      prices {
-        price {
-          ...PriceFields
-        }
-        salePrice {
-          ...PriceFields
-        }
-        retailPrice {
-          ...PriceFields
-        }
-      }
-      width {
-        ...DimensionFields
-      }
-      height {
-        ...DimensionFields
-      }
-      depth {
-        ...DimensionFields
-      }
-    }
-  }
-}
-fragment PriceFields on Money {
-  value
-  currencyCode
-}
-fragment DimensionFields on Measurement {
-  value
-  unit
-}
-```
-
-<Callout type="info">
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
-</Callout>
-
-<br> </br>
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get product option details by product ID
-
-```graphql filename="Example query: Get product option details by product ID" showLineNumbers copy
-query SeveralProductsByID {
-  site {
-    products(entityIds: [1, 2, 3]) {
-      edges {
-        node {
-          name
-          productOptions {
-            edges {
-              node {
-                entityId
-                displayName
-                isRequired
-                ... on MultipleChoiceOption {
-                  values {
-                    edges {
-                      node {
-                        entityId
-                        label
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=productOptions" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get refined product object for given options
-
-```graphql filename="Example query: Get refined product object for given options" showLineNumbers copy
-query ProductsWithOptionSelections {
-  site {
-    product123: product(
-      entityId: 123
-      optionValueIds: [
-        { optionEntityId: 4, valueEntityId: 543 }
-        { optionEntityId: 5, valueEntityId: 443 }
-      ]
-    ) {
-      ...ProductFields
-    }
-    product234: product(
-      entityId: 234
-      optionValueIds: [
-        { optionEntityId: 8, valueEntityId: 768 }
-        { optionEntityId: 13, valueEntityId: 883 }
-      ]
-    ) {
-      ...ProductFields
-    }
-  }
-}
-
-fragment ProductFields on Product {
-  name
-  defaultImage {
-    url(width: 1000)
-  }
-  sku
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get product swatch option values
-
-```graphql filename="Example query: Get product swatch option values" showLineNumbers copy
+```graphql filename="Example query: Get popular brands" showLineNumbers copy
 query {
   site {
-    products (first: 3) {
-      pageInfo {
-        startCursor
-        endCursor
-      }
+    popularBrands {
       edges {
-        cursor
         node {
           entityId
+          count
           name
-          productOptions {
-            edges {
-              node {
-                entityId
-                displayName
-                ... on MultipleChoiceOption {
-                  values {
-                    edges {
-                      node {
-                        ... on SwatchOptionValue {
-                          label
-                          hexColors
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          path
         }
       }
     }
   }
 }
 ```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=popularBrands" target="_blank">**Try it in GraphQL Playground**</a>

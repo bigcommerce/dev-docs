@@ -1,21 +1,19 @@
 # Localizing Stores
 
-
-
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store for a language or region, you will need to customize three areas:
 
 
-* [**Storefront theme pages.**](#translating-theme-files-by-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
+* **[Storefront theme pages.](#translating-theme-files-by-stencil-cli)** Translate static strings by adding translation files for your chosen languages via Stencil CLI.
 
-* [**Checkout.**](#localizing-checkout) Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
+* **[Checkout.](#localizing-checkout)** Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
 
-* [**Storefront content.**](#localizing-your-storefront-content) Adjust other localization details in the BigCommerce control panel.
+* **[Storefront content.](#localizing-your-storefront-content)** Adjust other localization details in the BigCommerce control panel.
 
 
 <Callout type="info">
  #### Storefront language support
  Each storefront can only support a single language. To display multiple languages, we recommend setting up a separate store for each language.
- </Callout>
+</Callout>
 
 
 
@@ -32,36 +30,36 @@ The bulk of localizing a store is translating content on your theme's page templ
 Currently, you cannot edit strings such as "This promotion cannot be applied with the selected currency" in BigCommerce. The language settings for these strings are not defined by the shopper's browser language settings. Rather, you select your storefront's display language using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale). This language setting determines the language of your storefront content.
 
 
-BigCommerce supports these uneditable strings in the following languages:
-* [Danish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/da.json)
-* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/nl.json)
-* [English](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/en.json)
-* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/fr.json)
-* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/de.json)
-* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/it.json)
-* [Norwegian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/no.json)
-* [Portuguese](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt.json)
-* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt-BR.json)
-* [Spanish (Argentina)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-AR.json)
-* [Spanish (Chile)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CL.json)
-* [Spanish (Columbia)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CO.json)
-* [Spanish (Latin America & Caribbean)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-419.json)
-* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-MX.json)
-* [Spanish (Peru)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-PE.json)
-* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es.json)
-* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/sv.json)
+BigCommerce's Cornerstone Stencil theme supports these uneditable strings in the following languages:
 
+* Danish
+* Dutch
+* English
+* French
+* German
+* Italian
+* Norwegian
+* Polish
+* Portuguese
+* Portuguese (Brazil)
+* Spanish (Argentina)
+* Spanish (Chile)
+* Spanish (Columbia)
+* Spanish (Latin America & Caribbean)
+* Spanish (Mexico)
+* Spanish (Peru)
+* Spanish (Spain)
+* Swedish
 
-You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
 
 ## Localizing checkout
 
-Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](/stencil-docs/localization/multi-language-checkout) for details.
+Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](/docs/storefront/cart-checkout/localization) for details.
 
 
 <Callout type="warning">
  #### Checkout localization
- Checkout localization is only available for [Optimized One-Page Checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout).
+ Checkout localization is only available for [Optimized One-Page Checkout](/docs/storefront/cart-checkout/optimized-one-page-checkout).
 </Callout>
 
 
@@ -89,22 +87,20 @@ For an overview of how to populate the store catalog, including options for bulk
 You can configure each store's default currency in the BigCommerce control panel. For details, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
 ### Localizing date format
-You can set the appropriate date format for your store's language/region in an active MSF-enabled BigCommerce control panel: **Settings** › **General** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
+You can set the appropriate date format for your store's language/region in the BigCommerce control panel: **Settings > General > [Date & Timezone](http://login.bigcommerce.com/deep-links/manage/settings/store)**. For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
 
 ### Localizing order statuses
-You can configure the `order-status` labels displayed on a BigCommerce storefront outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders** ›
- [**Order Statuses**](http://login.bigcommerce.com/deep-links/manage/orders/order-statuses). For instructions, see [Customizing an Order Status Label](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
+You can configure the `order-status` labels displayed on a BigCommerce storefront outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders > [Order Statuses](http://login.bigcommerce.com/deep-links/manage/orders/order-statuses)**. For instructions, see [Customizing an Order Status Label](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 ### Localizing the blog
-Blog entries are managed through the BigCommerce control panel under **Storefront** ›
- [**Blog**](https://login.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post).
+Blog entries are managed through the BigCommerce control panel under **Storefront > [Blog](https://login.mybigcommerce.com/manage/content/blog)**. You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post).
 
 ### Localizing static web pages
 If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Storefront > Web Pages**, (if MSF is active on your store go to **Channel Manager > Channels > Storefronts > Quick links > Web Pages**), you must also enter their localized content in the control panel.
 
 ### Managing transactional emails
 
-To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails). Uncheck each email type that you prefer to customize.
+To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Marketing > [Transactional Emails](http://login.bigcommerce.com/deep-links/manage/transactional-emails)**. Uncheck each email type that you prefer to customize.
 
 You can localize transactional emails by using compatible third-party apps such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/).
 
@@ -115,41 +111,22 @@ To fully localize your store, disable gift certificates in the BigCommerce contr
 ### Managing system messages
 You can localize a store's payment and checkout error messages via checkout-js in the BigCommerce control panel. For a list of error messages and supported languages, see [Verbose Error Messages at Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#verbose).
 
-To customize payment and checkout messages, define these variables in the theme language files. For details, see [Multi-language setup](/stencil-docs/localization/multi-language-checkout#multi-language-setup).
+To customize payment and checkout messages, define these variables in the theme language files. For details, see [Multi-language setup](/docs/storefront/cart-checkout/localization#multi-language-setup).
 
 
 ## Resources
 
 ### Related articles
 
-* [Translation Keys](/stencil-docs/localization/translation-keys)
-* [Restyle Optimized One-Page Checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout)
-* [Multi-Language Checkout](/stencil-docs/localization/multi-language-checkout)
-* [Adding Products](https://support.bigcommerce.com/s/article/Adding-Products-v3) (BigCommerce Knowledge Base)
-* [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default)(BigCommerce Knowledge Base)
+* [Translation Keys](/docs/storefront/stencil/themes/localization/translation-keys)
+* [Restyle Optimized One-Page Checkout](/docs/storefront/cart-checkout/optimized-one-page-checkout)
+* [Multi-Language Checkout](/docs/storefront/cart-checkout/localization)
+* [Adding Products (Help Center)](https://support.bigcommerce.com/s/article/Adding-Products-v3) 
+* [Changing Your Default Currency (Help Center)](https://support.bigcommerce.com/s/article/Managing-Currencies#default)
 
 ### Additional resources
 
-* [checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) (BigCommerce GitHub)
-* [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) (BigCommerce GitHub)
-* [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)
+* [Cornerstore - checkout.html (GitHub)](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html)
+* [Cornerstone - order-confirmation.html (GitHub)](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html)
+* [Cornerstone - JSON translation file (GitHub)](https://github.com/bigcommerce/cornerstone/tree/master/lang)
 
-### Language files
-
-* [Danish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/da.json)
-* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-nl-NL.po)
-* [English](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/en.json)
-* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-fr-FR.po)
-* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-de-DE.po)
-* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-it-IT.po)
-* [Norwegian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/no.json)
-* [Portuguese](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt.json)
-* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-pt-BR.po)
-* [Spanish (Argentina)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-AR.json)
-* [Spanish (Chile)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CL.json)
-* [Spanish (Columbia)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CO.json)
-* [Spanish (Latin America & Caribbean)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-419.json)
-* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-MX.po)
-* [Spanish (Peru)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-PE.json)
-* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-ES.po)
-* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-sv-SE.po)

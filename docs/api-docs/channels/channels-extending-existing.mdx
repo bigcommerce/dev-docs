@@ -1,3 +1,8 @@
+---
+title: Extending Sales Channel Apps with Channels Toolkit
+keywords: channels, apps, headless, toolkit
+---
+
 # Extending Sales Channel Apps with Channels Toolkit
 
 This article provides a guide to partners who would like to update or replace their existing sales channel apps to leverage new functionality available via Channels Toolkit.
@@ -12,7 +17,7 @@ Existing sales channel apps need app credentials with updated OAuth scopes to au
 |Channels Settings Modify|`store_channel_settings`|Creating channels that reference external platforms|
 |Channels Listings Modify|`store_channel_listings`|Creating and reading product listing information|
 
-See our [Guide to API Accounts](/api-docs/getting-started/api-accounts) for more information on app credentials.
+See our [Guide to API Accounts](/docs/start/authentication/api-accounts) for more information on app credentials.
 
 ## Step 2: Integrate channel API
 
@@ -52,7 +57,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ## App requirements
 
-Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](/api-docs/channels/channels-toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
+Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](/docs/integrations/channels/toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
 
 The above "updating existing app" data applies; however, non-POS channel apps are not necessarily required to use the same sections and user flows shown in the example app screenshots.
 
@@ -103,7 +108,7 @@ Accept: application/json
 
 
 <Callout type="info">
-  - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
+  - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/docs/integrations/apps/guide/id).
   - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
   - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 </Callout>
@@ -124,23 +129,7 @@ Accept: application/json
 | &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
-| Platform          | Accepted Type             |
-|-------------------|---------------------------|
-| `square `         | `pos`                     |
-| `vend`            | `pos`                     |
-| `clover`          | `pos`                     |
-| `facebook`        | `marketplace`,`marketing` |
-| `amazon`          | `marketplace`             |
-| `ebay`            | `marketplace`             |
-| `wordpress`       | `storefront`              |
-| `drupal`          | `storefont`               |
-| `acquia`          | `storefront`              |
-| `bloomreach`      | `storefront`              |
-| `deity`           | `storefront`              |
-| `google_shopping`\* | `marketing` |
-| `google` | `marketing` |
-| `google` | `marketplace` |
-| `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference.
 
 <Callout type="info">
   We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
@@ -159,19 +148,19 @@ For a complete Channel API reference (including request schemas and property des
   Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
 </Callout>
 
-For a high-level overview and more information on Channels Toolkit, see [Channels Overview](/api-docs/channels/overview).
+For a high-level overview and more information on Channels Toolkit, see [Channels Overview](/docs/integrations/channels).
 
 ## Related resources
 
 ### Articles
 
-- [Channels Overview](/api-docs/channels/overview)
-- [Building Channel Apps](/api-docs/channels/guide/building-channel-apps)
-- [Becoming a Partner](/api-docs/partner/becoming-a-partner)
-- [Types of Apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
-- [Guide to API Accounts](/api-docs/getting-started/api-accounts)
-- [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-- [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
+- [Channels Overview](/docs/integrations/channels)
+- [Building Channel Apps](/docs/integrations/channels/guide)
+- [Becoming a Partner](/docs/start/partner)
+- [Types of Apps](/docs/integrations/apps/guide/types)
+- [Guide to API Accounts](/docs/start/authentication/api-accounts)
+- [Building an App](/docs/integrations/apps)
+- [App Store Approval Requirements](/docs/integrations/apps/guide/requirements)
 
 ### Endpoints
 

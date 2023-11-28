@@ -2,7 +2,7 @@
 
 
 
-BigCommerce's [Widgets API](/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
+BigCommerce's [Widgets API](/docs/storefront/widgets) allows you to create, manage, and apply widgets to your storefront. 
 
 In this tutorial, you will create a [widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-tutorial-01.gif) (GitHub) that displays a row of three images and place that widget in a designated region on a category page of BigCommerce's [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
@@ -10,9 +10,9 @@ In this tutorial, you will create a [widget](https://raw.githubusercontent.com/b
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope.
-* Knowledge of the [Widgets API](/api-docs/storefront/widgets/widgets-overview).
+* Knowledge of the [Widgets API](/docs/storefront/widgets).
 
-To edit and preview theme files locally, we recommend using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce's powerful theme development and deployment tool.
+To edit and preview theme files locally, we recommend using [Stencil CLI](/docs/storefront/stencil/cli/install), BigCommerce's powerful theme development and deployment tool.
 
 ## Create a region
 
@@ -33,11 +33,11 @@ In `templates/pages/category.html`, add a new region `{{{region name="category_h
 {{{category.description}}}
 ```
 
-If you are using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundle your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands) article.
+If you are using [Stencil CLI](/docs/storefront/stencil/cli/install) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundle your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](/docs/storefront/stencil/cli/options-and-commands) article.
 
 <Callout type="info">
-  * You can add regions to templates in the [`templates/pages/`](/stencil-docs/storefront-customization/directory-structure) folder.
-  * To edit theme files locally, use [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil).
+  * You can add regions to templates in the [`templates/pages/`](/docs/storefront/stencil/themes/foundations/directory-structure) folder.
+  * To edit theme files locally, use [Stencil CLI](/docs/storefront/stencil/cli/install).
   * To edit theme files in the control panel, use [Page Builder](https://support.bigcommerce.com/s/article/Stencil-Themes#edit).
 </Callout>
 
@@ -194,7 +194,7 @@ Accept: application/json
 | `template_file` | template file to target|
 | `status` | active or inactive |
 
-`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](/docs/rest-management/catalog/category#get-all-categories). If you omit `entity_id`; the widget will appear on all category pages.
+`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](/docs/rest-catalog/categories#get-all-categories). If you omit `entity_id`; the widget will appear on all category pages.
 
 ## Create a custom template placement
 
@@ -227,7 +227,7 @@ In this section, you will create a custom category template which you can then u
 
 If using Stencil CLI, push and apply your changes.
 
-4. To create a new category using the [Catalog API](/docs/rest-management/catalog), send a `POST` request to [`/v3/catalog/categories`](/docs/rest-management/catalog/category#create-a-category). Use the URL defined in the `config.stencil.json` category mapping. In our example, it is `/custom-widget-templates/`.
+4. To create a new category using the [Catalog API](/docs/rest-catalog), send a `POST` request to [`/v3/catalog/categories`](/docs/rest-catalog/categories#create-a-category). Use the URL defined in the `config.stencil.json` category mapping. In our example, it is `/custom-widget-templates/`.
 
 ```http filename="Example request: Create a category" showLineNumbers copy
 POST /stores/{{store_hash}}/v3/catalog/categories
@@ -255,7 +255,7 @@ Accept: application/json
 
 ## Create a user interface
 
-BigCommerce's [Page Builder](/stencil-docs/page-builder/page-builder-overview) tool allows you to customize different style elements of your theme in the store's control panel. You can use Page Builder to configure and place widgets onto pages to tailor your storefront. To make your widget compatible with Page Builder, add custom configuration settings to the widget template by including the `schema` property in the [create widget template](#create-a-widget-template) request. 
+BigCommerce's [Page Builder](/docs/storefront/stencil/content/page-builder) tool allows you to customize different style elements of your theme in the store's control panel. You can use Page Builder to configure and place widgets onto pages to tailor your storefront. To make your widget compatible with Page Builder, add custom configuration settings to the widget template by including the `schema` property in the [create widget template](#create-a-widget-template) request. 
 
 The following is an example of a widget template compatible with Page Builder.
 
@@ -302,12 +302,12 @@ The following is an example of a widget template compatible with Page Builder.
 }
 ```
 
-To learn more about Page Builder, see [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview).
+To learn more about Page Builder, see [Page Builder Overview](/docs/storefront/stencil/content/page-builder).
 
 ## Related resources
 
 ### Articles
 
 * [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder)
-* [Widgets Overview](/api-docs/store-management/widgets/overview)
-* [Widgets Code Samples](/api-docs/store-management/widgets/samples)
+* [Widgets Overview](/docs/storefront/widgets)
+* [Widgets Code Samples](/docs/storefront/widgets/examples)

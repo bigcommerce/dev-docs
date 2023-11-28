@@ -1,3 +1,8 @@
+---
+title: Widgets API
+keywords: widgets, rest, invoices, sort, 
+---
+
 # Widgets API
 
 The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various content types, such as YouTube videos, image sliders, and chat apps. 
@@ -11,7 +16,7 @@ In this article, we will review the components that make up a widget.
 
 ## Regions
 
-[Regions](/docs/rest-content/widgets/regions#get-theme-regions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](/docs/rest-content/widgets/regions#get-theme-regions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](/docs/storefront/widgets#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Partner%20Information/widgets-overview-03.png "Content Region")
 
@@ -329,8 +334,8 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 ## Related resources
 
 ### Articles
-* [Widgets Tutorial](/api-docs/store-management/widgets/tutorials/tutorial)
-* [Widgets Code Samples](/api-docs/store-management/widgets/samples)
+* [Widgets Tutorial](/docs/storefront/widgets/guide)
+* [Widgets Code Samples](/docs/storefront/widgets/examples)
 
 ### Endpoints
 * [Widgets API](/docs/rest-content/widgets)

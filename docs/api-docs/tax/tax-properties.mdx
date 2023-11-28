@@ -1,3 +1,8 @@
+---
+title: Tax Properties for Products
+keywords: get all products, tax, tax properties, 
+---
+
 # Tax Properties for Products
 
 The Tax Properties API allows merchants to vary the tax information they send to tax providers for tax calculation. In some jurisdictions, tax rates for products vary by product composition. For example, accurate taxation of alcohol may require information about alcohol percentage. Using tax properties, providers can return more accurate tax quotes. The examples in this guide expand on this use case. 
@@ -10,7 +15,7 @@ Tax providers may sometimes need multiple inputs that can vary between different
   In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
 </Callout>
 
-This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/docs/rest-management/tax-properties) and the [Tax Provider API Reference](/docs/apps-api/tax). 
+This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/docs/rest-management/tax-properties) and the [Tax Provider API Reference](/docs/rest-contracts/tax). 
 
 ## Tax properties
 
@@ -183,7 +188,7 @@ To delete tax properties, send a request to the [Delete tax properties](/docs/re
 
 ## Product tax properties 
 
-After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/docs/rest-management/catalog/products#get-all-products) endpoint. 
+After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/docs/rest-catalog/products#get-all-products) endpoint. 
 
 You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume. 
 
@@ -335,7 +340,7 @@ To remove tax properties from a product, send a request to the [Delete product t
 
 ## Tax Quotes
 
-BigCommerce sends product tax properties to request [tax estimates](/docs/apps-api/tax#estimate-taxes) from a provider. The requests include tax properties for each item in a consignment. 
+BigCommerce sends product tax properties to request [tax estimates](/docs/rest-contracts/tax#estimate-taxes) from a provider. The requests include tax properties for each item in a consignment. 
 
 The following request uses the Tax Provider API:
 
@@ -377,11 +382,11 @@ Accept: application/json
   ...
 }
 ```
-BigCommerce also sends product tax properties to [commit](/docs/apps-api/tax#commit-tax-quote) and [adjust tax quotes](/docs/apps-api/tax#adjust-tax-quote). 
+BigCommerce also sends product tax properties to [commit](/docs/rest-contracts/tax#commit-tax-quote) and [adjust tax quotes](/docs/rest-contracts/tax#adjust-tax-quote). 
 
 ## Resources 
 - [Tax Properties API Reference](/docs/rest-management/tax-properties)
-- [Tax Provider API Reference](/docs/apps-api/tax)
+- [Tax Provider API Reference](/docs/rest-contracts/tax)
 
 ### Tax Properties reference
 - [Create tax properties](/docs/rest-management/tax-properties#create-tax-properties)
@@ -395,9 +400,9 @@ BigCommerce also sends product tax properties to [commit](/docs/apps-api/tax#com
 - [Delete product tax properties](/docs/rest-management/tax-properties/product-tax-properties#delete-product-tax-properties)
 
 ### Tax Provider reference
-- [Create a tax estimate](/docs/apps-api/tax#estimate-taxes)
-- [Create a tax commit](/docs/apps-api/tax#commit-tax-quote)
-- [Create a tax adjustment](/docs/apps-api/tax#adjust-tax-quote)
+- [Create a tax estimate](/docs/rest-contracts/tax#estimate-taxes)
+- [Create a tax commit](/docs/rest-contracts/tax#commit-tax-quote)
+- [Create a tax adjustment](/docs/rest-contracts/tax#adjust-tax-quote)
 
 ### Catalog reference
-- [Get all products](/docs/rest-management/catalog/products#get-all-products)
+- [Get all products](/docs/rest-catalog/products#get-all-products)

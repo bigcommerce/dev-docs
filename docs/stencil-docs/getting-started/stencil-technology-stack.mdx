@@ -19,11 +19,11 @@ A Handlebars expression begins and end with curly braces. Below is a basic examp
 
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
-View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers available on a Stencil storefront.
+View the [full Handlebars Helpers Reference](/docs/storefront/stencil/themes/context/handlebars-reference) to learn about the helpers available on a Stencil storefront.
 
 ## Stencil objects overview
 
-Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/docs/storefront/stencil/themes/context/object-reference/config#global-objects_banner) rendered on a category page of a storefront.
 
 ```json filename="Example banners object JSON for a banner object, accessible through Handlebars.js " showLineNumbers copy
   "banners": {
@@ -46,7 +46,11 @@ Stencil objects are the individual JavaScript objects that are rendered onto a S
 
 As a developer, you can use Handlebars.js syntax to access objects and use them to customize your Stencil theme.
 
-Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
+Stencil objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
+
+### Migration handlebars v3 to v4
+Depthed paths are now conditionally pushed onto the stack. If the helper uses the same context, then a new stack is not created. Any instances of ../ in templates must be checked for the correct behavior. See [handlebars.js](https://github.com/handlebars-lang/handlebars.js/issues/1028) documentation for more information.
+
 
 ## YAML front matter overview
 
@@ -55,7 +59,7 @@ BigCommerce Stencil themes utilize YAML front matter on template pages. Front ma
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 
-See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
+See our [Front Matter Reference](/docs/storefront/stencil/themes/context/frontmatter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
 
 ```yml filename="YAML Front Matter home.html, Cornerstone theme" showLineNumbers copy
@@ -82,3 +86,4 @@ blog:
 
 * [Stencil Technology Stack Video](https://bigcommerce.wistia.com/medias/9g0qjdhs8t)
 * [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
+
