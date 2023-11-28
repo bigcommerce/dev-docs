@@ -111,11 +111,12 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
   ### Step 2: Generate the redirect URLs
 
   To generate the redirect URLs, send a request to the [Create a cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. You use the cart ID generated in [Step 1](#creating-a-cart). The response contains the `cart_url` and the `checkout_url`. Use these URLs to redirect customers to the BigCommerce-hosted cart or checkout pages.
+  
 
   <Tabs items={['Request', 'Response']}>
     <Tab>
       ```http filename="Example request: Create cart redirect URLs" showLineNumbers copy
-        POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{cartId}/redirect_urls
+        POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
         Accept: application/json
         Content-Type: application/json
         X-Auth-Token: {{ACCESS_TOKEN}}
@@ -145,7 +146,7 @@ In this section, add a billing address to your checkout. You must have a `checko
 <Tabs items={['Request', 'Response']}>
   <Tab>
     ```http filename="Example request: Add Checkout Billing Address" showLineNumbers copy
-      POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/checkouts/{checkoutId}/billing-address
+      POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/checkouts/{{checkoutId}}/billing-address
       Accept: application/json
       Content-Type: application/json
       X-Auth-Token: {{ACCESS_TOKEN}}
@@ -273,7 +274,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
   <Tabs items={['Request', 'Response']}>
     <Tab>
       ```http filename="Example request: Add Consignment to checkout" showLineNumbers copy
-      POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
+      POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/checkouts/{{checkoutId}}/consignments?include=consignments.available_shipping_options
       Accept: application/json
       Content-Type: application/json
       X-Auth-Token: {{ACCESS_TOKEN}}
@@ -516,7 +517,7 @@ Now that you have transformed your headless cart into a proper checkout with a b
   <Tabs items={['Request', 'Response']}>
     <Tab>
       ```http filename="Example request: Update checkout consignment" showLineNumbers copy
-        PUT https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
+        PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/checkouts/{{checkoutId}}/consignments/{{consignmentId}}
         Accept: application/json
         Content-Type: application/json
         X-Auth-Token: {{ACCESS_TOKEN}}
@@ -706,7 +707,7 @@ After you add a billing address and a consignment to your checkout, you can crea
 <Tabs items={['Request', 'Response']}>
   <Tab>
     ```http filename="Example request: Create an order" showLineNumbers copy
-      POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/orders
+      POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/checkouts/{{checkoutId}}/orders
       Accept: application/json
       Content-Type: application/json
       X-Auth-Token: {{ACCESS_TOKEN}}
@@ -729,6 +730,7 @@ After you add a billing address and a consignment to your checkout, you can crea
 * [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes)
 
 ### API Reference: REST Management
+
 * [Carts: Create a cart](/docs/rest-management/carts/carts-single#create-a-cart)
 * [Carts: Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url)
 * [Checkout: Add a checkout billing address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address)
