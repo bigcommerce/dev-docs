@@ -2938,15 +2938,20 @@ components:
                     type: string
                     description: 'The product option name; for example, Color or Size.'
                   nameId:
-                    type: number
+                    type: number 
+                    example: 151
                     description: The product option identifier.
                   value:
                     type: string
                     description: 'The product option value; for example, Red or Medium.'
                   valueId:
-                    type: number
+                    oneOf:
+                      - type: number
+                        example: 128
+                      - type: string
+                        example: "1259"
                     description: The product option value identifier in number format.
-                    example: 128
+                    
             gift_wrapping:
               description: The gift wrapping details for this item.
               type: object
