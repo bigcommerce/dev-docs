@@ -637,7 +637,7 @@ paths:
                 amount: "10"
                 balance: "0"
                 status: active
-                template: "Birthday"
+                template: "birthday.html"
                 message: Happy Birthday!
                 purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
                 expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
@@ -679,7 +679,7 @@ paths:
                 amount: "10"
                 balance: "0"
                 status: active
-                template: "Birthday"
+                template: "birthday.html"
                 message: Happy Birthday!
                 purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
                 expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
@@ -766,7 +766,7 @@ paths:
                 balance: "500.0000"
                 to_name: Alyss
                 order_id: 1281
-                template: "Celebration"
+                template: "celebration.html"
                 message: "Celebrate"
                 to_email: test@test.com
                 from_name: Noland
@@ -782,7 +782,7 @@ paths:
                 balance: "700.0000"
                 to_name: Alyss
                 order_id: 0
-                template: "General"
+                template: "general.html"
                 message: "Test"
                 to_email: test@test.com
                 from_name: Noland
@@ -798,7 +798,7 @@ paths:
                 balance: "50.0000"
                 to_name: Lyss
                 order_id: 0
-                template: "Celebration"
+                template: "celebration.html"
                 message: "Celebrate"
                 to_email: test5@test.com
                 from_name: Somethingelse
@@ -857,7 +857,7 @@ paths:
                 amount: "10"
                 balance: "0"
                 status: active
-                template: "Birthday"
+                template: "birthday.html"
                 message: Happy Birthday!
                 purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
                 expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
@@ -1191,14 +1191,14 @@ components:
           template:
             type: string
             description: The email theme to use in the message sent to the recipient.
-            example: Celebration
+            example: celebration.html
             enum:
-            - Birthday
-            - Girl
-            - Boy
-            - Celebration
-            - Christmas
-            - General
+            - birthday.html
+            - girl.html
+            - boy.html
+            - celebration.html
+            - christmas.html
+            - general.html
           message:
             type: string
             description: Text that will be sent to the recipient, such as “Congratulations.”
@@ -1253,14 +1253,14 @@ components:
           template:
             type: string
             description: The email theme to use in the message sent to the recipient.
-            example: Celebration
+            example: celebration.html
             enum:
-            - Birthday
-            - Boy
-            - Girl
-            - Celebration
-            - Christmas
-            - General
+            - birthday.html
+            - boy.html
+            - girl.html
+            - celebration.html
+            - christmas.html
+            - general.html
           message:
             type: string
             description: Text that will be sent to the recipient, such as “Congratulations.”
@@ -1316,14 +1316,14 @@ components:
           template:
             type: string
             description: The email theme to use in the message sent to the recipient.
-            example: Celebration
+            example: celebration.html
             enum:
-            - Birthday
-            - Boy
-            - Girl
-            - Celebration
-            - Christmas
-            - General
+            - birthday.html
+            - boy.html
+            - girl.html
+            - celebration.html
+            - christmas.html
+            - general.html
           message:
             maxLength: 250
             type: string
@@ -1502,7 +1502,7 @@ components:
             balance: "500.0000"
             to_name: Alyss
             order_id:  1281
-            template: "Girl"
+            template: "girl.html"
             to_email: test@test.com
             from_name: Noland
             from_email: test1@test.com
@@ -1516,7 +1516,7 @@ components:
             balance: "700.0000"
             to_name: Alyss
             order_id: 0
-            template: "Boy"
+            template: "boy.html"
             to_email: test@test.com
             from_name: Noland
             from_email: test1@test.com
@@ -1530,7 +1530,7 @@ components:
             balance: "50.0000"
             to_name: Lyss
             order_id: 0
-            template: "Christmas"
+            template: "christmas.html"
             to_email: test5@test.com
             from_name: Somethingelse
             from_email: test15@test.com
@@ -1555,7 +1555,7 @@ components:
             amount: "10"
             balance: "0"
             status: active
-            template: "Birthday"
+            template: "birthday.html"
             message: Happy Birthday!
             purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
             expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
