@@ -3159,9 +3159,7 @@ components:
         Response payload for the BigCommerce API.
       properties:
         data:
-          type: object
-          items:
-            $ref: '#/components/schemas/Metafield'
+          $ref: '#/components/schemas/Metafield'
         meta:
           $ref: '#/components/schemas/CollectionMeta'
       x-internal: false
