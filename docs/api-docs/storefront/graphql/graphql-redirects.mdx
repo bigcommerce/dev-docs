@@ -13,7 +13,6 @@ The GraphQL Storefront API lets you set the following redirect attributes and mo
 - Set redirections for GQL types such as: Product, Page, Brand, Blog Post, and Category
 - Use redirect behavior to enable an optional `FOLLOW` or `IGNORE` argument in the `route`s `path`
 
-
 ## Prerequisites
 
 To complete the guide you will need the following:
@@ -22,7 +21,7 @@ To complete the guide you will need the following:
 - A 301 redirect set 
 - An understanding of [Routes](/docs/storefront/headless/site-content#routes)
 
-For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
+For more information on formatting the request payload, see the query example section of the [GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
 
 ## Redirect to a product
 
@@ -31,7 +30,7 @@ Divert traffic from an old URL to a new URL accross all storefronts. Set the `pa
 <Callout type="information">
   #### Optional Redirect Node Arguments
   If you add optional arguments on the `route` node, check that the correct `redirectBehavior` is in use. For instance, when using the default `IGNORE` to set a manual URL redirect >>>still testing behavior>>>
-  </Callout>
+</Callout>
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -356,11 +355,14 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 The `redirect` node query returns a `null` value when details for a given path do not exist. Check that the 301 redirect contains all the required details. Add any missing details and execute the query again. For more information about 301 redirects see [301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US).
 
 ## Resources
-[Redirects](/docs/rest-content/store-content/redirects#create-a-redirect)
-
 ### GraphQL documentation
-
+[GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront)
+[Routes](/docs/storefront/headless/site-content#routes)
 
 ### REST API reference
+[Storefront API](/docs/rest-authentication/tokens#create-a-token)
+[Upsert Redirects](/docs/rest-management/redirects)
+[Redirects](/docs/rest-content/store-content/redirects#create-a-redirect)
 
 ### Support articles
+[301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US
