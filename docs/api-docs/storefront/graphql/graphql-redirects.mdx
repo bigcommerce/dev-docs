@@ -1,12 +1,17 @@
 **GraphQL Storefront API**
 # Guide to Working with Redirects
 
-BigCommerce's GraphQL Storefront API lets frontend developers modify [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with Redirects.
+BigCommerce's GraphQL Storefront API lets frontend developers modify [Redirects](/docs/rest-content/store-content/redirects##upsert-redirects) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with Redirects.
+
+<Callout type="information">
+  #### Create a Redirect API
+  The [Create a Redirect](/docs/rest-content/store-content/redirects#create-a-redirect) API endpoint is deprecated. Use the [Upsert Redirects](/docs/rest-management/redirects) API endpoint instead to update new redirect data.
+</Callout>
 
 The GraphQL Storefront API lets you set the following redirect attributes and more:
 - Redirect site traffic to a manual URL on the domain
 - Set redirections for GQL types such as: Product, Page, Brand, Blog Post, and Category
-- Use redirect behavior to enable a FOLLOW or IGNORE the `route`s `path`
+- Use redirect behavior to enable an optional `FOLLOW` or `IGNORE` argument in the `route`s `path`
 
 
 ## Prerequisites
@@ -21,7 +26,12 @@ For more information on formatting the request payload, see [the query example s
 
 ## Redirect to a product
 
-Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old product URL, to a new product URL.
+Divert traffic from an old URL to a new URL accross all storefronts. Set the `path` with the product's URL to redirect traffic from an old product URL, to a new product URL. In this example, the old URL is set to redirect product to a new product URL in the query. The response confirms that traffic is diverting from the old product URL, to the new product URL.
+
+<Callout type="information">
+  #### Optional Redirect Node Arguments
+  If you add optional arguments on the `route` node, check that the correct `redirectBehavior` is in use. For instance, when using the default `IGNORE` to set a manual URL redirect >>>still testing behavior>>>
+  </Callout>
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -75,14 +85,9 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=ProductRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
-<Callout type="information">
-  #### Optional Route Node Arguments
-  When adding in optional arguements on the `route` node, verify that the correct `redirectBehavior` is in use. For instance, when using the default `IGNORE` to set a manual URL redirect [still testing behavior]
-  </Callout>
-
 ## Redirect to a page
 
-Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old page URL, to a new page URL.
+Redirect traffic from an old page URL, to a new page URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -348,11 +353,13 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 **Query is returning `null` values**
 
-The `redirect` node query returns a `null` value when details for a given path do not exist. Verify the 301 redirect has all the details necessary; add any missing details and execute the query again. For more information about 301 redirects see [article name]().
+The `redirect` node query returns a `null` value when details for a given path do not exist. Check that the 301 redirect contains all the required details. Add any missing details and execute the query again. For more information about 301 redirects see [301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US).
 
 ## Resources
+[Redirects](/docs/rest-content/store-content/redirects#create-a-redirect)
 
 ### GraphQL documentation
+
 
 ### REST API reference
 
