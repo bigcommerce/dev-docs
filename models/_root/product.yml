@@ -25,7 +25,7 @@ properties:
         service:
           type: string
   add_to_wishlist_url:
-    description: URL to add the product to the customer’s wishlist
+    description: URL to add the product to the customer's wishlist
     type: string
   availability:
     type: string
@@ -40,7 +40,7 @@ properties:
           description: 'The name of the company, product line, or trademark.'
         url:
           type: string
-          description: The storeʼs internal page with all the products from that brand.
+          description: The store's internal page with all the products from that brand.
   bulk_discount_rates:
     description: List of discount rates for the current product
     type: array
@@ -50,7 +50,7 @@ properties:
     description: Boolean that indicates whether the product is available for purchase
     type: boolean
   cart_url:
-    description: URL to the customer’s shopping cart
+    description: URL to the customer's shopping cart
     type: string
   category:
     type: array
@@ -65,7 +65,7 @@ properties:
     items:
       type: object
   depth:
-    description: The productʼs physical depth measurement.
+    description: The product's physical depth measurement.
     type: string
   description:
     description: (HTML) description of the product
@@ -80,7 +80,7 @@ properties:
     description: 'Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.'
     type: string
   height:
-    description: The productʼs physical height measurement.
+    description: The product's physical height measurement.
     type: string
   id:
     description: Unique ID for the product
@@ -109,7 +109,7 @@ properties:
   meta_description:
     type: string
   meta_keywords:
-    description: 'Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches'
+    description: 'Optional search keywords that merchants may enter in the control panelʼs "Add a Product" or "Edit a Product" page, to characterize the product in meta tags and storefront searches.'
     type: string
   min_purchase_quantity:
     description: Minimum quantity that can be purchased at once
@@ -140,6 +140,25 @@ properties:
     $ref: ../product/related_products.yml
   reviews:
     $ref: ../product/reviews.yml
+  shipping:
+    type: object
+    properties:
+      calculated:
+        type: boolean
+      price:
+        type: object
+        items:  
+          type: string
+          formatted:
+            type: string
+          value:
+            type: number
+          currency:
+            type: string
+      free:
+        type: boolean
+      fixed:
+        type: boolean
   shipping_messages:
     type: array
     items:
@@ -172,7 +191,7 @@ properties:
     description: Optional warranty text set by the merchant
     type: string
   width:
-    description: The productʼs physical width measurement.
+    description: The product's physical width measurement.
     type: string
   custom_fields:
     type: array
