@@ -133,15 +133,15 @@ paths:
                       product_id: 118
                       list_price: 30
                       name: shirt
-                      options:
-                        - name: Size
-                          nameId: 125
-                          value: Large
-                          valueId: 127
+                      option_selections:
+                        - name: Color
+                          value: Red
+                          option_id: 133
+                          option_value: 149
                         - name: Add a $5 Donation
-                          nameId: 126
-                          value: 'No'
-                          valueId: 129
+                          value: No
+                          option_id: 126
+                          option_value: 129
                   channel_id: 1
                   currency:
                     code: AUD
