@@ -1,31 +1,31 @@
 **GraphQL Storefront API**
 # Guide to Working with Redirects
 
-BigCommerce's GraphQL Storefront API lets frontend developers modify [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with URL Redirects.
+BigCommerce's GraphQL Storefront API lets frontend developers modify [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect) from a store. These built-in capabilities also allow developers to customize their hosted or headless storefronts with Redirects.
 
-The GraphQL Storefront API lets you set the following URL redirect attributes and more:
-- Redirect to a blog post
-- Redirect to a brand
-- Redirect to a category
-- Redirect to a manually input URL
+The GraphQL Storefront API lets you set the following redirect attributes and more:
+- Redirect site traffic to a manual URL on the domain
+- Set redirections for GQL types such as: Product, Page, Brand, Blog Post, and Category
+- Use redirect behavior to enable a FOLLOW or IGNORE the `route`s `path`
+
 
 ## Prerequisites
 
 To complete the guide you will need the following:
-- A BigCommerce Store with Multi-Storefront
+- A BigCommerce Store with Multi-Storefront enabled
 - A [Storefront API](/docs/rest-authentication/tokens#create-a-token) token
 - A 301 redirect set 
 - An understanding of [Routes](/docs/storefront/headless/site-content#routes)
 
 For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
 
-## Site Redirect to a product
+## Redirect to a product
 
 Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old product URL, to a new product URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
-  ``` graphql filename="Example query request: Site Redirect to a product" showLineNumbers copy 
+  ``` graphql filename="Example query request: Redirect to a Product" showLineNumbers copy 
   query {
     site {
       route(path: "/chambray-towel-1/", redirectBehavior: FOLLOW) {
@@ -48,7 +48,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   ```
   </tab>
   <tab>
-  ``` graphql filename="Example query response: Site Redirect" showLineNumbers copy
+  ``` graphql filename="Example query response: Redirect to a Product" showLineNumbers copy
   {
   "data": {
     "site": {
@@ -75,14 +75,18 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=ProductRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
+<Callout type="information">
+  #### Optional Route Node Arguments
+  When adding in optional arguements on the `route` node, verify that the correct `redirectBehavior` is in use. For instance, when using the default `IGNORE` to set a manual URL redirect [still testing behavior]
+  </Callout>
 
-## Site redirect to a page
+## Redirect to a page
 
 Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old page URL, to a new page URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
-  ``` graphql filename="Example query request: Site Redirect to a Page" showLineNumbers copy 
+  ``` graphql filename="Example query request: Redirect to a Page" showLineNumbers copy 
   query {
     site {
       route(path: "/home-and-kitchen/", redirectBehavior: FOLLOW) {
@@ -105,7 +109,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   ```
   </tab>
   <tab>
-  ``` graphql filename="Example query response: Site Redirect to a Page" showLineNumbers copy
+  ``` graphql filename="Example query response: Redirect to a Page" showLineNumbers copy
   {
   "data": {
   "site": {
@@ -138,7 +142,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 <tabs items={['Request', 'Response']}>
   <tab>
-  ``` graphql filename="Example query request: Site Redirect to a Blog Post" showLineNumbers copy 
+  ``` graphql filename="Example query request: Redirect to a Blog Post" showLineNumbers copy 
   query {
     site {
       route(path: "/your-first-blog-post/", redirectBehavior: FOLLOW) {
@@ -161,7 +165,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   ```
   </tab>
   <tab>
-  ``` graphql filename="Example query response: Site Redirect to a Blog Post" showLineNumbers copy
+  ``` graphql filename="Example query response: Redirect to a Blog Post" showLineNumbers copy
   {
   "data": {
     "site": {
@@ -188,13 +192,13 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   <a href="https://developer.bigcommerce.com/graphql?playground_tab=BlogPostRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
 
-## Site Redirect to a category
+## Redirect to a category
 
 Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old category URL, to a new category URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
-  ``` graphql filename="Example query request: Site Redirect to a Category" showLineNumbers copy 
+  ``` graphql filename="Example query request: Redirect to a Category" showLineNumbers copy 
   {
     site {
       route(path: "/home-office/", redirectBehavior: FOLLOW) {
@@ -217,7 +221,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   ```
   </tab>
   <tab>
-    ``` graphql filename="Example query response: Site Redirect to a Category" showLineNumbers copy
+    ``` graphql filename="Example query response: Redirect to a Category" showLineNumbers copy
     {
     "data": {
       "site": {
@@ -244,13 +248,13 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=CategoryRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Site Redirect to a brand
+## Redirect to a brand
 
 Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old brand URL, to a new brand URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
-  ``` graphql filename="Example query request: Site Redirect to a Brand" showLineNumbers copy 
+  ``` graphql filename="Example query request: Redirect to a Brand" showLineNumbers copy 
   {
     site {
       route(path: "/hand-made-joy/", redirectBehavior: FOLLOW) {
@@ -273,7 +277,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
   ```
   </tab>
   <tab>
-    ``` graphql filename="Example query response: Site Redirect to a Brand" showLineNumbers copy
+    ``` graphql filename="Example query response: Redirect to a Brand" showLineNumbers copy
     {
       "data": {
         "site": {
@@ -294,13 +298,62 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=BrandRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
+## Manual URL redirect
 
+Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old page URL, to a new page URL.
+
+<tabs items={['Request', 'Response']}>
+  <tab>
+  ``` graphql filename="Example query request: Redirect to a manual input URL" showLineNumbers copy 
+  {
+    site {
+      route(path: "/contact-us/", redirectBehavior: FOLLOW) {
+        redirect {
+          to {
+            __typename
+          }
+        toUrl
+        fromPath
+      }
+    }
+  }
+}
+  ```
+  </tab>
+  <tab>
+    ``` graphql filename="Example query response: Redirect to a manual input URL" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "redirect": {
+          "to": {
+            "__typename": "PageRedirect"
+          },
+          "toUrl": "https://www.test-store.com/contact-us/",
+          "fromPath": "/lets-chat/"
+        }
+      }
+    }
+  }
+}
+  ```
+  </tab>
+</tabs>
+
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=ManualRedirect" target="_blank">**Try it in GraphQL Playground**</a>
 
 ### FAQs
 
-**Request is returning `Null` values**
+**Query is returning `null` values**
 
-
-
+The `redirect` node query returns a `null` value when details for a given path do not exist. Verify the 301 redirect has all the details necessary; add any missing details and execute the query again. For more information about 301 redirects see [article name]().
 
 ## Resources
+
+### GraphQL documentation
+
+### REST API reference
+
+### Support articles
