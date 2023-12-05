@@ -1437,13 +1437,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: X-Strict-Mode
-          in: header
-          description: |
-            Header that determines whether the Batch API operates in strict mode or not. Strict mode will reject the entire request if any item in the batch has an error.
-          schema:
-            type: integer
-            default: 0
         - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
