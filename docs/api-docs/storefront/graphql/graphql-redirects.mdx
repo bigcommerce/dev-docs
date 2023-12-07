@@ -86,7 +86,7 @@ Divert traffic from an old URL to a new URL accross all storefronts. Set the `pa
 
 ## Redirect to a page
 
-Redirect traffic from an old page URL, to a new page URL.
+Run this query across your storefront data to redirect to a new page.
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -95,7 +95,7 @@ Redirect traffic from an old page URL, to a new page URL.
     site {
       route(path: "/home-and-kitchen/", redirectBehavior: FOLLOW) {
         node {
-          ... on WebPage{
+          ... on Page{
             name
             entityId
           }
@@ -198,7 +198,7 @@ Redirect traffic from an old page URL, to a new page URL.
 
 ## Redirect to a category
 
-Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old category URL, to a new category URL.
+In this example, a site redirect query is redirecting traffic from an old category URL, to a new category URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -304,7 +304,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 ## Manual URL redirect
 
-Create a site redirect to divert traffic from an old URL to a new URL. In this example, a site redirect query is redirecting traffic from an old page URL, to a new page URL.
+Run this query and divert traffic from an old page URL, to a new page URL.
 
 <tabs items={['Request', 'Response']}>
   <tab>
@@ -352,7 +352,7 @@ Create a site redirect to divert traffic from an old URL to a new URL. In this e
 
 **Query is returning `null` values**
 
-The `redirect` node query returns a `null` value when details for a given path do not exist. Check that the 301 redirect contains all the required details. Add any missing details and execute the query again. For more information about 301 redirects see [301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US).
+The `redirect` node query returns a `null` value when details for a given path are missing. Check that the 301 redirect contains all the required details. Add any missing details and run the query again. For more information about 301 redirects see [301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US).
 
 ## Resources
 ### GraphQL documentation
@@ -365,4 +365,4 @@ The `redirect` node query returns a `null` value when details for a given path d
 [Redirects](/docs/rest-content/store-content/redirects#create-a-redirect)
 
 ### Support articles
-[301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US
+[301 Redirects](https://support.bigcommerce.com/s/article/MSF-301-Redirects?language=en_US)
