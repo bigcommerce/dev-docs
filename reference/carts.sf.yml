@@ -66,6 +66,20 @@ paths:
                         - optionId: 10
                           optionValue: Some Text Value
                   locale: en
+              With Gift Wrapping:
+                value:
+                  lineItems:
+                    - quantity: 2
+                      productId: 230
+                      optionSelections:
+                        - optionId: 10
+                          optionValue: Some Text Value
+                      giftWrapping:
+                          wrapTogether: true
+                          wrapDetails:
+                            - id: 1
+                              message: "Happy Birthday" 
+                  locale: en
         required: true
       responses:
         '200':
@@ -155,6 +169,17 @@ paths:
                           optionValue: 117
                         - optionId: 11
                           optionValue: 125
+              With Gift Wrapping:
+                value:
+                  lineItems:
+                    - quantity: 2
+                      productId: 230
+                      variantId: 124
+                      giftWrapping:
+                          wrapTogether: true
+                          wrapDetails:
+                            - id: 1
+                              message: "Happy Birthday"                 
         description: ''
   '/carts/{cartId}/items/{itemId}':
     put:
@@ -228,6 +253,24 @@ paths:
                       - optionId: 125
                         optionValue: 127
                   locale: en
+              With Gift Wrapping:
+                value:
+                  lineItem:
+                    quantity: 2
+                    productId: 230
+                    variantId: 124
+                    giftWrapping:
+                        wrapTogether: true
+                        wrapDetails:
+                          - id: 1
+                            message: "Happy Birthday"
+              With null Gift Wrapping (will delete current gift wrapping):
+                value:
+                  lineItem:
+                    quantity: 2
+                    productId: 230
+                    variantId: 124
+                    giftWrapping: null
         required: true
       responses:
         '200':
@@ -505,6 +548,39 @@ components:
           type: string
           description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
       x-internal: false
+    requestPostOrPutGiftWrapping:
+      title: Gift Wrapping Request Data
+      required:
+            - wrapTogether
+            - wrapDetails
+      type: object
+      nullable: true
+      description: if passing null, it will remove the current gift wrapping for the item
+      properties:
+        wrapTogether:
+          type: boolean
+          description: Boolean value that specifies whether items whether items should be wrapped together or wrapped individually.
+          example: true
+        wrapDetails:
+          type: array
+          description: |-
+            Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
+            If wrapTogether is false, each element in the wrapDetails array determines each item's specific wrapping. 
+            (e.g if this line item has 6 quantity, you can pass at maximum 6 elements for the array to spefified each one's wrapping)  
+            If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+                description: Identifier of the gift wrapping option selected.
+                example: 0
+              message:
+                type: string
+                description: Custom gift message.
+                example: Happy Birthday
     LineItemsRequest:
       title: requestLineItems
       oneOf:
@@ -920,6 +996,8 @@ components:
             quantity:
               type: number
               description: Quantity of this item.
+            giftWrapping:
+              $ref: '#/components/schemas/requestPostOrPutGiftWrapping'
           required:
             - productId
             - quantity
@@ -934,6 +1012,8 @@ components:
             variantId:
               type: number
               description: ID of the variant.
+            giftWrapping:
+              $ref: '#/components/schemas/requestPostOrPutGiftWrapping'
           required:
             - productId
             - quantity

@@ -3429,6 +3429,8 @@ components:
           type: number
           description: ''
           format: double
+        giftWrapping:
+          $ref: '#/components/schemas/cartLineItemGiftWrapping_Put'
       x-internal: false
     cartLineItemGiftCertificate_Put:
       title: cartLineItemGiftCertificate_Put
@@ -3461,6 +3463,39 @@ components:
           description: ''
           format: double
       x-internal: false
+    cartLineItemGiftWrapping_Put:
+      title: Gift Wrapping Request Data
+      required:
+            - wrapTogether
+            - wrapDetails
+      type: object
+      nullable: true
+      description: if passing null, it will remove the current gift wrapping for the item
+      properties:
+        wrapTogether:
+          type: boolean
+          description: Boolean value that specifies whether items whether items should be wrapped together or wrapped individually.
+          example: true
+        wrapDetails:
+          type: array
+          description: |-
+            Details for the gift wrapping option selected. This can be specified for each line item or together based on wrapTogether value.
+            If wrapTogether is false, each element in the wrapDetails array determines each item's specific wrapping. 
+            (e.g if this line item has 6 quantity, you can pass at maximum 6 elements for the array to spefified each one's wrapping)  
+            If wrapTogether is true, we will only use 1st element in the wrapDetails array to determine what to be wrapped
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: integer
+                description: Identifier of the gift wrapping option selected.
+                example: 0
+              message:
+                type: string
+                description: Custom gift message.
+                example: Happy Birthday
     CreateConsignmentRequest:
       title: Create Consignment Request
       type: object
