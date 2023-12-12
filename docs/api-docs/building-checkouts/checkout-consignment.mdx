@@ -9,7 +9,7 @@ This article discusses how to create and update a consignment.
 
 ## Overview
 
-A _consignment_ is a list of physical products that will travel together to the purchaser, and it specifies how those items can and will ship. It is an object that includes at least one product line item and one shipping address. A checkout containing one or more physical products will always have at least one consignment associated with it. An order that ships to multiple addresses will have at least one consignment per shipping address. It is also possible to create multiple consignments for the same address.
+A _consignment_ is a list of physical products that will travel together to the purchaser, and it specifies how those items can and will ship. It is an object that includes at least one product line item and one address. A checkout containing one or more physical products will always have at least one consignment associated with it. An order that ships to multiple addresses will have at least one consignment per address. It is also possible to create multiple consignments for the same address.
 
 The REST Storefront, REST Management, and GraphQL Storefront APIs provide methods for creating checkout consignments, which are shipments waiting to happen.  A newly created consignment returns a list of fulfillment options available based on the destination address.  These APIs also provide methods for updating this consignment to change the destination, add or remove items, and select a fulfillment option. This article focuses on the REST Storefront API. For more about managing consignments with GraphQL, see [GraphQL Storefront API: Carts and Checkout](/api-docs/storefront/graphql/carts-and-checkout).
 
@@ -61,7 +61,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
   [
     {
-      "shipping_address": {
+      "address": {
         "email": "jane2@example.com",
         "country_code": "US",
         "first_name": "BigCommerce",
@@ -87,7 +87,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
       ]
     },
     {
-      "shipping_address": {
+      "address": {
         "email": "testing@example.com",
         "country_code": "US",
         "first_name": "Testing",
@@ -125,10 +125,10 @@ Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form,
 
 The [Update a consignment](/docs/rest-storefront/checkouts/checkout-consignments#update-a-consignment) endpoint requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
 
-There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
+There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's address and adjust the list of included line items. 
 
 <Callout type="warning">
-  You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same API call.
+  You must choose one type of consignment update because changing the address and weight can change available fulfillment options. You can't do both in the same API call.
 </Callout>
 
 The following is an example request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment](/docs/rest-storefront/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint.
