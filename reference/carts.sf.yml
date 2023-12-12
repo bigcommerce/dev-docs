@@ -8,6 +8,11 @@ info:
     For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
         
     For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
   - url: 'https://{store_domain}/api/storefront'
     variables:
@@ -682,7 +687,7 @@ components:
           readOnly: true
         id:
           type: string
-          description: Id of the custom item
+          description: ID of the custom item
           readOnly: true
           example: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
         listPrice:
@@ -1077,13 +1082,7 @@ components:
                   - discountedAmount: 0
                     id: string
                 lineItems:
-                  customItems:
-                    - extendedListPrice: 0
-                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                      listPrice: 10
-                      name: Custom Item Name
-                      quantity: 1
-                      sku: SM-456
+                  customItems: []
                   digitalItems:
                     - options:
                         - name: string
@@ -1186,13 +1185,7 @@ components:
                   - discountedAmount: 0
                     id: string
                 lineItems:
-                  customItems:
-                    - extendedListPrice: 0
-                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                      listPrice: 10
-                      name: Custom Item Name
-                      quantity: 1
-                      sku: SM-456
+                  customItems: []
                   digitalItems:
                     - options:
                         - name: string
@@ -1295,13 +1288,7 @@ components:
                   - discountedAmount: 0
                     id: string
                 lineItems:
-                  customItems:
-                    - extendedListPrice: 0
-                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                      listPrice: 10
-                      name: Custom Item Name
-                      quantity: 1
-                      sku: SM-456
+                  customItems: []
                   digitalItems:
                     - options:
                         - name: string
@@ -1464,119 +1451,7 @@ components:
                   - discountedAmount: 0
                     id: string
                 lineItems:
-                  customItems:
-                    - extendedListPrice: 0
-                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                      listPrice: 10
-                      name: Custom Item Name
-                      quantity: 1
-                      sku: SM-456
-                  digitalItems:
-                    - options:
-                        - name: string
-                          nameId: 0
-                          value: string
-                          valueId: 0
-                      brand: string
-                      couponAmount: 0
-                      discountAmount: 0
-                      discounts:
-                        - discountedAmount: 0
-                          id: 0
-                      extendedListPrice: 0
-                      extendedSalePrice: 0
-                      id: '4'
-                      imageUrl: 'http://example.com'
-                      isTaxable: true
-                      originalPrice: 0
-                      listPrice: 0
-                      name: string
-                      parentId: '6'
-                      productId: 0
-                      quantity: 0
-                      salePrice: 0
-                      sku: string
-                      url: 'http://example.com'
-                      variantId: 7
-                  giftCertificates:
-                    - amount: 0
-                      id: string
-                      isTaxable: true
-                      message: string
-                      name: string
-                      recipient:
-                        email: user@example.com
-                        name: string
-                      sender:
-                        email: user@example.com
-                        name: string
-                      theme: string
-                  physicalItems:
-                    - options:
-                        - name: string
-                          nameId: 0
-                          value: string
-                          valueId: 0
-                      brand: string
-                      couponAmount: 0
-                      discountAmount: 0
-                      discounts:
-                        - discountedAmount: 0
-                          id: string
-                      extendedListPrice: 0
-                      extendedSalePrice: 0
-                      id: '4'
-                      imageUrl: 'http://example.com'
-                      isTaxable: true
-                      originalPrice: 0
-                      listPrice: 0
-                      name: string
-                      parentId: 6
-                      productId: 0
-                      quantity: 0
-                      salePrice: 0
-                      sku: string
-                      url: 'http://example.com'
-                      variantId: 7
-                      giftWrapping: null
-                      isShippingRequired: true
-                createdTime: string
-                updatedTime: string
-                locale: string
-    deleteCarts:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/responseCart'
-          examples:
-            example-1:
-              value:
-                id: string
-                customerId: 0
-                email: string
-                currency:
-                  code: string
-                isTaxIncluded: true
-                baseAmount: 0
-                discountAmount: 0
-                cartAmount: 0
-                coupons:
-                  - code: string
-                    couponType: 0
-                    discountedAmount: 0
-                    id: string
-                discounts:
-                  - discountedAmount: 0
-                    id: string
-                lineItems:
-                  customItems:
-                    - extendedListPrice: 0
-                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                      listPrice: 10
-                      name: Custom Item Name
-                      quantity: 1
-                      sku: SM-456
+                  customItems: []
                   digitalItems:
                     - options:
                         - name: string
@@ -1660,5 +1535,4 @@ components:
           - lineItems.physicalItems.options
           - lineItems.digitalItems.options
           - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-  examples: {}
 
