@@ -79,6 +79,18 @@ To acknowledge a callback has been received without issue, the destination serve
 
 Need to set up a quick webhook destination URL for testing? See [Tools for Debugging and Testing Webhooks](#tools).
 
+### Response requirements
+
+BigCommerce does not save or log any response information except response codes and does not recommend sending request bodies or headers in response to webhooks. 
+
+BigCommerce has the following webhook requirements:
+
+**Limitations**
+* The header should not exceed 8 kilobytes (10 by 1 kilobytes is OK). 
+* The header name should not exceed 64 characters (bytes). 
+* The number of headers should not be larger than 64. 
+
+
 ## Callback retry mechanism
 
 The webhooks service will do its best to deliver events to the destination callback URI. It is best practice for the application to respond to the callback before taking any other action that would slow its response. Doing otherwise triggers BigCommerce's callback retry mechanism.
