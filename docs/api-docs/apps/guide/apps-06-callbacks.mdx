@@ -15,11 +15,11 @@ Your app's front-end views render inside an iFrame in the store control panel, s
 
 Your app is only required to handle the `GET /auth{:http}` and `GET /load{:http}` endpoints, but we recommend writing handlers for the others, as well. Please see the corresponding detail sections that follow for more about the consequences of not handling optional callback endpoints.
 
-The following table lists the app management callbacks that BigCommerce stores send: the three listed in the preceding paragraph, plus the auth callback described in [Single-Click App OAuth Flow](/api-docs/apps/guide/auth).
+The following table lists the app management callbacks that BigCommerce stores send: the three listed in the preceding paragraph, plus the auth callback described in [Single-Click App OAuth Flow](/docs/integrations/apps/guide/auth).
 
 | Endpoint | Required | Request Origin | Payload | Expected Response | Event Description |
 |:---------|:--------:|:---------------|:--------|:-----------------|:------------------|
-| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/api-docs/apps/guide/auth). |
+| `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/docs/integrations/apps/guide/auth). |
 | `GET /load{:http}` | yes | browser | JWT | markup | The store owner or authorized user clicks to load the app. |
 | `GET /uninstall{:http}` | no | server | JWT | JSON | The store owner or authorized user clicks to uninstall the app. |
 | `GET /remove_user{:http}` | no | server | JWT | JSON | The store owner revokes a user's access to the app. |
@@ -69,7 +69,7 @@ Use a [compatible BigCommerce API client](#helpful-tools) or a [standard library
 
 ## Work with payload claims
 
-Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/api-docs/apps/guide/users). Refer to the following table for instructions:
+Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/docs/integrations/apps/guide/users). Refer to the following table for instructions:
 
 | Endpoint | Multiple Users Enabled | Multiple Users Not Enabled |
 |:---------|:-----------------------|:---------------------------|
@@ -133,12 +133,12 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload_jwt`
 
 ## Next step
-* [Support multiple users](/api-docs/apps/guide/users)
+* [Support multiple users](/docs/integrations/apps/guide/users)
 
 ## Resources
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/docs/integrations/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

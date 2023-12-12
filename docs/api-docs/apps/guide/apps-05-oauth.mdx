@@ -1,7 +1,7 @@
 # Single-Click App OAuth Flow
 
 
-After you [install your draft app](/api-docs/apps/guide/development) and [create an app profile](/api-docs/apps/guide/developer-portal), you're ready to write the code grant authorization flow that generates a unique `access_token` for each store that installs your app. This article covers the sequence and contents of API requests and responses in the code grant authorization flow for a BigCommerce app. 
+After you [install your draft app](/docs/integrations/apps/guide) and [create an app profile](/docs/integrations/apps/guide/developer-portal), you're ready to write the code grant authorization flow that generates a unique `access_token` for each store that installs your app. This article covers the sequence and contents of API requests and responses in the code grant authorization flow for a BigCommerce app. 
 
 It may be more appropriate for your application to use an API client to handle this logic; see [the list of BigCommerce API clients](#helpful-tools) that expose OAuth-related helper methods. 
 
@@ -12,7 +12,7 @@ It may be more appropriate for your application to use an API client to handle t
 
 ## Overview
 
-Your app must expose a callback endpoint, `GET /auth{:http}`, that the merchant's store control panel can hit to initiate the code grant authorization flow. For a list of all the callback endpoints your app can expose, both required and optional, see [Single-Click App Callback Handlers](/api-docs/apps/guide/callbacks).
+Your app must expose a callback endpoint, `GET /auth{:http}`, that the merchant's store control panel can hit to initiate the code grant authorization flow. For a list of all the callback endpoints your app can expose, both required and optional, see [Single-Click App Callback Handlers](/docs/integrations/apps/guide/callbacks).
 
 BigCommerce uses a modified version of the [OAuth2 authorization code grant (tools.ietf.org)](https://tools.ietf.org/html/rfc6749#section-4.1). The sequence is as follows:
 
@@ -68,7 +68,7 @@ Referer: https://login.bigcommerce.com/
 | Parameter | Description |
 |:----------|:------------|
 | `code` | The proverbial code in the code grant authorization flow; exchange for a semi-permanent `access_token`. |
-| `scope` | A space-separated list of the OAuth scopes associated with this app's [API account](/api-docs/getting-started/api-accounts#app-level-api-accounts). |
+| `scope` | A space-separated list of the OAuth scopes associated with this app's [API account](/docs/start/authentication/api-accounts#app-level-api-accounts). |
 | `context` | The path that identifies the store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
 | `account_uuid` | The ID of the Developer Portal account that registered the app profile. |
 
@@ -112,7 +112,7 @@ Content-Type: application/json
 
 ## Receiving the access_token response
 
-BigCommerce responds to the access_token request with JSON that contains a permanent `access_token`, among other information. Use this `access_token` to authenticate API requests the app makes on behalf of the store; see [Authentication and Example Requests](/api-docs/getting-started/authentication). To provide the most responsive app architecture and re-authentication checks, save all the response values.
+BigCommerce responds to the access_token request with JSON that contains a permanent `access_token`, among other information. Use this `access_token` to authenticate API requests the app makes on behalf of the store; see [Authentication and Example Requests](/docs/start/authentication). To provide the most responsive app architecture and re-authentication checks, save all the response values.
 
 ```json filename="Example response: Create an access_token" showLineNumbers copy
 {
@@ -181,16 +181,16 @@ The following BigCommerce API clients expose helper methods for BigCommerce's co
   * Fetches `access_token`
 
 ## Next step
-* [Handle load, uninstall, and remove_user callbacks](/api-docs/apps/guide/callbacks)
+* [Handle load, uninstall, and remove_user callbacks](/docs/integrations/apps/guide/callbacks)
 
 ## Resources
 
 ### Related articles
-* [About Our APIs](/api-docs/getting-started/about-our-api)
-* [Authentication](/api-docs/getting-started/authentication)
+* [About Our APIs](/docs/start/about)
+* [Authentication](/docs/start/authentication)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/docs/integrations/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

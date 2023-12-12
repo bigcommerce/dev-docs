@@ -20,8 +20,8 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/api-accounts#oauth-scopes) scopes: `Information and Settings`
-* BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
+* Required [OAuth](/docs/start/authentication/api-accounts#oauth-scopes) scopes: `Information and Settings`
+* BigCommerce [single-click app](/docs/integrations/apps/guide/types#single-click)
 
 
 ## Shipping app overview
@@ -126,7 +126,7 @@ When your app is complete, it will be listed in our carrier registry, so that yo
 
 ### Register your app
 
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID.
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/docs/integrations/apps/guide#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/docs/integrations/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID.
 
 ![App ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app%20id.png "App ID")
 
@@ -165,7 +165,7 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/apps-api/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/apps-api/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/docs/rest-contracts/shipping#request-shipping-rates). The response for rates should be formatted using the [Carrier Quote Object](/docs/rest-contracts/shipping#request-shipping-rates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -187,11 +187,11 @@ In the case of errors, include human-readable error messages in the response pay
 
 ## Developing the app
 
-To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click).
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/docs/integrations/apps/guide/types#single-click).
 
 Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
-For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
+For more information, see our [Introduction to Building Apps](/docs/integrations/apps).
 
 ## Control Panel installation workflow
 
@@ -567,16 +567,16 @@ No, you can only publish one app at a time. The others can be for use as testing
 ## Related resources
 
 ### Articles
-- [App Store Approval Requirements](/api-docs/apps/guide/requirements)
+- [App Store Approval Requirements](/docs/integrations/apps/guide/requirements)
 
 
 ### Endpoints
 
-- [Shipping Providers](/api-docs/provider-apis/shipping-provider-api)
+- [Shipping Providers](/docs/integrations/shipping)
 - [Shipping Zones](/docs/rest-management/shipping-v2/shipping-zones)
 - [Shipping Methods](/docs/rest-management/shipping-v2/shipping-method)
 - [Shipping Carriers](/docs/rest-management/shipping-v2/shipping-carrier)
 
 ### Webhooks
 
-- [Webhooks](/api-docs/store-management/webhooks/webhook-events#shipment)
+- [Webhooks](/docs/integrations/webhooks/events#shipment)

@@ -13,8 +13,8 @@ Process payments by making a sequence of requests to the following two API endpo
 
 <Callout type="info">
 #### Required OAuth scopes
-Consult the [Payments API Reference](/docs/rest-payments) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/api-accounts) needs.
-Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes).
+Consult the [Payments API Reference](/docs/rest-payments) to determine which OAuth permission scopes your application's [API Account](/docs/start/authentication/api-accounts) needs.
+Learn more about BigCommerce API [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes).
 </Callout>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
@@ -60,6 +60,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Mollie            | &check;            |                 |
 | Moneris           | &check;            | &check;         |
 | MyVirtualMerchant | &check;            | &check;         |
+| Nexi              |                    | &check;         |
 | NMI               |                    | &check;         |
 | Opayo by Elavon   | &check;            | &check;         |
 | Paymetric         | &check;            | &check;         |
@@ -92,7 +93,7 @@ To learn more about the BigCommerce-compatible features of these gateways, see [
 There are three steps to using a stored card or PayPal account to make a payment.
 
 1. [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods)
-2. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
+2. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments)
 3. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 Before starting development, you should verify that the store and payment gateway are both able to make charges to stored payment instruments.
@@ -227,7 +228,7 @@ Accept: application/json
 Make a note of the `token` for the target payment method to use as part of processing the payment in the request body.
 
 
-2. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) to complete checkout.
+2. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments) to complete checkout.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -340,7 +341,7 @@ Use the [Get Stored Instruments](/docs/rest-management/customers/customer-stored
 
 There are two steps to using a credit card to make a payment.
 
-1. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
+1. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments)
 2. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
@@ -352,7 +353,7 @@ Attempting to process a payment through the API using the full credit card infor
 </Callout>
 
 ### Create an access token
-1. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments) to complete checkout.
+1. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments) to complete checkout.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -442,7 +443,7 @@ If the purchase was successful, the response returns a status of success. The or
 
 The Payments API allows developers to store a credit card while processing a payment.
 
-When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
+When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 ```http filename="Example request: Process payment and save credit card" showLineNumbers copy
 POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
@@ -468,7 +469,7 @@ Content-Type: application/json
 
 ## Using the Orders API
 
-It is possible to take payment for an order created using the [Orders API](/api-docs/store-management/orders). When creating the order using the Orders API, make sure to set `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest by either setting the `customer_id:0` or leaving it blank. After the order is created, follow the steps to pay with a [credit card](#credit-cards), a [stored card, or a PayPal account](#stored-cards-and-paypal-accounts).
+It is possible to take payment for an order created using the [Orders API](/docs/store-operations/orders). When creating the order using the Orders API, make sure to set `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest by either setting the `customer_id:0` or leaving it blank. After the order is created, follow the steps to pay with a [credit card](#credit-cards), a [stored card, or a PayPal account](#stored-cards-and-paypal-accounts).
 
 
 ```http filename="Example request: Create an order" showLineNumbers copy
@@ -636,11 +637,11 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 
 ### Endpoints and mutations
 * [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
-* `completeCheckout` with the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout#handling-payments)
+* `completeCheckout` with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments)
 * [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods)
 * [Process Payment](/docs/rest-payments/processing#process-payment)
 
 ### Webhooks
-* [Carts](/api-docs/store-management/webhooks/webhook-events#carts)
-* [Customer Payment Instrument](/api-docs/store-management/webhooks/webhook-events#customer)
-* [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+* [Carts](/docs/integrations/webhooks/events#carts)
+* [Customer Payment Instrument](/docs/integrations/webhooks/events#customer)
+* [Orders](/docs/integrations/webhooks/events#orders)

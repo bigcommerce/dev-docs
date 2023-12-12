@@ -2,10 +2,10 @@
 
 
 
-This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
+This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](/docs/storefront/stencil/cli/install). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](/docs/storefront/stencil/start). Continue reading below for detailed information on each Stencil CLI command and option.
 
 <Callout type="warning">
-BigCommerce is currently targeting 11/1/2023 to sunset its node-sass fork in favor of the latest [sass/node-sass](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the latest node version (Node 18) in Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#incompatible-scss-directives), which can cause issues with the styling of your storefront.
+BigCommerce is currently targeting January 31, 2024 to sunset its node-sass fork in favor of the latest [sass/node-sass](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the latest node version (Node 18) in Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](/docs/storefront/stencil/cli/unexpected-behavior#incompatible-scss-directives), which can cause issues with the styling of your storefront.
 </Callout>
 
 ## Commands overview
@@ -93,13 +93,13 @@ stencil start --open # opens live theme preview in default browser
 
 <Callout type="info">
  #### --theme-editor and --theme-editor-port [port]:
- BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](/stencil-docs/page-builder/page-builder-overview) instead.
+ BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](/docs/storefront/stencil/content/page-builder) instead.
 &nbsp;
 </Callout>
   
 <Callout type="warning">
  #### Authentication errors
- If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
+ If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](/docs/storefront/stencil/cli/development-server#step-3-serve-live-preview).
   </Callout>
 
 ## stencil bundle
@@ -199,5 +199,5 @@ stencil release [OPTIONS]
 ## Resources
 
 ### Related Articles
-* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-* [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup)
+* [Authorizing and Initializing the CLI](/docs/storefront/stencil/cli/install)
+* [Troubleshooting Your Setup](/docs/storefront/stencil/cli/unexpected-behavior)

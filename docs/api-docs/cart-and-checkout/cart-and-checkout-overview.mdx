@@ -5,13 +5,13 @@ keywords: rest, carts, checkouts, draft order, cartId, incomplete, get products,
 
 # REST APIs: Cart and Checkout Overview
 
-BigCommerce offers Storefront, REST Management, and GraphQL APIs for cart and checkout. This article discusses and gives examples of Storefront and REST Management APIs. For information on GraphQL Cart and Checkout APIs, see [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+BigCommerce offers Storefront, REST Management, and GraphQL APIs for cart and checkout. This article discusses and gives examples of Storefront and REST Management APIs. For information on GraphQL Cart and Checkout APIs, see [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 ## Storefront Cart and Checkout
 
 The Storefront APIs manage the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
-The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/api-docs/storefront/graphql/carts-and-checkout).
+The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 ### When to use the Storefront APIs
 * Analytics and Tracking
@@ -25,10 +25,10 @@ The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is a
 Most modern browsers, except Internet Explorer, support Fetch API. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
 
 
-To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis) tutorial.
+To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/docs/storefront/cart-checkout/guide/rest-storefront) tutorial.
 
 
-You can run fetch requests from the browser console to test or use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
+You can run fetch requests from the browser console to test or use the [Scripts API](/docs/integrations/scripts) to inject JavaScript into your theme's footer.
 
 ```js filename="Log cart details to the console" showLineNumbers copy
 console.log('Log Cart');
@@ -68,7 +68,7 @@ fetch('/api/storefront/carts', {
 ```
 <Callout type="info">
   #### Log order details
-  To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
+  To log order details to the console, use the [Scripts API](/docs/integrations/scripts) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
 </Callout>
 
 ```js filename="Log order details to the console" showLineNumbers copy
@@ -141,7 +141,7 @@ We will go over common Storefront Cart and Checkout as well as REST Management C
 ***Issue:*** When a cart contains a product with an incorrect or missing text modifier.
 
 ***Resolution:***
-Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants. To learn more about options and modifiers, see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
+Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants. To learn more about options and modifiers, see [Products Overview](/docs/store-operations/catalog#products-overview_modifier-options).
 
 To update a cart line item to fix an incorrect or missing text modifier, use the [Update cart line item](https://developer.bigcommerce.com/docs/rest-management/carts/items#update-cart-line-item) endpoint. 
 
@@ -431,7 +431,7 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 ## Related resources
 
 ### Articles
-* [Working with the Storefront Cart and Checkout](/api-docs/cart-and-checkout/working-sf-apis)
+* [Working with the Storefront Cart and Checkout](/docs/storefront/cart-checkout/guide/rest-storefront)
 
 ### Endpoints
 * [Storefront Cart](/docs/rest-storefront/carts)
@@ -440,6 +440,6 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 * [Rest Management Checkout](/docs/rest-storefront/checkouts)
 
 ### Webhooks
-* [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-* [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
-* [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
+* [Orders](/docs/integrations/webhooks/events#webhook-events_orders)
+* [SKU](/docs/integrations/webhooks/events#webhook-events_sku)
+* [Cart](/docs/integrations/webhooks/events#webhook-events_cart)

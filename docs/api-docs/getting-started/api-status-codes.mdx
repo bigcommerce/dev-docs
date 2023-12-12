@@ -34,7 +34,7 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 
 ### 4xx Client Error
 
-4xx codes are returned for requests that could not be processed due to problems with the request or the data. For more information on handling 400 errors skillfully, see [API Request Architecture](/api-docs/getting-started/request-architecture#404-and-422-client-errors).
+4xx codes are returned for requests that could not be processed due to problems with the request or the data. For more information on handling 400 errors skillfully, see [API Request Architecture](/docs/start/best-practices/integration-design#404-and-422-client-errors).
 
 | Code | Text | Purpose |
 |:----:|:-----|:--------|
@@ -49,12 +49,12 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.  |
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
 | **423** | **Locked Status Code** | The requested resource is currently locked and unavailable.|
-| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#api-rate-limits) for API requests to a store. |
+| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/docs/start/best-practices#api-rate-limits) for API requests to a store. |
 | **499** | **Client Closed Request** | A client terminates the connection before receiving a response. |
 
 ### 5xx Server Error
 
-5xx codes are returned for requests that could not be processed due to an internal error with the API or server. For more information on handling 500 errors skillfully, see [API Request Architecture](/api-docs/getting-started/request-architecture#500-through-504-errors).
+5xx codes are returned for requests that could not be processed due to an internal error with the API or server. For more information on handling 500 errors skillfully, see [API Request Architecture](/docs/start/best-practices/integration-design#500-through-504-errors).
 
 | Code | Text | Purpose |
 |:----:|:-----|:--------|

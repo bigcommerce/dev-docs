@@ -5,8 +5,7 @@ keywords: graphql, storefront, storefronts, cors, headless,
 
 # GraphQL Storefront API Overview
 
-BigCommerce's GraphQL Storefront API makes it possible to power a headless storefront; see [Introduction to Headless Commerce](/api-docs/storefronts/guide/overview) for details.
-The GraphQL Storefront API also lets you query storefront data from within a [Stencil](/stencil-docs/getting-started/about-stencil) theme. 
+BigCommerce's GraphQL Storefront API makes it possible to power a headless storefront; see [Introduction to Headless Commerce](/docs/storefront/headless) for details. The GraphQL Storefront API also lets you query storefront data from within a [Stencil](/docs/storefront/stencil/start) theme. 
 
 This graph serves as a flexible interface for building shopper experiences. For example, with the GraphQL Storefront API, it is possible to do the following:
 
@@ -19,7 +18,7 @@ This graph serves as a flexible interface for building shopper experiences. For 
 
 Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
 
-This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](/api-docs/storefront/graphql/graphql-storefront-api-samples).
+This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](/docs/storefront/graphql/examples).
 
 <Callout type="info">
   Stores using BigCommerce's legacy Blueprint theme framework do not support the GraphQL API and Playground.
@@ -29,7 +28,7 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 To see a simple example of the GraphQL Storefront API in action, check out the [Bootstrap + Vanilla JS GraphQL Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can render dynamic product information using the GraphQL Storefront API.
 
-Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a GraphQL Storefront API token](/docs/rest-authentication/tokens#create-a-token) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
 
 
 ## Accessing the GraphQL Playground
@@ -39,7 +38,7 @@ To access the GraphQL Storefront API Playground and documentation, [sign in to y
 
 The GraphQL Storefront API Playground will open.
 
-![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
+![GraphQL Storefront API Playground](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Playground%20Main%20Image.png "GraphQL Storefront API Playground")
 
 <Callout type="info">
   If the **Storefront API Playground** link is not visible, this may be because your store is not using a Stencil theme. Apply a Stencil theme to use the GraphQL Storefront API.
@@ -50,7 +49,7 @@ The GraphQL Storefront API Playground will open.
 To use the request runner, input queries on the left side and then click the **Play** button. Query results will be displayed on the right side.
 
 
-![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
+![GraphQL Playground Query](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Playground%20First%20Query.png "GraphQL Playground Query")
 
 The following is an example query to get you started.
 
@@ -83,9 +82,9 @@ query MyFirstQuery {
 }
 ```
 
-To explore the storefront GraphQL schema, checkout the **Docs** and **Schema** tabs on the right.
+To explore the storefront GraphQL schema, checkout the **Docs** and **Explorer** tabs on the right.
 
-![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
+![GraphQL Playground Docs](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Playground%20Docs%20Explorer%20Tab.png "GraphQL Playground Docs")
 
 You may also explore the graph visually using our [GraphQL Explorer](https://developer.bigcommerce.com/graphql-explorer).
 
@@ -103,7 +102,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL Storefront API token](/docs/storefront-auth/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
+Use the [Create a GraphQL Storefront API token](/docs/rest-authentication/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
 
 This type of token is the most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the GraphQL Storefront API, a [Customer Impersonation Token](#customer-impersonation-tokens) may be more appropriate for your use case. This special token is not necessary if you only wish to query information from an anonymous shopper's perspective.
 
@@ -142,7 +141,7 @@ content-type: application/json
 
 <Callout type="info">
   * The `allowed_cors_origins` array currently accepts up to two origins. You will need multiple tokens if you have more origins.
-  * The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
+  * The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/docs/storefront/multi-storefront#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
 </Callout>
 
 <Callout type="info">
@@ -159,7 +158,7 @@ This auto-generated token has an expiry period of 24-48 hours and will periodica
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/storefront-auth/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
+It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/rest-authentication/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -203,7 +202,7 @@ curl 'https://store.com/graphql' -H 'authorization: Bearer TOKEN_GOES_HERE' -H '
 ```
 
 <Callout type="info">
-  * If your token were to become compromised and you wish to sever the Storefront API connection for your token, you can use the [Revoke a token](/docs/storefront-auth/tokens#revoke-a-token) endpoint. Only use this in emergencies, and do not revoke tokens unnecessarily. Instead, use a shorter expiration and allow them to expire naturally.
+  * If your token were to become compromised and you wish to sever the Storefront API connection for your token, you can use the [Revoke a token](/docs/rest-authentication/tokens#revoke-a-token) endpoint. Only use this in emergencies, and do not revoke tokens unnecessarily. Instead, use a shorter expiration and allow them to expire naturally.
 </Callout>
 
 ### Customer login
@@ -228,7 +227,7 @@ This mutation is also useful for server-to-server or headless storefront applica
 
 As a security best practice, you should inject the email address & password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request.
 
-![GraphQL Playground Query Variables](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-overview-01.png "GraphQL Playground Query Variables")
+![GraphQL Playground Query Variables](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Playground%20Login%20Mutation.png "GraphQL Playground Query Variables")
 
 You can use a logout mutation to sign out of a customer account:
 
@@ -695,8 +694,8 @@ BigCommerce has limits on certain portions of the platform.
 
 | Platform           | Limits        |
 |:-------------------|:--------------|
-| Maximum [banners](/theme-objects/schemas#banners) per query | 50  | 
-| Maximum [products](/theme-objects/schemas#products) per query | 50  | 
+| Maximum [banners](/docs/storefront/stencil/themes/context/object-reference/schemas#banners) per query | 50  | 
+| Maximum [products](/docs/storefront/stencil/themes/context/object-reference/schemas#products) per query | 50  | 
 
 ## FAQ: Querying for channels other than Stencil storefronts and querying from external systems
 
@@ -744,7 +743,7 @@ Use a Customer Impersonation token and store it securely on your server like oth
 
 ### I want a list of GraphQL error messages
 
-For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes#graphql-api-http-status-codes).
+For a list of GraphQL error messages, see [API Status Codes](/docs/start/about/status-codes#graphql-api-http-status-codes).
 
 
 ## Related resources
