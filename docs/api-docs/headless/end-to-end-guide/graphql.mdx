@@ -1,0 +1,20 @@
+# End-to-End Guide: Headless Checkout Flow with GraphQL APIs
+
+BigCommerce offers GraphQL APIs for cart and checkout. Having access to cart and checkout data in the graph alongside related data makes it easier to build headless storefront applications.
+
+This end-to-end tutorial walks you through creating a token, quering product data, creating a cart, adding cart line items, and getting a [Checkout](/docs/rest-management/checkouts) to build a headless storefront. 
+
+This article assumes you are familiar with the following:
+*
+*
+*
+
+## Prerequisites
+
+* BigCommerce store
+* Storefront API token
+
+## Creating a token
+Use the GraphQL Storefront API to create a customer impersonation token. Send a POST request to /v3/storefront/api-token-customer-impersonation.
+
+## Querying product data
