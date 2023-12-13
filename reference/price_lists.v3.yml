@@ -2786,7 +2786,7 @@ components:
             description: The price list with which the price record is associated. Either `variant_id` or `sku` is required.
           sku:
             type: string
-            description: The SKU for the variant with which this price record is associated.  Either `sku`` or `variant_id is required.
+            description: The SKU for the variant with which this price record is associated.  Either `sku` or `variant_id` is required.
           currency:
             type: string
             description: The 3-letter country code with which this price record is associated.
@@ -2863,10 +2863,10 @@ components:
             description: The Price List with which this price record is associated.
           variant_id:
             type: integer
-            description:  The variant with which this price record is associated. Either `variant_id`` or `sku` is required.
+            description:  The variant with which this price record is associated. Either `variant_id` or `sku` is required.
           sku: 
             type: string
-            description: The variant with which this price record is associated. Either `sku`` or `variant_id`` is required.
+            description: The variant with which this price record is associated. Either `sku` or `variant_id` is required.
           currency:
             type: string
             description: The 3-letter currency code with which this price set is associated.

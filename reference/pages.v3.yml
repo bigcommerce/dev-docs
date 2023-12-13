@@ -632,7 +632,7 @@ components:
 
         Include a header parameter called `X-Auth-Token` and pass it the `access_token` provided with your store API account or generated with your app's `/auth` callback.
 
-        ```http title="Security header example"
+        ```http filename="Security header example"
           X-Auth-Token: example_access_token
         ```
 

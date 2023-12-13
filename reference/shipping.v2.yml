@@ -2111,7 +2111,6 @@ components:
       title: Shipping Provider
       type: string
       enum:
-        - '``'
         - fedex
         - auspost
         - canadapost

@@ -1111,7 +1111,8 @@ paths:
             type: string
         - name: product_id
           in: query
-          description: 'A comma-separated list of IDs of products whose variants were requested. For example:`?product_id=:id``?product_id:in=77,80,81`'
+          description: |-
+            A comma-separated list of IDs of products whose variants were requested. For example:`?product_id:in=77,80,81`
           schema:
             type: string
       responses:
