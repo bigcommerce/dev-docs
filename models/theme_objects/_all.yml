@@ -181,11 +181,6 @@ properties:
     allOf:
       -$ref: ./products.yml
     type: object
-  remote_api_scripts:
-    description: 
-    allOf:
-      -$ref: ./remote_api_scripts.yml
-    type: object
   settings:
     description: 
     allOf:
