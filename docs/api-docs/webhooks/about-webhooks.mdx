@@ -85,7 +85,7 @@ BigCommerce doesn't recommend sending bodies or headers in response to webhooks.
 
 BigCommerce has the following webhook response requirements:
 
-**Limitations**
+If you send response headers, they must conform to the following limitations for the webhook delivery to be successfully acknowledged:
 * The header value should not exceed 8 kilobytes (10 by 1 kilobytes is OK). 
 * The header name should not exceed 64 characters (bytes). 
 * The total number of headers shouldn't exceed 64. 
