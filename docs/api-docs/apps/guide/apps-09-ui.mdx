@@ -2,7 +2,7 @@
 
 
 
-Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and triggers the [load callback](/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
+Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and triggers the [load callback](/docs/integrations/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
 
 ## Installing BigDesign React components
 
@@ -18,7 +18,7 @@ or with `yarn`:
 yarn add @bigcommerce/big-design styled-components
 ```
 
-Import the `GlobalStyles` component and use it once in your app. This will set a few styles globally, including a base font family, [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) and [normalize.css](https://github.com/necolas/normalize.css/). We recommend placing it close to your root component. Then import any component, such as `Button`, to use it anywhere in your app.
+Import the `GlobalStyles` component and use it once in your app. This will set a few styles globally, including a base font family, [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+3) and [normalize.css](https://github.com/necolas/normalize.css/). We recommend placing it close to your root component. Then import any component, such as `Button`, to use it anywhere in your app.
 
 ```js filename="GlobalStyles component" showLineNumbers copy
 import { Button, GlobalStyles } from '@bigcommerce/big-design';
@@ -68,10 +68,10 @@ To load inside the control panel iFrame, your app must do the following:
 
 
 ## Next steps
-* [Create external installation buttons](/api-docs/apps/guide/buttons).
-* [Follow best practices](/api-docs/apps/guid/best-practices).
-* [Check requirements](/api-docs/apps/guide/requirements).
-* [Publish your app](/api-docs/apps/guide/publish).
+* [Create external installation buttons](/docs/integrations/apps/guide/buttons).
+* [Follow best practices](/docs/integrations/apps/guide/best-practices).
+* [Check requirements](/docs/integrations/apps/guide/requirements).
+* [Publish your app](/docs/integrations/apps/guide/publishing).
 
 ## Resources
 

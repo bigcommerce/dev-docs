@@ -28,7 +28,7 @@ Consider the following request to the [Get store profile settings](/docs/rest-ma
 <Tab>
 
 ```http filename="Example request: Get store profile settings" showLineNumbers copy
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -60,7 +60,7 @@ To check whether channel-specific values for a setting are defined, send the `ch
 <Tab>
 
 ```http filename="Example request: Get store profile settings for channel 122" showLineNumbers copy
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=122
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile?channel_id=122
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -84,7 +84,7 @@ The following request-response pair shows an example of a channel that does have
 <Tab>
 
 ```http filename="Example request: Get store profile settings for channel 123" showLineNumbers copy
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -111,7 +111,7 @@ The following request-response pair shows an example of a channel with a complet
 <Tab>
 
 ```http filename="Example request: Get store profile settings for channel 124" showLineNumbers copy
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile?channel_id=124
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -149,7 +149,7 @@ You can modify global and channel-specific settings alike by sending `PUT` reque
 The following example uses the [Update store profile settings](/docs/rest-management/settings/store-profile#update-store-profile-settings) endpoint to modify a store's global default configuration:
 
 ```http filename="Example request: Update global store profile settings" showLineNumbers copy
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -162,7 +162,7 @@ Accept: application/json
 To update channel-specific settings, send a request to the same endpoint along with a value for the `channel_id` query parameter.
 
 ```http filename="Example request: Update store profile settings for channel 123" showLineNumbers copy
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -172,15 +172,22 @@ Accept: application/json
 }
 ```
 
-If you wish to restore global defaults on a channel with a channel-specific configuration, you can "un-override" the channel's settings by sending a `DELETE` request that contains query parameters with the following information:
-* the `channel_id`
-* a comma-separated list of the property `keys` for the values you wish to reset.
+If you wish to restore global defaults on a channel with a channel-specific configuration, you can "un-override" the channel's settings by sending a `PUT` request. Use the following in the request:
+* the `channel_id` query parameter
+* `null` as a value for _all_ fields. The endpoint does not support partial updates; you must remove overrides for all fields. 
 
 
 ```http filename="Example request: Reset channel-specific store profile settings to default" showLineNumbers copy
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124&keys=store_name,store_address
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/store/profile?channel_id=124
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
+
+{
+  "store_address": null,
+  "store_email": null,
+  "store_name": null,
+  "store_phone": null
+}
 ```
 
 <Callout type="info">
@@ -191,4 +198,4 @@ Accept: application/json
 
 At every point of contact a shopper has with a storefront or other sales channel, channel-specific settings are displayed first. Global default settings will only appear to shoppers when channel-specific values for those properties are not defined. This goes for viewing the storefront or product feed, reading a transactional email, receiving a packing slip, and all other interactions with the channel.
 
-The Settings APIs discussed in this article are primarily for use cases involved with the management or administration of store settings. If your application's proposed implementation of the Settings APIs is mostly concerned with presenting the correct shopper-facing details at their "touch point" with a storefront or other sales channel, consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to simplify your integration. Storefront API requests are run in the context of the shopper's active channel, so the relevant configuration is already correctly integrated with the data it returns. Stencil-powered storefront themes are also equipped with objects that represent the shopper-facing experience in context.  
+The Settings APIs discussed in this article are primarily for use cases involved with the management or administration of store settings. If your application's proposed implementation of the Settings APIs is mostly concerned with presenting the correct shopper-facing details at their "touch point" with a storefront or other sales channel, consider using the [GraphQL Storefront API](/docs/storefront/graphql) to simplify your integration. Storefront API requests are run in the context of the shopper's active channel, so the relevant configuration is already correctly integrated with the data it returns. Stencil-powered storefront themes are also equipped with objects that represent the shopper-facing experience in context.  

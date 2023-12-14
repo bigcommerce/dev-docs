@@ -1,3 +1,8 @@
+---
+title: Stencil Utils Reference
+keywords: if, cart, storefront, 
+---
+
 # Stencil Utils Reference
 
 [Stencil Utils](https://github.com/bigcommerce/stencil-utils) is a utility library that contains the BigCommerce Stencil Events system and other methods that make building a theme with the Stencil framework a breeze.
@@ -22,7 +27,7 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 ## api.js
 
 ### Get page
-[getPage](https://github.com/bigcommerce/stencil-utils/blob/master/spec/api.spec.js) 
+[getPage](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/index.js)
  
 This method takes the form `utils.api.getPage(url, options, callback)`.
 
@@ -32,7 +37,7 @@ This method takes the form `utils.api.getPage(url, options, callback)`.
 | options | object | Can contain `template`, [FormData (for POST methods)](https://developer.mozilla.org/en-US/docs/Web/API/FormData), `params` (for GET methods), and/or `config`. <br /><br />The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br /><br />The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
 | callback | function | Asynchronous function the subject method calls to handle any results. |
 
-The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/stencil-docs/adding-event-hooks-to-your-theme/remote-api-example#remote_remote-api-example).
+The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/docs/storefront/stencil/utils/queries).
 
 In the following example from `common/faceted-search.js`, an `updateView()` method uses `api.getPage()` to refresh page content.
 
@@ -65,7 +70,7 @@ The Cornerstone theme uses the `getPage` method in the following contexts:
 
 This method takes the form `utils.api.getPageByGQL(page, callback)`. 
 
-It allows you to render parts of a template using an inline GraphQL query, as shown in [Front Matter Reference - GraphQL attributes](/stencil-docs/reference-docs/front-matter-reference#graphql-attributes).
+It allows you to render parts of a template using an inline GraphQL query, as shown in [Front Matter Reference - GraphQL attributes](/docs/storefront/stencil/themes/context/frontmatter-reference#graphql-attributes).
 
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|

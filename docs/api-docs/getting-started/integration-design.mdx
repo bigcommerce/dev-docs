@@ -1,0 +1,95 @@
+## Best Practices for API Integration Design
+
+The **Unlimited** rate plan for BigCommerce Enterprise clients does not impose rate limits by request magnitude per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. 
+
+Regardless of whether your store or the stores your app serves are rate limited, good design patterns are both responsible stewards of our API ecosystem and critical to healthy, performant apps and headless storefronts. 
+
+This article describes three tenets of good SaaS design patterns; [efficiency](#efficiency), [mindfulness](#mindfulness), and [responsiveness](#responsiveness). It also outlines some behaviors that BigCommerce considers abusive. 
+
+To maintain service quality at scale, BigCommerce observes API traffic. We reserve the right to throttle or take offline abusive apps or stores per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). Following the happy paths laid out in this article can help you write robust, resilient implementations that provide the greatest business benefit with the smallest infrastructure footprint. 
+
+## Efficiency
+
+**Make as few calls as possible; request only information that your app requires to function.**
+
+When interacting with a resource on a store, consider how many calls it takes to accomplish the goal. When you fetch information, investigate whether you can use a bulk endpoint instead of retrieving resources one by one. If possible, use the bulk endpoint and filter the data to retrieve only what you need. For example, the [REST Catalog API](/docs/rest-catalog/products) contains both [Get a product](/docs/rest-catalog/products#get-a-product) and [Get all products](/docs/rest-content/pages#get-pages). If your app or storefront requests one or more products, you can use [Get all products](/docs/rest-content/pages#get-pages) and filter which products you'd like to retrieve using the `id:in` query parameter.
+
+The same principle applies to bulk endpoints. The base number of resources returned from a bulk request is 50. If you need to retrieve 5,000 products, the default response pagination limit requires you to make 100 API calls to the bulk endpoint. Instead, you can use query parameters to set the response limit to 250 and request the same information in 20 calls.
+
+The same efficency principle extends to creating and updating resources.
+
+In addition, consider using conditional logic to avoid making API calls when they are not needed. For example, when the resource hasn't changed or the app conditions are such that more API data is not helpful at that time, don't request more data. You can use [Webhooks](/docs/webhooks) to trigger requests as they become relevant, rather than polling the API.
+
+## Mindfulness
+
+**There should be a distinct purpose for each API call.** 
+
+Using an API with no artificial rate limit does not confer the privilege of making unlimited requests. For an analogy, consider an unlimited mobile data plan. Although the provider allows unlimited data transfer without additional cost, the volume of traffic is considered abusive if you constantly download, upload, or stream over the cellular network. A bit of mindfulness would mitigate the cost to the cellular infrastructure by streaming over WiFi when available and downloading large files prior to leaving WiFi.
+
+Resource calls that contain a body - typically POST and PUT requests - are more resource intensive than GET or DELETE requests. When your app or implementation updates a resource, there should be an inciting action, such as a BigCommerce webhook or a change instigated by an external resource controller that requires updates to the BigCommerce Product object.
+
+## Responsiveness
+
+**Shift tactics when your requests return errors.**
+
+Stores with more business have resources that change more frequently. These stores typically generate a high volume of API traffic. However, interaction between enterprise resource planning systems, or _ERPs_, and BigCommerce is a two way street. ERPs require proper error handling. When BigCommerce servers return HTTP codes that indicate your app's requests are failing, your service should compensate for what is happening rather than continuing to send unsuccessful requests. 
+
+The following sections describe responsive error handling organized by the HTTP code that BigCommerce returns, using ERP sync systems as an example.
+
+### 404 and 422 client errors
+
+Sync systems commonly return [404 Not Found (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) and [422 Unprocessable Entity (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422) statuses. 
+
+When a resource is moved, changed, or removed, the expected behavior is that some requests for that resource return 404 statuses. In this case, the ERP connector should re-evaluate where the desired resource is located and adjust its requests accordingly. 
+
+Changes to the attributes of resource can also render subsequent requests to it unintelligible, resulting in 422 errors. In this case, the ERP should re-evaluate the properties of the target resource and adjust its requests accordingly.
+
+### 429 client errors
+
+All infrastructure has physical limits. Even an unlimited rate plan may sometimes receive the [429 Too Many Requests (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) status. 
+
+If your ERP starts receiving intermittent 429 statuses, use our [retry headers](/docs/start/about#bigcommerce-specific-response-headers) to queue your requests. Regardless of developer intention, BigCommerce considers implementations abusive when they do not handle 429 errors responsively. Design applications that devote serious attention to avoiding consecutive 429 responses.
+
+### 500 through 504 server errors
+
+Each of the five [500-type statuses (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) indicates a different server-related error. 
+
+* [500 Internal Server Error (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+* [501 Not Implemented (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501)
+* [502 Bad Gateway (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502)
+* [503 Service Unavailable (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+* [504 Gateway Timeout (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504)
+
+Each 500-type status warrants a slightly different retry logic.
+
+When the ERP is creating or updating resources, there's a higher probability that multiple entities are accessing that same resource. You should wait longer to send a retry request when you're performing a write operation; read operations are faster and have lower error rates.
+
+To handle 503 statuses and cases when multiple URIs return 500 statuses, consider subscribing your implementation to our RSS feed, available on our status page, [status.bigcommerce.com](https://status.bigcommerce.com). You can also expose those errors in the ERP's UI and direct sync operators to manually pause the process and check the status page.
+
+## Resources
+
+### bigcommerce.com
+
+* [status.bigcommerce.com](https://status.bigcommerce.com)
+* [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
+
+### Reference
+
+* [Best Practices](/docs/start/best-practices)
+* [Retry headers](/docs/start/about#bigcommerce-specific-response-headers)
+* [REST Catalog API](/docs/rest-catalog/products)
+  * [Get a product](/docs/rest-catalog/products#get-a-product)
+  * [Get all products](/docs/rest-content/pages#get-pages)
+* [Webhooks](/docs/webhooks)
+
+### External resources
+
+* [404 Not Found (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
+* [422 Unprocessable Entity (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422)
+* [429 Too Many Requests (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)
+* [500-type statuses (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
+* [500 Internal Server Error (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+* [501 Not Implemented (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501)
+* [502 Bad Gateway (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502)
+* [503 Service Unavailable (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+* [504 Gateway Timeout (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504)

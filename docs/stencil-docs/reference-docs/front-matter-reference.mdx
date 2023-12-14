@@ -2,7 +2,7 @@
 
 
 
-Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
+Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](/docs/storefront/stencil/themes/context/frontmatter#declaring-front-matter-objects).
 
 ## Supported templates
 You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
@@ -31,7 +31,7 @@ customer:
 |:---------|:------------|
 |  `customer` | Customer attributes are always included and are available when an active shopper logs in. |
 |  `returns` | Boolean indicating whether to retrieve product return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests. |
-|  `wishlists` | If `null`, wishlists are displayed. If `limit` is not specified, it retrieves an unlimited number of wishlists. |
+|  `wishlists` | If `null`, wishlists are displayed. If `limit` is not specified, it retrieves every wishlist. |
 |  `orders` | If `null`, no orders are displayed. Displays complete and incomplete orders. If `limit` is not specified, it displays 20 orders. |
 |  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering available. |
 |  `limit` | The maximum number of the entity to display. |
@@ -64,12 +64,12 @@ carousel: true    # displays carousel on the storefront unless set to null
 blog:	
   recent_posts:
     limit: 5    # limits recent blog posts to 5
-  summary: 100  # displays 100 character summary of blog post
+    summary: 100  # displays 100 character summary of blog post
 ```
 
 | Property | Description |
 |:---------|:------------|
-|`blog`| Default sorting is by published_date, from most recent to earliest. This sorting does not work on the blog page. See [Blog Attributes](/stencil-docs/reference-docs/front-matter-reference#blog-attributes).|
+|`blog`| Default sorting is by published_date, from most recent to earliest. This sorting does not work on the blog page. See [Blog Attributes](/docs/storefront/stencil/themes/context/frontmatter-reference#blog-attributes).|
 |`recent_posts`| null: No recent blog posts displayed. If not defined, defaults to the maximum of 20 blog posts.|
 |`summary`|Sets the number of characters to display in each blog post summary. If not defined, it displays 100 characters.|
 
@@ -226,7 +226,7 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+You can add [GraphQL Storefront API](/docs/storefront/graphql) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
  ```yaml showLineNumbers
 product:

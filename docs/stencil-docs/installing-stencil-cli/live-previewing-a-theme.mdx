@@ -2,7 +2,7 @@
 
 Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command.
 
-The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
+The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/docs/storefront/stencil/cli/install) for detailed, system-specific instructions.
 
 <Callout type="warning">
  #### Theme access, copyright, and distribution
@@ -13,7 +13,7 @@ Developers may customize free and purchased marketplace themes; however, the ori
 
 Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil-specific access token. 
 
-To automatically create an API account with the scopes and permissions required by Stencil CLI, apply the following settings as you [create a store-level API account](/api-docs/getting-started/api-accounts#creating-store-level-api-accounts). 
+To automatically create an API account with the scopes and permissions required by Stencil CLI, apply the following settings as you [create a store-level API account](/docs/start/authentication/api-accounts#creating-store-level-api-accounts). 
 
 Select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
@@ -45,7 +45,7 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 
 <Callout type="info">
  #### Update themes after download  
- Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+ Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/docs/storefront/stencil/cli/options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 &nbsp;
  </Callout>
 
@@ -122,7 +122,7 @@ Browse to the local URL to preview the theme and see changes updated in real-tim
 
 ### Serving a live preview over HTTPS 
 
-It is possible to serve a live preview over HTTPS using [ngrok](https://ngrok.com/docs). To get started with ngrok, follow the [Create an HTTPS Tunnel](https://developer.bigcommerce.com/docs/ZG9jOjE4MjIyODMy-step-2-connect-your-app-to-big-commerce#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace 3000 with the port of your app server.
+It is possible to serve a live preview over HTTPS using [ngrok](https://ngrok.com/docs). To get started with ngrok, follow the [Create an HTTPS Tunnel](/docs/integrations/apps/tutorial/nextjs-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace 3000 with the port of your app server.
 
 ## Debugging your theme
 
@@ -133,7 +133,7 @@ It is possible to serve a live preview over HTTPS using [ngrok](https://ngrok.co
 
 The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
 
-For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
+For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/docs/storefront/stencil/cli/options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/docs/storefront/stencil/cli/unexpected-behavior).
 
 
 

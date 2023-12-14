@@ -22,23 +22,23 @@ Use your draft app and your sandbox store to review this behavior.
 
 Apps with **Multiple Users** enabled can expect the `email` and `ID` of the user that initiated the callback in addition to the owner's `email` and `ID` in the JSON object sent in the `load` request. If a `load` request is sent with information for a user you haven't seen, provision the user account and associate it with the store in your database.
 
-Because you know the store owner's `email` and `ID` from the app installation sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:
-- **Store owner**: Can `install`, `uninstall`, and `load` apps.
+Because you know the store owner or user's `email` and `ID` from the app installation sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:
+- **Store owner** and **authorized users**: Can `install`, `uninstall`, and `load` apps. Store owners must grant permissions so that authorized users can install or uninstall apps.
 - **Users**: Cannot `install` or `uninstall` apps. Users are permitted only to `load` the apps that a store owner authorized.
 
 ## The remove user request
 Store owners can also remove users. This action generates a `GET` request to the remove user callback URL that you provided in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). When this occurs, your app should remove the user identified in the request from it's records.
 
-For details about remove user and load requests, see [Single-click App Callbacks](/api-docs/apps/guide/callbacks).
+For details about remove user and load requests, see [Single-click App Callbacks](/docs/integrations/apps/guide/callbacks).
 
 ## Next steps
 
-* [Learn how to handle store events](/api-docs/apps/guide/users).
+* [Learn how to handle store events](/docs/integrations/apps/guide/users).
 
 ## Resources
 
 ## Related articles
-* [Single-click App Callbacks](/api-docs/apps/guide/callbacks)
+* [Single-click App Callbacks](/docs/integrations/apps/guide/callbacks)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)

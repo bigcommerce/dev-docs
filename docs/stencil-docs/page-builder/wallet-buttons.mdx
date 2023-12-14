@@ -1,9 +1,14 @@
+---
+title: Configuring Wallet Buttons
+keywords: stencil, sort, 
+---
+
 # Configuring Wallet Buttons
 
 <Callout type="info">
  #### Familiarity with Stencil development
- The file structure of each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil) development may be required to render wallet buttons. The examples in this article use the Cornerstone theme.
- </Callout>
+ The file structure of each theme can be unique; therefore, some knowledge of [Stencil](/docs/storefront/stencil/start) development may be required to render wallet buttons. The examples in this article use the Cornerstone theme.
+</Callout>
 
 This article explains how to add wallet buttons to the Product Detail Page, or _PDP_. Cornerstone 6.7.0+ supports wallet buttons by default; however, you can upgrade older themes to support wallet buttons by following the steps outlined in this article.
 
@@ -224,10 +229,123 @@ The wallet buttons appear on the PDP as follows:
 
 ![wallet-buttons-04](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-04.png "theme-markup")
 
+### For Cornerstone themes below version 6.7 
+
+In themes below version 6.7, you need to perform another step to make wallet buttons work as expected. After you enter the preceding code snippet, insert the following code into your theme markup:
+
+```handlebars filename="add-to-cart.html" showLineNumbers copy
+{{#if this.with_wallet_buttons}}
+  {{#if wallet_buttons}}
+    <div class="your-class-for-wallet-buttons-list">
+      {{{wallet_buttons}}}
+    </div>
+
+    <script type="text/javascript">
+      function updateProductDetailsData(form) {
+        const productDetails = {};
+        const formData = new FormData(form);
+
+        for (const [fieldName, fieldValue] of formData) {
+          if (fieldName === 'product_id') {
+            productDetails.productId = Number(fieldValue);
+          }
+
+          if (fieldName === 'qty[]') {
+            productDetails.quantity = Number(fieldValue);
+          }
+
+          if (fieldName.match(/attribute/)) {
+            const productOption = {
+              optionId: Number(fieldName.match(/\d+/g)[0]),
+              optionValue: fieldValue,
+            };
+
+            productDetails.optionSelections = productDetails?.optionSelections
+              ? [...productDetails.optionSelections, productOption]
+              : [productOption];
+          }
+        }
+
+        document.dispatchEvent(new CustomEvent('onProductUpdate', {
+          bubbles: true,
+          detail: { productDetails },
+        }));
+      }
+
+      function resetProductDetailsData() {
+        const productDetails = {};
+
+        document.dispatchEvent(new CustomEvent('onProductUpdate', {
+          bubbles: true,
+          detail: { productDetails },
+        }));
+      }
+
+      function init() {
+        const form = document.querySelector('form[data-cart-item-add]');
+        const submitButton = form.querySelector('input[type="submit"]');
+        const walletButtonsContainer = document.getElementById('bc-smart-payment-buttons');
+
+        if (!walletButtonsContainer) {
+          return;
+        }
+
+        const submitObserver = new MutationObserver(((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes') {
+              if (!mutation.target.disabled && form.checkValidity()) {
+                walletButtonsContainer.style.display = 'block';
+                updateProductDetailsData(form);
+              } else {
+                walletButtonsContainer.style.display = 'none';
+                resetProductDetailsData();
+              }
+            }
+          });
+        }));
+
+        submitObserver.observe(submitButton, { attributes: true });
+
+        form.addEventListener('click', () => {
+          setTimeout(() => updateProductDetailsData(form), 0);
+        });
+
+        form.addEventListener('change', () => {
+          if (form.checkValidity() && !submitButton.disabled) {
+            walletButtonsContainer.style.display = 'block';
+            updateProductDetailsData(form);
+          } else {
+            walletButtonsContainer.style.display = 'none';
+            resetProductDetailsData();
+          }
+        });
+
+        form.addEventListener('touchend', () => {
+          setTimeout(() => updateProductDetailsData(form), 0);
+        });
+
+        form.addEventListener('keyup', () => updateProductDetailsData(form));
+
+        if (form.checkValidity() && !submitButton.disabled) {
+          updateProductDetailsData(form);
+        } else {
+          walletButtonsContainer.style.display = 'none';
+          resetProductDetailsData();
+        }
+      }
+
+      init();
+    </script>
+
+  {{/if}}
+{{/if}}
+```
+
+
 ## Resources
 
 ### Related articles
 
-* [Theme Styles Configuration](/stencil-docs/page-builder/theme-styles-configuration)
+* [Theme Styles Configuration](/docs/storefront/stencil/themes/foundations/customizability)
 * [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US)
-* [Other Objects and Properties Overview](/stencil-docs/reference-docs/other-objects-and-properties-overview)
+* [Stencil Objects](https://developer.bigcommerce.com/theme-objects/schemas)

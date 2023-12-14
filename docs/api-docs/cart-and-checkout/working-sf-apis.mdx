@@ -1,10 +1,15 @@
-# Working with the Storefront Cart and Checkout APIs
+---
+title: Working with the REST Storefront Cart and Checkout APIs
+keywords: address, cors, currency, currencies, draft order, rest, 
+---
 
-BigCommerce's [Storefront API](/docs/rest-storefront) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data using client-side JavaScript.
+# Working with the REST Storefront Cart and Checkout APIs
 
-This tutorial exhibits common use cases to help you get started with the Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
+BigCommerce's [REST Storefront API](/docs/rest-storefront) exposes storefront data to Stencil themes, which lets you to manage a shopper's cart, checkout, and order data using frontend JavaScript. We also offer cart and checkout functionality in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
-By the end of this tutorial, you should be familiar enough with some of the Storefront API endpoints to test them.
+This tutorial exhibits common use cases to help you get started with the REST Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
+
+By the end of this tutorial, you should be familiar enough with some of the REST Storefront API endpoints to test them.
 
 ## Prerequisites
 
@@ -12,26 +17,23 @@ For this tutorial, you will need a BigCommerce store with at least two products 
 
 ## Getting started
 
-To begin, navigate to your storefront and open your browser’s developer console.
-
+To begin, navigate to your Stencil storefront and open your browser’s developer console.
 
 For this tutorial, set the credentials option to `same-origin` and the content-type fetch request option to `application/json`. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values.
 
-## Storefront Cart
+## REST Storefront Carts
 
-The first part of this tutorial will cover using the [Storefront Cart API](/docs/rest-storefront/carts) to create a cart, add a line item, and delete a line item directly from the storefront.
+The first part of this tutorial covers using the [REST Storefront API](/docs/rest-storefront/carts) to create a cart, add a line item, and delete a line item directly from the storefront.
 
 ### Create a cart
 
-You can create a cart by sending a POST request to the [Create Cart](/docs/rest-storefront/carts#create-a-cart) endpoint.
+You can create a cart by sending a request to the [Create a cart](/docs/rest-storefront/carts#create-a-cart) endpoint.
 
-
-We will create the `createCart()` helper function to accomplish this POST request. Copy and execute the code below to create the function.
-
+The following example uses a `createCart()` helper function to make the API call. To get started, copy and run the following code:
 
 ```js filename="Example function: createCart()" showLineNumbers copy
-function createCart(url, cartItems) {
-  return fetch(url, {
+function createCart(route, cartItems) {
+  return fetch(route, {
     method: "POST",
     credentials: "same-origin",
     headers: {
@@ -40,12 +42,14 @@ function createCart(url, cartItems) {
     body: JSON.stringify(cartItems),
   })
   .then(response => response.json())
+  .then(result => console.log(result))
   .catch(error => console.error(error));
 };
 ```
 
 The `createCart()` function takes two arguments:
-* `url`: The Storefront Cart API url.
+
+* `route`: The endpoint's request route.
 * `cartItems`: A `lineItems` array containing product IDs and quantities of the items we want to add.
 
 To create a cart, execute the code below passing in `productId` values specific to your store.
@@ -61,10 +65,8 @@ createCart(`/api/storefront/carts`, {
       "quantity": 1,
       "productId": 88
     }
-  ]}
-)
-.then(data => console.log(JSON.stringify(data)))
-.catch(error => console.error(error));
+  ]
+});
 ```
 
 Your result should be similar to the one below.
@@ -133,25 +135,24 @@ Your result should be similar to the one below.
 
 ### Get a cart
 
-To display the contents of a cart, we need to send a GET request to the [Get a Cart](/docs/rest-storefront/carts#get-a-cart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
+To display the contents of a cart, we need to send a request to the [Get a cart](/docs/rest-storefront/carts#get-a-cart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
 
 
 Copy and execute the code below to create and subsequently call the `getCart()` helper function.
 
 ```js filename="Example function: getCart()" showLineNumbers copy
-function getCart(url) {
-  return fetch(url, {
+function getCart(route) {
+  return fetch(route, {
     method: "GET",
     credentials: "same-origin"
   })
   .then(response => response.json())
+  .then(result => console.log(result))
   .catch(error => console.error(error));
 };
 ```
 ```js filename="Example call: getCart()" showLineNumbers copy
-getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
-  .then(data => console.log(JSON.stringify(data)))
-  .catch(error => console.error(error));
+getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options');
 ```
 ```json filename="Example response: getCart()" showLineNumbers copy
 [
@@ -217,14 +218,15 @@ getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.
 
 ### Add a cart item
 
-To add a new line item to the existing cart, the ID of the cart must be included in the endpoint. The card ID was returned as part of the “Create a cart” POST request. Alternatively, you can retrieve the cart ID by making a “Get a cart” GET request.
+To add a new line item to the existing cart, the ID of the cart must be included in the endpoint. The card ID was returned as part of the “Create a cart” POST request. Alternatively, you can retrieve the cart ID by making a request to the “Get a cart” endpoint.
 See [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) for more information.
 
 Copy and execute the code below to create the `addCartItem()` helper function.
 
 ```js filename="Example function: addCartItem()" showLineNumbers copy
-function addCartItem(url, cartId, cartItems) {
-  return fetch(url + cartId + '/items', {
+function addCartItem(routeStart, cartId, cartItems) {
+  var route = routeStart + cartId + '/items';
+  return fetch(route, {
     method: "POST",
     credentials: "same-origin",
     headers: {
@@ -233,6 +235,7 @@ function addCartItem(url, cartId, cartItems) {
     body: JSON.stringify(cartItems),
   })
   .then(response => response.json())
+  .then(result => console.log(result))
   .catch(error => console.error(error));
 };
 ```
@@ -247,9 +250,7 @@ addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
       "productId": 97
     }
   ]
-})
-.then(data => console.log(JSON.stringify(data)))
-.catch(error => console.error(error));
+});
 ```
 ```json filename="Example response: addCartItem()" showLineNumbers copy
 {
@@ -330,8 +331,9 @@ To delete a line item from a cart, send a DELETE request to the [Delete Cart Lin
 
 
 ```js filename="Example function: deleteCartItem()" showLineNumbers copy
-function deleteCartItem(url, cartId, itemId) {
-  return fetch(url + cartId + '/items/' + itemId, {
+function deleteCartItem(routeStart, cartId, itemId) {
+  var route = routeStart + cartId + '/items/' + itemId;
+  return fetch(route, {
     method: "DELETE",
     credentials: "same-origin",
     headers: {
@@ -339,6 +341,7 @@ function deleteCartItem(url, cartId, itemId) {
     }
   })
   .then(response => response.json())
+  .then(result => console.log(result))
   .catch(error => console.error(error));
 };
 ```
@@ -346,9 +349,7 @@ function deleteCartItem(url, cartId, itemId) {
 Pass your `cartId` and `itemId` to the `deleteCartItem()` helper function to delete the line item.
 
 ```js filename="Example call: deleteCartItem()" showLineNumbers copy
-deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `3f8dd1ed-f917-41be-b7f7-20c10f406e09`)
-  .then(data => console.log(JSON.stringify(data)))
-  .catch(error => console.log(error));
+deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `3f8dd1ed-f917-41be-b7f7-20c10f406e09`);
 ```
 
 ```json filename="Example response: deleteCartItem()" showLineNumbers copy
@@ -411,7 +412,7 @@ deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
 
 ## Storefront Checkout
 
-In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [Storefront Checkout](/docs/rest-management/checkouts) for more information.
+In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [REST Storefront Checkout](/docs/rest-storefront/checkouts) for more information.
 
 Before proceeding, make sure you have added two different line items to your cart.
 
@@ -422,7 +423,6 @@ Before proceeding, make sure you have added two different line items to your car
 ### Add a billing address
 
 To add a billing address to a checkout, send a POST request to the [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
-
 
 Copy and execute the code below to create the `addBillingAddress()` helper function.
 

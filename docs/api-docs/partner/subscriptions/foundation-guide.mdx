@@ -2,7 +2,7 @@
 
 Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for building BigCommerce apps that empower shoppers to subscribe to products and services. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
 
-Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
+Subscription Foundation uses the [Channels toolkit](/docs/integrations/channels#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
 
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 18.15.0
@@ -13,12 +13,12 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 
 <Callout type="info">
   #### Account configuration requirements
-  * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
+  * Because there is a [store email address constraint](/docs/integrations/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
   * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 </Callout>
 
 To configure your accounts, complete the following steps:
-1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
+1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/docs/start/about/sandboxes?source=subscription-foundation).
 2. To register apps and create app API accounts, you need a BigCommerce Dev Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).
 
 ## Fork and install the source repository
@@ -37,7 +37,7 @@ After you successfully install the packages, prepare to expose the app to the in
 
 Because you must serve apps over fully-qualified publicly accessible URLs, this guide uses a tool called [ngrok](https://ngrok.com/docs) to open HTTP tunnels that securely expose `localhost` ports to the internet.  
 
-To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
+To get started with ngrok, follow the [Create an HTTPS Tunnel](/docs/integrations/apps/tutorial/nextjs-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
 <Callout type="info">
   #### Make note of your ngrok ID
@@ -50,15 +50,15 @@ As a next step, you need to create a draft app profile to generate app API accou
 
 To install your app on your sandbox store, complete the following steps:
 
-1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
+1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/docs/integrations/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_url}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
 
 | Callback | URL value |
 |:---------|:----|
-| Auth Callback | `https://{ngrok_id}.ngrok.io/api/auth` |
-| Load Callback | `https://{ngrok_id}.ngrok.io/api/load` |
-| Uninstall Callback | `https://{ngrok_id}.ngrok.io/api/uninstall` |
+| Auth Callback | `https://{ngrok_url}/api/auth` |
+| Load Callback | `https://{ngrok_url}/api/load` |
+| Uninstall Callback | `https://{ngrok_url}/api/uninstall` |
 
 3. In the **OAuth scopes** section, add the following scopes:
 
@@ -97,7 +97,7 @@ During development, you'll work with two Stripe accounts. You'll create them bot
 
 <Callout type="info">
   #### Multi-tenant setup
-  Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the merchant's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
+  Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner or authorized user to give the app permission to make charges on behalf of the store. Upon consent, the app initiates an OAuth code grant flow to link the merchant's Stripe account with the app's Stripe Connect-enabled account. The diagram below shows the configuration and the integration process.
 </Callout>
 
 ![platform-configuration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/platform-configuration.png "Multi-Tenant Stripe Platform Configuration")
@@ -158,7 +158,7 @@ To configure test mode, complete the following steps:
    c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
    ```http filename="Your app's Stripe callback URI" showLineNumbers copy
-   https://{ngrok_id}.ngrok.io/stripe/callback
+   https://{ngrok_url}/stripe/callback
    ```
 
 ## Configure the BigCommerce store
@@ -199,11 +199,11 @@ Open the `.env` file you just created and update the following environment varia
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
-| `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel?source=subscription-foundation)  |
+| `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/docs/integrations/apps/tutorial/nextjs-connect#create-an-https-tunnel)  |
 | `DATABASE_URL` | A URL that connects to a database | On this page, see [Run migration and start the server](#run-migration-and-start-the-server) |
-| `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
-| `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
-| `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
+| `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/docs/integrations/apps/guide/id#find-in-developer-portal?source=subscription-foundation) |
+| `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/docs/integrations/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
+| `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/docs/integrations/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Enable Stripe Connect for Platforms](#enable-stripe-connect-for-platforms) |
 | `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Create Stripe Accounts](#create-stripe-accounts) |
 
@@ -243,7 +243,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#install-and-launch-the-app).
+After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/docs/integrations/apps/tutorial/nextjs-connect#install-and-launch-the-app).
 
 ## Replacing Postgres
 
@@ -299,7 +299,7 @@ To add new subscription rules and edit existing ones, complete the following ste
   The app will create its own dedicated sales channel upon installation.
 </Callout>
 
-If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/api-docs/multi-storefront/api-guide#products) for more information.
+If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/docs/storefront/multi-storefront/guide#products) for more information.
 
 ## Deploying your app with Vercel
 
@@ -307,7 +307,7 @@ The BigCommerce Subscription Foundation framework enables you to deploy your app
 
 To deploy your app with Vercel:
 
-1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file.
+1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation) file.
 2. Scroll down the page to the **Deploy with Vercel** section and click **Deploy**.
 
 ![vercel-install-button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-install-button.png)
@@ -346,7 +346,7 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 
 ### Issue: A "Not found" error during app installation
 
-If you don't enable the proper OAuth scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to verify the proper OAuth scopes are enabled in your app's profile. To learn more, read [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#edit-technical-details). Make sure your scopes equal or exceed those listed in the [Creating an app profile](#create-an-app-profile) section.
+If you don't enable the proper OAuth scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to verify the proper OAuth scopes are enabled in your app's profile. To learn more, read [Managing Apps in the Developer Portal](/docs/integrations/apps/guide/developer-portal#edit-technical-details). Make sure your scopes equal or exceed those listed in the [Creating an app profile](#create-an-app-profile) section.
 
 ### Issue: Unable to migrate your data to another provider. 
 
@@ -357,7 +357,7 @@ To manually switch the database provider, complete the following steps:
 
 ## Resources
 ### Related articles
-* [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md)
+* [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Introducing the Subscription Foundation](https://medium.com/bigcommerce-developer-blog/introducing-the-subscription-foundation-afd6dfd22757?source=friends_link&sk=7ce53b66fee0dc660c603ab8f2bca22a)
 * [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers)

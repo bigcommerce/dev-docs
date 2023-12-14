@@ -1,6 +1,9 @@
+---
+title: App Development Best Practices
+keywords: rate limits, apps, best practices, 
+---
+
 # App Development Best Practices
-
-
 
 Review the following best practices before submitting your app to the [App Marketplace](https://www.bigcommerce.com/apps/).
 
@@ -22,77 +25,13 @@ For details, see [Security Considerations in RC6749](https://tools.ietf.org/html
 
 ## API requests
 
-### Use the latest APIs
-
-BigCommerce is actively developing V3 API endpoints. By using the newest endpoints, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store's control panel. To stay up to date, bookmark our [changelog](/changelog).
-
-### Plan for API updates
-
-We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development. Breaking changes will be made with early warning, typically via our developer [changelog](/changelog) and other channels as appropriate. For beta APIs and in exceptional cases where we know using a particular endpoint to be zero, we may make breaking changes without warning.
-
-### Thread API requests
-
-Thread requests to make rapid updates via API. Threaded requests allow you to send multiple requests at a time. They can come from a different open connection or multiple requests to the same resource. Our [Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe; it satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at a time. These attributes can reduce the total time that your app will require to complete a series of requests.
-
-### Respect API rate limits
-
-BigCommerce rate limits all API requests made to a store in a thirty-second window. The rate limit varies by plan level.
-
-| Plan                     | Requests per Hour | Requests per 30 Seconds     |
-| ------------------------ | ----------------- | --------------------------- |
-| Enterprise               | -                 | Unlimited\*                 |
-| Enterprise Sandboxes     | -                 | Unlimited\*                 |
-| Pro                      | `60,000`          | `450`                       |
-| Plus                     | `20,000`          | `150`                       |
-| Standard                 | `20,000`          | `150`                       |
-| Non-Enterprise Sandboxes | `20,000`          | `150`                       |
-
-<Callout type="info">
-  \* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
-</Callout>
-
-Apps making API requests to a store share the store's rate limit. This promotes fairness between apps accessing the API simultaneously, and prevents a single app from consuming the store's entire limit.
-
-BigCommerce allots applications a share of a store's rate limit via quota system, and exposes rate limit positioning to applications using the following response headers.
-
-```http filename="Example: Rate limit headers"
-X-Rate-Limit-Requests-Left: 6
-X-Rate-Limit-Requests-Quota: 25
-X-Rate-Limit-Time-Reset-Ms: 3000
-X-Rate-Limit-Time-Window-Ms: 5000
-```
-
-| Name | Description |
-| -- | -- |
-| `X-Rate-Limit-Time-Window-Ms` | size of rate limit window in milliseconds                        |
-| `X-Rate-Limit-Time-Reset-Ms`  | time remaining in window in milliseconds                         |
-| `X-Rate-Limit-Requests-Quota` | total requests allotted to your application per window            |
-| `X-Rate-Limit-Requests-Left`  | remaining requests allotted to your application in current window |
-
-BigCommerce responds to apps that exceed the quota with a [429](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response. When this happens, applications should pause requests until the number of milliseconds in `X-Rate-Limit-Time-Reset-Ms` elapses.
-
-### Play nicely when making parallel requests
-
-BigCommerce's REST endpoints accept requests made in parallel. Applications making parallel requests should monitor rate limit headers to avoid a `429` response. Methods for doing so include the following:
-* Slow rate of requests when `X-Rate-Limit-Requests-Left` nears zero.
-* Self-throttles requests to the average rate of `(X-Rate-Limit-Requests-Quota / X-Rate-Limit-Time-Window-Seconds)`.
-
-<Callout type="warning">
-  Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
-</Callout>
-
-
-### Respect platform limits
-
-To promote stability and performance, BigCommerce sets store maximums on certain entities and values, and responds to API requests that would exceed them with a `403 Forbidden` response.
-
-For a list of limits, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+For recommendations on API request-related best practices, including rate limits, threading, parallel requests, and the finer points of request headers, see our article on [Best Practices](/docs/start/best-practices).
 
 ## Webhook events
 
 ### Use webhooks to keep app data up-to-date
 
-Rather than polling endpoints, get notified when updates occur by subscribing to [webhooks](/api-docs/getting-started/webhooks/about-webhooks).
+Rather than polling endpoints, get notified when updates occur by subscribing to [webhooks](/docs/integrations/webhooks).
 
 ## User interface
 
@@ -120,6 +59,20 @@ Bigcommerce.init({
 - If your app requires the user to sign in at launch, use the information BigCommerce sends to your callback URL to authenticate the user without asking for a username and password each time.
 - If you plan to share user testimonials, add a link to your full case study in the case studies field.
 
+
+### Offer multi-user access
+
+Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
+* The app must save the API account access token for each store with its `store_hash`, rather than a user's info.
+* In the app's [Developer Portal profile](https://devtools.bigcommerce.com), you must [enable multiple users](/docs/integrations/apps/guide/developer-portal#edit-technical-details).
+
+In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
+
+Enabling user removal is optional. If you want merchants to be able to remove users, you can do so by writing a `remove_user` callback and [adding its URL](/docs/integrations/apps/guide/developer-portal#edit-technical-details) to your app's [Developer Portal profile](https://devtools.bigcommerce.com). For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@example.com` could be permitted to edit product inventory but not view orders. If you decide to implement user permissions in your app, it’s a great feature to advertise.
+
+For more information, see [Multi-User Support](/docs/integrations/apps#multi-user-support).
+
+
 ## Deployment
 
 ### Consider hosting on Google Cloud Platform's us-central1 region
@@ -127,8 +80,8 @@ Bigcommerce.init({
 BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region; maximize performance by hosting in the same region.
 
 ## Next steps
-* [Check requirements](/api-docs/apps/guide/requirements).
-* [Publish your app](/api-docs/apps/guide/publish).
+* [Check requirements](/docs/integrations/apps/guide/requirements).
+* [Publish your app](/docs/integrations/apps/guide/publishing).
 
 ## Resources
 

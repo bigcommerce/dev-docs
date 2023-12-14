@@ -7,8 +7,8 @@ In this tutorial, we'll create a Node.js Express app that handles webhook callba
 
 ### Prerequisites
 
-- A store or app [API account](/api-docs/getting-started/api-accounts) with [OAuth scopes](/api-docs/getting-started/api-accounts#oauth-scopes) that include **Information & Settings** read-only and **Products** read-only.
-- [Webhooks Overview](/api-docs/store-management/webhooks/overview)
+- A store or app [API account](/docs/start/authentication/api-accounts) with [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes) that include **Information & Settings** read-only and **Products** read-only.
+- [Webhooks Overview](/docs/integrations/webhooks)
 - Familiarity with working in the terminal
 - Familiarity working with `node` and `npm`
 ## Create an Express app
@@ -86,7 +86,7 @@ Navigate to `http://localhost:4040/` in your browser. You should see the ngrok w
 
 ## Create a webhook
 
-Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](/api-docs/store-management/webhooks/webhook-events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](/docs/integrations/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
 
 
 ```http
@@ -103,8 +103,8 @@ Content-Type: application/json
 ```
 
 <Callout type="info">
-  * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
-  * Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
+  * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL and structure the destination URL as follows: `https://{ngrok_url}/webhooks`.
+  * Currently, BigCommerce does not support destination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
 </Callout>
 
 
@@ -179,6 +179,6 @@ If you are having trouble getting ngrok started, try setting the PATH.
 - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
-* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhook Events](/api-docs/store-management/webhooks/webhook-events)
-* [Webhooks Reference](/docs/webhooks/overview)
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhook Events](/docs/integrations/webhooks/events)
+* [Webhooks Reference](/docs/webhooks)
