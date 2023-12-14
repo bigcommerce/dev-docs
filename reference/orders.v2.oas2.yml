@@ -2284,6 +2284,7 @@ components:
                     - order_product_id: 188
                       product_id: 0
                       quantity: 1
+                  shipping_provider_display_name: USPS
                   generated_tracking_link: http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?strOrigTrackNum=EJ958083578US
                 - id: 7
                   order_id: 225
@@ -2327,6 +2328,7 @@ components:
                     - order_product_id: 189
                       product_id: 0
                       quantity: 1
+                  shipping_provider_display_name: USPS
                   generated_tracking_link: http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?strOrigTrackNum=EJ958083578US
     orderShipment_Resp:
       description: ''
@@ -2382,6 +2384,7 @@ components:
                   - order_product_id: 195
                     product_id: 0
                     quantity: 1
+                shipping_provider_display_name: USPS
                 generated_tracking_link: http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?strOrigTrackNum=EJ958083578US
     orderCount_Resp:
       description: ''
@@ -3197,6 +3200,10 @@ components:
               quantity:
                 type: integer
                 example: 2
+        shipping_provider_display_name:
+          type: string
+          description: The human-readable name for the `shipping_provider`.
+          readOnly: true
         generated_tracking_link:
           type: string
           description: The tracking link that is generated using the combination of either the `tracking_number` and `shipping_provider` or `tracking_number` and `tracking_carrier`. This will be empty if the custom `tracking_link` value is provided.
