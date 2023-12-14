@@ -22,7 +22,7 @@ info:
     ## Additional Information
 
     ### Webhooks
-    - [Shipment](/docs/integrations/webhooks/events#shipment)
+    - [Shipments](/docs/integrations/webhooks/events#shipments)
 
     ### Related API Resources
     - [Shipping Provider](/docs/rest-contracts/shipping)
