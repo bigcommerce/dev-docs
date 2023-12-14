@@ -7,7 +7,7 @@ It may be more appropriate for your application to use an API client to handle t
 
 <Callout type="info">
   #### Store owner access_token constraint
-  Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
+  Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) and authorized users can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
 </Callout>
 
 ## Overview
@@ -123,6 +123,11 @@ BigCommerce responds to the access_token request with JSON that contains a perma
     "username": "merchant@example.com",
     "email": "merchant@example.com"
   },
+  "owner": {
+    "id": 12345,
+    "username": "owner@example.com",
+    "email": "owner@example.com"
+  },
   "context": "stores/g5cd38",
   "account_uuid": "12345678-90ab-cdef-1234-567890abcdef"
 }
@@ -134,9 +139,12 @@ BigCommerce responds to the access_token request with JSON that contains a perma
 |:---------|:-----|:------------|
 | `access_token` | string | The semi-permanent security token that your app can use to make requests on behalf of the store. Save this value securely for future requests. |
 | `scope` | string | A space-separated list of the OAuth scopes this `access_token` authorizes access to. |
-| `user.id` | integer | BigCommerce’s unique identifier for the merchant or authorized user. Save this value to identify the user in future requests. |
-| `user.username` | string | The username that the initiating user has on file with BigCommerce. |
-| `user.email` | string | The email address that the owner or authorized user has on file with BigCommerce. Save this value for future requests. |
+| `user.id` | integer | BigCommerce’s unique identifier for the authorized user. Save this value to identify the user in future requests. |
+| `user.username` | string | The username that the authorized user has on file with BigCommerce. |
+| `user.email` | string | The email address that the authorized user has on file with BigCommerce. Save this value for future requests. |
+| `owner.id` | integer | BigCommerce’s unique identifier for the store owner. Save this value to identify the user in future requests. |
+| `owner.username` | string | The username that the store owner has on file with BigCommerce. |
+| `owner.email` | string | The email address that the store owner has on file with BigCommerce. Save this value for future requests. |
 | `context` | string | The path that identifies the store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
 | `account_uuid` | string, UUID | The ID of the Developer Portal account that registered the app profile. |
 

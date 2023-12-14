@@ -1,6 +1,6 @@
 # Single-Click App Callback Handlers
 
-After a store owner installs your single-click app, they and their authorized users will need to use it and configure any settings. In turn, your app will likely need to store and manage information about the stores and users you're supporting.
+After a store owner or authorized user installs your single-click app, they and other authorized users will need to use it and configure any settings. In turn, your app will likely need to store and manage information about the stores and users you're supporting.
 
 This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads. It also describes the payload schema of the `signed_payload_jwt`.
 
@@ -21,12 +21,12 @@ The following table lists the app management callbacks that BigCommerce stores s
 |:---------|:--------:|:---------------|:--------|:-----------------|:------------------|
 | `GET /auth{:http}` | yes | browser | URL-encoded | markup | See [Implement the OAuth flow](/docs/integrations/apps/guide/auth). |
 | `GET /load{:http}` | yes | browser | JWT | markup | The store owner or authorized user clicks to load the app. |
-| `GET /uninstall{:http}` | no | server | JWT | JSON | The store owner clicks to uninstall the app. |
+| `GET /uninstall{:http}` | no | server | JWT | JSON | The store owner or authorized user clicks to uninstall the app. |
 | `GET /remove_user{:http}` | no | server | JWT | JSON | The store owner revokes a user's access to the app. |
 
 ## Render the app with load
 
-Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store control panel, as well as their authorized users' control panels. When a user clicks your app's listing or another referring UI component, BigCommerce dispatches a request to your app's `GET /load{:http}` endpoint. The following is an example request: 
+Once the store owner or authorized user installs your app, it appears on the **Apps** sub-menu list in their store control panel, as well as their authorized users' control panels. When a user clicks your app's listing or another referring UI component, BigCommerce dispatches a request to your app's `GET /load{:http}` endpoint. The following is an example request: 
 
 ```http filename="Example request: /load callback from BigCommerce"
 GET https://your_app.example.com/load?signed_payload_jwt={header_b64.payload_claims_b64.signature_b64}
@@ -37,7 +37,7 @@ After your app [verifies the payload](#decode-and-verify-signed_payload_jwt), [i
 
 ## Deactivate stores with uninstall
 
-When the store owner clicks the **Uninstall** button on your app's card in the store control panel, BigCommerce dispatches a request to the app's `GET /uninstall{:http}` endpoint. The following is an example request:
+When the store owner or authorized user clicks the **Uninstall** button on your app's card in the store control panel, BigCommerce dispatches a request to the app's `GET /uninstall{:http}` endpoint. The following is an example request:
 
 ```http filename="Example request: uninstall callback from BigCommerce"
 GET https://your_app.example.com/uninstall?signed_payload_jwt={header_b64.payload_claims_b64.signature_b64}
@@ -74,7 +74,7 @@ Use the payload claim data to identify the store and user. What your app should 
 | Endpoint | Multiple Users Enabled | Multiple Users Not Enabled |
 |:---------|:-----------------------|:---------------------------|
 | `GET /load{:http}` | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner |
-| `GET /uninstall{:http}` | Compare user to store owner or existing user; only store owner can uninstall an app. | Matches store owner |
+| `GET /uninstall{:http}` | Compare user to store owner or existing user; only store owner or authorized users can uninstall an app. | Matches store owner |
 | `GET /remove_user{:http}` | Compare user to users stored in app database; remove matching user from database. | N/A |
 
 
