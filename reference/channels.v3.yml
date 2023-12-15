@@ -996,6 +996,9 @@ components:
                   $ref: '#/components/schemas/ChannelWithoutCurrencies'
               meta:
                 $ref: '#/components/schemas/MetaWithFullPagination'
+            required:
+              - data
+              - meta
           examples:
             response:
               $ref: '#/components/examples/multiple_channels_without_currencies_resp_example'
@@ -2567,6 +2570,9 @@ components:
           $ref: '#/components/schemas/ChannelDateModified'
         icon_url:
           $ref: '#/components/schemas/IconUrl'
+      required:
+        - id
+        - name
       x-internal: false
     ChannelWithCurrencies:
       type: object
