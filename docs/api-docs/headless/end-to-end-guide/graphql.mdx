@@ -1,8 +1,8 @@
 # End-to-End Guide: Headless Checkout Flow with GraphQL APIs
 
-BigCommerce offers GraphQL Storefront APIs for managing cart and checkout objects to build storefront functionality. The GraphQL APIs offer the same uses cases as our Cart and Checkout REST Management APIs but has the added benefit of making it easier to build headless storefront applications. Developers using GraphQL can spend less time focusing on API interactions and more time building the shopper experience.
+BigCommerce provides GraphQL Storefront APIs for managing cart and checkout objects to build storefront functionality. The GraphQL APIs provide the same use cases as our Cart and Checkout REST Management APIs but have the added benefit of making it easier to build headless storefront applications. Developers using GraphQL can spend less time focusing on API interactions and more time building the shopper experience.
 
-This end-to-end tutorial walks you through the following steps to build a headless storefront:
+This end-to-end tutorial targets developers who want to build a custom headless storefront. The tutorial walks you through critical GraphQL capabilities to fit most use cases when creating a headless storefront:
 
 * creating a token
 * querying product data
@@ -14,7 +14,6 @@ This end-to-end tutorial walks you through the following steps to build a headle
 * selecting shipping option
 * completing a checkout 
 
-
 ## Prerequisites
 
 To complete the guide, you will need the following:
@@ -23,7 +22,7 @@ To complete the guide, you will need the following:
 
 ## Create a customer impersonation token
 
-This type of token is the most appropriate for an application that will make server-to-server requests to the GraphQL Storefront API.
+Before getting started, create a token allowing you to make GraphQL POST requests as a customer. This type of token is the most appropriate for an application that will make server-to-server requests to the GraphQL Storefront API. This guide will use this authentication method. You could create and use a Storefront API Token to authenticate requests to the GraphQL Storefront API if you prefer to use tokens that expire. For more creating a Storefront API Token, see [Create a Token](https://developer.bigcommerce.com/docs/rest-authentication/tokens#create-a-token). 
 
 To generate a [customer impersonation token](/docs/rest-authentication/tokens#customer-impersonation-tokens), send a POST request to `/v3/storefront/api-token-customer-impersonation`.
 
@@ -53,15 +52,34 @@ Content-Type: application/json
 
 ## Querying product data
 
-The GraphQL Storefront API lets you retrieve product data from a store. For more information and examples, see the [Guide to Working with Products](/docs/storefront/graphql/examples/products).
+The GraphQL Storefront API lets you retrieve product data from a store. The following example demostrates how to query a simple product using the GraphQL Storefront API. For more information and examples, see the [Guide to Working with Products](/docs/storefront/graphql/examples/products).
 
-```graphql filename="Get a product with the product field" showLineNumbers copy
+<Callout type="info">
+#### Query best practices
+* Query less than 50 resources at a time.
+* Limit query complexity where possible.
+* Limit pagination where possible.
+* Employ security practices and limit scope where possible.
+* Employ caching where possible.
+</Callout>
+
+```graphql filename="Get a product" showLineNumbers copy
 # This query retrieves one product.
 
-query {
+query SingleProduct {
   site {
-    product (entityId: 111) {
-      # fields on the Product object type
+    product (entityId: ${params.id}) {
+      id
+      entityId
+      name
+      sku
+      description
+      prices {
+        price {
+          value
+          currencyCode
+        }
+      }
     }
   }
 }
@@ -150,12 +168,12 @@ BigCommerce's GraphQL Storefront API provides the same access to cart and checko
 
 ## Add cart line items
 
+To add a new line item to the existing cart, add the cart ID to the GraphQL variables or the mutation will fail.
+
 <Tabs items={['Request', 'Response']}>
   <Tab>
     
     ```graphql filename="Example mutation: Add cart line items" showLineNumbers copy
-    # Adds another line item.
-    # Add the cart ID to the GraphQL variables, or the mutation will fail. 
     mutation addCartLineItems($addCartLineItemsInput: AddCartLineItemsInput!) {
       cart {
         addCartLineItems(input: $addCartLineItemsInput) {
@@ -202,6 +220,8 @@ BigCommerce's GraphQL Storefront API provides the same access to cart and checko
 </Tabs>
 
 ## Get a checkout
+
+
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
