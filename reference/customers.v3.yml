@@ -171,13 +171,18 @@ paths:
              * `segment_ids`- segments the customer belongs to (Beta)
 
              `include=addresses,storecredit,attributes,formfields,shopper_profile_id,segment_ids`
+          explode: false
           schema:
-            type: string
-            enum:
-              - addresses
-              - storecredit
-              - attributes
-              - formfields
+            type: array
+            items:
+              type: string
+              enum:
+                - addresses
+                - storecredit
+                - attributes
+                - formfields
+                - shopper_profile_id
+                - segment_ids
         - in: query
           name: sort
           description: 'Sort items by date_created, date_modified, or last_name:* `date_created:asc` - date created, ascending* `date_created:desc` - date created, descending* `last_name:asc` - last name, ascending* `last_name:desc` - last name, descending * `date_modified:asc` - date modified, ascending* `date_modified:desc`- date modified, descending  Example: `sort=last_name:asc`'

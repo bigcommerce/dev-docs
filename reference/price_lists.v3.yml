@@ -849,11 +849,14 @@ paths:
           in: query
           description: |
             Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
+          explode: false
           schema:
-            type: string
-            enum:
-              - bulk_pricing_tiers
-              - sku
+            type: array
+            items:
+              type: string
+              enum:
+                - bulk_pricing_tiers
+                - sku
         - name: price
           in: query
           description: |
@@ -1927,11 +1930,14 @@ paths:
           description: |
             Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
             Sub-resources to include on a price record, in a comma-separated list. Valid expansions currently include `bulk_pricing_tiers` and `sku`. Other values will be ignored.
+          explode: false
           schema:
-            type: string
-            enum:
-              - bulk_pricing_tiers
-              - sku
+            type: array
+            items:
+              type: string
+              enum:
+                - bulk_pricing_tiers
+                - sku
       responses:
         '200':
           description: ''
