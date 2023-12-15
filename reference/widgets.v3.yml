@@ -753,11 +753,11 @@ components:
                       description: The HTML layout which defines complex positioning for placements.
                     date_created:
                       type: string
-                      format: datetime
+                      format: date-time
                       description: The date on which this object was initially created.
                     date_modified:
                       type: string
-                      format: datetime
+                      format: date-time
                       description: The date on which this object was last updated.
                   title: Layout
               meta:
@@ -854,11 +854,11 @@ components:
                       description: The HTML layout which defines complex positioning for placements.
                     date_created:
                       type: string
-                      format: datetime
+                      format: date-time
                       description: The date on which this object was initially created.
                     date_modified:
                       type: string
-                      format: datetime
+                      format: date-time
                       description: The date on which this object was last updated.
                   title: Layout
     PlacementsCollection_Resp:
@@ -1385,11 +1385,11 @@ components:
               description: The kind of widget template.
             date_created:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was initially created.
             date_modified:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was last updated.
             current_version_uuid:
               type: string
@@ -1415,11 +1415,11 @@ components:
               $ref: '#/components/schemas/widgetTemplate_Full'
             date_created:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was initially created.
             date_modified:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was last updated.
             version_uuid:
               type: string
@@ -1517,11 +1517,11 @@ components:
               description: The template file that you would like to target.
             date_created:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was initially created.
             date_modified:
               type: string
-              format: datetime
+              format: date-time
               description: The date on which this object was last updated.
             channel_id:
               type: integer
