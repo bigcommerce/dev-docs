@@ -87,13 +87,6 @@ paths:
       operationId: getChannelAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
-      parameters:
-        - name: channel_id
-          description: The channel ID of the settings overrides
-          in: path
-          required: true
-          schema:
-            type: integer
       responses:
         '200':
           description: OK
@@ -120,12 +113,6 @@ paths:
       tags:
         - Abandoned Carts Settings
       parameters:
-        - name: channel_id
-          description: The channel ID of the settings overrides
-          in: path
-          required: true
-          schema:
-            type: integer
         - $ref: '#/components/parameters/ContentType'
       requestBody:
         required: true
@@ -154,13 +141,13 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       security: []
     parameters:
-      
       - $ref: '#/components/parameters/Accept'
-      - schema:
-          type: string
-        name: channel_id
+      - name: channel_id
+        description: The channel ID of the settings overrides
         in: path
         required: true
+        schema:
+          type: integer
   '/abandoned-carts/{token}':
     get:
       responses:
