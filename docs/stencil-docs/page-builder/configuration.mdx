@@ -14,7 +14,7 @@ The basic division of labor is as follows:
 * `config.json` assigns and updates a default value for each of the editable settings.
 * Each `schema.json` entry has an ID element that maps it to its corresponding `config.json` entry. The ID value identifies the relevant `config.json` key name.
 * Keys located in both configuration files'`settings` define the theme's look, feel, and functionality.
-* Keys located in the `variations` object of `config.json` define variations of the theme. There is no limit to the number of variations each theme can include.
+* Keys located in the `variations` object of `config.json` define variations of the theme. There is a limit of four variations each theme can include.
 * For front-matter properties to be editable, your theme's Handlebars template must call certain Handlebars helpers to transform the `config.json` entries into JavaScript values.
 * For fonts to be editable, a Sass stylesheet must call certain custom Sass functions to transform the `config.json` font entries into CSS values.
 * For styles to be editable, a Sass stylesheet must call certain custom Handlebars helpers to transform the `config.json` entries into CSS values.
