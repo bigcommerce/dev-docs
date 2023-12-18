@@ -712,7 +712,7 @@ As a best practice, you should create tokens that expire and rotate them regular
 
 ### Can I hide the display of a field, such as the product's price, on the storefront by toggling the setting in the control panel?
 
-You can toggle off the field `show_product_price` in the control panel to prevent the display in GraphQL.
+You can toggle off the `show_product_price` field in the control panel to prevent the display in GraphQL. The `prices` field returns `null` in the GraphQL response.
 
 ### I want to run requests in the context of the store's default channel (channel ID 1)
 
