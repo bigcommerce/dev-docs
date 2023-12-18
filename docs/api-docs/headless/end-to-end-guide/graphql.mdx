@@ -1,6 +1,6 @@
 # End-to-End Guide: Headless Checkout Flow with GraphQL APIs
 
-BigCommerce provides GraphQL Storefront APIs for managing cart and checkout objects to build storefront functionality. The GraphQL APIs provide the same use cases as our Cart and Checkout REST Management APIs but have the added benefit of making it easier to build headless storefront applications. Developers using GraphQL can spend less time focusing on API interactions and more time building the shopper experience.
+BigCommerce provides GraphQL Storefront APIs for managing cart and checkout objects to build storefront features. The GraphQL APIs provide the same use cases as our Cart and Checkout REST Management APIs but have the added benefit of making it easier to build headless storefront applications. Developers using GraphQL can spend less time focusing on API interactions and more time building the shopper experience.
 
 This end-to-end tutorial targets developers who want to build a custom headless storefront. The tutorial walks you through critical GraphQL capabilities to fit most use cases when creating a headless storefront:
 
@@ -18,7 +18,7 @@ This end-to-end tutorial targets developers who want to build a custom headless 
 
 To complete the guide, you will need the following:
 * [BigCommerce sandbox store](https://start.bigcommerce.com/developer-sandbox/) 
-* Familarity with creating a channel and a site
+* Familiarity with creating a channel and a site
 
 ## Create a customer impersonation token
 
@@ -52,7 +52,7 @@ Content-Type: application/json
 
 ## Querying product data
 
-The GraphQL Storefront API lets you retrieve product data from a store. The following example demostrates how to query a simple product using the GraphQL Storefront API. For more information and examples, see the [Guide to Working with Products](/docs/storefront/graphql/examples/products).
+The GraphQL Storefront API lets you retrieve product data from a store. The following example demonstrates how to query a simple product using the GraphQL Storefront API. For more information and examples, see the [Guide to Working with Products](/docs/storefront/graphql/examples/products).
 
 <Callout type="info">
 #### Query best practices
@@ -87,7 +87,7 @@ query SingleProduct {
 
 ## Creating a cart
 
-BigCommerce's GraphQL Storefront API provides the same access to cart and checkout objects as the REST Storefront API. The example below shows how to create a new cart by adding a simple product.
+BigCommerce's GraphQL Storefront API provides the same cart and checkout objects as the REST Storefront API. The following example shows how to create a new cart by adding a simple product.
 
 <Tabs items={['Request', 'Response']}>
   <Tab>
