@@ -1,0 +1,523 @@
+title: Order Email Template
+description: Order email triggers when a customer or store admin creates an order.
+type: object
+properties:
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+      customer_message:
+        type: string
+      customer_id:
+        type: integer
+      date_placed:
+        type: object
+        properties:
+          formatted:
+            type: string
+          value:
+            type: integer
+      account_order_status_url:
+        type: string
+      shipping:
+        type: object
+        properties:
+          methods:
+            type: array
+            items:
+              type: object
+              properties: 
+          address:
+            type: object
+            properties:
+              email:
+                type: string
+              phone:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              company:
+                type: string
+              country:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              zip:
+                type: string
+              address_lines:
+                type: array
+                items:
+                  type: object
+                  properties: 
+              custom_fields:
+                type: array
+                items:
+                  type: object
+                  properties: 
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            quantity:
+              type: integer
+            sku:
+              type: string
+            address_lines:
+              type: array
+              items:
+                type: object
+                properties: 
+            address_id:
+              type: integer
+            options:
+              type: object
+              properties:
+                Size:
+                  type: string
+            download_url:
+              type: string
+            thumbnail:
+              type: string
+            brand:
+              type: string
+            event:
+              type: object
+              properties:
+                name:
+                  type: string
+                date:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                    formatted:
+                      type: string
+            price:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            total:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            preorder:
+              type: object
+              properties:
+                is_preorder:
+                  type: boolean
+                message:
+                  type: string
+                date:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                    formatted:
+                      type: string
+            attribute_lines:
+              type: array
+              description: A list of strings that represents product variant options.
+              items:
+                type: object
+                properties: 
+            configurable_fields:
+              type: array
+              description: Object array with properties name and value.
+              items:
+                type: object
+                properties: 
+      payment:
+        type: object
+        properties:
+          is_test:
+            type: boolean
+          provider_name:
+            type: string
+          offline_payment_message:
+            type: string
+          gateway_amount:
+            type: object
+            description: Price value. Provided only if the payment method is offline.
+            properties:
+              formatted:
+                type: string
+              value:
+                type: float
+      billing:
+        type: object
+        properties:
+          is_managed_by_amazon:
+            type: boolean
+          address:
+            type: object
+            properties:
+              email:
+                type: string
+              phone:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              company:
+                type: string
+              country:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              zip:
+                type: string
+              address_lines:
+                type: array
+                items:
+                  type: object
+                  properties: 
+              custom_fields:
+                type: array
+                items:
+                  type: object
+                  properties: 
+      total_rows:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+            price:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            shipping_discounts:
+              type: array
+              items:
+                type: object
+                properties: 
+      total_cost:
+        type: object
+        properties:
+          formatted:
+            type: string
+          value:
+            type: float
+      meta:
+        type: object
+        properties:
+          mandate_url:
+            type: string
+            description: Link to the confirmation page in Stripe
+          mandate_tag:
+            type: string
+            description: Short name of the payment document
+          shipping_addresses_num:
+            type: integer
+          show_immediate_download:
+            type: boolean
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+        description: 'Path to the store (i.e., domain + protocol)'
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+            description: 'Left to right or right to left, depending on the language'
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          comment_label:
+            type: string
+          order_id_line:
+            type: string
+          view_summary:
+            type: string
+          sepa:
+            type: string
+            description: A link to SEPA mandate and also receive this link embedded on email confirmation.
+          shipment_to_multiple_addresses:
+            type: string
+          shipping_immediate_download:
+            type: string
+          shipping_address_label:
+            type: string
+          immediate_download:
+            type: string
+          email:
+            type: string
+          billing_address_managed_by_amazon:
+            type: string
+          billing_address_label:
+            type: string
+          pending_payment:
+            type: string
+          how_to_pay:
+            type: string
+          pay_for_order_help:
+            type: string
+          order_total:
+            type: string
+          cart_items:
+            type: string
+          sku:
+            type: string
+          quantity:
+            type: string
+          item_price:
+            type: string
+          item_total:
+            type: string
+          payment_method:
+            type: string
+          no_payment_taken_in_test_mode:
+            type: string
+          download_files:
+            type: string
+          preorder:
+            type: string
+          download_available_after_payment:
+            type: string
+          shipped_to:
+            type: string
+          shipping_discount:
+            type: string
+          thanks_for_your_order:
+            type: string
+          your_order_contains:
+            type: string
+          shipping_method:
+            type: string
+          shipping_to_address:
+            type: string
+          your_order_will_be_shipped_by:
+            type: string
+          total_cost:
+            type: string
+          items:
+            type: string
+          total:
+            type: string
+          price:
+            type: string
+          email_address:
+            type: string
+examples:
+  order: 
+    id: 1
+    customer_message: Order custom message
+    customer_id: 11
+    date_placed: 
+      formatted: 11th Feb 2021
+      value: 1613060604
+    account_order_status_url: #url
+    shipping: 
+      methods: 
+      address:
+        email: 'test@gmail.com'
+        phone: +112233445566
+        first_name: John
+        last_name: Wick
+        company: MyCompany
+        country: 
+        city: 
+        state: 
+        zip: 1622
+        address_lines: 
+        custom_fields: 
+    products: 
+      - name: Test product name
+        quantity: 2
+        sku: SF42
+        address_lines: 
+        address_id: 0
+        options: 
+          Size: XL
+        download_url:
+        thumbnail_url: /test.jpg
+        event: 
+          name: 
+          date: 
+            value: 0
+            formatted: 
+        price: 
+          value: 250.1
+          formatted: 250.1
+        total: 
+          value: 250.1,
+          formatted: 250.1
+        preorder: 
+          is_preorder: false
+          message:
+          date: 
+            value: 0
+            formatted: 
+        attribute_lines:
+        configurable_fields:
+    payment: 
+      is_test: false
+      provider_name: PaymentMethod
+      offline_payment_message:
+      gateway_amount: 
+        formatted: 
+        value: 0
+    billing: 
+      is_managed_by_amazon: false
+      address:
+        email: 'test@gmail.com'
+        phone: +112233445566
+        first_name: John
+        last_name: Wick
+        company: MyCompany
+        country:
+        city: 
+        state:
+        zip: 1622
+        address_lines: 
+        custom_fields: 
+    total_rows: 
+      - label: Total,
+        price: 
+          value: 250.1,
+          formatted: 250.1
+        shipping_discounts: 
+    total_cost: 
+      formatted: 100.0$,
+      value: 100
+    meta: 
+      mandate_url: 
+      shipping_addresses_num: 1
+      show_immediate_download: false
+  store: 
+    name: My Dev Store 97434969
+    domain_name: 'my-dev-store-97434969.store.bcdev'
+    logo: 
+      title: [= My Dev Store 97434969 =]
+      name: 'avatar-2020_1612860757__16350.jpeg'
+      url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+    ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+    cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+    image_directory: product_images
+    img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+    path_normal: 'https://my-dev-store-97434969.store.bcdev'
+    path: 'https://my-dev-store-97434969.store.bcdev'
+    address: '123 Fake St, Dallas, TX 75225'
+    language: 
+      code: en
+      direction: ltr
+  customer: 
+    first_name: John,
+    full_name: John Jr
+    email: 'john.f@example.com'
+  misc: 
+    year: 2021
+  translations: 
+    en: 
+      comment_label: Order Instructions/Comments
+      order_id_line: Your order ID is <strong>#{{id}}</strong>.
+      view_summary: A summary of your order is shown below. To view the status of your order <a href='link'>click here</a>.
+      sepa: 'SEPA Direct Debit Mandate'
+      shipment_to_multiple_addresses: (Order will be shipped to multiple addresses)
+      shipping_immediate_download: Immediate download after completion of payment.
+      shipping_address_label: Shipping Address
+      immediate_download: Immediate Download
+      email: Email
+      billing_address_managed_by_amazon: Managed by Amazon
+      billing_address_label: Billing Address
+      pending_payment: Your order requires payment before it can be finalized. Details on how to pay are shown below.
+      how_to_pay: Your order requires payment before it can be finalized. Details on how to pay are shown below.
+      pay_for_order_help: Once you've provided payment your order will be completed.
+      order_total: The outstanding balance of your order is amount
+      cart_items: Cart Items
+      sku: SKU
+      quantity: Qty
+      item_price: Item Price
+      item_total: Item Total
+      payment_method: Payment Method
+      no_payment_taken_in_test_mode: '<b>Please Note</b>: No money was taken for this order, because the payment provider is in test mode.'
+      download_files: Download Files
+      preorder: This product is available for pre-order only
+      download_available_after_payment: Items available for immediate download after completion of payment
+      shipped_to: Items shipped to address
+      shipping_discount: price off using code Coupon Code
+      thanks_for_your_order: Thanks for Your Order
+      your_order_contains: Your Order Contains...
+      shipping_method: Shipping Method
+      shipping_to_address: Shipping to Address
+      your_order_will_be_shipped_by: Your Order Will Be Shipped By...
+      total_cost: Total Cost
+      items: Items
+      total: Total
+      price: Price
+      email_address: Email Address

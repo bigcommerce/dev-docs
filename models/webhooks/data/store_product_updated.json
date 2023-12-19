@@ -1,0 +1,11 @@
+{
+  "scope": "store/product/updated",
+  "store_id": "1025646",
+  "data": {
+      "type": "product",
+      "id": 205
+  },
+  "hash": "a833a57fadd56a32dc752fb6ca0841dc9602a495",
+  "created_at": 1561479233,
+  "producer": "stores/{store_hash}"
+}

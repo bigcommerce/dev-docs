@@ -1,0 +1,38 @@
+type: object
+properties:
+  store/sku/inventory/order/updated:
+    description: |-
+      Fires when _variant_ inventory levels change in response to the order-related events configured in [Inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). The settings for a channel apply when inventory changes through an order in a channel.
+      
+      The webhook does not fire for products without variants. For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          inventory:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              method:
+                type: string
+              value:
+                type: integer
+              variant_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

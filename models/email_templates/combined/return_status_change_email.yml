@@ -1,0 +1,201 @@
+description: Return status change email triggers after a customer returnʼs status has changed.
+type: object
+title: Return Status Change Email Template
+properties:
+  return:
+    type: object
+    properties:
+      id:
+        type: integer
+      reason:
+        type: string
+      action:
+        type: string
+      comments:
+        type: string
+      product:
+        type: object
+        properties:
+          name:
+            type: string
+          quantity:
+            type: integer
+          price:
+            type: string
+          sku:
+            type: string
+          thumbnail:
+            type: string
+      status:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      store_credit:
+        type: object
+        properties:
+          value:
+            type: float
+          formatted:
+            type: string
+      link:
+        type: string
+      instructions:
+        type: string
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+        description: 'Path to the store (i.e., domain + protocol)'
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+            description: 'Left to right or right to left, depending on the language'
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          received_credit:
+            type: string
+          details_title:
+            type: string
+          return_reason:
+            type: string
+          return_action:
+            type: string
+          return_comments:
+            type: string
+          check_status:
+            type: string
+          products_title:
+            type: string
+          quantity:
+            type: string
+          instructions_title:
+            type: string
+          go_shopping:
+            type: string
+example:
+  return: 
+    id: 1
+    reason: reason of return
+    action: action
+    comments: sample comment
+    product: 
+      name: ProductName
+      quantity: 2
+      thumbnail_url: ''
+    status: 
+      value: 1
+      formatted: Pending
+    store_credit: 
+      value: 10.1
+      formatted: '$10.1 USD'
+    link: 'https://my-dev-store-97434969.store.bcdev/account.php?action=view_returns'
+    instructions: 
+  order: 
+    id: 1
+  store: 
+    name: My Dev Store 97434969
+    domain_name: my-dev-store-97434969.store.bcdev
+    logo: 
+      title: '[= My Dev Store 97434969 =]'
+      name: avatar-2020_1612860757__16350.jpeg
+      url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+    ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+    cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+    image_directory: product_images
+    img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+    path_normal: 'https://my-dev-store-97434969.store.bcdev'
+    path: 'https://my-dev-store-97434969.store.bcdev'
+    address: '123 Fake St, Dallas, TX 75225'
+    language: 
+      code: en
+      direction: ltr
+  customer: 
+    first_name: John
+    full_name: John Jr
+    email: 'john.f@example.com'
+  misc: 
+    year: 2021
+  translations: 
+    en: 
+      title: 'Return request status changed'
+      hello: 'Hello {{name}}'
+      message: 'The status of your return request for order #{{id}} has changed to <strong>{{status}}</strong>.'
+      received_credit: 'You have received a store credit of {{credits}} To use it simply place your order and you will be able to choose store credit as the payment method when it comes time to pay for your order.'
+      details_title: Return details
+      return_reason: 'Return reason:'
+      return_action: 'Return action:'
+      return_comments: 'Your comments:'
+      check_status: Check return status
+      products_title: Return items
+      quantity: 'Qty:'
+      instructions_title: 'Return Instructions:'
+      go_shopping: Go shopping

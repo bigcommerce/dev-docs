@@ -1,0 +1,394 @@
+openapi: '3.0.0'
+info:
+  version: ''
+  title: Payment Access Token
+  description: |
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/docs/store-operations/payments).
+
+    BigCommerce payments requests require a Payment Access Token, or _PAT_, which is a single use BigCommerce-generated JWT that's tied to the particular **order** for which the shopper authorizes BigCommerce to submit a payment. 
+    
+    To get a valid PAT, submit the order number to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint. Authenticate using an [API account access token](/docs/start/authentication/api-accounts#api-accounts) with the [Create payments](/docs/start/authentication/api-accounts#token-creation-scopes) scope as the value of the X-Auth-Token header.
+
+    You can also generate a PAT during checkout by using the `completeCheckout` mutation in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments).
+
+    For a guide through the API call sequence needed to create a PAT and make charges, see the [Payments Overview](/docs/store-operations/payments#compatible-payment-gateways).
+
+    > To learn more about authenticating Payments endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
+
+    ## Resources
+
+    * [Payments Overview](/docs/store-operations/payments)
+    * [Process payments authentication example request](/docs/start/authentication#bigcommerce-generated-jwts)
+    * [Orders Overview](/docs/store-operations/orders)
+    
+    ### Webhooks
+    
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+
+
+    ### Additional Payments endpoints
+
+    * [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods)
+    * [Process payments](/docs/rest-payments/processing#process-payment)
+    * [Get a customer's stored instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+tags:
+  - name: Tokens
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+paths:
+  '/payments/access_tokens':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      description: |-
+        Use this endpoint to create a payment access token. A payment access token is required to process payments with the BigCommerce API.
+
+        You can also generate a payment access token during checkout by using the `completeCheckout` mutation in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments).
+
+        After the token is created, use the token to [Process a payment](/docs/rest-payments/processing#process-payment).
+
+        **Required Fields**
+        * order_id
+      summary: Create Payment Access Token
+      tags:
+        - Tokens
+      operationId: PaymentsAccessTokensPost
+      deprecated: false
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Payment Access Token Request
+              type: object
+              properties:
+                order:
+                  $ref: '#/components/schemas/Order'
+              required:
+                - order
+            examples:
+              example-1:
+                value:
+                  order:
+                    id: 1
+                    is_recurring: false
+        required: true
+        x-examples:
+          application/json:
+            order:
+              id: 44796008
+              is_recurring: true
+          Example:
+            order:
+              id: 182
+      responses:
+        '201':
+          description: Payment access token has been successfully created.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Payments Access Tokens Response
+                type: object
+                properties:
+                  data:
+                    title: Payment Access Token
+                    type: object
+                    properties:
+                      id:
+                        description: Payment access token. This token is required in the subsequent request to the [Process a payment](/docs/rest-payments/processing#process-payment) endpoint.
+                        type: string
+                        minLength: 1
+                    required:
+                      - id
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              examples:
+                example-1:
+                  value:
+                    data:
+                      id: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTUyNTA3NTksIm5iZiI6MTYxNTI0Nz E1OSwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoieHNsM3 JoZGYzNiIsImp0aSI6IjNhOGE3NTJjLTBmNWQtNDNmNS05MzdjLTRhMTYzODBlMW YwZCIsImlhdCI6MTYxNTI0NzE1OSwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDEzMz YzMjQiLCJvcmRlcl9pZCI6IjE2NiIsImFtb3VudCI6NDU3OTAsImN1cnJlbmN5Ij oiVVNEIn19.dpCDgOfbNrz095VARY20yYBRTOuq-W1F0ETTgf1Zhbs
+                    meta: {}
+        '400':
+          description: Request has been rejected
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '401':
+          description: Valid authentication required
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '404':
+          description: Request has been rejected due to resource not being found
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '409':
+          description: Request has been rejected due to conflict with the current state of the target resource
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '422':
+          description: Request has been rejected due to missing or invalid data
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        default:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    Order:
+      title: Order
+      type: object
+      properties:
+        id:
+          description: Identifier for the order
+          type: integer
+          minimum: 1
+          format: int32
+        is_recurring:
+          description: Whether this is a recurring order. If the order is recurring this field should be set to true in order to let the payment gateway know.
+          example: false
+          type: boolean
+          default: false
+      required:
+        - id
+      x-examples:
+        example-1:
+          id: 1
+          is_recurring: false
+      x-internal: false
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Create Payments | create | `store_payments_access_token_create` |
+        |  Get Payment Methods | read-only | `store_payments_methods_read` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+

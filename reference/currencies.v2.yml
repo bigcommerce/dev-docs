@@ -1,0 +1,403 @@
+openapi: '3.0.1'
+info:
+  title: Currencies
+  description: |-
+    Manage alternate currency display options on the storefront.
+
+    ## Definitions
+
+    | Name | Description |
+    | -- | -- |
+    | Default Currency | Storeʼs default currency is the one from which any auto-conversion of pricing (product, tax, shipping, promotions) will happen.|
+    | Display Currency | Currency that is displayed on the storefront. This might or might not mean that shopper can actually transact in that currency. Display currency is also often called "presentment currency" in the payments industry. |
+    | Transactional Currency | Transactional currency is what currency and amount BigCommerce passes to the payment provider and the currency/amount that the shopper will be charged to their bank account. If thereʼs a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate that will be used will be outside of BigCommerceʼs purview. |
+    | Settlement Currency | This is the currency in which the merchant gets paid out to their bank account. If thereʼs a discrepancy between the currency that shopper transacts in and the currency in which merchant settles, merchant has to pay a conversion fee and the conversion rate used will be outside of BigCommerceʼs purview. Merchant is able to set their settlement currency through their payment provider. |
+    |BigCommerce Conversion Rate | Any conversion rate set on BigCommerce used to convert product’s default currency pricing into a new non-default currency. Conversion rate could be static or dynamic. |
+    | Static Conversion Rate | One of the two auto-converted pricing options. If a merchant manually enters a static conversion rate, then the conversion rate will remain the same until/unless merchant updates their currency settings to use a different conversion rate. The advantage of using this method is to avoid constantly fluctuating price in non-default currencies. |
+    | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, theyʼve tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the storeʼs default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use API to automatically update the exchange rate from their trusted source. |
+    | Bank Conversion Rate | Conversion rate used by merchant’s or shopper’s payment or credit card provider when auto-converting from store’s transactional currency. This rate might not align with the BigCommerce conversion rate and BigCommerce has no visibility into it. |
+    | Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BigCommerce conversion rate, merchant has a choice to set price per product per currency. This will be implemented through price lists. |
+
+    ## FAQ
+
+    **Do Multi-Currency settings work with the Checkout SDK?**  
+    The Checkout SDK works with multi-currency. There is no additional setup needed for the SDK.
+    After setting up currency in the Control Panel the SDK will work as normal.
+
+    ## Resources
+
+    - [How Currencies Work](/docs/store-operations/currencies/guide)
+    - [Price List API Reference](/docs/rest-management/price-lists)
+    - [Using Price Lists (Help Center)](https://support.bigcommerce.com/s/article/Price-Lists)
+    - [Managing Currencies (Help Center)](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) 
+    - [Tax (Help Center)](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1)
+  version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Currencies (Single)
+  - name: Currencies (Bulk)
+paths:
+  /currencies:
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Currencies (Bulk)
+      summary: Get All Currencies
+      description: Returns a list of all store *Currency*.
+      operationId: getAllCurrencies
+      parameters:
+        - name: page
+          description: |
+            Specifies the page number in a limited (paginated) list of currencies.
+          required: false
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          description: |
+            Controls the number of items per page in a limited (paginated) list of currencies.
+          required: false
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/currency_Full'
+    post:
+      tags:
+        - Currencies (Bulk)
+      summary: Create a Currency
+      operationId: createACurrency
+      description: |-
+        Creates *Currency*.
+
+        **Required Fields** 
+
+        * name
+        * currency_code
+        * currency_exchange_rate
+        * token_location
+        * token
+        * decimal_token
+        * thousands_token
+        * decimal_places
+
+        **Read-Only Fields**
+        * id
+        * date_created
+        * date_modified
+
+
+        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. To change the storeʼs default currency in the BigCommerce control panel, please see [Managing Currencies (Help Center)](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta).
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currency_Post'
+        required: false
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currency_Full'
+    delete:
+      tags:
+        - Currencies (Bulk)
+      summary: Delete All Currencies
+      operationId: deleteAllCurrencies
+      description: Deletes all non-default store currencies.
+      responses:
+        '204':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+  /currencies/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: Currency ID
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - Currencies (Single)
+      summary: Get a Currency
+      description: Returns a single *Currency*.
+      operationId: getACurrency
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currency_Full'
+    put:
+      tags:
+        - Currencies (Single)
+      summary: Update a Currency
+      description: |-
+        Updates a *Currency*.
+
+        **Read-Only Fields**
+
+        * id
+        * date_created
+        * date_modified
+        * currency_code
+
+
+        The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. 
+      operationId: updateACurrency
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currency_Put'
+        required: false
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currency_Full'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Currencies (Single)
+      summary: Delete a Currency
+      description: |-
+        Deletes a *Currency*.
+
+        If a currencyʼs `is_default` property is set to true, this currency cannot be deleted. 
+      operationId: deleteACurrency
+      responses:
+        '204':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    currency_Post:
+      $ref: '#/components/schemas/currency_Base'
+    currency_Base:
+      title: currency_Base
+      required:
+        - currency_code
+        - currency_exchange_rate
+        - decimal_places
+        - decimal_token
+        - name
+        - thousands_token
+        - token
+        - token_location
+      type: object
+      properties:
+        is_default:
+          type: boolean
+          description: Specifies the store’s default currency display format. For
+            write operations, only true value is accepted. When set to true, it cannot
+            be unset, only overridden.
+          example: false
+        country_iso2:
+          type: string
+          description: 2-letter ISO Alpha-2 code for this currency’s country.
+          example: EU
+        currency_code:
+          type: string
+          description: 3-letter ISO 4217 code for this currency.
+          example: EUR
+        currency_exchange_rate:
+          type: string
+          description: Amount of this currency that is equivalent to one U.S. dollar.(Float,
+            Float as String, Integer)
+          example: "0.849"
+        auto_update:
+          type: boolean
+          description: Specifies whether to use the Open Exchange Rates service to
+            update the currency conversion. A value of false specifies a static conversion
+            value. auto_update only applies to non-transactional currencies.
+          example: true
+        token_location:
+          type: string
+          description: Specifies whether this currency’s symbol appears to the “left”
+            or “right” of the numeric amount.
+          example: left
+        token:
+          type: string
+          description: Symbol for this currency.
+          example: €
+        decimal_token:
+          type: string
+          description: Symbol used as the decimal separator in this currency.
+          example: "."
+        thousands_token:
+          type: string
+          description: Symbol used as the thousands separator in this currency.
+          example: ','
+        decimal_places:
+          type: integer
+          description: Number of decimal places to show for this currency.
+          example: 2
+        name:
+          type: string
+          description: Name of the currency.
+          example: Euro
+        enabled:
+          type: boolean
+          description: If the currency is active on the store.
+          example: false
+        is_transactional:
+          type: boolean
+          description: Indicates if the currency is set as transactional or not. False
+            means display only currency
+          example: false
+      description: Currency Object
+      example:
+        id: 2
+        is_default: false
+        last_updated: Tue, 12 Jun 2018 14:41:56 +0000"
+        country_iso2: EU
+        currency_code: EUR
+        currency_exchange_rate: '0.849'
+        auto_update: true
+        token_location: left
+        token: €
+        decimal_token: "."
+        thousands_token: ','
+        decimal_places: 2
+        name: Euro
+        enabled: false
+      x-examples:
+        Example:
+          value:
+            country_iso2: EU
+            currency_code: EUR
+            currency_exchange_rate: "0.849"
+            auto_update: true
+            token_location: left
+            token: €
+            decimal_token: "."
+            thousands_token: ','
+            decimal_places: 2
+            name: Euro
+            is_transactional: false
+            id: 2
+            is_default: false
+            last_updated: 2018-06-12T14:41:56.000Z
+            enabled: false
+      x-internal: false
+    currency_Put:
+      $ref: '#/components/schemas/currency_Post'
+    currency_Full:
+      title: currency_Full
+      allOf:
+      - $ref: '#/components/schemas/currency_Base'
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: ID of the currency. Read only.
+            readOnly: true
+            example: 2
+          last_updated:
+            type: string
+            description: Date the currency was last updated, created or modified.
+            format: date-time
+      x-internal: false
+  responses:
+    currencyCollection_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/currency_Full'
+    currency_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/currency_Full'
+  parameters:
+    StoreHash:
+      name: store_hash
+      in: path
+      required: true
+      schema:
+        type: string
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

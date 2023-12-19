@@ -1,0 +1,169 @@
+title: Abandoned Cart Email Template
+description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
+type: object
+properties:
+  notification:
+    type: array
+    items:
+      type: object
+      properties:
+        unsubscribe_link:
+          type: string
+        checkout_link:
+          type: string
+  coupon:
+    type: array
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+        type:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              formatted:
+                type: string
+        amount:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: number
+                format: float
+              formatted:
+                type: string
+  cart:
+    type: array
+    items:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  url:
+                    type: string
+                  name:
+                    type: string
+                  quantity:
+                    type: integer
+                  sku:
+                    type: string
+                  thumbnail:
+                    type: string
+                  attributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            value:
+                              type: string
+                  price:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                          format: float
+                        formatted:
+                          type: string
+                  type:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: integer
+                        formatted:
+                          type: string
+  store:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        domain_name:
+          type: string
+        logo:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+        ssl_path:
+          type: string
+        cdn_path:
+          type: string
+        image_directory:
+          type: string
+        img_path:
+          type: string
+        path_normal:
+          type: string
+        path:
+          type: string
+        address:
+          type: string
+        phone_number:
+          type: string
+        language:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+  customer:
+    type: array
+    items:
+      type: object
+      properties:
+        first_name:
+          type: string
+        full_name:
+          type: string
+        email:
+          type: string
+        group:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+  misc:
+    type: array
+    items:
+      type: object
+      properties:
+        year:
+          type: integer

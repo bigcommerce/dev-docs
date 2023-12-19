@@ -1,0 +1,237 @@
+openapi: '3.0.0'
+info:
+  title: Store Logs V3 API
+  version: ''
+  description: This API can be used to retrieve and filter for specific store logs.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+paths:
+  '/store/systemlogs':
+    get:
+      summary: Get System Logs
+      description: 'Get system logs '
+      tags:
+        - System Logs
+      operationId: get-sites
+      responses:
+        '200':
+          description: The request completed successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SystemLog'
+                  meta:
+                    $ref: '#/components/schemas/IndexMeta'
+      parameters:
+        - schema:
+            type: integer
+            default: 50
+          in: query
+          name: limit
+          description: Query parameter that lets you return the number of results displayed per page.
+        - schema:
+            type: integer
+            default: 1
+          in: query
+          name: page
+          description: Query parameter that lets you specify the starting page in which results are returned.
+        - schema:
+            type: string
+            enum: 
+              - general
+              - payment
+              - shipping
+              - tax
+              - notification
+              - emailintegration
+              - ordersettings
+              - design
+          in: query
+          name: type
+          description: Query parameter that lets you filter the results by log type.
+        - schema:
+            type: string
+          in: query
+          name: 'type:not'
+          description: Query parameter that lets you exclude a log type from the results.
+        - schema:
+            type: string
+            enum:
+              - export+only
+              - email+message
+              - theme+download
+              - order+status
+              - optimized+checkout
+          in: query
+          name: module
+          description: Query parameter that lets you filter the results by module.
+        - schema:
+            type: string
+          in: query
+          name: 'module:not'
+          description: Query parameter that lets you exclude a log module from the results.
+        - schema:
+            type: integer
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+          in: query
+          name: severity
+          description: 'Query parameter that lets you filter results by severity level, as an integer. The following values are possible: Success = 1, Notice = 2, Warning = 3, Error = 4'
+        - schema:
+            type: integer
+          in: query
+          name: 'severity:min'
+          description: 'Query parameter that lets you filter by minimum severity, as an integer.'
+        - schema:
+            type: integer
+          in: query
+          name: 'severity:max'
+          description: 'Query parameter that lets you filter by maximum severity, as an integer.'
+        - schema:
+            type: string
+          in: query
+          name: 'id:in'
+          description: 'Query parameter that lets you filter by a list of log IDs, as a CSV. For example ?id:in=3,4,6'
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:min'
+          description: 'Query parameter that lets you filter by the minimum date created in [Unix time](https://www.unixtimestamp.com/), for example, `?date_created:min=1657688400`. Returns logs created after this date.'
+        - schema:
+            type: string
+          in: query
+          name: 'date_created:max'
+          description: 'Query parameter that lets you filter by the maximum date created in [Unix time](https://www.unixtimestamp.com/), for example, `?date_created:min=1658379600`. Returns logs created before this date.'
+    parameters: []
+components:
+  schemas:
+    IndexMeta:
+      type: object
+      description: BigCommerce meta payload for collection-type responses.
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 1
+            count:
+              type: integer
+              example: 1
+            per_page:
+              type: integer
+              example: 50
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  example: '?page=1&limit=50'
+                current:
+                  type: string
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  example: '?page=1&limit=50'
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The title of the message describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    SystemLog:
+      title: SystemLog
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        module:
+          type: string
+        severity:
+          type: string
+        summary:
+          type: string
+        message:
+          type: string
+        date_created:
+          type: string
+          format: date-time
+  parameters: {}
+  requestBodies: {}
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Store logs | read-only | store_logs_read_only |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+tags:
+  - name: System Logs
+security:
+  - X-Auth-Token: []

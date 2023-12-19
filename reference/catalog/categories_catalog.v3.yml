@@ -1,0 +1,2355 @@
+openapi: '3.0.3'
+info:
+  title: Catalog - Categories
+  description: |-
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
+
+    Our Catalog Categories endpoints let you [create individual categories](/docs/rest-catalog/categories#create-a-category) and [modify categories](/docs/rest-catalog/categories#update-a-category) that organize a store's products, as well as [delete categories](/docs/rest-catalog/categories#delete-a-category). 
+    
+    Category images have their own dedicated [create a category image](/docs/rest-catalog/categories/images#create-a-category-image) and [delete a category image](/docs/rest-catalog/categories/images#delete-a-category-image) endpoints. 
+    
+    In addition, categories have metafields that you can use to store information structured in key-value pairs; learn more about [creating category metafields](/docs/rest-catalog/categories/metafields#create-a-category-metafield), [updating category metafields](/docs/rest-catalog/categories/metafields#update-a-category-metafield), and [deleting category metafields](/docs/rest-catalog/categories/metafields#delete-a-category-metafield). 
+
+    This API family also contains endpoints to [update product sort order](/docs/rest-catalog/categories/sort-order#update-product-sort-order) within a category. 
+
+    These endpoints are primarily useful in applications for single storefront stores. To work with categories for an [MSF-enabled store](/docs/storefront/multi-storefront), see [Category Trees](/docs/rest-catalog/category-trees).
+
+    > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
+
+    ## Resources
+
+    ### Webhooks
+    Learn more about [Category webhook events](/docs/integrations/webhooks/events#category).
+
+    ### Additional Catalog endpoints
+    * [Brands](/docs/rest-catalog/brands)
+    * [Category Trees](/docs/rest-catalog/category-trees)
+    * [Products](/docs/rest-catalog/products)
+    * [Product Modifiers](/docs/rest-catalog/product-modifiers)
+    * [Product Variants](/docs/rest-catalog/product-variants)
+    * [Product Variant Options](/docs/rest-catalog/product-variant-options)
+
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Categories
+  - name: Metafields
+  - name: Images
+  - name: Sort Order
+paths:
+  '/catalog/categories':
+    get:
+      tags:
+        - Categories
+      summary: Get All Categories
+      description: |-
+        Returns a list of *Categories*. Optional filter parameters can be passed in.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
+      operationId: getCategories
+      parameters:
+        - name: id
+          in: query
+          description: |
+            Filter items by ID.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:not_in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: name
+          in: query
+          description: |
+            Filter items by name.
+          schema:
+            type: string
+        - name: 'name:like'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: parent_id
+          in: query
+          description: 'Filter items by parent_id. If the category is a child or sub category it can be filtered with the parent_id. '
+          schema:
+            type: integer
+        - name: 'parent_id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: page_title
+          in: query
+          description: |
+            Filter items by page_title.
+          schema:
+            type: string
+        - name: 'page_title:like'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: keyword
+          in: query
+          description: 'Filter items by keywords. eg. new, towel, bath'
+          schema:
+            type: string
+        - name: is_visible
+          in: query
+          description: 'Filter items by if visible on the storefront. '
+          schema:
+            type: boolean
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: |-
+            Controls the sort order of the response, for example, `sort=name`.
+          
+            Allowed values: 
+            - `name`: sort categories in alphabetical order by category name.
+            - `id`: sort in ascending order by category ID.
+            - `parent_id`: sort in ascending order by the ID of the parent category.
+            - `sort_order`: sort in ascending order by sort order value.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Category Base
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+              example:
+                data:
+                  - id: 19
+                    parent_id: 0
+                    name: Garden
+                    description: <p>This is the garden description</p>
+                    views: 0
+                    sort_order: 2
+                    page_title: page title
+                    meta_keywords:
+                      - meta keyword
+                    meta_description: meta description
+                    layout_file: category.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: search keywords
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /garden/
+                      is_customized: false
+                  - id: 20
+                    parent_id: 0
+                    name: Publications
+                    description: ''
+                    views: 0
+                    sort_order: 4
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    layout_file: category_with_facets.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: ''
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /publications/
+                      is_customized: false
+                  - id: 21
+                    parent_id: 0
+                    name: Kitchen
+                    description: ''
+                    views: 0
+                    sort_order: 3
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    layout_file: category_with_facets.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: ''
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /kitchen/
+                      is_customized: false
+                  - id: 22
+                    parent_id: 0
+                    name: Utility
+                    description: ''
+                    views: 0
+                    sort_order: 5
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    layout_file: category_with_facets.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: ''
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /utility/
+                      is_customized: false
+                  - id: 23
+                    parent_id: 0
+                    name: Shop All
+                    description: ''
+                    views: 0
+                    sort_order: 0
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    layout_file: category_with_facets.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: ''
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /shop-all/
+                      is_customized: false
+                  - id: 39
+                    parent_id: 19
+                    name: Bath
+                    description: ''
+                    views: 0
+                    sort_order: 0
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    layout_file: category.html
+                    image_url: ''
+                    is_visible: true
+                    search_keywords: ''
+                    default_product_sort: use_store_settings
+                    custom_url:
+                      url: /garden/bath/
+                      is_customized: false
+                meta:
+                  pagination:
+                    total: 6
+                    count: 6
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+    post:
+      tags:
+        - Categories
+      summary: Create a Category
+      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit.\n\n **Note:**\n The default rate limit for this endpoint is 40 concurrent requests.\n"
+      operationId: createCategory
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Category
+              type: object
+              description: Common Category object properties.
+              properties:
+                parent_id:
+                  type: integer
+                  description: |-
+                    The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                    Required in a POST if creating a child category.
+                  example: 2
+                  x-required:
+                    - post
+                name:
+                  maxLength: 50
+                  minLength: 1
+                  type: string
+                  description: |-
+                    The name displayed for the category. Name is unique with respect to the category's siblings.
+                    Required in a POST.
+                  example: Bath
+                  x-required:
+                    - post
+                description:
+                  type: string
+                  description: |
+                    The product description, which can include HTML formatting.
+                  example: <p>We offer a wide variety of products perfect for relaxing</p>
+                views:
+                  type: integer
+                  description: |
+                    Number of views the category has on the storefront.
+                  example: 1050
+                sort_order:
+                  maximum: 2147483647
+                  minimum: -2147483648
+                  type: integer
+                  description: |
+                    Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+                  example: 3
+                page_title:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    Custom title for the category page. If not defined, the category name will be used as the meta title.
+                  example: Bath
+                search_keywords:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    A comma-separated list of keywords that can be used to locate the category when searching the store.
+                meta_keywords:
+                  type: array
+                  description: |
+                    Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                  items:
+                    type: string
+                meta_description:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                layout_file:
+                  maxLength: 500
+                  minLength: 0
+                  type: string
+                  description: |
+                    A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                  example: category.html
+                is_visible:
+                  type: boolean
+                  description: |
+                    Flag to determine whether the category should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+                default_product_sort:
+                  type: string
+                  description: |
+                    Determines how the products are sorted on category page load.
+                  enum:
+                    - use_store_settings
+                    - featured
+                    - newest
+                    - best_selling
+                    - alpha_asc
+                    - alpha_desc
+                    - avg_customer_review
+                    - price_asc
+                    - price_desc
+                image_url:
+                  type: string
+                  description: |
+                    Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                  example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                  x-url: true
+                custom_url:
+                  title: Custom Url Category
+                  type: object
+                  description: The custom URL for the category on the storefront.
+                  properties:
+                    url:
+                      maxLength: 255
+                      minLength: 0
+                      type: string
+                      description: |
+                        Category URL on the storefront.
+                      example: /shoes
+                      x-required:
+                        - post
+                        - put
+                      x-url: true
+                    is_customized:
+                      type: boolean
+                      description: |
+                        Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                      x-required:
+                        - post
+                        - put
+              required:
+                - parent_id
+                - name
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Category Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/category_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_Base'
+        '409':
+          description: |
+            The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Category` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: category
+    delete:
+      tags:
+        - Categories
+      summary: Delete Categories
+      description: |-
+        Deletes *Category* objects. At least one filter parameter is required to perform the `DELETE` operation.
+
+        **Usage Notes**
+
+        - Sending a `DELETE`request without specifying a filter parameter will result in a `422` error. 
+        - Sending a `DELETE` request for a category that contains products will result in a `422` error. Move products to a new category by sending a `PUT` request to the `/catalog/products/{product_id}` endpoint before deleting a category.
+      operationId: deleteCategories
+      parameters:
+        - name: id
+          in: query
+          description: Filter items by ID.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:not_in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: name
+          in: query
+          description: |
+            Filter items by name.
+          schema:
+            type: string
+        - name: parent_id
+          in: query
+          description: 'Filter items by parent_id. If the category is a child or sub category it can be filtered with the parent_id. '
+          schema:
+            type: integer
+        - name: page_title
+          in: query
+          description: |
+            Filter items by page_title.
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          description: 'Filter items by keywords. eg. new, towel, bath'
+          schema:
+            type: string
+        - name: is_visible
+          in: query
+          description: 'Filter items by if visible on the storefront. '
+          schema:
+            type: boolean
+        - name: 'name:like'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: 'parent_id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'parent_id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'page_title:like'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/catalog/categories/{category_id}':
+    get:
+      tags:
+        - Categories
+      summary: Get a Category
+      description: |-
+        Returns a single *Category*. Optional parameters can be passed in.
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
+      operationId: getCategoryById
+      parameters:
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Category Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/category_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    put:
+      tags:
+        - Categories
+      summary: Update a Category
+      description: |-
+        Updates a *Category*.
+
+        **Required Fields**
+        * none
+
+        **Read-Only Fields**
+        - id
+
+        **Note:** 
+        The default rate limit for this endpoint is 40 concurrent requests.
+      operationId: updateCategory
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Category
+              type: object
+              description: Common Category object properties.
+              properties:
+                id:
+                  type: integer
+                  description: |-
+                    Unique ID of the *Category*. Increments sequentially.
+                    Read-Only.
+                  readOnly: true
+                parent_id:
+                  type: integer
+                  description: |-
+                    The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                    Required in a POST if creating a child category.
+                  example: 2
+                  x-required:
+                    - post
+                name:
+                  maxLength: 50
+                  minLength: 1
+                  type: string
+                  description: |-
+                    The name displayed for the category. Name is unique with respect to the category's siblings.
+                    Required in a POST.
+                  example: Bath
+                  x-required:
+                    - post
+                description:
+                  type: string
+                  description: |
+                    The product description, which can include HTML formatting.
+                  example: <p>We offer a wide variety of products perfect for relaxing</p>
+                views:
+                  type: integer
+                  description: |
+                    Number of views the category has on the storefront.
+                  example: 1050
+                sort_order:
+                  maximum: 2147483647
+                  minimum: -2147483648
+                  type: integer
+                  description: |
+                    Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+                  example: 3
+                page_title:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    Custom title for the category page. If not defined, the category name will be used as the meta title.
+                  example: Bath
+                search_keywords:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    A comma-separated list of keywords that can be used to locate the category when searching the store.
+                meta_keywords:
+                  type: array
+                  description: |
+                    Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                  items:
+                    type: string
+                meta_description:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                layout_file:
+                  maxLength: 500
+                  minLength: 0
+                  type: string
+                  description: |
+                    A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                  example: category.html
+                is_visible:
+                  type: boolean
+                  description: |
+                    Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+                default_product_sort:
+                  type: string
+                  description: |
+                    Determines how the products are sorted on category page load.
+                  enum:
+                    - use_store_settings
+                    - featured
+                    - newest
+                    - best_selling
+                    - alpha_asc
+                    - alpha_desc
+                    - avg_customer_review
+                    - price_asc
+                    - price_desc
+                image_url:
+                  type: string
+                  description: |
+                    Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                  example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                  x-url: true
+                custom_url:
+                  title: Custom Url Category
+                  type: object
+                  description: The custom URL for the category on the storefront.
+                  properties:
+                    url:
+                      maxLength: 255
+                      minLength: 0
+                      type: string
+                      description: |
+                        Category URL on the storefront.
+                      example: /shoes
+                      x-required:
+                        - post
+                        - put
+                      x-url: true
+                    is_customized:
+                      type: boolean
+                      description: |
+                        Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                      x-required:
+                        - post
+                        - put
+              required:
+                - parent_id
+                - name
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Category Response
+                type: object
+                properties:
+                  data:
+                    title: Category
+                    type: object
+                    description: Common Category object properties.
+                    properties:
+                      id:
+                        type: integer
+                        description: |-
+                          Unique ID of the *Category*. Increments sequentially.
+                          Read-Only.
+                        readOnly: true
+                      parent_id:
+                        type: integer
+                        description: |-
+                          The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                          Required in a POST if creating a child category.
+                        example: 2
+                        x-required:
+                          - post
+                      name:
+                        maxLength: 50
+                        minLength: 1
+                        type: string
+                        description: |-
+                          The name displayed for the category. Name is unique with respect to the category's siblings.
+                          Required in a POST.
+                        example: Bath
+                        x-required:
+                          - post
+                      description:
+                        type: string
+                        description: |
+                          The product description, which can include HTML formatting.
+                        example: <p>We offer a wide variety of products perfect for relaxing</p>
+                      views:
+                        type: integer
+                        description: |
+                          Number of views the category has on the storefront.
+                        example: 1050
+                      sort_order:
+                        maximum: 2147483647
+                        minimum: -2147483648
+                        type: integer
+                        description: |
+                          Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+                        example: 3
+                      page_title:
+                        maxLength: 255
+                        minLength: 0
+                        type: string
+                        description: |
+                          Custom title for the category page. If not defined, the category name will be used as the meta title.
+                        example: Bath
+                      search_keywords:
+                        maxLength: 255
+                        minLength: 0
+                        type: string
+                        description: |
+                          A comma-separated list of keywords that can be used to locate the category when searching the store.
+                      meta_keywords:
+                        type: array
+                        description: |
+                          Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                        items:
+                          type: string
+                      meta_description:
+                        maxLength: 65535
+                        minLength: 0
+                        type: string
+                        description: |
+                          Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                      layout_file:
+                        maxLength: 500
+                        minLength: 0
+                        type: string
+                        description: |
+                          A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+                        example: category.html
+                      is_visible:
+                        type: boolean
+                        description: |
+                          Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+                      default_product_sort:
+                        type: string
+                        description: |
+                          Determines how the products are sorted on category page load.
+                        enum:
+                          - use_store_settings
+                          - featured
+                          - newest
+                          - best_selling
+                          - alpha_asc
+                          - alpha_desc
+                          - avg_customer_review
+                          - price_asc
+                          - price_desc
+                      image_url:
+                        type: string
+                        description: |
+                          Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+                        example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                        x-url: true
+                      custom_url:
+                        title: Custom Url Category
+                        type: object
+                        description: The custom URL for the category on the storefront.
+                        properties:
+                          url:
+                            maxLength: 255
+                            minLength: 0
+                            type: string
+                            description: |
+                              Category URL on the storefront.
+                            example: /shoes
+                            x-required:
+                              - post
+                              - put
+                            x-url: true
+                          is_customized:
+                            type: boolean
+                            description: |
+                              Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                            x-required:
+                              - post
+                              - put
+                    required:
+                      - parent_id
+                      - name
+                  meta:
+                    title: Meta
+                    type: object
+                    description: Empty meta object; may be used later.
+        '207':
+          $ref: '#/components/responses/General207Status'
+        '404':
+          description: The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+        '409':
+          description: 'The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`.'
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: 'The `Category` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: category
+    delete:
+      tags:
+        - Categories
+      summary: Delete a Category
+      description: |-
+        Deletes a *Category*.
+        
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
+      operationId: deleteCategoryById
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/CategoryIdParam'
+  '/catalog/categories/{category_id}/metafields':
+    get:
+      tags:
+        - Metafields
+      summary: Get All Category Metafields
+      description: Returns a list of *Metafields* on a *Category*. Optional filter parameters can be passed in.
+      operationId: getCategoryMetafieldsByCategoryId
+      parameters:
+        - name: id
+          in: query
+          description: |
+            Filter items by ID.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:not_in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: key
+          in: query
+          description: |
+            Filter based on a metafield's key.
+          schema:
+            type: string
+        - name: namespace
+          in: query
+          description: Filter based on a metafield's namespace.
+          schema:
+            type: string
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Meta Field Collection Response
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+              example:
+                data:
+                  - id: 6
+                    key: Location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: app_only
+                    resource_type: category
+                    resource_id: 111
+                    description: Location in the warehouse
+                    date_created: '1973-01-20T21:34:57.903Z'
+                    date_modified: '1990-12-30T00:29:23.515Z'
+                  - id: 7
+                    key: Location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: read
+                    resource_type: category
+                    resource_id: 111
+                    description: Location in the warehouse
+                    date_created: '1973-01-20T21:34:57.903Z'
+                    date_modified: '1990-12-30T00:29:23.515Z'
+                meta:
+                  pagination:
+                    total: 2
+                    count: 2
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    post:
+      tags:
+        - Metafields
+      summary: Create a Category Metafield
+      description: |-
+        Creates a *Category Metafield*.
+
+        **Required Fields:**
+        - permission_set
+        - namespace
+        - key
+        - value
+
+        **Read-Only Fields**
+        - id
+
+        **Note:** The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+      operationId: createCategoryMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Base'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 4
+                  key: location_id
+                  value: 'Shelf 3, Bin 5'
+                  namespace: App Namespace
+                  permission_set: app_only
+                  resource_type: category
+                  resource_id: 137
+                  description: Where products are located
+                  date_created: '2021-08-06T19:15:35+00:00'
+                  date_modified: '2021-08-06T19:15:35+00:00'
+                meta: {}
+        '409':
+          description: |
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: Metafield
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/CategoryIdParam'
+  '/catalog/categories/{category_id}/metafields/{metafield_id}':
+    get:
+      tags:
+        - Metafields
+      summary: Get a Category Metafield
+      description: Returns a single *Category Metafield*. Optional parameters can be passed in.
+      operationId: getCategoryMetafieldByCategoryId
+      parameters:
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 4
+                  key: location_id
+                  value: 'Shelf 3, Bin 5'
+                  namespace: App Namespace
+                  permission_set: app_only
+                  resource_type: category
+                  resource_id: 137
+                  description: Where products are located
+                  date_created: '2021-08-06T19:15:35+00:00'
+                  date_modified: '2021-08-06T19:15:35+00:00'
+                meta: {}
+        '404':
+          description: The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    put:
+      tags:
+        - Metafields
+      summary: Update a Category Metafield
+      description: "Updates a *Category Metafield*.\n\n**Required Fields**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message. "
+      operationId: updateCategoryMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Base'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 4
+                  key: location_id
+                  value: 'Shelf 3, Bin 5'
+                  namespace: App Namespace
+                  permission_set: app_only
+                  resource_type: category
+                  resource_id: 137
+                  description: Where products are located
+                  date_created: '2021-08-06T19:15:35+00:00'
+                  date_modified: '2021-08-06T19:15:35+00:00'
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+      x-codegen-request-body-name: Metafield
+    delete:
+      tags:
+        - Metafields
+      summary: Delete a Category Metafield
+      description: Deletes a *Category Metafield*.
+      operationId: deleteCategoryMetafieldById
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/CategoryIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
+  '/catalog/categories/{category_id}/image':
+    post:
+      tags:
+        - Images
+      summary: Create a Category Image
+      description: |-
+        Create a *Category Image*.
+
+         **Required Fields**
+        - image_file: Form posts are the only accepted upload option.
+
+        Only one image at a time can be created.
+        Limit image size to 1MB.
+        To update a *Category Image*, use the [Update categories](/docs/rest-catalog/category-trees/categories#update-categories) endpoint and an `image_url`.
+      operationId: createCategoryImage
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      image_url:
+                        type: string
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
+                meta: {}
+        '400':
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+        '422':
+          description: |
+            Image was not valid. This is the result of a missing `image_file` field or an incorrect file type. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+    delete:
+      tags:
+        - Images
+      summary: Delete a Category Image
+      description: Deletes a *Category Image*.
+      operationId: deleteCategoryImage
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/CategoryIdParam'
+  '/catalog/categories/{category_id}/products/sort-order':
+    get:
+      tags:
+        - Sort Order
+      summary: Get Product Sort Order
+      description: |-
+        Returns a list of products and their sort order for a specific category.
+
+        **Usage Notes**
+        * Data pairs are displayed in ascending order based on products' `sort_order` values.
+        * `null` values are allowed for products without specified `sort_order` values.
+        * Products with `sort_order` value of `null` will be displayed after products with valid numerical values.
+        * The priorities for determining product sort order on a storefront are the following:
+          - Priority 1: Manually specified sort order on Category Level (API).
+          - Priority 2: Manually specified sort order on Product (Global) Level (UI/API).
+          - Priority 3: Default sorting by Product ID (newly added products go first) (UI/API).
+      operationId: getsortorders
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: number
+                    sort_order:
+                      type: integer
+        '404':
+          description: The requested category was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_Base'
+    put:
+      tags:
+        - Sort Order
+      summary: Update Product Sort Order
+      description: Updates sort order of products within a specific category.
+      operationId: updatesortorder
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/productSortOrder'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/productSortOrder'
+        '404':
+          description: The requested category was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_Base'
+        '422':
+          description: |-
+            Unprocessable entity.
+
+            Please verify if all requested products are assigned to the category.
+
+            Please verify if all required fields are present in the request body and are filled with values correctly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_Base'
+      x-codegen-request-body-name: body
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/CategoryIdParam'
+components:
+  schemas:
+    category_Full:
+      title: category_Full
+      type: object
+      description: Common Category object properties.
+      x-internal: false
+      properties:
+        id:
+          type: integer
+          description: |-
+            Unique ID of the *Category*. Increments sequentially.
+            Read-Only.
+          readOnly: true
+        parent_id:
+          type: integer
+          description: |-
+            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            Required in a POST if creating a child category.
+          example: 2
+          x-required:
+            - post
+        name:
+          maxLength: 50
+          minLength: 1
+          type: string
+          description: |-
+            The name displayed for the category. Name is unique with respect to the category's siblings.
+            Required in a POST.
+          example: Bath
+          x-required:
+            - post
+        description:
+          type: string
+          description: |
+            The product description, which can include HTML formatting.
+          example: <p>We offer a wide variety of products perfect for relaxing</p>
+        views:
+          type: integer
+          description: |
+            Number of views the category has on the storefront.
+          example: 1050
+        sort_order:
+          maximum: 2147483647
+          minimum: -2147483648
+          type: integer
+          description: |
+            Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+          example: 3
+        page_title:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Custom title for the category page. If not defined, the category name will be used as the meta title.
+          example: Bath
+        search_keywords:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            A comma-separated list of keywords that can be used to locate the category when searching the store.
+        meta_keywords:
+          type: array
+          description: |
+            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+          items:
+            type: string
+        meta_description:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+        layout_file:
+          maxLength: 500
+          minLength: 0
+          type: string
+          description: |
+            A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+          example: category.html
+        is_visible:
+          type: boolean
+          description: |
+            Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+        default_product_sort:
+          type: string
+          description: |
+            Determines how the products are sorted on category page load.
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - alpha_asc
+            - alpha_desc
+            - avg_customer_review
+            - price_asc
+            - price_desc
+        image_url:
+          type: string
+          description: |
+            Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+          example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+          x-url: true
+        custom_url:
+          $ref: '#/components/schemas/customUrl_Full'
+      required:
+        - parent_id
+        - name
+    metafield_Base:
+      title: metafield_Base
+      type: object
+      description: 'Metafield for products, categories, variants, and brands; the max number of metafields allowed on each is 50. For more information, see [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`. Required for POST.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`. Required for POST.
+          example: 4HG
+          x-required:
+            - post
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
+          example: Warehouse Locations
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafields.
+          example: Location in the warehouse
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    customUrl_Full:
+      title: customUrl_Full
+      type: object
+      properties:
+        url:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Product URL on the storefront.
+          x-required:
+            - post
+            - put
+          x-url: true
+        is_customized:
+          type: boolean
+          description: |
+            Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+          x-required:
+            - post
+            - put
+      description: The custom URL for the product on the storefront.
+      x-internal: false
+    metaCollection_Full:
+      title: metaCollection_Full
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination_Full'
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    pagination_Full:
+      title: pagination_Full
+      type: object
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 36
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+          example: 36
+        per_page:
+          type: integer
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
+          example: 50
+        current_page:
+          type: integer
+          description: |
+            The page you are currently on within the collection.
+          example: 1
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+          example: 1
+        links:
+          type: object
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+              example: '?page=1&limit=50'
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    metaEmpty_Full:
+      type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    error_Base:
+      title: error_Base
+      type: object
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code.
+        title:
+          type: string
+          description: |
+            The error title describing the particular error.
+        type:
+          type: string
+        instance:
+          type: string
+      description: |
+        Error payload for the BigCommerce API.
+      x-internal: false
+    metafield_Full:
+      title: metafield_Full
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Unique ID of the *Metafield*. Read-Only.
+              readOnly: true
+              example: 6
+        - $ref: '#/components/schemas/metafield_Base'
+        - type: object
+          properties:
+            resource_type:
+              type: string
+              description: |
+                The type of resource with which the metafield is associated.
+              example: product
+              enum:
+                - category
+                - brand
+                - product
+                - variant
+              x-required:
+                - post
+            resource_id:
+              maximum: 10000000000
+              minimum: 0
+              type: integer
+              description: |
+                The ID of the resource with which the metafield is associated.
+              example: 111
+              x-required:
+                - post
+            date_created:
+              type: string
+              description: |
+                Date and time of the metafield's creation. Read-Only.
+              readOnly: true
+              format: date-time
+              example: '2018-05-07T20:14:17+00:00'
+            date_modified:
+              type: string
+              description: |
+                Date and time when the metafield was last updated. Read-Only.
+              readOnly: true
+              format: date-time
+              example: '2018-05-07T20:14:17+00:00'
+      x-internal: false
+    productSortOrder:
+      title: productSortOrder
+      required:
+        - product_id
+        - sort_order
+      type: object
+      properties:
+        product_id:
+          minimum: 1
+          type: integer
+          description: The ID of the associated product.
+          example: 99
+        sort_order:
+          minimum: 0
+          type: integer
+          example: 4
+      description: The relative priority of the product among other products inside the category.
+      x-internal: false
+    Category:
+      x-tags:
+        - Models
+      title: Category
+      allOf:
+        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/parent_id'
+        - $ref: '#/components/schemas/name'
+        - $ref: '#/components/schemas/description'
+        - $ref: '#/components/schemas/views'
+        - $ref: '#/components/schemas/sort_order'
+        - $ref: '#/components/schemas/page_title'
+        - $ref: '#/components/schemas/meta_keywords'
+        - $ref: '#/components/schemas/meta_description'
+        - $ref: '#/components/schemas/layout_file'
+        - $ref: '#/components/schemas/image_url'
+        - $ref: '#/components/schemas/is_visible'
+        - $ref: '#/components/schemas/search_keywords'
+        - $ref: '#/components/schemas/default_product_sort'
+        - type: object
+          properties:
+            custom_url:
+              $ref: '#/components/schemas/Url'
+      x-examples: {}
+    Url:
+      type: object
+      properties:
+        url:
+          type: string
+        is_customized:
+          type: boolean
+      x-tags:
+        - Models
+    default_product_sort:
+      title: default_product_sort
+      type: object
+      properties:
+        default_product_sort:
+          type: string
+          description: |
+            Determines how the products are sorted on category page load.
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - alpha_asc
+            - alpha_desc
+            - avg_customer_review
+            - price_asc
+            - price_desc
+    name:
+      title: name
+      type: object
+      properties:
+        name:
+          maxLength: 50
+          minLength: 1
+          type: string
+          description: |-
+            The name displayed for the category. Name is unique with respect to the category's siblings.
+            Required in a POST.
+          example: Bath
+    description:
+      title: description
+      type: object
+      properties:
+        description:
+          type: string
+          description: |
+            The product description, which can include HTML formatting.
+          example: <p>We offer a wide variety of products perfect for relaxing</p>
+    views:
+      title: views
+      type: object
+      properties:
+        views:
+          type: integer
+          description: |
+            Number of views the category has on the storefront.
+          example: 1050
+    sort_order:
+      title: sort_order
+      type: object
+      properties:
+        sort_order:
+          type: integer
+          description: |
+            Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+          example: 3
+    page_title:
+      title: page_title
+      type: object
+      properties:
+        page_title:
+          type: string
+          description: |
+            Custom title for the category page. If not defined, the category name will be used as the meta title.
+          example: Bath
+    search_keywords:
+      title: search_keywords
+      type: object
+      properties:
+        search_keywords:
+          type: string
+          description: |
+            A comma-separated list of keywords that can be used to locate the category when searching the store.
+    meta_keywords:
+      title: meta_keywords
+      type: object
+      properties:
+        meta_keywords:
+          type: array
+          description: |
+            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+          items:
+            type: string
+    layout_file:
+      title: layout_file
+      type: object
+      properties:
+        layout_file:
+          maxLength: 500
+          minLength: 0
+          type: string
+          description: |
+            A valid layout file. Please refer to [the article on creating category files (Help Center)](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/). This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](/docs/rest-content/custom-template-associations).
+          example: category.html
+    is_visible:
+      title: is_visible
+      type: object
+      properties:
+        is_visible:
+          type: boolean
+          description: |
+            Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+    image_url:
+      title: image_url
+      type: object
+      properties:
+        image_url:
+          type: string
+          description: |
+            Image URL used for this category on the storefront. Images can be uploaded using form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field. An image extension like .jpg or .png is required.
+          example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+          x-url: true
+    meta_description:
+      title: meta_description
+      type: object
+      properties:
+        meta_description:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+    id:
+      title: id
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |-
+            Unique ID of the *Category*. Increments sequentially.
+            Read-Only.
+          readOnly: true
+    parent_id:
+      title: parent_id
+      type: object
+      properties:
+        parent_id:
+          type: integer
+          description: |-
+            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            Required in a POST if creating a child category.
+          example: 2
+  responses:
+    General207Status:
+      description: 'Multi-status. Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL or inventory data has failed.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Base'
+  parameters:
+    CategoryIdParam:
+      name: category_id
+      in: path
+      description: |
+        The ID of the `Category` to which the resource belongs.
+      required: true
+      schema:
+        type: integer
+    MetafieldIdParam:
+      name: metafield_id
+      in: path
+      description: |
+        The ID of the `Metafield`.
+      required: true
+      schema:
+        type: integer
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Products | modify | `store_v2_products` |
+        |  Products | read-only | `store_v2_products_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

@@ -1,0 +1,140 @@
+openapi: '3.0.1'
+info:
+  title: Storefront Form Fields (Beta)
+  description: |-
+    Read form fields on a BigCommerce hosted storefront.
+
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
+
+    > #### Warning
+    > Breaking changes may be introduced to this endpoint while in beta.
+  version: ''
+servers:
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
+tags:
+  - name: Form Fields
+paths:
+  /form-fields:
+    get:
+      tags:
+        - Form Fields
+      summary: Get Form Fields
+      operationId: getFormFields
+      description: |-
+        Gets form fields.
+
+        > #### Note
+        > * Substitute your storefront domain for `yourstore.example.com`. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+            enum:
+              - customerAccount
+              - shippingAddress
+              - billingAddress
+      responses:
+        '200':
+          description: Returns an object with form fields groups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormFieldGroups'
+components:
+  schemas:
+    FormFieldGroups:
+      type: object
+      description: Group of form field groups
+      x-internal: false
+      x-examples: {}
+      properties:
+        customerAccount:
+          $ref: '#/components/schemas/FormFields'
+        shippingAddress:
+          $ref: '#/components/schemas/FormFields'
+        billingAddress:
+          $ref: '#/components/schemas/FormFields'
+    FormFields:
+      type: array
+      description: List of form fields for the group
+      items:
+        $ref: '#/components/schemas/FormField'
+      x-internal: false
+    FormField:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field unique ID
+        name:
+          type: string
+          description: Field name
+        custom:
+          type: boolean
+          description: Whether this is a custom field or system built-in field.
+        label:
+          type: string
+          description: User-friendly label
+        required:
+          type: boolean
+          description: Whether this field is required or not
+        default:
+          type: string
+          description: The field unique ID
+        type:
+          type: string
+          description: Type of the value hold by the field
+          enum:
+            - integer
+            - string
+            - array
+            - date
+        fieldType:
+          type: string
+          description: Type of the field
+          enum:
+            - checkbox
+            - text
+            - date
+            - multiline
+            - radio
+            - dropdown
+        min:
+          type: string
+          description: The minimun valid value for the field (integer and date type only)
+        max:
+          type: string
+          description: The minimun valid value for the field (integer and date type only)
+        maxLength:
+          type: integer
+          description: The maximum length for the value (string type only)
+        secret:
+          type: boolean
+          description: Whether the field represents a password field
+        options:
+          type: object
+          properties:
+            helperLabel:
+              type: string
+              description: Placeholder text for dropdown field type.
+            items:
+              type: array
+              description: List of possible values for this field.
+              items:
+                type: object
+                properties:
+                  label:
+                    type: string
+                  value:
+                    type: string
+          description: 'Extra data for radio, dropdown and checkbox field types.'
+      description: Form Field
+      x-internal: false

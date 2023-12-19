@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/cart/lineItem/updated:
+    description: Fires when a line item’s quantity or product options change.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          cartId:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

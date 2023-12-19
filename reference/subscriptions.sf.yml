@@ -1,0 +1,117 @@
+openapi: '3.0.1'
+info:
+  title: Storefront Subscriptions
+  description: |-
+    Manage newsletter and marketing email subscriptions on the storefront.
+
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
+
+    ## Additional Information
+
+    * [Collecting Newsletter Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions) (support.bigcommerce.com)
+    * [Customers Overview](/docs/store-operations/customers/customers-subscribers-overview)
+    * [Working with Storefront APIs](/docs/storefront/cart-checkout/guide/rest-storefront)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
+tags:
+  - name: Subscription
+paths:
+  /subscriptions:
+    post:
+      tags:
+        - Subscription
+      summary: Create a Subscription
+      operationId: createASubscription
+      description: |-
+        Creates or updates an email subscription.
+
+        By default, customers receive abandoned cart emails as soon as they provide their email address in the checkout flow. They can opt out using this endpoint.
+
+        However, if **Store Settings > Miscellaneous > Require Consent** is enabled, Abandoned Cart Emails are not sent by default, and the customer should opt-in.
+
+        > #### Note
+        > * Substitute your storefront domain for `yourstore.example.com`. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionRequest'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+components:
+  schemas:
+    SubscriptionRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email of subscriber
+        acceptsMarketingNewsletter:
+          type: boolean
+          description: Describes whether subscriber has consented to receive Marketing emails.
+        acceptsAbandonedCartEmails:
+          type: boolean
+          description: Describes whether subscriber has consented to receive Abandoned Cart emails.
+      x-internal: false
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |
+            The unique numeric ID of the subscriber; increments sequentially.
+        email:
+          type: string
+          description: |
+            The email of the subscriber. Must be unique.
+        firstName:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            The first name of the subscriber.
+        lastName:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            The last name of the subscriber.
+        source:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
+        orderId:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          description: |
+            The ID of the source order, if source was an order.
+          nullable: true
+        consents:
+          type: array
+          items: {}
+          description: |
+            The collection of consents the shopper is subscribing to.
+      description: Subscription properties.
+      x-internal: false

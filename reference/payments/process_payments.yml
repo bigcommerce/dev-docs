@@ -1,0 +1,560 @@
+openapi: '3.0.0'
+info:
+  version: ''
+  title: Payment Processing
+  description: |
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/docs/store-operations/payments). 
+
+    The Payment Processing API uses BigCommerce's PCI-compliant payments server and a supported payment gateway to charge customers. The payment portal you choose may support charging stored instruments and/or making refund transactions. For a list of compatible payment gateways, as well as a guide through the API call sequence needed to make charges, see the [Payments Overview](/docs/store-operations/payments#compatible-payment-gateways).
+
+    A Payment Access Token (_PAT_) is required to authorize payment processing requests. The X-Auth-Token header is not required in requests to the payment processing endpoint. To generate a PAT, use the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint or the `completeCheckout` mutation in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments). For a payment processing authentication example request, see the related section in our [Authentication article](/docs/start/authentication#bigcommerce-generated-jwts).
+    
+    Also note that payment processing requests use the BigCommerce Payments Gateway, which uses a different server than our other REST APIs. Please see the server URL for the payment processing endpoint.
+
+    > To learn more about authenticating Payments endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
+
+    ## Resources
+
+    * [Payments Overview](/docs/store-operations/payments)
+    * [Process payments authentication example request](/docs/start/authentication#bigcommerce-generated-jwts)
+    * [Orders Overview](/docs/store-operations/orders)
+    
+     ### Webhooks
+    
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+
+    ### Additional Payments endpoints
+    
+    * [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods)
+    * [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+    * [Get a customer's stored instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+
+
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+tags:
+  - name: Processing
+servers:
+  - url: 'https://payments.bigcommerce.com/stores/{store_hash}'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce Payments Gateway
+security:
+  - BearerPAT: []
+paths:
+  '/payments':
+    post:
+      summary: Process Payments
+      tags:
+        - Processing
+      operationId: PaymentsPost
+      description: 'Process payments for an order. See [Payment Processing](/docs/store-operations/payments) for more information.'
+      parameters:
+        - $ref: '#/components/parameters/AcceptPaymentResponse'
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Payment Request
+              type: object
+              properties:
+                payment:
+                  title: Payment
+                  type: object
+                  required:
+                    - instrument
+                    - payment_method_id
+                  properties:
+                    instrument:
+                      anyOf:
+                        - $ref: '#/components/schemas/Card'
+                        - $ref: '#/components/schemas/StoredCard'
+                        - $ref: '#/components/schemas/StoredPayPalAccount'
+                        - $ref: '#/components/schemas/GiftCertificate'
+                        - $ref: '#/components/schemas/StoreCredit'
+                        - $ref: '#/components/schemas/TokenizedCard'
+                    payment_method_id:
+                      description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
+                      type: string
+                      minLength: 1
+                    save_instrument:
+                      type: boolean
+                      description: 'To use `save_instrument`, configure the payment gateway to accept stored cards.'
+              required:
+                - payment
+            examples:
+              Card:
+                value:
+                  payment:
+                    instrument:
+                      type: card
+                      cardholder_name: string
+                      number: string
+                      expiry_month: 1
+                      expiry_year: 0
+                      verification_value: stri
+                      issue_month: 1
+                      issue_year: 0
+                      issue_number: 0
+                    payment_method_id: string
+              Stored Card:
+                value:
+                  payment:
+                    instrument:
+                      type: stored_card
+                      token: 8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee
+                      verification_value: '1142'
+                    payment_method_id: adyenv2.scheme
+                    save_instrument: true
+              Stored PayPal Account:
+                value:
+                  payment:
+                    instrument:
+                      type: stored_paypal_account
+                      token: 2c129313bcffe4501ec5fa2764c8c16320e38c7ba9e8cdf95583b541bb05ad91
+                    payment_method_id: braintree.paypal
+              Gift Certificate:
+                value:
+                  payment:
+                    instrument:
+                      type: gift_certificate
+                      gift_certificate_code: ABC-DEF-GXX
+                    payment_method_id: bigcommerce.gift_certificate
+              Store Credit:
+                value:
+                  payment:
+                    instrument:
+                      type: store_credit
+                    payment_method_id: bigcommerce.store_credit
+              Tokenized Card:
+                value:
+                  payment: 
+                    instrument:
+                      type: tokenized_card
+                      token: K7KW-M9GX-6PQ3
+                      iin: 4111111
+                      last_four_digits: 1111
+                      expiration_month: 12
+                      expiration_year: 2030
+                    payment_method_id: bolt.card
+        required: true
+        x-examples:
+          application/json:
+            payment:
+              instrument: {}
+              payment_method_id: Lorem in
+              amount: 81505146
+              currency_code: NYE
+          Payment Access Token: |-
+            curl -X POST \
+              https://payments.bigcommerce.com/stores/{store_hash}/payments \
+              -H 'Accept: application/vnd.bc.v1+json' \
+              -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NsdfasftIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \
+              -H 'Content-Type: application/json' \
+          Vaulted Card:
+            payment:
+              instrument:
+                type: stored_card
+                token: vaulted instrument token
+                verification_value: '123'
+              payment_method_id: stripe.card
+              save_instrument: true
+          Credit Card: |-
+            {
+              "payment": {
+                "instrument": {
+                  "type": "card",
+                  "number": "4111111111111111",
+                  "cardholder_name": "BP",
+                  "expiry_month": 12,
+                  "expiry_year": 2020,
+                  "verification_value": "411"
+                },
+                "payment_method_id": "authorizenet.card",
+                 "save_instrument": true
+              }
+            }
+        description: ''
+      responses:
+        '202':
+          description: Payment has been successfully processed
+          content:
+            application/json:
+              schema:
+                title: Success Payment Response
+                type: object
+                properties:
+                  id:
+                    description: Identifier for this transaction
+                    type: string
+                  transaction_type:
+                    title: Transaction Type
+                    description: Transaction type for this payment
+                    example: authorization
+                    type: string
+                    enum:
+                      - authorization
+                      - purchase
+                  status:
+                    type: string
+                    title: Status
+                    description: Status to indicate a success response
+                    enum:
+                      - success
+                      - pending
+              examples:
+                response:
+                  value:
+                    id: 227d9e1e-94f8-408c-95a5-f97b30592eb7
+                    transaction_type: authorization
+                    status: pending
+        '400':
+          description: Payment request has been rejected due to malformed request
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ''
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '401':
+          description: Valid authentication required
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ''
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        '422':
+          description: 'Payment request has been rejected due to missing, invalid data or declined by payment provider'
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ''
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        default:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ''
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+components:
+  parameters:
+    AcceptPaymentResponse:
+      name: Accept
+      in: header
+      schema:
+        type: string
+        enum:
+          - 'application/vnd.bc.v1+json'
+        default: 'application/vnd.bc.v1+json'
+      required: true
+      description: This required value must be `application/vnd.bc.v1+json`.
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    Card:
+      title: Card
+      type: object
+      x-examples:
+        example-1:
+          type: card
+          cardholder_name: string
+          number: string
+          expiry_month: 1
+          expiry_year: 0
+          verification_value: stri
+          issue_month: 1
+          issue_year: 0
+          issue_number: 0
+      x-internal: false
+      properties:
+        type:
+          type: string
+          default: card
+          example: card
+          description: Type to classify this payment instrument (required)
+        cardholder_name:
+          type: string
+          minLength: 1
+          description: Cardholderʼs full name (required)
+        number:
+          type: string
+          minLength: 1
+          description: Credit card number (required)
+        expiry_month:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 12
+          description: Expiry month of this card (required)
+        expiry_year:
+          type: integer
+          format: int32
+          description: Expiry year of this card (required)
+        verification_value:
+          type: string
+          minLength: 3
+          maxLength: 4
+          description: Verification value of this card (CVV)
+        issue_month:
+          type: integer
+          description: Issue month of this card
+          format: int32
+          minimum: 1
+          maximum: 12
+        issue_year:
+          type: integer
+          format: int32
+          description: Issue year of this card
+        issue_number:
+          type: integer
+          format: int32
+          description: Issue number of this card
+    StoredCard:
+      title: Stored Card
+      type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          type: stored_card
+          token: stringstringstringstringstringstringstringstringstringstringstri
+          verification_value: 1142
+      properties:
+        type:
+          description: Type to classify this payment instrument (required)
+          example: stored_card
+          type: string
+          default: stored_card
+        token:
+          description: Identifier representing this stored card (required)
+          type: string
+          minLength: 64
+          maxLength: 64
+        verification_value:
+          type: string
+          description: Verification value of this card (CVV)
+          minLength: 3
+          maxLength: 4
+    StoredPayPalAccount:
+      title: StoredPayPalAccount
+      type: object
+      x-internal: false
+      properties:
+        type:
+          type: string
+          description: Type to classify this payment instrument (required)
+          enum:
+            - stored_paypal_account
+        token:
+          description: Identifier representing this stored PayPal account (required)
+          type: string
+          minLength: 64
+          maxLength: 64
+      x-examples:
+        example-1:
+          type: stored_paypal_account
+          token: stringstringstringstringstringstringstringstringstringstringstri
+    GiftCertificate:
+      title: GiftCertificate
+      type: object
+      properties:
+        type:
+          type: string
+          example: gift_certificate
+        gift_certificate_code:
+          type: string
+          example: ABC-DEF-GXX
+      x-examples:
+        example-1:
+          type: gift_certificate
+          gift_certificate_code: ABC-DEF-GXX
+    StoreCredit:
+      title: StoreCredit
+      type: object
+      properties:
+        type:
+          type: string
+          example: store_credit
+      x-examples:
+        example-1:
+          type: store_credit
+    TokenizedCard:
+      title: Tokenized Card
+      type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          type: tokenized_card
+          token: K7KW-M9GX-6PQ3
+          iin: 4111111
+          last_four_digits: 1111
+          expiration_month: 12
+          expiration_year: 2030
+      properties:
+        type:
+          type: string
+          description: Type to classify this payment instrument (required).
+          enum:
+            - tokenized_card
+        token:
+          description: Identifier representing the tokenized card (required).
+          type: string
+          minLength: 64
+          maxLength: 64
+        iin:
+          type: string
+          description: Issuer identification number.
+        last_four_digits:
+          type: string
+          description: Last four numbers of this card.
+        expiration_month:
+          type: string
+          description: Expiry month of this card.
+        expiration_year:
+          type: string
+          description: Expiry year of this card.
+      required:
+          - type
+          - token
+  securitySchemes:
+    BearerPAT:
+      description: |-
+        ### OAuth scopes
+
+        The required scopes are granted to the `payment_access_token` upon generation.
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        |`Authorization`|`PAT {{PAYMENT_ACCESS_TOKEN}}`| Obtained using the Create Access Token endpoint.|
+
+        ### Further reading
+        
+        For an outline of the Process Payment API call flow and more information about authenticating, see [Authentication and Example Requests](/docs/start/authentication#bigcommerce-generated-jwts).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: http
+      scheme: bearer
+      bearerFormat: 'PAT {{PAYMENT_ACCESS_TOKEN}}'

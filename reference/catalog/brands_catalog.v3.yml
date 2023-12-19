@@ -1,0 +1,1917 @@
+openapi: '3.0.3'
+info:
+  title: Catalog - Brands
+  description: |-
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
+
+    Our Catalog Brands endpoints let you [create individual brands](/docs/rest-catalog/brands#create-a-brand) and [modify the brands](/docs/rest-catalog/brands#update-a-brand) associated with a store's products, along with [deleting brands](/docs/rest-catalog/brands#delete-a-brand). 
+    
+    Brand images have their own dedicated [create a brand image](/docs/rest-catalog/brands/images#create-a-brand-image) and [delete a brand image](/docs/rest-catalog/brands/images#delete-a-brand-image) endpoints. 
+    
+    In addition, brands have metafields that you can use to store information structured in key-value pairs; learn more about [creating brand metafields](/docs/rest-catalog/brands/metafields#create-a-brand-metafield), [updating brand metafields](/docs/rest-catalog/brands/metafields#update-a-brand-metafield), and [deleting brand metafields](/docs/rest-catalog/brands/metafields#delete-a-brand-metafield). 
+
+    > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
+
+    ## Resources
+
+    ### Webhooks
+    * [Category](/docs/integrations/webhooks/events#category)
+
+    ### Additional Catalog endpoints
+    * [Categories](/docs/rest-catalog/categories)
+    * [Category Trees](/docs/rest-catalog/category-trees)
+    * [Products](/docs/rest-catalog/products)
+    * [Product Modifiers](/docs/rest-catalog/product-modifiers)
+    * [Product Variants](/docs/rest-catalog/product-variants)
+    * [Product Variant Options](/docs/rest-catalog/product-variant-options)
+
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Brands
+  - name: Images
+  - name: Metafields
+paths:
+  '/catalog/brands':
+    get:
+      tags:
+        - Brands
+      summary: Get All Brands
+      description: Returns a list of *Brands*. Optional filter parameters can be passed in.
+      operationId: getBrands
+      parameters:
+        - name: id
+          in: query
+          description: |
+            Filter items by ID.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:not_in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: name
+          in: query
+          description: |
+            Filter items by name.
+          schema:
+            type: string
+        - name: name:like
+          in: query
+          description: |-
+            Filter items by part of a name. For example, `name:like=new` returns brands with names that include `new`.
+          schema:
+            type: string
+        - name: page_title
+          in: query
+          description: |
+            Filter items by page_title.
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: 'Field name to sort by.'
+          schema:
+            type: string
+            enum:
+              - name
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Brand Collection Response
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/brand_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+              example:
+                data:
+                  - id: 35
+                    name: Sagaform
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /brands/Sagaform.html
+                      is_customized: false
+                  - id: 36
+                    name: OFS
+                    page_title: OFS
+                    meta_keywords:
+                      - modern
+                      - ' clean'
+                      - ' contemporary'
+                    meta_description: OFS is a modern brand.
+                    image_url: ''
+                    search_keywords: 'kitchen, laundry, cart, storage'
+                    custom_url:
+                      url: /brands/OFS.html
+                      is_customized: false
+                  - id: 37
+                    name: Common Good
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    image_url: 'https://cdn8.bigcommerce.com/s-jrah6gmn/product_images/k/screen%20shot%202018-05-07%20at%2012.24.24%20pm_1525785365__65102.png'
+                    search_keywords: ''
+                    custom_url:
+                      url: /brands/Common-Good.html
+                      is_customized: false
+                  - id: 38
+                    name: BigCommerce
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /bigcommerce/
+                      is_customized: false
+                  - id: 39
+                    name: Test Brand One
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: ''
+                    image_url: 'https://cdn8.bigcommerce.com/s-jrah6gmn/product_images/q/apihqggzm__53766.jpg'
+                    search_keywords: ''
+                    custom_url:
+                      url: /test-brand-one/
+                      is_customized: false
+                  - id: 40
+                    name: Fog Linen Work
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /fog-linen-work/
+                      is_customized: false
+                  - id: 41
+                    name: Barr-Co.
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /barr-co/
+                      is_customized: false
+                  - id: 42
+                    name: Thames & Hudson
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /thames-hudson/
+                      is_customized: false
+                  - id: 43
+                    name: Able Brewing
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /able-brewing/
+                      is_customized: false
+                  - id: 44
+                    name: Chemex
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /chemex/
+                      is_customized: false
+                  - id: 45
+                    name: Kinfolk
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /kinfolk/
+                      is_customized: false
+                  - id: 46
+                    name: Iris Hantverk
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /iris-hantverk/
+                      is_customized: false
+                  - id: 47
+                    name: Gather Journal
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /gather-journal/
+                      is_customized: false
+                  - id: 48
+                    name: Openhouse Magazine
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /openhouse-magazine/
+                      is_customized: false
+                  - id: 49
+                    name: Smith Journal
+                    page_title: ''
+                    meta_keywords:
+                      - ''
+                    meta_description: description
+                    image_url: ''
+                    search_keywords: ''
+                    custom_url:
+                      url: /smith-journal/
+                      is_customized: false
+                meta:
+                  pagination:
+                    total: 15
+                    count: 15
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+    post:
+      tags:
+        - Brands
+      summary: Create a Brand
+      description: |-
+        Creates a *Brand*.
+
+        **Required Fields**
+        - name
+
+        **Read-Only Fields**
+        - id
+
+        **Limits**
+        - 30,000 brands per store limit
+      operationId: createBrand
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Brand
+              type: object
+              description: Common brand properties.
+              properties:
+                name:
+                  maxLength: 255
+                  minLength: 1
+                  type: string
+                  description: |-
+                    The name of the brand. Must be unique.
+                    Required in POST.
+                  example: Common Good
+                  x-required:
+                    - post
+                    - put
+                page_title:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    The title shown in the browser while viewing the brand.
+                  example: Common Good
+                meta_keywords:
+                  type: array
+                  description: |
+                    Comma-separated list of meta keywords to include in the HTML.
+                  items:
+                    type: string
+                    example: 'modern, clean, contemporary'
+                meta_description:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    A meta description to include.
+                  example: Common Good is a modern brand.
+                search_keywords:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    A comma-separated list of keywords that can be used to locate this brand.
+                  example: 'kitchen, laundry, cart, storage'
+                image_url:
+                  type: string
+                  description: |
+                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
+                  example: 'https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png'
+                  x-url: true
+                custom_url:
+                  title: Custom Url Brand
+                  type: object
+                  description: The custom URL for the brand on the storefront.
+                  properties:
+                    url:
+                      type: string
+                      description: |
+                        Brand URL on the storefront.
+                      example: /shoes
+                      x-url: true
+                    is_customized:
+                      type: boolean
+                      description: |
+                        Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                      example: true
+              required:
+                - name
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Brand Response
+                type: object
+                properties:
+                  data:
+                    title: Brand
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: Unique ID of the *Brand*. Read-Only.
+                        readOnly: true
+                      name:
+                        maxLength: 255
+                        minLength: 1
+                        type: string
+                        description: |-
+                          The name of the brand. Must be unique.
+                          Required in POST.
+                        example: Common Good
+                        x-required:
+                          - post
+                          - put
+                      page_title:
+                        maxLength: 255
+                        minLength: 0
+                        type: string
+                        description: |
+                          The title shown in the browser while viewing the brand.
+                        example: Common Good
+                      meta_keywords:
+                        type: array
+                        description: |
+                          Comma-separated list of meta keywords to include in the HTML.
+                        items:
+                          type: string
+                          example: 'modern, clean, contemporary'
+                      meta_description:
+                        maxLength: 65535
+                        minLength: 0
+                        type: string
+                        description: |
+                          A meta description to include.
+                        example: Common Good is a modern brand.
+                      search_keywords:
+                        maxLength: 65535
+                        minLength: 0
+                        type: string
+                        description: |
+                          A comma-separated list of keywords that can be used to locate this brand.
+                        example: 'kitchen, laundry, cart, storage'
+                      image_url:
+                        type: string
+                        description: |
+                          Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
+                        example: 'https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png'
+                        x-url: true
+                      custom_url:
+                        title: Custom Url Brand
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: |
+                              Brand URL on the storefront.
+                            example: /shoes
+                            x-url: true
+                          is_customized:
+                            type: boolean
+                            description: |
+                              Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                            example: true
+                        description: The custom URL for the brand on the storefront.
+                    description: Common Brand properties.
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+                description: |-
+                  Brand Response returns for:
+                  * Create Brand
+                  * Get Brand by Id
+                  * Update Brand by Id
+              example:
+                data:
+                  id: 50
+                  name: Common Good
+                  meta_keywords:
+                    - 'modern, clean, contemporary'
+                  meta_description: Common Good is a modern brand
+                  image_url: ''
+                  search_keywords: 'kitchen, laundry, cart, storage'
+                  custom_url:
+                    url: /brands/Common-Good.html
+                    is_customized: false
+                meta: {}
+        '207':
+          $ref: '#/components/responses/General207Status'
+        '409':
+          description: Brand was in conflict with another brand. This is the result of duplicate unique fields such as name.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: 'Brand was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: Brand
+    delete:
+      tags:
+        - Brands
+      summary: Delete Brands
+      description: |-
+        To delete brand objects, you must include a filter.
+
+        **Required Fields**
+         - name
+
+      operationId: deleteBrands
+      parameters:
+        - name: name
+          in: query
+          description: |
+            Filter items by name.
+          schema:
+            type: string
+          required:
+            true
+        - name: page_title
+          in: query
+          description: |
+            Filter items by page_title.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/catalog/brands/{brand_id}':
+    get:
+      tags:
+        - Brands
+      summary: Get a Brand
+      description: Returns a single *Brand*. Optional filter parameters can be passed in.
+      operationId: getBrandById
+      parameters:
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Brand Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/brand_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+                description: |-
+                  Brand Response returns for:
+                  * Create Brand
+                  * Get Brand by Id
+                  * Update Brand by Id
+              example:
+                data:
+                  id: 50
+                  name: Common Good
+                  meta_keywords:
+                    - 'modern, clean, contemporary'
+                  meta_description: Common Good is a modern brand
+                  image_url: ''
+                  search_keywords: 'kitchen, laundry, cart, storage'
+                  custom_url:
+                    url: /brands/Common-Good.html
+                    is_customized: false
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    put:
+      tags:
+        - Brands
+      summary: Update a Brand
+      description: |-
+        Updates a *Brand*.
+
+        **Required Fields**
+        - None
+
+        **Read-Only Fields**
+        - id
+
+        To update a *Brand Image*, send a request with an `image_url`.
+      operationId: updateBrand
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Brand
+              required:
+                - name
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: Unique ID of the *Brand*. Read-Only.
+                  readOnly: true
+                name:
+                  maxLength: 255
+                  minLength: 1
+                  type: string
+                  description: |-
+                    The name of the brand. Must be unique.
+                    Required in POST.
+                  example: Common Good
+                  x-required:
+                    - post
+                    - put
+                page_title:
+                  maxLength: 255
+                  minLength: 0
+                  type: string
+                  description: |
+                    The title shown in the browser while viewing the brand.
+                  example: Common Good
+                meta_keywords:
+                  type: array
+                  description: |
+                    Comma-separated list of meta keywords to include in the HTML.
+                  example:
+                    - 'modern, clean, contemporary'
+                  items:
+                    type: string
+                meta_description:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    A meta description to include.
+                  example: Common Good is a modern brand.
+                search_keywords:
+                  maxLength: 65535
+                  minLength: 0
+                  type: string
+                  description: |
+                    A comma-separated list of keywords that can be used to locate this brand.
+                  example: 'kitchen, laundry, cart, storage'
+                image_url:
+                  type: string
+                  description: |
+                    Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
+                  example: 'https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png'
+                  x-url: true
+                custom_url:
+                  title: Custom Url Brand
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: |
+                        Brand URL on the storefront.
+                      example: /shoes
+                      x-url: true
+                    is_customized:
+                      type: boolean
+                      description: |
+                        Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                      example: true
+                  description: The custom URL for the brand on the storefront.
+              description: Common Brand properties.
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Brand Response
+                type: object
+                properties:
+                  data:
+                    title: Brand
+                    required:
+                      - name
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: Unique ID of the *Brand*. Read-Only.
+                        readOnly: true
+                      name:
+                        maxLength: 255
+                        minLength: 1
+                        type: string
+                        description: |-
+                          The name of the brand. Must be unique.
+                          Required in POST.
+                        example: Common Good
+                        x-required:
+                          - post
+                          - put
+                      page_title:
+                        maxLength: 255
+                        minLength: 0
+                        type: string
+                        description: |
+                          The title shown in the browser while viewing the brand.
+                        example: Common Good
+                      meta_keywords:
+                        type: array
+                        description: |
+                          Comma-separated list of meta keywords to include in the HTML.
+                        example:
+                          - 'modern, clean, contemporary'
+                        items:
+                          type: string
+                      meta_description:
+                        maxLength: 65535
+                        minLength: 0
+                        type: string
+                        description: |
+                          A meta description to include.
+                        example: Common Good is a modern brand.
+                      search_keywords:
+                        maxLength: 65535
+                        minLength: 0
+                        type: string
+                        description: |
+                          A comma-separated list of keywords that can be used to locate this brand.
+                        example: 'kitchen, laundry, cart, storage'
+                      image_url:
+                        type: string
+                        description: |
+                          Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
+                        example: 'https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png'
+                        x-url: true
+                      custom_url:
+                        title: Custom Url Brand
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: |
+                              Brand URL on the storefront.
+                            example: /shoes
+                            x-url: true
+                          is_customized:
+                            type: boolean
+                            description: |
+                              Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+                            example: true
+                        description: The custom URL for the brand on the storefront.
+                    description: Common Brand properties.
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+                description: |-
+                  Brand Response returns for:
+                  * Create Brand
+                  * Get Brand by Id
+                  * Update Brand by Id
+              example:
+                data:
+                  id: 50
+                  name: Common Good
+                  meta_keywords:
+                    - 'modern, clean, contemporary'
+                  meta_description: Common Good is a modern brand
+                  image_url: ''
+                  search_keywords: 'kitchen, laundry, cart, storage'
+                  custom_url:
+                    url: /brands/Common-Good.html
+                    is_customized: false
+                meta: {}
+        '207':
+          $ref: '#/components/responses/General207Status'
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+        '409':
+          description: |
+            The `Brand` was in conflict with another product. This is the result of duplicate unique values, such as `name`.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Brand` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: brand
+    delete:
+      tags:
+        - Brands
+      summary: Delete a Brand
+      description: Deletes a *Brand*.
+      operationId: deleteBrandById
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/BrandIdParam'
+  '/catalog/brands/{brand_id}/metafields':
+    get:
+      tags:
+        - Metafields
+      summary: Get All Brand Metafields
+      description: 'Returns a list of *Brand Metafields*. Optional filter parameters can be passed in. '
+      operationId: getBrandMetafieldsByBrandId
+      parameters:
+        - name: id
+          in: query
+          description: |
+            Filter items by ID.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:not_in'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:min'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:max'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:greater'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: 'id:less'
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - name: key
+          in: query
+          description: |
+            Filter based on a metafield's key.
+          schema:
+            type: string
+        - name: namespace
+          in: query
+          description: Filter based on a metafield's namespace.
+          schema:
+            type: string
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Meta Field Collection Response
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_Full'
+              example:
+                data:
+                  - id: 6
+                    key: Location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: app_only
+                    resource_type: brand
+                    resource_id: 111
+                    description: Location in the warehouse
+                    date_created: '1973-01-20T21:34:57.903Z'
+                    date_modified: '1990-12-30T00:29:23.515Z'
+                  - id: 7
+                    key: Brand location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: read
+                    resource_type: brand
+                    resource_id: 111
+                    description: Location in the warehouse
+                    date_created: '1973-01-20T21:34:57.903Z'
+                    date_modified: '1990-12-30T00:29:23.515Z'
+                meta:
+                  pagination:
+                    total: 2
+                    count: 2
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    post:
+      tags:
+        - Metafields
+      summary: Create a Brand Metafield
+      description: |-
+        Creates a *Brand Metafield*.
+
+        **Required Fields**
+        - permission_set
+        - namespace
+        - key
+        - value
+
+        **Read-Only Fields**
+        - id
+
+        **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+      operationId: createBrandMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Base'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    title: Meta
+                    type: object
+                    properties: {}
+                    description: Empty meta object; may be used later.
+              examples:
+                example-1:
+                  value:
+                    data:
+                      id: 4
+                      key: location_id
+                      value: 'Shelf 3, Bin 5'
+                      namespace: App Namespace
+                      permission_set: app_only
+                      resource_type: brand
+                      resource_id: 137
+                      description: Where products are located
+                      date_created: '2021-08-06T19:15:35+00:00'
+                      date_modified: '2021-08-06T19:15:35+00:00'
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 6
+                      key: Location
+                      value: 4HG
+                      namespace: Warehouse Locations
+                      permission_set: app_only
+                      resource_type: category
+                      resource_id: 111
+                      description: Location in the warehouse.
+                      date_created: '2018-05-07T20:14:17+00:00'
+                      date_modified: '2018-05-07T20:14:17+00:00'
+                    meta: {}
+                example-3:
+                  value:
+                    data:
+                      id: 4
+                      key: location_id
+                      value: 'Shelf 3, Bin 5'
+                      namespace: App Namespace
+                      permission_set: app_only
+                      resource_type: brand
+                      resource_id: 137
+                      description: Where products are located.
+                      date_created: '2021-08-06T19:15:35+00:00'
+                      date_modified: '2021-08-06T19:15:35+00:00'
+                    meta: {}
+        '409':
+          description: |
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combination of the app's client id, namespace, key, resource_type, and resource_id.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+        '422':
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+      x-codegen-request-body-name: Metafield
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/BrandIdParam'
+  '/catalog/brands/{brand_id}/metafields/{metafield_id}':
+    get:
+      tags:
+        - Metafields
+      summary: Get a Brand Metafields
+      description: Returns a *Brand Metafield*. Optional filter parameters can be passed in.
+      operationId: getBrandMetafieldByBrandId
+      parameters:
+        - name: metafield_id
+          in: path
+          description: |
+            The ID of the `Metafield`.
+          required: true
+          schema:
+            type: integer
+        - name: brand_id
+          in: path
+          description: |
+            The ID of the `Brand` to which the resource belongs.
+          required: true
+          schema:
+            type: integer
+
+        - name: include_fields
+          in: query
+          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 4
+                  key: location_id
+                  value: 'Shelf 3, Bin 5'
+                  namespace: App Namespace
+                  permission_set: app_only
+                  resource_type: product
+                  resource_id: 137
+                  description: Where products are located
+                  date_created: '2021-08-06T19:15:35+00:00'
+                  date_modified: '2021-08-06T19:15:35+00:00'
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+    put:
+      tags:
+        - Metafields
+      summary: Update a Brand Metafield
+      description: "Updates a *Brand Metafield*.\n\n**Required Fields**  \n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message.\n* The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center."
+      operationId: updateBrandMetafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - name: metafield_id
+          in: path
+          description: |
+            The ID of the `Metafield`.
+          required: true
+          schema:
+            type: integer
+        - name: brand_id
+          in: path
+          description: |
+            The ID of the `Brand` to which the resource belongs.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Base'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: Metafield Response
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/metafield_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  id: 4
+                  key: location_id
+                  value: 'Shelf 3, Bin 5'
+                  namespace: App Namespace
+                  permission_set: app_only
+                  resource_type: product
+                  resource_id: 137
+                  description: Where products are located
+                  date_created: '2021-08-06T19:15:35+00:00'
+                  date_modified: '2021-08-06T19:15:35+00:00'
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+      x-codegen-request-body-name: Metafield
+    delete:
+      tags:
+        - Metafields
+      summary: Delete a Brand Metafield
+      description: Deletes a *Brand Metafield*.
+      operationId: deleteBrandMetafieldById
+      parameters:
+        - name: metafield_id
+          in: path
+          description: |
+            The ID of the `Metafield`.
+          required: true
+          schema:
+            type: integer
+        - name: brand_id
+          in: path
+          description: |
+            The ID of the `Brand` to which the resource belongs.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/BrandIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
+  '/catalog/brands/{brand_id}/image':
+    post:
+      tags:
+        - Images
+      summary: Create a Brand Image
+      description: |-
+        Creates a *Brand Image*.
+
+        **Required Fields**
+        - image_file: Form posts are the only accepted upload option.
+
+        **Read-Only Fields**
+        - id
+
+        Only one image at a time can be created. To update a *Brand Image*, use the [Update a brand](/docs/rest-catalog/brands#update-a-brand) endpoint and an `image_url`.
+      operationId: createBrandImage
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      image_url:
+                        type: string
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
+                meta: {}
+        '400':
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: The resource was not found.
+          content:
+            application/json:
+              schema:
+                title: Not Found
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: |
+                      404 HTTP status code.
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                description: Error payload for the BigCommerce API.
+        '422':
+          description: 'Image was not valid. This is the result of a missing `image_file` field, or of an incorrect file type. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  errors:
+                    title: Detailed Errors
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                  instance:
+                    type: string
+                  status:
+                    type: integer
+                    description: |
+                      The HTTP status code.
+                  title:
+                    type: string
+                    description: |
+                      The error title describing the particular error.
+                  type:
+                    type: string
+    delete:
+      tags:
+        - Images
+      summary: Delete a Brand Image
+      description: Deletes a *Brand Image*.
+      operationId: deleteBrandImage
+      responses:
+        '204':
+          description: ''
+          content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/BrandIdParam'
+components:
+  schemas:
+    brand_Full:
+      title: brand_Full
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the *Brand*. Read-Only.
+          readOnly: true
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+          description: |-
+            The name of the brand. Must be unique.
+            Required in POST.
+          example: Common Good
+          x-required:
+            - post
+            - put
+        page_title:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            The title shown in the browser while viewing the brand.
+          example: Common Good
+        meta_keywords:
+          type: array
+          description: |
+            Comma-separated list of meta keywords to include in the HTML.
+          items:
+            type: string
+            example: 'modern, clean, contemporary'
+        meta_description:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            A meta description to include.
+          example: Common Good is a modern brand.
+        search_keywords:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            A comma-separated list of keywords that can be used to locate this brand.
+          example: 'kitchen, laundry, cart, storage'
+        image_url:
+          type: string
+          description: |
+            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/brands/{brandId}/image`, or by providing a publicly accessible URL in this field.
+          example: 'https://cdn8.bigcommerce.com/s-12345/product_images/k/your-image-name.png'
+          x-url: true
+        custom_url:
+          $ref: '#/components/schemas/customUrl_Full'
+      description: Common Brand properties.
+      x-internal: false
+    metafield_Base:
+      title: metafield_Base
+      type: object
+      description: 'Metafield for products, categories, variants, and brands; the max number of metafields allowed on each is 50. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`. Required for POST.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`. Required for POST.
+          example: 4HG
+          x-required:
+            - post
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
+          example: Warehouse Locations
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafields.
+          example: Location in the warehouse
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    customUrl_Full:
+      title: customUrl_Full
+      type: object
+      properties:
+        url:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Product URL on the storefront.
+          x-required:
+            - post
+            - put
+          x-url: true
+        is_customized:
+          type: boolean
+          description: |
+            Returns `true` if the URL has been changed from its default state (the auto-assigned URL that BigCommerce provides).
+          x-required:
+            - post
+            - put
+      description: The custom URL for the product on the storefront.
+      x-internal: false
+    metaCollection_Full:
+      title: metaCollection_Full
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination_Full'
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    pagination_Full:
+      title: pagination_Full
+      type: object
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 36
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+          example: 36
+        per_page:
+          type: integer
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
+          example: 50
+        current_page:
+          type: integer
+          description: |
+            The page you are currently on within the collection.
+          example: 1
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+          example: 1
+        links:
+          type: object
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+              example: '?page=1&limit=50'
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    metaEmpty_Full:
+      type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    error_Base:
+      title: error_Base
+      type: object
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code.
+        title:
+          type: string
+          description: |
+            The error title describing the particular error.
+        type:
+          type: string
+        instance:
+          type: string
+      description: |
+        Error payload for the BigCommerce API.
+      x-internal: false
+    metafield_Full:
+      title: metafield_Full
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Unique ID of the *Metafield*. Read-Only.
+              readOnly: true
+              example: 6
+        - $ref: '#/components/schemas/metafield_Base'
+        - type: object
+          properties:
+            resource_type:
+              type: string
+              description: |
+                The type of resource with which the metafield is associated.
+              example: product
+              enum:
+                - category
+                - brand
+                - product
+                - variant
+              x-required:
+                - post
+            resource_id:
+              maximum: 10000000000
+              minimum: 0
+              type: integer
+              description: |
+                The ID of the resource with which the metafield is associated.
+              example: 111
+              x-required:
+                - post
+            date_created:
+              type: string
+              description: |
+                Date and time of the metafield's creation. Read-Only.
+              readOnly: true
+              format: date-time
+              example: '2018-05-07T20:14:17+00:00'
+            date_modified:
+              type: string
+              description: |
+                Date and time when the metafield was last updated. Read-Only.
+              readOnly: true
+              format: date-time
+              example: '2018-05-07T20:14:17+00:00'
+      x-internal: false
+  responses:
+    General207Status:
+      description: 'Multi-status. Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL or inventory data has failed.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Base'
+  parameters:
+    BrandIdParam:
+      name: brand_id
+      in: path
+      description: |
+        The ID of the `Brand` to which the resource belongs.
+      required: true
+      schema:
+        type: integer
+    MetafieldIdParam:
+      name: metafield_id
+      in: path
+      description: |
+        The ID of the `Metafield`.
+      required: true
+      schema:
+        type: integer
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Products | modify | `store_v2_products` |
+        |  Products | read-only | `store_v2_products_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

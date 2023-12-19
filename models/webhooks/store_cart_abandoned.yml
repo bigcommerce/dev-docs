@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/cart/abandoned:
+    description: Fires when a cart is abandoned. A cart is considered abandoned when no changes have been made to its properties or contents for one hour. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          token:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

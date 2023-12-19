@@ -1,0 +1,210 @@
+openapi: '3.0.0'
+info:
+  title: Tax Provider Connection
+  version: '3'
+  description: 'Manage the connection between a merchantʼs BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/docs/integrations/tax).'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Tax Provider Connection
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+paths:
+  '/tax/providers/{provider_id}/connection':
+    get:
+      summary: Get Connection Status
+      description: |
+        Retrieve the connection status of the specified tax provider in the context of a store.
+
+        > #### Note
+        > * Requires **read** permissions on the **Information and Settings** scope.
+      operationId: provider-connection-get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-connection'
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyConnectedTaxProviderAccount
+                      configured: true
+        '404':
+          description: Provider does not exist
+      tags:
+        - Tax Provider Connection
+    delete:
+      summary: Delete a Connection
+      description: |
+        Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/docs/integrations/apps/guide/callbacks#uninstall-callback).
+
+        > #### Note
+        > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
+        > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
+      operationId: provider-connection-delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-connection'
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyDisconnectedTaxProviderAccount
+                      configured: false
+        '404':
+          description: Provider or provider connection does not exist
+      tags:
+        - Tax Provider Connection
+    put:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response-connection'
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyUpdatedTaxProviderAccount
+                      configured: true
+        '404':
+          description: Provider does not exist
+        '422':
+          description: 'Unprocessable Entity, will include a specific error message referencing the issue.'
+      description: |-
+        Set authentication information associated with a merchant's account on the tax provider's infrastructure:
+        - [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials
+        - (optional) Tax provider profile used in customized endpoint urls for tax provider calls. This is only available for tax providers that support this feature.
+        
+        The configured `username`, `password`, and `profile` (if available) is used to authenticate each API request to the Tax Provider from the associated store. 
+        The tax provider's `profile` will be included in the url for [Tax Provider API](/docs/rest-contracts/tax) endpoints. 
+
+        > #### Note
+        > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
+        > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
+      summary: Update a Connection
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: provider-connection-put
+      tags:
+        - Tax Provider Connection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Public identifying information representing a unique account on the tax provider's infrastructure. Should not contain any personal identifying information (e.g. a personal email address).
+                  example: MyTaxProviderAccount
+                password:
+                  type: string
+                  example: h6eSgKLN72q7jYTW
+                profile:
+                  type: string
+                  example: your_app_name
+                  description: Optional field that allows merchants to customize Tax Provider API endpoint URLs. Only available for supporting providers.
+            examples:
+              Example:
+                value:
+                  username: MyTaxProviderAccount
+                  password: h6eSgKLN72q7jYTW
+                  profile: test-profile
+        description: Basic authentication information, associated with a merchant account on the third-party tax providerʼs infrastructure.
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: provider_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: 'The Tax Providerʼs `provider_id` provided by BigCommerce after the provider [shares their provider details](/docs/integrations/tax#sharing-provider-details-with-bigcommerce).'
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+    provider_id:
+      name: Tax Provider ID
+      in: path
+      description: Unique key that identifies the Tax Provider on the BigCommerce platform.
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+  schemas:
+    response-connection:
+      type: object
+      title: Connection Status
+      properties:
+        data:
+          type: object
+          properties:
+            username:
+              type: string
+              description: Identifies a unique account on the external tax provider infrastructure. May be used to reconcile the two platforms.
+            configured:
+              type: boolean
+              description: |-
+                Describes whether the stored credentials are considered complete and configured, ready to be used for Tax Provider API requests.
+
+                Merchants may enable any **configured** tax provider for storefront tax quotation.
+      x-internal: false

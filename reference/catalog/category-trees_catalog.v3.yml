@@ -1,0 +1,1132 @@
+openapi: '3.0.3'
+info:
+  title: Catalog - Category Trees
+  description: |-
+    > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
+
+    Our Catalog Category Trees endpoints are the more modern and performant counterparts to the [Categories endpoints](/docs/rest-catalog/categories). Although the Category Trees endpoints and objects are designed to center an MSF-compatible, [multi-tenant category tree architecture](#categories), the endpoints work just as well in a single storefront context.
+
+    The Category Trees endpoints let you [get the Categories for a specific tree](/docs/rest-catalog/category-trees/categories#get-a-category-tree), and [bulk create](/docs/rest-catalog/category-trees/categories#create-categories), [bulk update](/docs/rest-catalog/category-trees/categories#update-categories), and [bulk delete](/docs/rest-catalog/category-trees/categories#delete-categories) Categories. You can also [bulk update the properties of Category Trees](/docs/rest-catalog/category-trees#upsert-category-trees), which includes changing the channels to which a Tree is assigned.
+
+    The terms "category tree" and "catalog tree" are used interchangeably throughout the documentation.
+
+    > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
+
+    ## Resources
+
+    ### Webhooks
+    Learn more about [Category Tree webhook events](/docs/integrations/webhooks/events/channels#category-trees).
+
+    ### Additional Catalog endpoints
+    * [Brands](/docs/rest-catalog/brands)
+    * [Categories](/docs/rest-catalog/categories)
+    * [Products](/docs/rest-catalog/products)
+    * [Product Modifiers](/docs/rest-catalog/product-modifiers)
+    * [Product Variants](/docs/rest-catalog/product-variants)
+    * [Product Variant Options](/docs/rest-catalog/product-variant-options)
+
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Category Trees
+  - name: Categories
+paths:
+  '/catalog/trees/categories':
+    get:
+      summary: Get All Categories
+      description: |-
+        Returns a list of categories. 
+
+        To get a specific category in a tree, provide a category ID.
+      tags:
+        - Categories
+      parameters:
+        - name: 'category_uuid:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_uuid:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: 'name:like'
+          in: query
+          schema:
+            type: string
+        - name: page_title
+          in: query
+          schema:
+            type: string
+        - name: 'page_title:like'
+          in: query
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: is_visible
+          in: query
+          schema:
+            type: boolean
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: include_fields
+          in: query
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of categories.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+                  meta:
+                    $ref: '#/components/schemas/MetaPagination'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        parent_id: 2
+                        name: Bath
+                        description: <p>We offer a wide variety of products perfect for relaxing</p>
+                        views: 1050
+                        sort_order: 3
+                        page_title: Bath
+                        meta_keywords:
+                          - string
+                        meta_description: string
+                        layout_file: category.html
+                        image_url: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                        is_visible: true
+                        search_keywords: string
+                        default_product_sort: use_store_settings
+                        url:
+                          path: string
+                          is_customized: true
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          previous: '?limit=5&page=1'
+                          current: '?limit=5&page=2'
+                          next: '?limit=5&page=3'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+      operationId: getAllCategories
+    post:
+      summary: Create Categories
+      description: |-
+        Creates new categories. 
+
+        Creating a category requires:
+         - `name`
+         - `url` 
+         - `tree_id` or `parent_id` 
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      tags:
+        - Categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCategories'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartialSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '422':
+          description: 'The Category was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+      operationId: createCategories
+    put:
+      summary: Update Categories
+      description: |-
+        Updates existing categories. 
+
+         To update a specific category in a tree, provide a category id.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      tags:
+        - Categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCategories'
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNoContentResponse'
+        '207':
+          description: Partial success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartialSuccessNoContentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '422':
+          description: 'The Category was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+      operationId: updateCategories
+    delete:
+      summary: Delete Categories
+      description: |-
+        Deletes categories. 
+
+        To delete a specific category in a tree, provide a category ID.
+      tags:
+        - Categories
+      parameters:
+        - name: 'category_uuid:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Categories are deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNoContentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+      operationId: deleteTreeCategories
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/catalog/trees':
+    get:
+      summary: Get All Category Trees
+      description: Returns a list of *Category Trees*.
+      operationId: GetCategoryTrees
+      parameters:
+        - name: 'id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'channel_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of category trees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tree'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+              example:
+                data:
+                  - id: 0
+                    name: string
+                    channels:
+                      - 0
+                meta:
+                  pagination:
+                    total: 246
+                    count: 5
+                    per_page: 5
+                    current_page: 1
+                    total_pages: 50
+                    links:
+                      next: '?limit=5&page=2'
+                      current: '?limit=5&page=1'
+      tags:
+        - Category Trees
+    put:
+      summary: Upsert Category Trees
+      description: |
+        Upserts *Category Trees*. 
+
+        This single endpoint updates and creates category trees. If a tree object contains an ID, it is processed as an update operation using that ID. If you do not provide an ID, a new tree is created. The category tree `name` field is required to create trees, but is not required on the update.
+        
+        **Usage Notes**
+        * `channel_id` is required to create a *Category Tree*. You can assign one `channel_id` to one category tree.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: UpsertCategoryTrees
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Tree_req'
+            example:
+              - id: 0
+                name: string
+                channels:
+                  - 0
+      responses:
+        '200':
+          description: Created a category tree.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tree'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  - id: 0
+                    name: string
+                    channels:
+                    - 0
+                meta: {}
+        '422':
+          description: The Channel was not valid. See the response for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/beta4ErrorResponse'
+              example:
+                status: 0
+                title: string
+                type: string
+                instance: string
+                errors:
+                  additionalProp1: string
+                  additionalProp2: string
+                  additionalProp3: string
+      tags:
+        - Category Trees
+    delete:
+      summary: Delete Category Trees
+      description: Deletes *Category Trees*. A filter must be supplied with the endpoint.
+      operationId: DeleteCategoryTrees
+      parameters:
+        - name: 'id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+      tags:
+        - Category Trees
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/catalog/trees/{tree_id}/categories':
+    get:
+      summary: Get a Category Tree
+      description: Returns a *Category Tree*.
+      operationId: GetCategoryTreeByTreeId
+      parameters:
+        - name: depth
+          description: Max depth for a tree of categories.
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Categories tree
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CategoryNode'
+                  meta:
+                    $ref: '#/components/schemas/metaEmpty_Full'
+              example:
+                data:
+                  - id: 0
+                    parent_id: 0
+                    depth: 0
+                    path:
+                      - 0
+                    name: string
+                    is_visible: true
+                    children:
+                      - string
+                meta:
+                  type: object
+                  properties: {}
+                  description: Empty meta object; reserved for use later.
+        '404':
+          description: The tree was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/beta4ErrorResponse'
+              example:
+                status: 0
+                title: string
+                type: string
+                instance: string
+                errors:
+                  additionalProp1: string
+                  additionalProp2: string
+                  additionalProp3: string
+      tags:
+        - Categories
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - schema:
+          type: string
+        name: tree_id
+        in: path
+        required: true
+components:
+  schemas:
+    metaEmpty_Full:
+      type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    DetailedErrors:
+      title: DetailedErrors
+      description: Each key-value pair describes a failure or partial success case.
+      type: object
+      properties: {}
+      additionalProperties: true
+      x-internal: false
+    CreateCategories:
+      type: array
+      items:
+        allOf:
+          - $ref: '#/components/schemas/TreeIdCreateData'
+          - $ref: '#/components/schemas/ParentIdCreateData'
+          - $ref: '#/components/schemas/CategoryDataPOST'
+      x-tags:
+        - Models
+      title: Create Categories
+    UpdateCategories:
+      x-tags:
+        - Models
+      type: array
+      items:
+        allOf:
+          - $ref: '#/components/schemas/TreeIdUpdateData'
+          - $ref: '#/components/schemas/CategoryIdUpdateData'
+          - $ref: '#/components/schemas/CategoryUuidData'
+          - $ref: '#/components/schemas/ParentIdUpdateData'
+          - $ref: '#/components/schemas/CategoryDataPUT'
+    Category:
+      x-tags:
+        - Models
+      title: Category
+      allOf:
+        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/parent_id'
+        - $ref: '#/components/schemas/name'
+        - $ref: '#/components/schemas/description'
+        - $ref: '#/components/schemas/views'
+        - $ref: '#/components/schemas/sort_order'
+        - $ref: '#/components/schemas/page_title'
+        - $ref: '#/components/schemas/meta_keywords'
+        - $ref: '#/components/schemas/meta_description'
+        - $ref: '#/components/schemas/layout_file'
+        - $ref: '#/components/schemas/image_url'
+        - $ref: '#/components/schemas/is_visible'
+        - $ref: '#/components/schemas/search_keywords'
+        - $ref: '#/components/schemas/default_product_sort'
+        - type: object
+          properties:
+            url:
+              $ref: '#/components/schemas/Url'
+      x-examples: {}
+    CategoryUuidData:
+      type: object
+      x-tags:
+        - Models
+      properties:
+        category_uuid:
+          type: string
+          format: uuid
+      title: category_uuid
+    CategoryIdUpdateData:
+      type: object
+      properties:
+        category_id:
+          type: integer
+      required:
+        - category_id
+      x-tags:
+        - Models
+    ParentIdCreateData:
+      type: object
+      properties:
+        parent_id:
+          type: integer
+      required:
+        - parent_id
+      x-tags:
+        - Models
+    TreeIdCreateData:
+      type: object
+      properties:
+        tree_id:
+          type: integer
+      required:
+        - tree_id
+      x-tags:
+        - Models
+    ParentIdUpdateData:
+      type: object
+      properties:
+        parent_id:
+          type: integer
+      x-tags:
+        - Models
+    TreeIdUpdateData:
+      type: object
+      x-tags:
+        - Models
+      properties:
+        tree_id:
+          type: integer
+    CategoryData:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            views:
+              type: integer
+            sort_order:
+              type: integer
+            page_title:
+              type: string
+            search_keywords:
+              type: string
+            meta_keywords:
+              type: array
+              items:
+                type: string
+            meta_description:
+              type: string
+            layout_file:
+              type: string
+            is_visible:
+              type: boolean
+            image_url:
+              type: string
+            url:
+              $ref: '#/components/schemas/Url'
+    CategoryDataPUT:
+      allOf:
+        - $ref: '#/components/schemas/CategoryData'
+        - $ref: '#/components/schemas/default_product_sort'
+    CategoryDataPOST:
+      allOf:
+        - $ref: '#/components/schemas/CategoryData'
+        - $ref: '#/components/schemas/default_product_sort'
+      required:
+        - name
+        - url
+    Url:
+      type: object
+      properties:
+        path:
+          type: string
+        is_customized:
+          type: boolean
+      x-tags:
+        - Models
+    MetaPagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  example: '?limit=5&page=1'
+                current:
+                  type: string
+                  example: '?limit=5&page=2'
+                next:
+                  type: string
+                  example: '?limit=5&page=3'
+      x-tags:
+        - Models
+    ErrorRequest:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorBasic'
+      x-tags:
+        - Models
+    ErrorBasic:
+      type: object
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+      x-tags:
+        - Models
+    ErrorAdditional:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/DetailedErrors'
+      x-tags:
+        - Models
+    MetaError:
+      allOf:
+        - $ref: '#/components/schemas/ErrorBasic'
+        - $ref: '#/components/schemas/ErrorAdditional'
+      x-tags:
+        - Models
+    MetaData:
+      type: object
+      properties:
+        total:
+          type: integer
+        success:
+          type: integer
+        failed:
+          type: integer
+      x-tags:
+        - Models
+    SuccessNoContentResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    PartialSuccessNoContentResponse:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    PartialSuccessResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    SuccessResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    Tree:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        channels:
+          type: array
+          items:
+            type: integer
+      x-tags:
+        - Models
+    Tree_req:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        channels:
+          type: array
+          items:
+            type: integer
+      x-tags:
+        - Models
+    CategoryNode:
+      type: object
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type: integer
+        depth:
+          type: integer
+        path:
+          type: array
+          items:
+            type: integer
+        name:
+          type: string
+        is_visible:
+          type: boolean
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryNode'
+      x-tags:
+        - Models
+    MetaPaginationObject:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                next:
+                  type: string
+                  example: '?limit=5&page=2'
+                current:
+                  type: string
+                  example: '?limit=5&page=1'
+      x-tags:
+        - Models
+    beta4DetailedErrors:
+      type: object
+      properties: {}
+      additionalProperties: true
+      x-tags:
+        - Models
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      x-tags:
+        - Models
+    beta4ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/beta4DetailedErrors'
+      x-tags:
+        - Models
+    default_product_sort:
+      title: default_product_sort
+      type: object
+      properties:
+        default_product_sort:
+          type: string
+          description: |
+            Determines how the products are sorted on category page load.
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - alpha_asc
+            - alpha_desc
+            - avg_customer_review
+            - price_asc
+            - price_desc
+    name:
+      title: name
+      type: object
+      properties:
+        name:
+          maxLength: 50
+          minLength: 1
+          type: string
+          description: |-
+            The name displayed for the category. Name is unique with respect to the category's siblings.
+            Required in a POST.
+          example: Bath
+    description:
+      title: description
+      type: object
+      properties:
+        description:
+          type: string
+          description: |
+            The product description, which can include HTML formatting.
+          example: <p>We offer a wide variety of products perfect for relaxing</p>
+    views:
+      title: views
+      type: object
+      properties:
+        views:
+          type: integer
+          description: |
+            Number of views the category has on the storefront.
+          example: 1050
+    sort_order:
+      title: sort_order
+      type: object
+      properties:
+        sort_order:
+          type: integer
+          description: |
+            Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+          example: 3
+    page_title:
+      title: page_title
+      type: object
+      properties:
+        page_title:
+          type: string
+          description: |
+            Custom title for the category page. If not defined, the category name will be used as the meta title.
+          example: Bath
+    search_keywords:
+      title: search_keywords
+      type: object
+      properties:
+        search_keywords:
+          type: string
+          description: |
+            A comma-separated list of keywords that can be used to locate the category when searching the store.
+    meta_keywords:
+      title: meta_keywords
+      type: object
+      properties:
+        meta_keywords:
+          type: array
+          description: |
+            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+          items:
+            type: string
+    layout_file:
+      title: layout_file
+      type: object
+      properties:
+        layout_file:
+          maxLength: 500
+          minLength: 0
+          type: string
+          description: |
+            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+          example: category.html
+    is_visible:
+      title: is_visible
+      type: object
+      properties:
+        is_visible:
+          type: boolean
+          description: |
+            Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+    image_url:
+      title: image_url
+      type: object
+      properties:
+        image_url:
+          type: string
+          description: |
+            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+          example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+          x-url: true
+    meta_description:
+      title: meta_description
+      type: object
+      properties:
+        meta_description:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+    id:
+      title: id
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |-
+            Unique ID of the *Category*. Increments sequentially.
+            Read-Only.
+          readOnly: true
+    parent_id:
+      title: parent_id
+      type: object
+      properties:
+        parent_id:
+          type: integer
+          description: |-
+            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            Required in a POST if creating a child category.
+          example: 2
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Products | modify | `store_v2_products` |
+        |  Products | read-only | `store_v2_products_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

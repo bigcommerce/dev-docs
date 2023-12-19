@@ -1,0 +1,153 @@
+openapi: '3.0.1'
+info:
+  title: Payment Methods (Deprecated)
+  description: |
+    > The Payments API processes payments using payment instruments such as credit cards or PayPal accounts. To learn more about Payments, see the [Payments Overview](/docs/store-operations/payments).
+
+    This endpoint is deprecated. Use [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) instead.
+
+    The V3 version of this endpoint contains more information about the payment methods each payment gateway accepts. The additional information enables your application and BigCommerce to make the most likely-to-succeed payment request to the gateway, without using extra middleware or making preparatory API calls to the gateway on your end prior to running the payment. Use [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) for a leaner, more optimized application.
+
+    > To learn more about authenticating Payments endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
+
+    ## Resources
+
+    * [Payments Overview](/docs/store-operations/payments)
+    * [Process payments authentication example request](/docs/start/authentication#bigcommerce-generated-jwts)
+    * [Orders Overview](/docs/store-operations/orders)
+    
+     ### Webhooks
+    
+    * [Carts](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#carts)
+    * [Orders](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+    * [Price list assignment](https://developer.bigcommerce.com/api-docs/channels/guide/webhooks#price-list-assignments)
+
+    ### Payments endpoints
+
+    * [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods)
+    * [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token)
+    * [Process payments](/docs/rest-payments/processing#process-payment)
+    * [Get a customer's stored instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+    
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  license:
+    name: ''
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Methods (Deprecated)
+paths:
+  '/payments/methods':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+      - Methods (Deprecated)
+      summary: Get All Payment Methods
+      operationId: getAllPaymentMethods
+      deprecated: true
+      description: |         
+        Gets the list of enabled payment methods. Default sorting is by payment method, alphabetically from A to Z.
+  
+        > #### Note
+        > Avoid using this API operation if possible. It is not supported; therefore, all enabled providers may not appear.
+      parameters:
+      - name: page
+        in: query
+        description: Optional filter param `/api/v2/payments/methods?page={number}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      - name: limit
+        in: query
+        description: Optional filter param `/api/v2/payments/methods?limit={count}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/payment_Base'
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    payment_Base:
+      title: payment_Base
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique platform-wide code identifying the payment method.
+          example: squarev2
+        name:
+          type: string
+          description: Descriptive name of the payment method.
+          example: Square
+        test_mode:
+          type: boolean
+          description: Determines whether the payment gateway is in test mode. Always
+            false for offline payment methods.
+          example: false
+      example:
+        code: squarev2
+        name: Square
+        test_mode: false
+      x-internal: false
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | read-only | `store_payments_methods_read` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

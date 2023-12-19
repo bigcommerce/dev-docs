@@ -1,0 +1,99 @@
+openapi: '3.0.1'
+info:
+  version: Storefront
+  title: Storefront Customers
+  description: |-
+    Manage customers and data via front-end JavaScript on BigCommerce Stencil-powered storefronts.
+    
+    For info about API accounts, see our [Guide to API Accounts](/docs/start/authentication/api-accounts).
+        
+    For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#same-origin-cors-authentication).
+servers:
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: your_store.example.com
+        description: 'The [URL authority](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#authority) of the storefront.'
+tags:
+  - name: Customers
+paths:
+  /customers:
+    post:
+      tags:
+        - Customers
+      description: |-
+        Create a *Customer*.
+
+        > #### Note
+        > * Substitute your storefront domain for `yourstore.example.com`. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+      responses:
+        '204':
+          description: Customer successfully created.
+        '400':
+          description: Could not create customer.
+        '409':
+          description: Thereʼs already an account for the provided email. Please enter a different email address or sign in.
+        '422':
+          description: Missing Required Fields.
+        '429':
+          description: Spam Protection Failed.
+      summary: Create a Customer
+      operationId: createACustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreateData'
+            examples:
+              application/json:
+                value:
+                  firstName: Jane
+                  lastName: Doe
+                  email: janedoe@example.com
+                  password: string
+                  acceptsMarketingEmails: true
+                  customFields:
+                    - fieldId: '25'
+                      fieldValue: Leave in backyard
+        description: Data sent the the customer endpoint when creating a customer during checkout.
+components:
+  schemas:
+    CustomerCreateData:
+      title: CustomerCreateData
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name of customer.
+        lastName:
+          type: string
+          description: Last name of customer.
+        email:
+          type: string
+          description: Email of customer.
+        password:
+          type: string
+          description: Password of customer.
+        acceptsMarketingEmails:
+          type: boolean
+          description: Indicates whether customer provided consent to receive marketing emails.
+        customFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFields'
+      x-internal: false
+    CustomFields:
+      title: CustomFields
+      type: object
+      x-internal: false
+      properties:
+        fieldId:
+          type: string
+        fieldValue:
+          oneOf:
+            - type: string
+            - type: number
+            - type: array
+              items:
+                type: string

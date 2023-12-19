@@ -1,0 +1,30 @@
+{
+  "store" : {
+    "name" : "string",
+    "domain_name" : "string",
+    "logo" : {
+        "title" : "string",
+        "name" : "string",
+        "url" : "string"
+    } ,
+    "ssl_path" : "string",
+    "cdn_path" : "string",
+    "image_directory" : "string",
+    "img_path" : "string",
+    "path_normal" : "string",
+    "path" : "string",
+    "address" : "string",
+    "language" : {
+        "code" : "string" ,
+        "direction" : "string"
+    }
+  },
+  "customer" : {
+    "first_name" : "string",
+    "full_name" : "string",
+    "email" : "string"
+  },
+  "misc" : {
+    "year" : "int"
+  }
+}

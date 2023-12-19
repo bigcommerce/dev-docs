@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/shipment/created:
+    description: Shipment is created
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          orderId:
+            type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

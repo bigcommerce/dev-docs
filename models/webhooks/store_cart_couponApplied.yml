@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/cart/couponApplied:
+    description: Fires when a new coupon code is applied to a cart. The payload includes the ID of the coupon code.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          couponId:
+            type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

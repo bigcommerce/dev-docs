@@ -1,0 +1,1667 @@
+openapi: '3.0.1'
+info:
+  title: Content
+  description: |-
+    Manage blog posts, blog tags, content pages, and redirects.
+
+    > #### Warning
+    > **Deprecations**
+    > * Redirects V2 are deprecated; use [Redirects V3](/docs/rest-management/redirects) instead. 
+    > * Pages V2 are deprecated; use [Pages V3](/docs/rest-content/pages) instead.
+  version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Blog Posts
+  - name: Blog Tags
+  - name: Pages
+  - name: Redirects
+paths:
+  '/blog/tags':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Blog Tags
+      summary: Get All Blog Tags
+      description: Returns a list of *Blog Tags*.
+      operationId: getAllBlogTags
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/blogTags'
+  '/blog/posts':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Blog Posts
+      summary: Get All Blog Posts
+      description: 'Returns all *Blog Posts*. Default sorting is by published_date, beginning with the most recent post.'
+      operationId: getAllBlogPosts
+      parameters:
+        - name: is_published
+          in: query
+          description: Filter param.
+          schema:
+            type: string
+        - name: url
+          in: query
+          description: Filter param. Value must be URL encoded.
+          schema:
+            type: string
+        - name: tag
+          in: query
+          description: Filter param.
+          schema:
+            type: string
+        - name: published_date
+          in: query
+          description: Filter param.
+          schema:
+            type: string
+            format: date-time
+        - name: page
+          in: query
+          description: Filter param.
+          schema:
+            maximum: 50
+            exclusiveMinimum: false
+            type: number
+        - name: limit
+          in: query
+          description: Filter param.
+          schema:
+            maximum: 250
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/blogPost_Full'
+              example:
+                - id: 3
+                  title: Hello Again
+                  url: /blog/hello-again/
+                  preview_url: /blog/hello-again/
+                  body: "<p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>"
+                  tags:
+                    - sugar
+                    - sweet
+                    - spice
+                    - everything
+                    - nice
+                  summary: 'Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]'
+                  is_published: true
+                  published_date:
+                    date: '2018-05-18 08:26:42.000000'
+                    timezone_type: 1
+                    timezone: '+00:00'
+                  published_date_iso8601: '2018-05-18T13:26:42+0000'
+                  meta_description: Cupcakes post 2
+                  meta_keywords: 'sugar,sweet,spice,everything,nice'
+                  author: ''
+                  thumbnail_path: ''
+                - id: 2
+                  title: Hello
+                  url: /blog/hello/
+                  preview_url: /blog/hello/
+                  body: "<p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>"
+                  tags:
+                    - cupcakes
+                    - sugar
+                    - sweet
+                  summary: 'Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]'
+                  is_published: true
+                  published_date:
+                    date: '2018-05-18 08:26:00.000000'
+                    timezone_type: 1
+                    timezone: '+00:00'
+                  published_date_iso8601: '2018-05-18T13:26:00+0000'
+                  meta_description: cupcake blog post
+                  meta_keywords: 'cupcakes,sugar,sweet'
+                  author: ''
+                  thumbnail_path: ''
+                - id: 1
+                  title: Your first blog post!
+                  url: /your-first-blog-post/
+                  preview_url: /your-first-blog-post/
+                  body: "<p><strong>Welcome to your blog!</strong><br> A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the BigCommerce <a href='http://blog.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce blog</a>.</p><p><strong>How can I delete this post?</strong><br>To delete this post and add your own, login to your <a href='/admin' target='_blank'>admin area</a> and go to Storefront > Blog in the left hand menu.</p><p><strong>Powered by BigCommerce</strong><br>Your website, online store and blog are powered by BigCommerce <a href='http://www.bigcommerce.com/' target='_blank' rel='nofollow'>ecommerce software</a>. It includes everything you need to run a beautiful online store including <a href='http://www.bigcommerce.com/templates/' target='_blank' rel='nofollow'>ecommerce website templates</a>, <a href='http://www.bigcommerce.com/features/hosting/' target='_blank' rel='nofollow'>ecommerce hosting</a>, an <a href='http://www.bigcommerce.com/features/setup/' target='_blank' rel='nofollow'>online shopping cart</a> and more.</p>"
+                  tags:
+                    - Blog
+                    - SEO
+                  summary: ' Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]'
+                  is_published: true
+                  published_date:
+                    date: '2014-02-15 14:46:34.000000'
+                    timezone_type: 1
+                    timezone: '+00:00'
+                  published_date_iso8601: '2014-02-15T19:46:34+0000'
+                  meta_description: ''
+                  meta_keywords: 'Blog,SEO'
+                  author: ''
+                  thumbnail_path: ''
+    post:
+      tags:
+        - Blog Posts
+      summary: Create a Blog Post
+      description: |-
+        Creates a *Blog Post*.
+
+        **Required Fields**
+        *   `title`
+        *   `body`
+
+        **Notes**
+
+        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
+        * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
+        * If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.
+      operationId: createABlogPosts
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/blogPost_Base_Post'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogPost_Base_Res'
+              example:
+                id: 3
+                title: Welcome to BigCommerce
+                url: /blog/welcome-bigcommerce/
+                preview_url: /blog/welcome-bigcommerce/
+                body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+                tags:
+                  - BigCommerce
+                  - welcome
+                  - ecommerce
+                summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+                is_published: true
+                published_date:
+                  date: '2018-05-18T08:26:42.000Z'
+                  timezone_type: 1
+                  timezone: '+00:00'
+                published_date_iso8601: '2018-05-18T13:26:42.000Z'
+                meta_description: Welcome Post
+                meta_keywords: 'BigCommerce, welcome, ecommerce'
+                author: BigCommerce
+                thumbnail_path: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      tags:
+        - Blog Posts
+      summary: Delete Blog Posts
+      description: Deletes a page of `Blog Posts`.
+      operationId: deleteAllBlogPosts
+      parameters:
+        - name: page
+          in: query
+          description: Filter param.
+          schema:
+            maximum: 250
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: number
+        - name: limit
+          in: query
+          description: Filter param.
+          schema:
+            maximum: 50
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: number
+      responses:
+        '204':
+          description: ''
+          content: {}
+  '/blog/posts/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the blog post.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+    get:
+      tags:
+        - Blog Posts
+      summary: Get a Blog Post
+      description: Returns a single *Blog Post*.
+      operationId: getABlogPost
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogPost_Full'
+              example:
+                id: 3
+                title: Welcome to BigCommerce
+                url: /blog/welcome-bigcommerce/
+                preview_url: /blog/welcome-bigcommerce/
+                body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+                tags:
+                  - BigCommerce
+                  - welcome
+                  - ecommerce
+                summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+                is_published: true
+                published_date:
+                  date: '2018-05-18T08:26:42.000Z'
+                  timezone_type: 1
+                  timezone: '+00:00'
+                published_date_iso8601: '2018-05-18T13:26:42.000Z'
+                meta_description: Welcome Post
+                meta_keywords: 'BigCommerce, welcome, ecommerce'
+                author: BigCommerce
+                thumbnail_path: ''
+    put:
+      tags:
+        - Blog Posts
+      summary: Update a Blog Post
+      description: |-
+        Updates a *Blog Post*.
+
+        **Notes**
+
+        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
+
+        * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
+      operationId: updateABlogPost
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/blogPost_Base_Post'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogPost_Base_Res'
+              example:
+                id: 3
+                title: Welcome to BigCommerce
+                url: /blog/welcome-bigcommerce/
+                preview_url: /blog/welcome-bigcommerce/
+                body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+                tags:
+                  - BigCommerce
+                  - welcome
+                  - ecommerce
+                summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+                is_published: true
+                published_date:
+                  date: '2018-05-18T08:26:42.000Z'
+                  timezone_type: 1
+                  timezone: '+00:00'
+                published_date_iso8601: '2018-05-18T13:26:42.000Z'
+                meta_description: Welcome Post
+                meta_keywords: 'BigCommerce, welcome, ecommerce'
+                author: BigCommerce
+                thumbnail_path: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Blog Posts
+      summary: Delete a Blog Post
+      description: Deletes a *Blog Post*.
+      operationId: deleteABlogPost
+      responses:
+        '204':
+          description: ''
+          content: {}
+  '/blog/posts/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Blog Posts
+      summary: Get A Count of All Blog Posts
+      description: Returns a count of all *Blog Posts*.
+      operationId: getACountOfAllBlogPosts
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/count_Response'
+              example:
+                count: 27
+  '/pages':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      deprecated: true
+      tags:
+        - Pages
+      summary: Get All Pages
+      description: | 
+        Returns a list of *Pages*. Default sorting is by auto-generated ID from oldest to newest.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get one or more pages, use Pages V3ʼs [Get pages](/docs/rest-content/pages#get-pages) endpoint. To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
+      operationId: getAllPages
+      parameters:
+        - name: page
+          in: query
+          description: Filter param.
+          schema:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: number
+        - name: limit
+          in: query
+          description: Filter param.
+          schema:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/page_Full'
+            Example:
+              example:
+                - id: 6
+                  parent_id: 5
+                  type: page
+                  contact_fields: 'fullname,companyname,phone,orderno,rma'
+                  email: janedoes@example.com
+                  name: Contact Form
+                  url: /contact-us/
+                  meta_description: ''
+                  body: We are happy to answer questions or help you with...
+                  mobile_body: ''
+                  feed: ''
+                  link: ''
+                  has_mobile_version: false
+                  is_visible: true
+                  is_homepage: false
+                  layout_file: page.html
+                  sort_order: 3
+                  meta_title: ''
+                  search_keywords: ''
+                  meta_keywords: ''
+    post:
+      deprecated: true
+      tags:
+        - Pages
+      summary: Create a Page
+      description: |-
+        Creates a *Page*. The request payload limit is 1MB.
+
+        **Required Fields**
+        *   `type`
+        *   `name`
+        *   `link` (for a page of `type: link`)
+        *   `feed` (for a page of `type: rss_feed`)
+        *   `body` (for a page of `type: raw`)
+
+        **Read Only Fields**
+        *   `id`
+
+        ## Content Type
+
+        The default value for `content_type` is `text/html`; however, if `page_type` is set to `raw`, `content_type` can be changed to `text/javascript` or `application/json`. Updating this field allows you to place a JavaScript or a JSON file in the root directory.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To create one or more pages, use Pages V3ʼs [Create pages](/docs/rest-content/pages#create-pages) endpoint. 
+      operationId: createAPage
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/page_Base'
+            examples:
+              example-1:
+                value:
+                  parent_id: 5
+                  type: page
+                  contact_fields: 'fullname,companyname,phone,orderno,rma'
+                  email: janedoes@example.com
+                  name: Contact Form
+                  url: /contact-us/
+                  meta_description: string
+                  body: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
+                  mobile_body: '0'
+                  has_mobile_version: false
+                  is_visible: true
+                  is_homepage: false
+                  meta_title: string
+                  layout_file: page.html
+                  sort_order: 3
+                  search_keywords: string
+                  meta_keywords: string
+                  feed: string
+                  link: string
+                  content_type: text/html
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/page_Full'
+              example:
+                id: 6
+                parent_id: 5
+                type: page
+                contact_fields: 'fullname,companyname,phone,orderno,rma'
+                email: janedoes@example.com
+                name: Contact Form
+                url: /contact-us/
+                meta_description: ''
+                body: "We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance."
+                mobile_body: ''
+                has_mobile_version: false
+                feed: ''
+                link: ''
+                is_visible: true
+                is_homepage: false
+                layout_file: page.html
+                sort_order: 3
+                meta_title: ''
+                search_keywords: ''
+                meta_keywords: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codegen-request-body-name: body
+  '/pages/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the page.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+    get:
+      deprecated: true
+      tags:
+        - Pages
+      summary: Get A Page
+      description: |
+        Returns a *Page*. 
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
+      operationId: getAPage
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/page_Full'
+              example:
+                id: 1
+                name: RSS Syndication
+                meta_title: ''
+                body: '%%Syndicate%%'
+                is_visible: true
+                parent_id: 0
+                sort_order: 5
+                meta_keywords: '0'
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: ''
+                is_customers_only: false
+                search_keywords: '0'
+                has_mobile_version: false
+                feed: ''
+                link: ''
+                mobile_body: '0'
+                url: /rss-syndication/
+    put:
+      deprecated: true
+      tags:
+        - Pages
+      summary: Update a Page
+      description: |-
+        Updates a *Page*. The request payload limit is 1MB.
+
+        **Read Only Fields**
+        * id
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To update multiple pages, use Pages V3ʼs [Update pages](/docs/rest-content/pages#update-pages) endpoint. To update a single page, use Pages V3ʼs [Update a page](/docs/rest-content/pages#update-a-page) endpoint.
+      operationId: updateAPage
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/page_Base'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/page_Base'
+              example:
+                id: 2
+                name: Shipping & Returns
+                meta_title: ''
+                body: "<em>To edit this page simply login to the control panel, click the <strong style='font-weight: 400'>Website Content</strong> tab and choose the </em> <strong style='font-weight: 400'><em>View Web Pages option. Click Edit next to the Shipping & Returns page and you can change this text. A sample returns policy is shown below which you can edit as needed.</em><em style='font-style: normal'><br/><br/></em></strong><em style='font-style: normal'><strong>Returns Policy</strong></em><strong style='font-weight: 400'></em></em><em style='font-style: normal'><br/><br/></em>You may return most new, unopened items within 30 days of delivery for a full refund. We'll also pay the return shipping costs if the return is a result of our error (you received an incorrect or defective item, etc.).<br/><br/>You should expect to receive your refund within four weeks of giving your package to the return shipper, however, in many cases you will receive a refund more quickly. This time period includes the transit time for us to receive your return from the shipper (5 to 10 business days), the time it takes us to process your return once we receive it (3 to 5 business days), and the time it takes your bank to process our refund request (5 to 10 business days).<br/><br/>If you need to return an item, please <a href='/contact-us/'>Contact Us</a> with your order number and details about the product you would like to return. We will respond quickly with instructions for how to return items from your order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong style='font-weight: 400'><em style='font-style: normal'><br/><br/></em>We can ship to virtually any address in the world. Note that there are restrictions on some products, and some products cannot be shipped to international destinations.<br/><br/>When you place an order, we will estimate shipping and delivery dates for you based on the availability of your items and the shipping options you choose. Depending on the shipping provider you choose, shipping date estimates may appear on the shipping quotes page.<br/><br/>Please also note that the shipping rates for many items we sell are weight-based. The weight of any such item can be found on its detail page. To reflect the policies of the shipping companies we use, all weights will be rounded up to the next full pound.<br/>"
+                is_visible: true
+                parent_id: 0
+                sort_order: 2
+                meta_keywords: ''
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: false
+                feed: ''
+                link: ''
+                mobile_body: ''
+                url: /shipping-returns/
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codegen-request-body-name: body
+    delete:
+      deprecated: true
+      tags:
+        - Pages
+      summary: Delete a Page
+      description: |
+        Deletes a *Page*.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To delete multiple pages, use Pages V3ʼs [Delete pages](/docs/rest-content/pages#delete-pages) endpoint. To delete a single page, use Pages V3ʼs [Delete a page](/docs/rest-content/pages#delete-a-page) endpoint. 
+      operationId: deleteAPage
+      responses:
+        '204':
+          description: ''
+          content: {}
+  '/redirects':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      deprecated: true
+      tags:
+        - Redirects
+      summary: Get All Redirects
+      description: |-
+        Returns a list all *Redirect URLs*. 
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get redirect URLs, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
+      operationId: getAListofRedirects
+      parameters:
+        - name: page
+          in: query
+          description: Filter param.
+          schema:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: integer
+        - name: limit
+          in: query
+          description: Filter param.
+          schema:
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/redirect'
+            Response Schema:
+              example: ''
+    post:
+      tags:
+        - Redirects
+      summary: Create a Redirect
+      description: |-
+        Creates a *Redirect URL*.
+
+        **Required Fields**
+        *   path
+        *   forward
+
+        **Read Only**
+        *   url
+
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To upsert new redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
+      operationId: createARedirect
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/redirect'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redirect'
+              example:
+                id: 3
+                path: /mens_clothing
+                forward:
+                  type: category
+                  ref: 3
+                url: 'http://store.example.com/mens'
+      x-codegen-request-body-name: body
+    delete:
+      deprecated: true
+      tags:
+        - Redirects
+      summary: Delete All Redirects
+      description: |-
+        By default, it deletes all *Redirect URLs* in a store. 
+
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To delete redirect URLs, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
+      operationId: deleteAllRedirects
+      responses:
+        '204':
+          description: ''
+          content: {}
+  '/redirects/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        description: ID of the redirect URL.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+    get:
+      deprecated: true
+      tags:
+        - Redirects
+      summary: Get a Redirect
+      description: |-
+        Returns a single *Redirect URL*.
+
+        > #### Warning
+        > **Deprecated** 
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get a redirect URL, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
+      operationId: getARedirectURL
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redirect'
+              example:
+                id: 1
+                path: /smith-journal-13/
+                forward:
+                  type: product
+                  ref: 111
+                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+    put:
+      tags:
+        - Redirects
+      summary: Update a Redirect
+      description: |-
+        Updates a *Redirect URL*.
+
+        **Required Fields**
+        *   path
+        *   forward
+
+        **Read Only Fields**
+        *   url
+
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To update redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
+      operationId: updateARedirectURL
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Redirect
+              required:
+                - forward
+                - path
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: Numeric ID of the redirect.
+                  example: 1
+                path:
+                  type: string
+                  description: The path from which to redirect.
+                  example: /smith-journal-13/
+                forward:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: |
+                        The type of redirect. If it is a manual redirect then type will always be manual. Dynamic redirects will have the type of the page. Such as product or category.
+                      example: product
+                    ref:
+                      type: string
+                      description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
+                      example: '111'
+                url:
+                  type: string
+                  description: URL of the redirect. READ-ONLY
+                  example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+              example:
+                id: 1
+                path: /smith-journal-13/
+                forward:
+                  type: product
+                  ref: '111'
+                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redirect'
+              example:
+                id: 1
+                path: /smith-journal-13/
+                forward:
+                  type: product
+                  ref: 111
+                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Redirects
+      summary: Delete a Redirect
+      description: |-
+        Deletes a *Redirect URL*.
+
+        > #### Warning
+        > **Deprecated** 
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To delete a redirect URL, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
+      operationId: deleteARedirect
+      responses:
+        '204':
+          description: ''
+          content: {}
+  '/redirects/count':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      deprecated: true
+      tags:
+        - Redirects
+      summary: Get a Count of Redirects
+      description: |-
+        Gets a count of *Redirect URLs* in a store.
+
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * To get a count of redirects, use the `meta` object data returned with the Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
+      operationId: getACountOfRedirects
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/count_Response'
+              example:
+                count: 27
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    blogPost_Full:
+      title: blogPost_Full
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: ID of this blog post. (READ-ONLY)
+              example: 3
+        - $ref: '#/components/schemas/blogPost_Base_Res'
+      x-internal: false
+      x-examples:
+        example-1:
+          id: 3
+          title: Welcome to BigCommerce
+          url: /blog/welcome-bigcommerce/
+          preview_url: /blog/welcome-bigcommerce/
+          body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+          tags:
+            - string
+          summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+          is_published: true
+          published_date:
+            timezone_type: '1'
+            date: '2018-05-18T08:26:42Z'
+            timezone: '+00:00'
+          published_date_iso8601: '5/18/2018 1:26:42 PM'
+          meta_description: Welcome Post
+          meta_keywords: 'BigCommerce, welcome, ecommerce'
+          author: BigCommerce
+          thumbnail_path: string
+    addresses:
+      title: addresses
+      type: object
+      properties:
+        url:
+          type: string
+          description: Full URL of where the resource is located.
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
+        resource:
+          type: string
+          description: Resource being accessed.
+          example: /customers/5/addresses
+      x-internal: false
+    formField:
+      title: formField
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the form field
+          example: License Id
+        value:
+          type: string
+          description: Value of the form field
+          example: 123BAF
+      x-internal: false
+    page_Full:
+      title: page_Full
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: ID of the page.
+              example: 44
+        - $ref: '#/components/schemas/page_Base_Res'
+      x-internal: false
+    redirect:
+      title: redirect
+      required:
+        - forward
+        - path
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Numeric ID of the redirect.
+          example: 1
+        path:
+          type: string
+          description: The path from which to redirect.
+          example: /smith-journal-13/
+        forward:
+          $ref: '#/components/schemas/forward'
+        url:
+          type: string
+          description: URL of the redirect. READ-ONLY
+          example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+      example:
+        id: 1
+        path: /smith-journal-13/
+        forward:
+          type: product
+          ref: 111
+        url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+      x-internal: false
+    forward:
+      title: forward
+      type: object
+      x-internal: false
+      properties:
+        type:
+          type: string
+          description: The type of redirect. If it is a `manual` redirect then type will always be manual. Dynamic redirects will have the type of the page. Such as product or category.
+          example: product
+        ref:
+          type: integer
+          description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
+          example: 111
+    customer_Full:
+      title: customer_Full
+      required:
+        - email
+        - first_name
+        - last_name
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          example: 1
+        _authentication:
+          type: object
+          properties:
+            force_reset:
+              type: string
+            password:
+              type: string
+            password_confirmation:
+              type: string
+          description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
+        company:
+          type: string
+          description: The name of the company for which the customer works.
+          example: BigCommerce
+        first_name:
+          type: string
+          description: First name of the customer.
+          example: Jane
+        last_name:
+          type: string
+          description: Last name of the customer.
+          example: Doe
+        email:
+          type: string
+          description: Email address of the customer.
+          example: janedoe@example.com
+        phone:
+          type: string
+          description: Phone number of the customer.
+          example: '1234567890'
+        date_created:
+          type: string
+          description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          format: date-time
+        date_modified:
+          type: string
+          description: |
+            Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          format: date-time
+        store_credit:
+          type: string
+          description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
+          example: '0'
+        registration_ip_address:
+          type: string
+          description: The customer’s IP address when they signed up.
+          example: 12.345.678.910
+        customer_group_id:
+          type: integer
+          description: The group to which the customer belongs.
+          example: 2
+        notes:
+          type: string
+          description: Store-owner notes on the customer.
+        tax_exempt_category:
+          type: string
+          description: If applicable, the tax-exempt category of the shopperʼs customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
+        accepts_marketing:
+          type: boolean
+          description: |
+            Records whether the customer would like to receive marketing content from this store. READ-ONLY.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          example: true
+        addresses:
+          $ref: '#/components/schemas/addresses'
+        form_fields:
+          type: array
+          description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          items:
+            $ref: '#/components/schemas/formField'
+        reset_pass_on_login:
+          type: boolean
+          description: Force a password change on next login.
+          example: false
+      x-internal: false
+    categoryAccessLevel:
+      title: categoryAccessLevel
+      type: object
+      properties:
+        type:
+          type: string
+          description: |-
+            + `all` - Customers can access all categories
+             + `specific`  - Customers can access a specific list of categories
+            + `none` - Customers are prevented from viewing any of the categories in this group.
+          enum:
+            - all
+            - specific
+            - none
+        categories:
+          type: array
+          description: Is an array of category IDs and should be supplied only if `type` is specific.
+          example:
+            - '18,19,23,34'
+          items:
+            type: string
+      x-internal: false
+    timeZone:
+      title: timeZone
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'A string identifying the time zone, in the format: <Continent-name>/<City-name>.'
+          example: America/Chicago
+        raw_offset:
+          type: integer
+          description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
+          example: -21600
+        dst_offset:
+          type: integer
+          description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during summer/daylight saving time.'
+          example: -18000
+        dst_correction:
+          type: boolean
+          description: A boolean indicating whether this time zone observes daylight saving time.
+          example: true
+        date_format:
+          $ref: '#/components/schemas/dateFormat'
+      x-internal: false
+    count_Response:
+      title: count_Response
+      type: object
+      properties:
+        count:
+          type: number
+          description: ''
+          example: 27
+      example:
+        count: 27
+      x-internal: false
+    dateFormat:
+      title: dateFormat
+      type: object
+      properties:
+        display:
+          type: string
+          description: 'A string that defines dates’ display formats, in the pattern: M jS Y'
+          example: M jS Y
+        export:
+          type: string
+          description: 'A string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
+          example: M jS Y
+        extended_display:
+          type: string
+          description: 'A string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
+          example: 'M jS Y @ g:i A'
+      x-internal: false
+    blogTags:
+      title: blogTags
+      type: array
+      items:
+        type: object
+        properties:
+          tag:
+            type: string
+            example: Blog
+          post_ids:
+            type: array
+            example:
+              - 1
+              - 2
+              - 4
+            items:
+              type: integer
+      x-internal: false
+    blogPost_Base_Post:
+      title: blogPost_Base_Post
+      type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          title: Welcome to BigCommerce
+          url: /blog/welcome-bigcommerce/
+          preview_url: /blog/welcome-bigcommerce/
+          body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+          tags:
+            - string
+          summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+          is_published: true
+          published_date:
+            timezone_type: '1'
+            date: '2018-05-18T08:26:42Z'
+            timezone: '+00:00'
+          published_date_iso8601: '5/18/2018 1:26:42 PM'
+          meta_description: Welcome Post
+          meta_keywords: 'BigCommerce, welcome, ecommerce'
+          author: BigCommerce
+          thumbnail_path: string
+      description: blogPost base for POST requests
+      properties:
+        title:
+          type: string
+          description: Title of this blog post.
+          example: Welcome to BigCommerce
+        url:
+          type: string
+          description: URL for the public blog post.
+          example: /blog/welcome-bigcommerce/
+        body:
+          type: string
+          description: Text body of the blog post.
+          example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+        tags:
+          type: array
+          description: Tags to characterize the blog post.
+          items:
+            type: string
+        is_published:
+          type: boolean
+          description: Whether the blog post is published.
+          example: true
+        meta_description:
+          type: string
+          description: Description text for this blog post’s `<meta/>` element.
+          example: Welcome Post
+        meta_keywords:
+          type: string
+          description: Keywords for this blog post’s `<meta/>` element.
+          example: 'BigCommerce, welcome, ecommerce'
+        author:
+          type: string
+          description: Name of the blog post’s author.
+          example: BigCommerce
+        thumbnail_path:
+          type: string
+          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+        published_date:
+          type: string
+          example: 'Wed, 10 Aug 2022 15:39:15 -0500'
+      required:
+        - title
+        - body
+    blogPost_Base:
+      title: blogPost_Base
+      type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          title: Welcome to BigCommerce
+          url: /blog/welcome-bigcommerce/
+          preview_url: /blog/welcome-bigcommerce/
+          body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+          tags:
+            - string
+          summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+          is_published: true
+          published_date:
+            timezone_type: '1'
+            date: '2018-05-18T08:26:42Z'
+            timezone: '+00:00'
+          published_date_iso8601: '5/18/2018 1:26:42 PM'
+          meta_description: Welcome Post
+          meta_keywords: 'BigCommerce, welcome, ecommerce'
+          author: BigCommerce
+          thumbnail_path: string
+      properties:
+        title:
+          type: string
+          description: Title of this blog post.
+          example: Welcome to BigCommerce
+        url:
+          type: string
+          description: URL for the public blog post.
+          example: /blog/welcome-bigcommerce/
+        preview_url:
+          type: string
+          description: URL to preview the blog post. (READ-ONLY)
+          example: /blog/welcome-bigcommerce/
+        body:
+          type: string
+          description: Text body of the blog post.
+          example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+        tags:
+          type: array
+          description: Tags to characterize the blog post.
+          items:
+            type: string
+        summary:
+          type: string
+          description: Summary of the blog post. (READ-ONLY)
+          example: <p>We power ecommerce websites for successful retailers all over the world</p>
+        is_published:
+          type: boolean
+          description: Whether the blog post is published.
+          example: true
+        published_date:
+          $ref: '#/components/schemas/publishedDate'
+        published_date_iso8601:
+          type: string
+          description: Published date in `ISO 8601` format.
+          example: '5/18/2018 1:26:42 PM'
+        meta_description:
+          type: string
+          description: Description text for this blog post’s `<meta/>` element.
+          example: Welcome Post
+        meta_keywords:
+          type: string
+          description: Keywords for this blog post’s `<meta/>` element.
+          example: 'BigCommerce, welcome, ecommerce'
+        author:
+          type: string
+          description: Name of the blog post’s author.
+          example: BigCommerce
+        thumbnail_path:
+          type: string
+          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+      required:
+        - title
+        - body
+    blogPost_Base_Res:
+      title: blogPost_Base_Res
+      type: object
+      x-internal: false
+      x-examples: {}
+      description: blog post base response
+      properties:
+        title:
+          type: string
+          description: Title of this blog post.
+          example: Welcome to BigCommerce
+        url:
+          type: string
+          description: URL for the public blog post.
+          example: /blog/welcome-bigcommerce/
+        preview_url:
+          type: string
+          description: URL to preview the blog post. (READ-ONLY)
+          example: /blog/welcome-bigcommerce/
+        body:
+          type: string
+          description: Text body of the blog post.
+          example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+        tags:
+          type: array
+          description: Tags to characterize the blog post.
+          items:
+            type: string
+        summary:
+          type: string
+          description: Summary of the blog post. (READ-ONLY)
+          example: <p>We power ecommerce websites for successful retailers all over the world</p>
+        is_published:
+          type: boolean
+          description: Whether the blog post is published.
+          example: true
+        published_date:
+          $ref: '#/components/schemas/publishedDate'
+        published_date_iso8601:
+          type: string
+          description: Published date in `ISO 8601` format.
+          example: '5/18/2018 1:26:42 PM'
+        meta_description:
+          type: string
+          description: Description text for this blog post’s `<meta/>` element.
+          example: Welcome Post
+          nullable: true
+        meta_keywords:
+          type: string
+          description: Keywords for this blog post’s `<meta/>` element.
+          example: 'BigCommerce, welcome, ecommerce'
+          nullable: true
+        author:
+          type: string
+          description: Name of the blog post’s author.
+          example: BigCommerce
+          nullable: true
+        thumbnail_path:
+          type: string
+          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+          nullable: true
+    publishedDate:
+      type: object
+      x-internal: false
+      properties:
+        timezone_type:
+          type: integer
+          example: 1
+        date:
+          type: string
+          format: date-time
+          example: '2022-08-10 14:39:15.000000'
+        timezone:
+          type: string
+          example: '+00:00'
+    authentication:
+      type: object
+      properties:
+        force_reset:
+          type: string
+        password:
+          type: string
+        password_confirmation:
+          type: string
+      description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
+      x-internal: false
+    customer_Base:
+      title: customer_Base
+      type: object
+      x-internal: false
+    page_Base:
+      title: page_Base
+      type: object
+      x-internal: false
+      properties:
+        parent_id:
+          type: integer
+          description: ID of any parent Web page.
+          example: 5
+        type:
+          type: string
+          description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+          enum:
+            - page
+            - rss_feed
+            - contact_form
+            - raw
+            - link
+        contact_fields:
+          type: string
+          description: 'Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:`fullname`: full name of the customer submitting the form; `phone`: customer’s phone number, as submitted on the form; `companyname`: customer’s submitted company name; `orderno`: customer’s submitted order number; `rma`: customer’s submitted RMA (Return Merchandise Authorization) number.'
+          example: 'fullname,companyname,phone,orderno,rma'
+        email:
+          type: string
+          description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
+          example: janedoes@example.com
+        name:
+          type: string
+          description: 'Page name, as displayed on the storefront.'
+          example: Contact Form
+        url:
+          type: string
+          description: Relative URL on the storefront for this page.
+          example: /contact-us/
+        meta_description:
+          type: string
+          description: Description contained within this page’s `<meta/>` element.
+        body:
+          type: string
+          description: 'HTML or variable that populates this page’s `<body>` element, in default/desktop view. Required in POST if page type is `raw`.'
+          example: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
+        mobile_body:
+          type: string
+          description: HTML to use for this page's body when viewed in the mobile template (deprecated).
+          example: '0'
+        has_mobile_version:
+          type: boolean
+          description: 'If true, this page has a mobile version.'
+          example: false
+        is_visible:
+          type: boolean
+          description: 'If true, this page appears in the storefront’s navigation menu.'
+          example: true
+        is_homepage:
+          type: boolean
+          description: 'If true, this page is the storefront’s home page.'
+          example: false
+        meta_title:
+          type: string
+          description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
+        layout_file:
+          type: string
+          description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
+          example: page.html
+        sort_order:
+          type: integer
+          description: Order in which this page should display on the storefront. (Lower integers specify earlier display.)
+          example: 3
+        search_keywords:
+          type: string
+          description: Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
+        meta_keywords:
+          type: string
+          description: Comma-separated list of SEO-relevant keywords to include in the page’s `<meta/>` element.
+        feed:
+          type: string
+          description: If page type is `rss_feed` then this field is visible. Required in POST required for `rss page` type.
+        link:
+          type: string
+          description: If page type is `link` this field is returned. Required in  POST to create a `link` page.
+        content_type:
+          type: string
+          example: text/html
+          enum:
+            - application/json
+            - text/javascript
+            - text/html
+      required:
+        - type
+        - name
+        - body
+    page_Base_Res:
+      title: page_Base_Res
+      type: object
+      x-internal: false
+      properties:
+        parent_id:
+          type: integer
+          description: ID of any parent Web page.
+          example: 5
+        type:
+          type: string
+          description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+          enum:
+            - page
+            - rss_feed
+            - contact_form
+            - raw
+            - link
+        contact_fields:
+          type: string
+          description: 'Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:`fullname`: full name of the customer submitting the form; `phone`: customer’s phone number, as submitted on the form; `companyname`: customer’s submitted company name; `orderno`: customer’s submitted order number; `rma`: customer’s submitted RMA (Return Merchandise Authorization) number.'
+          example: 'fullname,companyname,phone,orderno,rma'
+        email:
+          type: string
+          description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
+          example: janedoes@example.com
+        name:
+          type: string
+          description: 'Page name, as displayed on the storefront.'
+          example: Contact Form
+        url:
+          type: string
+          description: Relative URL on the storefront for this page.
+          example: /contact-us/
+        meta_description:
+          type: string
+          description: Description contained within this page’s `<meta/>` element.
+        body:
+          type: string
+          description: 'HTML or variable that populates this page’s `<body>` element, in default/desktop view. Required in POST if page type is `raw`.'
+          example: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
+        mobile_body:
+          type: string
+          description: HTML to use for this page's body when viewed in the mobile template (deprecated).
+          example: '0'
+        has_mobile_version:
+          type: boolean
+          description: 'If true, this page has a mobile version.'
+          example: false
+        is_visible:
+          type: boolean
+          description: 'If true, this page appears in the storefront’s navigation menu.'
+          example: true
+        is_homepage:
+          type: boolean
+          description: 'If true, this page is the storefront’s home page.'
+          example: false
+        meta_title:
+          type: string
+          description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
+        layout_file:
+          type: string
+          description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
+          example: page.html
+        sort_order:
+          type: integer
+          description: Order in which this page should display on the storefront. (Lower integers specify earlier display.)
+          example: 3
+        search_keywords:
+          type: string
+          description: Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
+        meta_keywords:
+          type: string
+          description: Comma-separated list of SEO-relevant keywords to include in the page’s `<meta/>` element.
+        feed:
+          type: string
+          description: If page type is `rss_feed` then this field is visible.
+        link:
+          type: string
+          description: If page type is `link` this field is returned.
+        content_type:
+          type: string
+          example: text/html
+          enum:
+            - application/json
+            - text/javascript
+            - text/html
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Content | modify | `store_v2_content` |
+        |  Content | read-only | `store_v2_content_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

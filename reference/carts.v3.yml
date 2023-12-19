@@ -1,0 +1,3388 @@
+openapi: '3.0.3'
+info:
+  title: Carts
+  version: ''
+  description: |-
+    Create a cart using BigCommerce cart logic.
+
+    Manage settings related to carts.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Carts (Single)
+  - name: Items
+  - name: Redirects
+  - name: Settings
+  - name: Metafields
+paths:
+  '/carts':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      description: |-
+        Creates a **Cart**. 
+
+        **Required Fields**
+
+        |Field|Details|
+        |-|-|
+        |`line_item`|Specifies a line item.| 
+        |`custom_items`|Specifies a custom item. Only required if adding a custom item to the cart.|
+        |`gift_certificates`|Specifies a gift certificate. Only required if adding a gift certificate to the cart.|
+
+        **Usage Notes**
+
+        * A **cart** `id` (UUID) is returned in the response.
+        * A **cart** `id` is the same as a **checkout** `id`.
+        * A cart can be created by adding an existing **catalog item** or a **custom item**.
+        * Carts are valid for **30 days** from the **last modification** (this includes creating the cart or editing the cart).
+        * If a product has modifiers, use the `option_selections` array to describe the **modifier** selection(s).
+        * The format and data type of a cart’s `option_value` are defined by the `value_data` object of a product’s [variant option value](/docs/rest-catalog/product-variant-options/values), [modifier value](/docs/rest-catalog/product-modifiers/values), or a combination of both.
+        * Redirect URLs can only be generated from carts that were created using the **REST Management API**. 
+        * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`. Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront configuration.
+        * To restore a cart that was created by a shopper or through a Storefront API, first recreate the cart using the **REST Management API**.
+        * To get cart `promotions` in the response, append the following query parameter to the request URL: `include=promotions.banners`.
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartCreatePostData'
+            examples:
+              Simple Product:
+                summary: Creating a cart by adding a simple product without option selections.
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 2
+                      product_id: 126
+                      list_price: 5
+                      name: calendar
+                  channel_id: 1
+                  currency:
+                    code: USD
+                  locale: en-US
+              Cart with a variant:
+                summary: Creating a cart with a product that can be specified purely by a variant, without any other required options.
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 2
+                      product_id: 118
+                      list_price: 25
+                      variant_id: 140
+                      name: قميص
+                      option_selections:
+                        - option_id: 125
+                          option_value: 127
+                          name: بحجم
+                          value: صغير
+                  channel_id: 1
+                  currency:
+                    code: JOD
+                  locale: ar-JO
+              Cart with date option:
+                summary: Creating a cart using a date option.
+                value:
+                  line_items:
+                    - quantity: 1
+                      product_id: 128
+                      variant_id: 144
+                      option_selections:
+                        - option_id: 147
+                          option_value: '{“día”:”01”, “mes”:”02”, “año”:”2020”}'
+                          name: calendario
+                          value: 2023
+                  currency:
+                    code: MXN
+                  locale: es-MX
+              Cart with variant, a checkbox, and a pick list modifier:
+                summary: Creating a cart with a variant, a checkbox, and an added picklist modifier.
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 1
+                      variant_id: 141
+                      product_id: 118
+                      list_price: 30
+                      name: shirt
+                      option_selections:
+                        - name: Color
+                          value: Red
+                          option_id: 133
+                          option_value: 149
+                        - name: Add a $5 Donation
+                          value: No
+                          option_id: 126
+                          option_value: 129
+                  channel_id: 1
+                  currency:
+                    code: AUD
+                  locale: en-AU
+              Custom item:
+                summary: Creating a cart using a custom item.
+                value:
+                  customer_id: 0
+                  line_items: []
+                  custom_items:
+                    - sku: custom-item-sku
+                      name: table
+                      quantity: 1
+                      list_price: 30
+                      gift_wrapping:
+                        wrap_together: true
+                        wrap_details:
+                          - id: 0
+                            message: Happy Birthday
+                  gift_certificates:
+                    - name: Tobi Day
+                      theme: birthday.html
+                      amount: 1
+                      quantity: 1
+                      sender:
+                        name: Brandi Tyler
+                        email: Brandi.Tyler@mail.com
+                      recipient:
+                        name: Tobi Day
+                        email: Tobi.Day@mail.com
+                      message: Happy Birthday
+                  channel_id: 1
+                  currency:
+                    code: usd
+                  locale: en-US
+        description: |-
+        required: true
+        x-examples:
+          Simple Product: |-
+            {
+              "line_items": [
+                {
+                  "quantity": 5,
+                  "product_id": 191
+                }
+              ]
+            }
+          Create a Cart with a Variant: |-
+            {
+                "line_items":[
+                    {
+                        "quantity": 2,
+                        "product_id": 107,
+                        "variant_id": 185
+                    }
+                ]
+            }
+          Create a Cart using Date Option: |-
+            {
+              "line_items": [
+                {
+                  "quantity": 5,
+                  "product_id": 191,
+                  "variant_id": 185,
+                  "option_selections": [
+                    {
+                      "option_id": 440,
+                      "option_value": 1743570000
+                    }
+                  ]
+                }
+              ]
+            } 
+          With a Variant of Checkbox and Picklist: |-
+            {
+              "line_items": [
+                {
+                  "quantity": 1,
+                  "product_id": 77,
+                  "option_selections": [
+                    {
+                      "option_id": 120,
+                      "option_value": 69
+                    },
+                    {
+                      "option_id": 121,
+                      "option_value": 10
+                    },
+
+                    {
+                      "option_id": 124,
+                      "option_value": 106
+                    },
+                    {
+                      "option_id": 122,
+                      "option_value": "Hello"
+                    },
+                    {
+                      "option_id": 123, 
+                      "option_value": 104
+                    }
+                  ]
+                }
+              ]
+            } 
+          Custom Item:
+            custom_items:
+              - sku: abc-123
+                name: Custom Product
+                quantity: 1
+                list_price: 10
+          Options Selections:
+            line_items:
+              - quantity: 5
+                product_id: 118
+                variant_id: 115
+                option_selections:
+                  - option_id: 121
+                    option_value: 10
+                    name: Size
+                    nameId: 125
+                    value: Small
+                    valueId: 125
+      tags:
+        - Carts (Single)
+      responses:
+        '201':
+          $ref: '#/components/responses/CartResponse'
+      summary: Create a Cart
+      operationId: createACart
+  '/carts/{cartId}/items':
+    parameters:
+      - $ref: '#/components/parameters/cartId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ContentType'
+    post:
+      description: |-
+        Adds line item to the *Cart*.
+
+        **Usage Notes**
+
+        To add a custom item use `custom_items`. 
+
+        Overriding a product’s `list_price` will make that item ineligible for V3 product level promotions.
+
+        If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart_Line_Item_Update_Post'
+            examples:
+              Example 1:
+                value:
+                  line_items:
+                    - quantity: 2
+                      product_id: 77
+                      list_price: 12.5
+                      option_selections:
+                        - option_id: 8
+                          option_value: 'Yes'
+                  gift_certificates:
+                    - name: Happy Birthday
+                      theme: birthday.html
+                      amount: 50
+                      quantity: 1
+                      sender:
+                        name: Jane Does
+                        email: janedoe@example.com
+                      recipient:
+                        name: Jane Does
+                        email: janedoe@example.com
+                      message: Happy Birthday Jane!
+              'Example 2: Custom Item':
+                value:
+                  custom_items:
+                    - sku: abc-123
+                      name: Custom Product
+                      quantity: 1
+                      list_price: 10
+        required: true
+      tags:
+        - Items
+      responses:
+        '201':
+          $ref: '#/components/responses/CartResponse'
+      summary: Add Cart Line Items
+      operationId: addCartLineItem
+  '/carts/{cartId}/redirect_urls':
+    parameters:
+      - $ref: '#/components/parameters/cartId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ContentType'
+    post:
+      description: |-
+        Creates a **Cart** redirect URL for redirecting a shopper to an already created cart using the `cartId`.
+
+        **Usage Notes**
+
+        * Redirect URLs can also be created with **Create a Cart** requests by appending `include=redirect_urls`.
+        * A **Carts** redirect URL may only be used once.
+        * Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront configuration.
+        * Once a redirect URL has been visited, it will be invalidated and cannot be used again. 
+        * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart, and redirecting to the URL from your own application.
+        * Redirect URLs can be generated only from carts that were created using the **REST Management API**. 
+        * To restore a cart that was created on the storefront, either by a shopper or a Storefront API, first recreate the cart using the **REST Management API**.
+      tags:
+        - Redirects
+      responses:
+        '201':
+          $ref: '#/components/responses/CartRedirectResponse'
+      summary: Create Cart Redirect URL
+      operationId: createCartRedirectURL
+  '/carts/{cartId}/items/{itemId}':
+    parameters: 
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/cartId'
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: number
+    put:
+      description: |-
+        Updates an existing, single line item in the *Cart*. 
+
+        **Notes**
+
+        Currently, only updating `list_price` and `quantity` are supported. Updating a product’s `list_price` will make that item ineligible for V3 product-level promotions. 
+
+        If the product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
+
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the **Add Cart Line Items** endpoint.
+
+        `custom_items` cannot be updated via the API at this time. To update your cart, add a new updated custom item and delete the outdated one. If your cart contains only one line item, perform the add operation before the delete operation.
+
+        Deleting all line items from the cart will invalidate the cart. 
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart_Line_Item_Update_Put'
+        required: true
+      tags:
+        - Items
+      responses:
+        '200':
+          $ref: '#/components/responses/CartResponse'
+      summary: Update Cart Line Item
+      operationId: updateCartLineItem
+    delete:
+      description: |-
+        Deletes a *Cart* line item. 
+
+        **Notes**
+
+        Removing the last `line_item` in the *Cart* deletes the *Cart*.
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+      tags:
+        - Items
+      responses:
+        '200':
+          description: 'NOTE: Discounted line items are re-evaluated on cart actions and may be automatically added back to your cart with a new line item ID to satisfy promotional requirements.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart_Full'
+              examples:
+                response:
+                  value:
+                    data:
+                      id: bc218c65-7a32-4ab7-8082-68730c074d02
+                      customer_id: 11
+                      email: ''
+                      currency:
+                        code: USD
+                      tax_included: false
+                      base_amount: 189.75
+                      discount_amount: 0
+                      cart_amount: 212.81
+                      coupons: []
+                      line_items:
+                        physical_items:
+                          - id: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+                            parent_id: {}
+                            variant_id: 362
+                            product_id: 191
+                            sku: ''
+                            name: Openhouse No. 3
+                            url: 'http://id30h7ohwf.mybigcommerce.com/all/openhouse-no-3/'
+                            quantity: 5
+                            taxable: true
+                            image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/191/images/475/openhousevol3_1024x1024__59692__16355.1534344544.330.500.jpg?c=2'
+                            discounts: []
+                            coupons: []
+                            discount_amount: 0
+                            coupon_amount: 0
+                            original_price: 27.95
+                            list_price: 27.95
+                            sale_price: 27.95
+                            extended_list_price: 139.75
+                            extended_sale_price: 139.75
+                            is_require_shipping: true
+                            options:
+                              - name: Add a $5 Donation
+                                nameId: 82
+                                value: 'No'
+                                valueId: 186
+                        digital_items: []
+                        custom_items:
+                          - extended_list_price: 5.99
+                            id: 78239b69-1952-4c35-9d58-ea30158b4e39
+                            list_price: 5.99
+                            name: Rope Toy
+                            quantity: 1
+                            sku: ROPE-TOY
+                        gift_certificates:
+                          - id: 6e38bbc2-8873-472c-a452-8bd4aaea5d3a
+                            name: Happy Birthday
+                            theme: birthday.html
+                            amount: 50
+                            quantity: 1
+                            taxable: false
+                            sender:
+                              name: Jane Does
+                              email: janedoe@example.com
+                            recipient:
+                              name: Jane Does
+                              email: janedoe@example.com
+                            message: Happy Birthday Jane!
+                      created_time: '2018-09-17T14:27:39.000Z'
+                      updated_time: '2018-09-17T14:53:40.000Z'
+                      meta: {}
+        '204':
+          description: 'If the action’s result is an empty cart, the cart is automatically deleted.'
+      summary: Delete Cart Line Item
+      operationId: deleteCartLineItem
+  '/carts/{cartId}':
+    parameters: 
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/cartId'
+    get:
+      description: Returns a store's *Cart*.
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+      tags:
+        - Carts (Single)
+      responses:
+        '200':
+          $ref: '#/components/responses/CartResponse'
+        '404':
+          description: Cart not found.
+      summary: Get a Cart
+      operationId: getACart
+    put:
+      description: |-
+        Updates a *Cart's* `customer_id`.
+
+        **Notes**
+
+        Changing the *Cart* `customer_id` will remove any promotions or shipping calculations on the *Cart*. These are tied to the customer depending on cart conditions and any customer groups. 
+      parameters:
+        - name: include
+          in: query
+          description: |-
+            * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+            * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+            * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+            * `promotions.banners`: Returns a list of eligible banners.
+          schema:
+            type: string
+            enum:
+              - redirect_urls
+              - line_items.physical_items.options
+              - line_items.digital_items.options
+              - promotions.banners
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartUpdatePutRequestData'
+            example:
+              customer_id: 5
+        required: true
+      tags:
+        - Carts (Single)
+      responses:
+        '201':
+          $ref: '#/components/responses/CartResponse'
+      summary: Update Customer ID
+      operationId: updateACart
+    delete:
+      description: Deletes a *Cart*. Once a *Cart* has been deleted it can’t be recovered.
+      tags:
+        - Carts (Single)
+      responses:
+        '204':
+          description: ''
+      summary: Delete a Cart
+      operationId: deleteACart
+  '/carts/settings':
+    parameters: 
+      - $ref: '#/components/parameters/Accept'
+    get:
+      summary: Get Global Cart Settings
+      description: Returns the global cart settings of a store.
+      operationId: getGlobalCartSettings
+      tags:
+        - Settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      summary: Update Global Cart Settings
+      description: Update the global cart settings of a store.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      tags:
+        - Settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GlobalCartSettingsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalCartSettingsResponse'
+        '400':
+          description: Bad Request. Input is invalid.
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  status:
+                    type: number
+                  title:
+                    type: string
+                    minLength: 1
+                  type:
+                    type: string
+                    minLength: 1
+                  detail:
+                    type: string
+                    minLength: 1
+              example:
+                status: 400
+                title: Input is invalid
+                type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                detail: Syntax error
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: updateGlobalCartSettings
+  '/carts/settings/channels/{channel_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: channel_id
+        description: The channel ID of the settings overrides.
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get Channel Cart Settings
+      description: Returns the per-channel overrides for the cart settings of a store.
+      tags:
+        - Settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: getChannelCartSettings
+    put:
+      summary: Update Channel Cart Settings
+      description: Update the per-channel overrides for the cart settings of a store.
+      tags:
+        - Settings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelCartSettingsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelCartSettingsResponse'
+        '400':
+          description: Bad Request. Input is invalid.
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  status:
+                    type: number
+                  title:
+                    type: string
+                    minLength: 1
+                  type:
+                    type: string
+                    minLength: 1
+                  detail:
+                    type: string
+                    minLength: 1
+              example:
+                status: 400
+                title: Input is invalid
+                type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                detail: Syntax error
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: updateChannelCartSettings
+  '/carts/{cart_id}/metafields':
+    parameters:
+      - $ref: '#/components/parameters/cart_id'
+      - $ref: '#/components/parameters/Accept'
+    get:
+      summary: Get All Metafields
+      tags:
+        - Metafields
+      description: Get all cart metafields.
+      operationId: getAllCartMetafields
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/DirectionParam'
+      responses:
+        '200':
+          description: |
+            An array of metafields and metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetafieldResponse'
+        '409':
+          description: |
+            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: |
+            The `Metafield` is not valid. This is the result of missing required fields or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      summary: Create a Cart Metafield
+      tags:
+        - Metafields
+      description: |
+        Create a cart `Metafield`. 
+
+        If you create an order from a Cart, you can continue referencing the Cart Metafields even if you delete the original Cart. Use the `cart_id` field on the Order to construct the Cart Metafield endpoint. 
+      operationId: CreateCartMetafieldsByCartId
+      parameters: 
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetafieldPost' 
+            example:
+                    {
+                      "permission_set": app_only,
+                      "namespace": Sales Department,
+                      "key": Staff Name,
+                      "value": Sam,
+                      "description": Name of staff member
+                      }
+        description: ''
+        required: true
+      responses:
+        '200':
+          description: |
+            A `Metafield` object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+              example:
+                data: 
+                  "id": 24
+                  "key": Staff Name
+                  "value": Sam
+                  "namespace": Sales Department
+                  "permission_set": app_only
+                  "resource_type": cart
+                  "resource_id": b810114d-9926-45b7-bba5-7633b251154b
+                  "description": Name of staff member
+                  "date_created": 2023-11-15T15:16:35+00:00
+                  "date_modified": 2023-11-15T15:16:35+00:00
+                meta: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+              examples:
+                example-1:
+                  value:
+                    status: 404
+                    title: There was no order found with ID 1010
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+  '/carts/{cart_id}/metafields/{metafield_id}':
+    get:
+      summary: Get a Cart Metafield
+      tags:
+        - Metafields
+      description: Gets a cart metafield.
+      operationId: getACartMetafield
+      responses:
+        '200':
+          description: |
+            A `Metafield` object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetafieldResponse'
+        '409':
+          description: |
+            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: |
+            The `Metafield` is not valid. This is the result of missing required fields or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    put:
+      summary: Update a Cart Metafield
+      tags:
+        - Metafields
+      description: |
+        Update a `Metafield`, by `cart_id`.
+      operationId: UpdateCartMetafieldsByCartId
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetafieldPost'
+            examples: {}
+        description: |
+          A `Metafield` object.
+        required: true
+      responses:
+        '200':
+          description: |
+            A metafield and metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+              examples: {}
+        '404':
+          description: |
+            The resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+              examples:
+                example-1:
+                  value:
+                    status: 404
+                    title: There was no order found with ID 1010
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+    delete:
+      summary: Delete a Metafield
+      tags:
+        - Metafields
+      description: |
+        Deletes a `Metafield`.
+      operationId: deleteCartMetafieldById
+      responses:
+        '204':
+          description: |
+            An empty response.        
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/cart_id'
+      - schema:
+          type: integer
+        name: metafield_id
+        in: path
+        required: true
+        description: The unique ID of the subject `Metafield`.
+components:
+  schemas:
+    CartUpdateRequest:
+      type: object
+      properties:
+        line_item:
+          type: object
+          title: Line Item Request Data
+          properties:
+            quantity:
+              type: number
+            product_id:
+              type: number
+            variant_id:
+              type: number
+              description: The variant ID. Required if the product has variants.
+            list_price:
+              type: number
+            option_selections:
+              type: array
+              items:
+                type: object
+                properties:
+                  option_id:
+                    type: number
+                  option_value:
+                    type: string
+                title: Product Option Selection
+          required:
+            - quantity
+            - product_id
+            - variant_id
+        gift_certificate:
+          type: object
+          required:
+            - sender
+            - recipient
+            - amount
+            - theme
+            - name
+            - quantity
+          properties:
+            name:
+              type: string
+              description: Given name for the gift certificate line item.
+            theme:
+              type: string
+              description: The theme of the gift certificate.
+              enum:
+                - birthday.html
+                - boy.html
+                - celebration.html
+                - christmas.html
+                - general.html
+                - girl.html
+            amount:
+              type: number
+              minimum: 1
+              maximum: 1000
+            quantity:
+              type: integer
+              minimum: 1
+            sender:
+              title: Contact Entity
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+            recipient:
+              title: Contact Entity
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+            message:
+              type: string
+              maximum: 200
+              description: 'Message shown to recipient, as provided by sender.'
+          title: Line Item Gift Certificate Request Data
+      title: Cart Update Request
+      x-internal: false
+    CartCreatePostData:
+      type: object
+      title: Cart Create Post Data
+      x-internal: false
+      properties:
+        customer_id:
+          type: integer
+        line_items:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/cart_PostVariant'
+              - $ref: '#/components/schemas/cart_PostModifier'
+        custom_items:
+          $ref: '#/components/schemas/cart_PostCustomItem'
+        gift_certificates:
+          type: array
+          items:
+            type: object
+            title: Line Item Gift Certificate Request Data
+            properties:
+              name:
+                type: string
+                description: Given name for the gift certificate line item.
+              theme:
+                type: string
+                description: The theme of the gift certificate.
+                enum:
+                  - birthday.html
+                  - boy.html
+                  - celebration.html
+                  - christmas.html
+                  - general.html
+                  - girl.html
+              amount:
+                type: number
+                minimum: 1
+                maximum: 1000
+              quantity:
+                type: integer
+                minimum: 1
+              sender:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              recipient:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              message:
+                type: string
+                maximum: 200
+                description: 'Message shown to recipient, as provided by sender.'
+            required:
+              - name
+              - theme
+              - amount
+              - quantity
+              - sender
+              - recipient
+        channel_id:
+          type: integer
+          description: 'The Channel ID. If no channel is specified, defaults to 1.'
+        currency:
+          type: object
+          properties:
+            code:
+              type: string
+              format: ISO-4217
+              description: 'The [transactional currency](/docs/rest-management/currencies#definitions) code for the cart, formatted as an [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html) string. This code is required when multi-currency is enabled. Passing a non-transactional display currency will result in a `400` error.'
+              example: usd
+        locale:
+          type: string
+          description: 'The locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
+          example: en-US
+      description: ''
+    CartRequestData:
+      type: object
+      title: Cart Request Data
+      properties:
+        line_items:
+          type: array
+          items:
+            type: object
+            title: Line Item Request Data
+            properties:
+              quantity:
+                type: number
+              product_id:
+                type: number
+              variant_id:
+                type: number
+                description: The Variant ID. Required if the product has variants.
+              list_price:
+                type: number
+              option_selections:
+                type: array
+                items:
+                  type: object
+                  title: Product Option Selection
+                  properties:
+                    option_id:
+                      type: number
+                    option_value:
+                      type: string
+            required:
+              - quantity
+              - product_id
+              - variant_id
+        gift_certificates:
+          type: array
+          items:
+            type: object
+            title: Line Item Gift Certificate Request Data
+            properties:
+              name:
+                type: string
+                description: Given name for gift certificate line item.
+              theme:
+                type: string
+                description: The theme of the gift certificate.
+                enum:
+                  - birthday.html
+                  - boy.html
+                  - celebration.html
+                  - christmas.html
+                  - general.html
+                  - girl.html
+              amount:
+                type: number
+                minimum: 1
+                maximum: 1000
+              quantity:
+                type: integer
+                minimum: 1
+              sender:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              recipient:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              message:
+                type: string
+                maximum: 200
+                description: 'Message shown to recipient, as provided by sender.'
+            required:
+              - name
+              - theme
+              - amount
+              - quantity
+              - sender
+              - recipient
+        channel_id:
+          type: integer
+          description: 'The Channel ID. If no channel is specified, this defaults to 1.'
+      x-internal: false
+    CartUpdatePutRequestData:
+      type: object
+      properties:
+        customer_id:
+          type: integer
+      title: Cart Update Put Request Data
+      x-internal: false
+    LineItemRequestData:
+      type: object
+      title: Line Item Request Data
+      properties:
+        quantity:
+          type: number
+        product_id:
+          type: number
+        variant_id:
+          type: number
+          description: Variant ID. Required if the product has variants.
+        list_price:
+          type: number
+        option_selections:
+          type: array
+          items:
+            type: object
+            properties:
+              option_id:
+                type: number
+              option_value:
+                type: string
+            title: Product Option Selection
+      required:
+        - quantity
+        - product_id
+        - variant_id
+      x-internal: false
+    ProductOptionSelection:
+      type: object
+      properties:
+        option_id:
+          type: number
+        option_value:
+          type: string
+      title: Product Option Selection
+      x-internal: false
+    LineItemGiftCertificateRequestData:
+      type: object
+      required:
+        - sender
+        - recipient
+        - amount
+        - theme
+        - name
+        - quantity
+      properties:
+        name:
+          type: string
+          description: Given name for gift certificate line item.
+        theme:
+          type: string
+          description: The theme of the gift certificate.
+          enum:
+            - birthday.html
+            - boy.html
+            - celebration.html
+            - christmas.html
+            - general.html
+            - girl.html
+        amount:
+          type: number
+          minimum: 1
+          maximum: 1000
+        quantity:
+          type: integer
+          minimum: 1
+        sender:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        recipient:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        message:
+          type: string
+          maximum: 200
+          description: 'Message shown to recipient, as provided by sender.'
+      title: Line Item Gift Certificate Request Data
+      x-internal: false
+    Cart_Full:
+      description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
+      type: object
+      title: Cart_Full
+      x-internal: false
+      properties:
+        id:
+          description: 'Cart ID, provided after creating a cart with a POST request.'
+          type: string
+          format: UUID
+        parent_id:
+          type: string
+          description: Bundled items will have the ID of their parent item.
+        customer_id:
+          description: ID of the customer to which the cart belongs.
+          type: integer
+        email:
+          description: The cart’s email. This is the same email that is used in the billing address.
+          type: string
+        currency:
+          type: object
+          description: The currency. This is the same for both the cart and its subsequent checkout.
+          title: Currency
+          properties:
+            code:
+              type: string
+              format: ISO-4217
+              description: 'The [transactional currency](/docs/rest-management/currencies#definitions) code for the cart, formatted as an [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html) string.'
+              example: usd
+        tax_included:
+          type: boolean
+        base_amount:
+          type: number
+          description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.'
+        discount_amount:
+          type: number
+          description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
+        cart_amount:
+          type: number
+          description: Sum of cart line-item amounts minus cart-level discounts and coupons. This amount includes taxes (where applicable).
+        coupons:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppliedCoupon'
+        discounts:
+          type: array
+          items:
+            type: object
+            title: Applied Discount
+            description: |-
+              Example as part of a cart response:
+
+              ```
+                "discounts": [
+                  {
+                    "id": 2,
+                    "discounted_amount": 2
+                  },
+                  {
+                    "id": "coupon",
+                    "discounted_amount": 0.42
+                  }
+                ]
+              ```
+            properties:
+              id:
+                type: string
+                description: ID of the applied discount.
+                example: coupon
+              discounted_amount:
+                type: number
+                description: The discounted amount.
+        line_items:
+          $ref: '#/components/schemas/LineItemsGet'
+        created_time:
+          type: string
+          format: ISO-8601
+          description: Time when the cart was created.
+        updated_time:
+          type: string
+          format: ISO-8601
+          description: Time when the cart was last updated.
+        channel_id:
+          type: integer
+          description: 'The channel ID. If no channel is specified, defaults to 1.'
+        locale:
+          type: string
+          description: 'Locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
+        promotions:
+          type: object
+          description: This is available only when "include=promotions.banners" is presented in the URL.
+          properties:
+            banners:
+              title: Banner
+              type: object
+              properties:
+                id:
+                  description: ID of the promotion.
+                  type: string
+                type:
+                  description: Type of the banner.
+                  type: string
+                page:
+                  description: An array of the locations where the banner will display.
+                  type: array
+                  items:
+                    type: string
+                text:
+                  description: Text of the banner.
+                  type: string
+    Currency:
+      type: object
+      description: The currency. This is the same for both the cart and its subsequent checkout.
+      properties:
+        code:
+          type: string
+          format: ISO-4217
+          description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
+      title: Currency
+      x-internal: false
+    LineItems:
+      type: object
+      title: line_items
+      x-internal: false
+      properties:
+        physical_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemPhysical'
+        digital_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemDigital'
+        gift_certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemGiftCertificate'
+        custom_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCustom'
+      required:
+        - physical_items
+        - digital_items
+      description: Request body for `PUT` or `POST` requests.
+    ItemGiftCertificate:
+      type: object
+      required:
+        - sender
+        - recipient
+        - amount
+        - theme
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: Name provided for the gift certificate that will appear in the control panel.
+        theme:
+          type: string
+          description: The theme of the gift certificate.
+          enum:
+            - birthday.html
+            - boy.html
+            - celebration.html
+            - christmas.html
+            - general.html
+            - girl.html
+        amount:
+          type: number
+          description: 'Value must be between 1.00 and 1,000.00 in the store’s default currency.'
+        is_taxable:
+          type: boolean
+        sender:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        recipient:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        message:
+          type: string
+          description: Limited to 200 characters.
+      title: Item Gift Certificate
+      x-internal: false
+    ItemGiftCertificateGet:
+      type: object
+      title: Item Gift Certificate
+      x-internal: false
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: Name provided for the gift certificate that will appear in the control panel.
+        theme:
+          type: string
+          description: 'The theme of the gift certificate. The following options are available:`birthday.html`, `boy.html`, `celebration.html`, `christmas.html`, `general.html`, and `girl.html`.'
+        amount:
+          type: number
+          description: 'Value must be between 1.00 and 1,000.00 in the store’s default currency.'
+        is_taxable:
+          type: boolean
+        sender:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        recipient:
+          title: Contact Entity
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        message:
+          type: string
+          description: The message included in the gift certificate is limited to 200 characters.
+    ContactEntity:
+      title: Contact Entity
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+      x-internal: false
+    ItemDigital:
+      allOf:
+        - title: Base Item
+          properties:
+            id:
+              type: string
+              description: The line-item ID.
+              example: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+            variant_id:
+              type: number
+              description: The ID of the variant. Required in the /PUT or /POST request if the product has variants.
+              example: 358
+            product_id:
+              type: number
+              description: The ID of the product. Required in a /POST request.
+              example: 12
+            sku:
+              type: string
+              example: SMGREEN
+              description: SKU of the variant.
+            name:
+              type: string
+              description: The item’s product name.
+              example: T-Shirt
+            url:
+              description: The product URL.
+              type: string
+              format: uri
+              example: 'http://your-store-url.mybigcommerce.com/your-product/'
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of this item in the cart.
+            is_taxable:
+              type: boolean
+              example: false
+              description: Boolean value that specifies whether the item is taxable.
+            image_url:
+              type: string
+              format: uri
+              example: 'https://pathtoproductimage/ProductDefault.png'
+              description: Image of the product or variant.
+            discounts:
+              type: array
+              items:
+                type: object
+                title: Applied Discount
+                description: |-
+                  Example as part of a cart response:
+
+                  ```
+                    "discounts": [
+                      {
+                        "id": 2,
+                        "discounted_amount": 2
+                      },
+                      {
+                        "id": "coupon",
+                        "discounted_amount": 0.42
+                      }
+                    ]
+                  ```
+                properties:
+                  id:
+                    oneOf:
+                      - type: string
+                      - type: number
+                  discounted_amount:
+                    type: number
+                    description: The discounted amount.
+            coupons:
+              type: array
+              items:
+                type: object
+                title: Applied Coupon
+                properties:
+                  coupons:
+                    type: object
+                    description: Required in a /POST request.
+                    properties:
+                      coupon_code:
+                        type: object
+                        description: The coupon code.
+                        properties:
+                          id:
+                            type: integer
+                            example: 6
+                            description: ID of the coupon.
+                          code:
+                            type: string
+                            example: KV56053388J
+                            description: The coupon code. Required in a /POST request.
+                          name:
+                            type: string
+                            example: Percentage off
+                            description: Name given to the coupon in the control panel.
+                          discountType:
+                            type: integer
+                            description: |-
+                              The discount type.
+
+                              - type 0: per_item_discount
+                              - type 1: percentage_discount
+                              - type 2: per_total_discount
+                              - type 3: shipping_discount
+                              - type 4: free_shipping
+                            enum:
+                              - 0
+                              - 1
+                              - 2
+                              - 3
+                              - 4
+                          discountAmount:
+                            type: integer
+                            description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                            example: 3
+                          expiresDate:
+                            type: integer
+                            example: 0
+                            description: Returns 0 if no expiration date has been set.
+                          totalDiscount:
+                            type: number
+                            example: 4.19
+                            description: The total amount of all discounts applied to the cart.
+                    required:
+                      - coupon_code
+            discount_amount:
+              type: number
+              description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
+              example: 4
+            coupon_amount:
+              type: number
+              description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: An item’s original price is the same as the product default price in the admin panel.
+            list_price:
+              type: number
+              description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+            sale_price:
+              type: number
+              description: Item’s price after all discounts are applied. (The final price before tax calculation.)
+            extended_list_price:
+              type: number
+              description: List price of the item multiplied by the quantity.
+            extended_sale_price:
+              type: number
+              description: Sale price of the item multiplied by the quantity.
+            options:
+              description: The list of selected options for this product.
+              type: array
+              items:
+                type: object
+                title: Product Option
+                properties:
+                  name:
+                    type: string
+                    description: 'The product option name; for example, Color or Size.'
+                  nameId:
+                    type: number
+                    description: The product option identifier.
+                  value:
+                    type: string
+                    description: 'The product option value; for example, Red or Medium.'
+                  valueId:
+                    type: number
+                    description: The product option value identifier in number format.
+                    example: 128
+          required:
+            - variant_id
+            - product_id
+            - quantity
+        - properties:
+            download_file_urls:
+              description: URLs to download all product files.
+              type: array
+              items:
+                type: string
+                format: url
+            download_page_url:
+              description: The URL for the combined downloads page.
+              type: string
+              format: url
+            download_size:
+              description: 'Specifies the combined download size of all files in human-readable style; for example, `30MB`.'
+              type: string
+      type: object
+      title: ''
+    ItemDigitalGet:
+      allOf:
+        - title: Base Item
+          properties:
+            id:
+              type: string
+              description: The line-item ID.
+              example: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+            variant_id:
+              type: number
+              description: The ID of the variant. Required in the /PUT or /POST request if the product has variants.
+              example: 358
+            product_id:
+              type: number
+              description: The ID of the product. Required in a /POST request.
+              example: 12
+            sku:
+              type: string
+              example: SMGREEN
+              description: SKU of the variant.
+            name:
+              type: string
+              description: The item’s product name.
+              example: T-Shirt
+            url:
+              description: The product URL.
+              type: string
+              format: uri
+              example: 'http://your-store-url.mybigcommerce.com/your-product/'
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of this item in the cart.
+            is_taxable:
+              type: boolean
+              example: false
+              description: Boolean value that specifies whether the item is taxable.
+            image_url:
+              type: string
+              format: uri
+              example: 'https://pathtoproductimage/ProductDefault.png'
+              description: Image of the product or variant.
+            discounts:
+              type: array
+              items:
+                type: object
+                title: Applied Discount
+                description: |-
+                  Example as part of a cart response:
+
+                  ```
+                    "discounts": [
+                      {
+                        "id": 2,
+                        "discounted_amount": 2
+                      },
+                      {
+                        "id": "coupon",
+                        "discounted_amount": 0.42
+                      }
+                    ]
+                  ```
+                properties:
+                  id:
+                    oneOf:
+                      - type: string
+                      - type: number
+                  discounted_amount:
+                    type: number
+                    description: The discounted amount.
+            coupons:
+              oneOf:
+                - type: number
+                - type: array
+                  items:
+                    type: object
+                    title: Applied Coupon
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                        description: ID of the coupon.
+                      code:
+                        type: string
+                        example: KV56053388J
+                        description: The coupon code. Required in a /POST request.
+                      name:
+                        type: string
+                        example: Percentage off
+                        description: Name given to the coupon in the control panel.
+                      discountType:
+                        type: integer
+                        description: |
+                          The discount type.
+                          - type 0: per_item_discount
+                          - type 1: percentage_discount
+                          - type 2: per_total_discount
+                          - type 3: shipping_discount
+                          - type 4: free_shipping
+                        example: 3
+                        enum:
+                          - 0
+                          - 1
+                          - 2
+                          - 3
+                          - 4
+                      discountAmount:
+                        type: integer
+                        description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                        example: 3
+                      expiresDate:
+                        type: integer
+                        example: 0
+                        description: Returns 0 if no expiration date has been set.
+                      totalDiscount:
+                        type: number
+                        example: 4.19
+                        description: The total amount of all discounts applied to the cart.
+                    required:
+                      - code
+            discount_amount:
+              type: number
+              description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
+              example: 4
+            coupon_amount:
+              type: number
+              description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: An item’s original price is the same as the product default price in the admin panel.
+            list_price:
+              type: number
+              description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+            sale_price:
+              type: number
+              description: Item’s price after all discounts are applied. (The final price before tax calculation.)
+            extended_list_price:
+              type: number
+              description: List price of the item multiplied by the quantity.
+            extended_sale_price:
+              type: number
+              description: Sale price of the item multiplied by the quantity.
+            options:
+              description: The list of selected options for this product.
+              type: array
+              items:
+                type: object
+                title: Product Option
+                properties:
+                  name:
+                    type: string
+                    description: 'The product option name; for example, Color or Size.'
+                  nameId:
+                    type: number
+                    description: The product option identifier.
+                  value:
+                    type: string
+                    description: 'The product option value; for example, Red or Medium.'
+                  valueId:
+                    type: number
+                    description: The product option value identifier in number format.
+                    example: 128
+        - properties:
+            download_file_urls:
+              description: URLs to download all product files.
+              type: array
+              items:
+                type: string
+                format: url
+            download_page_url:
+              description: The URL for the combined downloads page.
+              type: string
+              format: url
+            download_size:
+              description: 'Specifies the combined download size of all files in human-readable style; for example, `30MB`.'
+              type: string
+      type: object
+      title: ''
+      description: ''
+    ItemPhysical:
+      allOf:
+        - type: object
+          title: Base Item
+          properties:
+            id:
+              type: string
+              description: The line-item ID.
+              example: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+            variant_id:
+              type: number
+              description: The ID of the variant. Required in the /PUT or /POST request if the product has variants.
+              example: 358
+            product_id:
+              type: number
+              description: The ID of the product. Required in a /POST request.
+              example: 12
+            sku:
+              type: string
+              example: SMGREEN
+              description: SKU of the variant.
+            name:
+              type: string
+              description: The item’s product name.
+              example: T-Shirt
+            url:
+              description: The product URL.
+              type: string
+              format: uri
+              example: 'http://your-store-url.mybigcommerce.com/your-product/'
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of this item in the cart.
+            is_taxable:
+              type: boolean
+              example: false
+              description: Boolean value that specifies whether the item is taxable.
+            image_url:
+              type: string
+              format: uri
+              example: 'https://pathtoproductimage/ProductDefault.png'
+              description: Image of the product or variant.
+            discounts:
+              type: array
+              items:
+                type: object
+                title: Applied Discount
+                description: |-
+                  Example as part of a cart response:
+
+                  ```
+                    "discounts": [
+                      {
+                        "id": 2,
+                        "discounted_amount": 2
+                      },
+                      {
+                        "id": "coupon",
+                        "discounted_amount": 0.42
+                      }
+                    ]
+                  ```
+                properties:
+                  id:
+                    oneOf:
+                      - type: string
+                      - type: number
+                  discounted_amount:
+                    type: number
+                    description: The discounted amount.
+            coupons:
+              type: array
+              items:
+                type: object
+                title: Applied Coupon
+                properties:
+                  coupons:
+                    type: object
+                    description: Required in a /POST request.
+                    properties:
+                      coupon_code:
+                        type: object
+                        description: The coupon code.
+                        properties:
+                          id:
+                            type: integer
+                            example: 6
+                            description: The ID of the coupon.
+                          code:
+                            type: string
+                            example: KV56053388J
+                            description: The coupon code. Required in a /POST request.
+                          name:
+                            type: string
+                            example: Percentage off
+                            description: Name given to the coupon in the control panel.
+                          discountType:
+                            type: integer
+                            description: |-
+                              The discount type.
+
+                              - type 0: per_item_discount
+                              - type 1: percentage_discount
+                              - type 2: per_total_discount
+                              - type 3: shipping_discount
+                              - type 4: free_shipping
+                            enum:
+                              - 0
+                              - 1
+                              - 2
+                              - 3
+                              - 4
+                          discountAmount:
+                            type: integer
+                            description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                            example: 3
+                          expiresDate:
+                            type: integer
+                            example: 0
+                            description: Returns 0 if no expiration date is set.
+                          totalDiscount:
+                            type: number
+                            example: 4.19
+                            description: The total amount of all discounts applied to the cart.
+                    required:
+                      - coupon_code
+            discount_amount:
+              type: number
+              description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
+              example: 4
+            coupon_amount:
+              type: number
+              description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: An item’s original price is the same as the product default price in the admin panel.
+            list_price:
+              type: number
+              description: 'The net item price before discounts and coupons are applied. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+            sale_price:
+              type: number
+              description: Price of the item after all discounts are applied. (The final price before tax calculation.)
+            extended_list_price:
+              type: number
+              description: List price of the item multiplied by the quantity.
+            extended_sale_price:
+              type: number
+              description: Sale price of the item multiplied by the quantity.
+            options:
+              description: The list of selected options for this product.
+              type: array
+              items:
+                type: object
+                title: Product Option
+                properties:
+                  name:
+                    type: string
+                    description: 'The product option name; for example, Color or Size.'
+                  nameId:
+                    type: number
+                    description: The product option identifier.
+                  value:
+                    type: string
+                    description: 'The product option value; for example, Red or Medium.'
+                  valueId:
+                    type: number
+                    description: The product option value identifier in number format.
+                    example: 128
+          required:
+            - variant_id
+            - product_id
+            - quantity
+        - {}
+      description: ''
+    BaseItem:
+      type: object
+      title: Base Item
+      properties:
+        id:
+          type: string
+          description: The line-item ID.
+          example: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+        variant_id:
+          type: number
+          description: The ID of the variant. Required in the /PUT or /POST request if the product has variants.
+          example: 358
+        product_id:
+          type: number
+          description: The ID of the product. Required in a /POST request.
+          example: 12
+        sku:
+          type: string
+          example: SMGREEN
+          description: SKU of the variant.
+        name:
+          type: string
+          description: The item's product name.
+          example: T-Shirt
+        url:
+          description: The product URL.
+          type: string
+          format: uri
+          example: 'http://your-store-url.mybigcommerce.com/your-product/'
+        quantity:
+          type: number
+          example: 5
+          description: Quantity of this item in the cart.
+        is_taxable:
+          type: boolean
+          example: false
+          description: Boolean value that specifies whether the item is taxable.
+        image_url:
+          type: string
+          format: uri
+          example: 'https://pathtoproductimage/ProductDefault.png'
+          description: Image of the product or variant.
+        discounts:
+          type: array
+          items:
+            type: object
+            title: Applied Discount
+            description: |-
+              Example as part of a cart response:
+
+              ```
+                "discounts": [
+                  {
+                    "id": 2,
+                    "discounted_amount": 2
+                  },
+                  {
+                    "id": "coupon",
+                    "discounted_amount": 0.42
+                  }
+                ]
+              ```
+            properties:
+              id:
+                description: ID of the applied discount.
+                example: coupon
+                oneOf:
+                  - type: string
+                  - type: number
+              discounted_amount:
+                type: number
+                description: The discounted amount.
+        coupons:
+          type: array
+          items:
+            type: object
+            title: Applied Coupon
+            properties:
+              coupons:
+                type: object
+                description: Required in a /POST request.
+                properties:
+                  coupon_code:
+                    type: object
+                    description: The coupon code.
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                        description: The ID of the coupon.
+                      code:
+                        type: string
+                        example: KV56053388J
+                        description: The coupon code. Required in a /POST request.
+                      name:
+                        type: string
+                        example: Percentage off
+                        description: Name given to the coupon in the control panel.
+                      discountType:
+                        type: integer
+                        description: |-
+                          The discount type.
+
+                          - type 0: per_item_discount
+                          - type 1: percentage_discount
+                          - type 2: per_total_discount
+                          - type 3: shipping_discount
+                          - type 4: free_shipping
+                          enum:
+                          - 0
+                          - 1
+                          - 2
+                          - 3
+                          - 4
+                      discountAmount:
+                        type: integer
+                        description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                        example: 3
+                      expiresDate:
+                        type: integer
+                        example: 0
+                        description: Returns 0 if no expiration date has been set.
+                      totalDiscount:
+                        type: number
+                        example: 4.19
+                        description: The total amount of all discounts applied to the cart.
+                required:
+                  - coupon_code
+        discount_amount:
+          type: number
+          description: The total value of all discounts applied to this item. This includes coupons and cart level discounts.
+          example: 4
+        coupon_amount:
+          type: number
+          description: The total value of all coupons applied to this item.
+        original_price:
+          type: number
+          description: An item’s original price is the same as the product default price in the admin panel.
+        list_price:
+          type: number
+          description: 'The net item price before discounts and coupons are applied. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+        sale_price:
+          type: number
+          description: Item’s price after all discounts are applied. (The final price before tax calculation.)
+        extended_list_price:
+          type: number
+          description: List price of the item multiplied by the quantity.
+        extended_sale_price:
+          type: number
+          description: Sale price of the item multiplied by the quantity.
+        options:
+          description: The list of selected options for this product.
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: 'The product option name; for example, Color or Size.'
+              nameId:
+                type: number
+                description: The product option identifier.
+              value:
+                type: string
+                description: 'The product option value; for example, Red or Medium.'
+              valueId:
+                type: number
+                description: The product option value identifier in number format.
+                example: 128
+            title: Product Option
+      required:
+        - variant_id
+        - product_id
+        - quantity
+      x-internal: false
+    ProductOption:
+      type: object
+      title: Product Option
+      x-internal: false
+      properties:
+        name:
+          type: string
+          description: 'The product option name; for example, Color or Size.'
+        nameId:
+          type: number
+          description: The product option identifier.
+        value:
+          type: string
+          description: 'The product option value; for example, Red or Medium.'
+        valueId:
+          type: number
+          description: The product option value identifier in number format.
+          example: 128
+    AppliedCoupon:
+      title: Applied Coupon
+      type: object
+      description: |-
+        |Type `int`|Type Name|
+        |-|-|
+        |`0`|`per_item_discount`|
+        |`1`|`percentage_discount`|
+        |`2`|`per_total_discount`|
+        |`3`|`shipping_discount`|
+        |`4`|`free_shipping`|
+        |`5`|`promotion`|
+      x-internal: false
+      properties:
+        code:
+          description: The coupon code.
+          type: string
+        id:
+          description: The coupon ID. (read-only)
+          type: string
+          readOnly: true
+        coupon_type:
+          description: |-
+            Key name to identify the type of coupon.
+
+            type 0: per_item_discount
+            type 1: percentage_discount
+            type 2: per_total_discount
+            type 3: shipping_discount
+            type 4: free_shipping
+            type 5: promotion
+          type: string
+          enum:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+          readOnly: true
+        discounted_amount:
+          description: The discounted amount applied within a given context.
+          type: number
+          format: double
+          readOnly: true
+      required:
+        - code
+    AppliedDiscount:
+      type: object
+      title: Applied Discount
+      properties:
+        id:
+          description: ID of the applied discount.
+          example: coupon
+          oneOf:
+            - type: string
+            - type: number
+        discounted_amount:
+          type: number
+          description: The discounted amount.
+      x-internal: false
+    GiftWrapping:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        amount:
+          type: number
+          format: float
+      title: Gift Wrapping
+      x-internal: false
+    ItemCustom:
+      type: object
+      title: Item Custom
+      description: |-
+        Add a custom item to the shopper's cart.
+
+        * Custom items are not added to the catalog.
+        * The price should be set to match the store settings for taxes.
+      x-internal: false
+      properties:
+        id:
+          type: string
+          description: ID of the custom item.
+        sku:
+          type: string
+          description: SKU of the custom item.
+        name:
+          type: string
+          description: Name of the item.
+        quantity:
+          type: string
+        list_price:
+          type: string
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
+    ItemCustomGet:
+      type: object
+      title: Item Custom
+      description: |-
+        Add a custom item to the shopper's cart.
+
+        * Custom items are not added to the catalog.
+        * The price should be set to match the store settings for taxes.
+      x-internal: false
+      properties:
+        id:
+          type: string
+          description: ID of the custom item.
+        sku:
+          type: string
+          description: SKU of the custom item.
+        name:
+          type: string
+          description: Name of the item.
+        quantity:
+          type: string
+        list_price:
+          type: string
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
+    cart_PostVariant:
+      type: object
+      title: Item with variant
+      x-internal: false
+      properties:
+        quantity:
+          type: number
+        product_id:
+          type: number
+        list_price:
+          type: number
+          description: Optional price override.
+        variant_id:
+          type: number
+          description: Variant ID. Exists only in Catalog V3.
+        name:
+          type: string
+          description: 'Optionally, provide a value to override the product name.'
+        gift_wrapping:
+          type: object
+          properties:
+            wrap_together:
+              type: boolean
+              description: Boolean value that specifies whether items whether items should be wrapped together or wrapped individually.
+              example: true
+            wrap_details:
+              type: array
+              description: Details for the gift wrapping option selected. This can be specified for each line item.
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: Identifier of the gift wrapping option selected.
+                    example: 0
+                  message:
+                    type: string
+                    description: Custom gift message.
+                    example: Happy Birthday
+          required:
+            - quantity
+            - product_id
+      description: Product with a variant.
+      x-examples:
+        example-1:
+          quantity: 0
+          product_id: 0
+          list_price: 0
+          variant_id: 0
+          name: string
+          gift_wrapping:
+            wrap_together: true
+            wrap_details:
+              - id: 0
+                message: Happy Birthday
+    cart_PostModifier:
+      type: object
+      title: Item with modifier
+      properties:
+        quantity:
+          type: number
+        product_id:
+          type: number
+        list_price:
+          type: number
+          description: Optional price override.
+        name:
+          type: string
+          description: 'Optionally, provide a value to override the product name.'
+        option_selections:
+          type: array
+          description: Needed for Catalog V2.
+          items:
+            type: object
+            properties:
+              option_id:
+                type: number
+              option_value:
+                type: integer
+              name:
+                type: string
+                description: Override for the selected option or modifier name.
+              value:
+                type: string
+                description: Override for the selected option value.
+              nameId:
+                type: integer
+              valueId:
+                type: integer
+      required:
+        - quantity
+        - product_id
+      description: Product with a modifier.
+      x-internal: false
+      x-examples:
+        example-1:
+          - quantity: 0
+            product_id: 0
+            list_price: 0
+            name: string
+            option_selections:
+              - option_id: 0
+                option_value: 0
+                name: string
+                value: string
+                name_id: 0
+                value_id: 0
+    Cart_Line_Item_Update_Put:
+      type: object
+      title: Cart_Line_Item_Update_Put
+      x-internal: false
+      properties:
+        line_item:
+          oneOf:
+            - $ref: '#/components/schemas/cart_PostVariant'
+            - $ref: '#/components/schemas/cart_PostModifier'
+        gift_certificates:
+          type: array
+          items:
+            type: object
+            title: Line Item Gift Certificate Request Data
+            properties:
+              name:
+                type: string
+                description: Given name for a gift certificate line item.
+              theme:
+                type: string
+                description: The theme of the gift certificate.
+                enum:
+                  - birthday.html
+                  - boy.html
+                  - celebration.html
+                  - christmas.html
+                  - general.html
+                  - girl.html
+              amount:
+                type: number
+                minimum: 1
+                maximum: 1000
+              quantity:
+                type: integer
+                minimum: 1
+              sender:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              recipient:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              message:
+                type: string
+                maxLength: 200
+                description: 'Message shown to recipient, as provided by sender.'
+            required:
+              - name
+              - theme
+              - amount
+              - quantity
+              - sender
+              - recipient
+        custom_items:
+          $ref: '#/components/schemas/cart_PostCustomItem'
+    Cart_Line_Item_Update_Post:
+      type: object
+      title: Cart_Line_Item_Update_Post
+      x-internal: false
+      properties:
+        line_items:
+          oneOf:
+            - items:
+                $ref: '#/components/schemas/cart_PostVariant'
+            - items:
+                $ref: '#/components/schemas/cart_PostModifier'
+          type: array
+        gift_certificates:
+          type: array
+          items:
+            type: object
+            title: Line Item Gift Certificate Request Data
+            properties:
+              name:
+                type: string
+                description: Given name for gift certificate line item.
+              theme:
+                type: string
+                description: The theme of the gift certificate.
+                enum:
+                  - birthday.html
+                  - boy.html
+                  - celebration.html
+                  - christmas.html
+                  - general.html
+                  - girl.html
+              amount:
+                type: number
+                minimum: 1
+                maximum: 1000
+              quantity:
+                type: integer
+                minimum: 1
+              sender:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              recipient:
+                title: Contact Entity
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              message:
+                type: string
+                maximum: 200
+                description: 'Message shown to recipient, as provided by sender.'
+            required:
+              - name
+              - theme
+              - amount
+              - quantity
+              - sender
+              - recipient
+        custom_items:
+          $ref: '#/components/schemas/cart_PostCustomItem'
+    cart_PostCustomItem:
+      type: array
+      title: Custom item
+      x-internal: false
+      items:
+        type: object
+        properties:
+          sku:
+            type: string
+          name:
+            type: string
+            minLength: 1
+            maxLength: 250  
+          quantity:
+            type: number
+          list_price:
+            type: number
+      x-examples:
+        example-1:
+          - sku: string
+            name: string
+            quantity: 0
+            list_price: 0
+    CartSettings:
+      description: Represents all settings related to the shopping cart functionality of a store.
+      type: object
+      properties:
+        allow_purchasing:
+          type: boolean
+      x-tags:
+        - Models
+    ChannelCartSettings:
+      description: Represents all settings overrides related to the shopping cart functionality of a store for a channel.
+      type: object
+      properties:
+        allow_purchasing:
+          type: boolean
+          nullable: true
+      x-tags:
+        - Models
+    ChannelCartSettingsRequest:
+      allOf:
+        - $ref: '#/components/schemas/ChannelCartSettings'
+        - description: The request object for updating the cart settings overrides of a store for a channel.
+      x-tags:
+        - Models
+    ChannelCartSettingsResponse:
+      description: The response object of cart settings overrides for a channel.
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ChannelCartSettings'
+        meta:
+          $ref: '#/components/schemas/metaCollection_open'
+      x-tags:
+        - Models
+    GlobalCartSettingsRequest:
+      allOf:
+        - $ref: '#/components/schemas/CartSettings'
+        - description: The request object for updating the cart settings of a store at the global level.
+          required:
+            - allow_purchasing
+      x-tags:
+        - Models
+    GlobalCartSettingsResponse:
+      description: The response object of cart settings at the global level.
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/CartSettings'
+        meta:
+          $ref: '#/components/schemas/metaCollection_open'
+      x-tags:
+        - Models
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+        errors:
+          type: object
+      x-tags:
+        - Models
+    LineItemsGet:
+      title: LineItemsGet
+      type: object
+      properties:
+        physical_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemPhysicalGet'
+        digital_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemDigitalGet'
+        gift_certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemGiftCertificateGet'
+        custom_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCustomGet'
+      description: '`GET`'
+    ItemPhysicalGet:
+      allOf:
+        - type: object
+          title: Base Item
+          properties:
+            id:
+              type: string
+              description: The line-item ID.
+              example: 6e193ce6-f327-4dcc-b75e-72cf6738525e
+            variant_id:
+              type: number
+              description: The ID of the variant. Required in the /PUT or /POST request if the product has variants.
+              example: 358
+            product_id:
+              type: number
+              description: The ID of the product. Required in a /POST request.
+              example: 12
+            sku:
+              type: string
+              example: SMGREEN
+              description: SKU of the variant.
+            name:
+              type: string
+              description: The item’s product name.
+              example: T-Shirt
+            weight:
+              type: number
+              description: The weight is displayed here if the item has a custom dimension.
+              example: 1.2
+            dimensions:
+              type: object
+              properties:
+                height:
+                  type: number
+                  description: The height is displayed here if the item has a custom dimension.
+                  example: 2.0
+                width:
+                  type: number
+                  description: The width is displayed here if the item has a custom dimension.
+                  example: 2.1
+                depth:
+                  type: number
+                  description: The depth is displayed here if the item has a custom dimension.
+                  example: 2.2
+            url:
+              description: The product URL.
+              type: string
+              format: uri
+              example: 'http://your-store-url.mybigcommerce.com/your-product/'
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of this item in the cart.
+            is_taxable:
+              type: boolean
+              example: false
+              description: Boolean value that specifies whether the item is taxable.
+            image_url:
+              type: string
+              format: uri
+              example: 'https://pathtoproductimage/ProductDefault.png'
+              description: Image of the product or variant.
+            discounts:
+              type: array
+              items:
+                type: object
+                title: Applied Discount
+                description: |-
+                  Example as part of a cart response:
+
+                  ```
+                    "discounts": [
+                      {
+                        "id": 2,
+                        "discounted_amount": 2
+                      },
+                      {
+                        "id": "coupon",
+                        "discounted_amount": 0.42
+                      }
+                    ]
+                  ```
+                properties:
+                  id:
+                    oneOf:
+                      - type: string
+                      - type: number
+                  discounted_amount:
+                    type: number
+                    description: The discounted amount.
+            coupons:
+              oneOf:
+                - type: number
+                - type: array
+                  items:
+                    type: object
+                    title: Applied Coupon
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                        description: ID of the coupon.
+                      code:
+                        type: string
+                        example: KV56053388J
+                        description: The coupon code. Required in a /POST request.
+                      name:
+                        type: string
+                        example: Percentage off
+                        description: Name given to the coupon in the control panel.
+                      discountType:
+                        type: integer
+                        description: |-
+                          The discount type.
+                          - type 0: per_item_discount
+                          - type 1: percentage_discount
+                          - type 2: per_total_discount
+                          - type 3: shipping_discount
+                          - type 4: free_shipping
+                        example: 3
+                        enum:
+                          - 0
+                          - 1
+                          - 2
+                          - 3
+                          - 4
+                      discountAmount:
+                        type: integer
+                        description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
+                        example: 3
+                      expiresDate:
+                        type: integer
+                        example: 0
+                        description: Returns 0 if no expiration date has been set.
+                      totalDiscount:
+                        type: number
+                        example: 4.19
+                        description: The total amount of all discounts applied to the cart.
+                    required:
+                      - code
+            discount_amount:
+              type: number
+              description: The total value of all discounts applied to this item. This includes coupons and cart-level discounts.
+              example: 4
+            coupon_amount:
+              type: number
+              description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: An item’s original price is the same as the product default price in the admin panel.
+            list_price:
+              type: number
+              description: 'The net item price before discounts and coupons are applied. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+            sale_price:
+              type: number
+              description: Price of the item after all discounts are applied. (The final price before tax calculation.)
+            extended_list_price:
+              type: number
+              description: List price of the item multiplied by the quantity.
+            extended_sale_price:
+              type: number
+              description: Sale price of the item multiplied by the quantity.
+            options:
+              description: The list of selected options for this product.
+              type: array
+              items:
+                type: object
+                title: Product Option
+                properties:
+                  name:
+                    type: string
+                    description: 'The product option name; for example, Color or Size.'
+                  nameId:
+                    type: number 
+                    example: 151
+                    description: The product option identifier.
+                  value:
+                    type: string
+                    description: 'The product option value; for example, Red or Medium.'
+                  valueId:
+                    oneOf:
+                      - type: number
+                        example: 128
+                      - type: string
+                        example: "1259"
+                    description: The product option value identifier in number format.
+                    
+            gift_wrapping:
+              description: The gift wrapping details for this item.
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Gift Wrap 1
+                message:
+                  type: string
+                  example: Happy Birthday!
+                amount:
+                  type: number
+                  format: float
+                  example: 1.99
+          required:
+            - variant_id
+            - product_id
+            - quantity
+        - {}
+      title: ''
+      description: ''
+    NotFound:
+      description: Error payload for the BigCommerce API.
+      type: object
+      properties:
+        status:
+          description: |
+            404 HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      title: Not Found
+      x-internal: false
+    MetafieldResponse:
+      description: |
+        Response payload for the BigCommerce API.
+      x-internal: false
+      allOf:
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/Metafield'
+        - $ref: '#/components/schemas/CollectionMeta'
+    Metafield:
+      description: |
+        Allows app partners to write custom data to various resources in the API.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: The unique identifier for the metafield.
+            date_created:
+              type: string
+              format: date-time
+              description: Date and time of the metafield's creation.
+              example: '2022-06-16T18:39:00+00:00'
+            date_modified:
+              type: string
+              format: date-time
+              description: Date and time when the metafield was last updated.
+              example: '2022-06-16T18:39:00+00:00'
+      x-internal: false
+    MetafieldBase:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          example: order
+          minLength: 0
+          maxLength: 255
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          enum:
+            - brand
+            - product
+            - variant
+            - category
+            - cart
+          example: cart
+        resource_id:
+          type: string
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
+          example: '0'
+          readOnly: true
+      required:
+        - permission_set
+    MetafieldPost:
+      description: |
+        The model for a POST to create metafield.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase_Post'
+      x-internal: false
+    MetafieldBase_Post:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    MetaFieldCollectionResponse:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          $ref: '#/components/schemas/Metafield'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: false
+    CollectionMeta:
+      type: object
+      description: 'Data about the response, including pagination and collection totals.'
+      properties:
+        pagination:
+          type: object
+          description: 'Data about the response, including pagination and collection totals.'
+          title: Pagination
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+      additionalProperties: true
+      title: Collection Meta
+      x-internal: false
+    metaCollection_open:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+  responses:
+    CartResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Cart_Full'
+          examples: {}
+    CartRedirectResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  cart_url:
+                    type: string
+                    format: url
+                    example: 'https://store.mybigcommerce.com/cart.php?action=load&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  checkout_url:
+                    type: string
+                    example: 'https://store.mybigcommerce.com/cart.php?action=loadInCheckout&id=1ea11efe-b111-11d1-11ee-cd1110f111b1&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                    format: Url
+                  embedded_checkout_url:
+                    type: string
+                    example: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                    format: url
+              meta:
+                $ref: '#/components/schemas/metaCollection_open'
+          examples:
+            example-1:
+              value:
+                data:
+                  cart_url: 'https://store.mybigcommerce.com/cart.php?action=load&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  checkout_url: 'https://store.mybigcommerce.com/cart.php?action=loadInCheckout&id=1ea11efe-b111-11d1-11ee-cd1110f111b1&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  embedded_checkout_url: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                meta: 
+                  $ref: '#/components/schemas/metaCollection_open'
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    cartId:
+      name: cartId
+      in: path
+      description: The identifier of a specific cart.
+      required: true
+      schema:
+        type: string
+        format: UUID
+    cart_id:
+      name: cart_id
+      in: path
+      description: The ID of the `Cart` to which the transactions belong.
+      required: true
+      schema:
+        type: string
+        format: UUID
+    line_items:
+      name: include
+      in: query
+      description: |-
+        * `redirect_urls`: Create a direct link to a cart. This can be used for the /POST request for carts.
+        * `line_items.physical_items.options`: The cart returns an abbreviated result. Use this to return physical items product options. To return the extended cart object, use in a /POST request.
+        * `line_items.digital_items.options`: The cart returns an abbreviated result. Use this to return digital items product options. To return the extended cart object, use in a /POST request.
+        * `promotions.banners`: Returns a list of eligible banners.
+      schema:
+        type: string
+        enum:
+          - redirect_urls
+          - line_items.physical_items.options
+          - line_items.digital_items.options
+    PageParam:
+      name: page
+      description: |
+        Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    MetafieldIdParam:
+      name: metafield_id
+      in: path
+      description: |
+        The ID of the `Metafield`.
+      required: true
+      schema:
+        type: integer
+    MetafieldKeyParam:
+      name: key
+      in: query
+      description: Filter based on a metafield's key.
+      required: false
+      schema:
+        type: string
+    MetafieldNamespaceParam:
+      name: namespace
+      in: query
+      description: Filter based on a metafield's key.
+      required: false
+      schema:
+        type: string
+    LimitParam:
+      name: limit
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    DirectionParam:
+      name: direction
+      description: |
+        Sort direction. Acceptable values are: `asc`, `desc`.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |Carts|modify|`store_cart`|
+        |Carts |read-only|`store_cart_read_only`|
+
+        ### Authentication header
+
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header

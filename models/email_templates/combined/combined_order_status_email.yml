@@ -1,0 +1,260 @@
+title: Order Status Update Email Template
+description: Order status update email triggers when the status of an order changes.
+type: object
+properties:
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+      new_status:
+        type: string
+        example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting Pickup, Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
+      new_formatted_status:
+        type: string
+        example: 'Shipment123, PendingOrder345, Cancelled0223222, Awaiting Payment in Store'
+      total:
+        type: object
+        properties:
+          value:
+            type: float
+          formatted:
+            type: string
+      refund:
+        type: object
+        properties:
+          value:
+            type: float
+          formatted:
+            type: string
+      date_placed:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      payment_method:
+        type: string
+      link:
+        type: string
+      customer_name:
+        type: string
+      downloadable_products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            options:
+              type: string
+            quantity:
+              type: integer
+            link:
+              type: string
+            thumbnail:
+              type: string
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            sku:
+              type: string
+            price:
+              type: string
+            quantity:
+              type: integer
+            thumbnail:
+              type: string
+            brand:
+              type: string
+      tracking:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            shipping_method:
+              type: string
+            link:
+              type: string
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+        description: 'Path to the store (i.e., domain + protocol)'
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+            description: 'Left to right or right to left, depending on the language'
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          details_title:
+            type: string
+          order_total:
+            type: string
+          date_placed:
+            type: string
+          payment_method:
+            type: string
+          total_refund:
+            type: string
+          products_shipped:
+            type: string
+          products_to_be_shipped:
+            type: string
+          tracking_title:
+            type: string
+          downloadable_items_title:
+            type: string
+          quantity:
+            type: string
+          download:
+            type: string
+          tracking_label:
+            type: string
+          no_tracking_numbers:
+            type: string
+          check_status:
+            type: string
+          go_shopping:
+            type: string
+example:
+  order:  
+    id: 1
+    new_status: Awaiting Fulfillment 
+    total:  
+      value: 10
+      formatted: $10.00 USD 
+    refund:  
+      value: 0
+      formatted:    
+    date_placed:  
+      value: 1614615796
+      formatted:  03/01/2121 
+    payment_method:  Store Credit 
+    link: '#status-link'
+    customer_name:  John Cena 
+    downloadable_products:  
+      name: Journal 
+      options:    
+      quantity: 1
+      link: '#downloadable-link'         
+    products:  
+      name: Test product 
+      sku: FA44 
+      quantity: 11   
+    tracking:              
+      id: 123BC 
+      shipping_method: DHL 
+      link: '#example.com'
+  store:  
+    name: My Dev Store 97434969 
+    domain_name: 'my-dev-store-97434969.store.bcdev'
+    logo:  
+      title: '= My Dev Store 97434969 ='
+      name: 'avatar-2020_1612860757__16350.jpeg'
+      url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+    ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+    cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+    image_directory: product_images 
+    img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+    path_normal: 'https://my-dev-store-97434969.store.bcdev'
+    path: 'https://my-dev-store-97434969.store.bcdev'
+    address:    
+    language:  
+      code: en 
+      direction: ltr  
+  customer:  
+    first_name: John 
+    full_name: John Jr 
+    email: 'john.f@example.com'
+  misc:  
+    year: 2023
+  translations:  
+    en:  
+      title: Order status changed 
+      hello: Hi 
+      message: 'The status of your order #id has changed to <strong>{{status}}</strong>.'
+      details_title:  Order details 
+      order_total: 'Order total:'
+      date_placed: 'Date placed:'
+      payment_method: 'Payment method:'
+      total_refund: 'Total refunded:'
+      products_shipped: Products shipped
+      products_to_be_shipped: Products to be shipped 
+      tracking_title: Tracking information 
+      downloadable_items_title: Downloadable items 
+      quantity: 'Qty:'
+      download: Download file 
+      tracking_label: Tracking Link 
+      no_tracking_numbers: No tracking numbers are assigned to your order yet 
+      check_status: Check order status 
+      go_shopping: Go shopping 
+  

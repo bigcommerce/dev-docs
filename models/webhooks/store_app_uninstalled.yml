@@ -1,0 +1,23 @@
+type: object
+properties:
+  store/app/uninstalled:
+    description: Fires when a client store is cancelled and uninstalled from the platform.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string

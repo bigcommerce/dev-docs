@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/cart/lineItem/created:
+    description: Fires when a new item is added to a cart.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          cartId:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

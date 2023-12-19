@@ -1,0 +1,119 @@
+title: Abandoned Cart Email Template (Deprecated)
+description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
+type: object
+deprecated: true
+properties:
+  abandoned_cart:
+    type: object
+    title: deprecated
+    deprecated: true
+    properties:
+      body:
+        type: string
+      unsubscribe_link:
+        type: string
+  store:
+    type: object
+    deprecated: true
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        deprecated: true
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+        description: 'Path to the store (i.e., domain + protocol)'
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+            description: 'Left to right or right to left, depending on the language'
+  customer:
+    type: object
+    deprecated: true
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+  misc:
+    type: object
+    deprecated: true
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    deprecated: true
+    properties:
+      en:
+        type: object
+        properties:
+          unsubscribe:
+            type: string
+examples: 
+  Abandoned Cart example (deprecated):
+    value:
+    abandoned_cart: 
+      body: You recently visited our online store and we noticed that you didnʼt complete your order.\n <br>To complete your order right now, just click on the link below:\n <a href=\"example.com/complete-order\">Complete your order</a>
+      unsubscribe_link: 'example.com/unsubscribe'
+    store: 
+      name: My Dev Store 97434969
+      domain_name: my-dev-store-97434969.store.bcdev
+      logo: 
+        title: [= My Dev Store 97434969 =]
+        name: avatar-2020_1612860757__16350.jpeg
+        url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+      ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+      cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+      image_directory: product_images
+      img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+      path_normal: 'https://my-dev-store-97434969.store.bcdev'
+      path: 'https://my-dev-store-97434969.store.bcdev' 
+      address: '123 Fake St, Dallas, TX 75225'
+      language:
+        code: en
+        direction: ltr
+    customer: 
+      first_name: John
+      full_name: John Jr
+      email: 'john.f@example.com'
+    misc: 
+      year: 2021
+    translations: 
+      en: 
+        unsubscribe: '<a href=\"example.com/unsubscribe\">Unsubscribe</a> from future emails like this.'

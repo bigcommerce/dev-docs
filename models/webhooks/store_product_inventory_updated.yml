@@ -1,0 +1,38 @@
+type: object
+properties:
+  store/product/inventory/updated:
+    description: |-
+      Fires when inventory levels change for a _base product_. For products without variants, the webhook fires regardless of how you track inventory.
+      
+      For products with variants, the webhook only fires when the product's inventory properties are configured to track by _product_ and the _product-level_ inventory changes.
+      
+      Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          inventory:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              method:
+                type: string
+              value:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

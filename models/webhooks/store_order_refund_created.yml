@@ -1,0 +1,29 @@
+type: object
+properties:
+  store/order/refund/created:
+    description: A refund has been submitted against an order
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          refund:
+            type: object
+            properties:
+              refund_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

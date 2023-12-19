@@ -1,0 +1,23 @@
+type: object
+properties:
+  store/inventory/location/metafield/updated:
+    description: Fires when an existing inventory location metafield is updated.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          metafield_id:
+            type: integer
+          resource_id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string

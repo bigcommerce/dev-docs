@@ -1,0 +1,143 @@
+title: Product Review Email Template
+description: Product review request email triggers after a customer purchases a product.
+type: object
+properties:
+  review:
+    type: object
+    properties:
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            sku:
+              type: string
+            link:
+              type: string
+            price:
+              type: string
+            thumbnail:
+              type: string
+      unsubscribe_link:
+        type: string
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+        description: 'Path to the store (i.e., domain + protocol)'
+      path:
+        type: string
+      address: 
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+            description: 'Left to right or right to left, depending on the language'
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          instruction:
+            type: string
+          review_text:
+            type: string
+          thanks:
+            type: string
+          go_shopping:
+            type: string
+examples:
+  review:
+    products:
+      - name: Name of Product
+        sku: FA44
+        link: '#review-link'
+    unsubscribe_link: '#unsubscribe-link'
+  store: 
+    name: My Dev Store 97434969
+    domain_name: my-dev-store-97434969.store.bcdev
+    logo: 
+      title: [= My Dev Store 97434969 =]
+      name: avatar-2020_1612860757__16350.jpeg
+      url: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg'
+    ssl_path: 'https://my-dev-store-97434969.store.bcdev'
+    cdn_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96'
+    image_directory: product_images
+    img_path: 'https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images'
+    path_normal: 'https://my-dev-store-97434969.store.bcdev'
+    path: 'https://my-dev-store-97434969.store.bcdev'
+    address: '123 Fake St, Dallas, TX 75225'
+    language: 
+      code: en
+      direction: ltr
+  customer:
+    first_name: John
+    full_name: John Jr
+    email: 'john.f@example.com'
+  misc: 
+    year: 2021
+  translations: 
+    en: 
+      title: Review products you've recently purchased
+      hello: Hello {{name}},
+      message: Thanks for your recent order with us!,
+      instruction: If you have a few minutes, we'd like to invite you to review the products you ordered. Just click on the link below to write a review and share your opinion with other shoppers.
+      review_text: Review product
+      thanks: Thanks in advance for taking the time to review the products you purchased!
+      go_shopping: Go shopping

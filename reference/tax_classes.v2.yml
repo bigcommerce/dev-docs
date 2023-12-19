@@ -1,0 +1,188 @@
+openapi: '3.0.1'
+info:
+  title: Tax Classes
+  description: Manage tax calculations applied to sales. Tax classes are used to apply
+    different tax rates for specific types of products and orders. This API is read
+    only. Classes must be set using the [Control Panel](https://forum.bigcommerce.com/s/article/Taxes-Video#).
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ""
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+- X-Auth-Token: []
+tags:
+- name: Taxes
+paths:
+  '/tax_classes':
+    get:
+      tags:
+      - Taxes
+      summary: Get All Tax Classes
+      description: |-
+        Returns a list of all *Tax Classes* in a store.
+
+        Default sorting is by tax-class id, from lowest to highest.
+      operationId: getAllTaxClasses
+      parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: page
+        in: query
+        description: Optional filter param. Number of pages.
+        schema:
+          maximum: 50
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      - name: limit
+        in: query
+        description: Optional filter param. Number of items per page
+        schema:
+          maximum: 250
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/taxClass_Full'
+              example:
+              - id: '1'
+                name: Non-Taxable Products
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
+              - id: '2'
+                name: Shipping
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
+              - id: '3'
+                name: Gift Wrapping
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  '/tax_classes/{id}':
+    get:
+      tags:
+      - Taxes
+      summary: Get a Tax Class
+      description: Returns a single *Tax Class*.
+      operationId: getATaxClass
+      parameters:
+        - $ref: '#/components/parameters/Accept'
+        - name: id
+          in: path
+          description: ID of the tax class.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/taxClass_Full'
+              example:
+                id: '1'
+                name: Shipping
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    taxClass_Full:
+      title: taxClass_Full
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique numerical ID of the tax class. A read-only value
+            which is automatically assigned and increments sequentially.
+          example: "1"
+        name:
+          type: string
+          description: The name of the tax class.
+          example: Shipping
+        created_at:
+          type: string
+          description: Date and time of the tax class' creation. Read-Only.
+          format: date-time
+          example: 2018-05-07T20:14:17+00:00
+        updated_at:
+          type: string
+          description: Date and time when the tax class was last updated. Read-Only.
+          format: date-time
+          example: 2018-05-07T20:14:17+00:00
+      example:
+        id: '1'
+        name: Shipping
+        created_at: 1973-01-20T21:34:57.903+00:00
+        updated_at: 1990-12-30T00:29:23.515+00:00
+      x-internal: false
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+
