@@ -10,7 +10,7 @@
     "node": ">= 18.0.0"
   },
   "scripts": {
-    "lint": "eslint ./docs --ext mdx --max-warnings 0"
+    "lint": "eslint ./docs ./examples ./theme-styles --ext mdx --max-warnings 0"
   },
   "repository": {
     "type": "git",

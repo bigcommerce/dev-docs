@@ -1,0 +1,46 @@
+{
+  "non_sale_price_without_tax": {
+    "currency": "USD",
+    "formatted": "$123.00",
+    "value": 123
+  },
+  "price_range": {
+    "max": {
+      "tax_label": "Default Tax Options",
+      "without_tax": {
+        "currency": "USD",
+        "formatted": "$3.00",
+        "value": 3
+      }
+    },
+    "min": {
+      "tax_label": "Default Tax Options",
+      "without_tax": {
+        "currency": "USD",
+        "formatted": "$2.00",
+        "value": 2
+      }
+    }
+  },
+  "rrp_without_tax": {
+    "currency": "USD",
+    "formatted": "$4.00",
+    "value": 4
+  },
+  "sale_price_without_tax": {
+    "currency": "USD",
+    "formatted": "$3.00",
+    "value": 3
+  },
+  "saved": {
+    "currency": "USD",
+    "formatted": "$2.00",
+    "value": 2
+  },
+  "tax_label": "Default Tax Options",
+  "without_tax": {
+    "currency": "USD",
+    "formatted": "$2.00",
+    "value": 2
+  }
+}

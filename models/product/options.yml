@@ -1,0 +1,37 @@
+    type: array
+    items:
+      type: object
+      properties:
+        checked:
+          type: boolean
+        condition:
+          type: boolean
+        display_name:
+          type: string
+        id:
+          type: number
+        label:
+          type: string
+        noValue:
+          type: number
+        partial:
+          type: string
+        required:
+          type: boolean
+        state:
+          type: string
+        type:
+          type: string
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: string
+              id:
+                type: number
+              label:
+                type: string
+              selected:
+                type: boolean

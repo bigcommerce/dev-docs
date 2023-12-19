@@ -1,0 +1,345 @@
+description: |-
+  The cart-specific properties for the current session.
+
+  `{{cart}}` object available to `templates/pages/cart.html`; contains `cart_id` if one exists.
+
+  **Handlebars Expression**: `{{cart}}`
+type: object
+properties:
+  additional_checkout_buttons:
+    type: array
+    description: 'Generates checkout buttons for third-party payments (PayPal, Google Checkout, etc.)'
+    items:
+      type: string
+  coupons:
+    type: array
+    description: List of coupons applied to the cart; default sorting is by coupon ID, from lowest to highest.
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        displayName:
+          type: string
+        couponType:
+          type: string
+        discountedAmount:
+          type: number
+  discount:
+    type: object
+    description: Discount being applied to the cart in the current session.
+    properties:
+      formatted:  
+        type: string
+      value:
+        type: integer
+      currency: 
+        string
+  gift_certificates:
+    type: array
+    description: List of gift certificates applied to the cart.
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        theme:
+          type: string
+        amount:
+          type: number
+        taxable:
+          type: boolean
+        sender:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+        recipient:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+        message:
+          type: string
+  gift_wrapping_cost:
+    type: object
+    description: Price object that defines the cost associated with adding gift wrapping to the items in the cart.
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: integer
+  grand_total:
+    type: object
+    description: Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping.
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        availability:
+          type: string
+        base_price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        brand:
+          type: object
+          properties:
+            name:
+              type: string
+        can_modify:
+          type: boolean
+        category_names:
+          type: array
+          items:  
+            type: string
+        configurable_fields:
+          type: array
+          items: 
+            type: object
+        custom_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              value:
+                type: string
+        id:
+          type: string
+          description: Unique ID of the coupon.
+        image:
+          type: object
+          properties:
+            alt:
+              type: string
+              description: Corresponding text to display for missing images, accessible screen readers, etc.
+            data:
+              type: string
+              description: Internal URL to the image.
+        max_purchase_quantity:
+          type: integer
+        min_purchase_quantity:
+          type: integer
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              value:
+                type: string
+              is_file:
+                type: boolean
+        price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        price_discounted:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        product_id:
+          type: integer
+        quantity:
+          type: integer
+          description: Total number of items in the cart.
+        release_date:
+          type: string
+        remove_url:
+          type: string
+          description: URL to remove gift certificate from the cart.
+        rrp:
+          type: object
+          description: Price object that defines the cart itemʼs list price (MSRP); can be used to display struck-out list prices.
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: integer
+        sale_price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        show_gift_wrapping:
+          type: boolean
+          description: Boolean indicating whether the wrapping options are shown.
+        sku:
+          type: string
+        total:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        total_discounted:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        type:
+          type: string
+        url:
+          type: string
+        variant_id:
+          type: integer
+  quantity:
+    type: integer
+  shipping_handling:
+    type: object
+    description: Current configuration of the shipping estimator for this session’s current cart; will be null/undefined if the cart contains no physical products.
+    properties:
+      countries:
+        type: array
+        description: Countries available to ship to.
+        items:
+          type: object
+          properties:
+            currency:
+              type: object
+              properties:
+                code:
+                  type: string
+                name:
+                  type: string
+                symbol:
+                  type: string
+            id:
+              type: integer
+            iso2:
+              type: string
+            iso3:
+              type: string
+            name:
+              type: string
+            selected:
+              type: boolean
+      selected_city:
+        type: string
+        description: The city/town that the customer selected for the shipping estimate.
+      selected_country:
+        type: string
+      selected_state:
+        type: string
+        description: The state/province/region that the customer selected for the shipping estimate.
+      selected_zip:
+        type: string
+        description: The ZIP/postal code that the customer selected for the shipping estimate.
+      show_estimator:
+        type: boolean
+        description: Boolean indicating whether the merchant wants to show the shipping estimator to customers.
+      states:
+        type: array
+        description: List of states/provinces/regions for the country.
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+  show_multiple_address_shipping:
+    type: boolean
+    description: 'Boolean: If > 1 physical items are in the cart, and checkout button is displayed: whether to also display the "Ship to multiple addresses" / "Multiple Shipping Addresses" user option.'
+  show_primary_checkout_button:
+    type: boolean
+    description: Boolean that determines whether to show a checkout button.
+  status_messages:
+    type: array
+    items:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: number
+  sub_total:
+    type: object
+    description: Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping.
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  taxes:
+    type: array
+    description: List of all applicable taxes for the cart.
+    items:
+      type: object
+      properties:
+        cost:
+          type: object
+          description: Price object that defines the cost of the applied tax.
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        included:
+          type: boolean
+          description: Boolean that indicates whether taxes are included in the total price for the cart’s contents.
+        name:
+          type: string

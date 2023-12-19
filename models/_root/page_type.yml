@@ -1,0 +1,57 @@
+type: string
+description: |-
+  A string representing the type of page currently displayed.
+
+  `global` `{{page_type}}` string.
+
+  **Handlebars Expression**: `{{page_type}}`
+
+  All possible values for `{{page-type}}` are:
+
+  * account_orderstatus 
+  * account_order 
+  * account_addressbook      
+  * shippingaddressform 
+  * account_new_return 
+  * add-wishlist      
+  * account_recentitems 
+  * account_downloaditem
+  * editaccount      
+  * account_inbox 
+  * account_saved_return  
+  * account_returns      
+  * account_paymentmethods 
+  * account_addpaymentmethod
+  * account_editpaymentmethod      
+  * login 
+  * createaccount_thanks 
+  * createaccount      
+  * getnewpassword 
+  * forgotpassword 
+  * blog      
+  * blog_post 
+  * brand 
+  * brands      
+  * cart 
+  * checkout 
+  * category*      
+  * compare 
+  * page_contact_form 
+  * error      
+  * 404 
+  * giftcertificates 
+  * giftcertificates_balance      
+  * giftcertificates_redeem 
+  * default* 
+  * orderconfirmation
+  * page*      
+  * product* 
+  * amp_product_options 
+  * search      
+  * rss 
+  * sitemap 
+  * newsletter_subscribe      
+  * wishlist 
+  * wishlists  
+
+  The four most-commonly-used values for `{{page_type}}` are marked with asterisks.

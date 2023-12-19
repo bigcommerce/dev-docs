@@ -1,0 +1,41 @@
+description: |-
+  A list of all supported currencies, and the currency that is actively in use in the storefront.
+
+  `global` `{{currency_selector}}`
+
+  **Handlebars Expression**: `{{currency_selector}}`
+type: object
+properties:
+  active_currency_id:
+    type: string
+    description: ID of the currency actively in use in the storefront.
+  active_currency_flag:
+    type: string
+    description: Country flag used to represent the active currency.
+  active_currency_name:
+    type: string
+    description: Name of the active currency.
+  active_currency_code:
+    type: string
+    description: Code for the active currency.
+  currencies:
+    type: array
+    description: List of all the currencies supported for this storefront.
+    items:
+      type: object
+      properties:
+        is_active:
+          type: boolean
+          description: Boolean that indicates whether this currency is active for use in the storefront
+        switch_url:
+          type: string
+          description: The URL to invoke a switch to this currency.
+        id:
+          type: string
+          description: ID of the currency.
+        name:
+          type: string
+          description: Name of the currency.
+        flag:
+          type: string
+          description: Country flag used to visually represent the currency.

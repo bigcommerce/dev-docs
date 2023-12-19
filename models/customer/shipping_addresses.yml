@@ -1,0 +1,52 @@
+type: object
+description: customer.shipping_addresses object available to customer account templates and components.
+properties:
+  address1:
+    type: string
+    description: Customerʼs shipping address, first line.
+  address2:
+    type: string
+    description: Customerʼs shipping address, second line.
+  city:
+    type: string
+    description: Customerʼs shipping city
+  company:
+    type: string
+    description: Customerʼs shipping company name
+  country:
+    type: string
+    description: Customerʼs shipping country
+  country_id:
+    type: string
+    description: ID for customerʼs shipping country
+  destination:
+    type: string
+    description: 'Type of delivery destination: residential or business/commercial'
+  first_name:
+    type: string
+    description: Customer’s shipping (first) name
+  form_session_id:
+    type: string
+    description: Used for custom shipping forms
+  id:
+    type: string
+    description: 'Unique, system-generated ID'
+  last_name:
+    type: string
+    description: Customer’s shipping (last) name
+  last_used:
+    type: string
+    description: Timestamp when this address was last used as a shipping address
+  phone:
+    type: string
+    description: Customer’s shipping phone number
+  state:
+    type: string
+    description: Customerʼs shipping state
+  state_id:
+    type: string
+    description: ID for customerʼs shipping state/province/region
+  zip:
+    type: string
+    description: Customerʼs shipping zip
+

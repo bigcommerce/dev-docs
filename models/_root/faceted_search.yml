@@ -1,0 +1,21 @@
+description: |-
+  `global` `{{faceted_search}}`; provides data for searching by category or brand.
+
+  **Handlebars Expression**: `{{faceted_search}}`
+type: object
+properties:
+  facets:
+    type: string
+    description: List of all search facets available.
+  selected:
+    type: array
+    description: Container for the selected search facets (selected facets contain properties below)
+    items:
+      type: object
+      properties:
+        remove_all_url:
+          type: string
+          description: URL to remove all selected search restrictions.
+        items:
+          type: string
+          description: Currently enabled search facets

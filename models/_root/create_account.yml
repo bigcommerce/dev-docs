@@ -1,0 +1,8 @@
+type: object
+properties:
+  continue_url:
+    type: string
+description: |-
+  Object to enable the current customer to create a store account. (Called on the default `<theme-name>/templates/pages/auth/create-account.html` template.)
+
+  **Handlebars Expression**: `{{forms.create_account}}`

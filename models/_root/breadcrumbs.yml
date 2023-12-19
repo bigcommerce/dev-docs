@@ -1,0 +1,16 @@
+description: |-
+  Defines a pageʼs breadcrumbs. Available on virtually all pages that have a breadcrumb trail.
+
+  `global` `{{breadcrumbs}}` array
+
+  **Handlebars Expression** `{{breadcrumbs}}`
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      description: Displayed name of this breadcrumb element.
+    url:
+      type: string
+      description: URL of this breadcrumb element.

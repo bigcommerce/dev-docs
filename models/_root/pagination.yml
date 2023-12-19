@@ -1,0 +1,50 @@
+description: |-
+  `{{pagination}}` object available to templates containing paginated lists, such as `templates/pages/category.html` and `templates/pages/brands.html`.
+
+  **Handlebars Expression**: `{{pagination}}`
+oneOf:
+  - properties:
+      category:
+        type: object
+        properties:
+          current:
+            type: number
+            description: Number representing which page (in the current collection) the customer is viewing.
+          links:
+            type: array
+            description: 'Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number.'
+            items:
+              type: object
+          sort:
+            type: string
+            description: Field to sort by
+  - properties:
+      brand:
+        type: object
+        properties:
+          current:
+            type: number
+            description: Number representing which page (in the current collection) the customer is viewing.
+          links:
+            type: array
+            description: 'Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number.'
+            items:
+              type: object
+          sort:
+            type: string
+  - properties:
+      blog:
+        type: object
+        properties:
+          current:
+            type: number
+            description: Number representing which page (in the current collection) the customer is viewing.
+          links:
+            type: array
+            description: 'Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number.'
+            items:
+              type: object
+          sort:
+            type: string
+            description: Field to sort by
+type: object

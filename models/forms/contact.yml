@@ -1,0 +1,18 @@
+description: "`{{forms.contact}}` object available to `templates/pages/account/add-address.html`"
+type: object
+properties:
+  captcha_url:
+    type: string
+  page_id:
+    type: string
+  recaptcha:
+    type: object
+    properties:
+      enabled:
+        type: number
+      markup:
+        type: string
+      public_key:
+        type: string
+  text:
+    type: string

@@ -1,0 +1,21 @@
+type: object
+properties:
+  messages:
+    type: array
+    items:
+      type: object
+  total:
+    type: integer
+  captcha:
+    type: string
+  recaptcha:
+    type: object
+    properties:
+      enabled:
+        type: integer
+      public_key:
+        type: string
+      markup:
+        type: string
+  show_review_email:
+    type: boolean

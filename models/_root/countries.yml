@@ -1,0 +1,45 @@
+description: |-
+  The `{{countries}}` array available to `templates/pages/account/payment-methods.html`; used in country and state dropdowns when submitting add payment form.
+
+  **Handlebars Expression**: `{{countries}}`
+type: array
+items:
+  type: object
+  properties:
+    currency:
+      description: Details about the currency associated with the country.
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+            description: The [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
+            length: 3
+            example: GBP
+          name:
+            type: string
+            description: Name of the currency.
+            example: Pound Sterling
+          symbol:
+            type: string
+            description: The symbol for the currencyʼs primary display unit.
+            example: £
+    id:
+      type: integer
+      description: The country ID; BigCommerce-generated.
+      example: 2
+    iso2:
+      type: string
+      description: The countryʼs [ISO 3166 Alpha-2](https://www.iso.org/iso-3166-country-codes.html) code.
+      example: GB
+    iso3:
+      type: string
+      description: The countryʼs [ISO 3166 Alpha-3](https://www.iso.org/iso-3166-country-codes.html) code.
+      example: GBR
+    name:
+      type: string
+      description: The countryʼs display name.
+      example: United Kingdom
+    selected:
+      type: boolean

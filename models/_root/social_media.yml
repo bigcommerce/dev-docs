@@ -1,0 +1,20 @@
+description: |-
+  `global` `{{social_media}}` array of all social-media site links for the storefront.
+
+  **Handlebars Expression**: `{{social_media}}`
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      description: 'Internal name of this social-media platform. For example, `instagram`.'
+    url:
+      type: string
+      description: 'URL to point to, set by merchant in control panel ([https://www.facebook.com/BigCommerce](https://www.facebook.com/BigCommerce), etc.)'
+    position:
+      type: integer
+      description: Display sort order for this platform within the social-media list
+    display_name:
+      type: string
+      description: 'Displayed/formatted name of this social-media platform. For example, “Instagram”.'

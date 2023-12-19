@@ -1,0 +1,133 @@
+description: |-
+  Property to display an array of products on product comparison pages. (Called on the default `<theme-name>/templates/pages/compare.html` template.)
+
+  `{{comparisons}}` array 
+
+  **Handlebars Expression**: `{{comparisons}}`
+type: array
+title: comparisons
+items:
+  type: object
+  properties:
+    availability:
+      type: string
+      description: How long this product usually takes to ship.
+    brand:
+      type: object
+      description: Object containing brand data for this product.
+      properties:
+        url:
+          type: string
+          description: Brand URL for this product.
+        name:
+          type: string
+          description: Brand name for this product.
+    category:
+      type: array
+      items:
+        type: object
+    custom_fields:
+      type: array
+      description: Array of additional product details as name-value pairs. For example, size, color, bookʼs ISBN, DVDʼs release date, etc.
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          value:
+            type: string
+    date_added:
+      type: string
+    demo:
+      type: boolean
+    has_options:
+      type: boolean
+    id:
+      type: number
+    image:
+      type: object
+      properties:
+        alt:
+          type: string
+        data:
+          type: string
+    images:
+      type: array
+      items:
+        type: object
+        properties:
+          alt:
+            type: string
+          data:
+            type: string
+    low_stock_level:
+      type: 'null'
+    name:
+      type: string
+    num_reviews:
+      type: number
+    pre_order:
+      type: boolean
+    price:
+      type: object
+      properties:
+        rrp_without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        sale_price_without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        saved:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        tax_label:
+          type: string
+        without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+    qty_in_cart:
+      type: number
+    rating:
+      type: number
+    show_cart_action:
+      type: boolean
+    sku:
+      type: string
+    stock_level:
+      type: 'null'
+    summary:
+      type: string
+    url:
+      type: string
+    weight:
+      type: object
+      description: URL to remove this product/column from the comparison.
+      properties:
+        formatted:
+          type: string
+        value:
+          type: number

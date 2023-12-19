@@ -1,0 +1,7 @@
+description: |-
+  `global` `{{is_ajax}}` boolean; returns true if the current request is an AJAX request
+
+  **Handlebars Expression**: `{{is_ajax}}`
+
+  No properties available for this object.
+type: boolean

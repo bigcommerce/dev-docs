@@ -1,0 +1,38 @@
+title: forms_contact
+type: object
+description: ''
+properties:
+  captcha_url:
+    type: string
+    example: '"https://arabic-store.mybigcommerce.com/captcha.php?1062"'
+  company:
+    type: boolean
+  name:
+    type: boolean
+  order:
+    type: boolean
+  page_id:
+    type: string
+    example: '4'
+  phone:
+    type: boolean
+  recaptcha:
+    type: array
+    items:
+      type: object
+      properties:
+        enabled:
+          type: number
+          example: 1
+        markup:
+          type: string
+          example: '"<div class=\"g-recaptcha\" data-sitekey=\"6LcjX0sbAAAAACp92-MNpx66FT4pbIWh-FTDmkkz\"></div><br/>"'
+        public_key:
+          type: string
+          example: '"6LdWf8gSAAAAAI83aRectJhbwidegZKk8PzWBltH"'
+  rma:
+    type: boolean
+  text:
+    type: string
+    example: |-
+      "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
