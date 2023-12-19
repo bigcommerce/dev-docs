@@ -1,0 +1,63 @@
+# Filtering
+
+To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
+
+The maximum number of products returned is 250. Viewing more products requires creating a script that can loop through each subsequent page.
+
+These are the most common filter options available for the REST Management API:
+
+| Operator | Expression  | Example |
+|--|--|--|
+| Equals/equivalency | attribute=value  | `/v3/catalog/products?price=10` `/v3/catalog/products?name=My Product` |
+| Greater than or equal to (for numbers or dates) | attribute:min=value  | `/v3/catalog/products?price:min=10` |
+| Less than or equal to (for numbers or dates) | attribute:max=value | `/v3/catalog/products?price:max=10` |
+| Greater than (for numbers or dates)| attribute:greater=value | `/v3/catalog/products?price:greater=10` |
+| Less than (for numbers or dates) | attribute:less=value | `/v3/catalog/products?price:less=10` |
+| SQL LIKE operator (for strings) | attribute:like=pattern | `/v3/catalog/categories?name:like=Shirts` |
+| SQL IN operator (for arrays) | attribute:in=csv,list of values | `/v3/catalog/products?categories:in=123,456` |
+| SQL NOT IN operator (for arrays) | attribute:not_in=csv,list of values | `/v3/catalog/products?categories:not_in=123,456` |
+
+Available filters vary by endpoint. For up-to-date information on supported filters, refer to the `GET` method documentation of each endpoint.
+
+## Include
+
+Certain endpoints support the `include` query parameter used to include sub-resources and specific attributes in the primary `GET` response for a parent object. For example, you can include a product's variants and images with the product response:
+
+`/v3/catalog/products?include=variants,images`
+
+The availability of the `include` query parameter varies by endpoint. For up-to-date filter information, refer to the `GET` method documentation of each endpoint.
+
+For more information about whether an endpoint supports the `include` parameter, consult the API reference for the endpoint in question.
+
+## Include and exclude fields
+
+Many of BigCommerce's REST API endpoints support both `include_fields` and `exclude_fields` query parameters.
+
+- `include_fields` query parameter will return ONLY the specified fields in the response.
+- `exclude_fields` query parameter will omit the specified fields from the response.
+
+You can request any field that is available on the object. Speed up your API request response time by excluding unnecessary fields from your request, especially large fields like descriptions.
+
+The following example shows product name and price included in a single request:
+
+```http filename="Example response: Product name and price" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price
+
+{
+    "data": [
+        {
+            "id": 77,
+            "name": "Red printed scarf",
+            "price": 12
+        }
+    ]
+}
+```
+
+The availability of the `include_fields` and `exclude_fields` query parameters varies by endpoint. For up-to-date filter information, refer to the `GET` method documentation of each endpoint.
+
+## Pagination and limit
+
+* `page` is the number of pages that are returned by the API.
+* `limit` is the number of results per page that are returned.
+* `page=2&limit=10` will return page 2 of the results with 10 items per page.

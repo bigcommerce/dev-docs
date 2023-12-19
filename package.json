@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 18.0.0"
   },
   "scripts": {
     "lint": "eslint ./docs --ext mdx --max-warnings 0"

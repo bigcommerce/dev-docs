@@ -1,0 +1,108 @@
+# Price List API
+
+Price lists allow you to populate different versions of catalog pricing and assign them to different [Customer Groups](/docs/rest-management/customers-v2/customer-groups). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used.
+
+You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/docs/rest-management/price-lists/price-lists-assignments#create-price-list-assignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/docs/rest-management/customers-v2/customer-groups). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
+
+Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/docs/storefront/stencil/themes/context/object-reference/config).
+
+### OAuth scopes
+The following OAuth Scopes are required:
+* [Products](/docs/start/authentication/api-accounts#oauth-scopes)
+
+## Price list definitions
+* A **price list** is a collection of price records. Price records make up a price list.
+* A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
+
+```js filename="Price Record" showLineNumbers copy
+{
+  "variant_id": 3121,
+  "price": 10.0,
+  "sale_price": 8.0,
+  "retail_price": 12.0,
+  "map_price": 6.0,
+  "currency": "EUR"
+}
+```
+
+- `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
+
+- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/docs/store-operations/currencies#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/docs/store-operations/currencies#display-vs-transactional).
+
+```http filename="Example request: Get all price lists" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
+
+{}
+```
+
+## Price list assignments
+
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments, such as Facebook, Amazon, Instagram, etc. 
+
+See [Channels, Sites, and Routes](/docs/rest-management/channels) for further documentation.
+
+```http filename="Example request: Create a price list assignment" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
+
+[
+  {
+    "customer_group_id": 3,
+    "price_list_id": 2,
+    "channel_id": 1
+  }
+]
+```
+
+## Price lists assigned to customer groups 
+
+```http filename="Example request: Assign a price list to a customer group" showLineNumbers copy
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
+
+[
+  {
+    "id": 1,
+    "name": "VIP Price List",
+    "is_default": false,
+    "category_access": {
+      "type": "all"
+    },
+    "discount_rules": [
+      {
+        "type": "price_list",
+        "price_list_id": 2
+      }
+    ]
+  }
+]
+```
+
+Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list assigned to the group.
+
+## Price list notes
+
+- Bulk pricing tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
+
+- If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart. For variants without `Price Records`, any existing product bulk pricing will apply.
+
+- `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) at a time. Running more than one in parallel on the **same store** will cause a `429` error, and the request will fail.
+
+## Related resources
+
+### Endpoints
+* [Get Price List Collection](/docs/rest-management/price-lists#get-all-price-lists)
+
+### Webhooks
+There are webhooks available for Price Lists assignments. The price list assignment webhook fires when a price list assignment is assigned, reassigned, or unassigned. Note that since Price Lists directly relate to products, neither product nor SKU webhooks will fire for corresponding changes, such as pricing.
+
+* [Price list assignments](/docs/integrations/webhooks/events/channels#price-list-assignments)
+* [Products](/docs/integrations/webhooks/events#webhook-events_products)
+* [SKU](/docs/integrations/webhooks/events#webhook-events_sku)

@@ -1,0 +1,156 @@
+---
+title: API Best Practices
+keywords: rate limits, best practices, 
+---
+
+# API Best Practices
+
+## Keep your integration up to date
+
+BigCommerce frequently enhances its core product and is actively enhancing REST endpoints, as well as expanding the graphs accessible to our growing family of GraphQL APIs. Using the latest information lets you update your app to take advantage of the most current resources. You also position your app or implementation to provide a user experience consistent with what merchants see in their BigCommerce store control panel. To stay up to date, bookmark our [changelog](/release-notes).
+
+## Anticipate changes to BigCommerce APIs
+
+At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes.
+
+In most cases, we will give advance notice in our developer [changelog](/release-notes) when we make any of the following "breaking" changes. However, we will make breaking changes _without warning_ to alpha and beta endpoints and graph nodes, or when analytics indicate that an endpoint has no traffic for three months.
+
+Examples of breaking changes include:
+
+- Removing fields from API responses
+- Changing the data type of request or response fields
+- Changing the structure of request or response objects
+- Adding new required fields to `POST` and `PUT` request bodies
+- Removing endpoints
+
+We will push "non-breaking" changes to the code base without warning as part of our normal development.
+
+Examples of non-breaking changes include:
+
+- Adding new fields to `GET` request responses
+- Adding new optional fields to `POST` and `PUT` request bodies
+- Adding new endpoints
+
+We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
+
+## Use webhooks to listen for changes
+
+To keep your app's data up to date, [webhooks](/docs/integrations/webhooks) provide a great alternative to periodic API polling. Use a [store-level or app-level API account](/docs/start/authentication/api-accounts) to register and subscribe to webhook-enabled events relevant to your app.
+
+When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant to the event. See a list of [webhook events and their payloads](/docs/integrations/webhooks/events). Use the payload data points to make subsequent API requests for more details.
+
+### Avoid polling the Storefront Cart API 
+
+Client-side applications should avoid polling the [REST Storefront Cart API](/docs/rest-storefront/carts) on interval. Millions of browsers could poll this API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
+
+As an alternative, consider using a server-side app to subscribe to [cart webhook events](/docs/integrations/webhooks/events#carts), then query the Storefront Cart API only as a response to user input. Storing cart information in the browser cache is an alternative method for updating cart information across browser tabs. You may also be interested in the [growing list of events](/docs/integrations/hosted-analytics#bodl-event-schemas) available to native storefronts with our Open Data Layer enabled. 
+
+## Thread API requests
+
+You can use threaded requests in order to quickly update information in an API. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource.
+
+The [BigCommerce Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe. It satisfies both the need for multiple threads to access the same shared data and the need for only one thread to access a shared piece of data at any given time. This design pattern can reduce the total time that your app requires to complete a series of requests.
+
+## API rate limits
+
+Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store plan and resources requested.
+
+| Plans & sandboxes | Quotas |
+|:------------------|:-------|
+| Enterprise plans and Enterprise sandboxes (Enterprise-Test) | by plan\* and [resource](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits) | 
+| All other sandboxes (Dev/Partner/Employee) | by [resource](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits) | 
+| Pro plans| 60k per hour (450 / 30sec) |
+| Plus & Standard plans| 20k per hour (150 / 30sec) | 
+
+<Callout type="warning">
+  \* The **Unlimited** rate plan for select BigCommerce Enterprise clients means that these stores are not rate limited by number of requests per unit of time. However, there are physical infrastructure-related constraints that may limit the maximum throughput of requests for a given resource. For more on resource constraints, consult our article on [object-related limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+  
+  BigCommerce reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/). 
+</Callout>
+
+Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
+
+A store’s overall quota is distributed across all apps that are accessing that store at a given time. This prevents a single app from consuming the store’s entire quota by itself. The quota available to a single app adjusts as additional clients start and stop making requests.
+
+### Playing nicely with the platform
+
+<Callout type="info">
+  As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/docs/start/about#response-headers).
+</Callout>
+
+Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
+
+```http filename="Standard plan example: Rate limit headers"
+X-Rate-Limit-Time-Window-Ms: 30000
+X-Rate-Limit-Time-Reset-Ms: 15000
+X-Rate-Limit-Requests-Quota: 150
+X-Rate-Limit-Requests-Left: 35
+```
+
+If your implementation's request to the API triggers a [429: Too Many Requests](/docs/start/about/status-codes#4xx-client-error) response, it is encountering rate limits. Responses contain the `X-Rate-Limit-Time-Reset-Ms` header, which specifies the time in milliseconds that your client must wait before its quota refreshes. Retry the request after this time has elapsed.
+
+For more about rate limit headers and how to calculate the timing of your requests to reduce the risk of encoutering rate limits, see [About Our API](/docs/start/about#bigcommerce-specific-response-headers).
+
+### Example of 429 status code
+
+When you see a response with an HTTP `429` status code, your client shouldn’t make any further requests until your quota has refreshed:
+
+```http filename="Example: 429 response" showLineNumbers copy
+  HTTP/1.1 429 Too Many Requests
+  Date: Mon, 03 Feb 2022 20:36:00 GMT
+  Content-Type: application/json
+  X-Rate-Limit-Time-Reset-Ms: 15000
+```
+
+Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to wait. In this case, it would be 15000 milliseconds.
+Your client can sleep on the specified interval:
+
+```php filename="PHP example for delaying response" showLineNumbers copy
+  $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
+  usleep($milliseconds);
+```
+
+After waiting for the given number of milliseconds, your client can go back to making API requests.
+
+### Making requests in parallel
+
+You can increase the amount of work your app can do in a given unit of time by sending multiple HTTP requests in parallel. This is perfectly acceptable. However, your app should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include the following:
+* Slowing your rate of API requests as `X-Rate-Limit-Requests-Left` approaches zero.
+* Determining an acceptable average rate of requests by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
+
+Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel requests to [Upsert price list records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) results in one or more error responses with the [429: Too Many Requests](/docs/start/about/status-codes#4xx-client-error) status code. The current list of limitations is documented in our article on [resource-specific limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits). The [API reference](/docs/api) specification for each endpoint or mutation also documents any limits specific to that request.
+
+## Resources
+
+### API platform
+
+* [Platform Limits (Help Center)](https://support.bigcommerce.com/s/article/Platform-Limits)
+* [API Terms of Service (bigcommerce.com)](https://www.bigcommerce.com/terms/api-terms/)
+* [Filtering Requests](/docs/start/about/common-query-params)
+* [API Status Codes](/docs/start/about/status-codes)
+* [About Our API: Response Headers](/docs/start/about#response-headers)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)[webhook events and their payloads](/docs/integrations/webhooks/events)
+* [Changelog](/release-notes)
+
+## Correlating requests
+
+When building a headless storefront, it's best practice to group related requests using the `X-Correlation-Id` header. This indicates to BigCommerce's infrastructure that an API call is part of a larger operation, and helps us track the handoff from request to request as the operation moves through our servers. To learn more about the header, see our [list of request headers](/docs/start/about#bigcommerce-specific-request-headers). For an example and a more in-depth explanation, see the [Introduction to Headless Commerce](/docs/storefront/headless#correlating-requests). 
+
+## Resources
+
+### Related articles
+
+* [Webhook Events](/docs/integrations/webhooks/events)
+* [About Webhooks](/docs/integrations/webhooks)
+* [Big Open Data Layer](/docs/integrations/hosted-analytics#bodl-event-schemas)
+
+### API references and clients
+
+* [API Reference](/docs/api)
+* [REST Storefront Cart API](/docs/rest-storefront/carts) 
+* [Upsert price list records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records)
+* [BigCommerce Ruby API client (GitHub)](https://github.com/bigcommerce/bigcommerce-api-ruby)
+
+### External articles
+
+* [429 status code reference (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)

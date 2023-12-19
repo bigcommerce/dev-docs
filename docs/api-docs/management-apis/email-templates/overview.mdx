@@ -1,0 +1,124 @@
+# Email Templates Overview
+
+
+
+This article provides an overview of BigCommerce's transactional email templates and API.
+
+
+## Editing
+
+To edit transactional email templates in a store's control panel, [log in](https://support.bigcommerce.com/s/article/Logging-Into-Your-Store) and navigate to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails).
+
+Use [Handlebars expressions](/docs/store-operations/emails/object-reference) to localize email templates and access dynamic data (like a customer's first name in an order email).
+
+
+```handlebars filename="Combined order status email template" showLineNumbers copy
+<p>{{ lang 'hello' name=order.customer_name }}. Below are the products you ordered.</p>
+
+{{#each order.products}}
+<tr>
+    <td style="padding:5px; font-size:12px; border-bottom:solid 1px #CACACA"><strong>{{ name }}</strong></td>
+    <td style="padding:5px; font-size:12px; border-bottom:solid 1px #CACACA" width="100" align="center">{{#if sku }}{{ sku }}{{else}}&nbsp;{{/if}}</td>
+    <td style="padding:5px; font-size:12px; border-bottom:solid 1px #CACACA" width="100" align="center">{{ quantity }}</td>
+</tr>
+{{/each}}
+```
+
+[Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
+
+<Callout type="info">
+  Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
+</Callout>
+
+## API
+
+To manage transactional email templates programmatically, use the [Email Templates API](/docs/rest-content/email-templates). For example, to [get a list of email templates](/docs/rest-content/abandoned-cart-emails#get-all-email-templates), send a `GET` request to `/v3/marketing/email-templates`.
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+    ```http filename="Example request: Get email templates" showLineNumbers copy
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Accept: application/json
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Get email templates" showLineNumbers copy
+    {
+      "data": [
+        {
+          "type_id": "account_reset_password_email",
+          "body": "<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <title>Title</title> </head> <body> <p>     {{lang \"reset_password\" name=store.name}} </p> <br/> <br/> <a href='{{account.reset_password_link}}'>     {{account.reset_password_link}} </a>  </body> </html>",
+          "translations": [...],
+          "subject": "Reset your password at {{store.name}}"
+        }
+      ],
+      "meta": {...}
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+To [update an email template](/docs/rest-content/abandoned-cart-emails#update-an-email-template), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
+
+```http filename="Example request: Update an email template" showLineNumbers copy
+PUT /stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type_id": "account_reset_password_email",
+  "body": "<!DOCTYPE html> <html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <title>Title</title> </head> <body> <p>     {{lang \"reset_password\" name=store.name}} </p> <br/> <br/> <a href='{{account.reset_password_link}}'>     {{account.reset_password_link}} </a>  </body> </html>",
+  "translations": [
+    {
+      "locale": "en",
+      "keys": {
+        "reset_password": "To change your customer account password at {name} please click this link or copy and paste it into your browser:"
+      }
+    }
+  ],
+  "subject": "Reset your password at {{store.name}}"
+}
+```
+
+## Overrides
+
+Pass in a [channel's](/docs/rest-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
+
+```http filename="Example request: Update an email template" showLineNumbers copy
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates?channel_id=123
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type_id": "account_reset_password_email",
+  "body": "<!DOCTYPE html> <html lang=\"fr\"> <head>     <meta charset=\"UTF-8\">     <title>Title</title> </head> <body> <p>     {{lang \"reset_password\" name=store.name}} </p> <br/> <br/> <a href='{{account.reset_password_link}}'>     {{account.reset_password_link}} </a>  </body> </html>",
+  "translations": [
+    {
+      "locale": "fr",
+      "keys": {
+        "reset_password": "Pour modifier le mot de passe de votre compte client à {name}, veuillez cliquer sur ce lien ou le copier et le coller dans votre navigateur:"
+      }
+    }
+  ],
+  "subject": "Réinitialisez votre mot de passe sur {{store.name}}"
+}
+```
+
+<Callout type="info">
+  Omit `?channel_id` to interact with global email templates.
+</Callout>
+
+
+## Resources
+
+* [Email Template API Reference](/docs/rest-content/email-templates)
+* [Email Template Handlebars Reference](/docs/store-operations/emails/object-reference)
+* [Customizing Email Templates](https://support.bigcommerce.com/s/article/Customizing-Emails)

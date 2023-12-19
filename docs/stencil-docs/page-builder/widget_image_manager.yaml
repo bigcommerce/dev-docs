@@ -1,0 +1,47 @@
+title: Image Manager
+type: object
+description: |-
+  Allows you to display image manager controls for your widget. All uploaded images go to the store’s Image Manager.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "imageUrl": "https://images.unsplash.com/photo-1548768041"
+  }
+  ```
+
+  >**Note**
+  >
+  >The “My Images” button allows the user to select from previously uploaded images.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/upload_image.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"imageManager"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"imageUrl"'
+  default:
+    type: object
+    properties:
+      src:
+        type: string
+        example: 'https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
+      type:
+        type: string
+        example: IMAGE_MANAGER

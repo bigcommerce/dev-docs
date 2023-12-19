@@ -1,0 +1,61 @@
+---
+title: Deprecations and Sunsets
+keywords: v2, options, modifiers, google amp, option_sets, option sets, 
+---
+
+# Deprecations and Sunsets
+
+This article provides a reference for deprecated APIs and exposes BigCommerce's plans to sunset specific API operations and properties. We recommend setting up a feed alert for our [Developer Changelog](/release-notes) to receive the most up-to-date information about API changes. For more information on how to set up a feed alert, see [changelog](/docs/start/about/support#changelog).
+
+## Deprecations
+
+The following APIs, features, and tools are deprecated. We discourage using these listed items, as BigCommerce no longer supports them. Instead, consider using the suggested replacements.
+
+| Deprecated API or feature | Replacement |
+|:--------------------------|:------------|
+| `/v2/brands` | [Catalog V3 Brands](/docs/rest-catalog/brands#get-all-brands) |
+| `/v3/content/widgets/search` | [Widgets V3, Get all widgets](/docs/rest-content/widgets/widget#get-all-widgets) |
+| `/v2/categories` | [Catalog V3 Categories](/docs/rest-catalog/categories#get-all-categories) |
+| `/v2/customers` | [Customers V3](/docs/rest-management/customers) |
+| `/v3/hooks/events`| [Get Events](/docs/webhooks/webhooks/webhook-events#get-events) |
+| `/v2/options` | [Catalog V3 Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers), [Catalog V3 Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options). See the [Accessing product options](#accessing-product-options-with-V3) callout. |
+| `/v2/option_sets` | [Catalog V3 Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers), [Catalog V3 Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options). The `option_sets` endpoint is intentionally not available in the V3 Catalog API. For more information, see [V2 vs V3 Catalog APIs](/docs/store-operations/catalog/migration). |
+| `/v2/pages` | [Pages V3](/docs/rest-content/pages) |
+| `/v2/products ` | [Catalog V3 Products](/docs/rest-catalog/products#get-all-products) |
+| `/v2/redirects` | [Redirects V3](/docs/rest-management/redirects) |
+
+<Callout type="info">
+  #### Accessing product options with V3
+  In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
+</Callout>
+
+### Product tools
+
+We no longer support the following general product tools.
+
+| Deprecated tool | Support end date |
+|:----------------|:-----------------|
+| [Google AMP](https://amp.dev/) | January 18th 2023 |
+| [Google's Universal Analytics](https://support.google.com/analytics/answer/11583528?hl=en) | July 1st 2023 |
+
+## Sunsets
+
+We have removed the following features, APIs, and endpoints.
+
+| Sunset feature, endpoint, or API | Replacement |
+|:---------------------------------|:------------|
+| Legacy email templates | Handlebars email templates; [Overview](/docs/store-operations/emails), [API reference](/docs/rest-content/email-templates) |
+| `DELETE Collection` [Customers V2](/docs/rest-management/customers-v2) | [Customers V3, Delete customers](/docs/rest-management/customers-v2#delete-customers) |
+| `DELETE Collection` [Option Sets V2](/archive/store-operations/v2-catalog-products/v2-option-sets) | None; can still be deleted individually by ID. |
+| `DELETE Collection` [Products V2](/archive/store-operations/v2-catalog-products/v2-products) | [Products V3, Delete products](/docs/rest-catalog/products#delete-products) or individually, [Products V2, Delete a product](/archive/store-operations/v2-catalog-products/v2-products#delete-a-product) |
+
+We have removed the following properties.
+
+| API | Sunset property | Replacement property |
+|:----|:----------------|:---------------------|
+| [Channels V3](/docs/rest-management/channels#get-all-channels) |`is_enabled` | `status` |
+
+## Related resources 
+
+* [Release Notes](/release-notes)
+* [Migrating from Catalog V2 to V3 REST API](/docs/store-operations/catalog/migration)

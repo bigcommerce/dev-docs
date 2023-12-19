@@ -1,0 +1,246 @@
+# Troubleshooting BigCommerce for WordPress Plugin
+
+Find solutions to some unexpected issues encountered when using the BigCommerce for WordPress plugin. 
+
+## First steps
+
+Reading an error log is the first step in diagnosing common issues and error messages. To effectively troubleshoot problems, you must enable error logs and diagnostics for the plugin. From the WordPress admin panel, select **BigCommerce** > **Settings** > **Diagnostics** and click **Enable Error Logs and Get Diagnostics**. Now you're set to determine which topic listed here can help you get back up and running.
+
+## Account
+
+These are the most common account issues: 
+
+### Necessary scopes for full functionality
+
+The full list of scopes is on the [Multi-site Setup](/docs/storefront/wordpress/start/multi-site#api-account-name-field) page.
+
+### Password reset email trouble
+
+If the reset password email doesn't appear in your inbox, check that your server/service isn't blocking it. Also, check that the email functionality is on. The plugin relies on the settings set in WordPress.
+
+## Product sync and import
+
+The following topics cover solutions for product sync and import type errors.
+
+### Sync stuck. No handler found for the current import state
+
+If your product sync is stuck or you've come across the message below, steps are available to get things back in sync.
+
+```shell showLineNumbers copy
+BigCommerce.NOTICE: No handler found for current import state {"state":"completed"}
+```
+
+The following steps will get your products syncing once again.
+
+1. Go to the WordPress admin panel and click on **BigCommerce** > **Settings** > **Diagnostics**. 
+2. Click the **Abort import button** and wait one to two minutes. 
+3. Now try to restart the import. Check to see if WP-Cron is working and if there aren't any server issues. 
+
+<Callout type="info">
+  If the import still doesn't work, contact BigCommerce support and/or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible, including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
+</Callout>
+
+### Price is not correct on the single product page (Fast Import)
+
+The price on the product page often has the wrong value because of heavy caching. This incorrect value can happen due to an expired `X-Nonce` for price request. Fix this issue by removing that nonce from the price request. 
+
+You should take the following step:
+
+* Go to the **Appearance** > **Customizer** > **BigCommerce** > **Product Single** > **Pricing nonce field (for advanced use only)** and turn off nonce.
+
+### Not all products from the BigCommerce store appear on the WordPress site
+
+If products are missing in the WordPress control panel, verify that you have assigned the products to the corresponding channels. Ensure you have not turned off the `Automatic Listing` option for `Full` import in the plugin's settings.
+
+### Import is too slow
+
+The import time depends on the number of products synced from your catalog. In general, if you have more than 200 products and use `Full` import,  then it is normal for the import to run for more than 30 minutes. 
+
+Note that the import process also relies on WP-Cron. Import tasks are processed only when the site has visitors. To avoid this kind of issue, follow the [Server Side Cron](/docs/storefront/wordpress/deployment/creating-reliable-cron-jobs#using-server-cron-to-enhance-wp-cron) guide.
+
+### Inactive channel. Product import canceled
+
+If you cancel the product import or see the following error below, ensure your channel is properly connected.
+
+```shell showLineNumbers copy
+[502] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings)
+[504] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/channels/channel_id/listings/listing_id)
+```
+
+Check that you have connected your WordPress store to BigCommerce and set the primary channel under **BigCommerce** > **Settings** > **Channel**. If you did not set the primary channel, re-install the plugin and connect it to the correct store channel.
+
+### Products are not updated after import
+
+If products are no longer updating after an import, flush the cache on your WordPress setup. In some cases, pages and product information are cached, and old information displays.
+
+### New/Updated since the last sync doesn't work on Fast import
+
+The `Fast Headless` import doesn't support the "New/Updated since last sync" (partial) option. The fast import option only retrieves categories, brands, and product IDs; all other information loads on the corresponding front page.
+
+### Some elements are hidden on a product's single page (reviews, price, variants, etc.)
+
+Check your primary channel settings in BigCommerce (example url: `https://store-<store_hash>.mybigcommerce.com/manage/channel/<channel_id>/store-settings`) and make sure that corresponding items in product display settings are visible.
+
+### E-commerce pages(categories, products single page, checkout) are not visible for the non-logged user
+
+Ensure that your channel attached to WordPress isn't in pre-launch status. If it is in pre-launch status, change it to active and perform an import on the WordPress side.
+
+### WP-Cron
+
+If products are no longer syncing, or progress has stalled, check to see if WP-Cron is working. Determine if your WP-Cron job is running by using the plugin WP Crontrol. 
+
+Ensure you have a browser window open on the site; otherwise, the product import will continue to fail. If WP-Cron isn't working, contact the site's hosting provider.
+
+## Cart and checkout
+
+In cases where cart and checkout pages won't render correctly, try looking into these solutions.
+
+### Mini-cart/cart page doesn't render or the wrong amount of products appear
+
+Check to see if this is a cache problem. Each time you add a product to a cart, an API request is sent. Without a cache set, the cart's content updates after successfully processing of the API request. However, if you apply cache rules, they can affect the cart and return the wrong version of the cart (e.g., empty cart page, not a sufficient amount of products, etc.). 
+
+To resolve the issue, exclude the cart page and mini-cart requests from the cache.
+
+## Error Messages
+
+The following topics cover error messages that can occur with the plugin. 
+
+### Error on "Add to Cart" button, 404 error
+
+If you encounter an error on the "Add to Cart" button, or get the message below, try resetting the site's redirects.
+
+```shell showLineNumbers copy
+Not Found: The requested URL /bigcommerce/cart/42 was not found on this server.
+Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
+```
+To reset the site's redirects use the following steps:
+
+1. Make changes in WordPress by going to **Settings** > **Permalinks**. 
+2. Scroll to the bottom of the page and click **Save**. This button resets the site's redirects.
+
+### PHP getenv() Errors
+
+When the plugin floods the error log with the following message:
+
+```shell showLineNumbers copy
+PHP message: PHP Warning: getenv() expects exactly 1 parameter, 2 given in wp-content/plugins/bigcommerce-for-wordpress-0.11.1/bigcommerce.php on line 58
+```
+
+This message appears if you're running on PHP version 5.4 or lower. The plugin requires 5.6+ or higher to function properly. 
+
+### 403 error on API request
+
+When sending an API request and you get a 403 error, or encounter the following message:
+
+```txt showLineNumbers copy
+[429] Error connecting to the API (https://api.bigcommerce.com/stores/hash/v3/catalog/categories?id%3Ain=138%2C139%2C140%2C142%2C143%2C144%2C145%2C146%2C147%2C149&limit=10&include_fields=id)
+```
+
+Ensure that either the server or service isn't blocking requests. 
+
+<Callout type="info">
+  Be sure to whitelist requests to the BigCommerce API and the responses from it.
+</Callout>
+
+### Could not retrieve the token
+
+There are API scope issues if you get the error below:
+
+```shell showLineNumbers copy
+BigCommerce.ERROR: Could not retrieve the token
+{
+  "trace": "
+    #0 /path/wp-content/plugins/bigcommerce/src/BigCommerce/GraphQL/BaseGQL.php(150): BigCommerce\\GraphQL\\BaseGQL->parse_response(Array)
+    #1 /path/wp-content/plugins/bigcommerce/src/BigCommerce/GraphQL/BaseGQL.php(111): BigCommerce\\GraphQL\\BaseGQL->make_request('{\"channel_id\":1...', Array, 'https://api.big...')
+    #2 /path/wp-content/plugins/bigcommerce/src/BigCommerce/GraphQL/BaseGQL.php(57): BigCommerce\\GraphQL\\BaseGQL->request_token()
+    #3 /path/wp-content/plugins/bigcommerce/src/BigCommerce/GraphQL/BaseGQL.php(32): BigCommerce\\GraphQL\\BaseGQL->get_token()
+    #4 /path/wp-content/plugins/bigcommerce/src/BigCommerce/GraphQL/GraphQL_Processor.php(14): BigCommerce\\GraphQL\\BaseGQL->__construct(Object(BigCommerce\\Api\\Configuration))
+    #5 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Container/GraphQL.php(35): BigCommerce\\GraphQL\\GraphQL_Processor->__construct(Object(BigCommerce\\Api\\Configuration), Array)
+    #6 /path/wp-content/plugins/bigcommerce/vendor/pimple/pimple/src/Pimple/Container.php(118): BigCommerce\\Container\\GraphQL->BigCommerce\\Container\\{closure}(Object(Pimple\\Container))
+    #7 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Container/Import.php(195): Pimple\\Container->offsetGet('bigcommerce.gra...')
+    #8 /path/wp-content/plugins/bigcommerce/vendor/pimple/pimple/src/Pimple/Container.php(118): BigCommerce\\Container\\Import->BigCommerce\\Container\\{closure}(Object(Pimple\\Container))
+    #9 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Container/Import.php(294): Pimple\\Container->offsetGet('import.categori...')
+    #10 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Import/Task_Manager.php(97): BigCommerce\\Container\\Import->BigCommerce\\Container\\{closure}('purged_brands')
+    #11 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Container/Import.php(369): BigCommerce\\Import\\Task_Manager->run_next('purged_brands')
+    #12 /path/wp-includes/class-wp-hook.php(308): BigCommerce\\Container\\Import->BigCommerce\\Container\\{closure}('purged_brands')
+    #13 /path/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+    #14 /path/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+    #15 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Import/Runner/Cron_Runner.php(53): do_action('bigcommerce/imp...', 'purged_brands')
+    #16 /path/wp-content/plugins/bigcommerce/src/BigCommerce/Container/Import.php(132): BigCommerce\\Import\\Runner\\Cron_Runner->continue_import()
+    #17 /path/wp-includes/class-wp-hook.php(306): BigCommerce\\Container\\Import->BigCommerce\\Container\\{closure}()
+    #18 /path/wp-includes/class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+    #19 /path/wp-includes/plugin.php(565): WP_Hook->do_action(Array)
+    #20 /path/wp-cron.php(188): do_action_ref_array('bigcommerce_con...', Array)
+    #21 {main}"
+}
+```
+
+When using the `Fast` (headless) import, apply the accurate scopes to your API keys. The Storefront API tokens and the Storefront API impersonation tokens require scopes. Create a new token with the correct scopes by going to **Dashboard** > **Settings** > **Store-level API accounts**.
+
+### PHP errors in server logs related to the plugin
+
+If you encounter the following PHP errors (shown below) in your server logs related to the plugin, then extension-related issues could be the problem. 
+
+```shell showLineNumbers
+PHP Fatal error:  Uncaught Error: Call to undefined function BigCommerce\Import\Importers\Products\ctype_alpha() in path/wp-content/plugins/bigcommerce/src/BigCommerce/Import/Importers/Products/Product_Builder.php:461 
+```
+
+First, check that this is not a PHP extension specific issue, e.g https://www.php.net/manual/en/function.ctype-alpha.php (function is disabled by hosting/service provider and similar). If that doesn't resolve the issue, contact BigCommerce support, or create an issue in the [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues).
+
+### Webhooks incorrect password
+
+If you see the following webhook error below, try resetting the webhooks in the BigCommerce control panel.
+
+```shell showLineNumbers copy
+BigCommerce-webhooks.ERROR: Incoming webhook password does not match
+```
+
+Use the following steps to reset the webhook settings:
+ 
+1. Go to **BigCommerce** > **Settings** > **Product Sync**. 
+2. Disable webhooks and save settings. 
+3. After the page reloads, go to the **BigCommerce** > **Settings** > **Product Sync** again and re-enable webhooks.
+
+### Cart/Checkout URL doesn't work or gives a 404 error
+
+If you get a 404 error or are confronting an issue with the URL, you can fix this in the WordPress control panel. Set the correct permalink structure in the WordPress admin panel by clicking **Settings** > **Permalinks**. For correct plugin work, enable any permalink structure except a plain one.
+
+### Product entity exists. Skipping
+
+If you get the message below, the product must already exist.
+
+```shell
+BigCommerce.DEBUG: Product entity exists. Skipping. {"product_id":xxxx,"channel_id":"xxxxx"} []
+```
+
+The message in the error logs means that a product has already been imported to WordPress, and it won't be processed again.
+
+### Failed to download image. cURL error 28: Resolving timed out after 10000 milliseconds
+
+If the images fail to download or you come across the following error below, there are steps to resolve this.
+
+```shell
+BigCommerce.NOTICE: Failed to download image {"url":"https://cdn11.bigcommerce.com/s-hash/products/18id20/images/id/hps_bottle__13339.1611096484.1280.1280.png?c=2","error":["cURL error 28: Resolving timed out after 10000 milliseconds"]} []
+```
+
+This issue occurs during a product/category image import. The issue is environment specific and can be caused by the server itself. Possible reasons for the issue include:
+
+* Network/Firewall settings - outgoing requests can be blocked by it
+* DNS failure
+* Server limits (e.g., some proxy set on the server and it has its own timeout limit)
+* Security modules (Mod_Security) can block requests
+* Server is trying to resolve the bigcommerce.com domain using IPv6 instead of IPv4
+
+## Resources
+
+If you repeatedly encounter the same error or warning and this page doesn't solve your issues, create an Issue in our [GitHub repository](https://github.com/bigcommerce/bigcommerce-for-wordpress/issues). Be sure to provide as many details as possible, including the BigCommerce for WordPress plugin version, PHP version, and my SQL version.
+
+<Callout type="info">
+  Sometimes errors don't appear in the BigCommerce for WordPress plugin logs, but they can still affect the plugin. If you have exhausted all triaging steps, then it's suggested that you enable server error logs. Usually, these settings are in your server's control panel or admin dashboard.
+</Callout>
+
+## Related articles
+
+* [Creating Reliable Cron Jobs](/docs/storefront/wordpress/deployment/creating-reliable-cron-jobs)
+* [Site Launch Checklist](/docs/storefront/wordpress/deployment)
+* [Multi-site Setup](/docs/storefront/wordpress/start/multi-site#api-account-name-field)

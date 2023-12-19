@@ -1,0 +1,41 @@
+title: Input
+type: object
+description: |-
+  Allows you to display input controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "altText": "A cool grey shirt"
+  }
+  ```
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/alt_text.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: input
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Alt text"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"altText"'
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: '"A cool grey shirt"'

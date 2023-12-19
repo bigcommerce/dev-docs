@@ -1,0 +1,86 @@
+# Checkout SDK Tutorial
+
+This tutorial assumes you are familiar with the Checkout SDK. If you are unfamiliar with the Checkout SDK, refer to [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) to get some general information. 
+
+In this tutorial, we will create a custom checkout using a checkout loader file, building on the steps from the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) article. This tutorial will outline how to package a custom checkout file and install a custom checkout using the control panel.
+
+
+## Creating a checkout-loader.js file
+
+In your text editor, create a file for upload called `checkout-loader-<version>.js` with the following content, where `<version>` represents an arbitrary version number used for invalidating cached versions of the file.
+
+```js copy
+var script = document.createElement('script');
+script.onload = function () {
+    checkoutKitLoader.load('checkout-sdk')
+        .then(function (module) {
+            var checkoutService = module.createCheckoutService();
+            return checkoutService.loadCheckout(window.checkoutConfig.checkoutId);
+        })
+        .then(function (state) {
+            console.log('Checkout SDK Quickstart', state.data.getCheckout());
+            document.getElementById(window.checkoutConfig.containerId).innerHTML = 'Checkout ID: ' + state.data.getCheckout().id;
+        });
+};
+script.src = 'https://checkout-sdk.bigcommerce.com/v1/loader.js';
+document.head.appendChild(script);
+```
+<Callout type="info">
+Comparing the content of this newly created file and the code from the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial#installing-the-checkout-js-sdk), you should see a clear resemblance between the two.
+</Callout>
+
+## Use WebDAV to upload the checkout-loader.js file
+
+You can upload the checkout-loader.js file to your store's server using WebDAV by following the instructions below:
+
+1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client. For more information on how to use Cyberduck, refer to [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+2. From your store control panel, navigate to **Settings** > **Advanced** > **File access (WebDAV)**.
+  * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+  * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+3. From Cyberduck, enter the `/content` folder, create a new folder, and name it _checkout_.
+4. Copy the file `checkout-loader.js` into the newly created _checkout_ folder on WebDAV.
+
+## Install your custom checkout using the control panel
+
+To install a custom checkout on a store, follow these steps:
+1. Navigate to **Settings** > **Advanced** > **Checkout** in your store's control panel.
+2. Under **Checkout Type**, select **Custom Checkouts**.
+3. Type the following in the Script URL field:
+
+```js copy
+webdav:checkout/checkout-loader-<version>.js
+```
+
+
+NOTES:
+
+* Prepending `webdav`: indicates that the URL is in the remote WebDAV directory. It treats `/content` as the root WebDAV directory.
+
+* It is best practice to include a `<version>` number in the Script URL field. Note that if you change the same provided loader filename, you could serve a cached version to the user.
+
+![custom-checkout-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/custom-checkout-01.png "Custom Checkout")
+
+4. Click the **Save** button at the bottom of the page.
+5. Navigate to your live storefront to view your new custom checkout.
+
+## Log the checkout object
+
+1. Open your browser console and ensure you are logged in to collect cart and checkout information.
+2. Add an item to your cart and proceed to the checkout page. The checkout page will be blank below the header.
+3. From your developer’s console, execute the following command to fetch checkout content:
+
+```js copy
+state.data.getCheckout();
+```
+
+In the developer console, you will see the checkout object, and you can test out additional `state.data` commands. 
+
+This tutorial also gives you the steps to build a custom checkout. Instead of working with code in our theme, as shown in the [Getting Started with Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk/tutorial) article, we created a file and uploaded it to WebDAV, effectively taking over the entire checkout experience. 
+
+
+
+## Resources
+
+Sample apps
+* [Checkout SDK Source Code](https://github.com/bigcommerce/checkout-sdk-js)
+

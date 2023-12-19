@@ -1,0 +1,65 @@
+title: Typography
+type: object
+description: |-
+  Typography allows users to select between either a default widget appearance or a custom appearance.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "textStyle": "default"
+  }
+  ```
+
+  >**Note**
+  >
+  >We recommend exposing custom typography settings via the `conditionalSettings` attribute when “custom” is selected.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/title_style.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: typography
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: Text style
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: textStyle
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: default
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      conditionalSettings:
+        type: array
+        description: List of settings revealed if the condition attribute condition is met.
+        items:
+          type: object
+          properties:
+            condition:
+              type: string
+              example: custom
+              description: Condition needed inorder to reveal optional settings.
+            settings:
+              type: array
+              description: Include additional settings
+              items:
+                type: object

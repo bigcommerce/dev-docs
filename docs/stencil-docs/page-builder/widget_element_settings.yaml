@@ -1,0 +1,93 @@
+title: Element Settings
+type: object
+description: |-
+  Element settings are a way of grouping together settings intended to modify one element of a widget, complete with the option to show or hide the element.
+
+  The `controls` attribute can contain the following optional objects:
+
+  |Attribute|Description|
+  |---|---|
+  |`visibility`|Displays an eyeball icon similar to the [Visibility](/docs/storefront/widgets/input-reference/settings#visibility) setting type |
+  |`advanced`|Displays a brush icon that reveals a list of settings when clicked|
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  "textBox": {
+    "visibility": "show",
+    "backgroundColor": "#FFFFFF"
+  }
+  ```
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/box.png)
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/box_style.png)
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"element"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Box"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"textBox"'
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      controls:
+        type: object
+        description: Contains the `visibility` and `advanced` attributes.
+        properties:
+          visibility:
+            type: object
+            description: Displays an eyeball icon that toggles widget visibility.
+            properties:
+              default:
+                type: string
+                description: The default value to use when rendering the widget for the first time.
+                example: '"show"'
+          advanced:
+            type: object
+            description: Contains a list of settings that are displayed when the user clicks the brush icon.
+            properties:
+              label:
+                type: string
+                description: The user friendly message to inform the user how this setting will be used.
+                example: '"Box style"'
+              settings:
+                type: array
+                description: Include additional settings
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: The type of setting component to display.
+                      example: '"color"'
+                    label:
+                      type: string
+                      description: The user friendly message to inform the user how this setting will be used.
+                      example: '"Box color"'
+                    id:
+                      type: string
+                      description: The variable name where the setting value will be available in the widget template.
+                      example: '"backgroundColor"'
+                    default:
+                      type: string
+                      description: The default value to use when rendering the widget for the first time.
+                      example: '"#FFFFFF"'

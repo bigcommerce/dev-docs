@@ -1,0 +1,56 @@
+title: Select
+type: object
+description: |-
+  Allows you to display select controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "imageHeight": "auto"
+  }
+  ```
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/image_height.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: select
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Image height (px)"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"imageHeight"'
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: auto
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      selectOptions:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+              example: Auto
+            value:
+              type: string
+              example: auto

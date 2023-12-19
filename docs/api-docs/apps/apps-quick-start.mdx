@@ -1,0 +1,173 @@
+---
+title: Apps Quick Start
+keywords: apps, app extensions, configuration, environment variables, env vars, 
+---
+
+# BigCommerce Apps Quick Start
+
+In this quick start tutorial, you will create a [single-click app](/docs/integrations/apps/guide/types) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
+
+## Prerequisites
+
+To successfully complete this tutorial, you will need the following:
+
+* [BigCommerce sandbox store](/docs/start/about/sandboxes) (required to develop and test apps)
+* [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
+* Experience using [npm](https://www.npmjs.com/)
+* The most recent LTS version of Node.js and its highest corresponding npm version
+
+## Get started
+
+1. Start by forking the [sample-app-nodejs](https://github.com/bigcommerce/sample-app-nodejs) repository.
+2. Navigate to the root directory of your project and install npm packages.
+
+```shell copy
+npm install
+```
+
+## Add and start ngrok
+
+You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000{:http}` to the public internet over secure tunnels.
+
+1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
+
+```shell copy
+npm install ngrok -g
+```
+
+2. Expose the web server on port 3000 to the internet.
+
+```shell copy
+ngrok http 3000
+```
+
+## Register the app
+
+Next, create a draft app profile in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
+
+1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
+2. Click **Create an app**.
+3. Give the app a name.
+4. Click **Technical**.
+5. Enter the **Auth Callback URL** as `https://{ngrok_url}/api/auth{:http}`. For example, `https://12345.ngrok.io/api/auth{:http}`. You can get the `ngrok_url` from the terminal that is running `ngrok http 3000{:shell}`.
+6. Enter the **Load Callback URL** as `https://{ngrok_url}/api/load{:http}`.
+7. Enter the **Uninstall Callback URL** as `https://{ngrok_url}/api/uninstall{:http}`.
+8. If your app supports multiple users, locate the **App Features** section. Select **Multiple Users**, then enter the **Remove User Callback URL** as `https://{ngrok_url}/api/remove_user{:http}`.
+9. Because you will be using the API to modify the store's products, set the Products OAuth scope to `modify`. To learn more about the available OAuth scopes, see [OAuth scopes](/docs/start/authentication/api-accounts#oauth-scopes).
+10. Click **Update & Close**.
+11. Click **View Client ID** to view this app's client ID and client secret, or _app-level API account_.
+
+Keep this tab open for the next step.
+
+## Configure environment variables
+
+After registering the draft app, add its credentials and auth callback URL to your project's environment variables file.
+
+<Callout type="info">
+  #### Alternate Heroku environment setup
+  If deploying on Heroku, skip the `.env` setup. Instead, enter `env` variables in the Heroku App Dashboard under **Settings** > **Config Vars**.
+</Callout>
+
+
+1. Create a `.env` file in the root directory of your project.
+
+2. Copy the contents of `.env-sample` to `.env`.
+
+```shell filename=".env-sample" showLineNumbers copy
+# Get the Client ID and Secret from the Developer Portal
+CLIENT_ID={app client id}
+CLIENT_SECRET={app secret}
+
+# Test locally with ngrok
+# https://developer.bigcommerce.com/api-docs/apps/guide/development#testing-locally-with-ngrok
+
+AUTH_CALLBACK=https://{ngrok_url}/api/auth
+
+# Replace jwt key with a 32+ random character secret
+JWT_KEY={SECRET}
+
+# Specify the type of database
+DB_TYPE=firebase
+
+# If using firebase, enter your config here
+FIRE_API_KEY={firebase key}
+FIRE_DOMAIN={firebase domain}
+FIRE_PROJECT_ID={firebase project id}
+
+# If using mysql, enter your config here and change DB_TYPE to mysql
+MYSQL_HOST={mysql host}
+MYSQL_DATABASE={mysql database name}
+MYSQL_USERNAME={mysql username}
+MYSQL_PASSWORD={mysql password}
+MYSQL_PORT={mysql port *optional*}
+
+API_URL=api.bigcommerce.com
+
+```
+
+[See code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/main/.env-sample)
+
+3. Replace the `CLIENT_ID` and `CLIENT_SECRET` with the app's client ID and client secret from the [Developer Portal](https://devtools.bigcommerce.com/).
+
+4. Update the `AUTH_CALLBACK` with the `ngrok_url`. You can get the `ngrok_url` from the terminal that is running `ngrok http 3000{:shell}`. 
+
+5. Enter a JSON Web Token (**JWT**) secret. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
+
+<Callout type="info">
+  #### JWT key length
+  JWT key should be at least 32 random characters (256 bits) for HS256.
+</Callout>
+
+
+6. Specify `DB_TYPE`:
+* If using Firebase, enter your project's Firebase config keys. For information on how to set up Cloud Firestore, see [Firebase quick start](https://firebase.google.com/docs/firestore/quickstart). 
+* If using MySQL, enter your project's MySQL database config keys (host, database, user/pass and optionally port).
+* If using Heroku with ClearDB, the database should create the necessary Config Var, namely, `CLEARDB_DATABASE_URL`.
+
+7. If you're using MySQL, set up the initial tables by navigating to the root directory of your project, then run the database migration using the following npm script:
+
+```shell filename="Initial database migration" copy
+npm run db:setup
+```
+
+## Start dev environment
+
+In a separate terminal from `ngrok`, start the app's dev environment.
+
+```shell copy
+npm run dev
+```
+<Callout type="info">
+  #### Ngrok configuration
+  Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
+</Callout>
+
+## Install the app
+
+Finally, install the draft app on any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account using the following steps: 
+
+1. Sign in to the store, navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts), and install the app.
+2. If everything is configured correctly, you should get an `Authorization Successful` message.
+3. Navigate back to **My Apps** to see the list of installed apps.
+4. Click **Launch** on the draft app to test the `/load` callback.
+5. Navigate back to **My Apps** and click **Uninstall** to test the `/uninstall callback`.
+
+Congrats! You've created and installed a BigCommerce draft app.
+
+<Callout type="info">
+  #### Becoming a partner
+  Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/docs/integrations/apps/guide/requirements).
+</Callout>
+
+
+## Next steps
+* [Learn more about building apps](/docs/integrations/apps)
+* [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner)
+* [Check out the BC App Marketplace approval requirements](/docs/integrations/apps/guide/requirements)
+
+## Resources
+* [BC App Marketplace](https://www.bigcommerce.com/apps/)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts)
+* [Testing locally with ngrok](/docs/integrations/apps/guide#testing-locally-with-ngrok)
+* [Types of apps](/docs/integrations/apps/guide/types)
+* [Becoming a partner](/docs/start/partner)

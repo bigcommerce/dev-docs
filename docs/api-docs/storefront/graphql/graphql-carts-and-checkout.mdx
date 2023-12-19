@@ -1,0 +1,1095 @@
+---
+title: "GraphQL Storefront API: Carts and Checkout"
+keywords: graphql, carts, checkout, address, headless, currency, currencies, payment access token, pat, cartId, incomplete, 
+---
+
+# GraphQL Storefront API: Carts and Checkout
+
+BigCommerce's GraphQL Storefront API provides the same access to cart and checkout objects as the REST Storefront API. Having access to cart and checkout data in the graph alongside related data makes it easier to build headless storefront applications. 
+
+Developers can use frontend GraphQL to create an end-to-end shopper experience. Cart and checkout-related mutations and queries can do the following:
+* Create a cart
+* Add products to a cart
+* View or manage a cart
+* Fill out checkout details
+* Determine the cost of shipping and select a shipping method
+* Complete checkout by converting a cart into an order
+* Generate a payment access token
+
+<Callout type="info">
+  **Limitations**
+  As of this writing, the GraphQL Storefront API does not support the following features:
+  * File upload product options
+  * Cart metafields
+  * _Buy Online, Pick up in Store_
+  * Checkout directly from the Product Details Page, or _Buy Now_ carts
+</Callout>
+
+## Tokens
+
+To make requests, create a [store-level API account](/docs/start/authentication/api-accounts#store-level-api-accounts) with one or more of the following [token creation OAuth scopes](/docs/start/authentication/api-accounts#token-creation-scopes):
+* Storefront API Tokens
+* Storefront API Customer Impersonation Tokens
+
+No additional scopes are required to use the GraphQL Storefront API.
+
+To generate a bearer token your application can pass to authenticate calls to the GraphQL Storefront API, use either the [Create a storefront token](/docs/rest-authentication/tokens#create-a-token) or the [Create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token) REST endpoint. On a Stencil storefront, you can also access a token at render time using a Handlebars property. Learn more about [Using Auto-Generated Tokens in Stencil Themes](/docs/storefront/graphql#using-auto-generated-tokens-in-stencil-themes).
+
+For more information, see [Creating a Token](/docs/storefront/graphql#creating-a-token) in the GraphQL Storefront API Overview and [Dynamic Tokens](/docs/start/authentication#bigcommerce-generated-jwts) in the Authentication and Example Requests article.
+
+## Handling payments
+
+To handle payments, use the [Payments API (Overview)](/docs/store-operations/payments). 
+
+For PCI compliance-related reasons, the GraphQL Storefront API does not handle payments. You can use the [Payments API (Reference)](/docs/rest-payments) to process payments. 
+
+The GraphQL Storefront API returns the checkout ID and order ID, which you can use to [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods) and [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token). You can also generate a payment access token using the GraphQL Storefront [completeCheckout](#complete-checkout) mutation.
+
+The GraphQL Storefront API returns the customer ID, which you can use to [Get stored payment instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments). To learn more about authenticating REST endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**.
+
+Gift certificates are a type of payment instrument similar to a debit card, so the Payments API must apply the gift certificate to the checkout.
+
+The API account you use to process payments must have the scopes specified in the [Payments API Overview](/docs/store-operations/payments). 
+
+## Example queries and mutations
+
+### Create a cart using a simple product
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Create a cart (simple)" showLineNumbers copy 
+    # Creates a new cart, adding a simple product.
+    # In the GraphQL Playground, this will fail if you already have a cart.
+
+    mutation createCartSimple($createCartInput: CreateCartInput!) {
+      cart {
+        createCart(input: $createCartInput) {
+          cart {
+            entityId
+            lineItems {
+              physicalItems {
+                name
+                quantity
+              }
+              digitalItems {
+                name
+                quantity
+              }
+              giftCertificates {
+                name
+              }
+              customItems {
+                name
+                quantity
+              }
+            }
+          }
+        }
+      }
+    }
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy 
+    {
+      "createCartInput": {
+        "lineItems": [
+          {
+            "quantity": 1,
+            "productEntityId": 111
+          }
+        ]
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+   
+    ```json filename="Example mutation: Create a cart (simple)" showLineNumbers copy
+    {
+      "data": {
+        "cart": {
+          "createCart": {
+            "cart": {
+              "entityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d",
+              "lineItems": {
+                "physicalItems": [
+                  {
+                    "name": "[Sample] Smith Journal 13",
+                    "quantity": 1
+                  }
+                ],
+                "digitalItems": [],
+                "giftCertificates": [],
+                "customItems": []
+              }
+            }
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Get a cart
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example query: Get a cart" showLineNumbers copy
+    query getCart {
+      site {
+        cart {
+          entityId
+          currencyCode
+          isTaxIncluded
+          baseAmount {
+            currencyCode
+            value
+          }
+          discountedAmount {
+            currencyCode
+            value
+          }
+          amount {
+            currencyCode
+            value
+          }
+          discounts {
+            entityId
+            discountedAmount {
+              currencyCode
+              value
+            }
+          }
+          lineItems {
+            physicalItems {
+              entityId
+              parentEntityId
+              variantEntityId
+              productEntityId
+              sku
+              name
+              url
+              imageUrl
+              brand
+              quantity
+              isTaxable
+              discounts {
+                entityId
+                discountedAmount {
+                  currencyCode
+                  value
+                }
+              }
+              discountedAmount {
+                currencyCode
+                value
+              }
+              couponAmount {
+                currencyCode
+                value
+              }
+              listPrice {
+                currencyCode
+                value
+              }
+              originalPrice {
+                currencyCode
+                value
+              }
+              salePrice {
+                currencyCode
+                value
+              }
+              extendedListPrice {
+                currencyCode
+                value
+              }
+              extendedSalePrice {
+                currencyCode
+                value
+              }
+              isShippingRequired
+              selectedOptions {
+                entityId
+                name
+                ... on CartSelectedCheckboxOption {
+                  value
+                  valueEntityId
+                }
+                ... on CartSelectedDateFieldOption {
+                  date {
+                    utc
+                  }
+                }
+                ... on CartSelectedFileUploadOption {
+                  fileName
+                }
+                ... on CartSelectedMultiLineTextFieldOption {
+                  text
+                }
+                ... on CartSelectedMultipleChoiceOption {
+                  value
+                  valueEntityId
+                }
+                ... on CartSelectedNumberFieldOption {
+                  number
+                }
+                ... on CartSelectedTextFieldOption {
+                  text
+                }
+              }
+              giftWrapping {
+                name
+                amount {
+                  currencyCode
+                  value
+                }
+                message
+              }
+            }
+            digitalItems {
+              entityId
+              parentEntityId
+              variantEntityId
+              productEntityId
+              sku
+              name
+              url
+              imageUrl
+              brand
+              quantity
+              isTaxable
+              discounts {
+                entityId
+                discountedAmount {
+                  currencyCode
+                  value
+                }
+              }
+              discountedAmount {
+                currencyCode
+                value
+              }
+              couponAmount {
+                currencyCode
+                value
+              }
+              listPrice {
+                currencyCode
+                value
+              }
+              originalPrice {
+                currencyCode
+                value
+              }
+              salePrice {
+                currencyCode
+                value
+              }
+              extendedListPrice {
+                currencyCode
+                value
+              }
+              extendedSalePrice {
+                currencyCode
+                value
+              }
+              selectedOptions {
+                entityId
+                name
+                ... on CartSelectedCheckboxOption {
+                  value
+                  valueEntityId
+                }
+                ... on CartSelectedDateFieldOption {
+                  date {
+                    utc
+                  }
+                }
+                ... on CartSelectedFileUploadOption {
+                  fileName
+                }
+                ... on CartSelectedMultiLineTextFieldOption {
+                  text
+                }
+                ... on CartSelectedMultipleChoiceOption {
+                  value
+                  valueEntityId
+                }
+                ... on CartSelectedNumberFieldOption {
+                  number
+                }
+                ... on CartSelectedTextFieldOption {
+                  text
+                }
+              }
+            }
+            giftCertificates {
+              entityId
+              name
+              theme
+              amount {
+                currencyCode
+                value
+              }
+              isTaxable
+              sender {
+                name
+                email
+              }
+              recipient {
+                name
+                email
+              }
+              message
+            }
+            customItems {
+              entityId
+              sku
+              name
+              quantity
+              listPrice {
+                currencyCode
+                value
+              }
+              extendedListPrice {
+                currencyCode
+                value
+              }
+            }
+            totalQuantity
+          }
+          createdAt {
+            utc
+          }
+          updatedAt {
+            utc
+          }
+          locale
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example query: Get a cart" showLineNumbers copy
+    {
+      "data": {
+        "site": {
+          "cart": {
+            "entityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d",
+            "currencyCode": "USD",
+            "isTaxIncluded": false,
+            "baseAmount": {
+              "currencyCode": "USD",
+              "value": 25
+            },
+            "discountedAmount": {
+              "currencyCode": "USD",
+              "value": 0
+            },
+            "amount": {
+              "currencyCode": "USD",
+              "value": 25
+            },
+            "discounts": [
+              {
+                "entityId": "50892aad-8e57-4a86-9668-c1f1ee493cff",
+                "discountedAmount": {
+                  "currencyCode": "USD",
+                  "value": 0
+                }
+              }
+            ],
+            "lineItems": {
+              "physicalItems": [
+                {
+                  "entityId": "50892aad-8e57-4a86-9668-c1f1ee493cff",
+                  "parentEntityId": null,
+                  "variantEntityId": 74,
+                  "productEntityId": 111,
+                  "sku": "SM13",
+                  "name": "[Sample] Smith Journal 13",
+                  "url": "https://{store_hash}.mybigcommerce.com/{product-slug}/",
+                  "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/111/images/300/journal.jpg",
+                  "brand": null,
+                  "quantity": 1,
+                  "isTaxable": true,
+                  "discounts": [],
+                  "discountedAmount": {
+                    "currencyCode": "USD",
+                    "value": 0
+                  },
+                  "couponAmount": {
+                    "currencyCode": "USD",
+                    "value": 0
+                  },
+                  "listPrice": {
+                    "currencyCode": "USD",
+                    "value": 25
+                  },
+                  "originalPrice": {
+                    "currencyCode": "USD",
+                    "value": 25
+                  },
+                  "salePrice": {
+                    "currencyCode": "USD",
+                    "value": 25
+                  },
+                  "extendedListPrice": {
+                    "currencyCode": "USD",
+                    "value": 25
+                  },
+                  "extendedSalePrice": {
+                    "currencyCode": "USD",
+                    "value": 25
+                  },
+                  "isShippingRequired": true,
+                  "selectedOptions": [],
+                  "giftWrapping": null
+                }
+              ],
+              "digitalItems": [],
+              "giftCertificates": [],
+              "customItems": [],
+              "totalQuantity": 1
+            },
+            "createdAt": {
+              "utc": "2023-06-01T17:45:23Z"
+            },
+            "updatedAt": {
+              "utc": "2023-06-01T17:45:23Z"
+            },
+            "locale": "en"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Add cart line items
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Add cart line items" showLineNumbers copy
+    # Adds another line item.
+    # Add the cart ID to the GraphQL variables, or the mutation will fail. 
+    mutation addCartLineItems($addCartLineItemsInput: AddCartLineItemsInput!) {
+      cart {
+        addCartLineItems(input: $addCartLineItemsInput) {
+          cart {
+            entityId
+          }
+        }
+      }
+    }
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy 
+    {
+      "addCartLineItemsInput": {
+        "cartEntityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d",
+        "data": {
+          "lineItems": [
+            {
+              "quantity": 1,
+              "productEntityId": 107
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Add cart line item" showLineNumbers copy
+    {
+      "data": {
+        "cart": {
+          "addCartLineItems": {
+            "cart": {
+              "entityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d"
+            }
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Delete cart
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Delete cart" showLineNumbers copy
+    # Delete your cart in the GraphQL Playground, which will enable you to create a new cart.
+    # Add the cart ID to the GraphQL variables, or the mutation will fail.
+    
+    mutation deleteCart($deleteCartInput: DeleteCartInput!) {
+      cart {
+        deleteCart(input: $deleteCartInput) {
+          deletedCartEntityId
+        }
+      }
+    }
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy 
+    {
+      "deleteCartInput": {
+        "cartEntityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d"
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Delete cart" showLineNumbers copy
+    {
+      "data": {
+        "cart": {
+          "deleteCart": {
+            "deletedCartEntityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d"
+          }
+        }
+      }
+    }  
+    ```
+  </Tab>
+</Tabs>
+
+### Get Checkout
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example query: Get checkout" showLineNumbers copy
+    query getCheckout {
+      site {
+        checkout {
+          entityId
+          billingAddress {
+            ...CheckoutBillingAddressFields
+          }
+          shippingConsignments {
+            ...CheckoutShippingConsignmentFields
+          }
+          order {
+            entityId
+          }
+          shippingCostTotal {
+            ...MoneyFields
+          }
+          giftWrappingCostTotal {
+            ...MoneyFields
+          }
+          handlingCostTotal {
+            ...MoneyFields
+          }
+          taxTotal {
+            ...MoneyFields
+          }
+          taxes {
+            ...CheckoutTaxFields
+          }
+          subtotal {
+            ...MoneyFields
+          }
+          grandTotal {
+            ...MoneyFields
+          }
+          createdAt {
+            utc
+          }
+          updatedAt {
+            utc
+          }
+          customerMessage
+          outstandingBalance {
+            ...MoneyFields
+          }
+          coupons {
+            ...CheckoutCouponFields
+          }
+          promotions {
+            ...CheckoutPromotionFields
+          }
+        }
+      }
+    }
+
+    fragment CheckoutConsignmentAddressFields on CheckoutConsignmentAddress {
+      ...CheckoutAddressFields
+    }
+
+    fragment CheckoutBillingAddressFields on CheckoutBillingAddress {
+      entityId
+      ...CheckoutAddressFields
+    }
+
+    fragment CheckoutAddressFields on CheckoutAddress {
+      firstName
+      lastName
+      email
+      company
+      address1
+      address2
+      city
+      stateOrProvince
+      stateOrProvinceCode
+      countryCode
+      postalCode
+      phone
+      customFields {
+        entityId
+        ... on CheckoutAddressCheckboxesCustomField {
+          valueEntityIds
+        }
+        ... on CheckoutAddressDateCustomField {
+          date {
+            utc
+          }
+        }
+        ... on CheckoutAddressMultipleChoiceCustomField {
+          valueEntityId
+        }
+        ... on CheckoutAddressNumberCustomField {
+          number
+        }
+        ... on CheckoutAddressPasswordCustomField {
+          password
+        }
+        ... on CheckoutAddressTextFieldCustomField {
+          text
+        }
+      }
+    }
+
+    fragment CheckoutShippingConsignmentFields on CheckoutShippingConsignment {
+      entityId
+      address {
+        ...CheckoutConsignmentAddressFields
+      }
+      availableShippingOptions {
+        ...CheckoutAvailableShippingOptionFields
+      }
+      selectedShippingOption {
+        ...CheckoutSelectedShippingOptionFields
+      }
+      coupons {
+        ...CheckoutCouponFields
+      }
+      shippingCost {
+        ...MoneyFields
+      }
+      handlingCost {
+        ...MoneyFields
+      }
+      lineItemIds
+    }
+
+    fragment CheckoutAvailableShippingOptionFields on CheckoutAvailableShippingOption {
+      entityId
+      description
+      type
+      imageUrl
+      cost {
+        ...MoneyFields
+      }
+      transitTime
+      isRecommended
+    }
+
+    fragment CheckoutSelectedShippingOptionFields on CheckoutSelectedShippingOption {
+      entityId
+      description
+      type
+      imageUrl
+      cost {
+        ...MoneyFields
+      }
+      transitTime
+    }
+
+    fragment MoneyFields on Money {
+      value
+      currencyCode
+    }
+
+    fragment CheckoutCouponFields on CheckoutCoupon {
+      entityId
+      code
+      couponType
+      discountedAmount {
+        ...MoneyFields
+      }
+    }
+
+    fragment CheckoutTaxFields on CheckoutTax {
+      name
+      amount {
+        ...MoneyFields
+      }
+    }
+
+    fragment CheckoutPromotionFields on CheckoutPromotion {
+      banners {
+        entityId
+        type
+        locations
+        text
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example query: Get checkout" showLineNumbers copy   
+    {
+      "data": {
+        "site": {
+          "checkout": {
+            "entityId": "bb916deb-ddd6-4586-b65b-b8385e0e7a9d",
+            "billingAddress": null,
+            "shippingConsignments": [],
+            "order": null,
+            "shippingCostTotal": {
+              "value": 0,
+              "currencyCode": "USD"
+            },
+            "giftWrappingCostTotal": {
+              "value": 0,
+              "currencyCode": "USD"
+            },
+            "handlingCostTotal": {
+              "value": 0,
+              "currencyCode": "USD"
+            },
+            "taxTotal": {
+              "value": 0,
+              "currencyCode": "USD"
+            },
+            "taxes": [
+              {
+                "name": "Tax",
+                "amount": {
+                  "value": 0,
+                  "currencyCode": "USD"
+                }
+              }
+            ],
+            "subtotal": {
+              "value": 59.95,
+              "currencyCode": "USD"
+            },
+            "grandTotal": {
+              "value": 59.95,
+              "currencyCode": "USD"
+            },
+            "createdAt": {
+              "utc": "2023-06-01T17:45:23Z"
+            },
+            "updatedAt": {
+              "utc": "2023-06-01T19:07:15Z"
+            },
+            "customerMessage": "",
+            "outstandingBalance": {
+              "value": 59.95,
+              "currencyCode": "USD"
+            },
+            "coupons": [],
+            "promotions": []
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Add checkout billing address
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Add checkout billing address" showLineNumbers copy
+    mutation addCheckoutBillingAddress($addCheckoutBillingAddressInput: AddCheckoutBillingAddressInput!) {
+      checkout {
+        addCheckoutBillingAddress(input: $addCheckoutBillingAddressInput) {
+          checkout {
+            entityId
+          }
+        }
+      }
+    }   
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy
+    {
+      "addCheckoutBillingAddressInput": {
+        "checkoutEntityId": "812ece1a-da23-46eb-ab6b-c2ee210aae54",
+        "data": {
+          "address": {
+            "firstName": "Joe",
+            "lastName": "Blogs",
+            "email": "joe@example.com",
+            "company": "BlogIndustries",
+            "address1": "123 Yar st",
+            "address2": "",
+            "city": "RWC",
+            "stateOrProvince": "CA",
+            "stateOrProvinceCode": "CA",
+            "countryCode": "US",
+            "postalCode": "94061",
+            "phone": "6501231212",
+            "shouldSaveAddress": false
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Add checkout billing address" showLineNumbers copy
+    {
+      "data": {
+        "checkout": {
+          "addCheckoutBillingAddress": {
+            "checkout": {
+              "entityId": "812ece1a-da23-46eb-ab6b-c2ee210aae54"
+            }
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Add a checkout shipping consignment
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Add a checkout shipping consignment" showLineNumbers copy
+    mutation addCheckoutShippingConsignments($addCheckoutShippingConsignmentsInput: AddCheckoutShippingConsignmentsInput!) {
+      checkout {
+        addCheckoutShippingConsignments(input: $addCheckoutShippingConsignmentsInput) {
+          checkout {
+            entityId
+            shippingConsignments {
+              entityId
+              availableShippingOptions {
+                entityId
+              }
+              selectedShippingOption {
+                entityId
+              }
+            }
+          }
+        }
+      }
+    }
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy
+    {
+      "addCheckoutShippingConsignmentsInput": {
+        "checkoutEntityId": "812ece1a-da23-46eb-ab6b-c2ee210aae54",
+        "data": {
+          "consignments": [
+            {
+              "address": {
+                "firstName": "Joe",
+                "lastName": "Blogs",
+                "email": "joe@example.com",
+                "company": "BlogIndustries",
+                "address1": "123 Yar st",
+                "city": "RWC",
+                "stateOrProvince": "CA",
+                "stateOrProvinceCode": "CA",
+                "countryCode": "US",
+                "postalCode": "94061",
+                "phone": "6501231212",
+                "shouldSaveAddress": false
+              },
+              "lineItems": [
+                {
+                  "lineItemEntityId": "0a281902-d548-4d2e-a930-dc2aae9bfc39",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Add a checkout shipping consignment" showLineNumbers copy
+    {
+      "data": {
+        "checkout": {
+          "addCheckoutShippingConsignments": {
+            "checkout": {
+              "entityId": "812ece1a-da23-46eb-ab6b-c2ee210aae54",
+              "shippingConsignments": [
+                {
+                  "entityId": "6478f628f1d8f",
+                  "availableShippingOptions": [
+                    {
+                      "entityId": "9ba45e71fe66e1cd757f022dcae331b0"
+                    },
+                    {
+                      "entityId": "d8fb74f7cd682de8ae35a7fdd1e26f56"
+                    }
+                  ],
+                  "selectedShippingOption": null
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Select checkout shipping option
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Select checkout shipping option" showLineNumbers copy
+      mutation selectCheckoutShippingOption($selectCheckoutShippingOptionInput: SelectCheckoutShippingOptionInput!) {
+        checkout {
+          selectCheckoutShippingOption(input: $selectCheckoutShippingOptionInput) {
+            checkout {
+              entityId
+            }
+          }
+        }
+      }
+    ```
+    ```json filename="GraphQL variables" showLineNumbers copy
+      {
+        "selectCheckoutShippingOptionInput": {
+          "checkoutEntityId": "acd6f2ca-85c1-4b5f-8dab-d7d80521ecc5",
+          "consignmentEntityId": "6478ff925d33a",
+          "data": {
+            "shippingOptionEntityId": "9ba45e71fe66e1cd757f022dcae331b0"
+          }
+        }
+      }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Select checkout shipping option" showLineNumbers copy    
+      {
+        "data": {
+          "checkout": {
+            "selectCheckoutShippingOption": {
+              "checkout": {
+                "entityId": "acd6f2ca-85c1-4b5f-8dab-d7d80521ecc5"
+              }
+            }
+          }
+        }
+      }
+    ```
+  </Tab>
+</Tabs>
+
+### Complete checkout
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    
+    ```graphql filename="Example mutation: Complete checkout" showLineNumbers copy
+      mutation completeCheckout($completeCheckoutInput: CompleteCheckoutInput!) {
+        checkout {
+          completeCheckout(input:$completeCheckoutInput) {
+            orderEntityId
+            paymentAccessToken
+          }
+        }
+      }
+    ```
+
+    ```json filename="GraphQL variables" showLineNumbers copy
+    {
+      "completeCheckoutInput": {
+        "checkoutEntityId": "812ece1a-da23-46eb-ab6b-c2ee210aae54"
+      }
+    }
+    ```
+  </Tab>
+  <Tab>
+    
+    ```json filename="Example mutation: Complete checkout" showLineNumbers copy
+      {
+        "data": {
+          "checkout": {
+            "completeCheckout": {
+              "orderEntityId": 106,
+              "paymentAccessToken": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU3MjQwMzQsIm5iZiI6MTY4NTcyMDQzNCwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoidmpid3FiYWJwMSIsImp0aSI6IjAzODU3ODk2LTdkY2YtNDIzNi04OTQ5LWU0MjcyYWU3ZGZjMSIsImlhdCI6MTY4NTcyMDQzNCwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDI4ODA3NDYiLCJvcmRlcl9pZCI6IjEwNiIsImFtb3VudCI6MjUwMCwiY3VycmVuY3kiOiJVU0QifX0.iiJ96cYKtk2-oLRXvZHs1lWUl9v8JkEkCdHShbyfEK4"
+            }
+          }
+        }
+      }
+    ```
+  </Tab>
+</Tabs>
+
+## Giving feedback
+
+We invite you to give feedback on the GraphQL Storefront schema and the capabilities of the API to let us know if it meets your needs. In particular, we want to know about anything that seems confusing, or anything that you think is missing. We want to ensure that this API meets your needs, and we're open to adding features.
+
+Join our [Developer Community](/community) to share your feedback with us in the BigCommerceDevs Slack or on our Discord server.
+
+## Resources
+
+### Articles
+
+* [GraphQL Storefront API Overview](/docs/storefront/graphql)
+* [GraphQL Storefront API Overview: Using auto-generated tokens in Stencil themes](/docs/storefront/graphql#using-auto-generated-tokens-in-stencil-themes)
+* [Payments API Overview](/docs/store-operations/payments)
+* [Guide to API Accounts: Store-level API accounts](/docs/start/authentication/api-accounts#store-level-api-accounts)
+* [Guide to API Accounts: OAuth token creation scopes](/docs/start/authentication/api-accounts#token-creation-scopes)
+* [Authentication and Example Requests: BigCommerce-generated JWTs](/docs/start/authentication#bigcommerce-generated-jwts)
+
+### API reference
+
+#### Storefront tokens
+
+* [Create a storefront token](/docs/rest-authentication/tokens#create-a-token)
+* [Create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token)
+
+#### Payments API
+
+* [Payments API (Reference)](/docs/rest-payments)
+* [Get accepted payment methods](/docs/rest-payments/methods#get-accepted-payment-methods)
+* [Create a payment access token](/docs/rest-payments/tokens#create-payment-access-token)
+
+#### REST Management API: Customers
+
+* [Get stored payment instruments](/docs/rest-management/customers/customer-stored-instruments#get-stored-instruments)
+
+### Community
+
+* [Developer Community](/community)

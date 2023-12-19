@@ -1,0 +1,65 @@
+# Installing an Open Source Checkout
+
+You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article outlines how to package a custom checkout file and install a custom checkout using the control panel.
+
+This article will address using both [Open Source Checkout](https://github.com/bigcommerce/checkout-js) and [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) powered checkouts.
+
+## Obtaining the JavaScript loader file
+Custom checkouts must have a single JS loader file. The first step to using a custom checkout is generating this file. The loader file must be responsible for the following:
+
+* Loading all the required assets, including all CSS files, no matter the location
+* Running the app
+
+## Developing a custom checkout
+
+If you wish to customize a checkout, enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/packages/core/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure a single source of truth for handling styles. 
+
+<Callout type="info">
+  Note: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
+</Callout>
+
+### Packaging custom checkouts with Open Source Checkout
+
+If using [Open Source Checkout](https://github.com/bigcommerce/checkout-js), you can generate the loader file by following these steps:
+
+1. Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js); then, install dependencies.
+
+```bash showLineNumbers copy
+# Clone the repo
+git clone https://github.com/bigcommerce/checkout-js
+
+# Install dependencies
+cd checkout-js
+npm ci
+```
+
+2. Start webpack in watch mode and launch the dev server.
+
+```bash showLineNumbers copy
+npm run dev & npm run dev:server
+```
+
+<Callout type="info">
+ - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running. You should see content from `build/`.
+ - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
+</Callout>
+
+
+When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom checkout. Checkout-JS is a reference implementation of [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk); therefore, changes to your loader file are unnecessary. For more details on installing the Checkout JS SDK, see the [Checkout SDK Tutorial](/docs/storefront/cart-checkout/checkout-sdk/tutorial). 
+
+## Hosting a custom checkout
+
+You'll need to host the custom checkout file online so the store can serve it. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host gives you the freedom to automate the build process if you wish and push updates automatically from your local machine. Or you can host it on your store using WebDAV.
+
+The steps to host a custom checkout on BigCommerce are below:
+1. Use WebDAV to upload a custom checkout. For details, see [Use WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) to upload the checkout-loader.js file. 
+2. Install custom checkout using the [control panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel) or use the [Update Checkout Settings](https://developer.bigcommerce.com/docs/rest-management/checkouts/checkout-settings#update-checkout-settings) endpoint to install the loader file.
+
+
+
+## Related resources
+
+### Articles
+- [Checkout SDK](/docs/storefront/cart-checkout/checkout-sdk)
+- [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
+- [Installing Custom Checkouts in the Control Panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel)

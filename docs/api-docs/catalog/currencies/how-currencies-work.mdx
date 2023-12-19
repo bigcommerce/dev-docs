@@ -1,0 +1,339 @@
+---
+title: How Currencies Work
+keywords: currency, currencies, invoices, 
+---
+
+# How Currencies Work
+
+This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](/docs/store-operations/currencies).
+
+## Catalog pricing
+
+When you configure multiple currencies, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
+
+Catalog search and filtering by price only work for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
+
+* `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through price lists and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
+
+BigCommerce does not dynamically convert currency. To convert, the merchant will need to do one of the following:
+
+* Manually update their conversion rate from default currency to other transactional currencies.
+* Set up automatic updates to their conversion rate through APIs.
+* Set up explicit pricing per each currency using price lists (only available to Enterprise merchants).
+* Pricing by currency only, not by country.
+
+## Currencies
+
+**Details:**
+* There was a new field added to the [Currency API](/docs/rest-management/currencies):
+  * `is_transactional` - Boolean indicating if the currency is transactional or not; false means display only currency.
+
+**Example:**
+
+```json showLineNumbers copy
+{
+  "country_iso2": "EU",
+  "currency_code": "EUR",
+  "currency_exchange_rate": "0.849",
+  "auto_update": true,
+  "token_location": "left",
+  "token": "€",
+  "decimal_token": ".",
+  "thousands_token": ",",
+  "decimal_places": 2,
+  "name": "Euro",
+  "is_transactional": false,
+  "id": 2,
+  "is_default": false,
+  "last_updated": "2018-06-12T14:41:56.000Z",
+  "enabled": false
+}
+```
+
+## Price Lists
+
+You can create price lists in any currency setup in the store. Both transactional and display currencies are available in price lists. BigCommerce does not copy price records from one currency to another; you must create the price record for each currency.
+
+![titled](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-price-overrides.png "Price Overrides")
+
+<Callout type="info">
+  This feature is limited to Enterprise plans and requires a Stencil theme.
+</Callout>
+
+## Price list modifiers
+
+Modifiers use the auto conversion rate. For example, if the keychain is €30, and there's a modifier for engraving, the price is: €30 + ($5 * auto conversion rate).
+
+The above example assumes a default currency of USD.
+
+## Price records
+
+To create a price record in multiple currencies via API, send a `POST` request to the [Set Price Records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) endpoint -- as long as the currency is available in the store, you can set multiple currencies in the request.
+
+[**Create Price Record** ](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records):
+
+```json showLineNumbers copy
+[
+  {
+    "variant_id": 360,
+    "price": 27.57,
+    "sale_price": 12,
+    "currency": "aud",
+    "product_id": 189
+  },
+  {
+    "variant_id": 360,
+    "price": 27.57,
+    "sale_price": 12,
+    "currency": "eur",
+    "product_id": 189
+  }
+]
+```
+
+[**Price List Sample Response** ](/docs/rest-management/price-lists#get-all-price-lists):
+
+```json showLineNumbers copy
+{
+  "data": [
+    {
+      "price_list_id": 4,
+      "variant_id": 361,
+      "price": 22.66,
+      "sale_price": null,
+      "retail_price": null,
+      "map_price": null,
+      "calculated_price": 22.66,
+      "date_created": "2019-03-05T16:38:08Z",
+      "date_modified": "2019-03-05T16:38:08Z",
+      "currency": "usd",
+      "product_id": 190
+    },
+    {
+      "price_list_id": 4,
+      "variant_id": 438,
+      "price": 18.62,
+      "sale_price": null,
+      "retail_price": null,
+      "map_price": null,
+      "calculated_price": 18.62,
+      "date_created": "2019-03-05T16:38:08Z",
+      "date_modified": "2019-03-05T16:38:08Z",
+      "currency": "usd",
+      "product_id": 200
+    },
+    {
+      "price_list_id": 4,
+      "variant_id": 439,
+      "price": 18.62,
+      "sale_price": null,
+      "retail_price": null,
+      "map_price": null,
+      "calculated_price": 18.62,
+      "date_created": "2019-03-05T16:38:08Z",
+      "date_modified": "2019-03-05T16:38:08Z",
+      "currency": "usd",
+      "product_id": 200
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 26,
+      "count": 26,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1
+    }
+  }
+}
+```
+
+## S-2-S Cart and Checkout
+
+You can set up the cart currency when creating a [Server to Server Cart](/docs/rest-management/carts/carts-single#create-a-cart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
+
+**Example POST Create a Cart** \
+[*`https://api.bigcommerce.com/stores/{storehash}/v3/carts`*](/docs/rest-management/carts/carts-single#create-a-cart)*
+
+```json showLineNumbers copy
+{
+  "customer_id": 1,
+  "line_items": [
+    {
+      "product_id": 77,
+      "variant_id": 1,
+      "quantity": 3
+    },
+    {
+      "product_id": 77,
+      "variant_id": 2,
+      "quantity": 3
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "GBP"
+  }
+}
+```
+
+The API will return the item price and the currency of the item price in the store’s current transactional currency. 
+
+## Storefront Cart and Checkout
+
+In the example below, the store’s default currency is `USD`, and the item is `$7.95`. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros:
+
+*The item shows prices, including tax.*
+
+**Abbreviated example create a cart response**
+
+```json showLineNumbers copy
+{
+  "id": "4c8681f7-cc64-4377-b5a3-cf5f762edf5d",
+  "cart": {
+    "id": "4c8681f7-cc64-4377-b5a3-cf5f762edf5d",
+    "customerId": 19,
+    "email": "cadenwhitfield@testing.com",
+    "currency": {
+      "name": "Euro",
+      "code": "EUR",
+      "symbol": "€",
+      "decimalPlaces": 2
+    },
+    "isTaxIncluded": true,
+    "baseAmount": 6.97,
+    "discountAmount": 0,
+    "cartAmount": 6.97,
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "c56ab595-cc9f-4d52-abd3-065f6e7ad903",
+          "variantId": 345,
+          "productId": 174,
+          "name": "1L Le Parfait Jar",
+          "listPrice": 6.97,
+          "salePrice": 6.97,
+          "extendedListPrice": 6.97,
+          "extendedSalePrice": 6.97
+        }
+      ]
+    },
+    "createdTime": "2019-01-17T18:38:26+00:00",
+    "updatedTime": "2019-01-17T18:38:26+00:00"
+  },
+  // ...
+  "taxTotal": 0.53,
+  "taxes": [
+    {
+      "name": "Sales Tax",
+      "amount": 0.53
+    }
+  ],
+  "subtotal": 6.97,
+  "grandTotal": 6.97
+}
+```
+
+If a shopper changes the currency and has added at least one item to the cart, the charges will still be in the original transactional currency. Below the shopper changed from `USD` to `AUS`. A message is displayed that they will still checkout using `USD`:
+
+`*You will be billed for this order in USD*.`
+
+The API also still returns Australian Dollars as the currency.
+
+![Order Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-order-summary.png "Order Summary")
+
+To change the transactional currency of their cart, the shopper will need to empty the cart and re-add the items in the desired transactional currency.
+
+## Orders
+
+**Details:**
+* The order history page shows the currency of the transaction.
+* Invoices show item prices and the currency of the transaction.
+* Since each order can be in a different currency, the control panel order page shows the currency's token (this also applies to Order Export data).
+* The shopper's order history shows the transactional currency, not the display currency. While the underlying historical data itself will remain unchanged, the page now surfaces the transactional currency and amount, rather than display currency and amount -- this change applies to all orders, including historical ones. 
+* `default_currency_code` - The transactional currency used in the order; previously the store's default currency.
+* `currency_code` - The display currency used to present prices to the shopper on the storefront.
+* `currency_exchange_rate` - The exchange between the store's default currency and the display currency; when you create the order using REST Management endpoints, the value is always `1`; only in the storefront can this value differ from `1`.
+* The following additional fields are returned on orders when multi-currency is enabled:
+  * `store_default_currency_code` - The store's default currency.
+  * `store_default_to_transactional_exchange_rate` - The exchange rate between the store's default currency and the transactional currency used in the order.
+
+**Example:**
+
+```json showLineNumbers copy
+{
+  //...   
+  "currency_id": 4,
+  "currency_code": "EUR",
+  "currency_exchange_rate": 1,
+  "default_currency_id": 4,
+  "default_currency_code": "EUR",
+  "store_default_currency_code": "USD",
+  "store_default_to_transactional_exchange_rate": "100.0000000000"
+  //...
+}
+
+```
+
+**Shopper Order History**:
+![Shopper Order History](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-order-summary.png "Shopper Order History")
+
+**Shopper Invoice:**
+![Shopper Invoice](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-invoice.png "Shopper Invoice")
+
+**Control Panel Order History**:
+![Order Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-admin-orders.png "Control Panel Order History")
+
+## Promotions
+
+Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency and then changes to a different currency, the coupon code will still work in the cart. The coupon code works because once you create the cart, it is “locked” into the default currency until being deleted.
+
+You can create cart level discounts in your currency of choice. The shopper must have the currency selected for the promotion to apply.
+
+![Cart Level Discount](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi_currency_cart_level_discount_one.png "Cart Level Discount")
+
+## Shipping
+
+**Details:**
+* **Product Level Fixed Shipping** - Shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
+* **Flat Rate Shipping** - Flat rate shipping is converted based on the store's currency. 
+* **Shipping Carriers** - The currency is sent to the carrier and, depending on the carrier, quotes are returned in the store's transactional currency. If the shipping carrier can not return in the transactional currency, the store will convert it using the transactional currency exchange rate set by the merchant. If you've set the checkout to be viewed in a display currency, the store will convert it to the transactional currency for payment. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
+
+## Refunds
+
+* **Default Currency** - Works as normal; no changes made. 
+
+* **Transactional Currency** - The refund is shown in the transaction currency. When processing refunds, the amount is refunded to the shopper in the transactional currency.  
+
+* **Display Currency** - The refund is shown in the store's default currency. When processing refunds, the shopper is refunded the transactional currency amount. For example, if an order was purchased with a display currency of $36 AUD, where the AUD exchange rate is set to 1.384615 and a store has USD currency set as a default, the shopper will get $26 USD back when the refund is processed.
+
+## Payment methods supported
+
+| Payment Method    | Details                                                                                                                                                |
+|:--|:--|
+| Gift Certificates | can be used in the currency they were purchased in and can be setup per currency                                                                       |
+| Store Credit      | not converted currently. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
+| Credit Cards      | Processed through Stripe Payment Gateway or Test Payment Gateway                                                                                       |
+
+
+![Gift Certificates](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/gift_certificates_multi_currency.png "Gift Certificates")
+
+## Gift certificates
+
+[**Create a Gift Certificate**](/docs/rest-content/marketing/gift-certificates#create-a-gift-certificate)
+
+```json showLineNumbers copy
+{
+  "code": "10R-6E3-AO4-RST",
+  "amount": "700.0000",
+  "status": "active",
+  "to_name": "Jane",
+  "to_email": "janedoe@email.com",
+  "from_name": "Tarzan",
+  "from_email": "test1@test.com",
+  "currency_code": "EUR"           // new property
+}
+```
+
+**Control Panel UI**
+![Gift Certificates](https://storage.googleapis.com/bigcommerce-production-dev-center/images/catalog-currencies/Catalog-Currencies/multi-currency-gift-cerfiticates.png "Gift Certificates")

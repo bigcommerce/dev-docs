@@ -1,0 +1,70 @@
+widget_range: null
+title: Range
+type: object
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"range"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Line width"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"lineWidth"'
+  default:
+    type: integer
+    description: 'The default value to use when rendering the widget for the first time. '
+    example: 100
+  typeMeta:
+    type: object
+    properties:
+      rangeValues:
+        type: object
+        properties:
+          min:
+            type: integer
+            description: Minimum value in the range.
+            example: 0
+          max:
+            type: integer
+            description: Maximum value in the range.
+            example: 100
+          step:
+            type: integer
+            description: Incrementation of the range values.
+            example: 1
+          unit:
+            type: string
+            description: Unit of the range values.
+            example: '"%"'
+    description: Additional information needed based on the selected setting type.
+description: |-
+  Allows you to display input controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "lineWidth": 100
+  }
+  ```
+
+  >**Note**
+  >
+  >Units are not currently stored in the widget configuration.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/line_width.png)
+
+  <hr>
+
+  **JSON Schema**

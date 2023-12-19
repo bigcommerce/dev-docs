@@ -1,0 +1,251 @@
+---
+title: About Our APIs
+keywords: address, v2, v3, currency, currencies
+---
+
+# About Our APIs
+
+The BigCommerce suite of APIs empowers you to create apps, automate store processes, and build headless ecommerce solutions.
+
+If you're new to building BigCommerce apps, we recommend that you start by exploring the [App Marketplace](https://www.bigcommerce.com/apps/) to get a feel for what's possible.
+
+When you're ready to play with our APIs, check out the [API Request Quick Start](/archive/start/making-requests). 
+
+## Available APIs
+
+BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
+
+### REST Store Management APIs
+
+BigCommerce's Store Management and Payment APIs (for example, the [Catalog API](/docs/rest-catalog)) allow you to manage transactions, modify store data, and act as store administrator. Example use cases include the following:
+* Add and update products in a store
+* Update a customer's order and change the order status
+* Create a coupon
+* Manage a customer's store account details
+
+### REST Storefront API
+
+The [REST Storefront API](/docs/rest-storefront/carts) lets you manage customer carts, checkouts, and order information client-side. Example use cases include the following:
+* Add an item with JavaScript to a shopper's cart from a Stencil storefront
+* Programmatically retrieve and display information to a customer about their recent order
+* Update the billing address of a checkout
+* Clear a customer's current cart
+
+
+### GraphQL Storefront API
+
+BigCommerce's [GraphQL Storefront API](/docs/graphql-storefront) lets you query and mutate products, customers, and carts, then launch a checkout on a headless storefront as well as from a native storefront's frontend. Example use cases include the following:
+* Add additional product data to a Stencil storefront
+* Access customer data on the frontend of a site
+* Manage shopper's carts on a headless storefront
+* Fetch category and brand details from a store's frontend
+
+### Customer Login API
+
+The [Customer Login API](/docs/start/authentication/customer-login) lets you programmatically sign customers in to a BigCommerce storefront. Example use cases include the following:
+* Sign customers in to a BigCommerce store from a third-party account or a headless storefront
+* Enable login using credentials other than email and password, such as a phone number
+* Integrate a BigCommerce store with an SSO provider
+
+
+### Current Customer API
+
+BigCommerce's [Current Customer API](/docs/start/authentication/current-customer) lets you determine which customer is logged in to a storefront during a session.
+* Confirm a customer's identity in the browser
+* Validate a customer's identity to display specific information to them from an external app
+
+
+## API authentication and context
+
+Make BigCommerce API requests in the context of the **storefront**, BigCommerce **API server**, or **app server**. Each of the following APIs listings links to its section of our [Authentication and Example Requests](/docs/start/authentication) article, which contains the base URL of the API in question.
+
+| API or Use Case | Context |
+|:----------------|:--------|
+| [GraphQL Account API](/docs/start/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview) | server |
+| [GraphQL Admin API](/docs/start/authentication#access-tokens) | server |
+| [GraphQL Storefront API](/docs/start/authentication#bigcommerce-generated-jwts) | storefront |
+| [REST Store Management APIs](/docs/start/authentication#access-tokens) | server |
+| [REST Storefront API](/docs/start/authentication#same-origin-cors-authentication) | storefront |
+| [Customer Login API](/docs/start/authentication#user-generated-jwts) | storefront |
+| [Current Customer API](/docs/start/authentication#client-id) | storefront |
+| [Payments API](/docs/start/authentication#bigcommerce-generated-jwts) | server |
+| [Apps that host REST Provider APIs (provider apps)](/docs/start/authentication#developer-configured-authentication) | server |
+| Apps hosted in the store control panel (single-click apps) | server |
+| Single-store frontend scripts | storefront |
+| Headless storefronts with backend or request proxy | server |
+| Serverless headless storefronts | storefront, GraphQL-only |
+
+
+## Available store resources
+
+| Resource | Description |
+|:---------|:------------|
+| [Catalog](/docs/rest-catalog) | The Catalog API manages products, brands, and categories for a store. |
+| [Store Information](/docs/rest-management/store-information) | Get system timestamp and basic store information. |
+| [Currency](/docs/rest-management/currencies) | Manage currency displayed on the storefront. |
+| [Geography](/docs/rest-management/geography) | Get a list of states and countries.  |
+| [Tax Class](/docs/rest-management/tax-classes) | Manage tax classes available on a store. |
+| [Storefront Cart](/docs/rest-storefront/carts) | Create a cart or scrape cart data from the frontend. |
+| [Storefront Checkout](/docs/rest-management/checkouts) | Create a checkout or scrape checkout data from the frontend. |
+| [Store Management Cart](/docs/rest-management/carts) | Create a cart and bypass the BigCommerce frontend. |
+| [Store Management Checkout](/docs/rest-storefront/checkouts) | Create a checkout and bypass the BigCommerce frontend. |
+| [Store Management Orders](/docs/rest-management/orders) | Create and manage orders. |
+| [Store Management Order Transactions](/docs/rest-management/transactions) | View order payment information. |
+| [Storefront Orders](/docs/rest-storefront/orders) | View storefront order information. |
+| [Customers V2](/docs/rest-management/customers-v2) | Manage store customers.  |
+| [Customers V3](/docs/rest-management/customers) | Manage store customers. To learn about using Customers V3 versus V2, see the [Customers Overview](/docs/store-operations/customers/customers-subscribers-overview). |
+| [Subscribers](/docs/rest-management/subscribers) | Manage newsletter subscribers. |
+| [Price Lists](/docs/rest-management/price-lists)| Create variations of catalog pricing. |
+| [Scripts](/docs/rest-management/scripts) | Add and remove scripts from storefront pages. |
+| [Marketing](/docs/rest-content/marketing) | Create and manage coupons, banners, and gift certificates. |
+| [Payments - Create a payment access token](/docs/rest-payments/tokens) | Create an order-specific token to process a shopper's payment. |
+| [Payments - Get accepted methods](/docs/rest-payments/methods) | Get a list of accepted payment methods available on a store. |
+| [Payments - Get methods (deprecated)](/docs/rest-payments/methods-deprecated) | Get a list of payment gateways available on a store. |
+| [Payments - Process Payments](/docs/rest-payments/processing) | Process payments using a [payment access token](/docs/rest-payments/tokens) and [accepted payment method](/docs/rest-payments/methods). |
+| [Shipping](/docs/rest-management/shipping-v2) | Create and manage shipping methods and zones.
+| [Store Content](/docs/rest-content/store-content/blog-posts) | Manage a store's blog posts and blog tags. |
+| [Storefront GraphQL API](/docs/graphql-storefront) | Query storefront data headlessly or from within a Stencil theme. |
+| [Pages](/docs/rest-content/pages) | Manage a store's web pages. |
+| [Redirects](/docs/rest-management/redirects) | Manage a store's redirects. |
+| [Themes](/docs/rest-content/themes) | Manage store's themes. |
+| [Widgets](/docs/rest-content/widgets) | Programmatically inject content into a BigCommerce theme. |
+| [Wishlists](/docs/rest-management/wishlists) | Create and manage customer wishlists. |
+
+## Anatomy of REST Store Management APIs
+
+The following sections describe the configuration of well-formed requests and responses to and from BigCommerce-hosted REST APIs.
+
+### Media types
+
+A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. Encode requests using the UTF-8 character set; other character sets can have unpredictable results.
+
+### Requests
+
+For more information about required request headers, consult the [API reference](/docs/api) for the endpoint or graph you want to use.
+
+#### Standard request headers
+
+| Header | Expected value or type | Description | Example |
+|:-------|:---------------|:------------|:--------|
+| `Accept` | MIME types | The MIME type format that indicates which response type the request expects. For more information, see [HTTP Docs: Accept Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). | `application/json` |
+| `Content-Type` | MIME types | The MIME type of the request body. The API uses this value to validate and parse the request. For more information, see [HTTP Docs: Content-Type Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type). | `application/json` |
+| `User-Agent` | String | We ask that you specify a user agent to identify your integration or client. | `PostmanRuntime/7.32.3` |
+| `Authorization` | String | Requests to the [Process payments](/docs/rest-payments/processing) endpoint and the [GraphQL Storefront API](/docs/graphql-storefront) use the `Authorization` header to authenticate. For more information, see [HTTP Docs: Authorization Header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization). | `Bearer {{storefront_token}}` or `PAT {{payment_access_token}}` |
+
+#### BigCommerce-specific request headers
+
+| Header | Expected value or type | Description |
+|:-------|:-----------------------|:------------|
+| `X-Auth-Token` | API account access token | Requests to the REST Management, Catalog, GraphQL Admin, and GraphQL Account APIs use this header to authenticate. Some Payment endpoints also use this header. |
+| `X-Auth-Client` | API account client ID | No longer required for any requests to BigCommerce. |
+| `X-Correlation-Id` | UUID in an 8-4-4-4-12 format | An identifier unique to a set of related requests. For use on headless storefronts, excluding BigCommerce for WordPress. For more information, see [Best Practices](/docs/start/best-practices#correlating-requests) or the [Headless Guide](/docs/storefront/headless#correlating-requests).  |
+
+#### Request content type
+
+When performing a request that contains a body, specify the type of content you are sending with the `Content-Type` header. This typically applies to `PUT` and `POST` requests.
+
+#### Request structure
+
+The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
+
+```json filename="Example request body: Product object" showLineNumbers copy
+{
+ "id": 5,
+ "name": "iPod",
+ "description": "A portable MP3 music player."
+}
+```
+
+### Responses
+
+#### Response headers
+
+HTTP response header names are case-insensitive; see the [HTTP specification on field names](https://www.rfc-editor.org/rfc/rfc9110.html#name-field-names) for more information. For example, your application may receive `x-rate-limit-requests-left` rather than `X-Rate-Limit-Requests-Left`, so plan your implementation accordingly. Most open source HTTP clients treat headers with the appropriate case insensitivity.
+
+#### Standard response headers
+
+| Header | Possible Values | Description | Example |
+|:-------|:----------------|:------------|:--------|
+| `Date` | An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date. | The date the response was sent. | `Tue, 15 Nov 2011 12:45:26 GMT` |
+| `last-modified` | An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date. | The date the resource was last modified. Please refer to the individual resource pages for support for this header. | `Tue, 15 Nov 2011 12:45:26 GMT` |
+| `Content-Type` | `application/json` | The MIME type of the response, dependent on the extension of the endpoint that was requested. | `application/json` |
+| `Content-Location` | A URI | Sent if the request was redirected. | `/api/v2/orders/5.json` |
+| `Location` | A URI | The URI of a newly created resource. Sent with a `201 Created` response. | `/api/v2/products/7` |
+| `Content-Encoding` | `gzip` | Allows API clients to request content to be compressed before being sent back in the response to an API request. | `gzip` |
+| `Transfer-Encoding` | `chunked` | Specifies the form of encoding used to transfer the resource. | `chunked` |
+
+{/* | `Strict-Transport-Security` |  |  |  | */}
+
+#### BigCommerce-specific response headers
+
+| Header | Possible Values | Description | Example |
+|:-------|:----------------|:------------|:--------|
+| `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window, in milliseconds. | `30000` |
+| `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 15000 milliseconds – so, 15000 milliseconds after this request, the API quota will be refreshed. |`15000 `|
+| `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `150` |
+| `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 35 more requests in the next 15000 milliseconds; on the 36th request within 15000 milliseconds, you would be rate-limited and receive an HTTP 429 response. | `35` |
+| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/docs/start/best-practices#api-rate-limits) for more information. | `15` |
+| `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). | `987` |
+| `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |
+
+{/* | `X-Request-ID` |  |  |  | */}
+
+#### Response content type
+
+When requesting a resource that returns a body, specify the type of content you want to receive with the `Accept` header. Alternatively, you can supply an extension to the resource you're requesting.
+
+The priorities with which you can process these methods are:
+* Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
+* Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
+
+#### Response structure
+
+Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
+
+```http filename="Example request: Get a category"
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
+```
+
+```json filename="Example response: Get a category" showLineNumbers copy
+{
+  "data": {
+    "id": 39,
+    "parent_id": 19,
+    "name": "Bath",
+    "description": "",
+    "views": 0,
+    "sort_order": 0,
+    "page_title": "",
+    "meta_keywords": [
+      ""
+    ],
+    "meta_description": "",
+    "layout_file": "category.html",
+    "image_url": "",
+    "is_visible": true,
+    "search_keywords": "",
+    "default_product_sort": "use_store_settings",
+    "custom_url": {
+      "url": "/garden/bath/",
+      "is_customized": false
+    }
+  },
+  "meta": {}
+}
+```
+
+## Support
+
+### Developer community
+
+The [developer community](/community) is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
+
+### BigCommerce at Stack Overflow
+
+Are you a more experienced developer or have a programming language-specific question? [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform.
+
+## Resources
+
+* [Developer Community](/community)
+* [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
+* [BigCommerce on Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce)

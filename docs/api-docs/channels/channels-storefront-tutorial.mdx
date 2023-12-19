@@ -1,0 +1,212 @@
+---
+title: Building Storefront Channels
+keywords: storefront, channels, currency, currencies, headless,  
+---
+
+# Building Storefront Channels
+
+This article documents how to use [Channels Toolkit](/docs/integrations/channels/toolkit-reference) to install a storefront channel in a store's [Channel Manager (Help Center)](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app](/docs/integrations/apps/guide/types) installation. This article assumes you're an experienced app and headless storefront developer familiar with channels on BigCommerce.
+
+### Prerequisites
+
+
+- [Familiarity with channels on BigCommerce](/docs/integrations/channels)
+- [Experience building apps](/docs/integrations/apps)
+- [Experience building headless storefronts](/docs/storefront/headless)
+
+## Creating a channel
+
+After receiving the final response of the [single-click app OAuth flow](/docs/integrations/apps/guide/auth#receiving-the-post-response) `auth` callback, create a channel on the merchant's store. Creating a dedicated channel for a storefront allows merchants to assign the storefront selected product listings and configure storefront-specific settings. To create a storefront channel, set `type` to `storefront` in a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
+
+```http filename="Example request: Create a channel" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Custom PWA Storefront",
+  "type": "storefront",
+  "platform": "custom",
+  "external_id": "",
+  "status": "connected",
+  "is_listable_from_ui": true,
+  "is_visible": true,
+  "config_meta": {
+    "app": {
+      "id": 112233
+    }
+  }
+}
+```
+
+## Specifying the platform
+
+Specify the headless storefront's platform by assigning an [accepted value](#accepted-values) for `platform` in the request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint.
+
+```http filename="Example request: Create a channel" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Deity PWA Storefront",
+  "type": "storefront",
+  "platform": "deity",
+  ...
+}
+```
+
+### Accepted values
+
+See the list of [Channels Platform types](/docs/rest-management/channels#platform) in the Channels API reference. You can use any platform with `storefront` as an accepted type.
+
+## Configuring UI sections
+
+Define and configure the navigation menu items displayed in the channel's dedicated control panel menu using the [Create a channel menu](/docs/rest-management/channels/channel-menus#create-channel-menus) endpoint.
+
+```http filename="Example request: Create channel menus" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "bigcommerce_protected_app_sections": [],
+  "custom_app_sections": [
+    {
+      "title": "Overview",
+      "query_path": "overview"
+    }
+  ]
+}
+```
+
+<Callout type="info">
+  Previously, you could manage UI sections settings using the `config_meta` property on the Channels object. As of March 29, 2022, changes to UI sections for channels that already have a non-null `config_meta.app.sections` property are dual-written to the Channel Menus object.
+</Callout>
+
+## Protected UI sections
+
+BigCommerce allows the developer to toggle the location and scope of the following BigCommerce-managed settings pages between the storewide menu and channel-specific menus:
+
+| Menu item / settings page | API Argument | Description |
+|:------|:------|:------------|
+| Storefront Settings | `storefront_settings` | Renders channel-specific storefront settings. |
+| Carousel | `carousel` | Renders channel-specific carousel settings. |
+| Currencies | `currencies` | Renders channel-specific currency settings. |
+| Domains | `domains` | Renders channel-specific domain settings. |
+| Notifications | `notifications` | Renders channel-specific notification settings. |
+| Social | `social` | Renders channel-specific social media settings. |
+
+The term _protected section_ refers to the settings on the corresponding menu pages. Settings in protected sections override the default settings configured at the storewide level. Include these protected sections in requests to the [Create channel menus](/docs/rest-management/channels/channel-menus#create-channel-menus) endpoint to display BigCommerce-provided, channel-specific settings pages and corresponding menu items. Enabled protected sections precede custom sections in a channel's menu.
+
+```http filename="Example request: Create channel menus" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "bigcommerce_protected_app_sections": [
+    "storefront_settings",
+    "currencies",
+    "domains"
+  ],
+  "custom_app_sections": []
+}
+```
+
+![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
+
+## Storefront settings
+
+Include the `storefront_settings` [protected section](#protected-ui-sections) in a Channel Menu's `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Storefront Settings** menu item in the channel's navigation and corresponding settings page, and protect channel storefront settings from those set for the store in general.
+
+![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
+
+Read channel-specific storefront settings using the [Settings API](/docs/rest-management/settings). For example, you can see a storefront's category settings using the [Get storefront category settings](/docs/rest-management/settings/storefront-category#get-storefront-category-settings) endpoint.
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+  ```http filename="Example request: Get storefront category settings" showLineNumbers copy
+  GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
+  Host: api.bigcommerce.com
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+  ```
+
+  </Tab>
+  <Tab>
+
+  ```json filename="Example response: Get storefront category settings" showLineNumbers copy
+  {
+    "data": {
+      "listing_mode": null,
+      "default_product_sort": "bestselling",
+      "category_tree_depth": 0
+    },
+    "meta": {}
+  }
+  ```
+
+  </Tab>
+</Tabs>
+
+
+## Currencies settings
+
+Include the `currencies` [protected section](#protected-ui-sections) in a Channel Menu's `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Currencies** menu item in the channel's navigation and corresponding settings page, and protect channel currency settings from storewide currency settings.
+
+![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
+
+You can manage channel specific currency settings using the Channels API [Currency Assignments](/docs/rest-management/channels/channel-currency-assignments) endpoints. For example, you can use the [Get channel currency assignments](/docs/rest-management/channels/channel-currency-assignments#get-channel-currency-assignments) endpoint to learn more about a channel's currency assignments.
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+  ```http filename="Example request: Get channel currency assignments" showLineNumbers copy
+  GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
+  X-Auth-Token: {{ACCESS_TOKEN}}
+  Content-Type: application/json
+  Accept: application/json
+  ```
+
+  </Tab>
+  <Tab>
+
+  ```json filename="Example response: Get channel currency assignments" showLineNumbers copy
+  {
+    "data": {
+      "channel_id": 1,
+      "default_currency": "USD",
+      "enabled_currencies": ["USD", "CAD"]
+    },
+    "meta": {}
+  }
+  ```
+
+  </Tab>
+</Tabs>
+
+## Notification settings
+
+Include the `notifications` [protected section](#protected-ui-sections) in a Channel Menu's `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Notifications** menu item in the channel's navigation and corresponding settings page, and protect channel notifications from storewide notifications settings.
+
+![Channel Notification Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-notifications-small.png "Channel Notification Settings")
+
+## Related resources
+
+### Articles
+
+- [Building Apps](/docs/integrations/apps)
+- [Building Channels](/docs/integrations/channels)
+- [Find an App's ID](/docs/integrations/apps/guide/id)
+
+### Endpoints
+
+- [Channels API Reference](/docs/rest-management/channels)
+- [Settings API Reference](/docs/rest-management/settings)

@@ -1,0 +1,445 @@
+---
+title: "REST APIs: Cart and Checkout Overview"
+keywords: rest, carts, checkouts, draft order, cartId, incomplete, get products, get all products, headless
+---
+
+# REST APIs: Cart and Checkout Overview
+
+BigCommerce offers Storefront, REST Management, and GraphQL APIs for cart and checkout. This article discusses and gives examples of Storefront and REST Management APIs. For information on GraphQL Cart and Checkout APIs, see [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
+
+## Storefront Cart and Checkout
+
+The Storefront APIs manage the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
+
+The REST Storefront API can only be used on BigCommerce-hosted storefronts. For headless applications, use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
+
+### When to use the Storefront APIs
+* Analytics and Tracking
+* Retrieving cart data client-side
+* Quick Order Form
+* Upsell applications
+
+### Using the Fetch API
+The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is an alternative to [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) for making http requests in JavaScript. You can use the Fetch API to interact with the Storefront APIs and return a shopper's cart, checkout, or order.
+
+Most modern browsers, except Internet Explorer, support Fetch API. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
+
+
+To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/docs/storefront/cart-checkout/guide/rest-storefront) tutorial.
+
+
+You can run fetch requests from the browser console to test or use the [Scripts API](/docs/integrations/scripts) to inject JavaScript into your theme's footer.
+
+```js filename="Log cart details to the console" showLineNumbers copy
+console.log('Log Cart');
+fetch('/api/storefront/carts', {
+  credentials: 'include'
+}).then(function(response) {
+  return response.json();
+}).then(function(myJson) {
+  console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
+});
+```
+
+```js filename="Log checkout details to the console" showLineNumbers copy
+console.log('Log Checkout');
+fetch('/api/storefront/carts', {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (cartJson) {
+  console.log(cartJson);
+  return cartJson[0].id;
+}).catch(function (error) {
+  console.log(error);
+}).then(function (cartId) {
+  return fetch('/api/storefront/checkouts/' + cartId, {
+    credentials: 'include'
+  })
+}).then(function (response) {
+  return response.json();
+}).then(function (checkoutJson) {
+  console.log(checkoutJson);
+}).catch(function (error) {
+  console.log(error);
+});
+```
+<Callout type="info">
+  #### Log order details
+  To log order details to the console, use the [Scripts API](/docs/integrations/scripts) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
+</Callout>
+
+```js filename="Log order details to the console" showLineNumbers copy
+console.log('Log Order');
+fetch('/api/storefront/order/' + checkout.order.id, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
+});
+```
+
+To access `checkout.order.id` from `order-confirmation.html`, use the Stencil theme's page context to assign the value of `checkout.order.id` to a variable. The following example assigns the value returned by `{{checkout.order.id}}` to the variable `jsContextOrderId`, then fetches order details and logs them to the console.
+
+```html filename="Log order details to the console" showLineNumbers copy
+<script>
+// assign order ID to a variable
+let jsContextOrderId = {{checkout.order.id}};
+
+// use jsContextOrderId to fetch and log order details
+fetch(`/api/storefront/order/${jsContextOrderId}`, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
+});
+</script>
+```
+
+
+## REST Management Cart and Checkout
+
+The REST Management APIs manage the contents of a shopping cart and checkout remotely from a server. These backend APIs allow merchants and partners to access and modify data on a merchant store instead of a storefront. The Cart, Checkout, and Payment APIs allow for a fully headless ecommerce solution.
+
+
+### CaaS
+
+[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the REST Management APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
+
+
+## When to use
+* Modifying cart contents, such as price matching
+* Taking a shopper through the cart and checkout using an app
+* Quote Builder - Building a cart, then restoring it on the storefront
+* Native mobile apps
+* Pre-filling customer information
+
+## Persistent Cart
+
+
+[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) lets a logged-in shopper access the same cart across devices. Persistent Cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
+
+Persistent Cart works with our Storefront Cart and REST Management Cart.
+
+To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
+
+## Troubleshooting cart errors
+We will go over common Storefront Cart and Checkout as well as REST Management Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
+
+
+### Please create some text for the API option [422]
+*Server to Server Cart API*
+
+***Issue:*** When a cart contains a product with an incorrect or missing text modifier.
+
+***Resolution:***
+Options and modifiers refer to a list of choices on a product. Options used to build out variants and modifiers are not tied to variants. To learn more about options and modifiers, see [Products Overview](/docs/store-operations/catalog#products-overview_modifier-options).
+
+To update a cart line item to fix an incorrect or missing text modifier, use the [Update cart line item](https://developer.bigcommerce.com/docs/rest-management/carts/items#update-cart-line-item) endpoint. 
+
+```http filename="Example cart line item request" showLineNumbers copy
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items/{itemId}
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 1001,
+      "option_selections": [
+        {
+          "option_id": 123,
+          "option_value": "Hello!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
+
+```http filename="Single option" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 1001,
+      "variant_id": 2331
+    }
+  ]
+}
+```
+
+To add a product with both an option and a modifier associated with it, use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
+
+```http filename="Modifier and option" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 101,
+      "option_selections": [
+        {
+          "option_id": 231,
+          "option_value": 456
+        },
+        {
+          "option_id": 123,
+          "option_value": "Hello!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Missing line_items in request body [422]
+
+*Server to Server Cart API*
+
+***Issue:***
+When a required product modifier is missing, a product can have a modifier that is not required. You can add the product to the cart without the modifier in those cases.
+
+***Resolution:***
+Use the [Get Products](/docs/rest-catalog/products#get-all-products) or [Get Modifier](/docs/rest-catalog/product-modifiers#get-all-product-modifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`.
+
+To create a cart with a product modifier:
+
+```http filename="Create cart with modifier" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 1001,
+      "option_selections": [
+        {
+          "option_id": 123,
+          "option_value": "Hello!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### A shipping address for this order is incomplete [422]
+*Server to Server Cart API*
+
+***Issue:***
+This error can return when the customer ID of a cart has changed.
+
+***Resolution:***
+You can link the customer ID to discounts and pricing available to that customer. However, if coupons, discounts, taxes, or shipping changes, anything that affects the cart price is invalidated. 
+
+A better option is to create a cart with the `customer_id` as part of the request body and use the [Get Customers](/docs/rest-management/customers-v2#get-all-customers) endpoint to get the `customer_id`.
+
+To create a cart with a `customer_id`:
+
+```http filename="Create cart with customer ID" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "customer_id": 12,
+  "line_items": [
+    {
+      "quantity": 5,
+      "product_id": 191
+    }
+  ]
+}
+```
+
+### This product has options; variant ID is required [422]
+*REST Management Cart API*
+
+
+***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
+
+***Resolution:***
+To get the variant ID use the [Get Products](/docs/rest-catalog/products#get-a-product) endpoint or the [Get Variants](/docs/rest-catalog/product-variants#get-a-product-variant) endpoint.
+To create a cart with a variant ID:
+
+```http filename="Create cart with variant ID" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 1001,
+      "variant_id": 2331
+    }
+  ]
+}
+```
+
+***Issue:***
+The `option_id` is incorrect.
+
+***Resolution:***
+To get the correct `option_id`, make a request to [Get Products](/docs/rest-catalog/products) or [Get Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options).
+
+```http filename="Create cart option ID" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "line_item": {
+    "quantity": 1,
+    "product_id": 76,
+    "list_price": 170.00,
+    "option_selections": [
+      {
+        "option_id": 21506,
+        "option_value": 10090
+      }
+    ]
+  }
+}
+```
+
+*Storefront Cart API*
+
+***Issue:***
+
+* The required modifier on the storefront is missing. This missing modifier can include a text modifier with no selection. Make sure the `optionValue` is not blank.
+
+* The variantID is incorrect.
+* The modifierID is incorrect.
+
+**Resolution:**
+To add a product to the cart with a single modifier (text field), POST to the [Cart API](/docs/rest-storefront/carts#create-a-cart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
+
+```http filename="Create cart optionId and optionValue" showLineNumbers copy
+{
+  "lineItems": [
+    {
+      "quantity": 1,
+      "product_id": 1001,
+      "optionSelections": [
+        {
+          "optionId": 123,
+          "optionValue": "Hello!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
+
+```http filename="Create Storefront Cart variantID" showLineNumbers copy
+{
+  "lineItems": [
+    {
+      "quantity": 1,
+      "productId": 1001,
+      "variantId": 2331
+    }
+  ]
+}
+```
+
+To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
+
+```http filename="Add item with option and modifier" showLineNumbers copy
+{
+  "lineItems": [
+    {
+      "quantity": 1,
+      "product_id": 101,
+      "optionSelections": [
+        {
+          "optionId": 231,
+          "optionValue": 456
+        },
+        {
+          "optionId": 123,
+          "optionValue": "Hello!"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### You can only purchase a maximum of :qty of the :product per order [409]
+*Server to Server Cart API*
+
+***Issue:***
+When you add less than a product’s minimum required purchase or more than the maximum purchase to a cart.
+
+
+***Resolution:***
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint.
+
+
+### Internal Server Error [500]
+
+*Server to Server Cart API*
+
+***Issue:***
+Trying to edit a cart that does not exist.
+
+***Resolution:***
+Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/docs/rest-storefront/carts#get-a-cart) endpoint for the currently available session cart.
+
+
+*Storefront Cart API*
+
+***Issue:***
+When you add less than a product’s minimum required purchase or more than the maximum allowed purchase to a cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint to check for min/max purchase restrictions.
+
+***Resolution:***
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/docs/rest-catalog/products#get-a-product) endpoint.
+
+## Related resources
+
+### Articles
+* [Working with the Storefront Cart and Checkout](/docs/storefront/cart-checkout/guide/rest-storefront)
+
+### Endpoints
+* [Storefront Cart](/docs/rest-storefront/carts)
+* [Storefront Checkout](/docs/rest-management/checkouts)
+* [Rest Management Cart](/docs/rest-management/carts)
+* [Rest Management Checkout](/docs/rest-storefront/checkouts)
+
+### Webhooks
+* [Orders](/docs/integrations/webhooks/events#webhook-events_orders)
+* [SKU](/docs/integrations/webhooks/events#webhook-events_sku)
+* [Cart](/docs/integrations/webhooks/events#webhook-events_cart)

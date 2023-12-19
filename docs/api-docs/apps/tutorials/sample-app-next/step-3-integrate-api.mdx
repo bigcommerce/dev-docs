@@ -1,0 +1,864 @@
+---
+title: Integrate the BigCommerce API and Add a Database
+keywords: apps, if, next.js
+---
+
+# Step 3: Integrate the BigCommerce API and Add a Database
+
+Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
+
+Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database allows you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
+
+This step demonstrates how to integrate the sample app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
+
+## Install npm packages
+
+If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
+
+```shell copy filename="Install packages Firebase"
+npm install --save firebase jsonwebtoken swr
+```
+
+If using MySQL, install `mysql2`, `jsonwebtoken`, and `swr` npm packages.
+
+```shell copy filename="Install packages MySQL"
+npm install --save mysql2 jsonwebtoken swr
+```
+
+<Callout type="info">
+  #### Firebase version
+  These instructions have been tested using the **firebase v9** package. You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
+</Callout>
+
+## Add scripts
+
+1. Open `package.json` in your text editor.
+
+2. Update the `scripts` property to include the `db:setup` script.
+
+```json filename="Add npm scripts" showLineNumbers copy
+{
+  ...
+  "scripts": {
+    ...,
+    "db:setup": "node scripts/db.js"
+  }
+}
+```
+
+3. Save your changes.
+
+## Add TypeScript definitions
+
+1. In the root directory of your project, add a `types` folder.
+
+2. In the `types` folder, create `auth.ts`, `db.ts`, and `index.ts` files.
+
+3. Open the `auth.ts` file and export `User`, `SessionProps`, and `QueryParams` TypeScript type definitions. You can [view auth.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/types/auth.ts).
+
+```ts filename="Export types auth.ts" showLineNumbers copy
+export interface User {
+    id: number;
+    username?: string;
+    email: string;
+}
+
+export interface SessionProps {
+    access_token?: string;
+    scope?: string;
+    user: User;
+    context: string;
+    store_hash?: string;
+    timestamp?: number;
+}
+
+export interface QueryParams {
+    [key: string]: string | string[];
+}
+```
+
+4. Open the `db.ts` file. Import `SessionProps` from `./index` and export `StoreData`, `UserData`, and `Db` TypeScript type definitions. You can [view db.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/types/db.ts).
+
+```ts filename="Export types db.ts" showLineNumbers copy
+import { SessionProps } from './index';
+
+export interface StoreData {
+    accessToken?: string;
+    scope?: string;
+    storeHash: string;
+}
+
+export interface UserData {
+    email: string;
+    username?: string;
+}
+
+export interface Db {
+    setUser(session: SessionProps): Promise<void>;
+    setStore(session: SessionProps): Promise<void>;
+    getStoreToken(storeHash: string): string | null;
+    deleteStore(session: SessionProps): Promise<void>;
+}
+```
+
+5. Open the `index.ts` file and export all interfaces. You can [view index.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/types/index.ts).
+
+```ts filename="Add exports index.ts" showLineNumbers copy
+export * from './auth';
+export * from './db';
+```
+
+
+<Callout type="info">
+  #### Ngrok expiration and callbacks
+  If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `{ngrok_url}` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+</Callout>
+
+
+## Initialize React Context
+
+React's Context API is a state management tool that streamlines the process of passing data to multiple components at different nesting levels. It lets you pass data through the component tree without having to pass props through multiple levels of React components. To learn more about Context, see React's [Context guide](https://reactjs.org/docs/context.html).
+
+1. In the root of your app, create a `context` folder.
+
+2. In the `context` folder, create a `session.tsx` file.
+
+3. Add the logic to create a context. You can [view session.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/context/session.tsx).
+
+```tsx filename="Add context logic session.tsx" showLineNumbers copy
+import { useRouter } from 'next/router';
+import { createContext, useContext, useEffect, useState } from 'react';
+
+const SessionContext = createContext({ context: '' });
+
+const SessionProvider = ({ children }) => {
+  const { query } = useRouter();
+  const [context, setContext] = useState('');
+
+  useEffect(() => {
+    if (query.context) {
+      setContext(query.context.toString());
+    }
+  }, [query.context]);
+
+  return (
+    <SessionContext.Provider value={{ context }}>
+        {children}
+    </SessionContext.Provider>
+  );
+};
+
+export const useSession = () => useContext(SessionContext);
+
+export default SessionProvider;
+```
+
+## Update environment variables
+
+You use a JSON Web Token (**JWT**) to securely transmit information encoded as a JSON object between parties. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
+
+1. Open the `.env` file.
+
+2. Enter a JWT secret. Your JWT key should be at least 32 random characters (256 bits) for HS256.
+
+```shell copy filename="Add JWT secret"
+JWT_KEY={SECRET}
+```
+
+<Callout type="info">
+  #### JWT key length
+  The JWT key should be at least 32 random characters (256 bits) for HS256.
+</Callout>
+
+## Update the auth lib page
+
+1. In the `lib` folder, open the `auth.ts` file.
+
+2. At the top of the file, add the following imports:
+
+```ts filename="Add imports auth.ts" showLineNumbers copy
+import * as jwt from 'jsonwebtoken';
+import * as BigCommerce from 'node-bigcommerce';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { QueryParams, SessionProps } from '../types';
+import db from './db';
+```
+
+3. Below the import statements, add the following line of code to destructure environment variables from `.env`:
+
+```ts filename="Add imports auth.ts" showLineNumbers copy
+const { AUTH_CALLBACK, CLIENT_ID, CLIENT_SECRET, JWT_KEY } = process.env;
+```
+
+4. Remove the `process.env` global variable from the BigCommerce instances. 
+
+```ts filename="Export client config auth.ts" showLineNumbers copy
+const bigcommerce = new BigCommerce({
+    logLevel: 'info',
+    clientId: CLIENT_ID,
+    secret: CLIENT_SECRET,
+    callback: AUTH_CALLBACK,
+    responseType: 'json',
+    headers: { 'Accept-Encoding': '*' },
+    apiVersion: 'v3'
+});
+
+const bigcommerceSigned = new BigCommerce({
+    secret: CLIENT_SECRET,
+    responseType: 'json'
+});
+```
+
+5. Remove the `QueryParams` interface.
+
+```ts filename="Remove QueryParams auth.ts" showLineNumbers copy
+//Delete this code
+interface QueryParams {
+   [key: string]: string;
+}
+```
+
+6. Below the `bigcommerceSigned` variable, export the `bigcommerceClient` function.
+
+```ts filename="Export client config auth.ts" showLineNumbers copy
+export function bigcommerceClient(accessToken: string, storeHash: string) {
+    return new BigCommerce({
+        clientId: CLIENT_ID,
+        accessToken,
+        storeHash,
+        responseType: 'json',
+        apiVersion: 'v3'
+    });
+}
+```
+
+7. Export `getBCAuth` and `getBCVerify` functions.
+
+```ts filename="Export JWT handling auth.ts" showLineNumbers copy
+export function getBCAuth(query: QueryParams) {
+    return bigcommerce.authorize(query);
+}
+
+export function getBCVerify({ signed_payload_jwt }: QueryParams) {
+    return bigcommerceSigned.verifyJWT(signed_payload_jwt);
+}
+``` 
+
+8. Add the `setSession`, `getSession`, and `removeDataStore` functions.
+
+```ts filename="Export sessions auth.ts" showLineNumbers copy
+export async function setSession(session: SessionProps) {
+    db.setUser(session);
+    db.setStore(session);
+}
+
+export async function getSession({ query: { context = '' } }: NextApiRequest) {
+    if (typeof context !== 'string') return;
+    const decodedContext = decodePayload(context)?.context;
+    const accessToken = await db.getStoreToken(decodedContext);
+
+    return { accessToken, storeHash: decodedContext };
+}
+
+export async function removeDataStore(res: NextApiResponse, session: SessionProps) {
+    await db.deleteStore(session);
+}
+```
+
+9. Add the `encodePayload` and `decodePayload` functions. You can [view auth.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/auth.ts)
+
+```ts filename="Export payload functions auth.ts" showLineNumbers copy
+export function encodePayload({ ...session }: SessionProps) {
+    const contextString = session?.context ?? session?.sub;
+    const context = contextString.split('/')[1] || '';
+
+    return jwt.sign({ context }, JWT_KEY, { expiresIn: '24h' });
+}
+
+export function decodePayload(encodedContext: string) {
+    return jwt.verify(encodedContext, JWT_KEY);
+}
+```
+
+
+
+## Add a database
+
+In this section of the tutorial, we provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
+
+For Firebase configuration instructions, see [Set up Firebase database](#set-up-firebase-database).
+
+For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-database).
+
+## Set up Firebase database
+
+[Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) is a cloud-hosted NoSQL Firebase database built on Google's infrastructure. To learn more about Firebase, including how-to guides and code samples, see [Firebase Documentation](https://firebase.google.com/docs). For a quickstart on how to set up your Cloud Firestore, see [Get started](https://firebase.google.com/docs/firestore/quickstart).
+
+### Create a Firebase project
+
+1. Sign in to [Cloud Firestore](https://firebase.google.com/products/firestore) using your Google account. To create a Google account, visit the [Google signup page](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+
+2. Once logged in, click **Go to console** in the top right corner.
+
+3. In the Firebase console, click **Add project**.
+
+4. Enter your project name and click **Continue**.
+
+5. Click **Create project**.
+
+### Create a Firebase config
+
+1. In your Firebase project console, click on the **settings icon** that resembles a gear in the top left corner.
+
+2. Select **Project settings** from the dropdown menu.
+
+3. Under the **General** tab, scroll down to **Your apps** and click on the **code icon** (`</>`) to select the web platform.
+
+4. Type in the name of your app and click **Register app**.
+
+5. Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will need that information to update the app's environment variables.
+
+### Create a Cloud Firestore database
+
+1. In your Firebase console, click **Firestore Database** under **Build** in the left pane. Follow the steps to create a Cloud Firestore database.
+
+2. Click **Create database**.
+
+3. Choose **Start in test mode**.
+
+4. Select your Cloud Firestore location and click **Enable**.
+
+### Update environment variables
+
+1. In the `.env` file, specify the database type.
+
+```shell copy filename="Add environment variables Firebase"
+DB_TYPE=firebase
+```
+
+2. Enter your Firebase database config keys.
+
+```shell copy filename="Add environment variables Firebase" showLineNumbers copy
+FIRE_API_KEY={firebaseConfig.apiKey}
+FIRE_DOMAIN={firebaseConfig.authDomain}
+FIRE_PROJECT_ID={firebaseConfig.projectId}
+```
+
+<Callout type="info">
+  #### Restart after adding environment variables
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
+</Callout>
+
+### Configure the Firebase database
+
+1. In the `lib` folder, create a `dbs` folder. 
+
+2. In the `dbs` folder, create a `firebase.ts` file.
+
+3. At the top of the file, import the Firebase packages and TypeScript definitions. You can [view firebase.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/firebase.ts).
+
+```ts filename="Add imports firebase.ts" showLineNumbers copy
+import { initializeApp } from 'firebase/app';
+import { deleteDoc, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { SessionProps, UserData } from '../../types';
+```
+
+4. Add the Firebase config and initialization logic. You can [view firebase.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/firebase.ts)
+
+```ts filename="Add config firebase.ts" showLineNumbers copy
+// Firebase config and initialization
+// Prod applications might use config file
+const { FIRE_API_KEY, FIRE_DOMAIN, FIRE_PROJECT_ID } = process.env;
+
+const firebaseConfig = {
+  apiKey: FIRE_API_KEY,
+  authDomain: FIRE_DOMAIN,
+  projectId: FIRE_PROJECT_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Firestore data management functions
+export async function setUser({ user }: SessionProps) {
+  if (!user) return null;
+
+  const { email, id, username } = user;
+  const ref = doc(db, 'users', String(id));
+  const data: UserData = { email };
+
+  if (username) {
+    data.username = username;
+  }
+
+  await setDoc(ref, data, { merge: true });
+}
+
+export async function setStore(session: SessionProps) {
+  const {
+    access_token: accessToken,
+    context,
+    scope,
+    user: { id },
+  } = session;
+  // Only set on app install or update
+  if (!accessToken || !scope) return null;
+
+  const storeHash = context?.split('/')[1] || '';
+  const ref = doc(db, 'store', storeHash);
+  const data = { accessToken, adminId: id, scope };
+
+  await setDoc(ref, data);
+}
+
+export async function getStoreToken(storeHash: string) {
+    if (!storeHash) return null;
+    const storeDoc = await getDoc(doc(db, 'store', storeHash));
+
+    return storeDoc.data()?.accessToken ?? null;
+}
+
+export async function deleteStore({ store_hash: storeHash }: SessionProps) {
+    const ref = doc(db, 'store', storeHash);
+
+    await deleteDoc(ref);
+}
+```
+
+5. Running `firebase.initializeApp()` will initialize the app. For initialized apps, call `firebase.app()` to retrieve the Firebase app instance.
+
+## Set up MySQL database
+
+[MySQL](https://www.mysql.com/) is a relational database management system. For instructions on how to set up and use MySQL, see [Getting Started with MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/). Once you complete the database setup, make a note of the MySQL `host`, `domain`, `username`, `password`, and `port` variables. You will need them to update the app's environment variables in the next step.
+
+### Update environment variables
+
+1. In the `.env` file, specify the database type.
+
+```shell copy filename=".env"
+DB_TYPE=mysql
+```
+
+2. Enter your MySQL database config keys.
+
+```shell copy filename="Add .env MySQL"
+MYSQL_HOST={mysql host}
+MYSQL_DATABASE={mysql domain}
+MYSQL_USERNAME={mysql username}
+MYSQL_PASSWORD={mysql password}
+MYSQL_PORT={mysql port}
+```
+
+<Callout type="info">
+  #### Restart dev server when .env changes
+  In the development mode, every time you modify your environment variables, make sure to restart the development server to capture the changes, using `npm run dev{:shell}`.
+</Callout>
+
+### Configure MySQL
+
+1. In the `dbs` folder, create a `mysql.ts` file.
+
+2. At the top of the file, add the following imports:
+
+```ts filename="Add imports mysql.ts" showLineNumbers copy
+import * as mysql from 'mysql2';
+import { promisify } from 'util';
+import { SessionProps, StoreData } from '../../types';
+```
+
+3. Add the MySQL config and initialization logic. You can [view mysql.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/mysql.ts).
+
+```ts filename="Add config mysql.ts" showLineNumbers copy
+const MYSQL_CONFIG = {
+    host: process.env.MYSQL_HOST,
+    database: process.env.MYSQL_DATABASE,
+    user: process.env.MYSQL_USERNAME,
+    password: process.env.MYSQL_PASSWORD,
+    ...(process.env.MYSQL_PORT && { port: process.env.MYSQL_PORT }),
+};
+
+// For use with Heroku ClearDB
+// Other mysql: https://www.npmjs.com/package/mysql#pooling-connections
+const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL ? process.env.CLEARDB_DATABASE_URL : MYSQL_CONFIG);
+const query = promisify(pool.query.bind(pool));
+
+export async function setUser({ user }: SessionProps) {
+    if (!user) return null;
+
+    const { email, id, username } = user;
+    const userData = { email, userId: id, username };
+
+    await query('REPLACE INTO users SET ?', userData);
+}
+
+export async function setStore(session: SessionProps) {
+    const { access_token: accessToken, context, scope } = session;
+    // Only set on app install or update
+    if (!accessToken || !scope) return null;
+
+    const storeHash = context?.split('/')[1] || '';
+
+    const storeData: StoreData = { accessToken, scope, storeHash };
+    await query('REPLACE INTO stores SET ?', storeData);
+}
+
+export async function getStoreToken(storeHash: string) {
+    if (!storeHash) return null;
+
+    const results = await query('SELECT accessToken from stores limit 1');
+
+    return results.length ? results[0].accessToken : null;
+}
+
+export async function deleteStore({ store_hash: storeHash }: SessionProps) {
+    await query('DELETE FROM stores WHERE storeHash = ?', storeHash);
+}
+```
+
+## Set up a db lib page
+
+1. In the `lib` folder, create a `db.ts` file.
+
+2. Open the `db.ts` file and add the following imports at the top of the file.
+
+```ts filename="Add imports db.ts"
+import * as firebaseDB from './dbs/firebase';
+import * as sqlDB from './dbs/mysql';
+import { Db } from '../types';
+```
+
+3. Add the switch expression to determine which database code to execute. You can [view db.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/db.ts).
+
+```ts filename="Add config db.ts" showLineNumbers copy
+const { DB_TYPE } = process.env;
+
+let db: Db;
+
+switch (DB_TYPE) {
+    case 'firebase':
+        db = firebaseDB;
+        break;
+    case 'mysql':
+        db = sqlDB;
+        break;
+    default:
+        db = firebaseDB;
+        break;
+}
+
+export default db;
+```
+
+## Run the initial database migration
+
+If you're using MySQL, set up the initial tables by navigating to the root directory of your project and running the following script:
+
+```shell filename="Initial database migration" copy
+npm run db:setup
+```
+
+## Upgrade the endpoints
+
+### Auth endpoint
+
+1. Open the `auth.ts` file nested inside the `pages/api` folder.
+
+   1. Import `encodePayload`, `getBCVerify`, and `setSession` from `/lib/auth`. Your imports should now look like this:
+
+```ts filename="auth.ts" showLineNumbers copy
+import { NextApiRequest, NextApiResponse } from 'next';
+import { encodePayload, getBCAuth, setSession } from '../../lib/auth';
+```
+
+3. Update the logic to authenticate the app on install. You can [view auth.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/auth.ts).
+
+```ts filename="Add config auth.ts" showLineNumbers copy
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+    try {
+        // Authenticate the app on install
+        const session = await getBCAuth(req.query);
+        const encodedContext = encodePayload(session); // Signed JWT to validate/ prevent tampering
+
+        await setSession(session);
+        res.redirect(302, `/?context=${encodedContext}`);
+    } catch (error) {
+        const { message, response } = error;
+        res.status(response?.status || 500).json({ message });
+    }
+}
+```
+
+### Load endpoint
+
+1. Open the `load.ts` file nested inside the `pages/api` folder.
+
+2. Import `encodePayload`, `getBCVerify`, and `setSession` from `/lib/auth`. Your imports should now look like this:
+
+```ts filename="Add imports load.ts" showLineNumbers copy
+import { NextApiRequest, NextApiResponse } from 'next';
+import { encodePayload, getBCVerify, setSession } from '../../lib/auth';
+```
+
+3. Update the logic to authenticate the app on load. You can [view load.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/load.ts).
+
+```ts filename="Add config load.ts" showLineNumbers copy
+export default async function load(req: NextApiRequest, res: NextApiResponse) {
+    try {
+        // Verify when app loaded (launch)
+        const session = await getBCVerify(req.query);
+        const encodedContext = encodePayload(session); // Signed JWT to validate/ prevent tampering
+
+        await setSession(session);
+        res.redirect(302, `/?context=${encodedContext}`);
+    } catch (error) {
+        const { message, response } = error;
+        res.status(response?.status || 500).json({ message });
+    }
+}
+```
+
+### Uninstall endpoint
+
+
+1. Open the `uninstall.ts` file nested inside the `pages/api` folder.
+
+2. Import `getBCVerify` and `removeSession` from `/lib/auth`. Your imports should now look like this:
+
+```ts filename="Add imports uninstall.ts" showLineNumbers copy
+import { NextApiRequest, NextApiResponse } from 'next';
+import { getBCVerify, removeSession } from '../../lib/auth';
+```
+
+3. Update the logic to delete the session at time of uninstall. You can [view uninstall.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/uninstall.ts).
+
+```ts filename="Add config uninstall.ts" showLineNumbers copy
+export default async function uninstall(req: NextApiRequest, res: NextApiResponse) {
+    try {
+        const session = await getBCVerify(req.query);
+
+        await removeSession(res, session);
+        res.status(200).end();
+    } catch (error) {
+        const { message, response } = error;
+        res.status(response?.status || 500).json(message);
+    }
+}
+```
+
+
+## Add the Products endpoint
+
+The Products endpoint retrieves your products summary from the [Catalog API](/docs/rest-catalog).
+
+1. In the `pages/api` folder, create a new folder called `products`.
+
+2. In the `products` folder, create an `index.ts` file. This will create a `/products` route.
+
+3. At the top of the file, import the following packages:
+
+```ts filename="index.ts" showLineNumbers copy
+import { NextApiRequest, NextApiResponse } from 'next';
+import { bigcommerceClient, getSession } from '../../../lib/auth';
+```
+
+4. Add the async `products` function, which awaits the data returned from `bigcommerce.get`. You can [view index.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/products/index.ts). The `products` function calls the `getSession` function to retrieve the session's access token and store hash. 
+
+```ts filename="Add products function index.ts" showLineNumbers copy
+export default async function products(req: NextApiRequest, res: NextApiResponse) {
+    try {
+        // First, retrieve the session by calling:
+        const { accessToken, storeHash } = await getSession(req);
+        // Then, connect the Node API client (to make API calls to BigCommerce)
+        const bigcommerce = bigcommerceClient(accessToken, storeHash);
+        // For this example, we'll be connecting to the Catalog API
+        const { data } = await bigcommerce.get('/catalog/summary');
+        res.status(200).json(data);
+        // Finally, handle errors
+    } catch (error) {
+        const { message, response } = error;
+        res.status(response?.status || 500).json({ message });
+    }
+}
+```
+
+## Create a custom hook
+
+To consume the Products endpoint, create a custom React hook using [SWR](https://swr.vercel.app/). 
+
+1.  In the `lib` folder, create a `hooks.ts` file.
+
+2. At the top of the file, import the `useSWR` React hook from SWR and `useSession` from Context.
+
+```ts filename="Add imports hooks.ts" showLineNumbers copy
+import useSWR from 'swr';
+import { useSession } from '../context/session';
+```
+
+3. Declare the `fetcher` function.
+
+```ts filename="Declare fetcher hooks.ts" showLineNumbers copy
+function fetcher(url: string, encodedContext: string) {
+    return fetch(`${url}?context=${encodedContext}`).then(res => res.json());
+}
+```
+
+The `fetcher` function accepts the API URL and returns data asynchronously.
+
+4. Export the `useProducts` function. You can [view hooks.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/hooks.ts).
+
+```ts filename="Export useProducts hooks.ts" showLineNumbers copy
+// Reusable SWR hooks
+// https://swr.vercel.app/
+export function useProducts() {
+    const encodedContext = useSession()?.context;
+    // Request is deduped and cached; Can be shared across components
+    const { data, error } = useSWR(encodedContext ? ['/api/products', encodedContext] : null, fetcher);
+
+    return {
+        summary: data,
+        isError: error,
+    };
+}
+```
+
+`useSWR` accepts two arguments: the API URL and the `fetcher` function. The `fetcher` function takes the `/api/products` URL passed in from the `useProduct` function. The `useProducts` function destructures the data returned by the `useSWR` hook. 
+
+## Create a header component
+
+1. In the app's root directory, create a `components` folder.
+
+2. In the `component`s folder, create a `header.tsx` file.
+
+3. Import `Box` and `Link` components from BigDesign.
+
+```tsx filename="Add imports header.tsx" showLineNumbers copy
+import { Box, Link } from '@bigcommerce/big-design';
+```
+
+4. Define the `Header` functional component. You can [view header.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/components/header.tsx).
+
+```tsx filename="Functional component header.tsx" showLineNumbers copy
+const Header = () => (
+    <Box marginBottom="xxLarge">
+        <Link href="#">Home</Link>
+    </Box>
+);
+
+export default Header;
+```
+
+## Update the homepage
+
+1. In the `pages` folder, open the `index.tsx` file.
+
+2. At the top of the file, replace the existing import with the following:
+
+```tsx filename="Add imports index.tsx" showLineNumbers copy
+import { Box, Flex, Panel, Text } from '@bigcommerce/big-design';
+import { useProducts } from '../lib/hooks';
+```
+
+3. Update the `Index` functional component. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/index.tsx).
+
+```tsx filename="Functional component index.tsx" showLineNumbers copy
+const Index = () => {
+    const { summary } = useProducts();
+
+    return (
+        <Panel header="Homepage">
+            {summary &&
+                <Flex>
+                    <Box marginRight="xLarge">
+                        <Text>Inventory Count</Text>
+                        <Text>{summary.inventory_count}</Text>
+                    </Box>
+                    <Box marginRight="xLarge">
+                        <Text>Variant Count</Text>
+                        <Text>{summary.variant_count}</Text>
+                    </Box>
+                    <Box>
+                        <Text>Primary Category</Text>
+                        <Text>{summary.primary_category_name}</Text>
+                    </Box>
+                </Flex>
+            }
+        </Panel>
+    );
+};
+
+export default Index;
+```
+
+
+`summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
+
+For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/docs/rest-catalog/products/summary#get-a-catalog-summary). 
+
+## Update the user interface
+
+1. In the root of the pages folder, open the `_app.tsx` file.
+
+2. Import the `Box` and `Header` components.
+
+```tsx filename="_app.tsx" showLineNumbers copy
+import { Box, GlobalStyles } from '@bigcommerce/big-design';
+import Header from '../components/header';
+```
+
+3. Import `SessionProvider` from Context.
+
+```tsx filename="_app.tsx" showLineNumbers copy
+import SessionProvider from '../context/session';
+```
+
+Your updated import statements should resemble the following:
+
+```tsx filename="_app.tsx" showLineNumbers copy
+import { Box, GlobalStyles } from '@bigcommerce/big-design';
+import type { AppProps } from 'next/app';
+import Header from '../components/header';
+import SessionProvider from '../context/session';
+```
+
+4. For Context to properly propagate, we need to wrap `<Component {...pageProps} />` with the Context `SessionProvider`. This ensures that each page has access to the React Context.
+
+```tsx filename="SessionProvider _app.tsx" showLineNumbers copy
+<SessionProvider>
+  <Component {...pageProps} />
+</SessionProvider>
+```
+
+5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it. You can [view _app.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx).
+
+```tsx filename="Add Box _app.tsx" showLineNumbers copy
+const MyApp = ({ Component, pageProps }: AppProps) => (
+    <>
+        <GlobalStyles />
+        <Box marginHorizontal="xxxLarge" marginVertical="xxLarge">
+            <Header />
+            <SessionProvider>
+                <Component {...pageProps} />
+            </SessionProvider>
+        </Box>
+    </>
+);
+
+export default MyApp;
+```
+
+
+6. In the root of the `pages` folder, open `index.tsx`.
+
+7. Import the `Header` component. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-add-database/pages/index.tsx).
+
+```tsx filename="Add imports index.tsx" showLineNumbers copy
+import Header from '../components/header';
+```
+
+## Test your app
+
+Now that you have synced up the database, your app should display information under **Inventory Count**, **Variant Count**, and **Primary Category** fields.
+
+![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
+
+[Next: Enhance the User Experience with BigDesign](/docs/integrations/apps/tutorial/nextjs-enhance)

@@ -1,0 +1,28 @@
+# Proxy REST API Endpoints
+
+BigCommerce for WordPress sets up several proxy REST endpoints that map requests to the BigCommerce API. This allows developers to build extensions using client-side requests without having to worry about cross-origin restrictions. This feature is useful for building extensions such as single-page store apps or progressive web apps, and it powers the AMP integration provided when the official AMP plugin for WordPress is active on the same site.
+
+By default, these proxy REST endpoints are available under `your-wordpress-site.com/wp-json/bc/v3/`, with request routes mapping to those documented in the BigCommerce Dev Center's API Reference. For example, `your-wordpress-site.com/wp-json/bc/v3/catalog/products` returns data from the corresponding BigCommerce API endpoint and accepts all the same parameters.
+
+Most of the WordPress proxy REST endpoints are publicly queryable, with authentication happening automatically using plugin settings. For security purposes, however, some potentially sensitive data is filtered out of the WordPress response. Those fields are noted in the table below.
+
+## Caching and Webhooks
+
+By default, GET requests under `/catalog` are cached for ten minutes in the object cache -- or via WordPress transients if object caching is not available -- and a BigCommerce webhook is used to bust cached data related to a product when it is updated in BigCommerce or its inventory data changes. This default caching implementation can be overridden using the `bigcommerce/proxy/result_pre` WordPress filter. See the plugin customization guide for details on overriding core plugin functionality.
+
+## Endpoints
+
+|URL|Description|Methods|Excluded Fields
+|:-|:-|:-|:-|
+|[Catalog products endpoints](/docs/rest-catalog/products)|Endpoints for products and product-related data such as reviews, categories, and variants|`GET`|bin_picking_number, cost_price, date_created, date_modified, inventory_tracking, layout_file, product_tax_code, search_keywords, sku_id, tax_class_id, total_sold, view_count; **If price_id_hidden is true**: map_price, price, retail_price, sale_price; **If is_condition_shown is false**: condition; **If is_preorder_only is true**: preorder_message, prorder_release_date
+|[Product variants endpoints](/docs/rest-catalog/product-variants)|Fetch variants associated with a product|`GET`|cost_price, sku_id; **If associated product's is_price_hidden is true**: calculated_price, map_price, price, retail_price, sale_price
+|[Product images endpoints](/docs/rest-catalog/products/images)|Fetch images associated with a product|`GET`|date_modified
+|[Product reviews endpoints](/docs/rest-catalog/products/reviews)|Fetch reviews associated with a product|`GET`|date_created, date_modified, date_reviewed, email, status (**note: reviews are filtered out if status is not `approved`**)
+|[Catalog categories endpoints](/docs/rest-catalog/categories)|Fetch category listings or individual categories by ID|`GET`|views
+|[Additional catalog endpoints](/docs/rest-catalog/categories/images)| See BigCommerce API docs |`GET`
+|[Channels endpoints] (/docs/rest-management/channels)|BigCommerce channels endpoints|`GET`
+|[Channel site endpoints] (/docs/rest-management/channels/channel-site)|`GET`|
+|[Create a cart endpoints](/docs/rest-storefront/carts#create-a-cart)|Creates a cart|`POST`, `PUT`
+|[Carts endpoints](/docs/rest-storefront/carts)|Fetch, update, and delete a cart by cart ID|`GET`, `POST`, `PUT`, `DELETE`|
+|[Cart items endpoints](/docs/rest-storefront/carts/cart-items)|Create, update, and delete cart items|`POST`, `PUT`, `DELETE`|
+|[Create a cart redirect URLs](/docs/rest-management/carts/redirects)|Fetch a cart's redirect URLs|`POST`, `PUT`|
