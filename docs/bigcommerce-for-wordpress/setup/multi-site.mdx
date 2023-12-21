@@ -1,0 +1,100 @@
+---
+title: Multi-site Setup
+keywords: wordpress, multi-site, currency, currencies, inventory, fulfillment, headless, storefronts, 
+---
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
+
+# Multi-site Setup
+
+When connecting more than one WordPress site to your BigCommerce store, you need to use an API account to link them. If you try to connect using the 'connect your store' flow, which uses a BigCommerce app to streamline the connection, your first WordPress site will lose its connection to BigCommerce.
+
+### Multi-site and subdirectories
+
+Multiple sites can share the same API credentials, or you can choose to create a new set of credentials for each site.
+
+| Configuration Method | Is Supported |
+|:----------------------|:-----------:|
+| Subdirectories           | No               |
+| Subdomains               | Yes              |
+| Separate Domains         | Yes*             |
+  
+Note that embedded checkout is only supported on a single domain at a time. See the [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
+
+### Getting your API credentials
+
+1. To get your store’s API credentials, sign in to your active MSF-enabled BigCommerce store and head to **Settings > API > API accounts**.
+
+![Click 'Create API Account' to get credentials](https://storage.googleapis.com/bigcommerce-production-dev-center/images/store_api_accounts.png "Click 'Create API Account' to get credentials")
+
+2. Click the blue `Create API Account` button on the top left-hand side. This opens up a screen that will ask you to enter a name and select scopes for the API account.
+
+![Fill in the Name and OAuth Scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/WP-create-store_api_accounts.png "Fill in the Name and OAuth Scopes")
+
+<Callout type="info">
+  #### API account name field
+  We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than three characters.
+</Callout>
+
+3. Depending on the product import options you select, the OAuth settings must match up accordingly to prevent importing errors. For more information on product import options, check out our [Product Import](/docs/storefront/wordpress/platform-integration/product-import) page.
+
+    Set the OAuth scope settings to the following defaults according to your import options.
+
+| OAuth Scope       | Full Import           | Fast Headless     |
+|:------------------|:----------------------|:------------------|
+| Content           | None                  | None              |
+| Checkout content  | None                  | None              |
+| Customers         | Modify                | Modify            |
+| Customers login   | Login                 | Login             |
+| Information & settings | Modify           | Modify            |
+| Marketing         | Read-Only             | Read-Only         |
+| Orders            | Read-Only             | Read-Only         |
+| Order transactions| Read-Only             | Read-Only         |
+| Create payments   | None                  | None              |
+| Get payment methods | Read-Only           | Read-Only         |
+| Stored payment instruments| None          | None              |
+| Products          | Read-Only             | Read-Only         |
+| Themes            | None                  | None              |
+| Carts             | Modify                | Modify            |
+| Checkouts         | Modify                | Modify            |
+| Sites & routes    | Modify                | Modify            |
+| Channel settings  | Modify                | Modify            |
+| Channel listings  | Modify                | Modify            |
+| Storefront API tokens | None              | Manage            |
+| Storefront API customer impersonation tokens | None     | Manage |
+| Store logs        | None                  | None              |
+| Store locations   | None                  | None              |
+| Store inventory   | None                  | None              |
+| Fulfillment methods | None                | None              |
+| Order fulfillment | None                  | None              |
+
+4. After you have finished setting a name and selecting scopes, click `Save`. You will then see a modal that contains the `Client ID`, `Client Secret` and `Access Token` necessary for the remaining fields in the WordPress API Credentials settings.
+
+![API credentials](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BC-api-credentials.png "API Credentials")
+
+<Callout type="info">
+  #### .txt file download
+  You'll also see a `.txt` file download in your browser that contains the same information in an easy-to-read format, once again including your API Path in case you didn't copy it before.
+</Callout>
+
+![.txt file download](https://storage.googleapis.com/bigcommerce-production-dev-center/images/txt_file_download.png ".txt file download")
+
+## Setting up a WordPress site using API account credentials
+
+1. To set up a WordPress site using this method, click `Enter your API credentials` on the welcome screen in the plugin.
+
+![WordPress Plugin Welcome Screen](https://storage.googleapis.com/bigcommerce-production-dev-center/images/welcome_screen.png "WordPress Plugin Welcome Screen")
+
+![Next](https://storage.googleapis.com/bigcommerce-production-dev-center/images/next.png)
+
+2. Enter your API credentials on your WordPress site.
+
+Saving the API credentials on your WordPress site will direct you to name the channel that the plugin will create. This allows you to list product to the channel from within BigCommerce and link orders back to the channel that comes from the WordPress site. You can also link to an existing channel.
+
+_Congratulations, you're done setting up your additional site!_
+
+<Callout type="info">
+  #### WordPress currency processing
+  The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
+</Callout>
+
+
