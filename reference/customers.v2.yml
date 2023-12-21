@@ -325,108 +325,7 @@ paths:
         content:
           application/json:
             schema:
-              title: Customers
-              required:
-                - email
-                - first_name
-                - last_name
-              type: object
-              properties:
-                id:
-                  type: integer
-                  description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-                  example: 1
-                _authentication:
-                  type: object
-                  properties:
-                    force_reset:
-                      type: boolean
-                    password:
-                      type: string
-                    password_confirmation:
-                      type: string
-                  description: Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.
-                company:
-                  type: string
-                  description: The name of the company for which the customer works.
-                  example: BigCommerce
-                first_name:
-                  type: string
-                  description: First name of the customer.
-                  example: Jane
-                last_name:
-                  type: string
-                  description: Last name of the customer.
-                  example: Doe
-                email:
-                  type: string
-                  description: Email address of the customer.
-                  example: janedoe@example.com
-                phone:
-                  type: string
-                  description: Phone number of the customer.
-                  example: '1234567890'
-                date_created:
-                  type: string
-                  description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-                date_modified:
-                  type: string
-                  description: |
-                    Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-                store_credit:
-                  type: string
-                  description: The amount of credit the customer has. (Float, Float as String, Integer)
-                  example: '0'
-                registration_ip_address:
-                  type: string
-                  description: The customer’s IP address when they signed up.
-                  example: 12.345.678.910
-                customer_group_id:
-                  type: integer
-                  description: The group to which the customer belongs.
-                  example: 2
-                notes:
-                  type: string
-                  description: Store-owner notes on the customer.
-                tax_exempt_category:
-                  type: string
-                  description: If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
-                accepts_marketing:
-                  type: boolean
-                  description: Describes whether the customer accepts product review emails and abandon cart emails. Read-Only.
-                  readOnly: true
-                  example: true
-                addresses:
-                  title: Address Field Resource
-                  type: object
-                  properties:
-                    url:
-                      type: string
-                      description: Full URL of where the resource is located.
-                      example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
-                    resource:
-                      type: string
-                      description: Resource being accessed.
-                      example: /customers/5/addresses
-                form_fields:
-                  type: array
-                  description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-                  items:
-                    title: Form Fields
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        description: Name of the form field.
-                        example: License ID
-                      value:
-                        type: string
-                        description: Value of the form field.
-                        example: 123BAF
-                reset_pass_on_login:
-                  type: boolean
-                  description: Force a password change on next login.
-                  example: false
+              $ref: '#/components/schemas/customer_Put'
         required: false
       responses:
         '200':
@@ -707,8 +606,9 @@ paths:
               properties:
                 id:
                   type: integer
-                  description: ID of this customer address. READ-ONLY
+                  description: ID of this customer address. Read-Only.
                   example: 3
+                  readOnly: true
                 customer_id:
                   type: integer
                   description: ID of the associated customer.
@@ -750,8 +650,9 @@ paths:
                   example: United States
                 country_iso2:
                   type: string
-                  description: 2-letter ISO Alpha-2 code for the customer’s country. READ-ONLY
+                  description: 2-letter ISO Alpha-2 code for the customer’s country. Read-Only.
                   example: US
+                  readOnly: true
                 phone:
                   type: string
                   description: The customer’s phone number.
@@ -1244,15 +1145,18 @@ components:
           properties:
             id:
               type: integer
-              description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+              description: Unique numeric ID of this customer. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
               example: 1
+              readOnly: true
             date_created:
               type: string
-              description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+              description: Date on which the customer registered from the storefront or was created in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+              readOnly: true
             date_modified:
               type: string
               description: |
-                Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+                Date on which the customer updated their details in the storefront or was updated in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+              readOnly: true
         - $ref: '#/components/schemas/customer_Base'
       x-internal: false
       x-examples: {}
@@ -1299,12 +1203,14 @@ components:
           properties:
             id:
               type: integer
-              description: ID of this customer address. READ-ONLY
+              description: ID of this customer address. Read-Only.
               example: 3
+              readOnly: true
             country_iso2:
               type: string
-              description: 2-letter ISO Alpha-2 code for the customer’s country. READ-ONLY
+              description: 2-letter ISO Alpha-2 code for the customer’s country. Read-Only.
               example: US
+              readOnly: true
         - $ref: '#/components/schemas/customerAddress_Base'
       x-internal: false
     customerGroup_Full:
@@ -1574,8 +1480,9 @@ components:
               example: /customers/5/addresses
         form_fields:
           type: array
-          description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          description: Array of custom fields. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
           nullable: true
+          readOnly: true
           items:
             title: Form Fields
             type: object
@@ -1596,6 +1503,109 @@ components:
         - first_name
         - last_name
         - email
+    customer_Put:
+      title: customer_Put
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique numeric ID of this customer. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+          example: 1
+          readOnly: true
+        _authentication:
+          type: object
+          properties:
+            force_reset:
+              type: boolean
+            password:
+              type: string
+            password_confirmation:
+              type: string
+          description: Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.
+        company:
+          type: string
+          description: The name of the company for which the customer works.
+          example: BigCommerce
+        first_name:
+          type: string
+          description: First name of the customer.
+          example: Jane
+        last_name:
+          type: string
+          description: Last name of the customer.
+          example: Doe
+        email:
+          type: string
+          description: Email address of the customer.
+          example: janedoe@example.com
+        phone:
+          type: string
+          description: Phone number of the customer.
+          example: '1234567890'
+        date_created:
+          type: string
+          description: Date on which the customer registered from the storefront or was created in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
+        date_modified:
+          type: string
+          description: |-
+            Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
+        store_credit:
+          type: string
+          description: The amount of credit the customer has. (Float, Float as String, Integer)
+          example: '0'
+        registration_ip_address:
+          type: string
+          description: The customer’s IP address when they signed up.
+          example: 12.345.678.910
+        customer_group_id:
+          type: integer
+          description: The group to which the customer belongs.
+          example: 2
+        notes:
+          type: string
+          description: Store-owner notes on the customer.
+        tax_exempt_category:
+          type: string
+          description: If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
+        accepts_marketing:
+          type: boolean
+          description: Describes whether the customer accepts product review emails and abandon cart emails. Read-Only.
+          readOnly: true
+          example: true
+        addresses:
+          title: Address Field Resource
+          type: object
+          properties:
+            url:
+              type: string
+              description: Full URL of where the resource is located.
+              example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
+            resource:
+              type: string
+              description: Resource being accessed.
+              example: /customers/5/addresses
+        form_fields:
+          type: array
+          description: Array of custom fields. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
+          items:
+            title: Form Fields
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the form field.
+                example: License ID
+              value:
+                type: string
+                description: Value of the form field.
+                example: 123BAF
+        reset_pass_on_login:
+          type: boolean
+          description: Force a password change on next login.
+          example: false
     ErrorRequest:
       type: object
       properties:
