@@ -349,7 +349,7 @@ The payment gateway your application uses must be able to send raw card data thr
 
 <Callout type="info">
 #### Implementation note
-Attempting to process a payment through the API using the full credit card information may fail if the card issuer requires 3DS authentication. In that case, the card must be saved through a shopper-initiated transaction before it can be charged using the Payments API. 
+3D Secure is a storefront experience that requires the shopper's (end-customer) interaction. As this API is a server-to-server API (not a storefront API), attempting to process any payment that requires 3D Secure verification will fail, as these payments inherently require shopper interaction. Whenever 3D Secure is required, you must save cards via a shopper-initiated transaction before they can be charged as a stored payment instrument using this API.
 </Callout>
 
 ### Create an access token
