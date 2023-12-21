@@ -363,7 +363,7 @@ components:
         body:
           type: string
           example: '''Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'''
-        translation:
+        translations:
           type: array
           items:
             $ref: '#/components/schemas/TranslationDefinition'
