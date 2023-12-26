@@ -7,7 +7,7 @@
 * 
 
 ## Release notes draft
-<!--Provide an entry for the release notes using simple, conversational language. Don't be too technical. Explain how the change will benefit the merchant and link to the feature.
+<!-- Provide an entry for the release notes using simple, conversational language. Don't be too technical. Explain how the change will benefit the merchant and link to the feature.
 
 Examples:
 * The newly-released [X feature] is now available to use. Now, you’ll be able to [perform Y action].
