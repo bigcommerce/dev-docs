@@ -1180,6 +1180,8 @@ components:
               $ref: '#/components/examples/error_422_channel_resp_example'
             Invalid Type and Platform Combination:
               $ref: '#/components/examples/error_422_invalid_type_platform_combination_resp_example'
+            Invalid Channel Name:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
     channel_not_found_resp:
       description: A *Channel* with the provided ID was not found.
       content:
@@ -1236,6 +1238,8 @@ components:
               $ref: '#/components/examples/error_422_prevent_update_type_and_platform_resp_example'
             Update Deleted Channel Error:
               $ref: '#/components/examples/error_422_prevent_update_deleted_channel_resp_example'
+            Update Channel Name Error:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
     missing_or_invalid_multiple_channels_currency_assignments_data_resp:
       description: The request is missing one or more required fields or invalid data is submitted.
       content:
@@ -1933,6 +1937,12 @@ components:
         title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
         type: /api-docs/getting-started/api-status-codes
         errors: {}
+    error_422_invalid_channel_name_resp_example:
+      value:
+        status: 422
+        title: Only latin alphabet letters, arabic numerals, dash and underscore are allowed to be used as channel name.
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
     error_422_multiple_channels_currency_assignments_resp_example:
       value:
         status: 422
@@ -2196,7 +2206,7 @@ components:
         example-1: active
     ChannelName:
       type: string
-      description: Name of the channel as it will appear to merchants in the control panel.
+      description: Name of the channel as it will appear in the store control panel. The only characters it can include are Latin alphabet letters, Arabic numerals, dashes, and underscores.
       x-internal: false
       x-examples:
         example-1: string
@@ -3055,5 +3065,4 @@ components:
           type: string
           description: |
             Description for the metafield.
-          example: Location in the warehouse
-
+          example: Location in the warehouse.
