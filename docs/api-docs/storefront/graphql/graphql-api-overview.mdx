@@ -697,7 +697,9 @@ BigCommerce has limits on certain portions of the platform.
 | Maximum [banners](/docs/storefront/stencil/themes/context/object-reference/schemas#banners) per query | 50  | 
 | Maximum [products](/docs/storefront/stencil/themes/context/object-reference/schemas#products) per query | 50  | 
 
-## FAQ: Querying for channels other than Stencil storefronts and querying from external systems
+## FAQ: 
+
+### Querying for channels other than Stencil storefronts and querying from external systems
 
 If you wish to use the GraphQL Storefront API from an external system, there are a few considerations.
 
@@ -707,6 +709,10 @@ If you wish to use the GraphQL Storefront API from an external system, there are
 - If you are running requests from a server, do you need the ability to support customer login?
 
 As a best practice, you should create tokens that expire and rotate them regularly before their expiry. However, you are also permitted to create long-lived tokens.
+
+### Can I hide the display of a field, such as the product's price, on the storefront by toggling the setting in the control panel?
+
+You can toggle off the `show_product_price` field in the control panel to prevent the display in GraphQL. The `prices` field returns `null` in the GraphQL response.
 
 ### I want to run requests in the context of the store's default channel (channel ID 1)
 
