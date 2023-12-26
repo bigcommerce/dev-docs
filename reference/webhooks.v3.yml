@@ -148,7 +148,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/webhook_Base'
+              $ref: '#/components/schemas/webhook_Put'
         x-examples:
           application/json:
             scope: store/cart/lineItem/*
@@ -3026,6 +3026,34 @@ components:
         errors:
           type: object
       x-internal: false
+    webhook_Put:
+      type: object
+      title: webhook_Put
+      x-internal: false
+      properties:
+        scope:
+          type: string
+          example: store/order/*
+          description: Event you subscribe to.
+        destination:
+          type: string
+          example: 'https://665b65a6.ngrok.io/webhooks'
+          description: URL must be active, return a 200 response, and be served on port 443. Custom ports arenʼt currently supported.
+        is_active:
+          type: boolean
+          example: true
+          description: Boolean value that indicates whether the webhook is active or not.
+        events_history_enabled:
+          type: boolean
+          example: true
+          description: Boolean value that identifies whether events are stored that could not be received.
+        headers:
+          type: object
+          description: Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned.
+          nullable: true
+          properties: {}
+          additionalProperties:
+            type: string
     webhook_Base:
       type: object
       title: webhook_Base
