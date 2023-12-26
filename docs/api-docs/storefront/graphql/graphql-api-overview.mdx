@@ -207,7 +207,11 @@ curl 'https://store.com/graphql' -H 'authorization: Bearer TOKEN_GOES_HERE' -H '
 
 ### Customer login
 
-If you're using the GraphQL Storefront API from a browser, for example, on top of your Stencil storefront, you can use the Customer Login mutation to sign in to a customer account with an email address and a password. This will set a session cookie in the browser, which will authenticate the customer account on future requests:
+If you're using the GraphQL Storefront API from a browser, for example, on top of your Stencil storefront, you can use the Customer Login mutation to sign in to a customer account with an email address and a password. This will set a session cookie in the browser, which will authenticate the customer account on future requests.
+
+<Callout type="info">
+Customers cannot have multiple log-ins from different devices. 
+</Callout>
 
 ```graphql filename="Example query: login mutation" showLineNumbers copy
 mutation Login($email: String!, $pass: String!) {
@@ -222,6 +226,9 @@ mutation Login($email: String!, $pass: String!) {
   }
 }
 ```
+<Callout type="info">
+NOTE: Customers are restricted from multiple logins from different devices. 
+</Callout>
 
 This mutation is also useful for server-to-server or headless storefront applications using a Customer Impersonation Token. For example, this interface can validate a customer's email address + password to power a login form. When the credentials are correct, and the mutation returns successfully, you can take the resulting customer ID and store it in a session to use in the `x-bc-customer-id` header in future requests for that shopper.
 
