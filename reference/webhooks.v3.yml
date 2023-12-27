@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Webhooks v3
   version: ''
-  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](/docs/integrations/webhooks).'
+  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see the [Webhooks Overview](/docs/integrations/webhooks).'
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     email: support@bigcommerce.com
@@ -53,7 +53,7 @@ paths:
                       destination: 'https://665b65a6.ngrok.io/webhooks'
                       is_active: true
                       headers:
-                        custom: string
+                        'custom-key': developer-defined value
                     meta:
                       pagination:
                         count: 5
@@ -148,7 +148,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/webhook_Base'
+              $ref: '#/components/schemas/webhook_Put'
         x-examples:
           application/json:
             scope: store/cart/lineItem/*
@@ -164,7 +164,7 @@ paths:
         '200':
           $ref: '#/components/responses/webhook_Resp'
       summary: Delete a Webhook
-      description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
+      description: Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.
       operationId: deleteAWebhook
       tags:
         - Manage Webhooks (Single)
@@ -175,7 +175,7 @@ paths:
     get:
       operationId: getHooksAdmin
       summary: Get Admin Info
-      description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
+      description: List all notification emails, webhooks, and denylisted domains associated with the API account.
       parameters:
         - $ref: '#/components/parameters/IsActive'
       responses:
@@ -197,7 +197,7 @@ paths:
                           format: email
                           example: 'webhooks@example.com'
                       hooks_list:
-                        description: 'List of all the webhooks associated with the provider API account, filtered by the "active" parameter.'
+                        description: 'List of all the webhooks associated with the provider API account, filtered by the `active` parameter.'
                         type: array
                         items:
                           type: object
@@ -208,7 +208,7 @@ paths:
                             client_id:
                               type: string
                               minLength: 1
-                              description: 'Client ID, unique to the store or app.'
+                              description: Client ID, unique to the store or app.
                             store_hash:
                               minLength: 1
                               type: string
@@ -221,10 +221,14 @@ paths:
                             destination:
                               type: string
                               minLength: 1
-                              description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported)'
+                              description: URL must be active, return a 200 response, and be served on port 443. Custom ports arenʼt currently supported.
                             headers:
                               type: object
                               description: You can pass in any number of custom headers to validate webhooks being returned.
+                              properties: {}
+                              nullable: true
+                              additionalProperties:
+                                type: string
                             is_active:
                               type: boolean
                               description: If the webhook is active or not. A webhook subscription becomes deactivated after 90 days of inactivity.
@@ -460,7 +464,10 @@ components:
                       minLength: 1
                     headers:
                       type: object
+                      properties: {}
                       nullable: true
+                      additionalProperties:
+                        type: string
                     is_active:
                       type: boolean
                     created_at:
@@ -474,7 +481,7 @@ components:
                     $ref: '#/components/schemas/Pagination'
           examples: {}
     502_GatewayError:
-      description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
+      description: If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.
       content:
         application/json:
           schema:
@@ -548,7 +555,7 @@ components:
                 title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     404_NotFound:
-      description: 'If the requested webhook is not found, return a 404 Not Found.'
+      description: If the requested webhook is not found, return a 404 Not Found.
       content:
         application/json:
           schema:
@@ -611,7 +618,12 @@ components:
                   destination:
                     type: string
                     minLength: 1
-                  headers: {}
+                  headers:
+                    type: object
+                    properties: {}
+                    nullable: true
+                    additionalProperties:
+                      type: string
                   is_active:
                     type: boolean
                   created_at:
@@ -636,7 +648,7 @@ components:
                   destination: 'https://665b65a6.ngrok.io/webhooks'
                   is_active: true
                   headers:
-                    custom: string
+                    'custom-key': developer-defined value
                 meta:
                   pagination:
                     count: 5
@@ -739,8 +751,8 @@ components:
       title: store/cart/updated
       description: |-
         Fires when one of the following occurs:
-        * A cart's line items are modified by adding a new item to a cart, updating an existing item's quantity, or deleting an item.
-        * A shopper enters or changes their email address during guest checkout. This includes signing in to a customer account after creating a guest cart, which associates the account's email address with the cart.
+        * A cartʼs line items are modified by adding a new item to a cart, updating an existing itemʼs quantity, or deleting an item.
+        * A shopper enters or changes their email address during guest checkout. This includes signing in to a customer account after creating a guest cart, which associates the accountʼs email address with the cart.
 
         The `store/cart/created` webhook firing also triggers this webhook because adding a product to an empty cart is considered an update. 
 
@@ -1426,7 +1438,7 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        This webhook is triggered when a customer is updated. In addition, this webhook is triggered when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customer's address will trigger the webhook.
+        This webhook is triggered when a customer is updated. In addition, this webhook is triggered when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customerʼs address will trigger the webhook.
 
 
         ```json filename="Example callback object" showLineNumbers
@@ -2134,7 +2146,7 @@ components:
         * Product URL
         * Set as a Featured Product on my Storefront
 
-        However, changes to the following fields don't trigger this event:
+        However, changes to the following fields donʼt trigger this event:
 
         * Manufacturer Part Number (MPN)
         * Global Trade Number (GTN)
@@ -2188,7 +2200,7 @@ components:
         Changes to the following fields trigger this event: 
         * Inventory Stock
 
-        However, changes to the following fields don't trigger this event:
+        However, changes to the following fields donʼt trigger this event:
         * Track Inventory
         * Inventory Low Stock
 
@@ -3014,6 +3026,34 @@ components:
         errors:
           type: object
       x-internal: false
+    webhook_Put:
+      type: object
+      title: webhook_Put
+      x-internal: false
+      properties:
+        scope:
+          type: string
+          example: store/order/*
+          description: Event you subscribe to.
+        destination:
+          type: string
+          example: 'https://665b65a6.ngrok.io/webhooks'
+          description: URL must be active, return a 200 response, and be served on port 443. Custom ports arenʼt currently supported.
+        is_active:
+          type: boolean
+          example: true
+          description: Boolean value that indicates whether the webhook is active or not.
+        events_history_enabled:
+          type: boolean
+          example: true
+          description: Boolean value that identifies whether events are stored that could not be received.
+        headers:
+          type: object
+          description: Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned.
+          nullable: true
+          properties: {}
+          additionalProperties:
+            type: string
     webhook_Base:
       type: object
       title: webhook_Base
@@ -3026,7 +3066,7 @@ components:
         destination:
           type: string
           example: 'https://665b65a6.ngrok.io/webhooks'
-          description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported).'
+          description: URL must be active, return a 200 response, and be served on port 443. Custom ports arenʼt currently supported.
         is_active:
           type: boolean
           example: true
@@ -3038,11 +3078,11 @@ components:
           deprecated: true
         headers:
           type: object
-          description: 'Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned. '
+          description: Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned.
           nullable: true
-          properties:
-            custom:
-              type: string
+          properties: {}
+          additionalProperties:
+            type: string
       required:
         - scope
         - destination
@@ -3057,7 +3097,7 @@ components:
               example: 18048287
             client_id:
               type: string
-              description: 'Client ID, unique to the store or app.'
+              description: Client ID, unique to the store or app.
               example: m9r6keqmo7h7f23btnpwernbez1kglkl
             store_hash:
               type: string
