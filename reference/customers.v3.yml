@@ -6,7 +6,7 @@ info:
     Create and manage customers.
 
     ## Resources
-    * [Customer and Subscribers Overview](/docs/store-operations/customers/customers-subscribers-overview).
+    * [Customers Overview](/docs/store-operations/customers).
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce

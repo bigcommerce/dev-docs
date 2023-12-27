@@ -2,7 +2,7 @@ openapi: '3.0.1'
 info:
   title: Customers V2
   description: |-
-    Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/docs/store-operations/customers/customers-subscribers-overview). 
+    Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see the [Customers Overview](/docs/store-operations/customers). 
     
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                                   |
