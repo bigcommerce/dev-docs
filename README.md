@@ -1,25 +1,33 @@
-**Coming Soon**
 # BigCommerce Public Developer Documentation
 
-On December 27th, 2023, the following public documentation repositories will be deprecated, and all documentation will move into this repository. These repositories will then become read-only:
+This repo is the source of truth for the public, open source BigCommerce DevDocs and API reference at [developer.bigcommerce.com](https://developer.bigcommerce.com). It consists of **Markdown React (.mdx)**, **OpenAPI Specification (.yml)**, and **JSON Schema (.json and .yml)** files.
+
+The BigCommerce DX team maintains these open source docs; we welcome your [issues](https://github.com/bigcommerce/docs/issues), [discussions](https://github.com/bigcommerce/docs/discussions), and [pull requests](https://github.com/bigcommerce/docs/pulls)!
+
+## Contributing
+
+If you're interested in contributing, see our [Contribution Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## History
+
+On December 27, 2023, the following public documentation repositories were deprecated, and all documentation moved into this repository. We retained the `git` history of each document using the `--allow-unrelated-histories` flag. The following repositories are now read-only:
 
 * `https://github.com/bigcommerce/api-specs`
 * `https://github.com/bigcommerce/dev-docs`
 * `https://github.com/bigcommerce/theme-context-object-schemas`
 
-If you maintain API clients, this repository will be your source for the most up-to-date API specifications.
+### API specifications
 
-The BigCommerce DX team is excited to create a new consolidated GitHub home for our documentation. We look forward to offering a more streamlined developer experience, starting December 27th!
+If you maintain API clients, this repository is your source for the most up-to-date public API specifications.
 
-# BigCommerce API Specifications
+Please keep your fork up to date to ensure you're working with the newest source files.
 
-This repo contains the OpenAPI Specifications (OAS) and JSON schema that form the human-readable [BigCommerce REST API Reference](https://developer.bigcommerce.com/docs/api).
+Significant dates include the following:
 
-As of August 22, 2022, all API specification files are in OAS 3+ format. We also made significant changes to this repo in March 2023. Please update your fork to ensure you're working with the newest source files.
-
-## Contributing
-
-If you're interested in contributing, see [CONTRIBUTING.md](CONTRIBUTING.md).
+* As of August 22, 2022, all API specification files are in OAS 3+ format.
+* In March 2023, we made significant changes to support a new OAS parser at [developer.bigcommerce.com](https://developer.bigcommerce.com).
+* In May 2023, we subdivided both the Catalog and Payments API specifications into multiple files.
+* On December 27, 2023, all public docs moved into the [bigcommerce/docs](https://github.com/bigcommerce/docs) repo.
 
 ## Directory structure
 
@@ -27,46 +35,12 @@ If you're interested in contributing, see [CONTRIBUTING.md](CONTRIBUTING.md).
 .
 ├── .github/                           # github config
     └── workflows/                     # workflows to lint pull requests, etc.
+    └── ...
 ├── .idea/                             # directory ignored by git - use for yourself
-├── models/                            # yml schema for various objects
-    ├── email_templates/               # email template schemas
-    ├── webhooks/                      # webhooks schemas
-    └── json2schema.py                 # script to convert json to yml
-├── reference/                         # openapi specification files
-    ├── catalog/                       # catalog OAS API reference
-    ├── payments/                      # payments OAS API reference
-    └── ...                            # other OAS API reference
-├── .eslintrc.json                     # config for MDX linter
-├── .gitignore                         # gitignore
-├── .spectral.yaml                     # config for OAS linter
-├── CONTRIBUTING                       # guidelines for contribution
-├── package-lock.json
-├── package.json
-├── pull_request_template.md           # template for most pull requests         
-└── README
-```
-
-# BigCommerce Developer Documentation
-
-This repository contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/), which includes [API Docs](https://developer.bigcommerce.com/docs), [Theme Docs](https://developer.bigcommerce.com/stencil-docs), and [BigCommerce for WordPress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/overview).
-
-
-Other repositories that contain content that appears on [developer.bigcommerce.com](https://developer.bigcommerce.com/) include [theme-context-object-schemas](https://github.com/bigcommerce/theme-context-object-schemas/) for [Theme Objects](https://developer.bigcommerce.com/theme-objects) and [api-specs](https://github.com/bigcommerce/api-specs) for [API Reference](https://developer.bigcommerce.com/docs/api).
-
-## Contributing
-
-If you're interested in contributing to BigCommerce Developer Documentation, see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Directory Structure
-
-```shell
-.
-├── .github/                           # github config
-    └── workflows/                     # workflows to lint pull requests, etc.
-├── .notes/                            # directory ignored by git - use for yourself
+├── .style/                            # CSPELL data files
 ├── assets/ 
     ├── csv/                           # static files used in docs
-  ├── images/                          # images and screenshots
+    ├── images/                        # images and screenshots
     ├── json/                          # theme translation files
     └── PO/                            
 ├── docs                               # narrative documentation
@@ -75,33 +49,27 @@ If you're interested in contributing to BigCommerce Developer Documentation, see
     ├── legacy/                        # Blueprint and V2 API docs
     ├── msf/                           # MSF docs
     ├── partner-apps/                  # docs for some partner integrations
-    └── stencil-docs/                  # theme docs
+    └── stencil-docs/   
+├── examples                           # example data for Stencil Handlebars context objects
+├── models                             # JSON schemas in YAML
+    ├── _root                          # YAML schemas for root Stencil Handlebars context objects
+    ├── ...
+├── reference/                         # OpenAPI specification files
+    ├── catalog/                       # catalog OAS API reference
+    ├── payments/                      # payments OAS API reference
+    └── ...                            # other OAS API reference
+├── theme-styles          
+    ├── _root                          # MDX files for Stencil style configuration options
+├── .cspell.json  
 ├── .eslintrc.json                     # config for MDX linter
 ├── .gitignore                         # gitignore
-├── .nojekyll                          
-├── .spelling   
-├── CONTRIBUTING                       # guidelines for contribution
+├── .nojekyll    
+├── .nvmrc                             # config for NVM
+├── .spectral.yaml                     # config for OAS linter
+├── CODE_OF_CONDUCT.md                 # Code of Conduct for participants
+├── CONTRIBUTING.md                    # guidelines for contribution
 ├── package-lock.json                  
 ├── package.json                       
 ├── pull_request_template.md           # template for most pull requests
-└── README.
-```
-
-# Theme Context Object Schemas
-
-JSON schema used to generate the human-readable BigCommerce [Theme Object Reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties).
-
-## Directory structure
-
-```shell
-.
-├── circleci             # config for circleci job that runs openapi linter
-    └── config.yml       # - docs: https://meta.stoplight.io/docs/spectral
-├── doc                  # markdown files
-├── examples             # example json
-├── models               # yaml schema for various objects
-    ├── _root            # schemas for root context objects
-├── .spectral.yaml       # config for stoplight spectral openapi linter
-└── .stoplight.json      # stoplight platform configuration file
-                         # - docs: https://meta.stoplight.io/docs/platform/
+└── README.md
 ```
