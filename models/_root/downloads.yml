@@ -1,0 +1,28 @@
+type: array
+description: |-
+  Property for digital (non-physical) products. Exposed on the default `<theme-name>/templates/pages/account/download-item.html` template.
+
+  **Handlebars Expression**: `{{downloads}}`
+items:
+  type: object
+  properties:
+    description:
+      type: string
+      example: screenshot_video
+    downloads_remaining:
+      type: number
+      example: 10
+    expired:
+      type: boolean
+    id:
+      type: string
+      example: '184'
+    name:
+      type: string
+      example: screenshot.mp3
+    size:
+      type: string
+      example: 16.53 KB
+    url:
+      type: string
+      example: '"/account.php?action=download_item&data=OTcsMTE5LDE4NCw0N2VjZTkyM2NlNDkzOTBiOGQ0MmZlZWMwYWQ1OTEzMSwxLDE0ODA5MTMwNTcwMDM1NjQ2OTQwNDc2ODIzMTA3NzU1ODg="'

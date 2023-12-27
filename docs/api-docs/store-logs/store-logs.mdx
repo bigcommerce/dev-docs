@@ -1,0 +1,400 @@
+# Store Logs API
+
+The Store Logs API allows merchants to track events in their store. Each event creates an entry in the log. To process events over time, you can configure external systems to retrieve store log entries. For example, you can see how often merchants request shipping quotes from a carrier. You can also learn more about errors that occur on a store.
+
+The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to order statuses. You can retrieve an entry for 365 days after its timestamp. 
+
+This guide demonstrates how to use the Store Logs API. For more info, see the [Store Logs API reference](/docs/rest-management/store-logs#get-system-logs). 
+
+## Get store logs
+
+Send a request to the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint. The API responds with the earliest 20 entries. The response orders the entries chronologically, from earliest to latest.
+
+### Filter by log ID
+
+To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. 
+
+The following example retrieves entries by log ID: 
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by log ID" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?id:in=5,7
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by log ID" showLineNumbers copy
+{
+  "data": [
+    {
+      "id": 5,
+      "type": "emailintegration",
+      "module": "Export Only",
+      "severity": "success",
+      "summary": "Subscriber subscriber@example.com stored for export.",
+      "message": null,
+      "date_created": "2021-12-20T23:15:24+00:00"
+    },
+    {
+      "id": 7,
+      "type": "design",
+      "module": "Theme Download",
+      "severity": "success",
+      "summary": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+      "message": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+      "date_created": "2021-12-22T15:27:09+00:00"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?id%3Ain=5%2C7&page=1&limit=50"
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Filter by date created
+
+Filter logs by using the `date_created` value in the query parameter. The date created must be in [Unix Timestamp](https://www.unixtimestamp.com/) format.
+
+The following example retrieves entries by the date created:
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by date created" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?date_created:min=1657688400&date_created:max=1658379600
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by date created" showLineNumbers copy
+{
+    "data": [
+        {
+            "id": 63,
+            "type": "payment",
+            "module": "Test Payment Gateway",
+            "severity": "success",
+            "summary": "Test payment for order #121 processed successfully",
+            "message": "",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 64,
+            "type": "notification",
+            "module": "Email Message",
+            "severity": "success",
+            "summary": "Notification sent successfully",
+            "message": "<strong>Sent email notification to:</strong><br />jane.doe@example.com",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 65,
+            "type": "notification",
+            "module": "Optimized Checkout",
+            "severity": "success",
+            "summary": "Order has been successfully finalized via Optimized checkout.",
+            "message": "Order has been successfully finalized via Optimized checkout.",
+            "date_created": "2023-01-05T22:31:54+00:00"
+        },
+        {
+            "id": 66,
+            "type": "payment",
+            "module": "Test Payment Gateway",
+            "severity": "success",
+            "summary": "Test payment for order #122 processed successfully",
+            "message": "",
+            "date_created": "2023-01-05T22:46:15+00:00"
+        },
+        {
+            "id": 68,
+            "type": "notification",
+            "module": "Optimized Checkout",
+            "severity": "success",
+            "summary": "Order has been successfully finalized via Optimized checkout.",
+            "message": "Order has been successfully finalized via Optimized checkout.",
+            "date_created": "2023-01-05T22:46:16+00:00"
+        },
+        {
+            "id": 71,
+            "type": "shipping",
+            "module": "Home Delivery (flatrate)",
+            "severity": "success",
+            "summary": "Successfully retrieved shipping quote",
+            "message": "{\"quoteId\":\"\",\"timestamp\":\"1673022877\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":2,\"name\":\"Retail\"},\"customerEmail\":\"\",\"customerId\":0,\"destination\":{\"streetAddress1\":\"123 Test Lane\",\"streetAddress2\":\"\",\"city\":\"Test\",\"postcode\":\"78040\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\",\"customAddressFields\":[]},\"items\":[{\"name\":\"Test Product (Test-001)\",\"id\":\"127\",\"quantity\":1,\"price\":15,\"discounted_price\":15,\"shipping_price\":0,\"weight\":0.5,\"width\":0,\"height\":0,\"length\":0,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":10,\"description\":\"Home Delivery\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+            "date_created": "2023-01-06T16:34:37+00:00"
+        },
+    ],
+    "meta": {
+        "pagination": {
+            "total": 6,
+            "count": 6,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?date_created%3Amin=1671244778&date_created%3Amax=1684287578&page=1&limit=50"
+            }
+        }
+    }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Filter by type 
+
+The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. For a list of log types, see the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint reference. 
+
+The following example retrieves shipping entries:
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by type" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=shipping
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by type" showLineNumbers copy
+{
+  "data": [
+    {
+      "id": 6,
+      "type": "shipping",
+      "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
+      "severity": "success",
+      "summary": "Successfully retrieved shipping quote",
+      "message": "{\"quoteId\":\"2470214433\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":4,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"customer@example.com\",\"customerId\":4,\"destination\":{\"streetAddress1\":\"123 Example Street\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":2,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+      "date_created": "2021-12-22T23:44:15+00:00"
+    },
+    {
+      "id": 92,
+      "type": "shipping",
+      "module": "USPS (endicia)",
+      "severity": "errors",
+      "summary": "Some shipping quotes were not able to be retrieved",
+      "message": "{\"errorDetail\":\"[\\\"Account ID example_id is invalid. Error encountered (Log ID: 62407)\\\"]\",\"quoteId\":\"1659036199\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":3,\"name\":\"Retail Customers\"},\"customerEmail\":\"customer2@example.com\",\"customerId\":1,\"destination\":{\"streetAddress1\":\"123 Example St\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":3,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"},{\"name\":\"example product 2 (ABC-1111)\",\"id\":\"113\",\"quantity\":2,\"weight\":2000,\"width\":2,\"height\":2,\"length\":2,\"attributes\":[],\"omittedReason\":\"\"}],\"settings\":{\"deliveryServices\":[\"PriorityExpress\",\"ParcelSelect\",\"MediaMail\"]}}",
+      "date_created": "2022-07-28T19:23:19+00:00"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?type=shipping&page=1&limit=50"
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Filter by module
+
+To see how often merchants request shipping quotes from a specific carrier, URL-encode the carrier name and pass it to the `module` query parameter. 
+
+The following example retrieves shipping entries by module:
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by module" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=USPS+%28endicia%29
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by module" showLineNumbers copy
+{
+  "data": [
+    {
+      "id": 92,
+      "type": "shipping",
+      "module": "USPS (endicia)",
+      "severity": "errors",
+      "summary": "Some shipping quotes were not able to be retrieved",
+      "message": "{\"errorDetail\":\"[\\\"Account ID example_id is invalid. Error encountered (Log ID: 62407)\\\"]\",\"quoteId\":\"1659036199\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":3,\"name\":\"Retail Customers\"},\"customerEmail\":\"customer2@example.com\",\"customerId\":1,\"destination\":{\"streetAddress1\":\"123 Example St\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":3,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"},{\"name\":\"example product 2 (ABC-1111)\",\"id\":\"113\",\"quantity\":2,\"weight\":2000,\"width\":2,\"height\":2,\"length\":2,\"attributes\":[],\"omittedReason\":\"\"}],\"settings\":{\"deliveryServices\":[\"PriorityExpress\",\"ParcelSelect\",\"MediaMail\"]}}",
+      "date_created": "2022-07-28T19:23:19+00:00"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 1,
+      "count": 1,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?module=USPS+%28endicia%29&page=1&limit=50"
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Filter by severity 
+
+Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint reference.
+
+The following example retrieves notices, which have a `severity` of `2`:
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter by severity" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?severity=2
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter by severity" showLineNumbers copy
+{
+  "data": [
+    {
+      "id": 3,
+      "type": "general",
+      "module": "",
+      "severity": "notices",
+      "summary": "Marking order 1234000002 as deleted.",
+      "message": "Marking order 1234000002 as deleted.",
+      "date_created": "2021-12-19T19:12:31+00:00"
+    },
+    {
+      "id": 4,
+      "type": "general",
+      "module": "",
+      "severity": "notices",
+      "summary": "Restoring order 1234000002",
+      "message": "Restoring order 1234000002",
+      "date_created": "2021-12-19T19:15:56+00:00"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?severity=2&page=1&limit=50"
+        }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Filter with pagination
+
+As stated at the beginning of the section, the [Get system logs](/docs/rest-management/store-logs#get-system-logs) endpoint returns the **earliest** 20 entries by default. To retrieve newer or differently grouped subsets of entries, use a combination of the `page` and `limit` query parameters. 
+
+The following example requests page two with two entries per page, which returns the third and fourth oldest entries:  
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```http filename="Example request: Filter with pagination" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=2
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example response: Filter with pagination" showLineNumbers copy
+{
+  "data": [
+    {
+      "id": 3,
+      "type": "general",
+      "module": "",
+      "severity": "notices",
+      "summary": "Marking order 1234000002 as deleted.",
+      "message": "Marking order 1234000002 as deleted.",
+      "date_created": "2021-12-19T19:12:31+00:00"
+    },
+    {
+      "id": 4,
+      "type": "general",
+      "module": "",
+      "severity": "notices",
+      "summary": "Restoring order 1234000002",
+      "message": "Restoring order 1234000002",
+      "date_created": "2021-12-19T19:15:56+00:00"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 2,
+      "current_page": 2,
+      "total_pages": 1,
+      "links": {
+        "previous": "?page=1&limit=2",
+        "current": "?page=2&limit=2"
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+
+## Resources
+- [Store Logs API Reference](/docs/rest-management/store-logs#get-system-logs)
+- [Store Logs Support Article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
+
+### Endpoint reference
+- [Get system logs](/docs/rest-management/store-logs#get-system-logs)

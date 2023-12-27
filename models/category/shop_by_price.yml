@@ -1,0 +1,31 @@
+type: array
+description: 'Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.'
+items:
+  type: object
+  properties:
+    high:
+      type: object
+      description: Price object that defines the maximum price boundary.
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: integer
+    low:
+      type: object
+      description: Price object that defines the minimum price boundary
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: integer
+    selected:
+      type: boolean
+      description: Price object that defines the currently selected price range.
+    url:
+      type: string
+      description: URL of price-filtered product results for this category.

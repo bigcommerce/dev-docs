@@ -1,0 +1,58 @@
+title: Number
+type: object
+description: |-
+  Allows you to display number controls for your widget. The setting supports Both “integer” and “float” parse types.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "fontSize": {
+      "value": 24,
+      "type": "px"
+    }
+  }
+  ```
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/font_size.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: number
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Font size"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"fontSize"'
+  default:
+    type: object
+    description: The default value to use when rendering the widget for the first time.
+    properties:
+      value:
+        type: string
+        example: '24'
+      type:
+        type: string
+        example: '"px"'
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      parseType:
+        type: string
+        description: 'Supports two types: “integer” and “float”.'
+        example: integer

@@ -1,0 +1,46 @@
+title: Text
+type: object
+description: |-
+  Allows you to display text box controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "bodyText": "This is some text."
+  }
+  ```
+
+  >**Note**
+  >
+  >New line characters are not supported.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/user_interface_output.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: text
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: Body text
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: bodyText
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: '"This is some text."'

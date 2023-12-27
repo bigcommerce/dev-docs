@@ -1,0 +1,465 @@
+openapi: '3.0.3'
+info:
+  version: ''
+  title: Shipping V3
+  description: V3 REST API shipping endpoints.
+  termsOfService: 'http://www.bigcommerce.com/terms' 
+  contact: 
+    name: BigCommerce 
+    url: 'https://www.bigcommerce.com' 
+    email: support@bigcommerce.com 
+tags:
+  - name: Customs Information
+security:
+  - X-Auth-Token: []
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+paths:
+  '/shipping/products/customs-information':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+
+    get:
+      operationId: getCustomsInformation
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/customsInformation'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection'
+      description: |-
+        Get customs information for products.
+
+        This list can be filtered to return customs information objects specific to a list of requested product_ids. This is achieved by appending the query string `?product_id:in=4,5,6` to the resource `/shipping/products/customs-information`.
+
+        ```http
+        GET /shipping/products/customs-information?product_id:in=4,5,6
+        ```
+      tags:
+        - Customs Information
+      summary: Get Customs Information
+      parameters:
+        - in: query
+          name: 'product_id:in'
+          description: 'A comma-separated list of product IDs. For more information, see [Filtering](/docs/start/about/common-query-params).'
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+    delete:
+      operationId: deleteCustomsInformation
+      responses:
+        '204':
+          description: No Content
+      summary: Delete Customs Information
+      description: |-
+        Deletes customs information objects for a product.
+
+        ## Example
+
+        This is a batch operation. The `product_id:in` query parameter is required.
+
+        ```http
+        DELETE /shipping/products/customs-information?product_id:in=4,5,6
+        ```
+      tags:
+        - Customs Information
+      parameters:
+        - in: query
+          name: 'product_id:in'
+          required: true
+          schema:
+            type: string
+            items:
+              type: integer
+    put:
+      operationId: putCustomsInformation
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/customsInformation'
+              examples: {}
+      summary: Upsert Customs Information
+      description: |-
+        Creates and updates product customs information.
+
+        This is a batch operation where the creation of multiple customs information objects can be done with one `PUT` request.
+
+        **Limits**
+        * Limit of 50 customs information objects per `PUT` request.
+      tags:
+        - Customs Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/customsInformation_request'
+            examples:
+              Example:
+                value:
+                - product_id: 77
+                  country_of_origin: US
+                  commodity_description: Baseball caps
+                  international_shipping: true
+                  hs_codes:
+                    CA: '508313'
+                    AU: '817355'
+                    ALL: '501000'
+components:
+  parameters:
+    store_hash:
+      name: store_hash
+      in: path
+      required: true
+      description: Permanent ID of the BigCommerce store.
+      schema:
+        type: string
+    Accept:
+      in: header
+      name: Accept
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: application/json
+    ContentType:
+      in: header
+      name: Content-Type
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: application/json
+  responses:
+    502_GatewayError:
+      description: If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 502
+                title: A login URL could not be generated. Please try another request.
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    504_GatewayTimeout:
+      description: If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; however, if you are unable to successfully make a request, please check the [BigCommerce system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 504
+                title: Gateway Timeout
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    403_Unauthorized:
+      description: Returned when permissions do not allow the operation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 403
+                title: Unauthorized Access. You do not have permission to make this request.
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    400_BadRequest:
+      description: 'Invalid syntax, required data missing, `content-type` header missing; Double-check request body for syntax errors and missing data; check `content-type` header.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 400
+                title: Input is invalid.
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    404_NotFound:
+      description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 404
+                title: 'Account with {id} not found'
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    422_UnprocessableEntity:
+      description: This error occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 422
+                title: JSON data is missing or invalid
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    503_ServiceUnavailable:
+      description: |-
+        If this occurs, you should retry the request. If you are unable to successfully make a request, please check the [BigCommerce system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up.
+
+        Occurs when the store is down for maintenance, is being upgraded to a new version, or is suspended for administrative or billing reasons.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 503
+                title: Service Unavailable
+                type: /api-docs/getting-started/api-status-codes
+                errors: {}
+    401_Unauthorized:
+      description: API credentials are missing or invalid; Double-check the `access_token` and `client_id`.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+    415_Unsupported:
+      description: Request headers specify an unsupported `content-type` (or header is missing). Double-check `content-type` request header.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+    429_Too_Many_Requests:
+      description: 'When an OAuth client exceeds the [rate limit](/docs/start/best-practices#api-rate-limits) for API requests to a store.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+    405_Method_Not_Allowed:
+      description: The resource was found, but doesnʼt support the request method. Issued when either a specific method isnʼt yet implemented on a resource, or the resource doesnʼt support the method at all. For example, a PUT request to `/orders` is invalid, but a PUT request to `/orders/{order_id}` is valid. 
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+    500_Internal_Server_Error:
+      description: Expensive API calls or an internal server error in BigCommerce; re-attempt the request three to five times, with increasing delays of at least a minute between attempts.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Products | modify | `store_v2_products` |
+        |  Products | read-only | `store_v2_products_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+  schemas:
+    customsInformation_request:
+      title: customsInformationRequest
+      description: Data about the customs information object.
+      type: object
+      x-internal: false
+      properties:
+        product_id:
+          description: The product ID to which the customs information data applies.
+          type: integer
+          format: int32
+          example: 77
+        country_of_origin:
+          type: string
+          description: 'The country of manufacture, production, or growth represented in ISO 3166-1 alpha-2 format.'
+          example: US
+        commodity_description:
+          description: Description that provides information for customs to identify and verify the shapes, physical characteristics, and packaging of each shipment.
+          type: string
+          minLength: 0
+          maxLength: 100
+          example: Baseball caps
+        international_shipping:
+          description: Flag to determine whether this product will be shipped internationally.
+          type: boolean
+          enum:
+            - true
+            - false
+          example: true
+        hs_codes:
+          $ref: '#/components/schemas/harmonizedSystemCodes'
+      required:
+        - product_id
+        - country_of_origin
+        - commodity_description
+        - international_shipping
+        - hs_codes
+    customsInformation:
+      title: customsInformation
+      description: Data about the customs information object.
+      type: object
+      x-internal: false
+      properties:
+        product_id:
+          description: The ID of the product which the customs information data will apply to.
+          type: integer
+          format: int32
+          example: 77
+        country_of_origin:
+          type: string
+          description: 'The country of manufacture, production, or growth represented in ISO 3166-1 alpha-2 format.'
+          example: US
+        commodity_description:
+          description: Description that provides information for customs to identify and verify shapes physical characteristics and packaging of each shipment.
+          type: string
+          minLength: 0
+          maxLength: 100
+          example: Baseball caps
+        international_shipping:
+          description: Flag to determine whether this product will be shipped internationally.
+          type: boolean
+          enum:
+            - true
+            - false
+          example: true
+        hs_codes:
+          $ref: '#/components/schemas/harmonizedSystemCodes'
+        created_at:
+          type: string
+          description: Date and time when the customs information was created.
+          readOnly: true
+          format: date-time
+          example: 2022-09-21T14:15:00+00:00
+        updated_at:
+          type: string
+          description: Date and time when the customs information was last updated.
+          readOnly: true
+          format: date-time
+          example: 2022-09-21T14:15:00+00:00
+    harmonizedSystemCodes:
+      title: harmonizedSystemCodes
+      description: |-
+        Key-value pairs that are commonly used in the following form:  
+        
+        `countryISO2: '/^[0-9A-Za-z]{6,14}$/'`
+        
+        This key-value pair represents a country and the associated `hs_code` that applies to that country. 
+
+        You can also use the `ALL` key in place of an ISO2 key to specify that the `hs_code` applies to all countries. The `ALL` key can be combined with other countries in the `hs_code` object.
+      type: object
+      properties: {}
+      additionalProperties: true
+      example:
+        ALL: '501000'
+        CA: '508313'
+        US: '641000'
+        AU: '817355'
+      x-internal: false
+    metaCollection:
+      title: metaCollection
+      description: Meta data relating to pagination.
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              description: Total number of items returned.
+              example: 3
+            count:
+              type: integer
+              description: Number of items returned on per page.
+              example: 1
+            per_page:
+              type: integer
+              description: Number of items to be displayed per page.
+              example: 1
+            current_page:
+              type: integer
+              description: Current page number.
+              example: 2
+            total_page:
+              type: integer
+              description: Total number of pages.
+              example: 3
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  description: Query string appended to the resource to return to the previous page.
+                  example: '?limit=1&page=1'
+                next:
+                  type: string
+                  description: Query string appended to the resource to proceed to the next page.
+                  example: '?limit=1&page=3'
+                current:
+                  type: string
+                  description: Query string appended to the resource to show the current page.
+                  example: '?limit=1&page=2'
+      x-internal: false
+    error_Full:
+      title: Error
+      description: Meta data relating to pagination
+      type: object
+      x-internal: false

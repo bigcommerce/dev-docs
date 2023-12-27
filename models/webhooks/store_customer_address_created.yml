@@ -1,0 +1,29 @@
+type: object
+properties:
+  store/customer/address/created:
+    description: Fires when a customer address is created
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          address:
+            type: object
+            properties:
+              customer_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

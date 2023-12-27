@@ -1,0 +1,47 @@
+title: Product Image
+type: object
+description: |-
+  Allows you to display product image controls for your widget. The setting looks up product images based on the desired `reference` attribute.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "src": "https://cdn11.bigcommerce.com/s-iu88q6epfh/products/121/images/377/850x850__74338.1591376249.386.513.png?c=1",
+    "type": "PRODUCT_IMAGE"
+  }
+  ```
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/product_image.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"productImage"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Product Image"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"productImage"'
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      reference:
+        type: string
+        description: The reference attribute used to look up the product.
+        example: ' "productId"'

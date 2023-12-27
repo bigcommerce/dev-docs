@@ -1,0 +1,130 @@
+description: |-
+  Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and the `templates/components/account/wishlist-item-list.html` partial.)
+
+  **Handlebars Expression**: `{{wishlist}}`
+type: object
+properties:
+  id:
+    type: number
+    description: Unique system ID for the wishlist.
+  is_editable:
+    type: boolean
+  is_public:
+    type: boolean
+    description: Boolean value indicating whether the wishlist is publicly available.
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        add_to_cart_url:
+          type: string
+        add_to_wishlist_url:
+          type: string
+        availability:
+          type: object
+        brand:
+          type: object
+          properties:
+            name:
+              type: object
+        custom_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              value:
+                type: string
+        date_added:
+          type: string
+        demo:
+          type: boolean
+        has_options:
+          type: boolean
+        id:
+          type: number
+        image:
+          $ref: ../common/image.yml
+        images:
+          type: array
+          items:
+            $ref: ../common/image.yml
+        low_stock_level:
+          type: object
+        name:
+          type: string
+        num_reviews:
+          type: object
+        pre_order:
+          type: boolean
+        price:
+          type: object
+          properties:
+            tax_label:
+              type: string
+            without_tax:
+              type: object
+              properties:
+                currency:
+                  type: string
+                formatted:
+                  type: string
+                value:
+                  type: number
+        product_id:
+          type: number
+        qty_in_cart:
+          type: number
+        rating:
+          type: object
+        remove_url:
+          type: string
+          description: URL to remove the product from the wishlist.
+        show_cart_action:
+          type: boolean
+        sku:
+          type: object
+        stock_level:
+          type: object
+        summary:
+          type: string
+        url:
+          type: string
+        weight:
+          type: object
+          properties:
+            formatted:
+              type: object
+            value:
+              type: object
+  name:
+    type: string
+    description: Customer-defined name of the wishlist.
+  pagination:
+    type: object
+    properties:
+      current:
+        type: number
+      links:
+        type: array
+        items:
+          type: object
+          properties:
+            number:
+              type: number
+            url:
+              type: string
+      next:
+        type: object
+      previous:
+        type: object
+  share_url:
+    type: string
+    description: URL used to share the wishlist.
+  token:
+    type: string
+    description: Unique public token for the wishlist.

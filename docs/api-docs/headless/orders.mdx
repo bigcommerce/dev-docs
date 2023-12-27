@@ -1,0 +1,153 @@
+---
+title: Handling Orders
+keywords: address, headless, storefronts, 
+---
+
+# Handling Orders
+
+This section explains how to create and manage orders for headless storefronts.
+
+## Creating an order from a cart
+
+To successfully complete this section, you must first create a cart with a **redirect URL**. For instructions on how to create a cart, see the [Carts article in this guide](/docs/storefront/headless/cart-checkout/carts).
+
+### Adding a billing address
+
+You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a request to the [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint. Your `checkoutId` will correspond with the cart ID returned by the [Create a Cart](/docs/rest-management/carts/carts-single#create-a-cart) endpoint. For an example request, see the [End-to-End Guide: Headless Checkout Flow with REST Management APIs](/docs/storefront/headless/end-to-end-guide/rest).
+
+### Adding a consignment
+
+Now that you have transformed your headless cart into a checkout, you need to add a consignment with a shipping address, line items, and a shipping option. You can do so by adding and then updating a consignment. For an example request, see the [End-to-End Guide: Headless Checkout Flow with REST Management APIs](/docs/storefront/headless/end-to-end-guide/rest).
+
+### Creating an order
+
+Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a request to the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint. When a new order is created by API, the order status is set to incomplete.
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+    ```http filename="Example request: Create an order" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/orders
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+  ```
+
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Create an order" showLineNumbers copy
+    {
+      "data": {
+        "id": 125
+      },
+      "meta": {}
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+## Processing payments
+
+Depending on the shopper's card-on-file authorization, you can use one of the following methods to process the payment.
+
+* **Stored Card** – A shopper has authorized a merchant to store their payment details.
+* **Credit Card** – A shopper has not authorized a merchant to store their payment details.
+
+### Using the Stored Card method
+
+1. Start by retrieving the available payment methods. Send a `GET` request to the `Get Accepted Payment Methods` endpoint. 
+
+```http filename="Example request: Get accepted payment methods" showLineNumbers copy
+GET https://api.bigcommerce.com/stores/{store_hash}/v3/payments/methods
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+```
+
+2. To process a payment for an order, you must make a call to the Payments API, which requires an payment access token. To generate a payment access token, or _PAT_, send a request to the [Create Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint. 
+
+```http filename="Example request: Create payment access token" showLineNumbers copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+  "order": {
+    "id": 125,
+    "is_recurring": false
+  }
+}
+```
+
+Make a note of the access token `id`. This token is required in the subsequent order payment call to the [Process Payment](/docs/rest-payments/processing#process-payment) endpoint.
+
+3. Send a request to the [Process Payment](/docs/rest-payments/processing#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The `Authorization` bearer token is the PAT ID returned by the Create Payment Access Token endpoint (step two). To learn more, see [Payments API: Stored Cards](/docs/store-operations/payments#stored-cards).
+
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+
+    ```http filename="Example request: Process payment" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{store_hash}/payments
+    Accept: application/json
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    {
+      "payment": {
+        "instrument": {
+          "type": "stored_card",
+          "token": "8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee",
+          "verification_value": "1142"
+        },
+        "payment_method_id": "adyenv2.scheme",
+        "save_instrument": true
+      }
+    }
+  ```
+  </Tab>
+  <Tab>
+
+    ```json filename="Example response: Process payment" showLineNumbers copy
+    {
+      "data": {
+        "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
+        "status": "success",
+        "transaction_type": "purchase"
+      }
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Using the Credit Card method
+
+If a shopper does not have a payment method saved on file, you can process a payment using a credit card. There are two steps to this method:
+
+1. Send a request to the [Create Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the payment access token that must be passed using the `Authorization` header to process the payment.
+
+2. Send a request to the [Process Payment](/docs/rest-payments/processing#process-payment) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The `Authorization` bearer token is the PAT ID returned by the Create Payment Access Token endpoint (step one). To learn more, see [Payments API: Credit Cards](/docs/store-operations/payments#credit-cards).
+
+```json filename="Example response: Process payment" showLineNumbers copy
+{
+  "data": {
+    "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
+    "status": "success",
+    "transaction_type": "purchase"
+  }
+}
+```
+
+A successful transaction will return a `success` status. The order status is then automatically changed to `Awaiting Fulfillment`. If you get a different response, see [Error Codes](/docs/store-operations/payments#error-codes) for troubleshooting.
+
+## Next steps
+
+- [Learn more about PCI compliance](/docs/storefront/headless/pci-compliance)
+
+## Resources
+
+- [End-to-End Guide: Headless Checkout Flow with REST Management APIs](/docs/storefront/headless/end-to-end-guide/rest)
+- [Payments API Overview](/docs/store-operations/payments)

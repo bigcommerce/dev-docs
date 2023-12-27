@@ -1,0 +1,80 @@
+# Listening for Events
+
+
+
+Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events using [webhooks](/docs/webhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](/docs/integrations/webhooks).
+
+
+## Available webhooks
+
+The following resources have webhooks events available to apps:
+* [Carts](/docs/integrations/webhooks/events#carts)
+
+* [Cart Line Items](/docs/integrations/webhooks/events#cart-line-items)
+
+* [Categories](/docs/integrations/webhooks/events#categories)
+
+* [Customers](/docs/integrations/webhooks/events#customers)
+
+* [Orders](/docs/integrations/webhooks/events#orders)
+
+* [Products](/docs/integrations/webhooks/events#products)
+* [Shipments](/docs/integrations/webhooks/events#shipments)
+* [SKUs](/docs/integrations/webhooks/events#skus)
+* [Stores](/docs/integrations/webhooks/events#stores)
+* [Subscribers](/docs/integrations/webhooks/events#subscribers)
+
+[Learn more about webhook events](/docs/integrations/webhooks/events#orders).
+
+## Creating webhooks
+
+To create a webhook, send a request to the [Create a webhook](/docs/webhooks/webhooks/manage-webhooks-bulk#create-a-webhook) endpoint.
+
+
+```http filename="Example request: Create a webhook" showLineNumbers
+POST https://api.bigcommerce.com/stores/{STORE_HASH}/v2/hooks
+X-Auth-Token: {ACCESS_TOKEN}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "scope": "store/order/updated",
+  "destination": "https://665b65a6.ngrok.io/webhooks",
+  "is_active": true
+}
+```
+
+[Learn more about creating webhooks](/docs/integrations/webhooks).
+
+## Next steps
+* [Design your app's user interface](/docs/integrations/apps/guide/ui).
+
+## Resources
+
+### Related articles
+* [Webhooks Overview](/docs/integrations/webhooks)
+* [Webhooks Tutorial](/docs/integrations/webhooks)
+* [Webhooks Events](/docs/integrations/webhooks/events)
+
+### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
+
+### Tools
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
+* [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
+* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
+* [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
+* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
+* [Figma UI Kit](https://figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
+
+### Blog posts
+* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)

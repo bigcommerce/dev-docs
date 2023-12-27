@@ -1,0 +1,14 @@
+{
+  "scope": "store/order/refund/created",
+  "store_id": "1025646",
+  "data": {
+      "type": "order",
+      "id": 250,
+      "refund": {
+          "refund_id": 3
+      }
+  },
+  "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
+  "created_at": 1561479923,
+  "producer": "stores/{store_hash}"
+}

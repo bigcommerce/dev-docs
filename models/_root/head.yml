@@ -1,0 +1,21 @@
+description: |
+  `global` `{{head}}` object containing data configured for the HTML `<head>` element.
+
+  **Handlebars Expression**: `{{head}}`
+type: object
+properties:
+  favicon:
+    description: The storeʼs favicon.
+    type: string
+  meta_tags:
+    description: Meta tags to improve store SEO.
+    type: string
+  scripts:
+    description: Scripts to be loaded in the `<head>` tag.
+    type: string
+  stylesheets:
+    description: CSS files to be included.
+    type: string
+  title:
+    description: Current pageʼs title.
+    type: string

@@ -1,0 +1,520 @@
+openapi: '3.0.0'
+info:
+  title: Abandoned Cart Emails
+  version: '3.0.0'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  description: Abandoned Cart Emails V3 API managing Handlebars-based emails.
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Abandoned Cart Emails
+  - name: Template settings
+paths:
+  '/marketing/abandoned-cart-emails':
+    get:
+      description: An array of abandoned cart emails pertaining to a store.
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_open'
+              examples:
+                List of abandoned cart templates:
+                  value:
+                    data:
+                      - id: 1
+                        notify_at_minutes: 60
+                        coupon_code: FF11-22X4
+                        template:
+                          subject: 'Complete your purchase at {{ store.name }}'
+                          body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                          translations:
+                            - locale: en
+                              keys:
+                                hello_phrase: 'Welcome back,'
+                    meta: {}
+      tags:
+        - Abandoned Cart Emails
+      summary: Get all email templates
+      operationId: getAbandonedCartEmails
+    post:
+      summary: Create email template
+      operationId: createEmailTemplate
+      tags:
+        - Abandoned Cart Emails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_open'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveError'
+      description: Create an Abandoned Cart Email template.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandondedCartEmailPayload'
+            examples:
+              Add active abandoned cart email template:
+                value:
+                  is_active: true
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+                  template:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: '{{lang ''hello_phrase'' }}<br>Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: Welcome
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+        - $ref: '#/components/parameters/ContentType'
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/marketing/abandoned-cart-emails/{id}':
+    get:
+      summary: Get an email template
+      description: Get a single Abandoned Cart Email template.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_open'
+      tags:
+        - Abandoned Cart Emails
+      operationId: getAbandonedCartEmailTemplateId
+    put:
+      summary: Update an email template
+      description: Update an email template.
+      operationId: updateAbandonedCartEmailsId
+      tags:
+        - Abandoned Cart Emails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection_open'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandondedCartEmailPayload'
+            examples:
+              Update Abandoned Cart Email template:
+                value:
+                  is_active: true
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+                  template:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: 'Welcome back,'
+              Enable email:
+                value:
+                  is_active: true
+              Disable email:
+                value:
+                  is_active: false
+              Update coupon code and notification time:
+                value:
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+    delete:
+      tags:
+        - Abandoned Cart Emails
+      description: Delete Abandoned Cart Email template.
+      summary: Delete email template
+      operationId: deleteAbandonedCartEmailTemplateId
+      responses:
+        '204':
+          description: No Content
+    parameters:
+      - schema:
+          type: integer
+          minimum: 0
+        name: id
+        in: path
+        required: true
+        description: ID of the Abandoned Cart Email template.
+      - $ref: '#/components/parameters/Accept'
+  '/marketing/abandoned-cart-emails/default':
+    get:
+      summary: Get default email template
+      description: Return default Abandoned Cart Email template.
+      tags:
+        - Abandoned Cart Emails
+      operationId: GetDefaultAbandonedCartEmailTemplate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  subject:
+                    type: string
+                    minLength: 1
+                  body:
+                    type: string
+                    minLength: 1
+                  translations:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - locale
+                        - keys
+                      properties:
+                        locale:
+                          type: string
+                          minLength: 1
+                        keys:
+                          type: object
+                          properties:
+                            hello_phrase:
+                              type: string
+                              minLength: 1
+                required:
+                  - subject
+                  - body
+                  - translations
+              examples:
+                example-1:
+                  value:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: '{{lang ''hello_phrase''}} Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: Welcome back
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+  '/marketing/abandoned-cart-emails/settings':
+    get:
+      summary: Get email template settings
+      tags:
+        - Template settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbandonedCartSettings'
+      operationId: GetAbandonedCartEmailTemplateSettings
+      description: Read Abandoned Cart Email Template settings.
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdRequired'
+    put:
+      summary: Update email template settings
+      operationId: updateEmailTemplateSettings
+      tags:
+        - Template settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbandonedCartSettings'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandonedCartSettings'
+      description: Update Abandoned Cart Email template settings.
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+        - $ref: '#/components/parameters/ContentType'
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+components:
+  schemas:
+    SaveError:
+      type: object
+      title: SaveError
+      description: ''
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+      x-internal: false
+    BaseError:
+      title: BaseError
+      type: object
+      properties:
+        status:
+          type: string
+        type:
+          type: string
+      x-internal: false
+    AbandonedCartEmailModel:
+      title: AbandonedCartEmailModel
+      type: object
+      properties:
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        template:
+          $ref: '#/components/schemas/Template'
+      x-internal: false
+    AbandonedCartSettings:
+      title: AbandonedCartSettings
+      type: object
+      properties:
+        use_global:
+          type: boolean
+          description: Boolean value that specifies the inheritance state.
+      required:
+        - use_global
+      x-internal: false
+    AbandondedCartEmailPayload:
+      type: object
+      properties:
+        is_active:
+          type: boolean
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        template:
+          $ref: '#/components/schemas/Template'
+      title: ''
+      x-internal: false
+    Template:
+      title: Template
+      type: object
+      properties:
+        subject:
+          type: string
+          example: '''Complete your purchase at {{ store.name }}'''
+          maxLength: 255
+        body:
+          type: string
+          example: '''Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'''
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationDefinition'
+      required:
+        - subject
+        - body
+        - translations
+      x-internal: false
+    TranslationDefinition:
+      title: TranslationDefinition
+      type: object
+      properties:
+        locale:
+          type: string
+          example: en
+          description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
+        keys:
+          type: string
+          description: Language keys for the template. User-defined. Should match any language keys used in the template.
+        additionalProperties:
+          type: string
+      required:
+        - locale
+        - keys
+      x-internal: false
+    NotifyAtMinutes:
+      type: integer
+      title: NotifyAtMinutes
+      description: 'Describes when this email will be sent, in minutes. Only supports certain intervals described in the enum.'
+      example: 60
+      enum:
+        - 60
+        - 120
+        - 180
+        - 240
+        - 300
+        - 360
+        - 420
+        - 480
+        - 540
+        - 600
+        - 660
+        - 720
+        - 780
+        - 840
+        - 900
+        - 960
+        - 1020
+        - 1080
+        - 1140
+        - 1200
+        - 1260
+        - 1320
+        - 1380
+        - 1440
+        - 2880
+        - 4320
+        - 5760
+        - 7200
+        - 8640
+        - 10080
+        - 11520
+        - 12960
+        - 14400
+      x-examples:
+        example-1: 60
+        type: integer
+      x-internal: false
+    CouponCode:
+      title: Coupon Code Field
+      type: string
+      example: FF11-22X4
+      x-internal: false
+    AbandondedCartEmail:
+      title: AbandondedCartEmail
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        template:
+          $ref: '#/components/schemas/Template'
+        is_active:
+          type: boolean
+        sent_num:
+          type: integer
+      x-internal: false
+    metaCollection_open:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ChannelIdOptional:
+      in: query
+      name: channel_id
+      description: Channel ID to use for channel-level data.
+      schema:
+        type: integer
+    ChannelIdRequired:
+      name: channel_id
+      in: query
+      required: true
+      schema:
+        type: integer
+      description: Channel ID to use for channel-specific setting.
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Information & Settings  | read-only  | `store_v2_information_read_only`|
+        | Information & Settings  | modify     | `store_v2_information`          |
+
+        ### Authentication header
+
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+

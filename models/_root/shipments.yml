@@ -1,0 +1,27 @@
+description: '`{{shipments}}` array available to `templates/pages/account/orders/details.html`'
+type: array
+items:
+  type: object
+  properties:
+    date_shipped:
+      description: shipping date for this shipment
+      type: string
+    shipping_method:
+      description: shipping method for this shipment
+      type: string
+    shipping_provider:
+      description: shipping carrier for this shipment
+      type: string
+    shipping_track:
+      description: tracking information for this shipment
+      type: object
+      properties:
+        number:
+          description: tracking number for this shipment
+          type: string
+        url:
+          description: tracking URL for this shipment
+          type: string
+    show_shipping_method:
+      description: boolean indicating whether shipping method should be displayed to customer or not
+      type: boolean

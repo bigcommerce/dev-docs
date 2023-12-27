@@ -1,0 +1,860 @@
+openapi: '3.0.1'
+info:
+  title: Wishlist
+  description: |-
+    Create and manage customer wishlists and wishlist items.
+
+    ## Additional Information
+    
+    * [Wishlists (Help Center)](https://support.bigcommerce.com/s/article/Wishlists)
+  version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Wishlists
+  - name: Wishlists Items
+paths:
+  '/wishlists':
+    get:
+      tags:
+        - Wishlists
+      summary: Get All Wishlists
+      description: Returns a list of wishlists. Optional filter parameters can be passed in.
+      operationId: WishlistsGet
+      parameters:
+        - name: customer_id
+          in: query
+          description: All wishlists relating to the customer.
+          schema:
+            type: integer
+            format: int32
+        - name: page
+          in: query
+          description: The page number of results per page. 1 is the default and starts from record 0.
+          schema:
+            type: integer
+            format: int32
+        - name: limit
+          in: query
+          description: The numbers of items to return per page. Default is 50 and maximum is 250.
+          schema:
+            type: integer
+            format: int32
+        - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    $ref: '#/components/schemas/metaCollection'
+              example:
+                data:
+                  - id: 1
+                    customer_id: 4
+                    name: My Wish List
+                    is_public: false
+                    token: 02d55481-13eb-4d1e-9d79-9062b518570d
+                    items: []
+                  - id: 2
+                    customer_id: 11
+                    name: Christmas
+                    is_public: false
+                    token: 02d55481-13eb-4d1e-9d79-9062b518570d
+                    items:
+                      - id: 1
+                        product_id: 167
+                      - id: 2
+                        product_id: 174
+                      - id: 3
+                        product_id: 184
+                  - id: 3
+                    customer_id: 20
+                    name: Birthday
+                    is_public: false
+                    token: 02d55481-13eb-4d1e-9d79-9062b518570d
+                    items:
+                      - id: 4
+                        product_id: 184
+                      - id: 5
+                        product_id: 183
+                  - id: 4
+                    customer_id: 20
+                    name: Christmas
+                    is_public: false
+                    token: 02d55481-13eb-4d1e-9d79-9062b518570d
+                    items:
+                      - id: 6
+                        product_id: 201
+                  - id: 5
+                    customer_id: 19
+                    name: Wish List
+                    is_public: false
+                    token: 02d55481-13eb-4d1e-9d79-9062b518570d
+                    items:
+                      - id: 7
+                        product_id: 173
+                      - id: 8
+                        product_id: 176
+                meta:
+                  pagination:
+                    total: 0
+                    count: 5
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 0
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+    post:
+      tags:
+        - Wishlists
+      summary: Create a Wishlist
+      description: |-
+        Creates a wishlist and wishlist item. More than one item can be added in the POST.
+
+        **Required Fields**
+        * name
+        * customer_id
+      operationId: WishlistsPost
+      parameters:
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/wishlist_Post'
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              example:
+                data:
+                  id: 30
+                  customer_id: 10
+                  name: Christmas List
+                  is_public: true
+                  token: d2d55481-13eb-4d1e-9d79-9062b518570d
+                  items:
+                    - id: 44
+                      product_id: 77
+                      variant_id: 1
+                    - id: 45
+                      product_id: 80
+                      variant_id: 1
+                    - id: 46
+                      product_id: 81
+                      variant_id: 1
+                    - id: 47
+                      product_id: 86
+                      variant_id: 1
+                    - id: 48
+                      product_id: 88
+                      variant_id: 1
+                meta: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+  '/wishlists/{wishlist_id}/items/{item_id}':
+    parameters:
+      - $ref: '#/components/parameters/WishlistID'
+      - $ref: '#/components/parameters/Accept'
+      - name: item_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+    delete:
+      tags:
+        - Wishlists Items
+      summary: Delete Wishlist Item
+      description: Deletes a wishlist item.
+      operationId: WishlistsItemsByIdDelete
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              example:
+                data:
+                  id: 30
+                  customer_id: 10
+                  name: Christmas List
+                  is_public: true
+                  token: d2d55481-13eb-4d1e-9d79-9062b518570d
+                  items:
+                    - id: 44
+                      product_id: 77
+                      variant_id: 1
+                    - id: 45
+                      product_id: 80
+                      variant_id: 1
+                    - id: 46
+                      product_id: 81
+                      variant_id: 1
+                    - id: 47
+                      product_id: 86
+                      variant_id: 1
+                    - id: 48
+                      product_id: 88
+                      variant_id: 1
+                meta: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '404':
+          description: Wishlist not found.
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+  '/wishlists/{wishlist_id}':
+    parameters:
+    - $ref: '#/components/parameters/WishlistID'
+    - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Wishlists
+      summary: Get a Wishlist
+      description: Returns a single wishlist.
+      operationId: WishlistsByIdGet
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              example:
+                data:
+                  id: 30
+                  customer_id: 10
+                  name: Christmas List
+                  is_public: true
+                  token: d2d55481-13eb-4d1e-9d79-9062b518570d
+                  items:
+                    - id: 44
+                      product_id: 77
+                      variant_id: 1
+                    - id: 45
+                      product_id: 80
+                      variant_id: 1
+                    - id: 46
+                      product_id: 81
+                      variant_id: 1
+                    - id: 47
+                      product_id: 86
+                      variant_id: 1
+                    - id: 48
+                      product_id: 88
+                      variant_id: 1
+                meta: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '404':
+          description: Wishlist not found.
+          content:
+            application/json:
+              schema:
+                type: object
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+    put:
+      tags:
+        - Wishlists
+      summary: Update a Wishlist
+      description: |-
+        Updates a wishlist.
+
+        Use this endpoint to update existing wishlist items, change the wishlistʼs name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists/wishlists-items).
+      operationId: WishlistsByIdPut
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/wishlist_Put'
+        required: true
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              example:
+                data:
+                  id: 30
+                  customer_id: 10
+                  name: Christmas List
+                  is_public: true
+                  token: d2d55481-13eb-4d1e-9d79-9062b518570d
+                  items:
+                    - id: 44
+                      product_id: 77
+                      variant_id: 1
+                    - id: 45
+                      product_id: 80
+                      variant_id: 1
+                    - id: 46
+                      product_id: 81
+                      variant_id: 1
+                    - id: 47
+                      product_id: 86
+                      variant_id: 1
+                    - id: 48
+                      product_id: 88
+                      variant_id: 1
+                meta: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+    delete:
+      tags:
+        - Wishlists
+      summary: Delete a Wishlist
+      description: Deletes a wishlist.
+      operationId: WishlistsByIdDelete
+      responses:
+        '204':
+          description: ''
+          content: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+  '/wishlists/{wishlist_id}/items':
+    parameters:
+    - $ref: '#/components/parameters/WishlistID'
+    - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Wishlists Items
+      summary: Add Wishlist Item
+      description: Adds a wishlist item. More than one item can be added at a time.
+      operationId: WishlistsItemsByIdPost
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/wishlistItem_Post'
+        required: false
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/wishlist_Full'
+                  meta:
+                    type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
+              example:
+                data:
+                  id: 30
+                  customer_id: 10
+                  name: Christmas List
+                  is_public: true
+                  token: d2d55481-13eb-4d1e-9d79-9062b518570d
+                  items:
+                    - id: 44
+                      product_id: 77
+                      variant_id: 1
+                    - id: 45
+                      product_id: 80
+                      variant_id: 1
+                    - id: 46
+                      product_id: 81
+                      variant_id: 1
+                    - id: 47
+                      product_id: 86
+                      variant_id: 1
+                    - id: 48
+                      product_id: 88
+                      variant_id: 1
+                meta: {}
+        '401':
+          description: Authentication information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                title: Error
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                  title:
+                    type: string
+                  type:
+                    type: string
+        '404':
+          description: Wishlist not found.
+          content: {}
+        '500':
+          description: Internal server error.
+          content: {}
+components:
+  schemas:
+    wishlist_Post:
+      title: wishlist_Post
+      required:
+        - customer_id
+      type: object
+      properties:
+        customer_id:
+          type: integer
+          description: The customer id.
+          format: int32
+          example: 12
+        is_public:
+          type: boolean
+          description: Whether the wishlist is available to the public.
+          example: false
+        name:
+          type: string
+          description: The title of the wishlist.
+          example: School Shopping
+        items:
+          type: array
+          description: Array of wishlist items.
+          items:
+            title: Add item to wishlist
+            type: object
+            properties:
+              product_id:
+                type: integer
+                description: The ID of the product.
+                format: int32
+                example: 12
+              variant_id:
+                type: integer
+                description: The variant ID of the product.
+                format: int32
+                example: 152
+      x-internal: false
+    wishlist_Put:
+      title: wishlist_Put
+      required:
+        - customer_id
+        - items
+      type: object
+      properties:
+        customer_id:
+          type: integer
+          description: The customer ID. A read-only value.
+          format: int32
+        is_public:
+          type: boolean
+          description: Whether the wishlist is available to the public.
+        name:
+          type: string
+          description: The title of the wishlist.
+        items:
+          type: array
+          description: Array of wishlist items.
+          items:
+            title: Wishlist item
+            type: object
+            properties:
+              id:
+                type: integer
+                description: The ID of the item.
+                format: int32
+                example: 12
+              product_id:
+                type: integer
+                description: The ID of the product.
+                format: int32
+                example: 55
+              variant_id:
+                type: integer
+                description: The variant ID of the product.
+                format: int32
+                example: 22
+      x-internal: false
+    wishlist_Full:
+      title: wishlist_Full
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 'Wishlist ID, provided after creating a wishlist with a POST.'
+          format: int32
+          example: 30
+        customer_id:
+          type: integer
+          description: The ID the customer to which the wishlist belongs.
+          format: int32
+          example: 12
+        name:
+          type: string
+          description: The name of the wishlist.
+          example: Christmas List
+        is_public:
+          type: boolean
+          description: Whether the wishlist is available to the public.
+          example: true
+        token:
+          type: string
+          description: The token of the wishlist. This is created internally within BigCommerce. The wishlist ID is to be used for external apps. Read-Only.
+          format: uuid
+          example: 02d55481-13eb-4d1e-9d79-9062b518570d
+        items:
+          type: array
+          description: Array of wishlist items.
+          items:
+            $ref: '#/components/schemas/wishlistItem_Full'
+      x-internal: false
+    wishlistItem_Full:
+      title: wishlistItem_Full
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the item.
+          format: int32
+          example: 12
+        product_id:
+          type: integer
+          description: The ID of the product.
+          format: int32
+          example: 55
+        variant_id:
+          type: integer
+          description: The variant ID of the product.
+          format: int32
+          example: 22
+      x-internal: false
+    wishlistItem_Post:
+      type: object
+      title: wishlistItem_Post
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              product_id:
+                type: integer
+                example: 12
+              variant_id:
+                type: integer
+                example: 152
+      x-examples:
+        example-1:
+          items:
+            - product_id: 12
+              variant_id: 152
+    pagination:
+      title: pagination
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of items in the result set.
+          format: int32
+        count:
+          type: integer
+          description: Total number of items in the collection response.
+          format: int32
+        per_page:
+          type: integer
+          description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+          format: int32
+        current_page:
+          type: integer
+          description: The page you are currently on within the collection.
+          format: int32
+        total_pages:
+          type: integer
+          description: The total number of pages in the collection.
+          format: int32
+      description: 'Data about the response, including pagination and collection totals.'
+      x-internal: false
+    metaCollection:
+      title: metaCollection
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      x-internal: false
+  parameters:
+    WishlistID:
+      name: wishlist_id
+      in: path
+      description: ID of the Wishlist.
+      required: true
+      schema:
+        type: integer
+        format: int32
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Customers | modify | `store_v2_customers` |
+        |  Customers | read-only | `store_v2_customers_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+

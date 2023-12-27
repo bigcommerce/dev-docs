@@ -1,0 +1,211 @@
+---
+title: Custom Fields
+keywords: v2, catalog, 
+---
+
+# Custom Fields
+
+## Custom Fields 
+
+Custom fields associated with a product.
+
+<Callout type="warning">
+  #### Deprecated
+  Avoid using this API operation if possible. It will be removed in a future version.
+  For the most up-to-date version of this API, see [Product Custom Fields](/docs/rest-catalog/products/custom-fields#get-custom-fields).
+</Callout>
+
+### Custom Field Object – Properties 
+
+| Name | Type | Description |
+|-|-|-|
+| id | int | |
+| product_id | int | ID of the associated product |
+| name | string | key; limited to 250 characters |
+| text | string | value; limited to 250 characters |
+
+| Manages | OAuth Scopes |
+|-|-|
+| store_v2_products|store_v2_products_read_only
+
+## List Custom Fields 
+
+Gets custom fields associated with a product.
+
+`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+
+### Filters 
+
+There are no filter parameters specific to `custom_fields`.
+
+### Pagination 
+
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
+
+| Parameter | Type | Example |
+|-|-|-|
+| page | int | `/api/v2/products/{product_id}/custom_fields?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/custom_fields?limit={count}` |
+
+### Response 
+
+Example JSON returned in the response:
+
+```json showLineNumbers copy
+[
+  {
+    "id": 1,
+    "product_id": 30,
+    "name": "Toy manufactured in",
+    "text": "USA"
+  },
+  {
+    "id": 2,
+    "product_id": 45,
+    "name": "Release Date",
+    "text": "2013-12-25"
+  }
+]
+```
+
+## Get a Custom Field 
+
+Gets a custom field associated with a product.
+
+`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+
+### Response 
+
+Example JSON returned in the response:
+
+```json showLineNumbers copy
+{
+  "id": 2,
+  "product_id": 30,
+  "name": "Toy manufactured in",
+  "text": "USA"
+}
+```
+
+## Get a Count of Custom Fields 
+
+Gets a count of the number of custom fields in the store.
+
+`GET /stores/{store_hash}/v2/products/custom_fields/count`
+
+### Response 
+
+Example JSON returned in the response:
+
+```json showLineNumbers copy
+{
+  "count": 0
+}
+```
+
+## Create a Custom Field 
+
+Creates a new custom field associated with a product
+
+`POST /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+
+### Read-only Properties 
+
+The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
+
+*   product_id
+
+### Requirements 
+
+The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
+
+*   name
+*   text
+
+### Request 
+
+Example request object:
+
+```json showLineNumbers copy
+{
+  "name": "Release Date",
+  "text": "2013-12-25"
+}
+```
+
+### Response 
+
+Example JSON returned in the response:
+
+```json showLineNumbers copy
+{
+  "id": 5,
+  "product_id": 45,
+  "name": "Release Date",
+  "text": "2013-12-25"
+}
+```
+
+## Update a Custom Field 
+
+Updates an existing custom field associated with a product.
+
+`PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+
+### Read-only Properties 
+
+The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
+
+*   product_id
+
+### Requirements 
+
+The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
+
+*   name
+*   text
+
+### Request 
+
+Example request object:
+
+```json showLineNumbers copy
+{
+  "name": "Release Date",
+  "text": "2013-12-31"
+}
+```
+
+### Response 
+
+Example JSON returned in the response:
+
+```json showLineNumbers copy
+{
+  "id": 5,
+  "product_id": 45,
+  "name": "Release Date",
+  "text": "2013-12-31"
+}
+```
+
+## Delete a Custom Field 
+
+Deletes a custom field associated with a product.
+
+`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
+
+## Delete Multiple Custom Fields 
+
+Deletes multiple custom fields associated with a product.
+
+`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields`
+
+### Pagination 
+
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
+
+| Parameter | Type | Example |
+|-|-|-|
+| page | int | `/api/v2/products/{product_id}/custom_fields?page={number}` |
+| limit | int | `/api/v2/products/{product_id}/custom_fields?limit={count}` |

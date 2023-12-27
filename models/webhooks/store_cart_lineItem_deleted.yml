@@ -1,0 +1,26 @@
+type: object
+properties:
+  store/cart/lineItem/deleted:
+    description: Fires when an item is deleted from a cart.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: string
+          cartId:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

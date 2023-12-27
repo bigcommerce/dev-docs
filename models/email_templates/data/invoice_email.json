@@ -1,0 +1,180 @@
+{
+  "order": {
+    "id": 1,
+    "customer_message": "Order custom message",
+    "customer_id": 11,
+    "date_placed": {
+      "formatted": "11th Feb 2021",
+      "value": 1613060604
+    },
+    "account_order_status_url": "#url",
+    "shipping": {
+      "methods": [],
+      "address": {
+        "email": "test@gmail.com",
+        "phone": "+112233445566",
+        "first_name": "John",
+        "last_name": "Wick",
+        "company": "MyCompany",
+        "country": "",
+        "city": "La",
+        "state": "",
+        "zip": "1622",
+        "address_lines": [],
+        "custom_fields": []
+      }
+    },
+    "products": [
+      {
+        "name": "Test product name",
+        "quantity": 2,
+        "sku": "SF42",
+        "address_lines": [],
+        "address_id": 0,
+        "options": {
+          "Size": "XL"
+        },
+        "download_url": "",
+        "thumbnail_url": "/test.jpg",
+        "event": {
+          "name": "",
+          "date": {
+            "value": 0,
+            "formatted": ""
+          }
+        },
+        "price": {
+          "value": 250.1,
+          "formatted": "250.1"
+        },
+        "total": {
+          "value": 250.1,
+          "formatted": "250.1"
+        },
+        "preorder": {
+          "is_preorder": false,
+          "message": "",
+          "date": {
+            "value": 0,
+            "formatted": ""
+          }
+        },
+        "attribute_lines": [],
+        "configurable_fields": []
+      }
+    ],
+    "payment": {
+      "is_test": false,
+      "provider_name": "PaymentMethod",
+      "offline_payment_message": "",
+      "gateway_amount": {
+        "formatted": "",
+        "value": 0
+      }
+    },
+    "billing": {
+      "is_managed_by_amazon": false,
+      "address": {
+        "email": "test@gmail.com",
+        "phone": "+112233445566",
+        "first_name": "John",
+        "last_name": "Wick",
+        "company": "MyCompany",
+        "country": "",
+        "city": "La",
+        "state": "",
+        "zip": "1622",
+        "address_lines": [],
+        "custom_fields": []
+      }
+    },
+    "total_rows": [
+      {
+        "label": "Total",
+        "price": {
+          "value": 250.1,
+          "formatted": "250.1"
+        },
+        "shipping_discounts": []
+      }
+    ],
+    "total_cost": {
+      "formatted": "100.0$",
+      "value": 100
+    },
+    "meta": {
+      "mandate_url": "",
+      "shipping_addresses_num": 1,
+      "show_immediate_download": false
+    }
+  },
+  "store": {
+    "name": "My Dev Store 97434969",
+    "domain_name": "my-dev-store-97434969.store.bcdev",
+    "logo": {
+      "title": "[= My Dev Store 97434969 =]",
+      "name": "avatar-2020_1612860757__16350.jpeg",
+      "url": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg"
+    },
+    "ssl_path": "https://my-dev-store-97434969.store.bcdev",
+    "cdn_path": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96",
+    "image_directory": "product_images",
+    "img_path": "https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images",
+    "path_normal": "https://my-dev-store-97434969.store.bcdev",
+    "path": "https://my-dev-store-97434969.store.bcdev",
+    "address": "",
+    "language": {
+      "code": "en",
+      "direction": "ltr"
+    }
+  },
+  "customer": {
+    "first_name": "John",
+    "full_name": "John Jr",
+    "email": "john.f@example.com"
+  },
+  "misc": {
+    "year": 2021
+  },
+  "translations": {
+    "en": {
+      "comment_label": "Order Instructions/Comments",
+      "order_id_line": "Your order ID is <strong>#{id}</strong>.",
+      "view_summary": "A summary of your order is shown below. To view the status of your order <a href='{link}'>click here</a>.",
+      "sepa": "SEPA Direct Debit Mandate",
+      "shipment_to_multiple_addresses": "(Order will be shipped to multiple addresses)",
+      "shipping_immediate_download": "Immediate download after completion of payment.",
+      "shipping_address_label": "Shipping Address",
+      "immediate_download": "Immediate Download",
+      "email": "Email",
+      "billing_address_managed_by_amazon": "Managed by Amazon",
+      "billing_address_label": "Billing Address",
+      "pending_payment": "Your order requires payment before it can be finalized. Details on how to pay are shown below.",
+      "how_to_pay": "Your order requires payment before it can be finalized. Details on how to pay are shown below.",
+      "pay_for_order_help": "Once you've provided payment your order will be completed.",
+      "order_total": "The outstanding balance of your order is {amount}",
+      "cart_items": "Cart Items",
+      "sku": "SKU",
+      "quantity": "Qty",
+      "item_price": "Item Price",
+      "item_total": "Item Total",
+      "payment_method": "Payment Method",
+      "no_payment_taken_in_test_mode": "<b>Please Note</b>: No money was taken for this order, because the payment provider is in test mode.",
+      "download_files": "Download Files",
+      "preorder": "This product is available for pre-order only",
+      "download_available_after_payment": "Items available for immediate download after completion of payment",
+      "shipped_to": "Items shipped to {address}",
+      "shipping_discount": "{price} off using {code} Coupon Code",
+      "thanks_for_your_order": "Thanks for Your Order",
+      "your_order_contains": "Your Order Contains...",
+      "shipping_method": "Shipping Method",
+      "shipping_to_address": "Shipping to Address",
+      "your_order_will_be_shipped_by": "Your Order Will Be Shipped By...",
+      "total_cost": "Total Cost",
+      "items": "Items",
+      "total": "Total",
+      "price": "Price",
+      "email_address": "Email Address"
+    }
+  }
+}

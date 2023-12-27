@@ -1,0 +1,21 @@
+type: object
+properties:
+  store/inventory/location/updated:
+    description: Location is updated.
+    type: object
+    properties:
+      producer:
+        type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      store_id:
+        type: string
+      scope:
+        type: string
+      data:
+        type: object
+        properties:
+          location_id:
+            type: integer

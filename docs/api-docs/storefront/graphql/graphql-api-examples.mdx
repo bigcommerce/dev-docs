@@ -1,0 +1,211 @@
+---
+title: GraphQL Storefront API Example Queries
+keywords: storefront, graphql
+---
+# GraphQL Storefront API Example Queries
+
+Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of its usage and capabilities, see [GraphQL Storefront API Overview](/docs/storefront/graphql).
+
+## Configuring the request
+
+To get started, you need a BigCommerce store and a Storefront API token. For more information, see the [Authentication section of the GraphQL Storefront API Overview](/docs/storefront/graphql#authentication) or the [Authentication article](/docs/start/authentication#bigcommerce-generated-jwts).
+
+For more information on formatting the request payload, see [the query example section of the GraphQL Storefront API Overview](/docs/storefront/graphql#querying-within-a-bigcommerce-storefront).
+
+To use this API from a coupled storefront, use the following HTTP configuration:
+
+```js filename="Example query: Same-origin GraphQL Storefront HTTP configuration" showLineNumbers copy
+  fetch('/graphql', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + {{storefrontToken}}
+    },
+    body: JSON.stringify({
+      query: gqlQueryString
+    })
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+```
+
+To use this API server-to-server, use the following HTTP configuration:
+
+```http filename="Server-to-server GraphQL Storefront HTTP configuration" showLineNumbers copy
+  POST https://{{storeDomain}}/graphql
+  Authorization: Bearer {{storefrontOrCustomerImpersonationToken}}
+  X-BC-Customer-ID: 123 # optional once a customer is signed in
+  Content-Type: application/json
+```
+
+## Get a customer's details
+
+```graphql filename="Example query: Get a customer's details" showLineNumbers copy
+query CustomerAttributes {
+  customer {
+    firstName
+    lastName
+    email
+    entityId
+    customerGroupId
+    attributeCount
+    attributes {
+      shirtSize: attribute(entityId:123) {
+        entityId
+        value
+      }
+      favoriteColor: attribute(entityId:456) {
+        entityId
+        value
+      }
+    }
+  }
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
+
+## Get first three levels of category tree
+
+```graphql filename="Example query: Get first three levels of category tree" showLineNumbers copy
+query CategoryTree3LevelsDeep {
+  site {
+    categoryTree {
+      ...CategoryFields
+      children {
+        ...CategoryFields
+        children {
+          ...CategoryFields
+        }
+      }
+    }
+  }
+}
+
+fragment CategoryFields on CategoryTreeItem {
+  name
+  path
+  entityId
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoryTree" target="_blank">**Try it in GraphQL Playground**</a>
+
+## Get category and products within by URL
+
+```graphql filename="Example query: Get category and products within by URL" showLineNumbers copy
+query CategoryByUrl {
+  site {
+    route(path: "/shop-all/") {
+      node {
+        id
+        ... on Category {
+          name
+          entityId
+          description
+          products {
+            edges {
+              node {
+                name
+                defaultImage {
+                  url(width: 1200)
+                }
+                brand {
+                  name
+                  defaultImage {
+                    url(width: 200)
+                  }
+                }
+                prices {
+                  price {
+                    ...PriceFields
+                  }
+                  priceRange {
+                    min {
+                      ...PriceFields
+                    }
+                    max {
+                      ...PriceFields
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment PriceFields on Money {
+  value
+  currencyCode
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl" target="_blank">**Try it in GraphQL Playground**</a>
+
+## Look up an object by URL
+
+```graphql filename="Example query: Look up an object by URL" showLineNumbers copy
+query LookUpUrl {
+  site {
+    route(path: "/shop-all/") {
+      node {
+        __typename
+        id
+        ... on Category {
+          name
+          description
+        }
+        ... on Brand {
+          name
+          defaultImage {
+            url(width: 200)
+          }
+        }
+        ... on Product {
+          name
+          description
+          images {
+            edges {
+              node {
+                url(width: 500, height: 500)
+              }
+            }
+          }
+          brand {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
+
+## Get popular brands
+
+```graphql filename="Example query: Get popular brands" showLineNumbers copy
+query {
+  site {
+    popularBrands {
+      edges {
+        node {
+          entityId
+          count
+          name
+          path
+        }
+      }
+    }
+  }
+}
+```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=popularBrands" target="_blank">**Try it in GraphQL Playground**</a>

@@ -1,0 +1,123 @@
+# Working with Theme Variations
+
+ 
+
+## Naming your theme
+
+The basic details of the Cornerstone theme are outlined in the theme's configuration file, [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json). You can update the Cornerstone's `config.json` file to reflect your theme's values, such as name, version number, and documentation URL. 
+
+
+Here are the first key-value sets in Cornerstone's `config.json`: 
+
+```json filename="Cornerstone settings config.json" showLineNumbers copy
+{
+  "name": "Cornerstone",
+  "version": "4.9.0",
+  "meta": {
+    "price": 0,
+    "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
+  // ...
+  }
+}
+```
+
+The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
+
+
+```json filename="Cornerstone settings config.json" showLineNumbers copy
+{
+"name": "MyTheme",
+"version": "1.1.2",
+"meta": {
+  "price": 10000,
+  "documentation_url": "https://www.mywebsite.com/theme-docs/my-theme.html",
+  // ...
+  }
+}
+```
+
+## Creating and naming a new theme variation
+
+You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
+
+
+```json filename="Cornerstone Light theme variation settings config.json" showLineNumbers copy
+  "variations": [
+    {
+      "name": "Light",
+      "id": "light",
+      "meta": {
+        "desktop_screenshot": "desktop_light.png",
+        "mobile_screenshot": "mobile_light.png",
+        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+        "demo_url": "https://cornerstone-light-demo.mybigcommerce.com",
+        "optimized_for": [
+          "multi_purpose",
+          "mobile_tablet_desktop",
+          "sales_discounts",
+          "large_catalog"
+        ],
+        //...
+      },
+      //..
+    },
+```
+
+Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
+
+
+```json filename="Example theme variation definition config.json" showLineNumbers copy
+"variations": [
+// ...
+  {
+    "name": "MyCustomVariation",
+    "id": "my_custom_variation",
+    "meta": {
+      "desktop_screenshot": "my_custom_desktop_screenshot.jpg",
+      "mobile_screenshot": "my_custom_mobile_screenshot.png",
+      "description": "This is a really cool custom style of the Stencil Theme",
+      "demo_url": "https://stencil-custom.mybigcommerce.com",
+      "optimized_for": ["fashion", "image_heavy", "etc"],
+      "industries": []
+    },
+  },
+  // ...
+```
+
+## Changing a theme variation's font family
+
+
+To learn more about defining variations, see [Defining Global Styles](/docs/storefront/stencil/themes/foundations/global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
+
+The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
+
+```json Filename="Example body font variation config.json" showLineNumbers copy
+{
+  "name": "MyCustomVariation",
+  "id": "my_custom_variation",
+  "settings": {
+    // ...
+    "body-font-family": "MyCoolFont, AnotherFont, sans-serif",
+    // ...
+  }
+}
+```
+
+## Preparing a variation's thumbnails
+
+
+For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/docs/storefront/stencil/deployment/theme-images).
+
+<Callout type="info">
+
+ #### Using Stencil CLI to change variations
+ To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI's `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
+ `stencil start -v variation-name`
+ </Callout>
+
+## Resources
+
+### Related articles
+* [Checking a Theme's Size](/docs/storefront/stencil/deployment/theme-size)
+* [Preparing Thumbnail Images](/docs/storefront/stencil/deployment/theme-images)
+* [Bundling and Pushing a Theme](/docs/storefront/stencil/deployment/upload)

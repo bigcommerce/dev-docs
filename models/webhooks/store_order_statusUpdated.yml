@@ -1,0 +1,31 @@
+type: object
+properties:
+  store/order/statusUpdated:
+    description: Fires when the order status has changed, such as from Pending to Awaiting Payment.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+          status:
+            type: object
+            properties:
+              previous_status_id:
+                type: integer
+              new_status_id:
+                type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

@@ -1,0 +1,56 @@
+description: |-
+  The brand object for the page calling the object. 
+
+  `{{brand}}` object available to `templates/pages/brand.html`
+
+  **Handlebars Expression:** `{{brand}}`
+type: object
+properties:
+  config:
+    type: array
+    items:
+      type: object
+  faceted_search_enabled:
+    type: boolean
+    description: Boolean that defines whether product-filtering search is enabled for the store.
+  facets:
+    type: array
+    description: A list of all possible search filters for this brand.
+    items:
+      type: object
+  image:
+    $ref: ../common/image.yml
+  meta:
+    type: array
+    items:
+      type: object
+  name:
+    type: string
+    description: Name of the brand
+  products:
+    type: array
+    description: An array of product card models.
+    items:
+      $ref: ../common/product.yml
+  search_error:
+    type: boolean
+  selected:
+    type: object
+    description: An array of selected facets.
+    properties:
+      items:
+        type: array
+        items:
+          type: object
+      remove_all_url:
+        type: string
+  show_compare:
+    type: boolean
+    description: Boolean corresponding to merchant’s control panel selection whether or not to enable product comparisons.
+  state:
+    type: array
+    items:
+      type: object
+  url:
+    type: string
+    description: URL of the brand page

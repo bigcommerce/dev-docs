@@ -1,0 +1,110 @@
+description: |-
+  `{{customer}}` object available to templates and components with customer context such as `page/contact-us-form.html`, `common/subscription-form.html`, `account/address-list.html`, `account/messages-form.html`, and `account/wishlist-list.html`.
+
+  **Handlebars Expression**: `{{customer}}`
+type: object
+properties:
+  addresses:
+    $ref: ../customer/addresses.yml
+  customer_group_id:
+    type: number
+    description: ID of this customerʼs group.
+  customer_group_name:
+    type: string
+    description: Name of this customerʼs group.
+  edit_stored_instrument:
+    type: string
+  email:
+    type: string
+    description: Customer’s email address.
+  id:
+    description: Customerʼs ID.
+    type: integer
+  name:
+    description: Customerʼs name.
+    type: string
+  num_new_messages:
+    description: Number of unread messages for this customer.
+    type: integer
+  num_wishlists:
+    description: Number of wishlists for this customer.
+    type: string
+  orders:
+    $ref: ../customer/orders.yml
+  payment_methods:
+    $ref: ../customer/payment_methods.yml
+  phone:
+    description: Customerʼs phone number.
+    type: string
+  recently_viewed_products:
+    type: array
+    items:
+      $ref: ../common/product.yml
+  returns:
+    $ref: ../customer/returns.yml
+  shipping_address:
+    description: Shipping address used for the order.
+    type: object
+    properties:
+      address1:
+        description: Customerʼs shipping address, first line.
+        type: string
+      address2:
+        description: Customerʼs shipping address, second line.
+        type: string
+      city:
+        description: Customerʼs shipping city.
+        type: string
+      company:
+        description: Customerʼs shipping company name.
+        type: string
+      country:
+        description: Customerʼs shipping country.
+        type: string
+      country_id:
+        description: ID for customerʼs shipping country.
+        type: string
+      destination:
+        description: 'Type of delivery destination: residential or business/commercial.'
+        type: string
+      first_name:
+        description: Customerʼs shipping (first) name.
+        type: string
+      form_session_id:
+        description: Used for custom shipping forms.
+        type: string
+      id:
+        description: 'Unique, system-generated ID.'
+        type: string
+      last_name:
+        description: Customerʼs shipping (last) name.
+        type: string
+      last_used:
+        description: Timestamp when this address was last used as a shipping address.
+        type: string
+      phone:
+        description: Customerʼs shipping phone number.
+        type: string
+      state:
+        description: Customerʼs shipping state.
+        type: string
+      state_id:
+        description: ID for customerʼs shipping state/province/region.
+        type: string
+      zip:
+        description: Customerʼs shipping postal code.
+        type: string
+  shipping_addresses:
+    $ref: ../customer/orders.yml
+  store_credit:
+    description: Customerʼs store credit.
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  wishlists:
+    $ref: ../customer/wishlists.yml

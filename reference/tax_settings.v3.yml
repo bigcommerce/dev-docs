@@ -1,0 +1,167 @@
+openapi: '3.0.0'
+info:
+  title: Tax Settings
+  version: ''
+  description: Manage tax settings
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Tax Settings
+paths:
+  '/tax/settings':
+    get:
+      tags:
+        - Tax Settings
+      summary: Get Tax Settings
+      description: Retrieves global-level tax settings.
+      operationId: get-tax-settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tax_Settings'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
+    put:
+      tags:
+        - Tax Settings
+      summary: Update Tax Settings
+      description: Updates global-level tax settings.
+      operationId: set-tax-settings
+      parameters:
+      - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tax_Settings'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tax_Settings'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
+        '422':
+          description: The request body does not meet the specification.
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+  schemas:
+    Tax_Settings:
+      type: object
+      properties:
+        tax_entered_with_prices:
+          type: boolean
+          description: Whether prices entered on this store include a tax component or not.
+        price_display_settings:
+          type: object
+          description: Settings that describe how prices display at the global level.
+          properties:
+            show_inclusive_in_control_panel:
+              type: boolean
+              description: Whether to show prices as tax inclusive or tax exclusive in the BigCommerce control panel.
+            invoice_price_display_strategy:
+              type: string
+              description: 'Whether to show prices as tax inclusive or tax exclusive across all invoices, or use the shopperʼs tax zone for price display on invoices.'
+              default: ZONE
+              enum:
+                - ZONE
+                - INCLUSIVE
+                - EXCLUSIVE
+        fallback_strategy:
+          type: string
+          description: 'Describes the fallback behavior that applies when a tax provider produces an error. A merchant may decide to use a flat 10% fallback tax rate, their basic tax settings, or to block the transaction until they achieve a successful result.'
+          default: FIXED
+          enum:
+            - FIXED
+            - BASIC
+            - DISABLE
+        should_subtract_store_tax:
+          default: true
+          type: boolean
+          description: This setting applies only if a merchant enters tax-inclusive prices. When enabled, the store subtracts the itemʼs store tax rate before calculating tax using the shopperʼs tax zone. The tax-exclusive amount will be the same across all tax zones. When disabled, the tax-inclusive price remains the same across all tax zones; only the tax amount will vary based on the shopperʼs location. The tax-exclusive amount may vary among tax zones. These calculations are relevant for tax pricing and tax quotations that use basic tax.
+        should_use_geolocation_to_determine_guest_shopper_tax_zone:
+          default: false
+          type: boolean
+          description: This setting determines which tax zone a store uses to estimate tax for guest shoppers. When enabled, the store identifies a country-level tax zone based on the geolocation of a guest shopper. The store then applies the corresponding tax zone to estimate taxes. When disabled, the store identifies the zone using the provided `guest_shopper_tax_zone_id` field instead. Only the tax zones you configure can be matched to the guest shopper's geolocation.
+        guest_shopper_tax_zone_id:
+          default: 1
+          type: integer
+          description: ID for the tax zone a store uses when estimating tax for guest shoppers. The store uses this zone if you disable `should_use_geolocation_to_determine_guest_shopper_tax_zone`. The store also uses this zone if there is no matching country-level tax zone for the geolocation.
+        store_tax_zone_id:
+          default: 1
+          type: integer
+          description: ID for the tax zone a store uses when subtracting store tax. This setting applies only if a merchant enters tax-inclusive prices and subtracts store tax before tax calculation.
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.

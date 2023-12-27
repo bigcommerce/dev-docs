@@ -1,0 +1,116 @@
+---
+title: Quick Start
+keywords: cors, 
+---
+
+# Quick Start
+
+This quick start guide will take you through making your first requests with BigCommerce's APIs.
+
+## REST Management API
+
+### Create an API account
+
+See the [Guide to API Accounts](/docs/start/authentication/api-accounts) for instructions on creating API accounts.
+
+### Use Request Runner
+
+You can experiment with our REST Management APIs using the **Request Runner**, which is built in to the [API Reference](/docs/api) for most endpoints.
+
+Copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
+
+### Visual Studio Code REST Client
+
+If you use **Visual Studio Code**, another way to make API requests is with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
+
+```http
+@ACCESS_TOKEN = your_access_token
+@STORE_HASH = your_store_hash
+
+###
+
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+Save and you'll see the **send request** link above `GET`. Click **send request** and the response will open in a split window.
+
+### Postman
+
+To try out REST endpoints and view responses, you can import our API specification files into [Postman](https://www.getpostman.com/) or any other tool that can import [Open API Specification](https://swagger.io/specification/) files.
+
+To view sample JSON request bodies for each REST API resource, see the [API Reference](/docs/api) for that resource.
+
+## REST Storefront API quick start
+
+To make your first requests in a browser with the REST Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](/docs/storefront/cart-checkout/guide/rest-storefront).
+
+## GraphQL Storefront API
+
+### Create a storefront token
+
+This example uses **Request Runner** to make an initial request that creates a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/docs/start/authentication/api-accounts#creating-store-level-api-credentials).
+
+In the `allowed_cors_origins` array, include the URL(s) of the storefront from which you plan to use the token.
+
+```http filename="Example request: Create a storefront token" copy
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token
+X-Auth-Token: {{access_token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "channel_id": 1,            // int (only ID 1 currently accepted)
+  "expires_at": 1602288000,   // double UTC unix timestamp in seconds (required)
+  "allowed_cors_origins": [   // array (accepts 1 origin currently)
+    "https://example.com"
+  ]
+}
+```
+
+### Create sample request in the browser
+
+While viewing your storefront in a browser, open the developer tools JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Add your API token to the authorization header in the following code sample and add a valid [Product ID](/docs/rest-catalog/products#get-a-product) for the `entityId`, then run the code in the console:
+
+```js filename="Example query" copy showLineNumbers
+  fetch('/graphql', {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer {{TOKEN}}`
+    },
+    body: JSON.stringify({
+      query: `query SingleProduct {
+        site {
+          products (entityIds: {{product ID}}) {
+            edges {
+              node {
+                id
+                entityId
+                name
+                prices {
+                  price {
+                    value
+                    currencyCode
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`
+    })
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+```
+
+## Customer Login API
+
+For more information, see the [Customer Login API Overview](/docs/start/authentication/customer-login).
+

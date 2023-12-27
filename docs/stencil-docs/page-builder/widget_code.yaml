@@ -1,0 +1,54 @@
+title: Code
+type: object
+description: |-
+  Allows you to display HTML editor controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "html": "<div>html code can go here</div>"
+  }
+  ```
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/save_html.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"htmlCode"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"HTML Code"'
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: '"<div>html code can go here</div>"'
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"code"'
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      language:
+        type: string
+        description: Language used in the code editor.
+        example: '"html"'
+      placeholder:
+        type: string
+        description: Placeholder text in the text editor.
+        example: ' "Insert HTML code here"'

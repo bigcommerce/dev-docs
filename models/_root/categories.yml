@@ -1,0 +1,50 @@
+type: array
+description: |-
+  A array of category objects filled with all categories shown in the current page context; default sorting is by category ID, from lowest to highest
+
+  `global` `{{categories}}` array 
+
+  **Handlebars Expression**: `{{categories}}`
+items:
+  type: object
+  properties:
+    count:
+      type: string
+      description: Number of products in this category.
+    id:
+      type: string
+      description: ID of the top-level category listed.
+    image:
+      $ref: ../common/image.yml
+    name:
+      type: string
+      description: Name of the top-level category
+    url:
+      type: string
+      description: URL to the category page.
+    children:
+      type: array
+      description: List of child categories for this top-level category.
+      items:
+        type: object
+        properties:
+          count:
+            type: string
+            description: Number of products in this category.
+          id:
+            type: string
+            description: ID of the top-level category listed.
+          image:
+            $ref: ../common/image.yml
+          name:
+            type: string
+            description: Name of the top-level category
+          url:
+            type: string
+            description: URL to the category page.
+          children:
+            type: array
+            description: List of child categories.
+examples:
+  - '<!-- renders a UL of categories for the current page context --> <ul class="people_list"> {{#each categories}} <li>{{this.name}}</li> {{/each}} </ul>'
+title: ''

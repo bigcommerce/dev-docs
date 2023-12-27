@@ -1,0 +1,119 @@
+type: object
+description: customer.payment_methods object available to `templates/pages/account/payment-methods.html`.
+oneOf:
+  - type: array
+    description: Replaces `customerPaymentMethods` object used in payment_methods.html templates when `account_payment_methods_v2` is enabled in **config.json** > **meta** > **features**.
+    items:
+      type: object
+      properties:
+        display_name:
+          type: string
+          description: value from the name provided by merchants
+        add_url:
+          type:
+            - 'null'
+            - string
+        type:
+          type: string
+          enum:
+            - CARD
+            - PAYPAL
+        stored_instruments:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              brand:
+                type: string
+              expiry_month:
+                type: integer
+              expiry_year:
+                type: integer
+              last_4:
+                type: string
+              email:
+                type: 'null'
+              is_default:
+                type: boolean
+              edit_url:
+                type: string
+              delete_url:
+                type: string
+              billing_address:
+                type: object
+                properties:
+                  address1:
+                    type: string
+                  address2:
+                    type: string
+                  city:
+                    type: string
+                  country_code:
+                    type: string
+                  country:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  phone:
+                    type: string
+                  zip:
+                    type: string
+                  state:
+                    type: string
+                  state_code:
+                    type: string
+            required:
+              - type
+              - is_default
+              - delete_url
+        instruments:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              expiry_month:
+                type: 'null'
+              expiry_year:
+                type: 'null'
+              last_4:
+                type: 'null'
+              email:
+                type: string
+              is_default:
+                type: boolean
+              edit_url:
+                type: string
+              delete_url:
+                type: string
+              billing_address:
+                type: 'null'
+            required:
+              - type
+              - expiry_month
+              - is_default
+              - edit_url
+              - delete_url
+      required:
+        - type
+  - type: object
+    properties:
+      payment_method_name_key:
+        type: object
+        properties:
+          add_url:
+            type: string
+          display_name:
+            type: string
+          methods:
+            type: array
+            items:
+              type: object
+      selected_payment_method:
+        type: 'null'
+    description: Object to view stored customer payment methods

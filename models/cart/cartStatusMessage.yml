@@ -1,0 +1,8 @@
+type: object
+properties:
+  message:
+    type: string
+    example: Example congrats banner message
+  type:
+    type: number
+    example: 2

@@ -1,0 +1,111 @@
+---
+title: Difference between V2 and V3 Catalog REST APIs
+keywords: products, v2, v3, catalog, rest, modifiers, 
+---
+
+# Difference between V2 and V3 Catalog REST APIs
+
+
+
+V2 and V3 Catalog REST APIs allow you to manage your store's products, categories, and brands, along with their sub-resources.
+
+Both the V2 and V3 Catalog APIs authenticate with OAuth and can be used concurrently within a single application; however, data representation can be significantly different.
+
+While every effort has been made to provide reasonable forwards and backwards compatibility between V2 and V3 REST APIs, there are important differences between the APIs which may result in undesirable behavior when both API versions are used for write actions on a given store. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
+For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
+
+<Callout type="info">
+  * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/docs/start/best-practices/sunsets).
+  * BigCommerce will not introduce new resources in V2 APIs.
+  * BigCommerce will eventually migrate all existing V2 resources to V3.
+  * Not all V2 resources have V3 counterparts. 
+</Callout>
+
+
+## V3 improvements
+
+* You can perform most tasks with fewer API calls; for example, you can create a product with variants and custom fields in a single request.
+* You can include sub-resources within a request.
+* Each V3 resource includes a meta object, simplifying pagination.
+* V3 [Brands](/docs/rest-catalog/brands#get-a-brand), [Categories](/docs/rest-catalog/categories#get-a-category), [Products](/docs/rest-catalog/products#get-a-product), and [Product Variants](/docs/rest-catalog/product-variants#get-a-product-variant) expose a metafields resource for use by developers to store custom data.
+* V3 API is optimized for performance. In general, data can be sent, received, and processed faster via V3 relative to V2.
+
+## Difference between V2 and V3 Catalog APIs
+
+### Product variants and modifiers instead of option sets
+
+V3 Catalog introduced a new option model that included two types of options: [variant options](/docs/store-operations/catalog#variant-options) and [modifiers](/docs/store-operations/catalog#modifier-options). 
+
+You can now create variants and modifiers in one call without having to create option sets beforehand. The new option model simplified the creation and management of variant prices and modifier adjusters. In all but some cases,  it removed the need to use complex rules.
+
+**Variant options**
+
+[Variant options](/docs/store-operations/catalog#variant-options) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
+
+*Variant options example:* size or color.
+
+**Variants**
+
+[Variants](/docs/store-operations/catalog#variants) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
+
+*Variant example:* large blue t-shirt.
+
+**Modifiers**
+
+[Modifiers](/docs/store-operations/catalog#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](/docs/store-operations/catalog#complex-rules) to change a product's price or weight.
+Modifiers include multiple-choice types such as swatch, rectangle, radio button, and dropdown, and non-multiple-choice types such as text, multi-line text, date picker, file upload, and pick list.
+
+<Callout type="info">
+  Product [variant options](/docs/rest-catalog/product-variant-options#get-a-product-variant-option) and [modifiers](/docs/rest-catalog/product-modifiers#get-a-modifier) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
+</Callout>
+
+
+The following workflows demonstrate the difference between creating a product with variants using V2 and V3 Catalog APIs.
+
+**V2 API workflow to create a product with variants:**
+
+1. Create a product using the V2 Products API.
+2. Create options.
+3. Create an option set using the V2 Option Sets API.
+4. Link the product to the option set.
+5. Create adjustments, such as price adjustment, using rules.
+
+**V3 Catalog API workflow to create a product with variants:**
+
+1. [Create a product](/docs/rest-catalog/products#create-a-product) with variants by sending a `POST` request to `/v3/catalog/products`. You can specify the price directly on the variant level using the `price` property of the variant object.
+
+**Product variants**
+
+In V3, every purchasable entity in the catalog is a variant including the product itself. This structure enables enhanced inventory management flows, such as using the [Variants](/docs/rest-catalog/product-variants/variants-batch#get-all-variants) endpoint to manage inventory levels. While it is possible to create an SKU with a subset of product options using the V2 API, V3 requires creating variants for every combination of option values. We recommend creating products using the V3 API as BigCommerce intends to move operations to the V3 API.
+
+To reduce the number of API calls made, you can include variants with a `GET` request using the `?include=variants` query parameter.
+
+<Callout type="warning">
+  #### V2 SKU rules will override variant pricing
+>
+  Creating SKU rules via the V2 API or CSV import will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or [Price Lists UI](https://support.bigcommerce.com/s/article/Price-Lists).
+</Callout>
+
+
+### Product option sets
+
+The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](/archive/store-operations/v2-catalog-products/v2-option-set-options) or the control panel. 
+
+On all new stores, the [V3 Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products-v3) experience uses the V3 Catalog API. On some older stores, the control panel's [Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products) section consumes the V2 API, and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, you will remove the product's variants.
+
+### Product rules 
+
+Most of the use cases for using V2 product rules can be solved by making adjustments directly to V3 variant options and modifiers. For cases where an adjustment depends on selecting multiple modifier values, use the V3's [Complex Rules](/docs/rest-catalog/products/complex-rules#create-a-complex-rule) resource. 
+In V3, any variants or modifier adjusters created with non-null core properties such as price, weight, image, and purchasability will create a rule on the back-end. Such variants and modifier options will appear in V2 as product rules, and their edits will be shared across API versions.
+
+## Related resources
+
+### Articles
+* [Catalog Overview](/docs/store-operations/catalog)
+* [Deprecations and sunsets](/docs/start/best-practices/sunsets)
+
+### Endpoints
+* [V3 Catalog: Get Product Complex Rules](/docs/rest-catalog/products/complex-rules#get-complex-rules)
+* [V3 Catalog: Get Product Variant Options](/docs/rest-catalog/product-variant-options#get-all-product-variant-options)
+* [V3 Catalog: Get Product Modifiers](/docs/rest-catalog/product-modifiers#get-all-product-modifiers)
+* [V3 Catalog: Get Product Variants](/docs/rest-catalog/product-variants#get-all-product-variants)

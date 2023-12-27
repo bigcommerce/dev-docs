@@ -1,0 +1,68 @@
+title: Alignment
+type: object
+description: |-
+  Allows you to display alignment controls for your widget. Depending on the use case, you are able to display horizontal, vertical, or both alignments simultaneously.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "contentAlignment": {
+      "horizontal": "center",
+      "vertical": "middle"
+    }
+  }
+  ```
+
+  Depending on the alignment control type, certain values are possible:
+
+  |Content alignment setting|Allowed values|
+  |---|---|
+  |`horizontal`|\"left\", \"right\", \"center\"|
+  |`vertical`|\"top\", \"bottom\", \"middle\"|
+
+  ## Widget Configuration Output"
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/image_alignment.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    example: '"alignment"'
+    description: The type of setting component to display.
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Image alignment"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"imageAlignment"'
+  default:
+    type: object
+    description: The default value to use when rendering the widget for the first time.
+    properties:
+      horizontal:
+        type: string
+        description: 'Possible values include: “left”, “right”, “center”.'
+        example: '"center"'
+      vertical:
+        type: string
+        description: 'Possible values include: “top”, “bottom”, “middle”.'
+        example: '"middle"'
+  typeMeta:
+    type: object
+    description: Additional information needed based on the selected setting type.
+    properties:
+      display:
+        type: string
+        description: Determines which alignment controls are displayed.
+        example: '"both"'

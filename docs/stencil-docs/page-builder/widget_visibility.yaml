@@ -1,0 +1,44 @@
+title: Visibility
+type: object
+description: |-
+  Visibility allows the user to toggle between showing or hiding an element.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "buttonVisibility": "show"
+  }
+  ```
+
+  >Output values are “show” or “hide”.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/output.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: visibility
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: Button
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: ' "buttonVisibility"'
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time. Default values are "show or “hide”.
+    example: show

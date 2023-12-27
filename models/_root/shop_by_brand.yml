@@ -1,0 +1,23 @@
+description: |-
+  Objects to enable customers to shop by brand. Returns top 10 brands, by product count. (Called on the default `templates/components/brand/sidebar.html` and `templates/components/common/footer.html` partials.)
+
+  `global` `{{shop_by_brand}}` array of top 10 brands by product count.
+
+  **Handlebars Expression**: `{{shop_by_brand}}`
+type: array
+title: shop_by_brand
+items:
+  type: object
+  properties:
+    count:
+      type: string
+      description: Number of products matching this brand.
+    id:
+      type: string
+      description: ID for this brand.
+    name:
+      type: string
+      description: Name of this brand.
+    url:
+      type: string
+      description: URL for this brand.

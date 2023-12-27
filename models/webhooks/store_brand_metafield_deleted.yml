@@ -1,0 +1,23 @@
+type: object
+properties:
+  store/brand/metafield/deleted:
+    description: Fires when a brand metafield is deleted.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          metafield_id:
+            type: integer
+          resource_id:
+            type: string
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string

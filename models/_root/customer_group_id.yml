@@ -1,0 +1,3 @@
+description: '`global` `{{customer_group_id}}`'
+type: integer
+example: 42

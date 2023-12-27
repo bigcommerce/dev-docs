@@ -1,0 +1,1030 @@
+---
+title: Working with the REST Storefront Cart and Checkout APIs
+keywords: address, cors, currency, currencies, draft order, rest, 
+---
+
+# Working with the REST Storefront Cart and Checkout APIs
+
+BigCommerce's [REST Storefront API](/docs/rest-storefront) exposes storefront data to Stencil themes, which lets you to manage a shopper's cart, checkout, and order data using frontend JavaScript. We also offer cart and checkout functionality in the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront).
+
+This tutorial exhibits common use cases to help you get started with the REST Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
+
+By the end of this tutorial, you should be familiar enough with some of the REST Storefront API endpoints to test them.
+
+## Prerequisites
+
+For this tutorial, you will need a BigCommerce store with at least two products and a shipping option.
+
+## Getting started
+
+To begin, navigate to your Stencil storefront and open your browser’s developer console.
+
+For this tutorial, set the credentials option to `same-origin` and the content-type fetch request option to `application/json`. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values.
+
+## REST Storefront Carts
+
+The first part of this tutorial covers using the [REST Storefront API](/docs/rest-storefront/carts) to create a cart, add a line item, and delete a line item directly from the storefront.
+
+### Create a cart
+
+You can create a cart by sending a request to the [Create a cart](/docs/rest-storefront/carts#create-a-cart) endpoint.
+
+The following example uses a `createCart()` helper function to make the API call. To get started, copy and run the following code:
+
+```js filename="Example function: createCart()" showLineNumbers copy
+function createCart(route, cartItems) {
+  return fetch(route, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cartItems),
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+};
+```
+
+The `createCart()` function takes two arguments:
+
+* `route`: The endpoint's request route.
+* `cartItems`: A `lineItems` array containing product IDs and quantities of the items we want to add.
+
+To create a cart, execute the code below passing in `productId` values specific to your store.
+
+```js filename="Example call: createCart()" showLineNumbers copy
+createCart(`/api/storefront/carts`, {
+  "lineItems": [
+    {
+      "quantity": 1,
+      "productId": 86
+    },
+    {
+      "quantity": 1,
+      "productId": 88
+    }
+  ]
+});
+```
+
+Your result should be similar to the one below.
+&nbsp;
+```json filename="Example response: createCart()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 274.5,
+  "discountAmount": 0,
+  "cartAmount": 274.5,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/all/able-brewing-system/",
+        "quantity": 1,
+      ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/all/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+      ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
+  ...
+}
+```
+<Callout type="info">
+  Please take note of the value of the `cartId` as it will be used later in the tutorial.
+</Callout>
+
+
+### Get a cart
+
+To display the contents of a cart, we need to send a request to the [Get a cart](/docs/rest-storefront/carts#get-a-cart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
+
+
+Copy and execute the code below to create and subsequently call the `getCart()` helper function.
+
+```js filename="Example function: getCart()" showLineNumbers copy
+function getCart(route) {
+  return fetch(route, {
+    method: "GET",
+    credentials: "same-origin"
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+};
+```
+```js filename="Example call: getCart()" showLineNumbers copy
+getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options');
+```
+```json filename="Example response: getCart()" showLineNumbers copy
+[
+  {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
+    "isTaxIncluded": false,
+    "baseAmount": 274.5,
+    "discountAmount": 0,
+    "cartAmount": 274.5,
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}/able-brewing-system/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 225,
+          "isShippingRequired": true,
+          "type": "physical",
+          "giftWrapping": null,
+          "options": []
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+            ...
+          "extendedSalePrice": 49.5,
+          "isShippingRequired": true,
+          "type": "physical",
+          "giftWrapping": null,
+          "options": []
+        }
+      ],
+      ...
+    },
+    ...
+  }
+]
+```
+
+### Add a cart item
+
+To add a new line item to the existing cart, the ID of the cart must be included in the endpoint. The card ID was returned as part of the “Create a cart” POST request. Alternatively, you can retrieve the cart ID by making a request to the “Get a cart” endpoint.
+See [Add Cart Line Items](/docs/rest-storefront/carts/cart-items#add-cart-line-items) for more information.
+
+Copy and execute the code below to create the `addCartItem()` helper function.
+
+```js filename="Example function: addCartItem()" showLineNumbers copy
+function addCartItem(routeStart, cartId, cartItems) {
+  var route = routeStart + cartId + '/items';
+  return fetch(route, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cartItems),
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+};
+```
+Call the function to add a new line item to your cart. Make sure to replace the `cartId` and `productId` with your own values.
+
+
+```js filename="Example call: addCartItem()" showLineNumbers copy
+addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
+  "lineItems": [
+    {
+      "quantity": 1,
+      "productId": 97
+    }
+  ]
+});
+```
+```json filename="Example response: addCartItem()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 394.45,
+  "discountAmount": 0,
+  "cartAmount": 394.45,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/able-brewing-system/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "3f8dd1ed-f917-41be-b7f7-20c10f406e09",
+        "parentId": null,
+        "variantId": 69,
+        "productId": 97,
+        "sku": "TWB",
+        "name": "[Sample] Tiered Wire Basket",
+        "url": "https://{store_url}/tiered-wire-basket/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 119.95,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
+  ...
+}
+```
+
+### Delete a cart item
+
+To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](/docs/rest-storefront/carts/cart-items#delete-cart-line-item) endpoint and pass in the `cartId` and `itemId` to be deleted.
+
+
+```js filename="Example function: deleteCartItem()" showLineNumbers copy
+function deleteCartItem(routeStart, cartId, itemId) {
+  var route = routeStart + cartId + '/items/' + itemId;
+  return fetch(route, {
+    method: "DELETE",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+};
+```
+
+Pass your `cartId` and `itemId` to the `deleteCartItem()` helper function to delete the line item.
+
+```js filename="Example call: deleteCartItem()" showLineNumbers copy
+deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `3f8dd1ed-f917-41be-b7f7-20c10f406e09`);
+```
+
+```json filename="Example response: deleteCartItem()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 274.5,
+  "discountAmount": 0,
+  "cartAmount": 274.5,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/able-brewing-system/",
+        "quantity": 1,
+        ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+        ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
+  ...
+}
+```
+
+## Storefront Checkout
+
+In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [REST Storefront Checkout](/docs/rest-storefront/checkouts) for more information.
+
+Before proceeding, make sure you have added two different line items to your cart.
+
+<Callout type="info">
+  The `checkoutId` is the same as the `cartId`.
+</Callout>
+
+### Add a billing address
+
+To add a billing address to a checkout, send a POST request to the [Add Checkout Billing Address](/docs/rest-management/checkouts/checkout-billing-address#add-checkout-billing-address) endpoint.
+
+Copy and execute the code below to create the `addBillingAddress()` helper function.
+
+```js filename="Example function: addBillingAddress()" showLineNumbers copy
+function addBillingAddress(url, cartId, data) {
+  return fetch(url + cartId + `/billing-address`,  {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(error));
+};
+```
+
+Now call the `addBillingAddress()` function making sure to replace the `cartId` with your own value.
+
+```js filename="Example call: addBillingAddress()" showLineNumbers copy
+addBillingAddress(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@email.com",
+  "company": "BigCommerce",
+  "address1": "123 Main Street",
+  "address2": "Apt 1",
+  "city": "Austin",
+  "stateOrProvinceCode": "TX",
+  "countryCode": "USA",
+  "postalCode": "78751"
+})
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
+```
+
+```json filename="Example response: addBillingAddress()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "cart": {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "janedoe@email.com",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
+    ...
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}}/able-brewing-system/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 225,
+          "comparisonPrice": 225,
+          "extendedComparisonPrice": 225,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 49.5,
+          "comparisonPrice": 49.5,
+          "extendedComparisonPrice": 49.5,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        }
+      ],
+      ...
+    },
+    ...
+  },
+  "billingAddress": {
+    "id": "5e6a8cad71318",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@email.com",
+    "company": "BigCommerce",
+    "address1": "123 Main Street",
+    "address2": "Apt 1",
+    "city": "Austin",
+    "stateOrProvince": "Texas",
+    "stateOrProvinceCode": "TX",
+    "country": "",
+    "countryCode": "",
+    "postalCode": "78751",
+    "phone": "",
+    "customFields": []
+  },
+  "consignments": [],
+  "orderId": null,
+  "shippingCostTotal": 0,
+  "shippingCostBeforeDiscount": 0,
+  "handlingCostTotal": 0,
+  "taxTotal": 27.45,
+  "coupons": [],
+  "taxes": [
+    {
+      "name": "Tax",
+      "amount": 27.45
+    }
+  ],
+  "subtotal": 274.5,
+  "grandTotal": 301.95,
+  ...
+  "customerMessage": ""
+}
+```
+
+### Add a new consignment
+
+A consignment consists of a shipping address with the associated line items. At a minimum, you must include one shipping address with line items and shipping options in the checkout. If you use multiple shipping locations, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, include the `?include=consignments.availableShippingOptions` query parameter to return the shipping options available for any address.
+
+See [Add New Consignment to Checkout](/docs/rest-storefront/checkouts/checkout-consignments#create-a-consignment) for more information.
+
+
+Create the `createConsignment()`helper function to test this functionality.
+
+
+```js filename="Example function: createConsignment()" showLineNumbers copy
+function createConsignment(url, cartId, data) {
+  return fetch(url + cartId + `/consignments?include=consignments.availableShippingOptions`,   {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json" ,
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(error));
+};
+```
+
+Copy and execute the code below to create a new consignment. Make sure to replace the `cartId` with your own value.
+
+
+```js filename="Example call: createConsignment()" showLineNumbers copy
+createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
+  [{
+    "shippingAddress": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "janedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 Main Street",
+        "address2": "Apt 1",
+        "city": "Austin",
+        "stateOrProvinceCode": "TX",
+        "countryCode": "US",
+        "postalCode": "78751"
+    },
+    "lineItems": [{
+        "itemId": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "quantity": 1
+    }]
+  },
+  {
+    "shippingAddress": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johnedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 South Street",
+        "address2": "Apt 5",
+        "city": "Austin",
+        "stateOrProvinceCode": "TX",
+        "countryCode": "US",
+        "postalCode": "78726"
+    },
+    "lineItems": [{
+        "itemId": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "quantity": 1
+    }]
+  }]
+)
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
+```
+
+```json filename="Example response: createConsignment()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "cart": {
+      "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+      "customerId": 0,
+      "email": "janedoe@email.com",
+      "currency": {
+        "name": "US Dollars",
+        "code": "USD",
+        "symbol": "$",
+        "decimalPlaces": 2
+      },
+    ...
+      "coupons": [],
+      "discounts": [
+        ...
+      ],
+      "lineItems": {
+        "physicalItems": [
+          {
+            "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+            "parentId": null,
+            "variantId": 66,
+            "productId": 86,
+            "sku": "ABS",
+            "name": "[Sample] Able Brewing System",
+            "url": "https://{store_url}/able-brewing-system/",
+            "quantity": 1,
+            ...
+            "extendedSalePrice": 225,
+            "comparisonPrice": 225,
+            "extendedComparisonPrice": 225,
+            "isShippingRequired": true,
+            "giftWrapping": null,
+            "addedByPromotion": false
+          },
+          {
+            "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+            "parentId": null,
+            "variantId": 67,
+            "productId": 88,
+            "sku": "CC3C",
+            "name": "[Sample] Chemex Coffeemaker 3 Cup",
+            "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+            "quantity": 1,
+            ...
+            "comparisonPrice": 49.5,
+            "extendedComparisonPrice": 49.5,
+            "isShippingRequired": true,
+            "giftWrapping": null,
+            "addedByPromotion": false
+          }
+        ],
+        ...
+      },
+      ...
+    },
+    "billingAddress": {
+      "id": "5e6a8cad71318",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@email.com",
+      "company": "BigCommerce",
+      "address1": "123 Main Street",
+      "address2": "Apt 1",
+      "city": "Austin",
+      "stateOrProvince": "",
+      "stateOrProvinceCode": "",
+      "country": "",
+      "countryCode": "",
+      "postalCode": "78751",
+      "phone": "",
+      "customFields": []
+    },
+    "consignments": [
+      {
+        "id": "5e6a91ff83c6d",
+        "shippingCost": 0,
+        ...
+        "lineItemIds": [
+          "57a877e0-d898-47d0-910d-88656e8dee0c"
+        ],
+        "selectedShippingOption": null,
+        "shippingAddress": {
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "email": "janedoe@email.com",
+          "company": "BigCommerce",
+          "address1": "123 Main Street",
+          "address2": "Apt 1",
+          "city": "Austin",
+          "stateOrProvince": "Texas",
+          "stateOrProvinceCode": "TX",
+          "country": "United States",
+          "countryCode": "US",
+          "postalCode": "78751",
+          "phone": "",
+          "customFields": []
+        },
+        "availableShippingOptions": [
+          {
+            "id": "80ad65f7946c23bd4ee9a531d85c5e21",
+            "type": "shipping_pickupinstore",
+            "description": "Pickup In Store",
+            "imageUrl": "",
+            "cost": 0,
+            ...
+          },
+          {
+            "id": "4dcbf24f457dd67d5f89bcf374e0bc9b",
+            "type": "freeshipping",
+            "description": "Free Shipping",
+            "imageUrl": "",
+            "cost": 0,
+            ...
+          }
+        ]
+      },
+      {
+        "id": "5e6a91ffeac84",
+        "shippingCost": 0,
+        ...
+        "lineItemIds": [
+          "22c461a2-eff9-4b72-8d22-7c2792ce2c2d"
+        ],
+        "selectedShippingOption": null,
+        "shippingAddress": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "johnedoe@email.com",
+          "company": "BigCommerce",
+          "address1": "123 South Street",
+          "address2": "Apt 5",
+          "city": "Austin",
+          "stateOrProvince": "Texas",
+          "stateOrProvinceCode": "TX",
+          "country": "United States",
+          "countryCode": "US",
+          "postalCode": "78726",
+          "phone": "",
+          "customFields": []
+        },
+        "availableShippingOptions": [
+          {
+            "id": "80ad65f7946c23bd4ee9a531d85c5e21",
+            "type": "shipping_pickupinstore",
+            "description": "Pickup In Store",
+            "imageUrl": "",
+            "cost": 0,
+            "transitTime": "",
+            "isRecommended": false,
+            "additionalDescription": ""
+          },
+          {
+            "id": "4dcbf24f457dd67d5f89bcf374e0bc9b",
+            "type": "freeshipping",
+            "description": "Free Shipping",
+            "imageUrl": "",
+            "cost": 0,
+            ...
+          },
+          {
+            "id": "85dfaf5f834d7e594f0bd7cf67d5b200",
+            "type": "shipping_flatrate",
+            "description": "Flat Rate",
+            "imageUrl": "",
+            "cost": 5,
+            ...
+          },
+          {
+            "id": "8809b0bbcc8bdc2d5cad2a4fcbd6cf09",
+            "type": "shipping_byweight",
+            "description": "Ship by Weight",
+            "imageUrl": "",
+            "cost": 10,
+            ...
+          }
+        ]
+      }
+    ],
+    "orderId": null,
+    "shippingCostTotal": 0,
+    "shippingCostBeforeDiscount": 0,
+    "handlingCostTotal": 0,
+    "taxTotal": 22.65,
+    ...
+    "subtotal": 274.5,
+    ...
+    "customerMessage": ""
+  }
+```
+
+### Update a consignment to add a shipping option
+
+To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](/docs/rest-management/checkouts/checkout-consignments#delete-checkout-consignment) for more information.
+
+<Callout type="info">
+  Only one consignment can be updated at a time.
+</Callout>
+
+Create the `updateConsignment()` helper function to accomplish this.
+
+
+```js filename="Example function: updateConsignment()" showLineNumbers copy
+function updateConsignment(url, cartId, consignmentId, data,) {
+  return fetch(url + cartId + `/consignments/` + consignmentId,   {
+    method: "PUT",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json;",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(error));
+};
+```
+
+Execute the code below to update the consignment, replacing `cartId`, `consigmentId`, and `shippingOptionId` with your values.
+
+
+```js filename="Example call: updateConsignment()" showLineNumbers copy
+updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `5e6a91ff83c6d`,{
+  "shippingOptionId": "4dcbf24f457dd67d5f89bcf374e0bc9b"
+})
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
+```
+
+```json filename="Example response: updateConsignment()" showLineNumbers copy
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "cart": {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "janedoe@email.com",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
+    ...
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}/able-brewing-system/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 225,
+          "comparisonPrice": 225,
+          "extendedComparisonPrice": 225,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 49.5,
+          "comparisonPrice": 49.5,
+          "extendedComparisonPrice": 49.5,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        }
+      ],
+      ...
+    },
+    ...
+  },
+  "billingAddress": {
+    "id": "5e6a8cad71318",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@email.com",
+    "company": "BigCommerce",
+    "address1": "123 Main Street",
+    "address2": "Apt 1",
+    "city": "Austin",
+    "stateOrProvince": "",
+    "stateOrProvinceCode": "",
+    "country": "",
+    "countryCode": "",
+    "postalCode": "78751",
+    "phone": "",
+    "customFields": []
+  },
+  "consignments": [
+    {
+      "id": "5e6a91ff83c6d",
+      "shippingCost": 0,
+      "handlingCost": 0,
+      "couponDiscounts": [],
+      "discounts": [],
+      "lineItemIds": [
+        "57a877e0-d898-47d0-910d-88656e8dee0c"
+      ],
+      "selectedShippingOption": {
+        "id": "4dcbf24f457dd67d5f89bcf374e0bc9b",
+        "type": "freeshipping",
+        "description": "Free Shipping",
+        "imageUrl": "",
+        "cost": 0,
+        "transitTime": "",
+        "additionalDescription": ""
+      },
+      "shippingAddress": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "janedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 Main Street",
+        "address2": "Apt 1",
+        "city": "Austin",
+        "stateOrProvince": "Texas",
+        "stateOrProvinceCode": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "postalCode": "78751",
+        "phone": "",
+        "customFields": []
+      }
+    },
+    {
+      "id": "5e6a91ffeac84",
+      "shippingCost": 0,
+      "handlingCost": 0,
+      "couponDiscounts": [],
+      "discounts": [],
+      "lineItemIds": [
+        "22c461a2-eff9-4b72-8d22-7c2792ce2c2d"
+      ],
+      "selectedShippingOption": null,
+      "shippingAddress": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johnedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 South Street",
+        "address2": "Apt 5",
+        "city": "Austin",
+        "stateOrProvince": "Texas",
+        "stateOrProvinceCode": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "postalCode": "78726",
+        "phone": "",
+        "customFields": []
+      }
+    }
+  ],
+  "orderId": null,
+  "shippingCostTotal": 0,
+  "shippingCostBeforeDiscount": 0,
+  "handlingCostTotal": 0,
+  "taxTotal": 22.65,
+  "coupons": [],
+  "taxes": [
+    {
+      "name": "Tax",
+      "amount": 22.65
+    }
+  ],
+  "subtotal": 274.5,
+  ...
+}
+```
+
+## Troubleshooting
+
+**Did you get a 404?**
+Make sure you have at least one item in your cart. Removing all items deletes the cart and returns a 404 error.
+
+
+## Related resources
+
+### Articles
+- [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919)
+
+### Endpoints
+- [Storefront Cart](/docs/rest-storefront/carts)
+- [Storefront Checkout](/docs/rest-management/checkouts)

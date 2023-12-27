@@ -1,0 +1,414 @@
+type: object
+title: 'Webhook Events'
+description:
+properties:
+  store/app/uninstalled:
+    description: Fires when a client store is cancelled and uninstalled from the platform.
+    type: object
+    allOf:
+      - $ref: ./store_app_uninstalled.yml
+  store/brand/metafield/created:
+    description: Fires when a new brand metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_brand_metafield_created.yml
+  store/brand/metafield/deleted:
+    description: Fires when a brand metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_brand_metafield_deleted.yml
+  store/brand/metafield/updated:
+    description: Fires when a brand metafield is modified.
+    type: object
+    allOf:
+      - $ref: ./store_brand_metafield_updated.yml
+  store/cart/abandoned:
+    description: Fires when a cart is abandoned. A cart is considered abandoned when no changes have been made to its properties or contents for one hour. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+    type: object
+    allOf:
+      - $ref: ./store_cart_abandoned.yml
+  store/cart/converted:
+    description: Fires when a cart is converted into an order, which typically follows the payment step of checkout. At this point, the cart is no longer accessible and has been deleted. This webhook returns both the cart ID and the order ID for correlation purposes.
+    type: object
+    allOf:
+      - $ref: ./store_cart_converted.yml
+  store/cart/couponApplied:
+    description: Fires when a new coupon code is applied to a cart. The payload includes the ID of the coupon code.
+    type: object
+    allOf:
+      - $ref: ./store_cart_couponApplied.yml
+  store/cart/created:
+    description: |-
+      Fires when a new cart is created, which happens with the following two events:
+      
+      * A storefront shopper adds the first item to their cart
+      * A new cart is created using any of the APIs that can create carts
+      
+      The store/cart/updated webhook fires simultaneously with store/cart/created.
+    type: object
+    allOf:
+      - $ref: ./store_cart_created.yml
+  store/cart/deleted:
+    description: |-
+      Fires when a cart is deleted. This ends the lifecycle of the cart. Events include the following:
+      
+      * When a storefront shopper or API call removes all items from the cart
+      * When the cart is explicitly removed by API using a DELETE request      
+      
+      The store/cart/updated webhook fires simultaneously with store/cart/deleted.
+    type: object
+    allOf:
+      - $ref: ./store_cart_deleted.yml
+  store/cart/lineItem/created:
+    description: Fires when a new item is added to a cart.
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_created.yml
+  store/cart/lineItem/deleted:
+    description: Fires when an item is deleted from a cart.
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_deleted.yml
+  store/cart/lineItem/updated:
+    description: Fires when a line item’s quantity or product options change.
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_updated.yml
+  store/cart/metafield/created:
+    description: Fires when a new cart metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_cart_metafield_created.yml
+  store/cart/metafield/deleted:
+    description: Fires when a cart metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_cart_metafield_deleted.yml
+  store/cart/metafield/updated:
+    description: Fires when a cart metafield is modified through the changes in its line items.
+    type: object
+    allOf:
+      - $ref: ./store_cart_metafield_updated.yml
+  store/cart/updated:
+    description: |-
+      Fires when a cart is modified, including in the following cases: 
+      
+      * When a new item is added to a cart
+      * When an existing item’s quantity is updated
+      * When an existing item is deleted
+      * When the email is changed during guest checkout
+      * When the store/cart/created webhook fires
+      * When the store/cart/deleted webhook fires
+      
+      The payload includes the ID of the cart being updated.
+    type: object
+    allOf:
+      - $ref: ./store_cart_updated.yml
+  store/category/created:
+    description: Fires when a new category is created.
+    type: object
+    allOf:
+      - $ref: ./store_category_created.yml
+  store/category/deleted:
+    description: Fires when a category is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_category_deleted.yml
+  store/category/updated:
+    description: Fires when a category is updated.
+    type: object
+    allOf:
+      - $ref: ./store_category_updated.yml
+  store/category/metafield/created:
+    description: Fires when a new cart metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_category_metafield_created.yml
+  store/category/metafield/deleted:
+    description: Fires when a cart metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_category_metafield_deleted.yml
+  store/category/metafield/updated:
+    description: Fires when a cart metafield is modified through the changes in its line items.
+    type: object
+    allOf:
+      - $ref: ./store_category_metafield_updated.yml
+  store/channel/metafield/created:
+    description: Fires when a metafield is created per a specified channel.
+    type: object
+    allOf:
+      - $ref: ./store_channel_metafield_created.yml
+  store/channel/metafield/deleted:
+    description: Fires when a metafield is deleted per a specified channel.
+    type: object
+    allOf:
+      - $ref: ./store_channel_metafield_deleted.yml
+  store/channel/metafield/updated:
+    description: Fires when a cart metafield is modified through the changes in its line items.
+    type: object
+    allOf:
+      - $ref: ./store_channel_metafield_updated.yml
+  store/customer/address/created:
+    description: Fires when a customer address is created.
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_created.yml
+  store/customer/address/deleted:
+    description: Fires when a customer address is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_deleted.yml
+  store/customer/address/updated:
+    description: Fires when a customer address is updated.
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_updated.yml
+  store/customer/created:
+    description: Fires when a new customer is created.
+    type: object
+    allOf:
+      - $ref: ./store_customer_created.yml
+  store/customer/deleted:
+    description: Fires when a customer is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_customer_deleted.yml
+  store/customer/payment/instrument/default/updated:
+    description: Fires when a customerʼs default payment instrument is updated.
+    type: object
+    allOf:
+      - $ref: ./store_customer_payment_instrument_default_updated.yml
+  store/customer/updated:
+    description: Fires when a customer is updated. It does not currently track changes to the customer address. <br /><br />Tracks changes to customer attributes only if you make the changes through the control panel. This change triggers the same event `type` and payload as updating a customer; the payload does not include customer attributes.
+
+    type: object
+    allOf:
+      - $ref: ./store_customer_updated.yml
+  store/information/updated:
+    description: Fires when changes are made to store settings. For a full list of fields that can trigger this event, see the store information updated events that follow.
+    type: object
+    allOf:
+      - $ref: ./store_information_updated.yml
+  store/inventory/location/created:
+    description: Fires when a location is created.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_created.yml
+  store/inventory/location/updated:
+    description: Fires when a location is updated.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_updated.yml   
+  store/inventory/location/metafield/created:
+    description: Fires when a new inventory location metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_metafield_created.yml
+  store/inventory/location/metafield/deleted:
+    description: Fires when an inventory location metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_metafield_deleted.yml
+  store/inventory/location/metafield/updated:
+    description: Fires when an existing inventory location metafield is updated.
+    type: object
+    allOf:
+      - $ref: ./store_inventory_location_metafield_updated.yml
+  store/metafield/created:
+    description: Fires whenever a new metafield on any object is created.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_created.yml
+  store/metafield/deleted:
+    description: Fires whenever a metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_deleted.yml
+  store/metafield/updated:
+    description: Fires when an already created metafield is updated. Any changes to an existing metafield on any object (such as inventory, carts, brands, categories, channels, orders, ShipperHQ, etc.) will fire this webhook.
+    type: object
+    allOf:
+      - $ref: ./store_metafield_updated.yml    
+  store/order/archived:
+    description: Fires when an order is archived.
+    type: object
+    allOf:
+      - $ref: ./store_order_archived.yml
+  store/order/created:
+    description: Fires when an order is created either in the control panel or by API.
+    type: object
+    allOf:
+      - $ref: ./store_order_created.yml
+  store/order/message/created:
+    description: Fires when an order message is created by a customer or using the control panel.
+    type: object
+    allOf:
+      - $ref: ./store_order_message_created.yml
+  store/order/metafield/created:
+    description: Fires if an order metafield is created using the control panel, an app, or the API.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_created.yml
+  store/order/metafield/deleted:
+    description: Fires when an order metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_deleted.yml
+  store/order/metafield/updated:
+    description: Fires when an existing order metafield is updated. Any changes to an existing order metafield will fire this webhook.
+    type: object
+    allOf:
+      - $ref: ./store_order_metafield_updated.yml
+  store/order/refund/created:
+    description: Fires when a refund is submitted against an order.
+    type: object
+    allOf:
+      - $ref: ./store_order_refund_created.yml
+  store/order/statusUpdated:
+    description: Fires when the order status has changed, such as from Pending to Awaiting Payment.
+    type: object
+    allOf:
+      - $ref: ./store_order_statusUpdated.yml
+  store/order/transaction/created:
+    description: Fires when an order transaction is created.
+    type: object
+    allOf:
+      - $ref: ./store_order_transaction_created.yml
+  store/order/transaction/updated:
+    description: Fires when an order transaction is changed.
+    type: object
+    allOf:
+      - $ref: ./store_order_transaction_updated.yml
+  store/order/updated:
+    description: Fires when an already created order is updated. Any change to an existing order fires this webhook. Updates can include changing the status, updating a coupon, or changing an address.
+    type: object
+    allOf:
+      - $ref: ./store_order_updated.yml
+  store/product/created:
+    description: Fires when new product is created.
+    type: object
+    allOf:
+      - $ref: ./store_product_created.yml
+  store/product/deleted:
+    description: Fires when a product is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_product_deleted.yml
+  store/product/inventory/order/updated:
+    description: |-
+      Fires when _base product_ inventory levels change in response to the order-related events configured in [Inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). The settings for a channel apply when inventory changes through an order in a channel.
+      
+      The webhook always fires for products without variants. For products with variants, the webhook only fires when the product's inventory properties are configured to track by _product_.
+    type: object
+    allOf:
+      - $ref: ./store_product_inventory_order_updated.yml
+  store/product/inventory/updated:
+    description: |-
+      Fires when inventory levels change for a _base product_. For products without variants, the webhook fires regardless of how you track inventory.
+      
+      For products with variants, the webhook only fires when the product's inventory properties are configured to track by _product_ and the _product-level_ inventory changes.
+      
+      Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page.
+    type: object
+    allOf:
+      - $ref: ./store_product_inventory_updated.yml
+  store/product/metafield/created:
+    description: Fires when a new product metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_created.yml
+  store/product/metafield/deleted:
+    description: Fires when a product metafield is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_deleted.yml
+  store/product/metafield/updated:
+    description: Fires when product metafield details are edited.
+    type: object
+    allOf:
+      - $ref: ./store_product_metafield_updated.yml 
+  store/product/updated:
+    description: Fires when product details are edited. For a full list of product fields that trigger an updated event, see the product updated events that follow.
+    type: object
+    allOf:
+      - $ref: ./store_product_updated.yml
+  store/product/variant/metafield/created:
+    description: Fires when a new product variant metafield is created.
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_created.yml
+  store/product/variant/metafield/deleted:
+    description: Fires when a product variant metafield is deleted..
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_deleted.yml
+  store/product/variant/metafield/updated:
+    description: Fires when product variant metafield details are edited.
+    type: object
+    allOf:
+      - $ref: ./store_variant_metafield_updated.yml
+  store/shipment/created:
+    description: Fires when a shipment is created.
+    type: object
+    allOf:
+      - $ref: ./store_shipment_created.yml
+  store/shipment/deleted:
+    description: Fires when a shipment is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_shipment_deleted.yml
+  store/shipment/updated:
+    description: Fires when a shipment is updated.
+    type: object
+    allOf:
+      - $ref: ./store_shipment_updated.yml
+  store/sku/created:
+    description: Fires when a new SKU is created.
+    type: object
+    allOf:
+      - $ref: ./store_sku_created.yml
+  store/sku/deleted:
+    description: Fires when a SKU is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_sku_deleted.yml
+  store/sku/inventory/order/updated:
+    description: |-
+      Fires when _variant_ inventory levels change in response to the order-related events configured in [Inventory settings](/docs/rest-management/settings/inventory#get-inventory-settings). For example, stock levels can change when you either place or complete/ship an order. Stock levels can also change when you refund or cancel an order. Global settings apply when inventory changes through a [manual order](https://support.bigcommerce.com/s/article/Creating-a-Manual-Order?language=en_US). The settings for a channel apply when inventory changes through an order in a channel.
+      
+      The webhook does not fire for products without variants. For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_.
+    type: object
+    allOf:
+      - $ref: ./store_sku_inventory_order_updated.yml
+  store/sku/inventory/updated:
+    description: |- 
+      Fires when inventory levels change for a _variant_. This webhook does not fire for products without variants.
+      
+      For products with variants, the webhook only fires when the product's inventory properties are configured to track by _variant_ and the _variant-level_ inventory changes.
+      
+      Inventory updates made in the control panel and by API trigger the webhook. This includes changes made by apps. In the control panel, you can bulk import inventory updates or make inventory updates to single products on the **Products > View** page.
+    type: object
+    allOf:
+      - $ref: ./store_sku_inventory_updated.yml
+  store/sku/updated:
+    description: Fires when a SKU is updated.
+    type: object
+    allOf:
+      - $ref: ./store_sku_updated.yml
+  store/subscriber/created:
+    description: Fires when a subscriber is created.
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_created.yml
+  store/subscriber/deleted:
+    description: Fires when a subscriber is deleted.
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_deleted.yml
+  store/subscriber/updated:
+    description: Fires when a subscriber is updated.
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_updated.yml
+  

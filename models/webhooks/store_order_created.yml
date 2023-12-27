@@ -1,0 +1,24 @@
+type: object
+properties:
+  store/order/created:
+    description: Fires when an order is created either in the control panel or by API.
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

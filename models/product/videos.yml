@@ -1,0 +1,35 @@
+type: object
+description: Available if product has videos.
+properties:
+  featured:
+    type: object
+    properties:
+      description_long:
+        type: string
+      description_short:
+        type: string
+      id:
+        type: string
+      length:
+        type: string
+      title_long:
+        type: string
+      title_short:
+        type: string
+  list:
+    type: array
+    items:
+      type: object
+      properties:
+        description_long:
+          type: string
+        description_short:
+          type: string
+        id:
+          type: string
+        length:
+          type: string
+        title_long:
+          type: string
+        title_short:
+          type: string

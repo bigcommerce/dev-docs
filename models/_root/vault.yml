@@ -1,0 +1,14 @@
+description: |-
+  `{{vault}}` object available to `templates/pages/account/payment-methods.html`.
+
+  **Handlebars Expression**: `{{vault}}`
+type: object
+properties:
+  access_token:
+    type: string
+    description: 'Required to submit add payment method form; otherwise, submission will fail with `401` Unauthorized.'
+    example: '{{token}}'
+  expires_at:
+    type: number
+    description: Expiration Date in Unix Timestamp.
+    example: 1616614163

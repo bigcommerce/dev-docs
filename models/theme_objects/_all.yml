@@ -1,0 +1,238 @@
+title: _all.yml
+type: Theme Objects
+properties:
+  banners:
+    description: 
+    allOf: 
+      -$ref: ./banners.yml
+    type: object
+  blog:
+    description: 
+    allOf: 
+      -$ref: ./blog.yml
+    type: object
+  brand_results:
+    description: 
+    allOf: 
+      -$ref: ./brand_results.yaml
+    type: object
+  brand:
+    description: 
+    allOf: 
+      -$ref: ./brand.yml
+    type: object
+  brands:
+    description: 
+    allOf: 
+      -$ref: ./brands.yml
+    type: object
+  breadcrumbs:
+    description: 
+    allOf: 
+      -$ref: ./breadcrumbs.yml
+    type: object
+  carousel:
+    description: 
+    allOf: 
+      -$ref: ./carousel.yml
+    type: object
+  cart_id:
+    description: 
+    allOf: 
+      -$ref: ./cart_id.yml
+    type: object
+  cart:
+    description: 
+    allOf: 
+      -$ref: ./cart.yml
+    type: object
+  categories:
+    description: 
+    allOf: 
+      -$ref: ./categories.yml
+    type: object
+  category_results:
+    description: 
+    allOf: 
+      -$ref: ./category_results.yml
+    type: object
+  category:
+    description: 
+    allOf: 
+      -$ref: ./category.yml
+    type: object
+  checkout:
+    description: 
+    allOf: 
+      -$ref: ./checkout.yml
+    type: object
+  comparisons:
+    description: 
+    allOf: 
+      -$ref: ./comparisons.yml
+    type: object
+  content_results:
+    description: 
+    allOf: 
+      -$ref: ./content_results.yaml
+    type: object
+  countries:
+    description: 
+    allOf: 
+      -$ref: ./countries.yml
+    type: object
+  create_account:
+    description: 
+    allOf: 
+      -$ref: ./create_account.yml
+    type: object
+  currency_selector:
+    description: 
+    allOf: 
+      -$ref: ./currency_selector.yml
+    type: object
+  customer_group_id:
+    description: 
+    allOf: 
+      -$ref: ./customer_group_id.yml
+    type: object
+  customer_group_name:
+    description: 
+    allOf: 
+      -$ref: ./customer_group_name.yml
+    type: object
+  customer:
+    description: 
+    allOf: 
+      -$ref: ./customer.yml
+    type: object
+  downloads:
+    description: 
+    allOf: 
+      -$ref: ./downloads.yml
+    type: object
+  faceted_search:
+    description: 
+    allOf: 
+      -$ref: ./faceted_search.yml
+    type: object
+  footer:
+    description: 
+    allOf: 
+      -$ref: ./footer.yml
+    type: object
+  forms_contact:
+    description: 
+    allOf: 
+      -$ref: ./forms_contaact.yaml
+    type: object
+  forms:
+    description: 
+    allOf: 
+      -$ref: ./forms.yml
+    type: object
+  head:
+    description: 
+    allOf: 
+      -$ref: ./head.yml
+    type: object
+  is_ajax:
+    description: 
+    allOf: 
+      -$ref: ./is_ajax.yml
+    type: object
+  order:
+    description: 
+    allOf: 
+      -$ref: ./order.yml
+    type: object
+  page_type:
+    description: 
+    allOf: 
+      -$ref: ./page_type.yml
+    type: object
+  page:
+    description: 
+    allOf: 
+      -$ref: ./page.yml
+    type: object
+  pages:
+    description: 
+    allOf: 
+      -$ref: ./pages.yml
+    type: object
+  pagination:
+    description: 
+    allOf:
+      -$ref: ./pagination.yml
+    type: object
+  product_results:
+    description: 
+    allOf:
+      -$ref: ./product_results.yaml
+    type: object
+  product:
+    description: 
+    allOf:
+      -$ref: ./product.yml
+    type: object
+  products:
+    description: 
+    allOf:
+      -$ref: ./products.yml
+    type: object
+  settings:
+    description: 
+    allOf:
+      -$ref: ./settings.yml
+    type: object
+  shipments:
+    description: 
+    allOf:
+      -$ref: ./shipments.yml
+    type: object
+  shipping_messages:
+    description: 
+    allOf:
+      -$ref: ./shipping_messages.yml
+    type: object
+  shop_by_brand:
+    description: 
+    allOf:
+      -$ref: ./shop_by_brand.yml
+    type: object
+  sitemap:
+    description: 
+    allOf:
+      -$ref: ./sitemap.yml
+    type: object
+  social_media:
+    description: 
+    allOf:
+      -$ref: ./social_media.yml
+    type: object
+  template_file:
+    description: 
+    allOf:
+      -$ref: ./template_file.yml
+    type: object
+  template_settings:
+    description: 
+    allOf:
+      -$ref: ./template_settings.yml
+    type: object
+  urls:
+    description: 
+    allOf:
+      -$ref: ./urls.yml
+    type: object
+  vault:
+    description: 
+    allOf:
+      -$ref: ./vault.yml
+    type: object
+  wishlist:
+    description: 
+    allOf:
+      -$ref: ./wishlist.yml
+    type: object

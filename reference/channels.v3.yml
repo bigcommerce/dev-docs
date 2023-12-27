@@ -1,0 +1,3068 @@
+openapi: '3.0.0'
+info:
+  version: ''
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  title: Channels
+  description: |-
+    Create and manage sales [channels](/docs/integrations/channels), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
+
+    ## Channels
+
+    A [channel](/docs/rest-management/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
+
+    ### Platform
+
+    A channel's `type` and `platform` combination must be a valid pair as indicated in the table below.
+
+    | Platform            | Accepted Type |
+    |:--------------------|:--------------|
+    | `clover`            | `pos` |
+    | `square`            | `pos` |
+    | `stripe`            | `pos` |
+    | `talech`            | `pos` |
+    | `vend`              | `pos` |
+    | `amazon`            | `marketplace` |
+    | `belk`              | `marketplace` |
+    | `catch`             | `marketplace` |
+    | `ebay`              | `marketplace` |
+    | `etsy`              | `marketplace` |
+    | `facebook`  | `marketplace`, `marketing` |
+    | `hudsons_bay`       | `marketplace` |
+    | `google`            | `marketplace`, `marketing` |
+    | `google_shopping` (deprecated)   | `marketing` |
+    | `instagram` | `marketplace`, `marketing` |
+    | `macys`             | `marketplace` |
+    | `mirakl`            | `marketplace` |
+    | `overstock`         | `marketplace` |
+    | `pinterest`         | `marketplace` |
+    | `target_plus`       | `marketplace` |
+    | `tiktok`            | `marketplace` |
+    | `wayfair`           | `marketplace` |
+    | `wish`              | `marketplace` |
+    | `walmart`           | `marketplace` |
+    | `acquia`            | `storefront` |
+    | `bigcommerce`       | `storefront` |
+    | `bloomreach`        | `storefront` |
+    | `deity`             | `storefront` |
+    | `drupal`            | `storefront` |
+    | `gatsby`            | `storefront` |
+    | `next`              | `storefront` |
+    | `vue`               | `storefront` |
+    | `wordpress`         | `storefront` |
+    | `custom`            | `storefront`, `pos`, `marketing`, `marketplace` |
+        
+
+    ### Status
+
+    Allowed values for a channel's `status` vary by channel `type` and `platform`.
+
+    |Type|Platform|Allowed Statuses|
+    |--|--|--|
+    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `archived`, `deleted`|
+    |`storefront`|**Is not** `bigcommerce` |`prelaunch`, `active`, `inactive`, `archived`, `deleted` 
+    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
+
+    > #### Warning
+    > * You can restore a Channel with `deleted` status within **90 days** after deletion by contacting the BigCommerce support team. After the 90-days grace period is over, the Channel `status` will become `terminated`.
+    > * The `terminated` status is read-only. Channels with a `status` of `terminated` **cannot** be restored.
+
+    ## Channel listings
+
+    [Channel listings](/docs/rest-management/channels/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
+
+    ## Channel site
+
+    A [Channel site](/docs/rest-management/channels/channel-site) refers to the domain associated with a channel.
+
+    ## Resources
+
+    * [Sites and Routes API Reference](/docs/rest-management/sites)
+    * [Building Channels Overview](/docs/integrations/channels)
+    * [Building Channel Apps](/docs/integrations/channels/guide)
+    * [Channels Toolkit Reference](/docs/integrations/channels/toolkit-reference)
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Channels
+  - name: Channel Active Theme
+  - name: Channel Currency Assignments
+  - name: Channel Listings
+  - name: Channel Site
+  - name: Channel Site Checkout Url
+  - name: Channel Menus
+  - name: Channel Metafields
+paths:
+  '/channels':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Channels
+      summary: Get All Channels
+      operationId: listChannels
+      description: |-
+        Returns a list of *Channels*.
+
+        Will always return the default BigCommerce storefront with an ID of `1`. This storefront is created by default when you provision a BigCommerce store.
+      parameters:
+        - $ref: '#/components/parameters/include'
+        - $ref: '#/components/parameters/available'
+        - $ref: '#/components/parameters/status_in'
+        - $ref: '#/components/parameters/type_in'
+        - $ref: '#/components/parameters/platform_in'
+        - $ref: '#/components/parameters/date_created'
+        - $ref: '#/components/parameters/date_created_min'
+        - $ref: '#/components/parameters/date_created_max'
+        - $ref: '#/components/parameters/date_modified'
+        - $ref: '#/components/parameters/date_modified_min'
+        - $ref: '#/components/parameters/date_modified_max'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          $ref: '#/components/responses/multiple_channels_without_currencies_resp'
+        '422':
+          $ref: '#/components/responses/invalid_filter_value_resp'
+    post:
+      tags:
+        - Channels
+      summary: Create a Channel
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: createChannel
+      description: Creates a *Channel*.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChannelReq'
+            examples:
+              Create eBay Channel:
+                $ref: '#/components/examples/create_channel_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_without_currencies_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_channel_data_resp'
+  '/channels/{channel_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      tags:
+        - Channels
+      summary: Get a Channel
+      operationId: getChannel
+      description: Returns a *Channel*. Channel ID `1` returns the default BigCommerce storefront.
+      parameters:
+        - $ref: '#/components/parameters/include'
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_with_currencies_resp'
+        '404':
+          $ref: '#/components/responses/channel_not_found_resp'
+    put:
+      tags:
+        - Channels
+      summary: Update a Channel
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: updateChannel
+      description: |-
+        Updates a *Channel*.
+
+        ## Updatable Fields
+
+        The following fields can be updated.
+        * `name`
+        * `external_id`
+        * `status`
+        * `is_listable_from_ui`
+        * `is_visible`
+        * `config_meta`
+
+
+        > #### Note
+        > * Partial updates are supported. In most cases, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated.
+        > * `platform` and `type` cannot be updated after a channel is created.
+        > * A channel with status `deleted` or `terminated` cannot be updated.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelReq'
+            examples:
+              Update a Facebook by Meta Channel:
+                $ref: '#/components/examples/update_channel_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_without_currencies_resp'
+        '404':
+          $ref: '#/components/responses/channel_entity_not_found_resp'
+        '409':
+          $ref: '#/components/responses/duplicate_channel_resp'
+        '422':
+          $ref: '#/components/responses/invalid_channel_update_field_resp'
+  '/channels/{channel_id}/active-theme':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      tags:
+        - Channel Active Theme
+      summary: Get a Channel Active Theme
+      operationId: getChannelActiveTheme
+      description: |-
+        Returns details of the theme active on the specified channel.
+        Does not support active Blueprint (legacy) themes.
+      responses:
+        '200':
+          $ref: '#/components/responses/channel_active_theme_resp'
+        '404':
+          $ref: '#/components/responses/active_theme_not_found_resp'
+  '/channels/currency-assignments':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Channel Currency Assignments
+      summary: Get All Channels Currency Assignments
+      operationId: listAllCurrencyAssignments
+      description: Returns a list of currency assignments for all channels.
+      responses:
+        '200':
+          $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
+    post:
+      tags:
+        - Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      summary: Create Multiple Channels Currency Assignments
+      operationId: createMultipleChannelsCurrencyAssignments
+      description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertMultipleChannelsCurrencyAssignmentsReq'
+            examples:
+              Create Currency Assignments for Multiple Channels:
+                $ref: '#/components/examples/multiple_channels_currency_assignments_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
+    put:
+      tags:
+        - Channel Currency Assignments
+      summary: Update Multiple Channels Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: updateMultipleChannelsCurrencyAssignments
+      description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertMultipleChannelsCurrencyAssignmentsReq'
+            examples:
+              Update Currency Assignments for Multiple Channels:
+                $ref: '#/components/examples/multiple_channels_currency_assignments_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
+  '/channels/{channel_id}/currency-assignments':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      tags:
+        - Channel Currency Assignments
+      summary: Get Channel Currency Assignments
+      operationId: getSingleChannelCurrencyAssignments
+      description: Returns a list of currency assignments for a specific channel.
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_currency_assignments_resp'
+        '404':
+          $ref: '#/components/responses/channel_not_found_resp'
+    post:
+      tags:
+        - Channel Currency Assignments
+      summary: Create Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: createSingleChannelCurrencyAssignments
+      description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyRequiredWithoutChannelId'
+            examples:
+              Create Currency Assignments for a Channel:
+                $ref: '#/components/examples/single_channel_currency_assignments_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_currency_assignments_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_single_channel_currency_assignments_data_resp'
+    put:
+      tags:
+        - Channel Currency Assignments
+      summary: Update Channel Currency Assignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: updateSingleChannelCurrencyAssignments
+      description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyRequiredWithoutChannelId'
+            examples:
+              Update Currency Assignments for a Channel:
+                $ref: '#/components/examples/single_channel_currency_assignments_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_channel_currency_assignments_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_single_channel_currency_assignments_data_resp'
+    delete:
+      tags:
+        - Channel Currency Assignments
+      summary: Delete Channel Currency Assignments
+      operationId: deleteSingleChannelCurrencyAssignments
+      description: 'Deletes currency assignments for a specific channel. Once done, this channel will inherit the store’s currency settings.'
+      responses:
+        '200':
+          $ref: '#/components/responses/delete_currency_assignments_resp'
+        '404':
+          $ref: '#/components/responses/channel_not_found_resp'
+  '/channels/{channel_id}/listings':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      tags:
+        - Channel Listings
+      summary: Get Channel Listings
+      operationId: listChannelListings
+      description: 'Returns a list of all *Channel Listings* for a specific channel. Note that if the *Channel* is not found or there is no listing associated to the *Channel*, it will return a 200 response with empty data.'
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/product_id_in'
+        - $ref: '#/components/parameters/date_created'
+        - $ref: '#/components/parameters/date_created_min'
+        - $ref: '#/components/parameters/date_created_max'
+        - $ref: '#/components/parameters/date_modified'
+        - $ref: '#/components/parameters/date_modified_min'
+        - $ref: '#/components/parameters/date_modified_max'
+      responses:
+        '200':
+          $ref: '#/components/responses/single_and_multiple_listings_resp'
+        '400':
+          $ref: '#/components/responses/invalid_channel_id_resp'
+        '422':
+          $ref: '#/components/responses/invalid_filters_resp'
+    post:
+      tags:
+        - Channel Listings
+      summary: Create Channel Listings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: createChannelListings
+      description: Creates one or more *Channel Listings* for a specific channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMultipleListingsReq'
+            examples:
+              Create Single Listing:
+                $ref: '#/components/examples/create_single_listing_req_example'
+              Create Multiple Listings:
+                $ref: '#/components/examples/create_multiple_listings_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_and_multiple_listings_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_post_resp'
+    put:
+      tags:
+        - Channel Listings
+      summary: Update Channel Listings
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: updateChannelListings
+      description: |-
+        Updates one or more *Channel Listings* for a specific channel.
+
+        > #### Note
+        > * Partial updates are supported. In most cases, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated.
+        > * If a new variant is provided, the API will append the variant to the list. If a variant already exists, the API will update the existing variant. Other variants that are not provided in the payload remains unchanged.
+        > * If `listing_id` does not exist, the API will return a 200 response with empty data.
+        > * `listing_id` is required and cannot be less than or equal to zero.
+        > * `product_id` cannot be updated after a channel listing is created.
+        > * `product_id` of a variant must match the `product_id` of the channel listing.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMultipleListingsReq'
+            examples:
+              Update Single Listing:
+                $ref: '#/components/examples/update_single_listing_req_example'
+              Update Multiple Listings:
+                $ref: '#/components/examples/update_multiple_listings_req_example'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/single_and_multiple_listings_resp'
+        '422':
+          $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_put_resp'
+  '/channels/{channel_id}/listings/{listing_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+      - $ref: '#/components/parameters/listing_id_path_param'
+    get:
+      tags:
+        - Channel Listings
+      summary: Get a Channel Listing
+      operationId: getChannelListing
+      description: Returns a *Channel Listing* for a specific channel.
+      responses:
+        '200':
+          $ref: '#/components/responses/single_listing_resp'
+        '404':
+          $ref: '#/components/responses/listing_not_found_resp'
+  '/channels/{channel_id}/site/checkout-url':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    put:
+      summary: Upsert a Site's Checkout URL
+      tags:
+        - Channel Site Checkout Url
+      description: Creates or updates (upserts) a site's checkout URL
+      operationId: putCheckoutUrl
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutCheckoutUrl'
+        description: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+            Example 1:
+              examples:
+                response:
+                  value: |-
+                    {
+                        "id": 1,
+                        "url": "https://kittens.mybigcommerce.com/",
+                        "channel_id": 1,
+                        "created_at": "2018-01-04T04:15:50.000Z",
+                        "updated_at": "2018-01-04T04:15:50.000Z",
+                        "urls": [
+                            {
+                                "url": "https://kittens.mybigcommerce.com",
+                                "type": "primary",
+                                "created_at": "2022-03-22T13:08:59Z",
+                                "updated_at": "2022-03-22T13:08:59Z"
+                            },
+                            {
+                                "url": "https://store-abc.store.bcdev",
+                                "type": "canonical",
+                                "created_at": "2022-03-22T13:08:59Z",
+                                "updated_at": "2022-03-22T13:08:59Z"
+                            },
+                            {
+                                "url": "https://checkout.kittens.mybigcommerce.com",
+                                "type": "checkout",
+                                "created_at": "2022-03-23T10:21:11Z",
+                                "updated_at": "2022-03-29T13:44:22Z"
+                            }
+                        ],
+                        "is_checkout_url_customized": true
+                    }
+        '422':
+          description: Unprocessable Entity. Your checkout and storefront must be within the same main domain like `example.com` and `subdomain.example.com`
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    status: 422
+                    title: 'Incorrect checkout url https://bc.kittykat.me. Your checkout and storefront must be within the same main domain like “main.com” and “subdomain.main.com”'
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    errors: {}
+                properties:
+                  status:
+                    type: integer
+                    default: 422
+                  title:
+                    type: string
+                    example: 'Incorrect checkout url https://checkout.example.com. Your checkout and storefront must be within the same main domain like “main.com” and “subdomain.main.com'
+                  type:
+                    type: string
+                    default: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                  errors:
+                    type: object
+    delete:
+      summary: Delete a Site's Checkout URL
+      operationId: delete-checkout-url
+      description: Deletes a siteʼs checkout URL. After deletion, a shared checkout URL is used.
+      tags:
+        - Channel Site Checkout Url
+      responses:
+        '200':
+          description: OK. `data` and `meta` are empty objects.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties: {}
+                  meta:
+                    $ref: '#/components/schemas/EmptyMeta'
+  '/channels/{channel_id}/site':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      summary: Get a Channel Site
+      description: |
+        Alias of `GET /sites?channel_id=channel_id`
+
+        Returns site data for the specified channel.
+      operationId: get-channel-site
+      responses:
+        '200':
+          $ref: '#/components/responses/site_Resp'
+      tags:
+        - Channel Site
+    put:
+      responses:
+        '200':
+          $ref: '#/components/responses/site_Resp'
+      summary: Update a Channel Site
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: put-channel-site
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/site_Put'
+        x-examples:
+          application/json:
+            url: 'https://example.com/'
+      tags:
+        - Channel Site
+      description: Updates a site for provided channel.
+    post:
+      responses:
+        '200':
+          $ref: '#/components/responses/site_Resp'
+      summary: Create a Channel Site
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: postChannelSite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/site_Post'
+        x-examples:
+          application/json:
+            url: 'http://kittens.mybigcommerce.com/'
+            channel_id: 123
+      tags:
+        - Channel Site
+      description: Alias of POST `/sites`. Creates a site for provided channel.
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      description: Deletes the Channel's site.
+      operationId: DeleteChannelSite
+      tags:
+        - Channel Site
+      summary: Delete a Channel Site
+  '/channels/{channel_id}/channel-menus':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      summary: Get Channel Menus
+      description: |
+        Returns list of Control Panel side navigation menus for a channel.
+      operationId: get-channel-menus
+      responses:
+        '200':
+          $ref: '#/components/responses/channel_menus_Resp'
+      tags:
+        - Channel Menus
+    post:
+      responses:
+        '200':
+          $ref: '#/components/responses/channel_menus_Resp'
+      summary: Create Channel Menus
+      operationId: postChannelMenus
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/channel_menus_Post'
+            examples: {}
+      tags:
+        - Channel Menus
+      description: Creates or replaces list of control panel side navigation menus for a channel.
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: integer
+                  meta:
+                    $ref: '#/components/schemas/EmptyMeta'
+                x-examples:
+                  example-1:
+                    data: 1
+                    meta: {}
+      description: Deletes control panel side navigation menus for a channel.
+      operationId: DeleteChannelMenus
+      tags:
+        - Channel Menus
+      summary: Delete Channel Menus
+  '/channels/{channel_id}/metafields':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+    get:
+      summary: Get Channel Metafields
+      tags:
+        - Channel Metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      operationId: get-channels-channel_id-metafields
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/DirectionParam'
+      description: Returns a list of metafields on a channel. Optional filter parameters can be passed in.
+    post:
+      summary: Create a Channel Metafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: post-channels-channel_id-metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Post'
+            examples: {}
+      tags:
+        - Channel Metafields
+      description: |-
+        Creates a channel metafield.
+
+        **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, channel, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+  '/channels/{channel_id}/metafields/{metafield_id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/channel_id_path_param'
+      - name: metafield_id
+        schema:
+          type: string
+        in: path
+        required: true
+    get:
+      summary: Get a Channel Metafield
+      tags:
+        - Channel Metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      operationId: get-channels-channel_id-metafields-metafield_id
+      description: Returns a single channel metafield.
+    put:
+      summary: Update a Channel Metafield
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      operationId: put-channels-channel_id-metafields-metafield_id
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Put'
+      tags:
+        - Channel Metafields
+      description: |-
+        Updates a single channel metafield.
+
+        **Usage Notes**
+        * Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a `403` error message. 
+    delete:
+      summary: Delete a Channel Metafield
+      operationId: delete-channels-channel_id-metafields-metafield_id
+      responses:
+        '204':
+          description: No Content
+      tags:
+        - Channel Metafields
+      description: Deletes a single channel metafield.
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+    PageParam:
+      name: page
+      description: |
+        Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    MetafieldIdParam:
+      name: metafield_id
+      in: path
+      description: |
+        The ID of the `Metafield`.
+      required: true
+      schema:
+        type: integer
+    MetafieldKeyParam:
+      name: key
+      in: query
+      description: |
+        Filter based on a metafield's key.
+      required: false
+      schema:
+        type: string
+    MetafieldNamespaceParam:
+      name: namespace
+      in: query
+      description: Filter based on a metafield's namespace.
+      required: false
+      schema:
+        type: string
+    LimitParam:
+      name: limit
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    DirectionParam:
+      name: direction
+      description: Sort direction.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+    include:
+      name: include
+      description: Channels subresources that can be included in the response.
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - currencies
+    available:
+      name: available
+      description: 'Filter items based on whether the channel is currently available for integration. Setting this query parameter to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, and `connected`. Setting this query parameter to `false` will return channels with the status of `disconnected`, `archived`, `deleted`, and `terminated`.'
+      in: query
+      required: false
+      schema:
+        type: boolean
+    status_in:
+      name: 'status:in'
+      description: Filter items by a comma-separated list of statuses.
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - prelaunch
+            - active
+            - inactive
+            - connected
+            - disconnected
+            - archived
+            - deleted
+            - terminated
+    type_in:
+      name: 'type:in'
+      description: Filter items by a comma-separated list of types.
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - marketplace
+            - marketing
+            - pos
+            - storefront
+    platform_in:
+      name: 'platform:in'
+      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](/docs/rest-management/channels#platform).'
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - 'facebook by meta, amazon'
+    date_created:
+      name: date_created
+      description: 'Filter items by date_created. For example, `date_created=2019-09-04T00:00:00`, `date_created=2019-09-04`, or `date_created=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    date_created_min:
+      name: 'date_created:min'
+      description: 'Filter items by minimum date_created. For example, `date_created:min=2019-09-04T00:00:00`, `date_created:min=2019-09-04`, or `date_created:min=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    date_created_max:
+      name: 'date_created:max'
+      description: 'Filter items by maximum date_created. For example, `date_created:max=2019-09-04T00:00:00`, `date_created:max=2019-09-04`, or `date_created:max=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    date_modified:
+      name: date_modified
+      description: 'Filter items by date_modified. For example, `date_modified=2019-09-04T00:00:00`, `date_modified=2019-09-04`, or `date_modified=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    date_modified_min:
+      name: 'date_modified:min'
+      description: 'Filter items by minimum date_modified. For example, `date_modified:min=2019-09-04T00:00:00`, `date_modified:min=2019-09-04`, or `date_modified:min=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    date_modified_max:
+      name: 'date_modified:max'
+      description: 'Filter items by maximum date_modified. For example, `date_modified:max=2019-09-04T00:00:00`, `date_modified:max=2019-09-04`, or `date_modified:max=1567573200`'
+      in: query
+      required: false
+      schema:
+        type: string
+    limit:
+      name: limit
+      description: Controls the number of items per page for paginated responses.
+      in: query
+      required: false
+      schema:
+        type: integer
+    page:
+      name: page
+      description: Specifies the page number for a paginated response.
+      in: query
+      required: false
+      schema:
+        type: integer
+    after:
+      name: after
+      description: Specifies the prior listing ID in a limited (paginated) list of listings.
+      in: query
+      required: false
+      schema:
+        type: integer
+    product_id_in:
+      name: 'product_id:in'
+      description: Filter items by a comma-separated list of product IDs.
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+    channel_id_path_param:
+      name: channel_id
+      description: The ID of a channel.
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+    listing_id_path_param:
+      name: listing_id
+      description: The ID of a channel listing.
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    multiple_channels_without_currencies_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChannelWithoutCurrencies'
+              meta:
+                $ref: '#/components/schemas/MetaWithFullPagination'
+            required:
+              - data
+              - meta
+          examples:
+            response:
+              $ref: '#/components/examples/multiple_channels_without_currencies_resp_example'
+    single_channel_without_currencies_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/ChannelWithoutCurrencies'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/single_channel_without_currencies_resp_example'
+    single_channel_with_currencies_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/ChannelWithCurrencies'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/single_channel_with_currencies_resp_example'
+    channel_active_theme_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/ActiveTheme'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/single_active_theme_resp_example'
+    multiple_channels_currency_assignments_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CurrencyNotRequiredWithChannelId'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/multiple_channels_currency_assignments_resp_example'
+    single_channel_currency_assignments_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/CurrencyNotRequiredWithChannelId'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/single_channel_currency_assignments_resp_example'
+    delete_currency_assignments_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/ChannelId'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/delete_currency_assignments_resp_example'
+    single_and_multiple_listings_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Listing'
+              meta:
+                $ref: '#/components/schemas/MetaWithPartialPagination'
+          examples:
+            Single Listing:
+              $ref: '#/components/examples/single_listing_resp_example'
+            Multiple Listings:
+              $ref: '#/components/examples/multiple_listings_resp_example'
+    single_listing_resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Listing'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/single_listing_with_empty_meta_resp_example'
+    site_Resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Site'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples: {}
+    channel_menus_Resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  bigcommerce_protected_app_sections:
+                    $ref: '#/components/schemas/BigCommerceProtectedAppSections'
+                  custom_app_sections:
+                    $ref: '#/components/schemas/CustomAppSections'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/channel_menus_resp_example'
+    invalid_channel_id_resp:
+      description: Invalid channel ID is provided.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Invalid Channel ID:
+              $ref: '#/components/examples/error_400_resp_example'
+    invalid_filter_value_resp:
+      description: Invalid value is provided to the query parameter(s).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Invalid Filter Value:
+              $ref: '#/components/examples/error_422_invalid_filter_value_resp_example'
+    missing_or_invalid_channel_data_resp:
+      description: 'The request is missing one or more required fields or invalid data is submitted. Commonly, an invalid combination of `type` and `platform` was provided.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Missing Required Field and Invalid Data:
+              $ref: '#/components/examples/error_422_channel_resp_example'
+            Invalid Type and Platform Combination:
+              $ref: '#/components/examples/error_422_invalid_type_platform_combination_resp_example'
+            Invalid Channel Name:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
+    channel_not_found_resp:
+      description: A *Channel* with the provided ID was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Channel Not Found:
+              $ref: '#/components/examples/error_404_resp_example'
+    listing_not_found_resp:
+      description: A *Channel Listing* with the provided channel ID and listing ID was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Listing Not Found:
+              $ref: '#/components/examples/error_404_listing_not_found_resp_example'
+    active_theme_not_found_resp:
+      description: Active Theme of the *Channel* was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Active Theme Not Found:
+              $ref: '#/components/examples/error_404_active_theme_not_found_resp_example'
+    channel_entity_not_found_resp:
+      description: A *Channel* with the provided ID was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Channel Not Found:
+              $ref: '#/components/examples/error_404_entity_not_found_resp_example'
+    duplicate_channel_resp:
+      description: 'A *Channel* with the same combination of `name`, `platform`, and `type` already exists.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Duplicate Channel:
+              $ref: '#/components/examples/error_409_resp_example'
+    invalid_channel_update_field_resp:
+      description: 'When an invalid value or invalid field is submitted, a 422 response will be sent. Note that attempt to update a deleted or terminated channel will also result in 422 response.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Update Type and Platform Error:
+              $ref: '#/components/examples/error_422_prevent_update_type_and_platform_resp_example'
+            Update Deleted Channel Error:
+              $ref: '#/components/examples/error_422_prevent_update_deleted_channel_resp_example'
+            Update Channel Name Error:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
+    missing_or_invalid_multiple_channels_currency_assignments_data_resp:
+      description: The request is missing one or more required fields or invalid data is submitted.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Missing Required Fields and Invalid Data:
+              $ref: '#/components/examples/error_422_multiple_channels_currency_assignments_resp_example'
+            Currency Not Yet Enabled:
+              $ref: '#/components/examples/error_422_invalid_enabled_currencies_resp_example'
+    missing_or_invalid_single_channel_currency_assignments_data_resp:
+      description: The request is missing one or more required fields or invalid data is submitted.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Missing Required Fields:
+              $ref: '#/components/examples/error_422_single_channel_currency_assignments_resp_example'
+            Currency Not Yet Enabled:
+              $ref: '#/components/examples/error_422_invalid_enabled_currencies_resp_example'
+            Invalid Channel ID:
+              $ref: '#/components/examples/error_422_invalid_channel_id_resp_example'
+    missing_or_invalid_multiple_listings_data_for_post_resp:
+      description: The request is missing one or more required fields or invalid data is submitted.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Product ID Mismatch:
+              $ref: '#/components/examples/error_422_product_id_mismatch_resp_example'
+            Missing Required Fields For Channel Listing:
+              $ref: '#/components/examples/error_422_missing_listing_required_fields_resp_example'
+            Missing Required Fields For Variants:
+              $ref: '#/components/examples/error_422_missing_listing_variants_required_fields_resp_example'
+            Invalid Channel ID:
+              $ref: '#/components/examples/error_422_invalid_channel_id_v2_resp_example'
+    missing_or_invalid_multiple_listings_data_for_put_resp:
+      description: The request is missing one or more required fields or invalid data is submitted. Note that the `group_id` in the Invalid Listing ID example refers to `listing_id`. Please use `listing_id` instead of `group_id` in the request payload.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Product ID Mismatch:
+              $ref: '#/components/examples/error_422_product_id_mismatch_resp_example'
+            Missing Required Fields For Channel Listing:
+              $ref: '#/components/examples/error_422_missing_listing_required_fields_resp_example'
+            Missing Required Fields For Variants:
+              $ref: '#/components/examples/error_422_missing_listing_variants_required_fields_resp_example'
+            Invalid Channel ID:
+              $ref: '#/components/examples/error_422_invalid_channel_id_v2_resp_example'
+            Invalid Listing ID:
+              $ref: '#/components/examples/error_422_invalid_listing_id_resp_example'
+    invalid_filters_resp:
+      description: 'When an invalid value or invalid query parameter is submitted, a 422 response will be sent.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Invalid Filters:
+              $ref: '#/components/examples/error_422_invalid_filters_resp_example'
+            Invalid Filter Value:
+              $ref: '#/components/examples/error_422_invalid_filter_value_resp_example'
+    metafield_200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+            x-internal: false
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Unique ID of the *Metafield*.
+                example: 6
+              permission_set:
+                type: string
+                description: |-
+                  Determines the visibility and writeability of the field by other API consumers.
+
+                  |Value|Description
+                  |-|-|
+                  |`app_only`|Private to the app that owns the field|
+                  |`read`|Visible to other API consumers|
+                  |`write`|Open for reading and writing by other API consumers|
+                  |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+                  |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+                enum:
+                  - app_only
+                  - read
+                  - write
+                  - read_and_sf_access
+                  - write_and_sf_access
+              namespace:
+                maxLength: 64
+                minLength: 1
+                type: string
+                description: 'Namespace for the metafield, for organizational purposes.'
+                example: Warehouse Locations
+                x-required:
+                  - post
+              key:
+                maxLength: 64
+                minLength: 1
+                type: string
+                description: |
+                  The name of the field, for example: `location_id`, `color`. 
+                example: Location
+                x-required:
+                  - post
+              value:
+                maxLength: 65535
+                minLength: 1
+                type: string
+                description: |
+                  The value of the field.
+                example: 4HG
+                x-required:
+                  - post
+              description:
+                maxLength: 255
+                minLength: 0
+                type: string
+                description: |
+                  Description for the metafields.
+                example: Location in the warehouse
+              resource_type:
+                type: string
+                description: |
+                  The type of resource with which the metafield is associated.
+                example: product
+                enum:
+                  - category
+                  - brand
+                  - product
+                  - variant
+                x-required:
+                  - post
+              resource_id:
+                maximum: 10000000000
+                minimum: 0
+                type: integer
+                description: |
+                  The ID for the resource with which the metafield is associated.
+                example: 111
+                x-required:
+                  - post
+              date_created:
+                type: string
+                description: |
+                  Date and time of the metafield's creation. Read-Only.
+                format: date-time
+                example: '2018-05-07T20:14:17.000Z'
+              date_modified:
+                type: string
+                description: |
+                  Date and time when the metafield was last updated. Read-Only.
+                format: date-time
+                example: '2018-05-07T20:14:17.000Z'
+    metafields_200:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            x-examples:
+              example-1:
+                data:
+                  - id: 19
+                    key: Location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: app_only
+                    resource_type: channel
+                    resource_id: 1
+                    description: Location in the warehouse
+                    date_created: '2022-06-28T18:00:15+00:00'
+                    date_modified: '2022-06-28T18:00:15+00:00'
+                  - id: 21
+                    key: sssPlease provide a key.
+                    value: sssPlease provide a value.
+                    namespace: ssssssPlease provide a namespace.
+                    permission_set: app_only
+                    resource_type: channel
+                    resource_id: 1
+                    description: thiss
+                    date_created: '2022-06-28T18:15:04+00:00'
+                    date_modified: '2022-06-28T18:16:02+00:00'
+                meta:
+                  pagination:
+                    total: 2
+                    count: 2
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+            allOf:
+              - properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/metafield_Base'
+              - properties:
+                  meta:
+                    $ref: '#/components/schemas/MetaWithFullPagination'
+            type: object
+          examples: {}
+  examples:
+    create_channel_req_example:
+      value:
+        name: eBay
+        platform: ebay
+        type: marketplace
+        status: connected
+        config_meta:
+          app:
+            id: 123
+            sections:
+              - title: Overview
+                query_path: overview
+              - title: Settings
+                query_path: settings
+    update_channel_req_example:
+      value:
+        name: Facebook by Meta
+        status: connected
+        is_listable_from_ui: false
+        config_meta:
+          app:
+            id: 123
+            sections:
+              - title: Overview
+                query_path: overview
+              - title: Settings
+                query_path: settings
+    multiple_channels_currency_assignments_req_example:
+      value:
+        - channel_id: 1
+          enabled_currencies:
+            - USD
+          default_currency: USD
+        - channel_id: 664177
+          enabled_currencies:
+            - USD
+            - GBP
+          default_currency: USD
+        - channel_id: 664179
+          enabled_currencies:
+            - USD
+            - AUD
+          default_currency: USD
+        - channel_id: 667159
+          enabled_currencies:
+            - USD
+          default_currency: USD
+    single_channel_currency_assignments_req_example:
+      value:
+        enabled_currencies:
+          - USD
+          - GBP
+          - AUD
+        default_currency: USD
+    create_single_listing_req_example:
+      value:
+        - product_id: 80
+          state: active
+          name: Orbit Terrarium - Large
+          description: 'The same terrarium, but not a [Sample]'
+          variants:
+            - product_id: 80
+              variant_id: 64
+              state: active
+              name: Terrarium with dinosaur
+            - product_id: 80
+              variant_id: 65
+              state: active
+              name: Terrarium with fish
+    create_multiple_listings_req_example:
+      value:
+        - product_id: 80
+          state: active
+          name: Orbit Terrarium - Large
+          description: 'The same terrarium, but not a [Sample]'
+          variants:
+            - product_id: 80
+              variant_id: 64
+              state: active
+              name: Terrarium with dinosaur
+            - product_id: 80
+              variant_id: 65
+              state: active
+              name: Terrarium with fish
+        - product_id: 100
+          state: pending
+          name: Women's Bold T-Shirt
+          description: 'The same t-shirt, but not a [Sample]'
+          variants:
+            - product_id: 100
+              variant_id: 91
+              state: pending
+              name: Small women's bold t-shirt
+            - product_id: 100
+              variant_id: 92
+              state: pending
+              name: Medium women's bold t-shirt
+    update_single_listing_req_example:
+      value:
+        - listing_id: 882998595
+          product_id: 80
+          state: active
+          name: Orbit Terrarium - Large
+          variants:
+            - product_id: 80
+              variant_id: 64
+              state: active
+              name: Terrarium with dinosaur
+    update_multiple_listings_req_example:
+      value:
+        - listing_id: 882789361
+          product_id: 80
+          state: active
+          name: Orbit Terrarium - Large
+          variants:
+            - product_id: 80
+              variant_id: 64
+              state: active
+              name: Terrarium with dinosaur
+        - listing_id: 882789362
+          product_id: 100
+          state: pending
+          name: Women's Bold T-Shirt
+          variants:
+            - product_id: 100
+              variant_id: 91
+              state: pending
+              name: Small women's bold t-shirt
+    multiple_channels_without_currencies_resp_example:
+      value:
+        data:
+          - id: 1
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/bigcommerce_icon.svg'
+            is_listable_from_ui: true
+            is_visible: true
+            date_created: '2021-05-07T14:54:51Z'
+            external_id: ''
+            type: storefront
+            platform: bigcommerce
+            date_modified: '2021-05-07T14:54:51Z'
+            name: Test Store
+            status: prelaunch
+          - id: 664179
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/amazon_icon.svg'
+            is_listable_from_ui: true
+            is_visible: true
+            date_created: '2021-05-10T20:32:40Z'
+            external_id: ''
+            type: marketplace
+            platform: amazon
+            date_modified: '2021-05-13T14:25:54Z'
+            name: Amazon
+            status: connected
+          - id: 667159
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
+            is_listable_from_ui: false
+            is_visible: true
+            date_created: '2021-05-13T15:41:39Z'
+            external_id: ''
+            config_meta:
+              app:
+                id: 123
+                sections:
+                  - title: Overview
+                    query_path: overview
+                  - title: Settings
+                    query_path: settings
+            type: marketplace
+            platform: facebook by meta
+            date_modified: '2021-05-13T15:41:39Z'
+            name: Facebook by Meta
+            status: connected
+        meta:
+          pagination:
+            per_page: 2
+            total: 8
+            count: 2
+            links:
+              previous: '?page=1&limit=2'
+              current: '?page=2&limit=2'
+              next: '?page=3&limit=2'
+            total_pages: 4
+            current_page: 2
+    single_channel_without_currencies_resp_example:
+      value:
+        data:
+          id: 667159
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/ebay_icon.png'
+          is_listable_from_ui: false
+          is_visible: true
+          date_created: '2021-05-13T15:41:39Z'
+          external_id: ''
+          config_meta:
+            app:
+              id: 123
+              sections:
+                - title: Overview
+                  query_path: overview
+                - title: Settings
+                  query_path: settings
+          type: marketplace
+          platform: ebay
+          date_modified: '2021-05-13T15:41:39Z'
+          name: ebay
+          status: connected
+        meta: {}
+    single_channel_with_currencies_resp_example:
+      value:
+        data:
+          id: 667159
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
+          is_listable_from_ui: false
+          is_visible: true
+          date_created: '2021-05-13T15:41:39Z'
+          external_id: ''
+          config_meta:
+            app:
+              id: 123
+              sections:
+                - title: Overview
+                  query_path: overview
+                - title: Settings
+                  query_path: settings
+          type: marketplace
+          platform: facebook by meta
+          date_modified: '2021-05-13T15:41:39Z'
+          name: Facebook by Meta
+          status: connected
+          currencies:
+            channel_id: 667159
+            enabled_currencies:
+              - USD
+            default_currency: USD
+        meta: {}
+    single_active_theme_resp_example:
+      value:
+        data:
+          active_theme_uuid: e3d82ce0-9bae-0133-0de7-525400970412
+          active_theme_configuration_uuid: 1c0962a0-9172-0139-70bc-2a81c0049363
+          active_theme_version_uuid: b9911770-8a43-0139-f84a-7e39a3a0bc55
+          saved_theme_configuration_uuid: 1c0962a0-9172-0139-70bc-2a81c0049363
+        meta: {}
+    multiple_channels_currency_assignments_resp_example:
+      value:
+        data:
+          - channel_id: 1
+            enabled_currencies:
+              - USD
+            default_currency: USD
+          - channel_id: 664177
+            enabled_currencies:
+              - USD
+              - GBP
+            default_currency: USD
+          - channel_id: 664179
+            enabled_currencies:
+              - USD
+              - AUD
+            default_currency: USD
+          - channel_id: 667159
+            enabled_currencies:
+              - USD
+            default_currency: USD
+        meta: {}
+    single_channel_currency_assignments_resp_example:
+      value:
+        data:
+          channel_id: 1
+          enabled_currencies:
+            - USD
+            - GBP
+            - AUD
+          default_currency: USD
+        meta: {}
+    delete_currency_assignments_resp_example:
+      value:
+        data: 1
+        meta: {}
+    single_listing_resp_example:
+      value:
+        data:
+          - channel_id: 667159
+            listing_id: 882998595
+            product_id: 80
+            state: active
+            name: Orbit Terrarium - Large
+            description: 'The same terrarium, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
+            variants:
+              - channel_id: 667159
+                product_id: 80
+                variant_id: 64
+                state: active
+                name: Terrarium with dinosaur
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+              - channel_id: 667159
+                product_id: 80
+                variant_id: 65
+                state: active
+                name: Terrarium with fish
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+        meta:
+          pagination:
+            count: 1
+            total: 1
+            links:
+              current: '?limit=1000'
+            total_pages: 1
+    multiple_listings_resp_example:
+      value:
+        data:
+          - channel_id: 664177
+            listing_id: 882789361
+            product_id: 80
+            state: active
+            name: Orbit Terrarium - Large
+            description: 'The same terrarium, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
+            variants:
+              - channel_id: 664177
+                product_id: 80
+                variant_id: 64
+                state: active
+                name: Terrarium with dinosaur
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+              - channel_id: 664177
+                product_id: 80
+                variant_id: 65
+                state: active
+                name: Terrarium with fish
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+          - channel_id: 664177
+            listing_id: 882789362
+            product_id: 100
+            state: pending
+            name: Women's Bold T-Shirt
+            description: 'The same t-shirt, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
+            variants:
+              - channel_id: 664177
+                product_id: 100
+                variant_id: 91
+                state: pending
+                name: Small women's bold t-shirt
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+              - channel_id: 664177
+                product_id: 100
+                variant_id: 92
+                state: pending
+                name: Medium women's bold t-shirt
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
+        meta:
+          pagination:
+            count: 2
+            total: 2
+            links:
+              current: '?limit=1000'
+            total_pages: 1
+    single_listing_with_empty_meta_resp_example:
+      value:
+        data:
+          channel_id: 667159
+          listing_id: 882998595
+          product_id: 80
+          state: active
+          name: Orbit Terrarium - Large
+          description: 'The same terrarium, but not a [Sample]'
+          date_created: '2021-05-24T17:46:33Z'
+          date_modified: '2021-05-24T17:46:33Z'
+          variants:
+            - channel_id: 667159
+              product_id: 80
+              variant_id: 64
+              state: active
+              name: Terrarium with dinosaur
+              date_created: '2021-05-24T17:46:33Z'
+              date_modified: '2021-05-24T17:46:33Z'
+            - channel_id: 667159
+              product_id: 80
+              variant_id: 65
+              state: active
+              name: Terrarium with fish
+              date_created: '2021-05-24T17:46:33Z'
+              date_modified: '2021-05-24T17:46:33Z'
+        meta: {}
+    channel_menus_resp_example:
+      value:
+        data:
+          bigcommerce_protected_app_sections:
+            - social
+            - carousel
+            - domains
+            - currencies
+            - notifications
+            - storefront_settings
+          custom_app_sections:
+            - title: Overview
+              query_path: overview
+            - title: Products
+              query_path: products
+            - title: Campaigns
+              query_path: campaigns
+            - title: Settings
+              query_path: settings
+        meta: {}
+    error_400_resp_example:
+      value:
+        status: 400
+        title: Input is invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_404_resp_example:
+      value:
+        status: 404
+        title: Not found
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_404_entity_not_found_resp_example:
+      value:
+        status: 404
+        title: The requested entity was not found.
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_404_active_theme_not_found_resp_example:
+      value:
+        status: 404
+        title: 'No active theme found with channel_id: 123456789'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_404_listing_not_found_resp_example:
+      value:
+        status: 404
+        title: 'Listing [123456789] not found'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_409_resp_example:
+      value:
+        status: 409
+        title: 'Channel already exists with name: "Facebook by Meta", platform: "facebook by meta", and type: "marketplace"'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_invalid_filter_value_resp_example:
+      value:
+        status: 422
+        title: 'Query parameter "limit" value must be integer. For input string: "a".'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_channel_resp_example:
+      value:
+        status: 422
+        title: JSON data is missing or invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          platform: error.path.missing
+          name: error.expected.jsstring
+    error_422_invalid_type_platform_combination_resp_example:
+      value:
+        status: 422
+        title: 'Input channel type [marketplace] with platform [bigcommerce] is not supported'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_prevent_update_type_and_platform_resp_example:
+      value:
+        status: 422
+        title: 'The following fields are invalid: type, platform'
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          type: The field 'type' can not be updated after channel is created.
+          platform: The field 'platform' can not be updated after channel is created.
+    error_422_prevent_update_deleted_channel_resp_example:
+      value:
+        status: 422
+        title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_invalid_channel_name_resp_example:
+      value:
+        status: 422
+        title: Only latin alphabet letters, arabic numerals, dash and underscore are allowed to be used as channel name.
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_multiple_channels_currency_assignments_resp_example:
+      value:
+        status: 422
+        title: JSON data is missing or invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          0.channel_id: error.expected.jsnumber
+          0.enabled_currencies: error.path.missing
+          0.default_currency: error.path.missing
+    error_422_single_channel_currency_assignments_resp_example:
+      value:
+        status: 422
+        title: JSON data is missing or invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          enabled_currencies: error.path.missing
+          default_currency: error.path.missing
+    error_422_invalid_enabled_currencies_resp_example:
+      value:
+        status: 422
+        title: 'The following fields are invalid: `enabled_currencies`'
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          enabled_currencies: 'The field `enabled_currencies` contains the following currencies that have not been enabled [AWG]'
+    error_422_invalid_channel_id_resp_example:
+      value:
+        status: 422
+        title: 'The following `channel_id`s [123456789] are not valid for store 1000000000.'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_invalid_filters_resp_example:
+      value:
+        status: 422
+        title: 'The filter(s): a, b are not valid filter parameter(s).'
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_product_id_mismatch_resp_example:
+      value:
+        status: 422
+        title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: '
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_missing_listing_required_fields_resp_example:
+      value:
+        status: 422
+        title: JSON data is missing or invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          0.state: error.path.missing
+          0.variants: error.path.missing
+          0.product_id: error.path.missing
+    error_422_missing_listing_variants_required_fields_resp_example:
+      value:
+        status: 422
+        title: JSON data is missing or invalid
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          0.variants.0.state: error.path.missing
+          0.variants.0.product_id: error.path.missing
+          0.variants.0.variant_id: error.path.missing
+    error_422_invalid_channel_id_v2_resp_example:
+      value:
+        status: 422
+        title: Channel id (1000000) is not valid for store (1001808665)!
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
+    error_422_invalid_listing_id_resp_example:
+      value:
+        status: 422
+        title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: group_id,'
+        type: /api-docs/getting-started/api-status-codes
+        errors:
+          group_id: Group id (0) for store (1001808665) cannot be less than or equal to zero!
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Channel Listings | modify | `store_channel_listings` |
+        |  Channel Listings | read-only | `store_channel_listings_read_only` |
+        |  Channel Settings | modify | `store_channel_settings` |
+        |  Channel Settings | read-only | `store_channel_settings_read_only` |
+        |  Sites & Routes | modify | `store_sites` |
+        |  Sites & Routes | read-only | `store_sites_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+  schemas:
+    ChannelId:
+      type: integer
+      format: int64
+      description: The ID of the channel.
+      x-internal: false
+    metafield_Base:
+      title: metafield_Base
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the *Metafield*.
+          example: 6
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`. 
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafields.
+          example: Location in the warehouse
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          example: product
+          enum:
+            - category
+            - brand
+            - product
+            - variant
+          x-required:
+            - post
+        resource_id:
+          maximum: 10000000000
+          minimum: 0
+          type: integer
+          description: |
+            The ID for the resource with which the metafield is associated.
+          example: 111
+          x-required:
+            - post
+        date_created:
+          type: string
+          description: |
+            Date and time of the metafield's creation. Read-Only.
+          format: date-time
+          example: '2018-05-07T20:14:17.000Z'
+        date_modified:
+          type: string
+          description: |
+            Date and time when the metafield was last updated. Read-Only.
+          format: date-time
+          example: '2018-05-07T20:14:17.000Z'
+    PutCheckoutUrl:
+      type: object
+      properties:
+        url:
+          type: string
+          description: Unique site checkout URL. Must be valid and a sub-domain of primary channel URL.
+          format: uri
+          example: 'https://checkout.kittens.mybigcommerce.com'
+      title: ''
+    ChannelIdForListing:
+      type: integer
+      format: int64
+      description: The ID of the channel associated with this channel listing.
+      x-internal: false
+    ListingId:
+      type: integer
+      format: int64
+      minimum: 1
+      description: 'The ID of the channel listing that has been created, returned, or updated.'
+      x-internal: false
+    ProductId:
+      type: integer
+      format: int64
+      description: The ID of the product associated with this channel listing.
+      x-internal: false
+    VariantId:
+      type: integer
+      format: int64
+      description: The ID of the product variant associated with this channel listing.
+      x-internal: false
+    ExternalId:
+      type: string
+      description: Associated ID within a system / platform outside of BC.
+      x-internal: false
+    IsListableFromUI:
+      type: boolean
+      description: Indicates if a channel can create listings from the BigCommerce UI. Default value for this field is based on the channel type and platform combination if not specified on create.
+      x-internal: false
+      x-examples:
+        example-1: true
+    IsVisible:
+      type: boolean
+      description: 'Indicates if a channel is visible within the BigCommerce merchant admin UI (control panel). If `false`, the channel will not show in Channel Manager nor in any channels dropdown throughout the UI. Default value for this field is `true` if not specified on create.'
+      x-internal: false
+    ChannelStatus:
+      type: string
+      description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/docs/rest-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
+      enum:
+        - active
+        - prelaunch
+        - inactive
+        - connected
+        - disconnected
+        - archived
+        - deleted
+        - terminated
+      title: ''
+      x-internal: false
+      x-examples:
+        example-1: active
+    ChannelName:
+      type: string
+      description: Name of the channel as it will appear in the store control panel. The only characters it can include are Latin alphabet letters, Arabic numerals, dashes, and underscores.
+      x-internal: false
+      x-examples:
+        example-1: string
+    ChannelType:
+      type: string
+      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](/docs/rest-management/channels#status).'
+      enum:
+        - pos
+        - marketplace
+        - storefront
+        - marketing
+      x-internal: false
+    ChannelPlatform:
+      type: string
+      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](/docs/rest-management/channels#status).'
+      x-internal: false
+    ChannelDateCreated:
+      type: string
+      format: date-time
+      description: Date on which the channel was first created.
+      x-internal: false
+    ChannelDateModified:
+      type: string
+      format: date-time
+      description: Date on which the channel was most recently changed.
+      x-internal: false
+    IconUrl:
+      type: string
+      format: url
+      description: Link to the platform icon.
+      x-internal: false
+    EnabledCurrencies:
+      type: array
+      description: 'Currencies that are enabled for the specified channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
+      items:
+        type: string
+      x-internal: false
+    DefaultCurrency:
+      type: string
+      description: 'Default currency for the channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format. Will be used on storefront when other currencies cannot.'
+      x-internal: false
+    ChannelProductName:
+      type: string
+      description: Name of the product for this channel listing specifically. This is an optional field that can be used to override the product name in the catalog.
+      x-internal: false
+    ChannelProductVariantName:
+      type: string
+      description: Name of the product variant for this channel listing specifically. This is an optional field that can be used to override the name of the product variant in the catalog.
+      x-internal: false
+    ChannelProductDescription:
+      type: string
+      description: Description of the product for this channel listing specifically. This is an optional field that can be used to override the product description in the catalog.
+      x-internal: false
+    ChannelProductVariantDescription:
+      type: string
+      description: Description of the product variant for this channel listing specifically. This is an optional field that can be used to override the description of the product variant in the catalog.
+      x-internal: false
+    ChannelListingDateCreated:
+      type: string
+      format: date-time
+      description: Date on which the channel listing was first created.
+      x-internal: false
+    ChannelListingVariantDateCreated:
+      type: string
+      format: date-time
+      description: Date on which the channel listing variant was first created.
+      x-internal: false
+    ChannelListingDateModified:
+      type: string
+      format: date-time
+      description: Date on which the channel listing was most recently changed.
+      x-internal: false
+    ChannelListingVariantDateModified:
+      type: string
+      format: date-time
+      description: Date on which the channel listing variant was most recently changed.
+      x-internal: false
+    ListingState:
+      type: string
+      description: The state of the product assignment or channel listing.
+      enum:
+        - active
+        - disabled
+        - error
+        - pending
+        - pending_disable
+        - pending_delete
+        - partially_rejected
+        - queued
+        - rejected
+        - submitted
+        - deleted
+      x-internal: false
+    VariantState:
+      type: string
+      description: The state of the channel listing variant.
+      enum:
+        - active
+        - disabled
+        - error
+        - pending
+        - pending_disable
+        - pending_delete
+        - queued
+        - rejected
+        - submitted
+        - deleted
+      x-internal: false
+    ChannelConfigMeta:
+      type: object
+      description: Optional channel configuration object.
+      x-internal: false
+      properties:
+        app:
+          type: object
+          description: 'A [channel app](/docs/integrations/channels#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
+          properties:
+            id:
+              type: integer
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/docs/integrations/apps/guide/id).'
+            sections:
+              type: array
+              description: 'Sections are now deprecated under config_meta. The new /channel-menus endpoints should be used instead. If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
+              deprecated: true
+              items:
+                type: object
+                deprecated: true
+                properties:
+                  title:
+                    type: string
+                    description: The title of the navigation section.
+                    example: '"Settings"'
+                    deprecated: true
+                  query_path:
+                    type: string
+                    description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
+                    deprecated: true
+      x-examples:
+        example-1:
+          app:
+            id: 0
+            sections:
+              - title: '"Settings"'
+                query_path: string
+    CurrencyNotRequiredWithChannelId:
+      type: object
+      description: Details about currency assignments for a specific channel.
+      properties:
+        channel_id:
+          $ref: '#/components/schemas/ChannelId'
+        enabled_currencies:
+          $ref: '#/components/schemas/EnabledCurrencies'
+        default_currency:
+          $ref: '#/components/schemas/DefaultCurrency'
+      x-internal: false
+    CurrencyRequiredWithChannelId:
+      type: object
+      description: Details about currency assignments for a specific channel.
+      properties:
+        channel_id:
+          $ref: '#/components/schemas/ChannelId'
+        enabled_currencies:
+          $ref: '#/components/schemas/EnabledCurrencies'
+        default_currency:
+          $ref: '#/components/schemas/DefaultCurrency'
+      required:
+        - channel_id
+        - enabled_currencies
+        - default_currency
+      x-internal: false
+    CurrencyRequiredWithoutChannelId:
+      type: object
+      description: Details about currency assignments for a specific channel.
+      properties:
+        enabled_currencies:
+          $ref: '#/components/schemas/EnabledCurrencies'
+        default_currency:
+          $ref: '#/components/schemas/DefaultCurrency'
+      required:
+        - enabled_currencies
+        - default_currency
+      x-internal: false
+    CreateChannelReq:
+      type: object
+      properties:
+        config_meta:
+          $ref: '#/components/schemas/ChannelConfigMeta'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        is_listable_from_ui:
+          $ref: '#/components/schemas/IsListableFromUI'
+        is_visible:
+          $ref: '#/components/schemas/IsVisible'
+        status:
+          $ref: '#/components/schemas/ChannelStatus'
+        name:
+          $ref: '#/components/schemas/ChannelName'
+        type:
+          $ref: '#/components/schemas/ChannelType'
+        platform:
+          $ref: '#/components/schemas/ChannelPlatform'
+      required:
+        - name
+        - type
+        - platform
+      x-internal: false
+      x-examples:
+        example-1:
+          config_meta:
+            app:
+              id: 0
+              sections:
+                - title: '"Settings"'
+                  query_path: string
+          external_id: string
+          is_listable_from_ui: true
+          is_visible: true
+          status: active
+          name: string
+          type: pos
+          platform: string
+    UpdateChannelReq:
+      type: object
+      properties:
+        config_meta:
+          $ref: '#/components/schemas/ChannelConfigMeta'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        is_listable_from_ui:
+          $ref: '#/components/schemas/IsListableFromUI'
+        is_visible:
+          $ref: '#/components/schemas/IsVisible'
+        name:
+          $ref: '#/components/schemas/ChannelName'
+        status:
+          $ref: '#/components/schemas/ChannelStatus'
+      x-internal: false
+    UpsertMultipleChannelsCurrencyAssignmentsReq:
+      type: array
+      items:
+        $ref: '#/components/schemas/CurrencyRequiredWithChannelId'
+      x-internal: false
+    CreateMultipleListingsReq:
+      type: array
+      items:
+        $ref: '#/components/schemas/UpsertListingWithoutListingIdReq'
+      x-internal: false
+    UpdateMultipleListingsReq:
+      type: array
+      items:
+        $ref: '#/components/schemas/UpsertListingWithListingIdReq'
+      x-internal: false
+    UpsertListingWithoutListingIdReq:
+      type: object
+      description: Details about assigning a product to a specific channel.
+      properties:
+        product_id:
+          $ref: '#/components/schemas/ProductId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        state:
+          $ref: '#/components/schemas/ListingState'
+        name:
+          $ref: '#/components/schemas/ChannelProductName'
+        description:
+          $ref: '#/components/schemas/ChannelProductDescription'
+        variants:
+          $ref: '#/components/schemas/ChannelProductMultipleVariants'
+      required:
+        - product_id
+        - state
+        - variants
+      x-internal: false
+    UpsertListingWithListingIdReq:
+      type: object
+      description: Details about assigning a product to a specific channel.
+      properties:
+        listing_id:
+          $ref: '#/components/schemas/ListingId'
+        product_id:
+          $ref: '#/components/schemas/ProductId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        state:
+          $ref: '#/components/schemas/ListingState'
+        name:
+          $ref: '#/components/schemas/ChannelProductName'
+        description:
+          $ref: '#/components/schemas/ChannelProductDescription'
+        variants:
+          $ref: '#/components/schemas/ChannelProductMultipleVariants'
+      required:
+        - listing_id
+        - product_id
+        - state
+        - variants
+      x-internal: false
+    ChannelProductMultipleVariants:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChannelProductVariantPartial'
+      x-internal: false
+    ChannelProductVariantPartial:
+      type: object
+      description: Details about a variant of the product for this channel listing.
+      properties:
+        product_id:
+          $ref: '#/components/schemas/ProductId'
+        variant_id:
+          $ref: '#/components/schemas/VariantId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        state:
+          $ref: '#/components/schemas/VariantState'
+        name:
+          $ref: '#/components/schemas/ChannelProductVariantName'
+        description:
+          $ref: '#/components/schemas/ChannelProductVariantDescription'
+      required:
+        - product_id
+        - variant_id
+        - state
+      x-internal: false
+    ChannelProductVariantFull:
+      type: object
+      description: Details about a variant of the product for this channel listing.
+      properties:
+        channel_id:
+          $ref: '#/components/schemas/ChannelIdForListing'
+        product_id:
+          $ref: '#/components/schemas/ProductId'
+        variant_id:
+          $ref: '#/components/schemas/VariantId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        state:
+          $ref: '#/components/schemas/VariantState'
+        name:
+          $ref: '#/components/schemas/ChannelProductVariantName'
+        description:
+          $ref: '#/components/schemas/ChannelProductVariantDescription'
+        date_created:
+          $ref: '#/components/schemas/ChannelListingVariantDateCreated'
+        date_modified:
+          $ref: '#/components/schemas/ChannelListingVariantDateModified'
+      x-internal: false
+    ChannelWithoutCurrencies:
+      type: object
+      properties:
+        config_meta:
+          $ref: '#/components/schemas/ChannelConfigMeta'
+        id:
+          $ref: '#/components/schemas/ChannelId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        is_listable_from_ui:
+          $ref: '#/components/schemas/IsListableFromUI'
+        is_visible:
+          $ref: '#/components/schemas/IsVisible'
+        status:
+          $ref: '#/components/schemas/ChannelStatus'
+        name:
+          $ref: '#/components/schemas/ChannelName'
+        type:
+          $ref: '#/components/schemas/ChannelType'
+        platform:
+          $ref: '#/components/schemas/ChannelPlatform'
+        date_created:
+          $ref: '#/components/schemas/ChannelDateCreated'
+        date_modified:
+          $ref: '#/components/schemas/ChannelDateModified'
+        icon_url:
+          $ref: '#/components/schemas/IconUrl'
+      required:
+        - id
+        - name
+      x-internal: false
+    ChannelWithCurrencies:
+      type: object
+      properties:
+        config_meta:
+          $ref: '#/components/schemas/ChannelConfigMeta'
+        id:
+          $ref: '#/components/schemas/ChannelId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        is_listable_from_ui:
+          $ref: '#/components/schemas/IsListableFromUI'
+        is_visible:
+          $ref: '#/components/schemas/IsVisible'
+        status:
+          $ref: '#/components/schemas/ChannelStatus'
+        name:
+          $ref: '#/components/schemas/ChannelName'
+        type:
+          $ref: '#/components/schemas/ChannelType'
+        platform:
+          $ref: '#/components/schemas/ChannelPlatform'
+        date_created:
+          $ref: '#/components/schemas/ChannelDateCreated'
+        date_modified:
+          $ref: '#/components/schemas/ChannelDateModified'
+        icon_url:
+          $ref: '#/components/schemas/IconUrl'
+        currencies:
+          $ref: '#/components/schemas/CurrencyNotRequiredWithChannelId'
+      x-internal: false
+    ActiveTheme:
+      type: object
+      description: Details about the Channel's relationship to Themes.
+      properties:
+        active_theme_uuid:
+          type: string
+          description: The UUID of the currently active Theme on the Channel.
+        active_theme_configuration_uuid:
+          type: string
+          description: The UUID of the currently active Theme Configuration on the Channel.
+        active_theme_version_uuid:
+          type: string
+          description: The UUID of the currently active Theme Version on the Channel. Needed to look up the available Custom Templates for the Theme.
+        saved_theme_configuration_uuid:
+          type: string
+          description: 'The UUID of the most recently saved Theme Configuration. If this is different from the active Theme Configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.'
+      x-internal: false
+    Listing:
+      type: object
+      properties:
+        channel_id:
+          $ref: '#/components/schemas/ChannelIdForListing'
+        listing_id:
+          $ref: '#/components/schemas/ListingId'
+        external_id:
+          $ref: '#/components/schemas/ExternalId'
+        product_id:
+          $ref: '#/components/schemas/ProductId'
+        state:
+          $ref: '#/components/schemas/ListingState'
+        name:
+          $ref: '#/components/schemas/ChannelProductName'
+        description:
+          $ref: '#/components/schemas/ChannelProductDescription'
+        date_created:
+          $ref: '#/components/schemas/ChannelListingDateCreated'
+        date_modified:
+          $ref: '#/components/schemas/ChannelListingDateModified'
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelProductVariantFull'
+      x-internal: false
+    BigCommerceProtectedAppSections:
+      type: array
+      description: 'List of channel-specific control panel menu navigation items and corresponding settings pages an app developer can choose to enable for the subject channel. Protected settings override any settings set in those UI sections at the storewide level. Learn more in the [Building Storefront Channels](/docs/integrations/channels/guide/storefronts#protected-ui-sections) tutorial.'
+      items:
+        type: string
+        enum:
+          - storefront_settings
+          - social
+          - carousel
+          - domains
+          - currencies
+          - notifications
+    channel_menus_Post:
+      type: object
+      properties:
+        bigcommerce_protected_app_sections:
+          $ref: '#/components/schemas/BigCommerceProtectedAppSections'
+        custom_app_sections:
+          $ref: '#/components/schemas/CustomAppSections'
+    CustomAppSections:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+            description: Text displayed to the merchant.
+          query_path:
+            type: string
+            description: Value used in the `section` query param.
+        x-internal: false
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          description: The HTTP status code.
+        title:
+          type: string
+          description: The error title describing the particular error.
+        type:
+          type: string
+          description: Link to a list of BigCommerce API status codes.
+        errors:
+          type: object
+          description: Provides more details to errors.
+      x-internal: false
+    MetaWithFullPagination:
+      type: object
+      description: 'Data about the response, including pagination.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination_Full'
+      x-internal: false
+    MetaWithPartialPagination:
+      type: object
+      description: 'Data about the response, including pagination.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination_Partial'
+      x-internal: false
+    EmptyMeta:
+      type: object
+      title: Empty meta response.
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    pagination_Full:
+      type: object
+      description: |
+        Data about the pagination.
+      properties:
+        per_page:
+          type: integer
+          description: |
+            The maximum number of items per page.
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+        current_page:
+          type: integer
+          description: The current page number.
+        links:
+          type: object
+          description: |
+            Pagination links for the previous, current, or next parts of the whole collection.
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+      x-internal: false
+    pagination_Partial:
+      type: object
+      description: |
+        Data about the pagination.
+      properties:
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+        links:
+          type: object
+          description: |
+            Pagination links for the previous, current, or next parts of the whole collection.
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+      x-internal: false
+    Site:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          description: The fully qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+        channel_id:
+          type: integer
+          description: 'The channel to which this site is attached. Each site belongs to a single channel, and each channel can have either zero or more sites.'
+        created_at:
+          type: string
+          description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+        updated_at:
+          type: string
+          description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+        ssl_status:
+          type: string
+          enum:
+            - dedicated
+            - shared
+          description: 'Indicates if a private/dedicated SSL is installed on this site, or if itʼs using shared SSL.'
+        urls:
+          type: array
+          description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
+          items:
+            $ref: '#/components/schemas/Url'
+        is_checkout_url_customized:
+          type: boolean
+          description: 'Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.'
+    Url:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL of site
+        type:
+          type: string
+          description: URL type
+          enum:
+            - primary
+            - canonical
+            - checkout
+        created_at:
+          type: string
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+          description: 'The date-time that this URL was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+        updated_at:
+          type: string
+          description: 'The date-time that this URL was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+    site_Put:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+      title: site_Put
+      x-internal: false
+    site_Post:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+        channel_id:
+          type: integer
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+      title: site_Post
+      x-internal: false
+    site_Full:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+        channel_id:
+          type: integer
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+        created_at:
+          type: string
+          description: When was this site created? RFC 3339
+          example: '2018-01-04T04:15:50.000Z'
+        updated_at:
+          type: string
+          description: When was this site defintion last updated? RFC 3339
+          example: '2018-01-04T04:15:50.000Z'
+        routes:
+          type: array
+          description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Unique ID for this route. Required when updating an existing route
+              type:
+                type: string
+                description: What type of resource are we routing to?
+                enum:
+                  - product
+                  - brand
+                  - category
+                  - page
+                  - blog
+                  - home
+                  - cart
+                  - checkout
+                  - search
+                  - account
+                  - login
+                  - returns
+                  - static
+              matching:
+                type: string
+                description: |-
+                  (entity_id?) For the specified type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
+
+                  Depending on the type of resource, this may be an ID (matching a specific item), or a "*" wildcard matching all items of that type.
+                example: '5'
+              route:
+                type: string
+                description: |-
+                  The route template that will be used to generate the URL for the requested resource.
+
+                  Supports several tokens:
+
+                  - {id} The ID of the requested item
+                  - {slug} The slug for the requested item (if available). Note: the `slug` value may contain `/` slash
+                  - {language} The language string that the client is using
+                example: /my-amazing-product
+      title: site_Full
+      x-internal: false
+    metafield_Post:
+      title: metafield_Post
+      type: object
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes. This is set by the developer.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafield.
+          example: Location in the warehouse
+      required:
+        - namespace
+        - key
+        - value
+        - permission_set
+    metafield_Put:
+      title: metafield_Put
+      type: object
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafield.
+          example: Location in the warehouse.

@@ -1,0 +1,29 @@
+# Blueprint and Developer Mode
+
+
+<Callout type="warning">
+  #### Restricted/Grandfathered Access
+  As of November 2016, new BigCommerce stores are being offered themes exclusively from BigCommerce's new [Stencil](https://support.bigcommerce.com/articles/Public/The-Stencil-Theme-Platform) theme platform. For existing stores, the control panel's **Themes Marketplace** and **My Themes** pages will show only those Blueprint themes that have been applied to the store and/or purchased before November 2016. 
+</Callout>
+
+This means that the workflow below will work only for stores that have applied or purchased at least one Blueprint theme before November 2016. For information about developing on the current Stencil platform, please consult the [Stencil documentation](/docs/storefront/stencil).
+
+
+
+## A Foundation for Creating Themes 
+
+Our (legacy) Blueprint "Classic Next" base theme provides a starting point for creating a new theme. This theme includes responsive support out-of-the-box, so it works with lower resolutions like those on mobile devices. The visual design has been stripped back, so you can create from a clean canvas.
+
+[View the demo](https://blueprint-demo.mybigcommerce.com)
+
+## Setting Up Your Environment 
+
+Follow these steps to start developing using the Blueprint theme:
+
+1.  To enable the Blueprint theme on your store, simply log in to the control panel, and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.
+    (For example: `https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`.)
+2.  Apply the Blueprint theme.
+3.  Connect to the site using [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+4.  Once connected with WebDAV, navigate to the `/template/` folder, where you will have access to all the files that make up a theme.
+5.  To make a change to a file, just download the file, edit it, and then upload your altered version.
+6.  Every time you make changes to any files, you will need to upload them through WebDAV for the changes to be reflected on your site.

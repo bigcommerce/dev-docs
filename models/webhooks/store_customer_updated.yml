@@ -1,0 +1,29 @@
+type: object
+properties:
+  store/customer/updated:
+    description: |-
+      Fires when a customer is updated. It does not currently track changes to the customer address.
+
+
+      Tracks changes to customer attributes only if you make the changes through the control panel. This change triggers the same event `type` and payload as updating a customer; the payload does not include customer attributes.
+
+    type: object
+    properties:
+      scope:
+        type: string
+      store_id:
+        type: string
+      data:
+        type: object
+        properties:
+          type:
+            type: string
+          id:
+            type: integer
+      hash:
+        type: string
+      created_at:
+        type: integer
+      producer:
+        type: string
+

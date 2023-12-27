@@ -1,0 +1,23 @@
+{
+    "name": "Header Images",
+    "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}",
+    "schema": [
+      {
+        "type": "tab",
+        "label": "Content",
+        "sections": [
+          {
+            "label": "Product cards",
+            "settings": [
+              {
+                "type": "boolean",
+                "label": "Show product name",
+                "id": "showProductName",
+                "default": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}

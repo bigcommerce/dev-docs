@@ -1,0 +1,97 @@
+---
+title: Channels Toolkit Reference
+keywords: channels, currency, currencies, headless, apps, storefronts, 
+---
+
+# Channels Toolkit Reference
+
+This article serves as a comprehensive list of all the tools in Channels Toolkit for quick reference. For a general overview of channels and developing channel apps on BigCommerce, see [Channels Introduction](/docs/integrations/channels).
+
+## Required endpoints
+
+All channels must integrate the following endpoints.
+
+| Endpoint                                                                                        | Description                                                                    |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Channels](/docs/rest-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
+| [Listings](/docs/rest-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
+| [Orders](/docs/rest-management/orders)               | Get and manage order data                                                      |
+| [Products](/docs/rest-catalog)                 | Manage products, options, variants, and modifiers                              |
+
+## Recommended endpoints
+
+The following endpoints are recommended for most channels.
+
+| Endpoint                                                                                                    | Description                                                    |
+| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [Channel Currency Assignments](/docs/rest-management/channels/channel-currency-assignments)|Manage channel specific currency settings|
+| [Price Lists](/docs/rest-management/price-lists)                 | Control variant-level pricing by channel, customer group, etc  |
+| [Store Information](/docs/rest-management/store-information) | Get store metadata                                             |
+| [Shipping](/docs/rest-management/shipping-v2)                   | Manage how products are shipped                                |
+| [Webhooks](/docs/webhooks)                                        | Get notified when specific events occur in a BigCommerce store |
+| [Routes](/docs/rest-management/sites)                    | Create and manage page routes for headless storefronts         |
+| [Sites](/docs/rest-management/sites)                     | Create and manage sites associated with a channel              |
+| [Settings](/docs/rest-management/settings)                       | Read global and channel specific settings                      |
+
+## Extended functionality endpoints
+
+The following endpoints provide extended functionality to channels.
+
+| Endpoint | Description |
+|-|-|
+|[Carts](/docs/rest-management/carts)|Create and manage carts|
+|[Checkouts](/docs/rest-storefront/checkouts)|Create and manage checkouts|
+|[Customers](/docs/rest-management/customers)|Create and Manage Customers, Customer Addresses, and Customer Attributes.|
+|[Currencies](/docs/rest-management/currencies)|Manage accepted currencies and their display|
+|[Coupons](/docs/rest-content/marketing)|Manage coupons|
+|[Gift Certificates](/docs/rest-content/marketing/gift-certificates)|Manage gift certificates|
+|[Customer Login](/docs/start/authentication/customer-login)|Use SSO to login customers|
+|[Current Customer](/docs/start/authentication/current-customer)|Securely identify current customer|
+|[Order Payment Actions](/docs/rest-management/transactions)|Authorize, capture, and void order payments|
+|[Order Transactions](/docs/rest-management/transactions)|Get order payment transaction data|
+
+## UI components
+
+To assist in the rapid development of apps that match the native UI and UX of the control panel, BigCommerce provides UI components and design guidelines to developers via [BigDesign](https://developer.bigcommerce.com/big-design) -- BigCommerce’s library of React components.
+
+| Link | Description |
+|-|-|
+|[BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)| BigDesign react component documentation and playground |
+|[CodeSandbox app](https://codesandbox.io/s/mkvv7)| CodeSandbox app showcasing BigDesign components|
+|[Big Design Repo](https://github.com/bigcommerce/big-design)|GitHub repository for BigDesign components|
+|[Figma UI Kit](https://figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|Figma UI kit for BigDesign components|
+
+### Required UI components
+
+The following UI components are required for channels.
+
+- [Typography](https://developer.bigcommerce.com/big-design/typography)
+- [Tabs](https://developer.bigcommerce.com/big-design/tabs)
+- [Panel](https://developer.bigcommerce.com/big-design/panel)
+- [Link](https://developer.bigcommerce.com/big-design/link)
+- [Icons](https://developer.bigcommerce.com/big-design/icons)
+- [Button](https://developer.bigcommerce.com/big-design/button)
+- [Progress Circle](https://developer.bigcommerce.com/big-design/progress-circle)
+- [Badge](https://developer.bigcommerce.com/big-design/badge)
+- [Dropdown](https://developer.bigcommerce.com/big-design/dropdown)
+- [Table](https://developer.bigcommerce.com/big-design/table)
+- [Box](https://developer.bigcommerce.com/big-design/box)
+
+### Recommended UI components
+
+The following UI components are highly recommended for channels.
+
+- [Alerts](https://developer.bigcommerce.com/big-design/alert)
+- [Form](https://developer.bigcommerce.com/big-design/form)
+- [Input](https://developer.bigcommerce.com/big-design/input)
+- [Tooltip](https://developer.bigcommerce.com/big-design/tooltip)
+
+## Documentation
+
+| Link | Description |
+|-|-|
+|[Channels Overview](/docs/integrations/channels)|High-level overview of channels and developing channels apps on BigCommerce|
+|[Building Channel Apps](/docs/integrations/channels/guide)|In-depth technical guide to building a channel app|
+|[Extending Sales Channel Apps with Channels Toolkit](/docs/integrations/channels/guide/extending-existing-apps)|Tutorial on intregrating Channels Toolkit into existing apps|
+|[Channel App Best Practices](/docs/integrations/channels/guide/best-practices)|List of best practices for channel apps|
+|[Building a Storefront Channel](/docs/integrations/channels/guide/storefronts)|Tutorial on creating a channel app for a headless storefront|

@@ -1,0 +1,661 @@
+openapi: '3.0.1'
+info:
+  title: Redirects
+  description: |-
+    Manage 301 redirects for one or more storefronts powered by a single BigCommerce backend. For a list of redirects that are not allowed, see the [301 Redirects FAQ](https://support.bigcommerce.com/s/article/301-Redirects#faq) in our Help Center.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Redirects
+  - name: Import-Export
+paths:
+  '/storefront/redirects':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Redirects
+      summary: Get Redirects
+      description: Returns a collection of the storeʼs 301 redirects across all sites.
+      operationId: GetRedirects
+      parameters:
+        - name: site_id
+          in: query
+          description: Filters items by `site_id`.
+          schema:
+            type: integer
+        - name: 'id:in'
+          in: query
+          description: Filters items by redirect `id`. Also accepts comma-separated values to filter for multiple redirects.
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: limit
+          in: query
+          description: Controls the number of items to return per page.
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of items. Used to paginate large collections.
+          schema:
+            type: integer
+        - name: sort
+          in: query
+          description: |
+            Field name to sort by. Note: Since redirect `id` increments when new redirects are added, you can use that field to sort by redirect create date.
+          schema:
+            type: string
+            enum:
+              - from_path
+              - type
+              - site_id
+              - id
+        - name: direction
+          in: query
+          description: 'Sort direction. Acceptable values are `asc`, `desc`.'
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: include
+          in: query
+          description: Indicates whether to include redirect sub-resources. Only `to_url` is supported.
+          schema:
+            type: string
+            enum:
+              - to_url
+        - name: keyword
+          in: query
+          description: 'Filters redirects by the specified keyword. Will only search from the beginning of a URL path. For example, `blue` will match `/blue` and `/blue-shirt` ,  **not** `/royal-blue-shirt`.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/301RedirectRead'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+    put:
+      tags:
+        - Redirects
+      summary: Upsert Redirects
+      description: Upserts new redirect data across all storefronts.
+      operationId: UpsertRedirects
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/301RedirectUpsert'
+        required: false
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/301RedirectRead'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+    delete:
+      tags:
+        - Redirects
+      summary: Delete Redirects
+      description: Deletes redirects.
+      operationId: DeleteRedirects
+      parameters:
+        - name: 'id:in'
+          in: query
+          description: List of Redirect IDs to delete explicitly.
+          required: true
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: site_id
+          in: query
+          description: Site ID provided to delete all redirects for a given Site.
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No Content
+          content: {}
+  '/storefront/redirects/imex/jobs':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    get:
+      tags:
+        - Import-Export
+      summary: Get Redirect Import-Export Jobs
+      description: Returns a collection of the storeʼs 301 redirects across all sites.
+      operationId: getRedirectImportExportJobs
+      parameters:
+        - name: id
+          in: query
+          description: Filters results by Redirect Import-Export job ID.
+          style: form
+          explode: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Filters results by the type of the Redirect Import-Export job.
+          style: form
+          explode: false
+          schema:
+            $ref: '#/components/schemas/ImportExportJobType'
+        - name: status
+          in: query
+          description: Filters results by the status of the Redirect Import-Export job.
+          style: form
+          explode: false
+          schema:
+            $ref: '#/components/schemas/ImportExportJobStatus'
+        - name: limit
+          in: query
+          description: Determines the number of items returned per page. The default is 10 items per page.
+          schema:
+            type: integer
+            default: 10
+        - name: page
+          in: query
+          description: Specifies the page number to return when the number of items returned exceeds the page limit. Used to paginate large collections.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/301RedirectImportExportJobRead'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+  '/storefront/redirects/imex/export':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Import-Export
+      summary: Create Redirects Export Job
+      description: Creates a new 301 Redirects export job.
+      operationId: createRedirectExportJob
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                site_id:
+                  type: integer
+                  nullable: true
+                  default: null
+                  description: The site ID for which you wish to export redirects. If no site ID is provided, the request exports all redirects for all sites.
+                redirect_ids:
+                  type: array
+                  items:
+                    type: integer
+                  default: []
+                  description: A list of the redirect IDs you wish to export. If no redirect IDs are provided, the request exports all redirects for the given site selection.
+                include_dynamic_target_urls:
+                  type: boolean
+                  default: false
+                  description: If true, the exported CSV will contain an additional read-only column containing the target URL for dynamic redirects.
+              description: Data necessary to create a new 301 Redirects export job.
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: ab1c2de3-f4gh-5678-i90j-klm12n345o67
+        '429':
+          description: Your store already has an active Redirects import or export job running.
+        '409':
+          description: No Redirects in your store meet the criteria in your request.
+  '/storefront/redirects/imex/import':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Import-Export
+      summary: Create Redirects Import Job
+      description: Creates a new 301 Redirects import job.
+      operationId: createRedirectImportJob
+      parameters:
+        - $ref: '#/components/parameters/ContentTypeFormData'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                import_file:
+                  description: |-
+                    A CSV file containing a list of Redirects to be imported.
+
+                    The headers must be defined as follows:
+
+                    `Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID`
+
+                    Not every line will have a value for every column.
+                  type: string
+                  format: binary
+                  example: |-
+                    Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID 
+                    store.example.com,/old-path,/new-manual-path,, 
+                    store.example.com,/old-product,,Product,12 
+                    store.example.com,/old-brand,,Brand,34 
+                    store.example.com,/old-category,,Category,56 
+                    store.example.com,/old-page,,Page,78 
+                    store.example.com,/old-post,,Post,90
+              required:
+                - import_file
+              description: Data necessary to create a new 301 Redirects import job.
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: ab1c2de3-f4gh-5678-i90j-klm12n345o67
+        '400':
+          description: The provided form data was invalid or the file is not a CSV.
+        '413':
+          description: The provided file is too large. The maximum file size is 20MB.
+        '429':
+          description: Your store already has an active Redirects import or export job running.
+  '/storefront/redirects/imex/export/{uuid}/events':
+    parameters:
+      - $ref: '#/components/parameters/AcceptEventStream'
+      - $ref: '#/components/parameters/ImportExportIdParam'
+    get:
+      tags:
+        - Import-Export
+      summary: Open Redirect Export Event Stream
+      description: Opens an event stream to receive live updates from an export job.
+      operationId: getRedirectExportEvents
+      responses:
+        '200':
+          description: Stream of export events. The `data` attribute is stringified JSON.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                example: 'event: message\ndata: {"job_id":"cfccdd6e-956e-4484-8cc2-a610db26bad9","status":"complete","completed_items":100,"total_items":100}\n\n'
+        '404':
+          description: The provided export job ID does not exist.
+  '/storefront/redirects/imex/import/{uuid}/events':
+    parameters:
+      - $ref: '#/components/parameters/AcceptEventStream'
+      - $ref: '#/components/parameters/ImportExportIdParam'
+    get:
+      tags:
+        - Import-Export
+      summary: Open Redirect Import Event Stream
+      description: Opens an event stream to receive live updates from an import job.
+      operationId: getRedirectImportEvents
+      responses:
+        '200':
+          description: Stream of import events. The `data` attribute is stringified JSON.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                example: 'event: message\ndata: {{"job_id":"a4abaf59-9c25-4f37-a09d-66e6054229a1","status":"complete","completed_items":100,"failed_items":100,"total_items":93,"errors":[]}\n\n'
+        '404':
+          description: The provided import job ID does not exist.
+  '/storefront/redirects/imex/export/{uuid}/download':
+    parameters:
+      - $ref: '#/components/parameters/ContentTypeCsv'
+      - $ref: '#/components/parameters/ImportExportIdParam'
+    get:
+      tags:
+        - Import-Export
+      summary: Download Redirect Export
+      description: Downloads the CSV file containing the results of an export job.
+      operationId: getRedirectExportDownload
+      responses:
+        '200':
+          description: The exported Redirects in CSV format
+          content:
+            text/csv:
+              schema:
+                type: string
+                format: binary
+                example: |
+                  Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic Target ID
+                  store.example.com,/old-path,/redirect-target,,
+        '404':
+          description: The requested export download does not exist.
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    AcceptEventStream:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'text/event-stream'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentTypeFormData:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'multipart/form-data'
+    ContentTypeCsv:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'text/csv'
+    ImportExportIdParam:
+      name: uuid
+      description: The import-export job identifier.
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+    ErrorResponse400:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse404:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse409:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse422:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    301RedirectUpsert:
+      required:
+        - from_path
+        - site_id
+      type: object
+      properties:
+        from_path:
+          type: string
+          example: /old-url/
+        site_id:
+          type: integer
+        to:
+          $ref: '#/components/schemas/RedirectTo'
+      description: Data necessary to create or update a redirect. If there’s a conflict on the from_path and site_id, the redirect will be overwritten with new data.
+    301RedirectRead:
+      type: object
+      description: Full detail of a Redirect, optionally including the full destination URL.
+      properties:
+        id:
+          type: integer
+        site_id:
+          type: integer
+        from_path:
+          type: string
+          example: /old-url
+        to:
+          $ref: '#/components/schemas/RedirectTo'
+        to_url:
+          type: string
+          description: Full destination URL for the redirect. Must be explicitly included via URL parameter.
+          format: uri
+          example: 'https://store-domain.com/new-url'
+    ImportExportJobType:
+      type: string
+      enum:
+        - import
+        - export
+    ImportExportJobStatus:
+      type: string
+      enum:
+        - new
+        - working
+        - complete
+        - aborted
+        - failed
+    ImportErrors:
+      type: array
+      items:
+        type: object
+        description: Detail of an error that occurred during an import job.
+        properties:
+          row:
+            type: integer
+            description: The row in the import CSV where the error occurred.
+          message:
+            type: string
+    301RedirectImportExportJobRead:
+      type: object
+      description: Full detail of a Redirect Import-Export job.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The Import-Export job ID.
+        type:
+          $ref: '#/components/schemas/ImportExportJobType'
+        status:
+          $ref: '#/components/schemas/ImportExportJobStatus'
+        completed_items:
+          type: integer
+          description: The number of items that were successfully imported or exported.
+        failed_items:
+          type: integer
+          description: The number of items that were not successfully imported or exported.
+        total_items:
+          type: integer
+          description: The number of items in the import or export job.
+        errors:
+          $ref: '#/components/schemas/ImportErrors'
+        created_at:
+          type: string
+          format: date-time
+          description: 'The date-time that the import-export job was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2022-01-04T04:15:50.000Z'
+        completed_at:
+          type: string
+          format: date-time
+          description: 'The date-time that the import-export job was completed, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2022-01-04T04:15:50.000Z'
+    MetaPaginationObject:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              minimum: 0
+              type: integer
+              example: 246
+            count:
+              minimum: 0
+              type: integer
+              example: 5
+            per_page:
+              minimum: 0
+              type: integer
+              example: 5
+            current_page:
+              minimum: 1
+              type: integer
+              example: 1
+            total_pages:
+              minimum: 0
+              type: integer
+              example: 50
+            links:
+              type: object
+              properties:
+                next:
+                  type: string
+                  example: '?limit=5&page=2'
+                current:
+                  type: string
+                  example: '?limit=5&page=1'
+    RedirectTo:
+      title: RedirectTo
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - product
+            - brand
+            - category
+            - page
+            - post
+            - url
+        entity_id:
+          type: integer
+        url:
+          maxLength: 2048
+          type: string
+          example: /new-url/
+    DetailedErrors:
+      type: object
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
+    BaseError:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code.
+        title:
+          type: string
+          description: |
+            The error title describing the particular error.
+        type:
+          type: string
+        instance:
+          type: string
+      description: |
+        Error payload for the BigCommerce API.
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Content | modify | `store_v2_content` |
+        | Content | read-only | `store_v2_content_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
+

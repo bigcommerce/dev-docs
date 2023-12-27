@@ -1,0 +1,647 @@
+---
+title: Site Content with the GraphQL Storefront API
+keywords: graphql, storefront, storefronts, if, headless, 
+---
+
+# Site Content with the GraphQL Storefront API
+
+BigCommerce's GraphQL Storefront API allows you to retrieve site content from each storefront channel. Having access to site content makes it easier to build headless storefront applications using BigCommerce's built-in content, such as theme widgets.
+
+Developers can use frontend GraphQL to perform the following: 
+
+- Query [web page content](https://support.bigcommerce.com/s/article/Web-Pages?language=en_US), including HTML pages, contact forms, blog posts, and more
+- Retrieve [banner content](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) on home, search, category, and brand pages 
+- Retrieve rendered [widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder) built using Page Builder or the [Widgets API](/docs/storefront/widgets)
+- Retrieve web pages and blog posts using the web page URL
+
+For more information on web pages, see [Page Types](/docs/rest-content/pages#page-types). Queries don't support RSS-syndicated content pages, as these are deprecated.
+
+GraphQL Storefront API queries are made in the context of a particular storefront channel; for example, queries for web pages return only web pages for a specific storefront channel. For information on how to send requests for your storefront context, see [GraphQL Storefront API Overview FAQ](/docs/storefront/graphql#faq-querying-for-channels-other-than-stencil-storefronts-and-querying-from-external-systems).  
+
+## Web pages
+
+Retrieve web pages using the following example or [using a route](#routes). 
+
+When you query web pages for the default storefront channel, the response includes the main blog index page.
+
+Use the `isVisibleInNavigation` field to filter for only pages that appear in the storefront's navigation menu. Without the filter, queries also return pages that are hidden from the menu, as these pages are still accessible by URL. The filter applies to both web pages and the main index blog page.
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get web pages" showLineNumbers copy
+query {
+  site {
+    content {
+      pages (filters: {isVisibleInNavigation: true }) {
+        edges {
+          node {
+
+            # Fields that return for all web page types 
+            ... on WebPage {
+              __typename
+              entityId
+              name
+              parentEntityId
+              seo {
+                pageTitle
+                metaKeywords
+                metaDescription
+              }
+            }			
+              
+            # Fields that return for plain-text pages 
+            ... on NormalPage {
+              plainTextSummary (characterLimit: 100)
+              path
+            }
+
+            # Fields that return for external link pages 
+            ... on ExternalLinkPage {
+              link
+            }
+
+            # Fields that return for contact forms 
+            ... on ContactPage {
+              path
+              plainTextSummary (characterLimit: 100)
+              contactFields
+            }
+
+            # Fields that return for raw HTML pages
+            ... on RawHtmlPage {
+              path
+              htmlBody
+            }
+
+            # Fields that return for main blog index page
+            ... on BlogIndexPage {
+              path
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get web pages" showLineNumbers copy
+# The response lists web pages ordered by entityId, with the lowest IDs, returned first
+
+{
+  "data": {
+    "site": {
+      "content": {
+        "pages": {
+          "edges": [
+            {
+              "node": {
+                "__typename": "NormalPage",
+                "entityId": 2,
+                "name": "Shipping & Returns",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Shipping & Returns",
+                  "metaKeywords": "Shipping and Return Policy",
+                  "metaDescription": "Shipping and Return Policy"
+                },
+                "plainTextSummary": "To edit this page, log in to your control panel and go to Storefront › Web Pages. Click Edit next...",
+                "path": "/shipping-returns/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "BlogIndexPage",
+                "entityId": 3,
+                "name": "Blogs for the store",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Blogs for the store",
+                  "metaKeywords": "",
+                  "metaDescription": "Blogs about top products"
+                },
+                "path": "/blogs/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "ContactPage",
+                "entityId": 6,
+                "name": "Contact Us Form",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "Contact Us Now!!",
+                  "metaKeywords": "Contact Us",
+                  "metaDescription": "Contact Info"
+                },
+                "path": "/contact-us-form/",
+                "plainTextSummary": "Visitors can use the form on this page to submit questions or feedback.&nbsp;\r\nStore is located in...",
+                "contactFields": [
+                  "fullname",
+                  "phone"
+                ]
+              }
+            },
+            {
+              "node": {
+                "__typename": "ExternalLinkPage",
+                "entityId": 8,
+                "name": "Youtube page",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "",
+                  "metaKeywords": "",
+                  "metaDescription": ""
+                },
+                "link": "https://www.youtube.com/"
+              }
+            },
+            {
+              "node": {
+                "__typename": "RawHtmlPage",
+                "entityId": 9,
+                "name": "Random page",
+                "parentEntityId": null,
+                "seo": {
+                  "pageTitle": "",
+                  "metaKeywords": "",
+                  "metaDescription": ""
+                },
+                "path": "/random-page/",
+                "htmlBody": "<html>\r\n\r\n<head>\r\n<title>\r\nExample page\r\n</title>\r\n</head>\r\n\r\n<body>\r\nExample body\r\n</body>\r\n\r\n</html>"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+### Rendered regions
+
+Retrieve rendered widgets on plain-text pages. This query returns the rendered HTML content for all widgets that are [placed in Regions](/docs/storefront/widgets/guide#create-a-placement) on the given page.
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get rendered regions on plain-text pages" showLineNumbers copy
+query {
+  site {
+    content {
+      pages (filters: {pageType: NORMAL}) {
+        edges {
+          node {
+            ... on NormalPage {
+              path
+              renderedRegions {
+                regions {
+                  name
+                  html
+                }
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get rendered regions on plain-text pages" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "pages": {
+          "edges": [
+            {
+              "node": {
+                "path": "/shipping-returns/",
+                "renderedRegions": {
+                  "regions": [
+                    {
+                      "name": "header_below_nav--global",
+                      "html": "<div data-layout-id=\"10261eed-02ac-4110-9166-faf03b27c776\"><div data-sub-layout-container=\"3bb82e61-b3fa-4d86-9161-67808e923e8e\" data-layout-name=\"Layout\">\n  <style data-container-styling=\"3bb82e61-b3fa-4d86-9161-67808e923e8e\">\n    [data-sub-layout-container=\"3bb82e61-b3fa-4d86-9161-67808e923e8e\"] {\n      box-sizing: border-box;\n      display: flex;\n      flex-wrap: wrap;\n      z-index: 0;\n      position: relative;\n    }\n    [data-sub-layout-container=\"3bb82e61-b3fa-4d86-9161-67808e923e8e\"]:after {\n      background-position: center center;\n      background-size: cover;\n      z-index: auto content: \"\";\n      display: block;\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n    }\n  </style>\n  <div data-sub-layout=\"08180ed9-2daf-42e8-aff3-5e296b517514\">\n    <style data-column-styling=\"08180ed9-2daf-42e8-aff3-5e296b517514\">\n      [data-sub-layout=\"08180ed9-2daf-42e8-aff3-5e296b517514\"] {\n        display: flex;\n        flex-direction: column;\n        box-sizing: border-box;\n        flex-basis: 100%;\n        max-width: 100%;\n        z-index: 0;\n        justify-content: center;\n        padding-right: 10.5px;\n        padding-left: 10.5px;\n        position: relative;\n      }\n      [data-sub-layout=\"08180ed9-2daf-42e8-aff3-5e296b517514\"]:after {\n        background-position: center center;\n        background-size: cover;\n        z-index: auto content: \"\";\n        display: block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n      }\n      @media only screen and (max-width: 700px) {\n        [data-sub-layout=\"08180ed9-2daf-42e8-aff3-5e296b517514\"] {\n          flex-basis: 100%;\n          max-width: 100%;\n        }\n      }\n    </style>\n    <div data-widget-id=\"33ee9cea-5fc6-43fe-a994-ab9a225beee6\" data-placement-id=\"e029163c-bcaa-49e6-9844-c32446c45d5e\" data-placement-status=\"ACTIVE\"><div id=\"sd-hero-image-33ee9cea-5fc6-43fe-a994-ab9a225beee6\"></div>\n\n<script type=\"text/javascript\">\n    (function() {\n        function loadScript(src, onload) {\n            const scriptTag = document.createElement('script');\n            scriptTag.type = 'text/javascript';\n            scriptTag.defer = true;\n            scriptTag.src = src;\n            if (onload) {\n                scriptTag.onload = onload;\n            }\n            document.head.appendChild(scriptTag);\n        }\n\n        var widgetConfiguration = {\"_\":{\"context\":{\"activeCurrencyCode\":\"USD\",\"isEditorMode\":false},\"id\":\"33ee9cea-5fc6-43fe-a994-ab9a225beee6\"},\"title\":\"<p>Great New Years Sales</p>\",\"subtitle\":\"<p>Buy a flower today!!</p>\",\"imageFit\":\"fill\",\"textColor\":\"rgba(24,93,52,1)\",\"buttonText\":\"Shop now\",\"titleStyle\":\"default\",\"buttonFont\":\"default\",\"buttonStyle\":\"round\",\"buttonColor\":\"#444444\",\"imageUrl\":{\"src\":\"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnR8ZW58MHx8MHx8&w=1000&q=80\",\"type\":\"URL\"},\"imageOpacity\":100,\"titleVisible\":\"show\",\"imageParallax\":\"off\",\"buttonVisible\":\"hide\",\"backgroundType\":\"image\",\"containerHeight\":\"small\",\"backgroundColor\":\"#444444\",\"titleFontFamily\":\"inherit\",\"titleFontWeight\":\"400\",\"mobileTextColor\":\"#444444\",\"buttonTextColor\":\"rgba(255,255,255,1)\",\"descriptionStyle\":\"default\",\"buttonFontFamily\":\"inherit\",\"mobileButtonColor\":\"#444444\",\"titleFontSize\":{\"type\":\"px\",\"value\":36},\"descriptionVisible\":\"show\",\"descriptionFontFamily\":\"inherit\",\"descriptionFontWeight\":\"400\",\"mobileButtonTextColor\":\"rgba(255,255,255,1)\",\"imageAlignment\":{\"vertical\":\"middle\",\"horizontal\":\"center\"},\"descriptionFontSize\":{\"type\":\"px\",\"value\":21},\"contentAlignment\":{\"vertical\":\"top\",\"horizontal\":\"left\"}};\n\n            var storefrontScriptPath = \"https://microapps.bigcommerce.com/hero-image-widget-js/81aa85e9af30b1a25a734aa760e40ccd980d9383/storefront-bundle.js\";\n            if (window.BigCommerce && window.BigCommerce.initializeHeroImage && typeof window.BigCommerce.initializeHeroImage === 'function' ) {\n                window.BigCommerce.initializeHeroImage(widgetConfiguration).render();\n            } else {\n                loadScript(storefrontScriptPath, () => window.BigCommerce.initializeHeroImage(widgetConfiguration).render());\n            }\n    })();\n</script>\n</div>\n  </div>\n</div></div>"
+                    },
+                    {
+                      "name": "header_bottom--global",
+                      "html": "<div data-layout-id=\"6aa907cf-e2aa-46df-8804-79c74c7971e0\"><div data-sub-layout-container=\"085accf0-fbd0-4808-aad5-034b85a61a20\" data-layout-name=\"Layout\">\n  <style data-container-styling=\"085accf0-fbd0-4808-aad5-034b85a61a20\">\n    [data-sub-layout-container=\"085accf0-fbd0-4808-aad5-034b85a61a20\"] {\n      box-sizing: border-box;\n      display: flex;\n      flex-wrap: wrap;\n      z-index: 0;\n      position: relative;\n    }\n    [data-sub-layout-container=\"085accf0-fbd0-4808-aad5-034b85a61a20\"]:after {\n      background-position: center center;\n      background-size: cover;\n      z-index: auto content: \"\";\n      display: block;\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n    }\n  </style>\n  <div data-sub-layout=\"7b6e28e6-4ada-4e47-b70f-514fd4a74279\">\n    <style data-column-styling=\"7b6e28e6-4ada-4e47-b70f-514fd4a74279\">\n      [data-sub-layout=\"7b6e28e6-4ada-4e47-b70f-514fd4a74279\"] {\n        display: flex;\n        flex-direction: column;\n        box-sizing: border-box;\n        flex-basis: 100%;\n        max-width: 100%;\n        z-index: 0;\n        justify-content: center;\n        padding-right: 10.5px;\n        padding-left: 10.5px;\n        position: relative;\n      }\n      [data-sub-layout=\"7b6e28e6-4ada-4e47-b70f-514fd4a74279\"]:after {\n        background-position: center center;\n        background-size: cover;\n        z-index: auto content: \"\";\n        display: block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n      }\n      @media only screen and (max-width: 700px) {\n        [data-sub-layout=\"7b6e28e6-4ada-4e47-b70f-514fd4a74279\"] {\n          flex-basis: 100%;\n          max-width: 100%;\n        }\n      }\n    </style>\n  </div>\n</div>\n<div data-sub-layout-container=\"5698827f-1451-42fd-9506-c9fc12aa7efa\" data-layout-name=\"Layout\">\n  <style data-container-styling=\"5698827f-1451-42fd-9506-c9fc12aa7efa\">\n    [data-sub-layout-container=\"5698827f-1451-42fd-9506-c9fc12aa7efa\"] {\n      box-sizing: border-box;\n      display: flex;\n      flex-wrap: wrap;\n      z-index: 0;\n      position: relative;\n    }\n    [data-sub-layout-container=\"5698827f-1451-42fd-9506-c9fc12aa7efa\"]:after {\n      background-position: center center;\n      background-size: cover;\n      z-index: auto content: \"\";\n      display: block;\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n    }\n  </style>\n  <div data-sub-layout=\"b26dbb81-5281-44ea-9621-3fcecf3dcff7\">\n    <style data-column-styling=\"b26dbb81-5281-44ea-9621-3fcecf3dcff7\">\n      [data-sub-layout=\"b26dbb81-5281-44ea-9621-3fcecf3dcff7\"] {\n        display: flex;\n        flex-direction: column;\n        box-sizing: border-box;\n        flex-basis: 100%;\n        max-width: 100%;\n        z-index: 0;\n        justify-content: center;\n        padding-right: 10.5px;\n        padding-left: 10.5px;\n        position: relative;\n      }\n      [data-sub-layout=\"b26dbb81-5281-44ea-9621-3fcecf3dcff7\"]:after {\n        background-position: center center;\n        background-size: cover;\n        z-index: auto content: \"\";\n        display: block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n      }\n      @media only screen and (max-width: 700px) {\n        [data-sub-layout=\"b26dbb81-5281-44ea-9621-3fcecf3dcff7\"] {\n          flex-basis: 100%;\n          max-width: 100%;\n        }\n      }\n    </style>\n    <div data-widget-id=\"a49467eb-d5c0-47da-9dcc-4328efa8e6a4\" data-placement-id=\"18cc55cc-9364-40fb-802b-704e77c1cb25\" data-placement-status=\"ACTIVE\"><style>\n  .sd-divider-wrapper-a49467eb-d5c0-47da-9dcc-4328efa8e6a4 {\n    display: flex;\n    height: 20px;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n  }\n\n  .sd-divider-a49467eb-d5c0-47da-9dcc-4328efa8e6a4 {\n    height: 0;\n    border-top: 1px;\n    border-color: rgba(180, 186, 209, 1);\n    border-style: solid;\n    width: 100%;\n    margin: 0;\n  }\n</style>\n\n<div class=\"sd-divider-wrapper-a49467eb-d5c0-47da-9dcc-4328efa8e6a4\">\n  <hr class=\"sd-divider-a49467eb-d5c0-47da-9dcc-4328efa8e6a4\">\n</div>\n</div>\n  </div>\n</div>\n<div data-sub-layout-container=\"4416b66c-49c7-4104-92cb-6226127012b6\" data-layout-name=\"Layout\">\n  <style data-container-styling=\"4416b66c-49c7-4104-92cb-6226127012b6\">\n    [data-sub-layout-container=\"4416b66c-49c7-4104-92cb-6226127012b6\"] {\n      box-sizing: border-box;\n      display: flex;\n      flex-wrap: wrap;\n      z-index: 0;\n      position: relative;\n    }\n    [data-sub-layout-container=\"4416b66c-49c7-4104-92cb-6226127012b6\"]:after {\n      background-position: center center;\n      background-size: cover;\n      z-index: auto content: \"\";\n      display: block;\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n    }\n  </style>\n  <div data-sub-layout=\"e1b20ec7-2edd-48e7-bde4-99d1ef2a583c\">\n    <style data-column-styling=\"e1b20ec7-2edd-48e7-bde4-99d1ef2a583c\">\n      [data-sub-layout=\"e1b20ec7-2edd-48e7-bde4-99d1ef2a583c\"] {\n        display: flex;\n        flex-direction: column;\n        box-sizing: border-box;\n        flex-basis: 50%;\n        max-width: 50%;\n        z-index: 0;\n        justify-content: center;\n        padding-right: 10.5px;\n        padding-left: 10.5px;\n        position: relative;\n      }\n      [data-sub-layout=\"e1b20ec7-2edd-48e7-bde4-99d1ef2a583c\"]:after {\n        background-position: center center;\n        background-size: cover;\n        z-index: auto content: \"\";\n        display: block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n      }\n      @media only screen and (max-width: 700px) {\n        [data-sub-layout=\"e1b20ec7-2edd-48e7-bde4-99d1ef2a583c\"] {\n          flex-basis: 100%;\n          max-width: 100%;\n        }\n      }\n    </style>\n  </div>\n  <div data-sub-layout=\"d89fe399-1bf9-4bc4-a47d-3fe048a29fdc\">\n    <style data-column-styling=\"d89fe399-1bf9-4bc4-a47d-3fe048a29fdc\">\n      [data-sub-layout=\"d89fe399-1bf9-4bc4-a47d-3fe048a29fdc\"] {\n        display: flex;\n        flex-direction: column;\n        box-sizing: border-box;\n        flex-basis: 50%;\n        max-width: 50%;\n        z-index: 0;\n        justify-content: center;\n        padding-right: 10.5px;\n        padding-left: 10.5px;\n        position: relative;\n      }\n      [data-sub-layout=\"d89fe399-1bf9-4bc4-a47d-3fe048a29fdc\"]:after {\n        background-position: center center;\n        background-size: cover;\n        z-index: auto content: \"\";\n        display: block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        right: 0;\n      }\n      @media only screen and (max-width: 700px) {\n        [data-sub-layout=\"d89fe399-1bf9-4bc4-a47d-3fe048a29fdc\"] {\n          flex-basis: 100%;\n          max-width: 100%;\n        }\n      }\n    </style>\n  </div>\n</div></div>"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Blogs
+
+Retrieve blogs using the following example or [using a route](#routes). 
+
+Queries for blogs retrieve published blog posts and exclude draft blogs.
+
+Queries return published blogs even if they are hidden from the storefront's navigation menu, as the main blog index page and published blog posts are still accessible by URL.
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get blogs" showLineNumbers copy
+query {
+  site {
+    content {
+      blog {
+        name
+        description
+        path
+        posts (filters: {tags:["Most Popular", "Holiday"]}) {
+          edges {
+            node {
+              entityId
+              name
+              tags
+              htmlBody
+              plainTextSummary (characterLimit: 100)
+              author
+              path
+              publishedDate {
+                utc
+              }
+              thumbnailImage {
+                url (width: 100, height: 200)
+                urlOriginal
+                altText
+                isDefault
+              }
+              seo {
+                pageTitle
+                metaKeywords
+                metaDescription
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get blogs" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "blog": {
+          "name": "Blog",
+          "description": "",
+          "path": "/blog/",
+          "posts": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 4,
+                  "name": "How to seed your garden",
+                  "tags": [
+                    "Best Reviews",
+                    "Most Popular"
+                  ],
+                  "htmlBody": "<p>1. Sow at a suitable depth<br>2. Plant at the specified spacing for your plant</p>",
+                  "plainTextSummary": "1. Sow at a suitable depth2. Plant at the specified spacing for your plant",
+                  "author": "Anonymous",
+                  "path": "/blog/how-to-seed-your-garden/",
+                  "publishedDate": {
+                    "utc": "2023-06-06T19:29:58Z"
+                  },
+                  "thumbnailImage": {
+                    "url": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/100x200/uploaded_images/flower.jpg",
+                    "urlOriginal": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/original/uploaded_images/flower.jpg",
+                    "altText": "How to seed your garden",
+                    "isDefault": true
+                  },
+                  "seo": {
+                    "pageTitle": "How to seed your garden",
+                    "metaKeywords": "Best Reviews,Most Popular",
+                    "metaDescription": "Flower products"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "entityId": 1,
+                  "name": "Indoor Planting",
+                  "tags": [
+                    "Holiday",
+                    "Lowest Price"
+                  ],
+                  "htmlBody": "<p>1. Pay attention to humidity<br>2. Provide adequate lighting</p>",
+                  "plainTextSummary": "1. Pay attention to humidity2. Provide adequate lighting",
+                  "author": "Anonymous",
+                  "path": "/blog/indoor-planting/",
+                  "publishedDate": {
+                    "utc": "2014-02-15T19:31:55Z"
+                  },
+                  "thumbnailImage": null,
+                  "seo": {
+                    "pageTitle": "Indoor Planting",
+                    "metaKeywords": "Holiday,Lowest Price",
+                    "metaDescription": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Routes
+
+Retrieve web pages, the main blog index page, and blog posts using the web page URL.
+
+The following query retrieves information for the page with the given path URL. 
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get page using a route" showLineNumbers copy
+query {
+  site {
+    route(path: "/blogs/") {
+      node {
+        id
+        
+        # Fields that return for plain-text pages, contact forms, and raw HTML pages
+        ... on WebPage {
+          entityId
+          parentEntityId
+          name
+          isVisibleInNavigation
+          seo {
+            metaKeywords
+            metaDescription
+          }
+        }
+
+        # Fields that return for plain-text pages 
+        ... on NormalPage {
+          path
+          plainTextSummary (characterLimit: 100)
+        }
+
+        # Fields that return for contact forms
+        ... on ContactPage {
+          path
+          plainTextSummary (characterLimit: 100)
+          contactFields
+        }
+
+        # Fields that return for raw HTML pages
+        ... on RawHtmlPage {
+          path
+          htmlBody
+        }
+
+        # Fields that return for main blog index page
+        ... on Blog {
+          name
+          description
+          path
+          isVisibleInNavigation
+          posts {
+            edges {
+              node {
+                name
+                tags
+              }
+            }
+          }
+        }
+
+        # Fields that return for blog posts
+        ... on BlogPost {
+          name
+          tags
+        }
+      }
+    }
+  } 
+}
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get page using a route" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "route": {
+        "node": {
+          "id": "QmxvZzoz",
+          "name": "Blogs for the store",
+          "description": "Blogs about top products",
+          "path": "/blogs/",
+          "isVisibleInNavigation": true,
+          "posts": {
+            "edges": [
+              {
+                "node": {
+                  "name": "How to seed your garden",
+                  "tags": [
+                    "Best Reviews",
+                    "Most Popular"
+                  ]
+                }
+              },
+              {
+                "node": {
+                  "name": "Indoor Planting",
+                  "tags": [
+                    "Holiday",
+                    "Lowest Price"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Banners
+
+Retrieve [banners](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US) using the following example. Queries return only visible banners.
+
+<Tabs items={['Request', 'Response']}>
+<Tab>
+
+```graphql filename="Example query: Get banners" showLineNumbers copy
+query {
+  site {
+    content {
+      banners {
+        homePage {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        searchPage {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        categoryPage (categoryEntityId: 29) {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+        brandPage (brandEntityId: 41) {
+          edges {
+            node {
+              entityId
+              name
+              content
+              location
+            }
+          }
+        }
+      }
+    }
+  }
+}  
+```
+
+</Tab>
+<Tab>
+
+```json filename="Example query: Get banners" showLineNumbers copy
+{
+  "data": {
+    "site": {
+      "content": {
+        "banners": {
+          "homePage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 1,
+                  "name": "Flower Promotion",
+                  "content": "<p><span style=\"color: #800000; font-family: 'comic sans ms', sans-serif; font-size: large;\">BUY A&nbsp;<a href=\"%%GLOBAL_ShopPathSSL%%/corn-on-the-cob-flower/\">Flower</a> TODAY!!!&nbsp;</span></p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          },
+          "searchPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 6,
+                  "name": "Buy One Get One Free",
+                  "content": "<p>Buy a plant, get one free!</p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          },
+          "categoryPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 2,
+                  "name": "Spring Flower Sale",
+                  "content": "<p>20% off all outdoor flowers</p>",
+                  "location": "BOTTOM"
+                }
+              }
+            ]
+          },
+          "brandPage": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 3,
+                  "name": "Most Recommended Brand",
+                  "content": "<p>Best reviews on all marketplace channels</p>",
+                  "location": "TOP"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+## Resources
+
+### API References
+- [Pages V3 API- Page Types](/docs/rest-content/pages#page-types)
+- [Widgets API](/docs/storefront/widgets)
+- [Widget Tutorial- Widget Placement](/docs/storefront/widgets/guide#create-a-placement)
+
+### GraphQL Storefront API
+- [GraphQL Storefront API Overview](/docs/storefront/graphql)
+- [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground)
+
+### Support articles
+
+- [Web Pages](https://support.bigcommerce.com/s/article/Web-Pages?language=en_US)
+- [Banners](https://support.bigcommerce.com/s/article/Creating-Editing-Banners?language=en_US)
+- [Widgets](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#builder)

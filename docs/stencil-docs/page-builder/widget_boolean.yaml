@@ -1,0 +1,42 @@
+title: Boolean
+type: object
+description: |-
+  Allows you to display boolean controls for your widget. The control displays as a checkbox.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "displayControls": true
+  }
+  ```
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/display_video_controls.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"boolean"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Display video controls"'
+  id:
+    type: string
+    example: '"displayControls"'
+    description: The variable name where the setting value will be available in the widget template.
+  default:
+    type: boolean
+    description: The default value to use when rendering the widget for the first time.
+    default: true

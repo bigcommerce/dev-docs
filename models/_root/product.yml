@@ -1,0 +1,208 @@
+description: |-
+  Default property that provides detailed product data. Called on the default `templates/pages/product.html` template, and on several partials in the `templates/components/` subdirectory:
+
+  *`account/returns-list.html`
+  *`cart/item-options.html`,
+  *`products/add-to-cart.html`
+  *`products/event-date.html`
+  *`products/modals/writeReview.html`
+  *`products/price.html`
+  *`products/product-view.html`
+ 
+  **Handlebars Expression**: `{{product}}`
+
+type: object
+properties:
+  AddThisServiceButtonMeta:
+    type: string
+  add_this:
+    type: array
+    items:
+      type: object
+      properties:
+        annotation:
+          type: string
+        service:
+          type: string
+  add_to_wishlist_url:
+    description: URL to add the product to the customer's wishlist
+    type: string
+  availability:
+    type: string
+  brand:
+    description: 'The company, product line, or trademark associated with the product.'
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The name of the company, product line, or trademark.'
+        url:
+          type: string
+          description: The store's internal page with all the products from that brand.
+  bulk_discount_rates:
+    description: List of discount rates for the current product
+    type: array
+    items:
+      type: object
+  can_purchase:
+    description: Boolean that indicates whether the product is available for purchase
+    type: boolean
+  cart_url:
+    description: URL to the customer's shopping cart
+    type: string
+  category:
+    type: array
+    items:
+      type: string
+  condition:
+    description: Product condition
+    type: string
+  customizations:
+    description: 'Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel'
+    type: array
+    items:
+      type: object
+  depth:
+    description: The product's physical depth measurement.
+    type: string
+  description:
+    description: (HTML) description of the product
+    type: string
+  detail_messages:
+    description: Status messages for display at the top of the product page
+    type: string
+  gift_wrapping_available:
+    description: Whether or not gift wrapping is enabled
+    type: boolean
+  gtin:
+    description: 'Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.'
+    type: string
+  height:
+    description: The product's physical height measurement.
+    type: string
+  id:
+    description: Unique ID for the product
+    type: string
+  images:
+    description: 'List of all images for this product, in Stencil image format (as configured in config.json; used with the getImage Handlebars helper)'
+    type: array
+    items:
+      type: object
+      properties:
+        alt:
+          type: string
+        data:
+          type: string
+  main_image:
+    description: Primary image to display when the product details page loads
+    type: object
+    properties:
+      alt:
+        type: string
+      data:
+        type: string
+  max_purchase_quantity:
+    description: Maximum quantity that can be purchased at once
+    type: integer
+  meta_description:
+    type: string
+  meta_keywords:
+    description: 'Optional search keywords that merchants may enter in the control panelʼs "Add a Product" or "Edit a Product" page, to characterize the product in meta tags and storefront searches.'
+    type: string
+  min_purchase_quantity:
+    description: Minimum quantity that can be purchased at once
+    type: integer
+  mpn:
+    description: Manufacturer Part Number. It is used to reference and identify a product.
+    type: string
+  num_reviews:
+    description: Number of reviews the product has
+    type: integer
+  options:
+    $ref: ../product/options.yml
+  out_of_stock:
+    type: boolean
+    description: 'Boolean that indicates whether the product is out of stock. Out of stock only applies to the default selection on page load. For example, if Product A is out of the "Small" size, but "Small" is selected by default, `out_of_stock` will return true, even if the product is not out of stock as a whole.'
+  out_of_stock_message:
+    type: string
+    example: Out of stock
+    description: Out of stock messages for display on the product page
+  page_title:
+    type: string
+  price:
+    $ref: ../product/price.yml
+  rating:
+    description: Rating for the product
+    type: integer
+  related_products:
+    $ref: ../product/related_products.yml
+  reviews:
+    $ref: ../product/reviews.yml
+  shipping:
+    type: object
+    properties:
+      calculated:
+        type: boolean
+      price:
+        type: object
+        properties:  
+          formatted:
+            type: string
+          value:
+            type: number
+          currency:
+            type: string
+      free:
+        type: boolean
+      fixed:
+        type: boolean
+  shipping_messages:
+    type: array
+    items:
+      type: object
+  show_quantity_input:
+    type: integer
+  sku:
+    description: Default product variant when no options are selected.
+    type: string
+  stock_level:
+    description: Indicates the number of items available for sale. Visible only when inventory tracking is turned on.
+    type: string
+  tags:
+    description: Keywords by which this product can also be identified.
+    type: array
+    items:
+      type: object
+  title:
+    description: Displayed name of the product
+    type: string
+  upc:
+    description: Optional UPC code for the product
+    type: string
+  url:
+    description: URL to the product detail page
+    type: string
+  videos:
+    $ref: ../product/videos.yml
+  warranty:
+    description: Optional warranty text set by the merchant
+    type: string
+  width:
+    description: The product's physical width measurement.
+    type: string
+  custom_fields:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 61
+        name:
+          type: string
+          example: unavailable_for
+        value:
+          type: string
+          example: CAD

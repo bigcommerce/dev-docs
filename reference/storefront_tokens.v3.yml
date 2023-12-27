@@ -1,0 +1,356 @@
+openapi: '3.0.1'
+info:
+  title: Storefront Token
+  description: |-
+    Get and manage tokens used to authenticate cross-origin requests to the [GraphQL Storefront API](/docs/storefront/graphql).
+
+    ## [API tokens](/docs/rest-authentication/tokens#create-a-token)
+
+    Generate tokens (JWT) for authenticating cross-origin requests to the [GraphQL Storefront API](/docs/storefront/graphql). To [create a token](/docs/rest-authentication/tokens#create-a-token), send a `POST` request to `/stores/{{STORE_HASH}}/v3/storefront/api-token`.
+
+    ```http
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Content-Type: application/json
+    Accept: application/json
+
+    {
+      "channel_id": 1,
+      "expires_at": 1602288000,
+      "allowed_cors_origins": 
+        ["https://store.example.com"]
+      
+    }
+    ```
+
+    |Property|Type|Description|
+    |-|-|-|
+    |`channel_id`|int| Must be a valid channel ID on the store (required) |
+    |`expires_at`|int| Unix timestamp in seconds (required). Does not support milliseconds, microseconds, or nanoseconds. |
+    |`allowed_cors_origins`|array[str]| Allowed origins for cross origin requests (required) |
+
+    [**Response:**](/docs/rest-authentication/tokens#create-a-token)
+
+    ```json
+    {
+      "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9...",
+      "meta": {
+        // ...
+      }
+    }
+    ```
+
+
+
+    ## [Customer impersonation tokens](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token)
+
+    Generate tokens that can make queries from the perspective of a particular customer in headless or server-side code using the [GraphQL Storefront API](/docs/storefront/graphql#customer-impersonation-tokens). To [create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
+
+    ```http
+    POST https://api.bigcommerce.com/stores/{STORE_HASH}/v3/storefront/api-token-customer-impersonation
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    Accept: application/json
+    Content-Type: application/json
+    ```
+
+    [**Response:**](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token)
+
+    ```json
+    {
+      "data":
+      {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      }
+      "meta": {}
+    }
+    ```
+
+    Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer with the ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected. Consider this sample request using a [customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token) to run a request in the context of customer ID `123`.
+
+    ```http
+    POST https://store.example.com/graphql
+    Authorization: Bearer {{CUSTOMER_IMPERSONATION_TOKEN}}
+    X-Bc-Customer-Id: 123
+
+    {
+        "query": "query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"
+    }
+    ```
+
+
+    > #### Warning
+    > * Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should **not** be used for frontend requests.
+    > * Unlike normal GraphQL API tokens, these tokens are sensitive and should be treated like secrets, just as you might treat an OAuth token.
+    > * Attempts to run requests using these tokens from a web browser will be rejected.
+
+
+    ## Revoking tokens
+    To [revoke a token](/docs/rest-authentication/tokens#revoke-a-token), send a `DELETE` request to `/v3/storefront/api-token`.
+
+    ```http
+    DELETE /stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
+    host: api.bigcommerce.com
+    x-Auth-Token: {{ACCESS_TOKEN}}
+    Sf-Api-Token: {{CUSTOMER_ID}}
+    ```
+
+    ## Additional information
+
+    * [GraphQL API Overview](/docs/storefront/graphql)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: API Token
+  - name: Customer Impersonation Token
+paths:
+  '/storefront/api-token':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - API Token
+      summary: Create a Token
+      description: |-
+        Creates a Storefront API token.
+
+        **Required Scopes**
+        * `Manage` `Storefront API Tokens`
+      operationId: createToken
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/TokenPostSimple'
+                - $ref: '#/components/schemas/TokenPostImpersonation'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token_Full'
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content: {}
+        '403':
+          description: Missing scope - the v3 Auth token is valid but does not have proper permissions to access this endpoint.
+          content: {}
+        '422':
+          description: Invalid JSON request body - missing or invalid data.
+          content: {}
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - API Token
+      summary: Revoke a Token
+      description: Revoke access for a Storefront API token. Only revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
+      operationId: revokeToken
+      parameters:
+        - name: Sf-Api-Token
+          in: header
+          description: An existing JWT token that you want to revoke.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A storefront API token revocation has been scheduled.
+          content: {}
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content: {}
+        '403':
+          description: Missing scope - the v3 Auth token is valid but does not have proper permissions to access this endpoint.
+          content: {}
+        '422':
+          description: Invalid JWT Token provided or missing JWT token header
+          content: {}
+  '/storefront/api-token-customer-impersonation':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Customer Impersonation Token
+      summary: Create a Token
+      description: |-
+        Returns a Storefront API token that allows your application to impersonate customers when making GraphQL `POST` requests. For more information on how to use the returned token, see [customer impersonation tokens](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token).
+
+        **Required Scopes**
+        * `Manage` `Storefront API Customer Impersonation Tokens`
+      operationId: createTokenWithCustomerImpersonation
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenPostImpersonation'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token_Full'
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content: {}
+        '403':
+          description: Missing scope - the v3 Auth token is valid but does not have proper permissions to access this endpoint.
+          content: {}
+        '422':
+          description: Invalid JSON request body - missing or invalid data
+          content: {}
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    TokenPostImpersonation:
+      type: object
+      x-internal: false
+      x-examples: {}
+      properties:
+        channel_id:
+          type: integer
+          minimum: 1
+          description: Channel ID for requested token
+          example: 1
+        expires_at:
+          type: integer
+          description: Unix timestamp (UTC time) defining when the token should expire. Supports seconds, but does not support milliseconds, microseconds, or nanoseconds.
+          example: 1885635176
+          minimum: 0
+      required:
+        - channel_id
+        - expires_at
+    TokenPostSimple:
+      type: object
+      properties:
+        allowed_cors_origins:
+          maxItems: 1
+          minItems: 1
+          type: array
+          description: List of allowed domains for Cross-Origin Request Sharing. Currently only accepts a single element.
+          items:
+            maxLength: 1
+            minLength: 1
+            pattern: '/^https?:\/\/(?=.{1,254}(?::|$))(?:(?!\d|-)(?![a-z0-9\-]{1,62}-(?:\.|:|$))[a-z0-9\-]{1,63}\b(?!\.$)\.?)+(:\d+)?$/i;'
+            type: string
+      x-internal: false
+      x-examples:
+        example-1:
+          allowed_cors_origins:
+            - 'https://www.yourstorefront.com/'
+    Token_Full:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Token_Base'
+        meta:
+          type: object
+          properties: {}
+          additionalProperties: true
+          description: Response metadata.
+    Token_Base:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token for accessing the Storefront API
+      x-internal: false
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+      x-internal: false
+    BaseError:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code.
+        title:
+          type: string
+          description: |
+            The error title describing the particular error.
+        type:
+          type: string
+      description: |
+        Error payload for the BigCommerce API.
+      x-internal: false
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      x-internal: false
+  responses:
+    TokenResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Token_Full'
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Storefront API Customer Impersonation Tokens | manage | `store_storefront_api_customer_impersonation` |
+        | Storefront API Tokens | manage | `store_storefront_api` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      name: X-Auth-Token
+      in: header
+

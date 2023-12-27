@@ -1,0 +1,94 @@
+title: Box Model
+type: object
+description: |-
+  Allows you to display box model controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "productCardMargin": {
+      "top": {
+        "value": "0",
+        "type": "px"
+      },
+      "right": {
+        "value": "10.5",
+        "type": "px"
+      },
+      "bottom": {
+        "value": "0",
+        "type": "px"
+      },
+      "left": {
+        "value": "10.5",
+        "type": "px"
+      }
+    }
+  }
+  ```
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/margin.png)
+
+  <hr>
+
+  **JSON Schema**
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"boxModel"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Margin"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"productCardMargin"'
+  default:
+    type: object
+    description: The default value to use when rendering the widget for the first time.
+    properties:
+      top:
+        type: object
+        properties:
+          value:
+            type: string
+            example: ' "0"'
+          type:
+            type: string
+            example: '"px"'
+      right:
+        type: object
+        properties:
+          value:
+            type: string
+            example: '"10.5"'
+          type:
+            type: string
+            example: '"px"'
+      bottom:
+        type: object
+        properties:
+          value:
+            type: string
+            example: ' "0"'
+          type:
+            type: string
+            example: ' "px"'
+      left:
+        type: object
+        properties:
+          value:
+            type: string
+            example: '"10.5"'
+          type:
+            type: string
+            example: '"px"'

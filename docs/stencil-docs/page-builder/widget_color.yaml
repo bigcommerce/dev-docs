@@ -1,0 +1,46 @@
+title: Color
+type: object
+properties:
+  type:
+    type: string
+    description: The type of setting component to display.
+    example: '"color"'
+  label:
+    type: string
+    description: The user friendly message to inform the user how this setting will be used.
+    example: '"Background color"'
+  id:
+    type: string
+    description: The variable name where the setting value will be available in the widget template.
+    example: '"backgroundColor"'
+  default:
+    type: string
+    description: The default value to use when rendering the widget for the first time.
+    example: '"#444444"'
+description: |-
+  Allows you to display color controls for your widget.
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "backgroundColor": "#444444"
+  }
+  ```
+
+  >**Note**
+  >
+  >* The resulting color picker supports RGBA.
+  >* You can select transparent as a color. The returned value is the string “transparent”.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://storage.googleapis.com/bigcommerce-production-dev-center/images/background_color.png)
+
+  <hr>
+
+  **JSON Schema**

@@ -1,0 +1,114 @@
+extends: spectral:oas
+rules:
+  info-contact: off
+  oas3-unused-component: off
+  oas2-unused-definition: off
+except:
+  'reference/tax_provider.yml':
+    - oas3-schema
+  'reference/carts.v3.yml':
+    - oas2-oneOf
+    - oas2-valid-schema-example
+    - operation-tag-defined
+  'reference/catalog.v3.yml':
+    - oas2-operation-security-defined
+    - oas3-schema
+    - oas2-schema
+    - oas2-valid-media-example
+    - oas2-valid-schema-example
+  'reference/channels.v3.yml':
+    - operation-operationId
+    - oas3-schema
+    - oas3-valid-media-example
+  'reference/current_customer.yml':
+    - operation-success-response
+  'reference/custom-template-associations.v3.yml':
+    - openapi-tags
+    - operation-tag-defined
+  'reference/customer_login.yml':
+    - operation-operationId
+    - operation-success-response
+  'reference/email_templates.v3.yml':
+    - oas3-schema
+    - operation-tag-defined
+    - openapi-tags
+  'reference/geography.v2.yml':
+    - operation-operationId
+    - oas2-valid-media-example
+  'reference/orders.v2.oas2.yml':
+    - oas3-valid-schema-example
+    - oas3-valid-media-example
+    - oas3-schema
+  'reference/orders.v3.yml':
+    - oas2-valid-schema-example
+    - oas2-valid-media-example
+    - oas2-anyOf
+  'reference/settings.v3.yml':
+    - oas3-valid-media-example
+    - operation-operationId
+  'reference/sites.v3.yml':
+    - oas2-valid-media-example
+    - operation-operationId
+  'reference/store_information.v2.yml':
+    - oas2-valid-media-example
+    - operation-operationId
+    - oas2-valid-schema-example
+  'reference/themes.v3.yml':
+    - oas3-schema
+    - operation-operationId
+  'reference/webhooks.v3.yml':
+    - oas3-valid-media-example
+  'carts.v3.yml':
+    - oas2-oneOf
+    - oas2-valid-schema-example
+    - operation-tag-defined
+  'catalog.v3.yml':
+    - oas2-operation-security-defined
+    - oas3-schema
+    - oas2-schema
+    - oas2-valid-media-example
+    - oas2-valid-schema-example
+  'channels.v3.yml':
+    - operation-operationId
+    - oas3-schema
+    - oas3-valid-media-example
+  'current_customer.yml':
+    - operation-success-response
+  'custom-template-associations.v3.yml':
+    - openapi-tags
+    - operation-tag-defined
+  'customer_login.yml':
+    - operation-success-response
+  'email_templates.v3.yml':
+    - oas3-schema
+    - operation-tag-defined
+    - openapi-tags
+  'geography.v2.yml':
+    - operation-operationId
+    - oas2-valid-media-example
+  'orders.v2.oas2.yml':
+    - oas3-valid-schema-example
+    - oas3-valid-media-example
+    - oas3-schema
+  'orders.v3.yml':
+    - oas2-valid-schema-example
+    - oas2-valid-media-example
+    - oas2-anyOf
+  'settings.v3.yml':
+    - oas3-valid-media-example
+    - operation-operationId
+  'sites.v3.yml':
+    - oas2-valid-media-example
+    - operation-operationId
+  'store_information.v2.yml':
+    - oas2-valid-media-example
+    - operation-operationId
+    - oas2-valid-schema-example
+  'themes.v3.yml':
+    - oas3-schema
+    - operation-operationId
+  'webhooks.v3.yml':
+    - oas3-valid-media-example
+  'pages.v3.yml':
+    - oas3-valid-media-example
+    - oas3-valid-schema-example

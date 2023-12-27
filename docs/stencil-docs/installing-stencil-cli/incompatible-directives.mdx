@@ -1,0 +1,84 @@
+---
+title: Incompatible Directives
+keywords: if, stencil
+---
+
+# Incompatible Directives
+
+**Prior to January 31, 2024, you must update your SCSS file structure and syntax to compile correctly and avoid frontend styling issues.** This upgrade is necessary to ensure the security of our platform going forward and to ensure we’re not running any out-of-date software that may be at additional risk for security vulnerabilities.
+
+This article covers the known divergent behavior and describes how to avoid unexpected compiler errors due to the Stencil CLI and BigCommerce's servers running different versions of node-sass.
+
+To ensure that your storefront is up to date, review the [Deprecation and Sunset Support for Node-Sass](/docs/storefront/stencil/cli/node-sass) information to learn about the two possible options for updating your node-sass compiler.
+
+## Examples
+
+1. In production, using the `/` character in SCSS directives causes a compiler error.
+
+Because support for SCSS directives came after the node-sass fork, SCSS directives that contain the `/` literal will break in production with an error stating that this syntax is not supported.
+
+We do not recommend using `/` in your SCSS files until the node-sass fork is sunset.
+
+For more information, see [Issue 2149 (GitHub / libsass)](https://github.com/sass/libsass/issues/2149).
+
+2. The `$hue` parameter behaves differently. 
+
+The following example demonstrates the context in which you might pass `$hue` or encounter it in library packages:
+
+```scss filename="Example: $hue parameter" showLineNumbers copy
+$color: #1caf9a;
+
+body {
+  background: change-color($color, $hue: 120);
+}
+```
+
+Using `$hue` leads to different behavior in Stencil CLI versus in production. 
+
+We do not recommend including `$hue` in your SCSS functions until the node-sass fork is sunset.
+
+For more information, see [Issue 2112 (GitHub / libsass)](https://github.com/sass/libsass/issues/2112).
+
+
+3. In production, concatenating an empty string with a quoted string unquotes the string.
+
+The following example demonstrates the context in which you might concatenate an empty string or encounter it in library packages:
+
+```scss filename="Example: Empty string concatenation" showLineNumbers copy
+@debug "\"foo\"" + "";
+```
+
+Empty string arguments lead to divergent behavior between Stencil CLI, which supports empty string concatenation, and production, which unquotes strings. 
+
+Pay particular attention to SCSS functions that might receive empty strings as arguments.
+
+For more information, see [Issue 2153 (GitHub / libsass)](https://github.com/sass/libsass/issues/2153).
+
+4. The `if()` method does not correctly evaluate its parent selector.
+
+For example, consider the following function:
+
+```scss filename="Example: Function that uses if()" showLineNumbers copy
+@function foo() {
+  @return if(& != null, green, red);
+}
+
+test {
+  color: foo();
+}
+```
+In the preceding example, the fork's error in the evaluation of the `if()` method leads to the following divergent results:
+
+```css filename="Stencil CLI output" showLineNumbers copy
+test {
+  color: green;
+}
+```
+
+```css filename="Production output" showLineNumbers copy
+test {
+  color: red;
+}
+```
+
+For more information, see [Issue 2116 (GitHub / libsass)](https://github.com/sass/libsass/issues/2116).

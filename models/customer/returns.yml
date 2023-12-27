@@ -1,0 +1,31 @@
+type: array
+description: customer.returns object available to `templates/pages/account/returns.html`.
+items:
+  type: object
+  properties:
+    action:
+      type: string
+    comments:
+      type: string
+    date_requested:
+      type: string
+    id:
+      type: string
+    product:
+      type: object
+      properties:
+        image:
+          type: object
+          properties:
+        name:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+    quantity:
+      type: number
+    reason:
+      type: string
+    status:
+      type: string

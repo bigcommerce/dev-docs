@@ -1,0 +1,34 @@
+---
+title: Creating Channels
+keywords: channels, headless, storefronts, rest, 
+---
+
+# Creating Channels
+
+This section demonstrates how to create a channel and a channel site for a headless storefront.
+
+## Creating channels
+
+Before you can display products on a headless storefront, you need to create a channel and a channel site for that storefront. A **channel** is essentially a sales platform such as a headless storefront, a marketplace, or a POS system. A **site** is a domain that links a headless storefront to a sales channel.
+
+You can create both using the [Channels API](/docs/rest-management/channels).
+
+1. Send a `POST` request to the `/channels` endpoint to create a channel for your headless platform. Retrieve the channel ID returned in the response. You will use it to create a channel site and authenticate cross-origin requests.
+2. Pass that channel ID in a `POST` request to `/channels/{channel_id}/site` to create a site for the provided channel.
+3. Create a headless storefront by setting the status of the default BigCommerce storefront to inactive and then create an active headless storefront within that one free storefront limit. 
+4. Give this channel the primary domain and set the checkout domain for the headless storefront by sending a `PUT` request to the `/channels/{channel_id}/site/checkout-url` endpoint.
+5. Optionally, you can add a 3P SSL certificate for the checkout domain by sending a `GET` request to the `/sites/{site_id}/certificate` endpoint. See [Upsert a Site’s SSL/TLS Certificate Information](/docs/rest-management/sites/site-certificate#upsert-a-site’s-ssl/tls-certificate-information) for details.
+6. After setting up the channel, you can authenticate cross-origin requests by [creating a JWT token](/docs/rest-authentication/tokens#create-a-token) through the GraphQL Storefront API. Create your GraphQL Storefront API token with the same channel ID as your headless platform; otherwise, your request will be rejected.
+
+<Callout type="info">
+ #### Limits
+ Every store comes with a default limit of one active storefront that comes for free along with a store. The store can be used as a free sandbox while it is in inactive status. If you want also to make the store active, you need to purchase an additional storefront seat.
+</Callout>
+  
+## Next steps
+
+- [Learn how to work with products](/docs/storefront/headless/products)
+
+## Resources
+
+- [Building Storefront Channels](/docs/integrations/channels/guide/storefronts)

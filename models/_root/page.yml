@@ -1,0 +1,35 @@
+description: |-
+  `{{page}}` object present on content pages, forms, and RSS feeds.
+
+  **Handlebars Expression**: `{{page}}`
+type: object
+properties:
+  breadcrumbs:
+    description: Present if page has ancestors.
+    type: array
+    items: {}
+  content:
+    type: string
+    description: HTML content of the page
+  feed:
+    description: Present if page is an RSS feed page.
+    type: array
+    items:
+      type: object
+      properties:
+        content:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+  id:
+    type: integer
+  sub_pages:
+    type: array
+    description: Array of child pages
+    items:
+      type: object
+  title:
+    type: string
+    description: Title of this child page

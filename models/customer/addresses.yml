@@ -1,0 +1,46 @@
+description: The customer.addresses object available to `templates/pages/account/addresses.html` and other account address templates.
+type: array
+items:
+  type: object
+  properties:
+    address1:
+      type: string
+    address2:
+      type: string
+    city:
+      type: string
+    company:
+      type: string
+    country:
+      type: string
+    country_id:
+      type: string
+    customer_id:
+      type: string
+    delete_url:
+      type: string
+    destination:
+      type: string
+    edit_url:
+      type: string
+    first_name:
+      type: string
+    form_session_id:
+      type: string
+    full_name:
+      type: string
+    id:
+      type: string
+      description: The ID of the shipping address.
+    last_name:
+      type: string
+    last_used:
+      type:
+    phone:
+      type: string
+    state:
+      type: string
+    state_id:
+      type: string
+    zip:
+      type: string

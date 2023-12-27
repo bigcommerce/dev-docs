@@ -1,0 +1,28 @@
+description: |-
+  Elements of marketing banners at pageʼs top and/or bottom.
+
+  `global` `{{banners}}` object
+
+  **Handlebars Expressions**
+   * `{{banners}}`, 
+   * `{{{banners}}}`
+
+  **Handlebars Formatting Exception**
+  Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example `{{{banners}}}`.
+  (Double braces would escape the HTML.)
+ 
+  **Limits**
+  * `{{banners}}` will only return the first 50 banners on each page.
+ 
+type: object
+properties:
+  bottom:
+    type: array
+    description: 'Array of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel'
+    items:
+      type: string
+  top:
+    type: array
+    description: 'Array of HTML content/strings, for custom top-banner content; banners are populated from the BigCommerce control panel'
+    items:
+      type: string
