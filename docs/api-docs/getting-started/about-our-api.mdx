@@ -9,7 +9,7 @@ The BigCommerce suite of APIs empowers you to create apps, automate store proces
 
 If you're new to building BigCommerce apps, we recommend that you start by exploring the [App Marketplace](https://www.bigcommerce.com/apps/) to get a feel for what's possible.
 
-When you're ready to play with our APIs, check out the [API Request Quick Start](/api-docs/getting-started/making-requests). 
+When you're ready to play with our APIs, check out the [API Request Quick Start](/archive/start/making-requests). 
 
 ## Available APIs
 
@@ -42,7 +42,7 @@ BigCommerce's [GraphQL Storefront API](/docs/graphql-storefront) lets you query 
 
 ### Customer Login API
 
-The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically sign customers in to a BigCommerce storefront. Example use cases include the following:
+The [Customer Login API](/docs/start/authentication/customer-login) lets you programmatically sign customers in to a BigCommerce storefront. Example use cases include the following:
 * Sign customers in to a BigCommerce store from a third-party account or a headless storefront
 * Enable login using credentials other than email and password, such as a phone number
 * Integrate a BigCommerce store with an SSO provider
@@ -50,26 +50,26 @@ The [Customer Login API](/api-docs/storefront/customer-login-api) lets you progr
 
 ### Current Customer API
 
-BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) lets you determine which customer is logged in to a storefront during a session.
+BigCommerce's [Current Customer API](/docs/start/authentication/current-customer) lets you determine which customer is logged in to a storefront during a session.
 * Confirm a customer's identity in the browser
 * Validate a customer's identity to display specific information to them from an external app
 
 
 ## API authentication and context
 
-Make BigCommerce API requests in the context of the **storefront**, BigCommerce **API server**, or **app server**. Each of the following APIs listings links to its section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article, which contains the base URL of the API in question.
+Make BigCommerce API requests in the context of the **storefront**, BigCommerce **API server**, or **app server**. Each of the following APIs listings links to its section of our [Authentication and Example Requests](/docs/start/authentication) article, which contains the base URL of the API in question.
 
 | API or Use Case | Context |
 |:----------------|:--------|
-| [GraphQL Account API](/api-docs/getting-started/authentication#access-tokens), including [Users](/docs/graphql-users/overview) | server |
-| [GraphQL Admin API](/api-docs/getting-started/) | server |
-| [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | storefront |
-| [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | server |
-| [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) | storefront |
-| [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | storefront |
-| [Current Customer API](/api-docs/getting-started/authentication#client-id) | storefront |
-| [Payments API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | server |
-| [Apps that host REST Provider APIs (provider apps)](/api-docs/getting-started/authentication#developer-configured-authentication) | server |
+| [GraphQL Account API](/docs/start/authentication#access-tokens), including [Users](/docs/graphql-account/users-overview) | server |
+| [GraphQL Admin API](/docs/start/authentication#access-tokens) | server |
+| [GraphQL Storefront API](/docs/start/authentication#bigcommerce-generated-jwts) | storefront |
+| [REST Store Management APIs](/docs/start/authentication#access-tokens) | server |
+| [REST Storefront API](/docs/start/authentication#same-origin-cors-authentication) | storefront |
+| [Customer Login API](/docs/start/authentication#user-generated-jwts) | storefront |
+| [Current Customer API](/docs/start/authentication#client-id) | storefront |
+| [Payments API](/docs/start/authentication#bigcommerce-generated-jwts) | server |
+| [Apps that host REST Provider APIs (provider apps)](/docs/start/authentication#developer-configured-authentication) | server |
 | Apps hosted in the store control panel (single-click apps) | server |
 | Single-store frontend scripts | storefront |
 | Headless storefronts with backend or request proxy | server |
@@ -93,7 +93,7 @@ Make BigCommerce API requests in the context of the **storefront**, BigCommerce 
 | [Store Management Order Transactions](/docs/rest-management/transactions) | View order payment information. |
 | [Storefront Orders](/docs/rest-storefront/orders) | View storefront order information. |
 | [Customers V2](/docs/rest-management/customers-v2) | Manage store customers.  |
-| [Customers V3](/docs/rest-management/customers) | Manage store customers. To learn about using Customers V3 versus V2, see the [Customers Overview](/api-docs/customers/customers-subscribers-overview). |
+| [Customers V3](/docs/rest-management/customers) | Manage store customers. To learn about using Customers V3 versus V2, see the [Customers Overview](/docs/store-operations/customers/customers-subscribers-overview). |
 | [Subscribers](/docs/rest-management/subscribers) | Manage newsletter subscribers. |
 | [Price Lists](/docs/rest-management/price-lists)| Create variations of catalog pricing. |
 | [Scripts](/docs/rest-management/scripts) | Add and remove scripts from storefront pages. |
@@ -138,7 +138,7 @@ For more information about required request headers, consult the [API reference]
 |:-------|:-----------------------|:------------|
 | `X-Auth-Token` | API account access token | Requests to the REST Management, Catalog, GraphQL Admin, and GraphQL Account APIs use this header to authenticate. Some Payment endpoints also use this header. |
 | `X-Auth-Client` | API account client ID | No longer required for any requests to BigCommerce. |
-| `X-Correlation-Id` | UUID in an 8-4-4-4-12 format | An identifier unique to a set of related requests. For use on headless storefronts, excluding BigCommerce for WordPress. For more information, see [Best Practices](/api-docs/getting-started/best-practices#correlating-requests) or the [Headless Guide](/api-docs/storefronts/guide/overview#correlating-requests).  |
+| `X-Correlation-Id` | UUID in an 8-4-4-4-12 format | An identifier unique to a set of related requests. For use on headless storefronts, excluding BigCommerce for WordPress. For more information, see [Best Practices](/docs/start/best-practices#correlating-requests) or the [Headless Guide](/docs/storefront/headless#correlating-requests).  |
 
 #### Request content type
 
@@ -184,7 +184,7 @@ HTTP response header names are case-insensitive; see the [HTTP specification on 
 | `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 15000 milliseconds – so, 15000 milliseconds after this request, the API quota will be refreshed. |`15000 `|
 | `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `150` |
 | `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 35 more requests in the next 15000 milliseconds; on the 36th request within 15000 milliseconds, you would be rate-limited and receive an HTTP 429 response. | `35` |
-| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `15` |
+| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/docs/start/best-practices#api-rate-limits) for more information. | `15` |
 | `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). | `987` |
 | `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |
 
@@ -198,19 +198,7 @@ The priorities with which you can process these methods are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
 
-### Request Structure
-
-The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
-
-```http filename="Example JSON request body" showLineNumbers copy
-{
- "id": 5,
- "name": "iPod",
- "description": "A portable MP3 music player."
-}
-```
-
-### Response structure
+#### Response structure
 
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 

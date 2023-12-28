@@ -6,7 +6,7 @@ Multi-storefront capabilities extend the reach of BigCommerce stores. Merchants 
 
 We intend to provide these new features with no breaking changes to the platform so that existing single-storefront merchant stores continue to function as they did previously, and the existing APIs function as before for these stores. However, there are several additive changes to the platform. To provide the full multi-storefront, multi-channel support that merchants with complex stores expect and require, our partners must adapt.
 
-This guide provides an overview of the core features that power multi-storefront, multi-channel stores. Our [Multi-Storefront API Guide](/api-docs/multi-storefront/api-guide) and [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront) article provide guidance on how developers can modify and reimagine applications to support multi-storefront, multi-channel selling.
+This guide provides an overview of the core features that power multi-storefront, multi-channel stores. Our [Multi-Storefront API Guide](/docs/storefront/multi-storefront/guide) and [Multi-Storefront App Compatibility and Optimization](/docs/integrations/apps/multi-storefront) article provide guidance on how developers can modify and reimagine applications to support multi-storefront, multi-channel selling.
 
 ![channels-sites-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/channels-sites-diagram.webp)
 
@@ -38,7 +38,7 @@ Each BigCommerce store is provisioned with one channel out of the box, intended 
 In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the V2 Orders API that do not specify a channel ID will be associated with channel `1`.
 </Callout>
 
-To learn more about upgrading your application to support multi-channel sales, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
+To learn more about upgrading your application to support multi-channel sales, see [Multi-Storefront App Compatibility](/docs/integrations/apps/multi-storefront#upgrading-existing-apps).
 
 ## Sites
 
@@ -55,7 +55,7 @@ Every Stencil storefront has a site, in addition to having a channel of type `st
 
 The first Stencil storefront of each merchant store has an ID of `1000` and is also known as the default site. It cannot be deleted.
 
-To learn more about upgrading your application to support multi-storefront functionality, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
+To learn more about upgrading your application to support multi-storefront functionality, see [Multi-Storefront App Compatibility](/docs/integrations/apps/multi-storefront#upgrading-existing-apps).
 
 ## Settings & Configuration
 
@@ -63,11 +63,12 @@ To learn more about upgrading your application to support multi-storefront funct
 
 The Settings APIs now allow your app to read and write many important elements of the store's configuration, both globally and on a per-channel basis. If your application manages settings, you can use these endpoints to enable merchants to configure different settings for different channels. You may also wish to read and respect any merchant-configured settings that control details of your application's behavior.
 
-If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the relevant settings for a given shopper in real time.
+If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/docs/storefront/graphql) instead to get the relevant settings for a given shopper in real time.
 
-For a deep dive into this new class of APIs, see our [Settings API Overview](/api-docs/store-management/settings).
+For a deep dive into this new class of APIs, see our [Settings API Overview](/docs/rest-management/settings).
 
 ## Resources
-* [Multi-Storefront API Guide](/api-docs/multi-storefront/api-guide)
-* [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
-* [Settings API Overview](/api-docs/store-management/settings)
+* [Multi-Storefront API Guide](/docs/storefront/multi-storefront/guide)
+* [Multi-Storefront App Compatibility and Optimization](/docs/integrations/apps/multi-storefront)
+* [Settings API Overview](/docs/rest-management/settings)
+* [Multi-Storefront (Help Center)](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US)

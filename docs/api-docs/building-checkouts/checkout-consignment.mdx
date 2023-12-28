@@ -11,13 +11,13 @@ This article discusses how to create and update a consignment.
 
 A _consignment_ is a list of physical products that will travel together to the purchaser, and it specifies how those items can and will ship. It is an object that includes at least one product line item and one address. A checkout containing one or more physical products will always have at least one consignment associated with it. An order that ships to multiple addresses will have at least one consignment per address. It is also possible to create multiple consignments for the same address.
 
-The REST Storefront, REST Management, and GraphQL Storefront APIs provide methods for creating checkout consignments, which are shipments waiting to happen.  A newly created consignment returns a list of fulfillment options available based on the destination address.  These APIs also provide methods for updating this consignment to change the destination, add or remove items, and select a fulfillment option. This article focuses on the REST Storefront API. For more about managing consignments with GraphQL, see [GraphQL Storefront API: Carts and Checkout](/api-docs/storefront/graphql/carts-and-checkout).
+The REST Storefront, REST Management, and GraphQL Storefront APIs provide methods for creating checkout consignments, which are shipments waiting to happen.  A newly created consignment returns a list of fulfillment options available based on the destination address.  These APIs also provide methods for updating this consignment to change the destination, add or remove items, and select a fulfillment option. This article focuses on the REST Storefront API. For more about managing consignments with GraphQL, see [GraphQL Storefront API: Carts and Checkout](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 A checkout containing physical products is not eligible to become an order until each of its consignments contains a `selected_shipping_option`.
 
 ## Authentication
 
-To learn more about authentication, see [Authentication and Example Requests](/api-docs/getting-started/authentication).
+To learn more about authentication, see [Authentication and Example Requests](/docs/start/authentication).
 
 ### REST Management
 
@@ -34,7 +34,7 @@ The REST Storefront API allows developers to manage a shopper’s cart, checkout
 
 ### GraphQL Storefront
 
-See [GraphQL Storefront API: Carts and Checkout](/api-docs/storefront/graphql/carts-and-checkout).
+See [GraphQL Storefront API: Carts and Checkout](/docs/storefront/cart-checkout/guide/graphql-storefront).
 
 <Callout type="info">
   For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/docs/rest-storefront/checkouts/checkout-consignments#create-a-consignment) documentation.
@@ -156,4 +156,4 @@ Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` a
 
 * [REST Management API Reference: Checkouts](/docs/rest-management/checkouts)
 * [REST Storefront API Reference: Checkouts](/docs/rest-storefront/checkouts)
-* [GraphQL Storefront API Carts and Checkout](/api-docs/storefront/graphql/carts-and-checkout)
+* [GraphQL Storefront API Carts and Checkout](/docs/storefront/cart-checkout/guide/graphql-storefront)

@@ -1,6 +1,6 @@
 # Theme Development Tutorial
 
-In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) and [accessibility best practices](/stencil-docs/accessibility/theme-accessibility).
+In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) and [accessibility best practices](/docs/storefront/stencil/themes/accessibility).
 
 ## Importing images
 There are two ways to import images. The steps below describe the quickest and easiest way to import images.
@@ -27,7 +27,7 @@ When importing images, ensure your images are high quality, the appropriate dime
 
 Injecting JavaScript context variables allow you to access store data through your theme. You can inject JavaScript context variables using the `{{inject}}` Handlebars helper. Be sure to assign a custom variable name to the injected variable.
 
-You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
+You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](/docs/storefront/stencil/themes/context/handlebars-reference#inject). 
 
 The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
@@ -134,10 +134,10 @@ Using Lighthouse is an important step in optimizing your site and improving the 
 
 ## Designing for accessibility
 
-Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](/stencil-docs/accessibility/theme-accessibility) for more information.
+Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](/docs/storefront/stencil/themes/accessibility) for more information.
 
 ## Related resources
 - [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Designing for Accessibility](/stencil-docs/accessibility/theme-accessibility)
+- [Designing for Accessibility](/docs/storefront/stencil/themes/accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)

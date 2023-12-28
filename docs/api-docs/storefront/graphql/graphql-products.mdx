@@ -10,7 +10,7 @@ The GraphQL Storefront API lets you retrieve the following product attributes an
 
 You can access these attributes for a product if a merchant makes a product visible on storefronts.
 
-This guide walks you through the process of retrieving information for a product. If your product has variants, see [Guide to Working with Product Variants](/api-docs/storefront/graphql/variants) on how to retrieve variant information. For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-storefront/playground).
+This guide walks you through the process of retrieving information for a product. If your product has variants, see [Guide to Working with Product Variants](/docs/storefront/graphql/examples/variants) on how to retrieve variant information. For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-storefront/playground).
 
 ## Get a Product
 
@@ -53,7 +53,7 @@ fragment ProductFields on Product {
 <Callout type="information">
   #### Get product versus variant
   The Product object is also used to retrieve variant information. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve information for the variant overlaid on the Product object (if the variant has a different values than the product). 
-  See [Get a variant](/api-docs/storefront/graphql/variants#get-a-variant) for more information.
+  See [Get a variant](/docs/storefront/graphql/examples/variants#get-a-variant) for more information.
 </Callout>
 
 ### Get a product with the products field
@@ -242,7 +242,7 @@ Query prices and dimensions for a product. The following query retrieves prices 
 
 ## Get product options 
 
-Query the [product options](/docs/rest-catalog/product-variant-options) associated with a product. The response includes both variant options and modifier options. To retrieve only variant options, use a [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) query. 
+Query the [product options](/docs/rest-catalog/product-variant-options) associated with a product. The response includes both variant options and modifier options. To retrieve only variant options, use a [Get variant options](/docs/storefront/graphql/examples/variants#get-variant-options) query. 
 
 There are various types of product options available. Checkbox and multiple choice are some examples of the many option types available. Each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for any type of product option. For more on interfaces, see the [GraphQL Schema and Types- Interfaces (graphql.org)](https://graphql.org/learn/schema#interfaces) documentation.
 
@@ -604,7 +604,7 @@ Query product metafields by specifying the product metafield's namespace. The AP
 
 <Callout type="information">
   #### Product versus variant metafields 
-  The query retrieves only **product** metafields. To retrieve **variant** metafields, see [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields). 
+  The query retrieves only **product** metafields. To retrieve **variant** metafields, see [Get variant metafields](/docs/storefront/graphql/examples/variants#get-variant-metafields). 
 </Callout>
 
 The following query retrieves the first two product metafields for the specified product:
@@ -858,8 +858,8 @@ Query reviews for products. You retrieve only reviews that a merchant has approv
 ## Resources
 
 ### GraphQL documentation
-- [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-api-overview)
-- [Guide to Working with Product Variants](/api-docs/storefront/graphql/variants)
+- [GraphQL Storefront API Overview](/docs/storefront/graphql)
+- [Guide to Working with Product Variants](/docs/storefront/graphql/examples/variants)
 - [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/graphql-storefront/explorer)
 - [GraphQL Storefront API Playground](https://developer.bigcommerce.com/graphql-storefront/playground)
 - [GraphQL Language (graphql.org)](https://graphql.org/learn/queries)
@@ -869,8 +869,8 @@ Query reviews for products. You retrieve only reviews that a merchant has approv
 - [Catalog API- Products](/docs/rest-catalog/products) overview
 - [Catalog API- Product Options](/docs/rest-catalog/product-variant-options) overview
 - [Catalog API- Update a product metafield](/docs/rest-catalog/products/metafields#update-a-product-metafield) endpoint
-- [Catalog API- Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) endpoint
-- [Catalog API- Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) endpoint
+- [Catalog API- Get product metafields](/docs/storefront/graphql/examples/products#get-product-metafields) endpoint
+- [Catalog API- Get variant metafields](/docs/storefront/graphql/examples/variants#get-variant-metafields) endpoint
 
 ### Support articles
 - [Product Options (Help Center)](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US)
