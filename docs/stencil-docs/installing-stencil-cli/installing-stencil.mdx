@@ -1,7 +1,7 @@
 # Installing Stencil CLI
 
 <Callout type="warning">
-BigCommerce is currently targeting 01/31/2024 to sunset its node-sass fork in favor of the latest [sass/node-sass](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the latest node version (Node 18) in Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](/docs/storefront/stencil/cli/unexpected-behavior#incompatible-scss-directives), which can cause issues with the styling of your storefront.
+BigCommerce is currently targeting 01/31/2024 to sunset its node-sass fork in favor of the latest [sass/node-sass](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the latest active or maintenance node version in Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](/docs/storefront/stencil/cli/unexpected-behavior#incompatible-scss-directives), which can cause issues with the styling of your storefront.
 
 </Callout>
 
@@ -30,10 +30,10 @@ arch -x86_64 /bin/zsh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 18.15.0
+nvm install 20.10.0
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 18.15.0
+nvm use 20.10.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -56,7 +56,7 @@ choco install git
 
 # Install nvm windows and stencil-compatible node.js
 
-choco install nvm; nvm install 18.15.0; nvm use 18.15.0
+choco install nvm; nvm install 20.10.0; nvm use 20.10.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -78,7 +78,7 @@ If you're a pro at installing and configuring Python and Node.js environments on
 
 **Required Dependencies:**
 * [Git](https://git-scm.com/downloads) - required to run npm install
-* [Node.js 18.15.0 and npm](https://nodejs.org/en/download/releases/) 
+* [Node.js 20.10.0 and npm](https://nodejs.org/en/download/releases/) 
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
 
@@ -103,9 +103,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
 
 # Explicitly install and use supported node version
-nvm install 18.15.0
+nvm install 20.10.0
 
-nvm use 18.15.0
+nvm use 20.10.0
 
 # Install stencil
 npm install -g @bigcommerce/stencil-cli
