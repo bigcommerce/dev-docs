@@ -19,6 +19,11 @@ Learn more about BigCommerce API [OAuth scopes](/docs/start/authentication/api-a
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
+<Callout type="info">
+#### Implementation note
+3D Secure is a storefront-based experience that requires the shopper's interaction to authenticate the transaction. Because requests to our Payments API must be initiated in a server-to-server context rather than from the storefront, any 3D Secure-enabled card must first be saved during a shopper-initiated transaction and then charged as a stored payment instrument. Attempts to process any payment that requires 3D Secure verification using a card that has not been previously saved will be unsuccessful.
+</Callout>
+
 You can process payments charged to either of two main forms of payment: [stored payment instruments](#stored-cards-and-paypal-accounts) or [new cards](#credit-cards), which weren't previously saved.  The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
 
 ## PCI compliance
@@ -345,12 +350,6 @@ There are two steps to using a credit card to make a payment.
 2. [Process Payment](/docs/rest-payments/processing#process-payment)
 
 The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
-
-
-<Callout type="info">
-#### Implementation note
-Attempting to process a payment through the API using the full credit card information may fail if the card issuer requires 3DS authentication. In that case, the card must be saved through a shopper-initiated transaction before it can be charged using the Payments API. 
-</Callout>
 
 ### Create an access token
 1. Make a request to the [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) endpoint to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body. You can also request a payment access token when you use the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments) to complete checkout.
