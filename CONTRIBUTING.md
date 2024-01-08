@@ -14,7 +14,7 @@ The following is a set of guidelines for contributing to BigCommerce's Developer
 
 The easiest way to edit a file is using GitHub's web interface:
 
-1. Navigate to the file in GitHub. For example, [making-requests.md](https://github.com/bigcommerce/dev-docs/blob/main/docs/api-docs/getting-started/making-requests.mdx).
+1. Navigate to the file in GitHub. For example, [store-logs.mdx](https://github.com/bigcommerce/docs/blob/main/docs/api-docs/store-logs/store-logs.mdx).
 
 2. Click the **pencil** icon to **Edit This File**.
 3. Make the edit.
@@ -32,7 +32,7 @@ That's it! You're done.
 
 For more complex changes, fork and edit locally:
 
-1. Fork `bigcommerce/dev-docs`.
+1. Fork `bigcommerce/docs`.
 
 2. `git clone` the fork to your local machine.
 
@@ -40,7 +40,7 @@ For more complex changes, fork and edit locally:
 
 4. Commit and push changes to your remote repo.
 
-5. Create a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to `bigcommerce:dev-docs/main`.
+5. Create a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to `bigcommerce:docs/main`.
 
 
 ## Commit Messages

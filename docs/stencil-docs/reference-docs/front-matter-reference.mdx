@@ -149,6 +149,12 @@ product:
       limit: 10        # limits similar products by views to 10
 ```
 
+<Callout type="info">
+NOTE: The `similar_by_views` property is not currently active.
+</Callout>
+
+
+
 | Property | Description |
 |:---------|:------------|
 |`product`|When filtering/limiting, products' default sorting is by order id, from lowest to highest.|
@@ -156,7 +162,7 @@ product:
 |`images`|If `product.images` is not defined, you will not return images. If `product.images` is defined, you must also define `product.images.limit`, which throttles the number of images returned. The maximum allowable value for this parameter is five images.|
 |`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest. If a product has over 250 reviews, you can fetch the rest using the GraphQL Storefront API. See the example GraphQL query below.|
 |`related_products`|Displays products that are related by name. If `limit` absent or undefined, the default behavior is to display all related products. Inserting `limit` with no integer will display 0 products.|
-|`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, the default is to display four products.|
+|`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, the default is to display four products. Currently disabled on the platform. |
   
 Sample GraphQL query for product reviews over the limit.
   
@@ -255,7 +261,12 @@ gql: "query productById($productId: Int!) {
   }
 }"
 ```
-  
+
+<Callout type="info">
+NOTE: The `similar_by_views` property is not currently active.
+</Callout>
+
+
 We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. If your query contains double quotes `"`, replace them with single quotes `'` or escape the double-quotes `\"`. You can launch the playground from your store by going to **Settings** >  **API** > **Storefront API Playground** in your store control panel.
 
   
