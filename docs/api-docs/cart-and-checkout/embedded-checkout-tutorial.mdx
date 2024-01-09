@@ -27,83 +27,81 @@ For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts
 
 ## Creating a channel
 
-To allow an external website to serve the BigCommerce checkout, create a new channel by sending a `POST` request to the `/channels` endpoint.
+To allow an external website to serve the BigCommerce checkout, create a new channel by sending a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint. A successful response contains an `id` that you can use as the `channel_id` in future requests.
 
-**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels`
-
-**Create a Channel POST request**
-
-```json showLineNumbers copy
-{
-    "type": "storefront",
-    "platform": "custom",
-    "name": "https://{your-site}.com"
-}
-```
-
-The response will contain an `id` which we will use as the `channel_id` in future requests.
-
-**Create Channel response**
-
-```json showLineNumbers copy
-
-{
-    "data": {
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    ```http filename="Request: Create a channel" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    Content-Type: application/json
+    {
+      "type": "storefront",
+      "platform": "custom",
+      "name": "My Custom Store"
+    }
+    ```
+  </Tab>
+  <Tab>
+    ```json filename="Response: Create a channel" showLineNumbers copy
+    {
+      "data": {
         "id": 20266,
-        "name": "https://www.{your-site}.com",
+        "name": "My Custom Store",
         "platform": "custom",
         "type": "storefront",
         "date_created": "2019-09-18T22:28:36Z",
         "date_modified": "2019-09-18T22:28:36Z",
         "external_id": "",
         "is_enabled": true
-    },
-    "meta": {}
-}
-```
+      },
+      "meta": {}
+    }
+    ```
+  </Tab>
+</Tabs>
+
 <Callout type="info">
-  Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
+  Channels created by API are visible in the store control panel in **Products** > **Listed On**. The Orders section also includes a channel filter.
 </Callout>
-
-
 
 ## Creating a site
 
-Next, create a site for the channel by sending a `POST` request to the `/channels/id/site` endpoint.
+Next, create a site for the channel by sending a request to the [Create a channel site](/docs/rest-management/channels/channel-site#create-a-channel-site) endpoint. This returns an `id` that you can use as the `site_id` in future requests. The `url` value is the base path for all other routes you define for the site.
 
-**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
-
-**Create Site POST**
-
-```js showLineNumbers copy
-{
-    "channel_id": 20266,
-    "url": "https://www.{your-site}.com"
-}
-```
-
-This returns `id` which you will use as the `site_id` in future requests. The `url` value is the base path for all other routes you define for the site.
-
-**Create Site response**
-
-```js showLineNumbers copy
-{
+<Tabs items={['Request', 'Response']}>
+  <Tab>
+    ```http filename="Request: Create a site" showLineNumbers copy
+    POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site
+    X-Auth-Token: {{access_token}}
+    Accept: application/json
+    Content-Type: application/json
     {
-    "data": {
+      "channel_id": 20266,
+      "url": "https://store.example.com"
+    }
+    ```
+  </Tab>
+  <Tab>
+    ```json filename="Response: Create a site" showLineNumbers copy
+    {
+      "data": {
         "id": 6,
-        "url": "https://www.{your-site}.com",
+        "url": "https://store.example.com",
         "channel_id": 20266,
         "created_at": "2019-09-19T17:08:44Z",
         "updated_at": "2019-09-19T17:08:44Z"
-    },
-    "meta": {}
+      },
+      "meta": {}
     }
-}
-```
+    ```
+  </Tab>
+</Tabs>
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a request to the REST Management API's [Create a cart](/docs/rest-management/carts) endpoint.
+To proceed to checkout, you need an active cart. To create one, send a request to the REST Management API's [Create a cart](/docs/rest-management/carts) endpoint.
 
 
 ```http filename="Example request: Create a cart" showLineNumbers copy
@@ -174,7 +172,7 @@ You will first need to use JSON Web Token Standard to create a new token. Use a 
 
 Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
-```json filename="Example Customer Login JWT payload" showLineNumbers copy
+```js filename="Example Customer Login JWT payload" showLineNumbers copy
 {
   "iss": {{client_id}},
   "iat": 1535393113,
