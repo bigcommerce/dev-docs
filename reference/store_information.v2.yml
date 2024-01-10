@@ -8,6 +8,18 @@ info:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Store Information
+  - name: Time Zone
 paths:
   '/store':
     get:
@@ -16,34 +28,20 @@ paths:
       tags:
         - Store Information
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
           content:
-            Time:
+            application/json:
               schema:
                 $ref: '#/components/schemas/StoreInformation'
-            application/json:
               examples:
                 response:
                   value:
                     id: abc123
                     domain: my-awesome.store
-                    secure_url: 'https://my-awesome.stor'
+                    secure_url: 'https://my-awesome.store'
                     control_panel_base_url: 'https://store-{store_hash}.mybigcommerce.com'
                     status: live
                     name: BigCommerce
@@ -67,15 +65,15 @@ paths:
                         extended_display: 'M jS Y @ g:i A'
                     language: en
                     currency: USD
-                    currency_symbol: $
-                    decimal_separator: .
+                    currency_symbol: '$'
+                    decimal_separator: '.'
                     thousands_separator: ','
                     decimal_places: 2
                     currency_symbol_location: left
                     weight_units: Ounces
                     dimension_units: Inches
                     dimension_decimal_places: 2
-                    dimension_decimal_token: .
+                    dimension_decimal_token: '.'
                     dimension_thousands_token: ','
                     plan_name: Standard
                     plan_level: Standard
@@ -89,72 +87,14 @@ paths:
                       sitewidehttps_enabled: false
                       facebook_catalog_id: ''
                       checkout_type: optimized
-            Response Schema:
-              examples:
-                response:
-                  value:
-                    id: nostrud pariatur incididunt
-                    domain: consequat ut amet
-                    secure_URL: consectetur ullamco ut Excepteur
-                    name: id qui cupidatat anim tempor
-                    first_name: ut dolore elit
-                    last_name: cupidatat minim
-                    address: tempor
-                    country: ex cupidatat
-                    phone: aliquip dolore pariatur
-                    admin_email: dolor commodo elit do
-                    order_email: ea qui
-                    timezone:
-                      name: 'Australia/Sydney'
-                      raw_offset: 39600
-                      dst_offset: 36000
-                      dst_correction: true
-                      date_format:
-                        display: cupidatat
-                        export: est
-                        extended_display: cillum qui esse aliquip culpa
-                    language: nulla commodo incididunt dolor ipsum
-                    currency: amet in
-                    currency_symbol: cupidatat deserunt est pariatur
-                    decimal_separator: in consectetur nisi officia
-                    thousands_separator: ea irure occaecat qui
-                    decimal_places: {}
-                    currency_symbol_location: est cupidatat
-                    weight_units: minim adipisicing do
-                    dimension_units: deserunt
-                    dimension_decimal_places: 50514826
-                    dimension_decimal_token: deserunt est aliqua Duis
-                    'dimension_thousands_token:': sint voluptate esse tempor
-                    plan_name: Ut
-                    plan_level: pariatur ullamco veniam ad
-                    industry: pariatur culpa est
-                    logo:
-                      url: aliquip in aliqua consectetur ullamco
-                    is_price_entered_with_tax: false
-                    features:
-                      stencil_enabled: true
-                      sitewidehttps_enabled: anim occaecat exercitation conse
-                      facebook_catalog_id: aliquip sed adipisicing quis
-                      checkout_type: qui mollit id aliqua ut
   '/time':
     get:
       description: Returns the system timestamp at the time of the request. The time resource is useful for validating API authentication details and testing client connections.
       summary: Get System Timestamp
+      tags:
+        - Time Zone
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          description: ''
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
@@ -166,21 +106,6 @@ paths:
                 response:
                   value:
                     time: 1529512970
-      tags:
-        - Time Zone
-tags:
-  - name: Store Information
-  - name: Time Zone
-security:
-  - X-Auth-Token: []
-
-servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v2'
-    variables:
-      store_hash:
-        default: store_hash
-        description: Permanent ID of the BigCommerce store.
-    description: BigCommerce API Gateway
 components:
   securitySchemes:
     X-Auth-Token:
@@ -221,7 +146,7 @@ components:
           type: string
         domain:
           description: Primary domain name.
-          example: your-store-url.com
+          example: 'your-store-url.com'
           type: string
         secure_url:
           description: Store’s current HTTPS URL.
@@ -229,10 +154,10 @@ components:
           type: string
         control_panel_base_url:
           type: string
-          example: '"https://store-abc123.mybigcommerce.com"'
+          example: 'https://store-abc123.mybigcommerce.com'
           description: The secure hostname of the control panel.
         name:
-          description: Store's name.
+          description: Store’s name.
           example: BigCommerce
           type: string
         first_name:
@@ -260,7 +185,7 @@ components:
           type: string
         order_email:
           description: Email address for orders and fulfillment.
-          example: orders@emai
+          example: 'orders@example.com'
           type: string
         timezone:
           $ref: '#/components/schemas/Timezone'
@@ -269,16 +194,16 @@ components:
           example: en
           type: string
         currency:
-          description: Default currency code
+          description: Default currency code.
           example: USD
           type: string
         currency_symbol:
           description: Default symbol for values in the currency.
-          example: $
+          example: '$'
           type: string
         decimal_separator:
           description: Default decimal separator for values in the currency.
-          example: .
+          example: '.'
           type: string
         thousands_separator:
           description: Default thousands separator for values in the currency.
@@ -308,7 +233,7 @@ components:
           description: The symbol that separates the whole numbers from the decimal points.
           example: .
           type: string
-        'dimension_thousands_token:':
+        dimension_thousands_token:
           description: The symbol used to denote thousands.
           type: string
         plan_name:
@@ -324,11 +249,15 @@ components:
           example: Technology
           type: string
         logo:
-          type: object
-          properties:
-            url:
-              type: string
-              example: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png"'
+          description: Either an object describing the logo image, or an empty array.
+          anyOf:
+            - type: object
+              properties:
+                url:
+                  type: string
+                  example: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png'
+            - type: array
+              items: {}
         is_price_entered_with_tax:
           description: A Boolean value that indicates whether or not prices are entered with tax.
           example: false
@@ -350,7 +279,7 @@ components:
               description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
             facebook_catalog_id:
               type: string
-              description: 'Id of the facebook by meta catalog. If there is none, it returns an empty string.'
+              description: ID of the facebook by meta catalog. If there is none, it returns an empty string.
             graphql_storefront_api_enabled:
               type: boolean
             stencil_enabled:
@@ -360,7 +289,7 @@ components:
             sitewidehttps_enabled:
               type: boolean
               example: false
-              description: Indicates if there is sitewide https.
+              description: Indicates whether there is site-wide https.
             multi_storefront_enabled:
               type: boolean
               description: |-
@@ -390,7 +319,7 @@ components:
       type: object
       properties:
         name:
-          description: 'a string identifying the time zone, in the format: /.'
+          description: 'A string identifying the time zone, in the format `Continent/City`.'
           example: America/Chicago
           type: string
         raw_offset:
@@ -413,15 +342,15 @@ components:
       type: object
       properties:
         display:
-          description: 'string that defines dates’ display format, in the pattern: M jS Y'
-          example: M jS Y
+          description: 'A string that defines dates’ display format, in the pattern `M jS Y`.'
+          example: 'M jS Y'
           type: string
         export:
-          description: 'string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
-          example: M jS Y
+          description: 'A string that defines the CSV export format for orders, customers, and products, in the pattern `M jS Y`.'
+          example: 'M jS Y'
           type: string
         extended_display:
-          description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
+          description: 'A string that defines dates’ extended-display format, in the pattern `M jS Y @ g:i A`.'
           example: 'M jS Y @ g:i A'
           type: string
       x-internal: false
@@ -435,3 +364,12 @@ components:
       description: Store Time in Unix format.
       title: timeStamp_Full
       x-internal: false
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body. The default is application/xml, but application/json is available when specified.'
+      schema:
+        type: string
+        default: application/xml
