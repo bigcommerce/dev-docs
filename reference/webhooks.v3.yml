@@ -235,10 +235,12 @@ paths:
                               default: true
                             created_at:
                               type: integer
-                              description: Created time
+                              example: 1561488106
+                              description: The time the webhook was created, represented in UNIX epoch time.
                             updated_at:
                               type: integer
-                              description: Updated time
+                              example: 1561488106
+                              description: The time the webhook was most recently updated, represented in UNIX epoch time.
                             status:
                               type: string
                               description: The webhook status.
@@ -449,7 +451,7 @@ components:
                   type: object
                   properties:
                     id:
-                      type: number
+                      type: integer
                     client_id:
                       type: string
                       minLength: 1
@@ -471,9 +473,11 @@ components:
                     is_active:
                       type: boolean
                     created_at:
-                      type: number
+                      type: integer
+                      description: The time the webhook was created, represented in UNIX epoch time.
                     updated_at:
-                      type: number
+                      type: integer
+                      description: The time the webhook was most recently updated, represented in UNIX epoch time.
               meta:
                 type: object
                 properties:
@@ -605,7 +609,7 @@ components:
                 type: object
                 properties:
                   id:
-                    type: number
+                    type: integer
                   client_id:
                     type: string
                     minLength: 1
@@ -627,9 +631,11 @@ components:
                   is_active:
                     type: boolean
                   created_at:
-                    type: number
+                    type: integer
+                    description: The time the webhook was created, represented in UNIX epoch time.
                   updated_at:
-                    type: number
+                    type: integer
+                    description: The time the webhook was most recently updated, represented in UNIX epoch time.
               meta:
                 type: object
                 properties:
@@ -2706,7 +2712,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`.'
                       example: 2
                     variant_id:
                       type: integer
@@ -2779,7 +2785,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`.'
                       example: 2
                     variant_id:
                       type: integer
@@ -3106,11 +3112,11 @@ components:
             created_at:
               type: integer
               example: 1561488106
-              description: Time when the webhook was created.
+              description: The time the webhook was created, represented in UNIX epoch time.
             updated_at:
               type: integer
               example: 1561488106
-              description: Time when the webhook was updated.
+              description: The time the webhook was most recently updated, represented in UNIX epoch time.
     HistoryEvent:
       type: object
       properties:
@@ -3180,8 +3186,8 @@ components:
         - properties:
             created_at:
               type: integer
-              example: 1561482670
-              description: Hook creation date, in Unix timestamp format.
+              example: 1561488106
+              description: The time the webhook was created, represented in UNIX epoch time.
               readOnly: true
             store_id:
               type: string
