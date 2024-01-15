@@ -861,7 +861,7 @@ paths:
         - Products
       summary: Create a Product
       description: |-
-        Creates a *Product*. Only one product can be created at a time.
+        Creates a *Product*. Only one product can be created at a time; however, you can create multiple product variants using the `variants` array.
 
         **Required Fields:**
         - `name`
@@ -881,8 +881,8 @@ paths:
         - A product can have up to 1000 images. Each image file or image uploaded by URL can be up to 8 MB.
 
         **Usage Notes**
+        * You can create multiple product variants using the `variants` array.
         * This endpoint accepts a `video` array. To create a product video that accepts a `video` object, see [Create a Product Video](/docs/rest-catalog/products/videos#create-a-product-video) for information.
-      
       operationId: createProduct
       parameters:
         - $ref: '#/components/parameters/ContentType'
