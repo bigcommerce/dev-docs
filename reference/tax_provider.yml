@@ -48,7 +48,7 @@ paths:
         - Order refund.
         - Edit order.
         - Test connection feature in Tax Settings.
-      operationId: estimate
+      operationId: estimateTaxes
       parameters:
         - $ref: '#/components/parameters/header-storehash'
       requestBody:
@@ -316,7 +316,7 @@ paths:
         > - For supporting tax providers, the server URL contains the tax provider's profile field; for example, `your_profile.example.com`.
         > - The Try it feature is not currently supported for this endpoint.
 
-      operationId: void
+      operationId: voidTaxQuote
       parameters:
         - name: id
           in: query
@@ -346,7 +346,7 @@ paths:
         > - For supporting tax providers, the server URL contains the tax provider's profile field; for example, `your_profile.example.com`.
         > - The Try it feature is not currently supported for this endpoint.
 
-      operationId: commit
+      operationId: commitTaxQuote
       parameters:
         - $ref: '#/components/parameters/header-storehash'
       requestBody:
@@ -851,7 +851,7 @@ paths:
         > - For supporting tax providers, the server URL contains the tax provider's profile field; for example, `your_profile.example.com`.
         > - The Try it feature is not currently supported for this endpoint.
         
-      operationId: adjust
+      operationId: adjustTaxQuote
       tags:
         - Tax Provider
       parameters:

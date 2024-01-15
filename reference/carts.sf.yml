@@ -36,7 +36,7 @@ paths:
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
 
-      operationId: getACart
+      operationId: getCart
       parameters:
         - $ref: '#/components/parameters/include'
       responses:
@@ -53,7 +53,7 @@ paths:
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
 
-      operationId: createACart
+      operationId: createCart
       parameters:
         - $ref: '#/components/parameters/include'
       requestBody:
@@ -103,7 +103,7 @@ paths:
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
 
-      operationId: deleteACart
+      operationId: deleteCart
       parameters:
         - name: cartId
           in: path
@@ -342,7 +342,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: addCartCurrency
+      operationId: updateCartCurrency
       parameters:
         - name: cartId
           in: path

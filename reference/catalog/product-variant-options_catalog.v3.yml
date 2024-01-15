@@ -59,7 +59,7 @@ paths:
         - Product Variant Options
       summary: Get All Product Variant Options
       description: 'Returns a list of product *Variant Options*. Optional parameters can be passed in. '
-      operationId: getOptions
+      operationId: getProductVariantOptions
       parameters:
         - name: page
           in: query
@@ -142,7 +142,7 @@ paths:
         * There are several examples listed below that create options, but the SKUs are not updated and they are not a variant on the product. Variant SKUs must be created with a separate request.
         * Variant options will show on the storefront as an option that can be selected by the customer. A request like this could be used to add new choices to a variant that has already been created.
         * If more than one variant needs to be created, use the [Create a Product](/docs/rest-catalog/products#create-a-product) endpoint.
-      operationId: createOption
+      operationId: createProductVariantOption
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -794,7 +794,7 @@ paths:
         - Product Variant Options
       summary: Get a Product Variant Option
       description: Returns a single *Variant Option*. Optional parameters can be passed in.
-      operationId: getOptionById
+      operationId: getProductVariantOption
       parameters:
         - name: include_fields
           in: query
@@ -849,7 +849,7 @@ paths:
 
         **Read-Only Fields**
         * id
-      operationId: updateOption
+      operationId: updateProductVariantOption
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -1459,7 +1459,7 @@ paths:
         - Product Variant Options
       summary: Delete a Product Variant Option
       description: Deletes a *Variant Option*.
-      operationId: deleteOptionById
+      operationId: deleteProductVariantOption
       responses:
         '204':
           description: ''
@@ -1474,7 +1474,7 @@ paths:
         - Values
       summary: Get All Product Variant Option Values
       description: Returns a list of all *Variant Option Values*. Optional parameters can be passed in.
-      operationId: getOptionValues
+      operationId: getProductVariantOptionValues
       parameters:
         - name: option_id
           in: path
@@ -1617,7 +1617,7 @@ paths:
 
         **Limits**
         * 250 option values per option limit.
-      operationId: createOptionValue
+      operationId: createProductVariantOptionValue
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: option_id
@@ -1769,7 +1769,7 @@ paths:
         - Values
       summary: Get a Product Variant Option Value
       description: Returns a single *Variant Option Value*. Optional parameters can be passed in.
-      operationId: getOptionValueById
+      operationId: getProductVariantOptionValue
       parameters:
         - name: option_id
           in: path
@@ -1890,7 +1890,7 @@ paths:
 
         **Read-Only Fields**
         * id
-      operationId: updateOptionValue
+      operationId: updateProductVariantOptionValue
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: option_id
@@ -2057,7 +2057,7 @@ paths:
         - Values
       summary: Delete a Product Variant Option Value
       description: Deletes a *Variant Option Value*.
-      operationId: deleteOptionValueById
+      operationId: deleteProductVariantOptionValue
       parameters:
         - name: option_id
           in: path

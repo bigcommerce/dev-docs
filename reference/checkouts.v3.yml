@@ -44,7 +44,7 @@ paths:
         **Notes**
 
         The cart ID and checkout ID are the same.
-      operationId: CheckoutsByCheckoutIdGet
+      operationId: getCheckout
       parameters:
         - name: include
           in: query
@@ -840,7 +840,7 @@ paths:
 
         **Limits:**
         * 2000 characters for customer message
-      operationId: CheckoutsByCheckoutIdPut
+      operationId: updateCheckout
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       requestBody:
@@ -1612,7 +1612,7 @@ paths:
 
         Required Fields
         * discounted_amount
-      operationId: post-store_hash-v3-checkouts-checkoutId-discounts
+      operationId: addCheckoutDiscount
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -2393,7 +2393,7 @@ paths:
         **Required Fields**
         * email
         * country_code
-      operationId: CheckoutsBillingAddressByCheckoutIdPost
+      operationId: addCheckoutBillingAddress
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -3158,7 +3158,7 @@ paths:
         - Checkout Billing Address
       summary: Update Checkout Billing Address
       description: Updates an existing billing address on a checkout.
-      operationId: CheckoutsBillingAddressByCheckoutIdAndAddressIdPut
+      operationId: updateCheckoutBillingAddress
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -3948,7 +3948,7 @@ paths:
 
         * `postal_code`
         * `state_or_province`
-      operationId: CheckoutsConsignmentsByCheckoutIdPost
+      operationId: addCheckoutConsignment
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -4768,7 +4768,9 @@ paths:
 
         Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
         
-      operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
+
+        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
+      operationId: updateCheckoutConsignment
       parameters:
         - $ref: '#/components/parameters/Content-Type'
         - name: include
@@ -5540,7 +5542,7 @@ paths:
         Removes an existing consignment from a checkout.
 
         Removing the last consignment will remove the cart from the customer it is assigned to. Create a new redirect URL for the customer so they can access the cart again.
-      operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete
+      operationId: deleteCheckoutConsignment
       responses:
         '200':
           description: ''
@@ -6296,7 +6298,7 @@ paths:
 
         **Limits**
         * Coupon codes have a 50-character limit. 
-      operationId: CheckoutsCouponsByCheckoutIdPost
+      operationId: addCheckoutCoupon
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -7061,7 +7063,7 @@ paths:
         - Checkout Coupons
       summary: Delete Checkout Coupon
       description: Deletes a coupon code from a checkout.
-      operationId: CheckoutsCouponsByCheckoutIdAndCouponCodeDelete
+      operationId: deleteCheckoutCoupon
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -7635,7 +7637,7 @@ paths:
         * Order duplication copies the existing order, assigns a new order number, and sets the new order status to `incomplete`.
         * Once the order is paid, the cart is deleted.
         * Cart deletion occurs if you are using BigCommerce to accept payments on orders.
-      operationId: createAnOrder
+      operationId: createOrder
       parameters:
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
@@ -7664,7 +7666,7 @@ paths:
         - Checkout Settings
       summary: Get Checkout Settings
       description: Get checkout settings
-      operationId: GetCheckoutSettings
+      operationId: getCheckoutSettings
       responses:
         '200':
           description: ''
@@ -7696,7 +7698,7 @@ paths:
         - Checkout Settings
       summary: Update Checkout Settings
       description: Update checkout settings
-      operationId: UpdateCheckoutSettings
+      operationId: updateCheckoutSettings
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       requestBody:
@@ -7740,7 +7742,7 @@ paths:
       tags:
         - Checkout Token
       summary: Create Checkout Token
-      operationId: checkout-token
+      operationId: createCheckoutToken
       parameters:
         - $ref: '#/components/parameters/Content-Type'
       responses:

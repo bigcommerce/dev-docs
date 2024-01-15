@@ -39,11 +39,11 @@ paths:
                     signUpDate: '2019-08-24'
         '404':
           description: User Not Found
-      operationId: get-users-userId
+      operationId: getUser
       description: Retrieve the information of the user with the matching user ID.
     patch:
       summary: Update User Information
-      operationId: patch-users-userId
+      operationId: updateUser
       tags:
         - Experiment
       responses:
@@ -98,7 +98,7 @@ paths:
   '/user':
     post:
       summary: Create New User
-      operationId: post-user
+      operationId: createUser
       tags:
         - Experiment
       responses:

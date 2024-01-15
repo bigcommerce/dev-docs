@@ -58,7 +58,7 @@ paths:
         - Product Variants
       summary: Get All Product Variants
       description: Returns a list of product *Variants*. Optional parameters can be passed in.
-      operationId: getVariantsByProductId
+      operationId: getProductVariants
       parameters:
         - name: page
           in: query
@@ -239,7 +239,7 @@ paths:
         * 255 characters SKU length limit.
 
         Variants need to be created one at a time using this endpoint. To use a variant array and create products and variants in the same call use the [Create Products](/docs/rest-catalog/products#create-a-product) during the initial product creation.
-      operationId: createVariant
+      operationId: createProductVariant
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -377,7 +377,7 @@ paths:
         - Product Variants
       summary: Get a Product Variant
       description: Returns a single product *Variant*. Optional parameters can be passed in.
-      operationId: getVariantById
+      operationId: getProductVariant
       parameters:
         - name: include_fields
           in: query
@@ -462,7 +462,7 @@ paths:
         - Product Variants
       summary: Update a Product Variant
       description: Updates a product *Variant*.
-      operationId: updateVariant
+      operationId: updateProductVariant
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -556,7 +556,7 @@ paths:
         - Product Variants
       summary: Delete a Product Variant
       description: Deletes a product *Variant*.
-      operationId: deleteVariantById
+      operationId: deleteProductVariant
       responses:
         '204':
           description: ''
@@ -571,7 +571,7 @@ paths:
         - Metafields
       summary: Get All Product Variant Metafields
       description: Returns a list of product variant *Metafields*. Optional parameters can be passed in.
-      operationId: getVariantMetafieldsByProductIdAndVariantId
+      operationId: getProductVariantMetafields
       parameters:
         - name: variant_id
           in: path
@@ -665,7 +665,7 @@ paths:
         * id
 
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
-      operationId: createVariantMetafield
+      operationId: createProductVariantMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: variant_id
@@ -770,7 +770,7 @@ paths:
         - Metafields
       summary: Get a Product Variant Metafields
       description: Returns a single product variant *Metafield*. Optional parameters can be passed in.
-      operationId: getVariantMetafieldByProductIdAndVariantId
+      operationId: getProductVariantMetafield
       parameters:
         - name: include_fields
           in: query
@@ -834,7 +834,7 @@ paths:
         - Metafields
       summary: Update Product Variant Metafields
       description: "Updates a product variant *Metafield*.\n\n**Required Fields:**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message. "
-      operationId: updateVariantMetafield
+      operationId: updateProductVariantMetafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -894,9 +894,9 @@ paths:
     delete:
       tags:
         - Metafields
-      summary: Delete a Variant Metafield
+      summary: Delete a Product Variant Metafield
       description: Deletes a product variant *Metafield*.
-      operationId: deleteVariantMetafieldById
+      operationId: deleteProductVariantMetafield
       responses:
         '204':
           description: ''
@@ -910,7 +910,7 @@ paths:
     post:
       tags:
         - Images
-      summary: Create a Variant Image
+      summary: Create a Product Variant Image
       description: |-
         Creates a *Variant Image*.
 
@@ -921,7 +921,7 @@ paths:
          **Required Fields**
         - image_file: Form posts. Files larger than 1 MB are not accepted
         - image_url: Any publicly available URL
-      operationId: createVariantImage
+      operationId: createProductVariantImage
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: variant_id

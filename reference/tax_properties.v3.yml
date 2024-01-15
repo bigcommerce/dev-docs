@@ -29,7 +29,7 @@ paths:
         - Tax Properties
       summary: Get Tax Properties
       description: Retrieve all tax properties defined in this store.
-      operationId: get-tax-properties
+      operationId: getTaxProperties
       parameters:
         - $ref: "#/components/parameters/idin"
       responses:
@@ -54,7 +54,7 @@ paths:
       summary: Update Tax Properties
       description: Update one or more tax properties. Only fields specified will be
         adjusted.
-      operationId: update-tax-properties
+      operationId: updateTaxProperties
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -87,7 +87,7 @@ paths:
       summary: Create Tax Properties
       description: Create one or more tax properties. A **code** and a **display name**
         must be included when creating tax properties.
-      operationId: create-tax-properties
+      operationId: createTaxProperties
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -120,7 +120,7 @@ paths:
       summary: Delete Tax Properties
       description: Delete one or multiple tax properties. A tax property must have zero
         usages within product tax properties before you can delete it.
-      operationId: delete-tax-properties
+      operationId: deleteTaxProperties
       parameters:
         - $ref: "#/components/parameters/idin_required"
       responses:
@@ -139,7 +139,7 @@ paths:
       summary: Get Product Tax Properties
       description: Retrieve the tax properties that are associated with one or more
         products.
-      operationId: get-product-tax-properties
+      operationId: getProductsTaxProperties
       parameters:
         - $ref: "#/components/parameters/product_idin"
       responses:
@@ -165,7 +165,7 @@ paths:
       description: Update the tax properties associated with one or more products. This
         operation will be additive to any tax property values already associated
         with the product, overwriting any existing tax property values.
-      operationId: update-product-tax-properties
+      operationId: updateProductTaxProperties
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -204,7 +204,7 @@ paths:
         - Product Tax Properties
       summary: Delete Product Tax Properties
       description: Delete tax properties that are associated with one or more products.
-      operationId: delete-product-tax-properties
+      operationId: deleteProductTaxProperties
       parameters:
         - $ref: "#/components/parameters/product_idin"
       responses:

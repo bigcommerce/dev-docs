@@ -102,7 +102,7 @@ paths:
         Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request.
 
         *Note: BigCommerce determines the `client_id` from the `access_token`.*
-      operationId: getAllWebhooks
+      operationId: getWebhooks
       tags:
         - Manage Webhooks (Bulk)
       parameters:
@@ -140,7 +140,7 @@ paths:
           $ref: '#/components/responses/webhook_Resp'
       summary: Update a Webhook
       description: Updates a webhook. Custom headers can be added.
-      operationId: updateAWebhook
+      operationId: updateWebhook
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -165,7 +165,7 @@ paths:
           $ref: '#/components/responses/webhook_Resp'
       summary: Delete a Webhook
       description: Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.
-      operationId: deleteAWebhook
+      operationId: deleteWebhook
       tags:
         - Manage Webhooks (Single)
       parameters:
@@ -287,7 +287,7 @@ paths:
       tags:
         - Webhooks Admin
     put:
-      operationId: putHooksAdmin
+      operationId: updateHooksAdmin
       summary: Upsert Email Notifications
       description: |
         Update email addresses that are sent notification emails when any domain associated with the API account is denylisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.

@@ -262,7 +262,7 @@ paths:
       - Subscribers
       summary: Get a Subscriber
       description: Returns a *Subscriber*.
-      operationId: getSubscriberById
+      operationId: getSubscriber
       parameters:
       - name: subscriber_id
         in: path
@@ -423,7 +423,7 @@ paths:
       - Subscribers
       summary: Delete a Subscriber
       description: Deletes a *Subscriber*.
-      operationId: deleteSubscriberById
+      operationId: deleteSubscriber
       parameters:
       - name: subscriber_id
         in: path

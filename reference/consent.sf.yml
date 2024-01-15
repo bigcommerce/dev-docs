@@ -57,7 +57,7 @@ paths:
 
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
-      operationId: postConsent
+      operationId: postCookieConsent
     parameters: []
 components:
   schemas:

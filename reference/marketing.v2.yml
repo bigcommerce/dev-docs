@@ -68,7 +68,7 @@ paths:
         shipping_methods : null
         ...
         ```
-      operationId: getAllCoupons
+      operationId: getCoupons
       parameters:
       - name: id
         in: query
@@ -191,7 +191,7 @@ paths:
       tags:
       - Coupons
       summary: Create a New Coupon
-      operationId: createANewCoupon
+      operationId: createCoupon
       description: |-
         Creates a *Coupon*.
 
@@ -259,7 +259,7 @@ paths:
       description: |
         ## Usage Notes
         * Deleting a coupon via this endpoint will delete the coupon but not the promotion it is attached to
-      operationId: deleteAllCoupons
+      operationId: deleteCoupons
       parameters:
       - name: id:in
         in: query
@@ -279,7 +279,7 @@ paths:
       - Coupons
       summary: Get a Count of Coupons
       description: Returns a count of all *Coupons* in the store.
-      operationId: getACountOfCoupons
+      operationId: getCouponsCount
       responses:
         '200':
           description: ""
@@ -321,7 +321,7 @@ paths:
         **Notes**
 
         If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new `PUT` request.
-      operationId: updateACoupon
+      operationId: updateCoupon
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -362,7 +362,7 @@ paths:
       - Coupons
       summary: Delete a Coupon
       description: Deletes a *Coupon*.
-      operationId: deleteACoupon
+      operationId: deleteCoupon
       responses:
         '204':
           description: ""
@@ -376,7 +376,7 @@ paths:
       summary: Get All Banners
       description: Returns a list of *Banners*. Default sorting is by banner id, from
         lowest to highest.
-      operationId: getAllBanners
+      operationId: getBanners
       parameters:
       - name: min_id
         in: query
@@ -455,7 +455,7 @@ paths:
         **Read Only Fields**
         * date_created
         * id
-      operationId: createABanner
+      operationId: createBanner
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -489,7 +489,7 @@ paths:
       - Banners
       summary: Delete All Banners
       description: By default, it deletes all *Banners*.
-      operationId: deleteAllBanners
+      operationId: deleteBanners
       responses:
         '204':
           description: ""
@@ -510,7 +510,7 @@ paths:
       - Banners
       summary: Get a Banner
       description: Returns a single *Banner*
-      operationId: getABanner
+      operationId: getBanner
       responses:
         '200':
           description: ""
@@ -540,7 +540,7 @@ paths:
         **Read Only Fields**
         * date_created
         * id
-      operationId: updateABanner
+      operationId: updateBanner
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -574,7 +574,7 @@ paths:
       - Banners
       summary: Delete a Banner
       description: Deletes a *Banner*.
-      operationId: deleteABanner
+      operationId: deleteBanner
       responses:
         '204':
           description: ""
@@ -587,7 +587,7 @@ paths:
       - Banners
       summary: Get a Count of Store Banners
       description: Returns a count of *Banners*.
-      operationId: getACountOfBanners
+      operationId: getBannersCount
       responses:
         '200':
           description: ""
@@ -617,7 +617,7 @@ paths:
       - Gift Certificates
       summary: Get a Gift Certificate
       description: Returns a single *Gift Certificate*.
-      operationId: getAGiftCertificate
+      operationId: getGiftCertificate
       responses:
         '200':
           description: ""
@@ -651,7 +651,7 @@ paths:
         **Read Only Fields**
         * id
         * order_id
-      operationId: updateAGiftCertificate
+      operationId: updateGiftCertificate
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -689,7 +689,7 @@ paths:
       - Gift Certificates
       summary: Delete a Gift Certificate
       description: Deletes a *Gift Certificate*.
-      operationId: deleteAGiftCertificate
+      operationId: deleteGiftCertificate
       responses:
         '204':
           description: ""
@@ -707,7 +707,7 @@ paths:
         Default sorting is by gift-certificate id, from lowest to highest.
 
         The maximum limit is 250. If a limit isn’t provided, up to 50 gift_certificates are returned by default.
-      operationId: getAllGiftCertificates
+      operationId: getGiftCertificates
       parameters:
       - name: min_id
         in: query
@@ -829,7 +829,7 @@ paths:
         **Notes**
 
         When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
-      operationId: createAGiftCertificate
+      operationId: createGiftCertificate
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -868,7 +868,7 @@ paths:
       - Gift Certificates
       summary: Delete All Gift Certificates
       description: By default, it deletes all *Gift Certificates*.
-      operationId: deleteAllGiftCertificates
+      operationId: deleteGiftCertificates
       responses:
         '204':
           description: ""

@@ -26,7 +26,7 @@ paths:
         - Tax Settings
       summary: Get Tax Settings
       description: Retrieves global-level tax settings.
-      operationId: get-tax-settings
+      operationId: getTaxSettings
       responses:
         '200':
           description: OK
@@ -44,7 +44,7 @@ paths:
         - Tax Settings
       summary: Update Tax Settings
       description: Updates global-level tax settings.
-      operationId: set-tax-settings
+      operationId: updateTaxSettings
       parameters:
       - $ref: '#/components/parameters/ContentType'
       requestBody:

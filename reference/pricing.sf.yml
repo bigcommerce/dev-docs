@@ -31,7 +31,7 @@ paths:
 
         **Limits**
         * Limit of 50 concurrent requests.
-      operationId: get-prices
+      operationId: getPrices
       requestBody:
         content:
           application/json:

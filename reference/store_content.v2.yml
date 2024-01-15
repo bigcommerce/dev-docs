@@ -37,7 +37,7 @@ paths:
         - Blog Tags
       summary: Get All Blog Tags
       description: Returns a list of *Blog Tags*.
-      operationId: getAllBlogTags
+      operationId: getBlogTags
       responses:
         '200':
           description: ''
@@ -55,7 +55,7 @@ paths:
         - Blog Posts
       summary: Get All Blog Posts
       description: 'Returns all *Blog Posts*. Default sorting is by published_date, beginning with the most recent post.'
-      operationId: getAllBlogPosts
+      operationId: getBlogPosts
       parameters:
         - name: is_published
           in: query
@@ -180,7 +180,7 @@ paths:
         * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
         * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
         * If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.
-      operationId: createABlogPosts
+      operationId: createBlogPosts
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -228,7 +228,7 @@ paths:
         - Blog Posts
       summary: Delete Blog Posts
       description: Deletes a page of `Blog Posts`.
-      operationId: deleteAllBlogPosts
+      operationId: deleteBlogPosts
       parameters:
         - name: page
           in: query
@@ -266,7 +266,7 @@ paths:
         - Blog Posts
       summary: Get a Blog Post
       description: Returns a single *Blog Post*.
-      operationId: getABlogPost
+      operationId: getBlogPost
       responses:
         '200':
           description: ''
@@ -307,7 +307,7 @@ paths:
         * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
 
         * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
-      operationId: updateABlogPost
+      operationId: updateBlogPost
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -356,7 +356,7 @@ paths:
         - Blog Posts
       summary: Delete a Blog Post
       description: Deletes a *Blog Post*.
-      operationId: deleteABlogPost
+      operationId: deleteBlogPost
       responses:
         '204':
           description: ''
@@ -369,7 +369,7 @@ paths:
         - Blog Posts
       summary: Get A Count of All Blog Posts
       description: Returns a count of all *Blog Posts*.
-      operationId: getACountOfAllBlogPosts
+      operationId: getBlogPostsCount
       responses:
         '200':
           description: ''
@@ -394,7 +394,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To get one or more pages, use Pages V3ʼs [Get pages](/docs/rest-content/pages#get-pages) endpoint. To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
-      operationId: getAllPages
+      operationId: getPages
       parameters:
         - name: page
           in: query
@@ -467,7 +467,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To create one or more pages, use Pages V3ʼs [Create pages](/docs/rest-content/pages#create-pages) endpoint. 
-      operationId: createAPage
+      operationId: createPage
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -557,7 +557,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To get a single page, use Pages V3ʼs [Get a page](/docs/rest-content/pages#get-a-page) endpoint.
-      operationId: getAPage
+      operationId: getPage
       responses:
         '200':
           description: ''
@@ -600,7 +600,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To update multiple pages, use Pages V3ʼs [Update pages](/docs/rest-content/pages#update-pages) endpoint. To update a single page, use Pages V3ʼs [Update a page](/docs/rest-content/pages#update-a-page) endpoint.
-      operationId: updateAPage
+      operationId: updatePage
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -655,7 +655,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To delete multiple pages, use Pages V3ʼs [Delete pages](/docs/rest-content/pages#delete-pages) endpoint. To delete a single page, use Pages V3ʼs [Delete a page](/docs/rest-content/pages#delete-a-page) endpoint. 
-      operationId: deleteAPage
+      operationId: deletePage
       responses:
         '204':
           description: ''
@@ -675,7 +675,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To get redirect URLs, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
-      operationId: getAListofRedirects
+      operationId: getRedirects
       parameters:
         - name: page
           in: query
@@ -721,7 +721,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To upsert new redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
-      operationId: createARedirect
+      operationId: createRedirect
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -758,7 +758,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To delete redirect URLs, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
-      operationId: deleteAllRedirects
+      operationId: deleteRedirects
       responses:
         '204':
           description: ''
@@ -786,7 +786,7 @@ paths:
         > **Deprecated** 
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To get a redirect URL, use Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
-      operationId: getARedirectURL
+      operationId: getRedirect
       responses:
         '200':
           description: ''
@@ -820,7 +820,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To update redirect data, use Redirects V3ʼs [Upsert redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
-      operationId: updateARedirectURL
+      operationId: updateRedirect
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -891,7 +891,7 @@ paths:
         > **Deprecated** 
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To delete a redirect URL, use Redirects V3ʼs [Delete redirects](/docs/rest-management/redirects#delete-redirects) endpoint.
-      operationId: deleteARedirect
+      operationId: deleteRedirect
       responses:
         '204':
           description: ''
@@ -911,7 +911,7 @@ paths:
         > **Deprecated**
         > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > * To get a count of redirects, use the `meta` object data returned with the Redirects V3ʼs [Get redirects](/docs/rest-management/redirects#get-redirects) endpoint.
-      operationId: getACountOfRedirects
+      operationId: getRedirectsCount
       responses:
         '200':
           description: ''

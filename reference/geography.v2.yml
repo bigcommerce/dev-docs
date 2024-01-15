@@ -8,9 +8,9 @@ info:
 paths:
   '/countries':
     get:
-      operationId: get-all-countries
       description: 'Get a list of all countries available. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get All Countries
+      operationId: getCountries
       parameters:
         - name: Accept
           in: header
@@ -61,14 +61,14 @@ paths:
         - Countries
   '/countries/{id}':
     get:
-      operationId: get-a-country
       description: 'Returns a single *Country*.  Gets a country. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get a Country
+      operationId: getCountry
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the country.
+          description: The ID of the country.
           schema:
             type: integer
             exclusiveMinimum: false
@@ -101,11 +101,11 @@ paths:
 
   '/countries/{country_id}/states':
     get:
-      operationId: get-all-country-states
       description: |-
         Returns a list of *States* belonging to a *Country*. 
         A state or province, identifiable by an ISO 3166 subdivision code.
-      summary: Get All Country's States
+      summary: Get All Countryʼs States
+      operationId: getCountryStates
       parameters:
         - name: country_id
           in: path
@@ -169,11 +169,11 @@ paths:
 
   '/countries/{country_id}/states/{id}':
     get:
-      operationId: get-a-state
+      operationId: getCountryState
       description: |-
         Returns a *State*. 
         A state or province, identifiable by an ISO 3166 subdivision code.
-      summary: Get a Country's State
+      summary: Get a Countryʼs State
       parameters:
         - name: country_id
           in: path
@@ -236,11 +236,11 @@ paths:
       summary: Get a Count of All Countries
       tags:
         - Countries
-      operationId: get-count-countries
+      operationId: getCountriesCount
       description: Returns a count of all countries.
   '/countries/states/count':
     get:
-      operationId: get-count-states
+      operationId: getStatesCount
       responses:
         '200':
           $ref: '#/components/responses/countResponse'
@@ -250,7 +250,6 @@ paths:
       description: Returns a count of all states.
   '/countries/states':
     get:
-      operationId: get-all-states
       responses:
         '200':
           $ref: '#/components/responses/countriesStatesCollectionResponse'
@@ -258,6 +257,7 @@ paths:
       tags:
         - States
       description: Returns a list of all states.
+      operationId: getStates
       parameters:
         - schema:
             type: integer
@@ -271,14 +271,14 @@ paths:
           description: The ordered grouping of results to return.
   '/countries/{country_id}/states/count':
     get:
-      operationId: get-count-country-states
+      operationId: getCountryStatesCount
       responses:
         '200':
           $ref: '#/components/responses/countResponse'
       summary: 'Get a Count of Country’s States'
       tags:
         - States
-      description: Returns a count of a country's states.
+      description: Returns a count of a countryʼs states.
     parameters:
       - name: country_id
         in: path

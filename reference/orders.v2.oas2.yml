@@ -86,7 +86,7 @@ paths:
           content:
             application/json:
               schema: {}
-      operationId: getAnOrder
+      operationId: getOrder
     put:
       description: |-
         Updates an *Order*. 
@@ -183,7 +183,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_Resp'
-      operationId: updateAnOrder
+      operationId: updateOrder
     delete:
       description: Archives an order. To remove a single product from an order, see `PUT /orders/{order_id}`.
       summary: Archive an Order
@@ -192,7 +192,7 @@ paths:
       responses:
         '204':
           description: ''
-      operationId: deleteAnOrder
+      operationId: deleteOrder
   '/orders/count':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -204,7 +204,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/ordersCount_Resp'
-      operationId: getCountOrder
+      operationId: getOrdersCount
   '/orders':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -243,7 +243,7 @@ paths:
         '200':
           $ref: '#/components/responses/orderCollection_Resp'
       summary: Get All Orders
-      operationId: getAllOrders
+      operationId: getOrders
     post:
       description: |-
         Creates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/docs/store-operations/orders).
@@ -427,7 +427,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_Resp'
-      operationId: createAnOrder
+      operationId: createOrder
     delete:
       description: Archives all orders.
       summary: Delete All Orders
@@ -438,7 +438,7 @@ paths:
       responses:
         '204':
           description: ''
-      operationId: deleteAllOrders
+      operationId: deleteOrders
   '/orders/{order_id}/coupons':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -464,7 +464,7 @@ paths:
           $ref: '#/components/responses/orderCouponsCollection_Resp'
       tags:
         - Order Coupons
-      operationId: getAllOrderCoupons
+      operationId: getOrderCoupons
   '/orders/{order_id}/products':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -481,7 +481,7 @@ paths:
           $ref: '#/components/responses/orderProductsCollection_Resp'
       tags:
         - Order Products
-      operationId: getAllOrderProducts
+      operationId: getOrderProducts
   '/orders/{order_id}/shipping_addresses':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -500,7 +500,7 @@ paths:
           $ref: '#/components/responses/orderShippingAddressCollection_Resp'
       tags:
         - Order Shipping Addresses
-      operationId: getAllShippingAddresses
+      operationId: getOrderShippingAddresses
   '/order_statuses':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -532,7 +532,7 @@ paths:
           $ref: '#/components/responses/orderStatusCollection_Resp'
       tags:
         - Order Status
-      operationId: getOrderStatus
+      operationId: getOrderStatuses
   '/order_statuses/{status_id}':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -565,7 +565,7 @@ paths:
           $ref: '#/components/responses/orderStatus_Resp'
       tags:
         - Order Status
-      operationId: getAOrderStatus
+      operationId: getOrderStatusesStatus
   '/orders/{order_id}/taxes':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -609,7 +609,7 @@ paths:
           $ref: '#/components/responses/orderShipmentCollection_Resp'
       tags:
         - Order Shipments
-      operationId: getAllOrderShipments
+      operationId: getOrderShipments
     post:
       description: |
         Creates an *Order Shipment*. For more details, see [Shipping an Order](/docs/store-operations/orders#creating-order-shipments).
@@ -655,7 +655,7 @@ paths:
           description: ''
       tags:
         - Order Shipments
-      operationId: deleteAllOrderShipments
+      operationId: deleteOrderShipments
   '/orders/{order_id}/shipments/count':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -668,7 +668,7 @@ paths:
           $ref: '#/components/responses/orderCount_Resp'
       tags:
         - Order Shipments
-      operationId: getCountShipments
+      operationId: getOrderShipmentsCount
   '/orders/{order_id}/shipments/{shipment_id}':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -754,7 +754,7 @@ paths:
       description: Gets a product line item associated with the order.
       tags:
         - Order Products
-      operationId: getAnOrderProduct
+      operationId: getOrderProduct
   '/orders/{order_id}/shipping_addresses/{id}':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -776,10 +776,10 @@ paths:
         Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote.
       tags:
         - Order Shipping Addresses
-      operationId: getAShippingAddress
+      operationId: getOrderShippingAddress
     put:
       summary: Update a Shipping Address
-      operationId: updateAShippingAddress
+      operationId: updateOrderShippingAddress
       responses:
         '200':
           description: OK
@@ -903,7 +903,7 @@ paths:
         This is a read-only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 for this endpoint since a shipping quote is not generated during that process.
       tags:
         - Order Shipping Addresses Quotes
-      operationId: getShippingQuotes
+      operationId: getOrderShippingAddressShippingQuotes
   '/orders/{order_id}/consignments':
     parameters:
       - schema:
@@ -956,7 +956,7 @@ paths:
                             resource: /orders/129/products/12
         '404':
           $ref: '#/components/responses/404_Resp'
-      operationId: get-orders-orderId-consignments
+      operationId: getOrderConsignments
       description: 'Get all consignments for an order. '
       parameters:
         - $ref: '#/components/parameters/order_id_path'
@@ -1015,7 +1015,7 @@ paths:
                     method_id: 5
         '404':
           $ref: '#/components/responses/404_Resp'
-      operationId: get-orders-orderId-consignments-shipping-shippingId-shippingQuotes
+      operationId: getOrderConsignmentShippingQuotes
       description: |-
         Get all shipping quotes persisted on an order for a shipping consignment.
         This is a read-only endpoint whose response depends on the shipping quote. You can only generate a shipping quote using the storefront at this time. Orders that are created in the control panel, or using the API, return a 204 status response since you can't generate a shipping quote during that process.

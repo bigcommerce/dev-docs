@@ -78,7 +78,7 @@ paths:
         - Price Lists
       summary: Get All Price Lists
       description: Returns a list of *Price Lists*. Optional parameters can be passed in.
-      operationId: getPriceListCollection
+      operationId: getPriceLists
       parameters:
         - name: id
           in: query
@@ -435,7 +435,7 @@ paths:
         - Price Lists
       summary: Delete All Price Lists
       description: Deletes a *Price List*. All associated price records are also removed. Optional parameters can be passed in.
-      operationId: deletePriceListsByFilter
+      operationId: deletePriceLists
       parameters:
         - name: id
           in: query
@@ -772,7 +772,7 @@ paths:
         - Price Lists Records
       summary: Create Batch of Price Lists Records
       description: Creates a batch of `Price Lists Records`; may include price list records from more than one price list.  Concurrency limit of 1.
-      operationId: UpsertPriceListRecords
+      operationId: upsertPriceListsRecords
       requestBody: 
         content: 
           application/json:
@@ -808,7 +808,7 @@ paths:
         **Notes**
         * Supports up to 10 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error and your additional requests will fail.
         * Store Pricelist Records data to reduce the number of calls and maximize performance.
-      operationId: getPriceListRecordCollection
+      operationId: getPriceListRecords
       parameters:
         - name: price_list_id
           in: path
@@ -1425,13 +1425,15 @@ paths:
       summary: Upsert Price List Records
       description: |-
         Creates or updates *Price List Records*. 
+
         **Required Fields**
         * currency
+
         **Notes**
         * Batch requests support up to 1,000 items per request.
         * Up to 2 concurrent batch upsert requests are supported with this API. Running more than the allowed concurrent requests in parallel on the **same store** will cause a `429` error, and your additional requests will fail. You are encouraged to run requests sequentially with as many records per request as possible to maximize performance.
         * When updating a product with variants, or multiple SKUs, don't include records for the parent product SKU.
-      operationId: setPriceListRecordCollection
+      operationId: upsertPriceListRecords
       parameters:
         - name: price_list_id
           in: path
@@ -1622,7 +1624,7 @@ paths:
         - Price Lists Records
       summary: Delete a Price List Record
       description: Deletes a *Price List Record*. Deleting the records does not delete the Price List. Optional parameters can be passed in.
-      operationId: deletePriceListRecordsByFilter
+      operationId: deletePriceListRecords
       parameters:
         - name: price_list_id
           in: path
@@ -2496,7 +2498,7 @@ paths:
         - Price Lists Assignments
       summary: Get Price List Assignments
       description: Fetches an array of `Price List Assignments` matching a particular Customer Group and Price List and Channel.
-      operationId: GetListOfPriceListAssignments
+      operationId: getListOfPriceListAssignments
       parameters:
         - name: id
           in: query
@@ -2578,7 +2580,7 @@ paths:
         Creates a batch of `Price List Assignments`. 
         **Note:** The batch limit for `Price List Assignments` is 25.
       summary: Create Price List Assignments
-      operationId: CreatePriceListAssignments
+      operationId: createPriceListAssignments
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -2605,7 +2607,7 @@ paths:
         - Price Lists Assignments
       summary: Delete Price List Assignments
       description: 'Deletes one or more `Price List Assignments` objects from BigCommerce using a query parameter. You must use at least one query parameter. '
-      operationId: deletePriceListAssignmentsByFilter
+      operationId: deletePriceListAssignments
       parameters:
         - $ref: '#/components/parameters/FilterAssignmentIdParam'
         - $ref: '#/components/parameters/FilterPriceListIdParam'

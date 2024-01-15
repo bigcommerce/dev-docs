@@ -66,7 +66,7 @@ paths:
       summary: Create Payment Access Token
       tags:
         - Tokens
-      operationId: PaymentsAccessTokensPost
+      operationId: createPaymentAccessToken
       deprecated: false
       parameters:
         - $ref: '#/components/parameters/ContentType'

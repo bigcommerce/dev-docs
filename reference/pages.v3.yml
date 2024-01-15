@@ -44,7 +44,7 @@ security:
 paths:
   '/content/pages':
     get:
-      operationId: content-pages-get
+      operationId: getPages
       tags:
         - Pages (Bulk)
       description: Returns one or more content pages. This endpoint supports bulk operations.
@@ -77,7 +77,7 @@ paths:
         - $ref: '#/components/parameters/includeQuery'
       summary: Get Pages
     post:
-      operationId: content-pages-post
+      operationId: createPages
       tags:
         - Pages (Bulk)
       description: Creates one or more content pages. This endpoint supports bulk operations.
@@ -123,7 +123,7 @@ paths:
         - $ref: '#/components/parameters/ContentType'
       summary: Create Pages
     put:
-      operationId: content-pages-put
+      operationId: updatePages
       tags:
         - Pages (Bulk)
       description: Updates one or more content pages. This endpoint supports bulk operations.
@@ -207,7 +207,7 @@ paths:
         - $ref: '#/components/parameters/ContentType'
       summary: Update Pages
     delete:
-      operationId: content-pages-delete
+      operationId: deletePages
       tags:
         - Pages (Bulk)
       description: |-
@@ -251,7 +251,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
   '/content/pages/{pageId}':
     get:
-      operationId: content-page-get
+      operationId: getPage
       tags:
         - Pages (Single)
       description: |-
@@ -436,7 +436,7 @@ paths:
         - $ref: '#/components/parameters/includeQuery'
       summary: Get a Page
     put:
-      operationId: content-page-put
+      operationId: updatePage
       tags:
         - Pages (Single)
       description: Updates one content page.
@@ -484,7 +484,7 @@ paths:
         - $ref: '#/components/parameters/includeQuery'
       summary: Update a Page
     delete:
-      operationId: content-page-delete
+      operationId: deletePage
       tags:
         - Pages (Single)
       description: |-

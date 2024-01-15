@@ -186,7 +186,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      operationId: getAllShippingZones
+      operationId: getShippingZones
     post:
       description: Creates a *Shipping Zone*.
       summary: Create a Shipping Zone
@@ -389,7 +389,7 @@ paths:
                     example: true
                     type: boolean
               examples: {}
-      operationId: createAShippingZones
+      operationId: createShippingZones
   '/shipping/zones/{id}':
     get:
       description: Returns a single *Shipping Zone*.
@@ -482,7 +482,7 @@ paths:
                     description: Whether this shipping zone is enabled.
                     example: true
                     type: boolean
-      operationId: getAShippingZone
+      operationId: getShippingZone
     put:
       description: |-
         Updates a *Shipping Zone*.
@@ -674,7 +674,7 @@ paths:
                     type: boolean
                 required:
                   - name
-      operationId: updateAShippingZone
+      operationId: updateShippingZone
     delete:
       description: Deletes a *Shipping Zone*.
       summary: Delete a Shipping Zone
@@ -689,7 +689,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      operationId: deleteAShippingZone
+      operationId: deleteShippingZone
     parameters:
       - $ref: '#/components/parameters/Accept'
       - name: id
@@ -797,7 +797,7 @@ paths:
                       handling_fees:
                         percentage_surcharge: "0"
                       is_fallback: false
-      operationId: getShippingMethodsZone
+      operationId: getShippingZoneMethods
     post:
       description: |-
         Creates a *Shipping Method* within a shipping zone. Real Time Carrier Connections are also supported by this endpoint. 
@@ -1230,7 +1230,7 @@ paths:
                     handling_fees:
                       fixed_surcharge: "0"
                     is_fallback: false
-      operationId: createAShippingMethod
+      operationId: createShippingMethod
     parameters:
       - $ref: '#/components/parameters/Accept'
       - name: zone_id
@@ -1471,7 +1471,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      operationId: getAShippingMethod
+      operationId: getShippingMethod
     put:
       description: |-
         Updates a *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint. 
@@ -1681,7 +1681,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      operationId: updateAShippingMethod
+      operationId: updateShippingMethod
     delete:
       description: Deletes an *Shipping Method*. Real Time Carrier Connections can also be deleted.
       summary: Delete a Shipping Method
@@ -1696,7 +1696,7 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      operationId: deleteAShippingMethod
+      operationId: deleteShippingMethod
     parameters:
       - $ref: '#/components/parameters/Accept'
       - name: zone_id
@@ -1755,7 +1755,7 @@ paths:
           content:
             application/json:
               schema: {}
-      operationId: updateACarrierConnection
+      operationId: updateCarrierConnection
     post:
       description: |-
         Creates a *Carrier Connection*. 
@@ -1957,7 +1957,7 @@ paths:
         | auth_key | string | Zoom2U authorization key. |
         | test_mode | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |
       summary: Create a Carrier Connection
-      operationId: createACarrierConnection
+      operationId: createCarrierConnection
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:

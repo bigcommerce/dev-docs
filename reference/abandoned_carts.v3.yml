@@ -47,7 +47,7 @@ paths:
     put:
       summary: Update Global Abandoned Cart Settings
       description: Updates the global abandoned cart settings of a store.
-      operationId: UpdateGlobalAbandonedCartSettings
+      operationId: updateGlobalAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
       requestBody:
@@ -109,7 +109,7 @@ paths:
         | UI Name                                      | Permission | Parameter                                     |
         |----------------------------------------------|------------|-----------------------------------------------|     
         | Information & Settings                       | modify     | `store_v2_information`                        |
-      operationId: UpdateChannelAbandonedCartSettings
+      operationId: updateChannelAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
       parameters:

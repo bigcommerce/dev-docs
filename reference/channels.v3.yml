@@ -110,7 +110,7 @@ paths:
       tags:
         - Channels
       summary: Get All Channels
-      operationId: listChannels
+      operationId: getChannels
       description: |-
         Returns a list of *Channels*.
 
@@ -240,7 +240,7 @@ paths:
       tags:
         - Channel Currency Assignments
       summary: Get All Channels Currency Assignments
-      operationId: listAllCurrencyAssignments
+      operationId: getAllCurrencyAssignments
       description: Returns a list of currency assignments for all channels.
       responses:
         '200':
@@ -367,7 +367,7 @@ paths:
       tags:
         - Channel Listings
       summary: Get Channel Listings
-      operationId: listChannelListings
+      operationId: getChannelListings
       description: 'Returns a list of all *Channel Listings* for a specific channel. Note that if the *Channel* is not found or there is no listing associated to the *Channel*, it will return a 200 response with empty data.'
       parameters:
         - $ref: '#/components/parameters/limit'
@@ -468,7 +468,7 @@ paths:
       tags:
         - Channel Site Checkout Url
       description: Creates or updates (upserts) a site's checkout URL
-      operationId: putCheckoutUrl
+      operationId: updateCheckoutUrl
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -542,7 +542,7 @@ paths:
                     type: object
     delete:
       summary: Delete a Site's Checkout URL
-      operationId: delete-checkout-url
+      operationId: deleteCheckoutUrl
       description: Deletes a siteʼs checkout URL. After deletion, a shared checkout URL is used.
       tags:
         - Channel Site Checkout Url
@@ -569,7 +569,7 @@ paths:
         Alias of `GET /sites?channel_id=channel_id`
 
         Returns site data for the specified channel.
-      operationId: get-channel-site
+      operationId: getChannelSite
       responses:
         '200':
           $ref: '#/components/responses/site_Resp'
@@ -582,7 +582,7 @@ paths:
       summary: Update a Channel Site
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: put-channel-site
+      operationId: updateChannelSite
       requestBody:
         content:
           application/json:
@@ -601,7 +601,7 @@ paths:
       summary: Create a Channel Site
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: postChannelSite
+      operationId: createChannelSite
       requestBody:
         content:
           application/json:
@@ -624,7 +624,7 @@ paths:
                 type: object
                 properties: {}
       description: Deletes the Channel's site.
-      operationId: DeleteChannelSite
+      operationId: deleteChannelSite
       tags:
         - Channel Site
       summary: Delete a Channel Site
@@ -636,7 +636,7 @@ paths:
       summary: Get Channel Menus
       description: |
         Returns list of Control Panel side navigation menus for a channel.
-      operationId: get-channel-menus
+      operationId: getChannelMenus
       responses:
         '200':
           $ref: '#/components/responses/channel_menus_Resp'
@@ -647,7 +647,7 @@ paths:
         '200':
           $ref: '#/components/responses/channel_menus_Resp'
       summary: Create Channel Menus
-      operationId: postChannelMenus
+      operationId: createChannelMenus
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -677,7 +677,7 @@ paths:
                     data: 1
                     meta: {}
       description: Deletes control panel side navigation menus for a channel.
-      operationId: DeleteChannelMenus
+      operationId: deleteChannelMenus
       tags:
         - Channel Menus
       summary: Delete Channel Menus
@@ -692,7 +692,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
-      operationId: get-channels-channel_id-metafields
+      operationId: getChannelMetafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
         - $ref: '#/components/parameters/LimitParam'
@@ -704,7 +704,7 @@ paths:
       summary: Create a Channel Metafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: post-channels-channel_id-metafields
+      operationId: createChannelMetafield
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
@@ -736,13 +736,13 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
-      operationId: get-channels-channel_id-metafields-metafield_id
+      operationId: getChannelMetafield
       description: Returns a single channel metafield.
     put:
       summary: Update a Channel Metafield
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: put-channels-channel_id-metafields-metafield_id
+      operationId: updateChannelMetafield
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
@@ -760,7 +760,7 @@ paths:
         * Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a `403` error message. 
     delete:
       summary: Delete a Channel Metafield
-      operationId: delete-channels-channel_id-metafields-metafield_id
+      operationId: deleteChannelMetafield
       responses:
         '204':
           description: No Content

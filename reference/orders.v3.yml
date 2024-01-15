@@ -33,7 +33,7 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
-      operationId: paymentactioncapture
+      operationId: captureOrderPayment
       parameters:
         - $ref: '#/components/parameters/ContentType'
       responses:
@@ -65,7 +65,7 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
-      operationId: paymentactionvoid
+      operationId: voidOrderPayment
       parameters:
         - $ref: '#/components/parameters/ContentType'
       responses:
@@ -105,7 +105,7 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_transactions_read_only`
         * `store_v2_transactions`
-      operationId: getTransactions
+      operationId: getOrderTransactions
       responses:
         '200':
           $ref: '#/components/responses/TransactionCollection_Resp'
@@ -165,7 +165,7 @@ paths:
         **Note:**
         Order refunds are processed consecutively. Processing synchronous refunds on an order are not yet supported.
 
-      operationId: postrefundquote
+      operationId: createOrderRefundQuotes
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -231,7 +231,7 @@ paths:
         **Note:**
         Order refunds are processed consecutively. Processing synchronous refunds on an order are not yet supported.
         
-      operationId: postrefund
+      operationId: createOrderRefund
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -350,7 +350,7 @@ paths:
         * `store_v2_transactions`
         * `store_v2_orders_read_only`
         * `store_v2_orders`
-      operationId: getorderrefunds
+      operationId: getOrderRefunds
       responses:
         '200':
           $ref: '#/components/responses/RefundCollection_Resp'
@@ -371,7 +371,7 @@ paths:
     get:
       summary: Get a Refund
       description: Returns a refund by refund ID.
-      operationId: RefundID_Get
+      operationId: getOrderRefund
       responses:
         '200':
           $ref: '#/components/responses/RefundID_Response'
@@ -390,7 +390,7 @@ paths:
         * `store_v2_transactions`
         * `store_v2_orders_read_only`
         * `store_v2_orders`
-      operationId: getrefunds
+      operationId: getOrdersRefunds
       tags:
         - Payment Actions
       parameters:
@@ -459,7 +459,7 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
-      operationId: postrefundquotes
+      operationId: createOrdersRefundQuotes
       parameters:
         - $ref: '#/components/parameters/Accept'
       requestBody:
@@ -573,7 +573,7 @@ paths:
         Gets a `Metafield` object list, by `order_id`.
 
         The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
-      operationId: getOrderMetafieldsByOrderId
+      operationId: getOrderMetafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
         - $ref: '#/components/parameters/LimitParam'
@@ -661,7 +661,7 @@ paths:
         - Metafields
       description: |
         Gets a `Metafield`, by `order_id`.
-      operationId: getOrderMetafieldByOrderIdAndMetafieldId
+      operationId: getOrderMetafield
       responses:
         '200':
           description: |
@@ -717,7 +717,7 @@ paths:
         - Metafields
       description: |
         Deletes a `Metafield`.
-      operationId: deleteOrderMetafieldById
+      operationId: deleteOrderMetafield
       responses:
         '204':
           description: |
@@ -726,7 +726,7 @@ paths:
     get:
       summary: Get Global Order Settings
       description: Returns global order settings.
-      operationId: GetGlobalOrderSettings
+      operationId: getGlobalOrderSettings
       tags:
         - Order Settings
       responses:
@@ -751,7 +751,7 @@ paths:
     put:
       summary: Update Global Order Settings
       description: Updates global order settings.
-      operationId: UpdateGlobalOrderSettings
+      operationId: updateGlobalOrderSettings
       parameters:
         - $ref: '#/components/parameters/ContentType'
       tags:
@@ -796,7 +796,7 @@ paths:
     get:
       summary: Get Channel Order Settings
       description: Returns order settings for a specific channel.
-      operationId: GetChannelOrderSettings
+      operationId: getChannelOrderSettings
       tags:
         - Order Settings
       responses:
@@ -824,7 +824,7 @@ paths:
         Updates order settings for a specific channel.
 
          **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addresses and the other set to `null`.
-      operationId: UpdateChannelOrderSettings
+      operationId: updateChannelOrderSettings
       parameters:
         - $ref: '#/components/parameters/ContentType'
       tags:

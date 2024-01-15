@@ -29,8 +29,8 @@ paths:
       tags:
         - Redirects
       summary: Get Redirects
-      description: Returns a collection of the storeʼs 301 redirects across all sites.
-      operationId: GetRedirects
+      description: Returns a collection of the store's 301 redirects across all sites.
+      operationId: getRedirects
       parameters:
         - name: site_id
           in: query
@@ -106,7 +106,7 @@ paths:
         - Redirects
       summary: Upsert Redirects
       description: Upserts new redirect data across all storefronts.
-      operationId: UpsertRedirects
+      operationId: upsertRedirects
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -136,7 +136,7 @@ paths:
         - Redirects
       summary: Delete Redirects
       description: Deletes redirects.
-      operationId: DeleteRedirects
+      operationId: deleteRedirects
       parameters:
         - name: 'id:in'
           in: query

@@ -211,7 +211,7 @@ paths:
           name: is_valid
           description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where its file name does not match up to an existing custom layout file in the currently active theme for the channel.
       description: Get a collection of the storeʼs custom template associations across all storefronts
-      operationId: GetCustomTemplateAssociations
+      operationId: getCustomTemplateAssociations
     put:
       summary: Upsert Custom Template Associations
       tags:
@@ -256,7 +256,7 @@ paths:
                     file_name: custom-page.html
         description: ''
       description: 'Upsert new custom template associations data across all storefronts. If an existing record is found for the combination of channel ID, entity ID, and type, the existing record will be overwritten with the new template.'
-      operationId: UpsertCustomTemplateAssociations
+      operationId: upsertCustomTemplateAssociations
     delete:
       summary: Delete Custom Template Associations
       tags:
@@ -291,7 +291,7 @@ paths:
           name: type
           description: Filter associations by type
       description: Delete custom template associations. At least one query parameter must be used.
-      operationId: DeleteCustomTemplateAssociations
+      operationId: deleteCustomTemplateAssociations
 components:
   schemas:
     Error:

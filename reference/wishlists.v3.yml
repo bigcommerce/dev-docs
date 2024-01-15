@@ -32,7 +32,7 @@ paths:
         - Wishlists
       summary: Get All Wishlists
       description: Returns a list of wishlists. Optional filter parameters can be passed in.
-      operationId: WishlistsGet
+      operationId: getWishlists
       parameters:
         - name: customer_id
           in: query
@@ -162,7 +162,7 @@ paths:
         **Required Fields**
         * name
         * customer_id
-      operationId: WishlistsPost
+      operationId: createWishlist
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/ContentType'
@@ -256,7 +256,7 @@ paths:
         - Wishlists Items
       summary: Delete Wishlist Item
       description: Deletes a wishlist item.
-      operationId: WishlistsItemsByIdDelete
+      operationId: deleteWishlistItem
       responses:
         '200':
           description: ''
@@ -341,7 +341,7 @@ paths:
         - Wishlists
       summary: Get a Wishlist
       description: Returns a single wishlist.
-      operationId: WishlistsByIdGet
+      operationId: getWishlist
       responses:
         '200':
           description: ''
@@ -425,7 +425,7 @@ paths:
         Updates a wishlist.
 
         Use this endpoint to update existing wishlist items, change the wishlistʼs name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists/wishlists-items).
-      operationId: WishlistsByIdPut
+      operationId: updateWishlist
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -508,7 +508,7 @@ paths:
         - Wishlists
       summary: Delete a Wishlist
       description: Deletes a wishlist.
-      operationId: WishlistsByIdDelete
+      operationId: deleteWishlist
       responses:
         '204':
           description: ''
@@ -552,7 +552,7 @@ paths:
         - Wishlists Items
       summary: Add Wishlist Item
       description: Adds a wishlist item. More than one item can be added at a time.
-      operationId: WishlistsItemsByIdPost
+      operationId: addWishlistItem
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:

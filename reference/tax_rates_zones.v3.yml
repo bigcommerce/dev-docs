@@ -30,7 +30,7 @@ paths:
         - Tax Zones
       summary: Get Tax Zones
       description: Retrieve a selection of tax zones when you provide a list of tax zone IDs. Otherwise, retrieve all tax zones defined on the store.
-      operationId: get-tax-zones
+      operationId: getTaxZones
       responses:
         '200':
           description: OK
@@ -78,7 +78,7 @@ paths:
         - Tax Zones
       summary: Update Tax Zones
       description: Update one or more tax zones. Only the tax zone `id` field is required. Fields unspecified by the request will retain their current state.
-      operationId: update-tax-zones
+      operationId: updateTaxZones
       requestBody:
         $ref: '#/components/requestBodies/Tax_ZoneArray'
       responses:
@@ -127,8 +127,7 @@ paths:
 
         > #### Note
         > You cannot create a default tax zone.
-
-      operationId: create-tax-zones
+      operationId: createTaxZones
       requestBody:
         $ref: '#/components/requestBodies/Tax_ZoneArrayPOST'
       responses:
@@ -183,7 +182,7 @@ paths:
         > #### Note
         > You must specify which zone(s) to delete using the `id:in` query parameter.
 
-      operationId: delete-tax-zones
+      operationId: deleteTaxZones
       responses:
         '204':
           description: No Content
@@ -196,7 +195,7 @@ paths:
         - Tax Rates
       summary: Get Tax Rates
       description: Retrieve a list of tax rates.
-      operationId: get-tax-rates
+      operationId: getTaxRates
       parameters:
         - $ref: '#/components/parameters/rateIdIn'
         - $ref: '#/components/parameters/taxZoneIdIn'
@@ -222,7 +221,7 @@ paths:
         - Tax Rates
       summary: Update Tax Rates
       description: Update one or more tax rates. Only the tax rate `id` field is required. Fields unspecified by the request will retain their current state.
-      operationId: update-tax-rates
+      operationId: updateTaxRates
       requestBody:
         $ref: '#/components/requestBodies/Tax_RateArray'
       responses:
@@ -259,7 +258,7 @@ paths:
         - Tax Rates
       summary: Create Tax Rates
       description: Create one or more tax rates. Tax rates must be associated with a `tax_zone_id`.
-      operationId: create-tax-rates
+      operationId: createTaxRates
       requestBody:
         $ref: '#/components/requestBodies/Tax_RateArrayPOST'
       responses:
@@ -301,7 +300,7 @@ paths:
         > #### Note
         > You must specify which rate(s) to delete using the `id:in` query parameter.
 
-      operationId: delete-tax-rates
+      operationId: deleteTaxRates
       responses:
         '204':
           description: No Content

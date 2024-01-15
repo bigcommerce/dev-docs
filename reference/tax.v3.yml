@@ -28,7 +28,7 @@ paths:
 
         > #### Note
         > * Requires **read** permissions on the **Information and Settings** scope.
-      operationId: provider-connection-get
+      operationId: getTaxProviderConnection
       responses:
         '200':
           description: OK
@@ -54,7 +54,7 @@ paths:
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
         > * Requires **write** permissions on the **Information and Settings** [scope](/docs/start/authentication/api-accounts#oauth-scopes).
-      operationId: provider-connection-delete
+      operationId: deleteTaxProviderConnection
       responses:
         '200':
           description: OK
@@ -104,7 +104,7 @@ paths:
       summary: Update a Connection
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: provider-connection-put
+      operationId: updateTaxProviderConnection
       tags:
         - Tax Provider Connection
       requestBody:

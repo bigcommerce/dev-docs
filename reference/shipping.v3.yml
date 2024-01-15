@@ -96,7 +96,7 @@ paths:
             items:
               type: integer
     put:
-      operationId: putCustomsInformation
+      operationId: updateCustomsInformation
       parameters:
         - $ref: '#/components/parameters/ContentType'
       responses:

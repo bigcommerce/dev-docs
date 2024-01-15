@@ -67,7 +67,7 @@ paths:
       summary: Get Accepted Payment Methods
       tags:
         - Methods 
-      operationId: PaymentsMethodsGet
+      operationId: getPaymentMethods
       deprecated: false
       parameters:
         - name: order_id

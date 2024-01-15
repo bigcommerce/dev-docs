@@ -736,7 +736,7 @@ paths:
 
         **Note:**
         The default rate limit for this endpoint is 40 concurrent requests.
-      operationId: getCategoryById
+      operationId: getCategory
       parameters:
         - name: include_fields
           in: query
@@ -1155,7 +1155,7 @@ paths:
         
         **Note:**
         The default rate limit for this endpoint is 40 concurrent requests.
-      operationId: deleteCategoryById
+      operationId: deleteCategory
       responses:
         '204':
           description: ''
@@ -1169,7 +1169,7 @@ paths:
         - Metafields
       summary: Get All Category Metafields
       description: Returns a list of *Metafields* on a *Category*. Optional filter parameters can be passed in.
-      operationId: getCategoryMetafieldsByCategoryId
+      operationId: getCategoryMetafields
       parameters:
         - name: id
           in: query
@@ -1437,7 +1437,7 @@ paths:
         - Metafields
       summary: Get a Category Metafield
       description: Returns a single *Category Metafield*. Optional parameters can be passed in.
-      operationId: getCategoryMetafieldByCategoryId
+      operationId: getCategoryMetafield
       parameters:
         - name: include_fields
           in: query
@@ -1562,7 +1562,7 @@ paths:
         - Metafields
       summary: Delete a Category Metafield
       description: Deletes a *Category Metafield*.
-      operationId: deleteCategoryMetafieldById
+      operationId: deleteCategoryMetafield
       responses:
         '204':
           description: ''
@@ -1699,7 +1699,7 @@ paths:
           - Priority 1: Manually specified sort order on Category Level (API).
           - Priority 2: Manually specified sort order on Product (Global) Level (UI/API).
           - Priority 3: Default sorting by Product ID (newly added products go first) (UI/API).
-      operationId: getsortorders
+      operationId: getCategorySortOrders
       responses:
         '200':
           description: ''
@@ -1725,7 +1725,7 @@ paths:
         - Sort Order
       summary: Update Product Sort Order
       description: Updates sort order of products within a specific category.
-      operationId: updatesortorder
+      operationId: updateCategorySortOrders
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:

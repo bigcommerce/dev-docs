@@ -57,11 +57,11 @@ paths:
                     meta: {}
       tags:
         - Abandoned Cart Emails
-      summary: Get all email templates
-      operationId: getAbandonedCartEmails
+      summary: Get all abandoned cart email templates
+      operationId: getAbandonedCartEmailTemplates
     post:
-      summary: Create email template
-      operationId: createEmailTemplate
+      summary: Create abandoned cart email template
+      operationId: createAbandonedCartEmailTemplate
       tags:
         - Abandoned Cart Emails
       responses:
@@ -96,7 +96,7 @@ paths:
                   notify_at_minutes: 60
                   template:
                     subject: 'Complete your purchase at {{ store.name }}'
-                    body: '{{lang ''hello_phrase'' }}<br>Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    body: "{{lang 'hello_phrase' }}<br>Complete your purchase <a href='{{ notification.checkout_link }}'>{{notification.checkout.link}}"
                     translations:
                       - locale: en
                         keys:
@@ -124,11 +124,11 @@ paths:
                     $ref: '#/components/schemas/metaCollection_open'
       tags:
         - Abandoned Cart Emails
-      operationId: getAbandonedCartEmailTemplateId
+      operationId: getAbandonedCartEmailTemplate
     put:
       summary: Update an email template
       description: Update an email template.
-      operationId: updateAbandonedCartEmailsId
+      operationId: updateAbandonedCartEmailTemplate
       tags:
         - Abandoned Cart Emails
       responses:
@@ -184,7 +184,7 @@ paths:
         - Abandoned Cart Emails
       description: Delete Abandoned Cart Email template.
       summary: Delete email template
-      operationId: deleteAbandonedCartEmailTemplateId
+      operationId: deleteAbandonedCartEmailTemplate
       responses:
         '204':
           description: No Content
@@ -203,7 +203,7 @@ paths:
       description: Return default Abandoned Cart Email template.
       tags:
         - Abandoned Cart Emails
-      operationId: GetDefaultAbandonedCartEmailTemplate
+      operationId: getDefaultAbandonedCartEmailTemplate
       responses:
         '200':
           description: OK
@@ -264,13 +264,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AbandonedCartSettings'
-      operationId: GetAbandonedCartEmailTemplateSettings
+      operationId: getAbandonedCartEmailTemplateSettings
       description: Read Abandoned Cart Email Template settings.
       parameters:
         - $ref: '#/components/parameters/ChannelIdRequired'
     put:
       summary: Update email template settings
-      operationId: updateEmailTemplateSettings
+      operationId: updateAbandonedCartEmailTemplateSettings
       tags:
         - Template settings
       responses:
@@ -379,12 +379,13 @@ components:
         locale:
           type: string
           example: en
-          description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
+          description: "Locale code for this language, such as 'en', 'en-us', 'fr-ca'."
         keys:
-          type: string
+          type: object
           description: Language keys for the template. User-defined. Should match any language keys used in the template.
-        additionalProperties:
-          type: string
+          properties: {}
+          additionalProperties:
+            type: string
       required:
         - locale
         - keys

@@ -33,7 +33,7 @@ paths:
       tags:
         - Subscription
       summary: Create a Subscription
-      operationId: createASubscription
+      operationId: createSubscription
       description: |-
         Creates or updates an email subscription.
 

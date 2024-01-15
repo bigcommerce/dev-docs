@@ -338,7 +338,7 @@ paths:
     get:
       summary: Get All Category Trees
       description: Returns a list of *Category Trees*.
-      operationId: GetCategoryTrees
+      operationId: getCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -391,7 +391,7 @@ paths:
         * `channel_id` is required to create a *Category Tree*. You can assign one `channel_id` to one category tree.
       parameters:
         - $ref: '#/components/parameters/ContentType'
-      operationId: UpsertCategoryTrees
+      operationId: upsertCategoryTrees
       requestBody:
         required: true
         content:
@@ -446,7 +446,7 @@ paths:
     delete:
       summary: Delete Category Trees
       description: Deletes *Category Trees*. A filter must be supplied with the endpoint.
-      operationId: DeleteCategoryTrees
+      operationId: deleteCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -463,7 +463,7 @@ paths:
     get:
       summary: Get a Category Tree
       description: Returns a *Category Tree*.
-      operationId: GetCategoryTreeByTreeId
+      operationId: getCategoryTree
       parameters:
         - name: depth
           description: Max depth for a tree of categories.

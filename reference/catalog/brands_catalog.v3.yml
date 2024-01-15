@@ -966,7 +966,7 @@ paths:
         - Brands
       summary: Delete a Brand
       description: Deletes a *Brand*.
-      operationId: deleteBrandById
+      operationId: deleteBrand
       responses:
         '204':
           description: ''
@@ -980,7 +980,7 @@ paths:
         - Metafields
       summary: Get All Brand Metafields
       description: 'Returns a list of *Brand Metafields*. Optional filter parameters can be passed in. '
-      operationId: getBrandMetafieldsByBrandId
+      operationId: getBrandMetafields
       parameters:
         - name: id
           in: query
@@ -1281,7 +1281,7 @@ paths:
         - Metafields
       summary: Get a Brand Metafields
       description: Returns a *Brand Metafield*. Optional filter parameters can be passed in.
-      operationId: getBrandMetafieldByBrandId
+      operationId: getBrandMetafield
       parameters:
         - name: metafield_id
           in: path
@@ -1436,7 +1436,7 @@ paths:
         - Metafields
       summary: Delete a Brand Metafield
       description: Deletes a *Brand Metafield*.
-      operationId: deleteBrandMetafieldById
+      operationId: deleteBrandMetafield
       parameters:
         - name: metafield_id
           in: path

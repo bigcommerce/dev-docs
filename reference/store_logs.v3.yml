@@ -22,7 +22,7 @@ paths:
       description: 'Get system logs '
       tags:
         - System Logs
-      operationId: get-sites
+      operationId: getStoreSystemLogs
       responses:
         '200':
           description: The request completed successfully.

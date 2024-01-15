@@ -53,7 +53,7 @@ paths:
         - Product Modifiers
       summary: Get All Product Modifiers
       description: Returns a list of all *Product Modifiers*. Optional parameters can be passed in.
-      operationId: getModifiers
+      operationId: getProductModifiers
       parameters:
         - name: page
           in: query
@@ -157,7 +157,7 @@ paths:
 
         **Notes**
         It takes two separate requests to create a new checkbox modifier with option values. Perform a request to create a modifier, then perform a second request to update option values.
-      operationId: createModifier
+      operationId: createProductModifier
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -842,9 +842,9 @@ paths:
     get:
       tags:
         - Product Modifiers
-      summary: Get a Modifier
+      summary: Get a Product Modifier
       description: Returns a single *Product Modifier*. Optional parameters can be passed in.
-      operationId: getModifierById
+      operationId: getProductModifier
       parameters:
         - name: include_fields
           in: query
@@ -893,9 +893,9 @@ paths:
     put:
       tags:
         - Product Modifiers
-      summary: Update a Modifier
+      summary: Update a Product Modifier
       description: Updates a *Product Modifier*.
-      operationId: updateModifier
+      operationId: updateProductModifier
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -1468,9 +1468,9 @@ paths:
     delete:
       tags:
         - Product Modifiers
-      summary: Delete a Modifier
+      summary: Delete a Product Modifier
       description: Deletes a *Product Modifier*.
-      operationId: deleteModifierById
+      operationId: deleteProductModifier
       responses:
         '204':
           description: ''
@@ -1483,9 +1483,9 @@ paths:
     get:
       tags:
         - Values
-      summary: Get All Modifier Values
+      summary: Get All Product Modifier Values
       description: Returns a list of all product *Modifier Values*. Optional parameters can be passed in.
-      operationId: getModifierValues
+      operationId: getProductModifierValues
       parameters:
         - name: modifier_id
           in: path
@@ -1575,7 +1575,7 @@ paths:
     post:
       tags:
         - Values
-      summary: Create Modifier Value
+      summary: Create Product Modifier Value
       description: |-
         Creates a *Modifier Value*.
 
@@ -1585,7 +1585,7 @@ paths:
 
         **Read-Only Fields**
         * id
-      operationId: createModifierValue
+      operationId: createProductModifierValue
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
@@ -1863,9 +1863,9 @@ paths:
     get:
       tags:
         - Values
-      summary: Get a Modifier Value
+      summary: Get a Product Modifier Value
       description: Returns a single *Modifier Value*. Optional parameters can be passed in.
-      operationId: getModifierValueById
+      operationId: getProductModifierValue
       parameters:
         - name: modifier_id
           in: path
@@ -1949,7 +1949,7 @@ paths:
     put:
       tags:
         - Values
-      summary: Update a Modifier Value
+      summary: Update a Product Modifier Value
       description: |-
         Updates a *Modifier Value*.
 
@@ -1958,7 +1958,7 @@ paths:
 
         **Read-Only Fields**
         * id
-      operationId: updateModifierValue
+      operationId: updateProductModifierValue
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
@@ -2246,9 +2246,9 @@ paths:
     delete:
       tags:
         - Values
-      summary: Delete Modifier Value
+      summary: Delete Product Modifier Value
       description: Deletes a *Modifier Value*.
-      operationId: deleteModifierValueById
+      operationId: deleteProductModifierValue
       parameters:
         - name: modifier_id
           in: path
@@ -2277,7 +2277,7 @@ paths:
     post:
       tags:
         - Images
-      summary: Create Modifier Image
+      summary: Create Product Modifier Image
       description: |-
         Creates a *Modifier Image*.
 
@@ -2285,7 +2285,7 @@ paths:
 
          **Required Fields**
         - image_file: Form posts are the only accepted upload option.
-      operationId: createModifierImage
+      operationId: createProductModifierImage
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - name: modifier_id

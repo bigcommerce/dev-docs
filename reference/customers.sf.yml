@@ -39,7 +39,7 @@ paths:
         '429':
           description: Spam Protection Failed.
       summary: Create a Customer
-      operationId: createACustomer
+      operationId: createCustomer
       requestBody:
         content:
           application/json:

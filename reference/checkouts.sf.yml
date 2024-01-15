@@ -43,7 +43,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsByCheckoutIdGet
+      operationId: getCheckout
       parameters:
         - name: checkoutId
           in: path
@@ -235,7 +235,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsByCheckoutIdPut
+      operationId: updateCheckout
       parameters:
         - name: checkoutId
           in: path
@@ -377,9 +377,9 @@ paths:
 
         > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.  
         > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
-      operationId: CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdPut
+      operationId: updateCheckoutLineItem
       parameters:
         - name: checkoutId
           in: path
@@ -530,7 +530,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdDelete
+      operationId: deleteCheckoutLineItem
       parameters:
         - name: checkoutId
           in: path
@@ -787,7 +787,7 @@ paths:
         > * Sending `email` property as a payload in POST request triggers the abandoned cart notification process.
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsBillingAddressByCheckoutIdPost
+      operationId: addCheckoutBillingAddress
       parameters:
         - name: checkoutId
           in: path
@@ -934,7 +934,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsBillingAddressByCheckoutIdAndAddressIdPut
+      operationId: updateCheckoutBillingAddress
       parameters:
         - name: checkoutId
           in: path
@@ -1216,9 +1216,9 @@ paths:
 
         > #### Notes
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.
+        > * The Send a Test Request feature is not currently supported for this endpoint.  
         > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
-      operationId: CheckoutsConsignmentsByCheckoutIdPost
+      operationId: createCheckoutConsignment
       parameters:
         - name: checkoutId
           in: path
@@ -1386,9 +1386,9 @@ paths:
         > #### Notes
         > * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address 
         > * Substitute your storefront domain for `yourstore.example.com`. 
-        > * The Send a Test Request feature is not currently supported for this endpoint.
+        > * The Send a Test Request feature is not currently supported for this endpoint.  
         > * Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
-      operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
+      operationId: updateCheckoutConsignment
       parameters:
         - name: checkoutId
           in: path
@@ -1539,7 +1539,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete
+      operationId: deleteCheckoutConsignment
       parameters:
         - name: checkoutId
           in: path
@@ -1681,7 +1681,7 @@ paths:
         > * The rate limit is 20/hour (only for unique gift-certificate codes).
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsGiftCertificatesByCheckoutIdPost
+      operationId: addCheckoutGiftCertificate
       parameters:
         - name: checkoutId
           in: path
@@ -1830,7 +1830,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsGiftCertificatesByCheckoutIdAndGiftCertificateCodeDelete
+      operationId: deleteCheckoutGiftCertificate
       parameters:
         - name: checkoutId
           in: path
@@ -1863,7 +1863,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsCouponsByCheckoutIdPost
+      operationId: addCheckoutCoupon
       parameters:
         - name: checkoutId
           in: path
@@ -2009,7 +2009,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsCouponsByCheckoutIdAndCouponCodeDelete
+      operationId: deleteCheckoutCoupon
       parameters:
         - name: checkoutId
           in: path
@@ -2252,7 +2252,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.
-      operationId: CheckoutStoreCreditAdd
+      operationId: addCheckoutStoreCredit
       parameters:
         - name: checkoutId
           in: path
@@ -2276,7 +2276,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
-      operationId: CheckoutsStoreCreditRemove
+      operationId: removeCheckoutStoreCredit
       parameters:
         - name: checkoutId
           in: path

@@ -33,7 +33,7 @@ paths:
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.
-      operationId: OrdersByOrderIdGet
+      operationId: getOrder
       parameters:
         - name: orderId
           in: path

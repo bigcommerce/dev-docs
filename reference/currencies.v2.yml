@@ -58,7 +58,7 @@ paths:
         - Currencies (Bulk)
       summary: Get All Currencies
       description: Returns a list of all store *Currency*.
-      operationId: getAllCurrencies
+      operationId: getCurrencies
       parameters:
         - name: page
           description: |
@@ -89,7 +89,7 @@ paths:
       tags:
         - Currencies (Bulk)
       summary: Create a Currency
-      operationId: createACurrency
+      operationId: createCurrency
       description: |-
         Creates *Currency*.
 
@@ -130,7 +130,7 @@ paths:
       tags:
         - Currencies (Bulk)
       summary: Delete All Currencies
-      operationId: deleteAllCurrencies
+      operationId: deleteCurrencies
       description: Deletes all non-default store currencies.
       responses:
         '204':
@@ -153,7 +153,7 @@ paths:
         - Currencies (Single)
       summary: Get a Currency
       description: Returns a single *Currency*.
-      operationId: getACurrency
+      operationId: getCurrency
       responses:
         '200':
           description: ""
@@ -177,7 +177,7 @@ paths:
 
 
         The `is_default` property can only be set to true. The value of `is_default` cannot be unset, only overridden. 
-      operationId: updateACurrency
+      operationId: updateCurrency
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -202,7 +202,7 @@ paths:
         Deletes a *Currency*.
 
         If a currencyʼs `is_default` property is set to true, this currency cannot be deleted. 
-      operationId: deleteACurrency
+      operationId: deleteCurrency
       responses:
         '204':
           description: ""

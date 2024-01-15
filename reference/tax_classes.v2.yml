@@ -31,7 +31,7 @@ paths:
         Returns a list of all *Tax Classes* in a store.
 
         Default sorting is by tax-class id, from lowest to highest.
-      operationId: getAllTaxClasses
+      operationId: getTaxClasses
       parameters:
       - $ref: '#/components/parameters/Accept'
       - name: page
@@ -84,7 +84,7 @@ paths:
       - Taxes
       summary: Get a Tax Class
       description: Returns a single *Tax Class*.
-      operationId: getATaxClass
+      operationId: getTaxClass
       parameters:
         - $ref: '#/components/parameters/Accept'
         - name: id

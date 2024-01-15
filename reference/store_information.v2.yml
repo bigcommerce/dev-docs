@@ -25,6 +25,7 @@ paths:
     get:
       description: Returns metadata about a store.
       summary: Get Store Information
+      operationId: getStoreInformation
       tags:
         - Store Information
       parameters:
@@ -93,6 +94,7 @@ paths:
       summary: Get System Timestamp
       tags:
         - Time Zone
+      operationId: getSystemTimestamp
       parameters:
         - $ref: '#/components/parameters/Accept'
       responses:

@@ -45,6 +45,7 @@ paths:
     get:
       summary: Get All Web Analytics Providers
       description: Returns a list of web analytics providers.
+      operationId: getAnalyticsProviders
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       responses:
@@ -73,6 +74,7 @@ paths:
     get:
       summary: Get a Web Analytics Provider
       description: Returns a single web analytics provider data for a default channel.
+      operationId: getAnalyticsProvider
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       responses:
@@ -99,6 +101,7 @@ paths:
     put:
       summary: Update a Web Analytics Provider
       description: Updates a single web analytics provider data for a default channel.
+      operationId: updateAnalyticsProvider
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
@@ -174,6 +177,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Catalog Settings
+      operationId: getSettingsCatalog
       description: |-
         Returns catalog settings.
 
@@ -198,6 +202,7 @@ paths:
         - Catalog
     put:
       summary: Update Catalog Settings
+      operationId: updateSettingsCatalog
       description: |-
         Updates catalog settings.
 
@@ -231,7 +236,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: get-settings-emails-enabled
+      operationId: getSettingsEmailStatuses
       summary: Get Transactional Email Settings
       description: Get global transactional email settings or channel specific overrides by `channel_id`.
       parameters:
@@ -267,7 +272,7 @@ paths:
       tags:
         - Email Statuses
     put:
-      operationId: put-settings-transactional-emails-enabled
+      operationId: updateSettingsEmailStatuses
       summary: Update Transactional Email Settings
       description: Update global transactional email settings or create channel specific overrides by `channel_id`.
       parameters:
@@ -326,7 +331,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     post:
-      operationId: post-favicon-logo-image
+      operationId: createSettingsFaviconImage
       summary: Create Favicon Image
       description: |-
         Uploads an image file to use as the storefront favicon. Supported MIME types include GIF, JPEG, and PNG. 
@@ -354,6 +359,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Notifications Settings
+      operationId: getSettingsInventoryNotifications
       description: |-
         Returns inventory notification settings. 
         * `channel_id` can be used as a query parameter to get inventory notification settings per channel. If omitted, you will interact with the global setting only.
@@ -376,6 +382,7 @@ paths:
         - Inventory Notifications
     put:
       summary: Update Inventory Notifications Settings
+      operationId: updateSettingsInventoryNotifications
       description: |-
         Updates inventory notification settings. 
         * `channel_id` can be used as a query parameter to get inventory notification settings per channel. If omitted, you will interact with the global setting only. 
@@ -399,7 +406,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: get-settings-logo
+      operationId: getSettingsLogo
       summary: Get Store Logo Settings
       description: |-
         Returns store logo settings.
@@ -424,7 +431,7 @@ paths:
       tags:
         - Logo
     put:
-      operationId: put-settings-logo
+      operationId: updateSettingsLogo
       summary: Update Store Logo Settings
       description: |-
         Updates the logo type and logo text for a textual logo. To upload new images, use the dedicated image POST endpoints.
@@ -457,7 +464,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     post:
-      operationId: post-settings-logo-image
+      operationId: createSettingsLogoImage
       summary: Create Logo Image
       description: |-
         Uploads an image file to use as the storefront logo. Supported MIME types include GIF, JPEG, and PNG. 
@@ -482,7 +489,7 @@ paths:
         - Logo Image
   '/settings/search/filters':
     get:
-      operationId: getEnabled
+      operationId: getSettingsEnabledSearchFilters
       summary: Get Enabled Filters
       description: 'Returns a list of enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters. These filters will be used if a store does not have contextual overrides.'
       responses:
@@ -538,7 +545,7 @@ paths:
       tags:
         - Search Filters
     put:
-      operationId: updateEnabled
+      operationId: updateSettingsEnabledSearchFilters
       summary: Update Enabled Filters
       description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
       parameters:
@@ -640,7 +647,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: getAvailable
+      operationId: getSettingsAvailableFilters
       summary: Get Available Filters
       description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
       parameters:
@@ -708,7 +715,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: getContexts
+      operationId: getSettingsFiltersContexts
       summary: Get Contextual Filters
       description: |-
         Returns a list of contextual filters enabled for a particular channel or category.
@@ -746,7 +753,7 @@ paths:
       tags:
         - Search Filters
     put:
-      operationId: upsertContexts
+      operationId: upsertSettingsFiltersContexts
       summary: Upsert Contextual Filters
       description: |-
         Upserts contextual filters for a particular channel or category.
@@ -784,6 +791,7 @@ paths:
   '/settings/store/locale':
     get:
       summary: Get Locale Settings
+      operationId: getSettingsLocale
       description: Returns global locale settings.
       parameters:
         - $ref: '#/components/parameters/Accept'
@@ -812,6 +820,7 @@ paths:
         - Store Locale
     put:
       summary: Update Locale Settings
+      operationId: updateSettingsLocale
       description: |-
         Updates global locale settings.
 
@@ -864,6 +873,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Store Profile Settings
+      operationId: getSettingsStoreProfile
       description: |-
         Returns store profile settings.
 
@@ -888,6 +898,7 @@ paths:
         - Store Profile
     put:
       summary: Update Store Profile Settings
+      operationId: updateSettingsStoreProfile
       description: |-
         Updates store profile settings.
 
@@ -927,10 +938,11 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Category Settings
+      operationId: getSettingsStorefrontCategory
       description: |-
         Returns category settings.
 
-         - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
+         - Channel ID can be used as a query parameter for getting channel-specific settings. If omitted, you will interact with the global setting only. 
 
          - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
       parameters:
@@ -951,10 +963,11 @@ paths:
         - Storefront Category
     put:
       summary: Update Storefront Category Settings
+      operationId: updateSettingsStorefrontCategory
       description: |-
         Updates category settings.
 
-         - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
+         - Channel ID can be used as a query parameter for updating channel-specific settings. If omitted, you will interact with the global setting only. 
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
@@ -985,7 +998,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: get-settings-storefront-product
+      operationId: getSettingsStorefrontProduct
       summary: Get Storefront Product Settings
       description: |-
         Returns product settings.
@@ -1001,7 +1014,7 @@ paths:
       tags:
         - Storefront Product
     put:
-      operationId: put-settings-storefront-product
+      operationId: updateSettingsStorefrontProduct
       summary: Update Storefront Product Settings
       description: |-
         Updates product settings.
@@ -1029,6 +1042,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Robots.txt Settings
+      operationId: getSettingsRobotsTxt
       description: |-
         Returns Robots.txt settings.
 
@@ -1059,6 +1073,7 @@ paths:
         - Storefront Robotstxt
     put:
       summary: Update Robots.txt Settings
+      operationId: updateSettingsRobotsTxt
       description: |-
         Updates Robots.txt settings.
 
@@ -1091,7 +1106,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
     get:
-      operationId: ''
+      operationId: getSettingsStorefrontSearch
       summary: Get Storefront Search Settings
       description: |-
         Returns search settings.
@@ -1126,6 +1141,7 @@ paths:
         - Storefront Search
     put:
       summary: Update Storefront Search Settings
+      operationId: updateSettingsStorefrontSearch
       description: |-
         Updates search settings.
 
@@ -1175,6 +1191,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Security Settings
+      operationId: getSettingsStorefrontSecurity
       description: |-
         Returns security settings.
 
@@ -1199,6 +1216,7 @@ paths:
         - Storefront Security
     put:
       summary: Update Storefront Security Settings
+      operationId: updateSettingsStorefrontSecurity
       description: |-
         Updates security settings.
 
@@ -1232,6 +1250,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront SEO Settings
+      operationId: getSettingsStorefrontSeo
       description: |-
         Returns SEO settings.
 
@@ -1265,6 +1284,7 @@ paths:
         - Storefront SEO
     put:
       summary: Update Storefront SEO Settings
+      operationId: updateSettingsStorefrontSeo
       description: |-
         Updates SEO settings.
 
@@ -1308,6 +1328,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Status
+      operationId: getSettingsStorefrontStatus
       description: |-
         Returns storefront status-related settings. 
 
@@ -1340,6 +1361,7 @@ paths:
         - Storefront Status
     put:
       summary: Update Storefront Status
+      operationId: updateSettingsStorefrontStatus
       description: |-
         Updates storefront status-related settings.
 
@@ -1386,11 +1408,12 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Settings
+      operationId: getSettingsInventory
       tags:
         - Inventory
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested.'
           content:
             application/json:
               schema:
@@ -1411,6 +1434,7 @@ paths:
       description: Get Inventory Settings
     put:
       summary: Update Inventory Settings
+      operationId: updateSettingsInventory
       requestBody:
         content:
           application/json:
@@ -1438,6 +1462,7 @@ paths:
   /settings/store/units-of-measurement:
     get:
       summary: Get Units of Measurement Settings
+      operationId: getSettingsMeasurementUnits
       description: |- 
         Get settings for [units of measurements](https://support.bigcommerce.com/s/article/Store-Settings?language=en_US#physical).
       tags:
@@ -1464,6 +1489,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
       summary: Update Units of Measurement Settings
+      operationId: updateSettingsMeasurementUnits
       description: |- 
         Update settings for [units of measurements](https://support.bigcommerce.com/s/article/Store-Settings?language=en_US#physical).
 
@@ -2058,7 +2084,7 @@ components:
           default: en
         shopper_language_selection_method:
           description: |-
-            Determines whether to display the storefront content in the shopper's browser language or the shopper's selected default language.
+            Determines whether to display the storefront content in the shopperʼs browser language or the shopperʼs selected default language.
 
             Available values:
             * `browser` - language updates automatically based on the shopper browser language. Multiple languages are supported.
@@ -2244,22 +2270,22 @@ components:
         show_product_weight:
           type: boolean
           description: |
-           Determines the visibility of the product's weight.
+           Determines the visibility of the productʼs weight.
           example: false
         show_product_brand:
           type: boolean
           description: |
-           Determines the visibility of the product's brand.
+           Determines the visibility of the productʼs brand.
           example: true
         show_product_shipping:
           type: boolean
           description: |
-           Determines the visibility of the product's shipping option.
+           Determines the visibility of the productʼs shipping option.
           example: false
         show_product_rating:
           type: boolean
           description: |
-           Determines the visibility of the product's rating.
+           Determines the visibility of the productʼs rating.
           example: true
         show_add_to_cart_link:
           type: boolean
@@ -2269,7 +2295,7 @@ components:
         default_preorder_message:
           type: string
           description: |
-           The product's pre-order message. If undefined, the message defaults to the storewide setting.
+           The productʼs pre-order message. If undefined, the message defaults to the storewide setting.
           example: Preorder message
         show_breadcrumbs_product_pages:
           type: string
@@ -2285,7 +2311,7 @@ components:
         show_add_to_wishlist:
           type: boolean
           description: |
-           Determines the visibilty of the Add to Wishlist setting.
+           Determines the visibility of the Add to Wishlist setting.
           example: true
         hide_price_from_guests:
           type: boolean

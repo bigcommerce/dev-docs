@@ -138,7 +138,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     post:
       summary: Create a Site
-      operationId: post-site
+      operationId: createSite
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -173,6 +173,7 @@ paths:
           $ref: '#/components/responses/site_RespCollection'
       summary: Get Sites
       description: 'Get sites linked to a [headless storefront](/docs/storefront/headless) sales channels.'
+      operationId: getSites
       tags:
         - Sites
       parameters:
@@ -209,7 +210,7 @@ paths:
       description: 'Get a site with site ID `{site_id}`.'
     put:
       summary: Update a Site
-      operationId: putSite
+      operationId: updateSite
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -253,7 +254,7 @@ paths:
           type: integer
     get:
       summary: Get a Site’s Routes
-      operationId: index-site-routes
+      operationId: getSiteRoutes
       parameters:
         - name: type
           in: query
@@ -308,7 +309,7 @@ paths:
       description: Get a site’s routes.
     post:
       summary: Create a Site Route
-      operationId: post-site-route
+      operationId: createSiteRoute
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -385,6 +386,7 @@ paths:
         ## Usage Notes
         * `id` is required when updating an existing route.
       summary: Update a Site’s Routes
+      operationId: updateSiteRoutes
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -407,7 +409,7 @@ paths:
   '/sites/{site_id}/routes/{route_id}':
     get:
       summary: Get a Site Route
-      operationId: get-site-route
+      operationId: getSiteRoute
       responses:
         '200':
           description: ''
@@ -434,7 +436,7 @@ paths:
       description: Get a site’s route.
     put:
       summary: Update a Site Route
-      operationId: put-site-route
+      operationId: updateSiteRoute
       parameters:
         - $ref: '#/components/parameters/ContentType'
       requestBody:
@@ -457,7 +459,7 @@ paths:
         Update a site’s route.
     delete:
       summary: Delete a Site Route
-      operationId: delete-route
+      operationId: deleteSiteRoute
       responses:
         '204':
           description: ''
@@ -489,7 +491,7 @@ paths:
       description: Obtain information about a site’s SSL/TLS certificate.
       tags:
         - Site Certificate
-      operationId: getSitesIdCertificate
+      operationId: getSiteCertificate
       responses:
         '200':
           description: OK
@@ -500,7 +502,7 @@ paths:
               examples: {}
     put:
       summary: Upsert a Site’s SSL/TLS Certificate Information
-      operationId: putSiteIdCertificate
+      operationId: upsertSiteCertificate
       parameters:
         - $ref: '#/components/parameters/ContentType'
       tags:
@@ -543,7 +545,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetCertificatesResponse'
-      operationId: get-sites-certificates
+      operationId: getSitesCertificates
       description: Return all SSL certificates connected to domains within a store.
       parameters:
         - schema:
