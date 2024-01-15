@@ -4080,8 +4080,14 @@ components:
           example: false
           type: boolean
         order_source:
-          description: Orders submitted from the storeʼs website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
-          example: www, iPhone, Android, mobile, manual
+          description: |-
+            The `order_source` is set upon order creation and reflects the origin of the order. It will indicate whether the order was created by one of the following:
+            * storefront 
+            * control panel
+            * manual order
+            * /v2/orders API
+            * Checkout API
+            * or by an integration with an external platform such as Facebook by Meta or Amazon.
           type: string
         consignments:
           $ref: '#/components/schemas/orderConsignments_Resource'
