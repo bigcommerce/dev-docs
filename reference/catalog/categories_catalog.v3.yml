@@ -2,17 +2,18 @@ openapi: '3.0.3'
 info:
   title: Catalog - Categories
   description: |-
+    
     > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
-
-    Our Catalog Categories endpoints let you [create individual categories](/docs/rest-catalog/categories#create-a-category) and [modify categories](/docs/rest-catalog/categories#update-a-category) that organize a store's products, as well as [delete categories](/docs/rest-catalog/categories#delete-a-category). 
+    
+    > Warning:
+    > - The [Catalog V3 Categories](/docs/rest-catalog/categories) endpoints were primarily useful in applications for single storefront stores and are deprecated. We still support these endpoints, but will not implement new features within them. The endpoints will continue working as is.
+    > - To manage Categories, use the [Catalog V3 Category Trees - Categories](/docs/rest-catalog/category-trees/categories) endpoints. These endpoints work for both [MSF-enabled stores](/docs/storefront/multi-storefront) and single storefront stores, and are backwards-compatible with categories created using Catalog V3 Categories.
     
     Category images have their own dedicated [create a category image](/docs/rest-catalog/categories/images#create-a-category-image) and [delete a category image](/docs/rest-catalog/categories/images#delete-a-category-image) endpoints. 
     
     In addition, categories have metafields that you can use to store information structured in key-value pairs; learn more about [creating category metafields](/docs/rest-catalog/categories/metafields#create-a-category-metafield), [updating category metafields](/docs/rest-catalog/categories/metafields#update-a-category-metafield), and [deleting category metafields](/docs/rest-catalog/categories/metafields#delete-a-category-metafield). 
 
     This API family also contains endpoints to [update product sort order](/docs/rest-catalog/categories/sort-order#update-product-sort-order) within a category. 
-
-    These endpoints are primarily useful in applications for single storefront stores. To work with categories for an [MSF-enabled store](/docs/storefront/multi-storefront), see [Category Trees](/docs/rest-catalog/category-trees).
 
     > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
 
@@ -45,17 +46,20 @@ servers:
 security:
   - X-Auth-Token: []
 tags:
-  - name: Categories
   - name: Metafields
   - name: Images
   - name: Sort Order
+  - name: Categories (deprecated)
 paths:
   '/catalog/categories':
     get:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Get All Categories
       description: |-
+        When possible, use the [Catalog Trees - Get all categories](/docs/rest-catalog/category-trees/categories#get-all-categories) endpoint instead.
+
         Returns a list of *Categories*. Optional filter parameters can be passed in.
 
         **Note:**
@@ -367,9 +371,10 @@ paths:
                       current: '?page=1&limit=50'
     post:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Create a Category
-      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit.\n\n **Note:**\n The default rate limit for this endpoint is 40 concurrent requests.\n"
+      description: "When possible, use the [Category Trees - Create categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint instead.\n\nCreates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create categories](/docs/rest-catalog/category-trees/categories#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit.\n\n **Note:**\n The default rate limit for this endpoint is 40 concurrent requests.\n"
       operationId: createCategory
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -573,9 +578,12 @@ paths:
       x-codegen-request-body-name: category
     delete:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Delete Categories
       description: |-
+        When possible, use the [Category Trees - Delete categories](/docs/rest-catalog/category-trees/categories#delete-categories) endpoint instead.
+
         Deletes *Category* objects. At least one filter parameter is required to perform the `DELETE` operation.
 
         **Usage Notes**
@@ -729,9 +737,12 @@ paths:
   '/catalog/categories/{category_id}':
     get:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Get a Category
       description: |-
+        When possible, use the [Catalog Trees - Get all categories](/docs/rest-catalog/category-trees/categories#get-all-categories) endpoint instead. You can provide a category identifier using query parameters to retrieve a single category.
+
         Returns a single *Category*. Optional parameters can be passed in.
 
         **Note:**
@@ -784,9 +795,12 @@ paths:
                 description: Error payload for the BigCommerce API.
     put:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Update a Category
       description: |-
+        When possible, use the [Catalog Trees - Update categories](/docs/rest-catalog/category-trees/categories#update-categories) endpoint instead.
+
         Updates a *Category*.
 
         **Required Fields**
@@ -1148,9 +1162,12 @@ paths:
       x-codegen-request-body-name: category
     delete:
       tags:
-        - Categories
+        - Categories (deprecated)
+      deprecated: true
       summary: Delete a Category
       description: |-
+        When possible, use the [Category Trees - Delete categories](/docs/rest-catalog/category-trees/categories#delete-categories) endpoint instead. You can provide a category identifier using query parameters to delete a single category.
+
         Deletes a *Category*.
         
         **Note:**
