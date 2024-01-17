@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: '3.0.0'
 info:
   title: Tax Rates & Zones
   version: '1.0.0'
@@ -179,7 +179,6 @@ paths:
       description: |-
         Delete one or more tax zones. Deleting a tax zone removes all associated tax rates.
 
-        > #### Note
         > You must specify which zone(s) to delete using the `id:in` query parameter.
 
       operationId: deleteTaxZones
@@ -297,7 +296,6 @@ paths:
       description: |- 
         Delete one or more tax rates.
 
-        > #### Note
         > You must specify which rate(s) to delete using the `id:in` query parameter.
 
       operationId: deleteTaxRates
@@ -783,7 +781,7 @@ components:
       name: Accept
       in: header
       required: true
-      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      description: The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.
       schema:
         type: string
         default: 'application/json'
@@ -791,7 +789,7 @@ components:
       name: Content-Type
       in: header
       required: true
-      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      description: The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.
       schema:
         type: string
         default: 'application/json'
