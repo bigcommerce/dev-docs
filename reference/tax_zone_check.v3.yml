@@ -1,0 +1,184 @@
+openapi: '3.0.0'
+info:
+  title: Tax Zone Check
+  description: Check the applicable tax zone for a given address and customer group.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: ''
+security:
+  - X-Auth-Token: [ ]
+tags:
+  - name: Tax Zone Check
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+paths:
+  "/tax/zonecheck":
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Tax Zone Check
+      summary: Check zone given an address.
+      description: Check the applicable tax zone for a given address and customer group.
+      operationId: zone-check
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ZoneCheck'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TaxZone'
+        "422":
+          description: The request body does not meet specifications.
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+  schemas:
+    ZoneCheck:
+      type: object
+      properties:
+        country_code:
+          type: string
+          description: Two-letter ISO 3166-1 country code.
+          example: 'AU'
+        subdivision_codes:
+          type: string
+          description: ISO 3166-2 subdivision code, up to three alphanumeric characters.
+          example: 'NSW'
+        postal_code:
+          type: string
+          description: Postal code.
+          example: '2099'
+        customer_group_id:
+          type: integer
+          description: Customer Group ID to which the customer is belongs.
+          example: 0
+      required:
+        - country_code
+    TaxZone:
+      type: object
+      x-examples: { }
+      properties:
+        id:
+          type: integer
+          description: Tax Zone ID. Internal identifier used to get, update, or delete a specific tax zone.
+          example: 1
+        name:
+          type: string
+          description: The human-readable name for this tax zone. The name displays on the merchant's control panel.
+          example: Australia
+        enabled:
+          type: boolean
+          description: Indicates whether a tax zone is enabled. Tax operations are only for enabled zones.
+          default: true
+        price_display_settings:
+          type: object
+          description: Settings that describe how a store displays prices to shoppers matched with this tax zone.
+          properties:
+            show_inclusive:
+              type: boolean
+              description: Indicates whether to show prices as tax inclusive or tax exclusive to shoppers matched with this tax zone.
+            show_both_on_detail_view:
+              type: boolean
+              description: 'Indicates whether to show both tax inclusive and tax exclusive prices when viewing product detail; for example, on product pages. This view applies to shoppers matched with this tax zone.'
+            show_both_on_list_view:
+              type: boolean
+              description: 'Indicates whether to show both tax inclusive and tax exclusive prices when viewing a list of products; for example, on category and brand pages. This view applies to shoppers matched with this tax zone.'
+        shopper_target_settings:
+          type: object
+          description: Settings that describe which shoppers match this tax zone and help determine the most appropriate target for a shopper. You cannot define shopper target settings for the default tax zone because it must accommodate all shoppers who donʼt qualify for any other zone.
+          properties:
+            locations:
+              type: array
+              description: A tax zone may target shoppers in one or more locations.
+              items:
+                type: object
+                properties:
+                  country_code:
+                    type: string
+                    example: AU
+                    description: Two-letter ISO 3166-1 country code
+                  subdivision_codes:
+                    type: array
+                    example:
+                      - NSW
+                      - QLD
+                    description: Three-letter ISO 3166-2 subdivision code
+                    items:
+                      type: string
+                  postal_codes:
+                    type: array
+                    example:
+                      - '2234'
+                      - '2170'
+                    items:
+                      type: string
+            customer_groups:
+              type: array
+              description: One or more customer groups that a tax zone targets. Empty array if zone applies to all customers.
+              items:
+                type: integer
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
+      type: apiKey
+      in: header
