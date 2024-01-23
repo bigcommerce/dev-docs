@@ -1,6 +1,6 @@
 ---
 title: Payments API
-keywords: payments, bigpay, currencies, currency, rest, v3, payment access token, pat, rate limits, 
+keywords: payments, bigpay, currencies, currency, rest, v3, payment access token, pat, rate limits,
 ---
 
 # Payments API
@@ -52,14 +52,14 @@ The following table lists the payment gateways that are compatible with our publ
 | Bolt              | &check;            | &check;         |
 | CardConnect       |                    | &check;         |
 | Chase Integrated Payments |            | &check;         |
-| Chase Merchant Services   | &check;    | &check;         | 
+| Chase Merchant Services   | &check;    | &check;         |
 | Checkout.com      | &check;            | &check;         |
 | Commonwealth Bank | &check;            | &check;         |
 | Cybersource       | &check;            | &check;         |
 | Cybersource V2    | &check;            | &check;         |
 | Eway Rapid        |                    | &check;         |
 | First Data Payeezy Gateway |           | &check;         |
-| Heartland Payment Systems  |           | &check;         | 
+| Heartland Payment Systems  |           | &check;         |
 | Mercado Pago      |                    | &check;         |
 | MIGS              |                    | &check;         |
 | Mollie            | &check;            |                 |
@@ -91,11 +91,11 @@ The following table lists the payment gateways that are compatible with our publ
 The Payments API does not support the [BigCommerce Test Payment Gateway](https://support.bigcommerce.com/s/article/Testing-Shipping-Tax-and-Payment-Settings?language=en_US#test-gateway).
 </Callout>
 
-To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
+To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
-## Stored cards and PayPal accounts
+## Stored cards, PayPal and bank accounts
 
-There are three steps to using a stored card or PayPal account to make a payment.
+There are three steps to using a stored card, PayPal, or bank account to make a payment.
 
 1. [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods)
 2. [Create a Payment Access Token](/docs/rest-payments/tokens#create-payment-access-token) or request a payment access token when you complete checkout with the [GraphQL Storefront API](/docs/storefront/cart-checkout/guide/graphql-storefront#handling-payments)
@@ -115,6 +115,12 @@ The store must:
 * have stored credit cards enabled.
 
 Use the active MSF-enabled store's control panel to enable charging stored credit cards. Navigate to **Settings ›  Setup > Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+
+### Using Braintree ACH stored bank accounts
+
+In addition to the [prerequisites](/docs/store-operations/payments#prerequisites-for-charging-stored-payment-instruments) above, to use Braintree ACH in payments API, your store needs to:
+* Have stored ACH accounts enabled.
+* Have this method enabled in the API. (contact support)
 
 ### Charging stored instruments
 
@@ -294,7 +300,7 @@ Content-Type: application/json
 }
 ```
 
-To process a payment using a stored PayPal account, set the `type` to `stored_paypal_account`. 
+To process a payment using a stored PayPal account, set the `type` to `stored_paypal_account`.
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
@@ -608,9 +614,9 @@ Yes, checkouts and orders with more than one consignment can use the Payments AP
 
 **Is store credit supported?**
 
-Yes, the Payments API supports the store credit payment method under the following conditions: 
-- The shopper is transacting in the store's default currency. 
-- The shopper has a positive store credit balance. 
+Yes, the Payments API supports the store credit payment method under the following conditions:
+- The shopper is transacting in the store's default currency.
+- The shopper has a positive store credit balance.
 
 Store credit is _not_ available for orders created by guest shoppers.
 
