@@ -144,7 +144,7 @@ paths:
                 example-1:
                   value:
                     data:
-                      - id: 0
+                      - category_id: 0
                         parent_id: 2
                         name: Bath
                         description: <p>We offer a wide variety of products perfect for relaxing</p>
@@ -564,7 +564,7 @@ components:
         - Models
       title: Category
       allOf:
-        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/category_id'
         - $ref: '#/components/schemas/parent_id'
         - $ref: '#/components/schemas/name'
         - $ref: '#/components/schemas/description'
@@ -1067,11 +1067,11 @@ components:
           type: string
           description: |
             Custom meta description for the category page. If not defined, the store's default meta description will be used.
-    id:
-      title: id
+    category_id:
+      title: category_id
       type: object
       properties:
-        id:
+        category_id:
           type: integer
           description: |-
             Unique ID of the *Category*. Increments sequentially.
