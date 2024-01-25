@@ -5,9 +5,9 @@ info:
     > The Catalog API manages products, categories, brands, bulk pricing rules, and more. To learn more about catalog resources, see the [Catalog Overview](/docs/store-operations/catalog).
 
     Our Catalog Brands endpoints let you [create individual brands](/docs/rest-catalog/brands#create-a-brand) and [modify the brands](/docs/rest-catalog/brands#update-a-brand) associated with a store's products, along with [deleting brands](/docs/rest-catalog/brands#delete-a-brand). 
-    
+
     Brand images have their own dedicated [create a brand image](/docs/rest-catalog/brands/images#create-a-brand-image) and [delete a brand image](/docs/rest-catalog/brands/images#delete-a-brand-image) endpoints. 
-    
+
     In addition, brands have metafields that you can use to store information structured in key-value pairs; learn more about [creating brand metafields](/docs/rest-catalog/brands/metafields#create-a-brand-metafield), [updating brand metafields](/docs/rest-catalog/brands/metafields#update-a-brand-metafield), and [deleting brand metafields](/docs/rest-catalog/brands/metafields#delete-a-brand-metafield). 
 
     > To learn more about authenticating Catalog endpoints, locate the **Authentication** section at the top of each endpoint, then click **Show Details**. 
@@ -185,8 +185,8 @@ paths:
                     page_title: OFS
                     meta_keywords:
                       - modern
-                      - ' clean'
-                      - ' contemporary'
+                      - clean
+                      - contemporary
                     meta_description: OFS is a modern brand.
                     image_url: ''
                     search_keywords: 'kitchen, laundry, cart, storage'
@@ -392,10 +392,13 @@ paths:
                 meta_keywords:
                   type: array
                   description: |
-                    Comma-separated list of meta keywords to include in the HTML.
+                    An array of meta keywords to include in the HTML.
                   items:
                     type: string
-                    example: 'modern, clean, contemporary'
+                  example: 
+                    - modern
+                    - clean
+                    - contemporary
                 meta_description:
                   maxLength: 65535
                   minLength: 0
@@ -473,10 +476,13 @@ paths:
                       meta_keywords:
                         type: array
                         description: |
-                          Comma-separated list of meta keywords to include in the HTML.
+                          An array of meta keywords to include in the HTML.
                         items:
                           type: string
-                          example: 'modern, clean, contemporary'
+                        example: 
+                          - modern
+                          - clean
+                          - contemporary
                       meta_description:
                         maxLength: 65535
                         minLength: 0
@@ -526,7 +532,9 @@ paths:
                   id: 50
                   name: Common Good
                   meta_keywords:
-                    - 'modern, clean, contemporary'
+                    - modern
+                    - clean
+                    - contemporary
                   meta_description: Common Good is a modern brand
                   image_url: ''
                   search_keywords: 'kitchen, laundry, cart, storage'
@@ -660,7 +668,9 @@ paths:
                   id: 50
                   name: Common Good
                   meta_keywords:
-                    - 'modern, clean, contemporary'
+                    - modern
+                    - clean
+                    - contemporary
                   meta_description: Common Good is a modern brand
                   image_url: ''
                   search_keywords: 'kitchen, laundry, cart, storage'
@@ -740,11 +750,13 @@ paths:
                 meta_keywords:
                   type: array
                   description: |
-                    Comma-separated list of meta keywords to include in the HTML.
-                  example:
-                    - 'modern, clean, contemporary'
+                    An array of meta keywords to include in the HTML.
                   items:
                     type: string
+                  example:
+                    - modern
+                    - clean
+                    - contemporary
                 meta_description:
                   maxLength: 65535
                   minLength: 0
@@ -823,11 +835,13 @@ paths:
                       meta_keywords:
                         type: array
                         description: |
-                          Comma-separated list of meta keywords to include in the HTML.
-                        example:
-                          - 'modern, clean, contemporary'
+                          An array of meta keywords to include in the HTML.
                         items:
                           type: string
+                        example:
+                          - modern
+                          - clean
+                          - contemporary
                       meta_description:
                         maxLength: 65535
                         minLength: 0
@@ -877,7 +891,9 @@ paths:
                   id: 50
                   name: Common Good
                   meta_keywords:
-                    - 'modern, clean, contemporary'
+                    - modern
+                    - clean
+                    - contemporary
                   meta_description: Common Good is a modern brand
                   image_url: ''
                   search_keywords: 'kitchen, laundry, cart, storage'
@@ -1604,10 +1620,13 @@ components:
         meta_keywords:
           type: array
           description: |
-            Comma-separated list of meta keywords to include in the HTML.
+            An array of meta keywords to include in the HTML.
           items:
             type: string
-            example: 'modern, clean, contemporary'
+          example:
+            - modern
+            - clean
+            - contemporary
         meta_description:
           maxLength: 65535
           minLength: 0
@@ -1901,17 +1920,17 @@ components:
         |  Products | read-only | `store_v2_products_read_only` |
 
         ### Authentication header
-        
+
         | Header | Argument | Description |
         |:-------|:---------|:------------|
         | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
-        
+
         ### Further reading
-        
+
         For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
-        
+
         For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
-        
+
         For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
