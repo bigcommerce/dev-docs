@@ -1620,6 +1620,7 @@ paths:
           content:
             application/json:
               schema:
+                title: Create Image Response
                 type: object
                 properties:
                   data:
@@ -1638,6 +1639,7 @@ paths:
           content:
             application/json:
               schema:
+                title: Error Response 
                 type: object
                 properties: {}
         '404':
@@ -1723,18 +1725,15 @@ paths:
           content:
             application/json:
               schema:
+                title: Product Sort Order Response
                 type: array
                 items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: number
-                    sort_order:
-                      type: integer
+                  $ref: '#/components/schemas/productSortOrder'
         '404':
           description: The requested category was not found.
           content:
             application/json:
+              title: Not Found 
               schema:
                 $ref: '#/components/schemas/error_Base'
     put:
@@ -1749,6 +1748,7 @@ paths:
         content:
           application/json:
             schema:
+              title: Product Sort Order Request
               type: array
               items:
                 $ref: '#/components/schemas/productSortOrder'
@@ -1759,6 +1759,7 @@ paths:
           content:
             application/json:
               schema:
+                title: Product Sort Order Response
                 type: array
                 items:
                   $ref: '#/components/schemas/productSortOrder'
