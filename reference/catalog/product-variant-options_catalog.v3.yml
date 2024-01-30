@@ -351,7 +351,7 @@ paths:
                               is_default:
                                 type: boolean
                                 description: |
-                                  The flag for preselecting a value as the default on the storefront.
+                                  The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                                 example: false
                               label:
                                 type: string
@@ -600,7 +600,7 @@ paths:
                                     is_default:
                                       type: boolean
                                       description: |
-                                        The flag for preselecting a value as the default on the storefront.
+                                        The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                                       example: false
                                     label:
                                       type: string
@@ -1065,7 +1065,7 @@ paths:
                               is_default:
                                 type: boolean
                                 description: |
-                                  The flag for preselecting a value as the default on the storefront.
+                                  The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                                 example: false
                               label:
                                 type: string
@@ -1315,7 +1315,7 @@ paths:
                                     is_default:
                                       type: boolean
                                       description: |
-                                        The flag for preselecting a value as the default on the storefront.
+                                        The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                                       example: false
                                     label:
                                       type: string
@@ -1528,7 +1528,7 @@ paths:
                             is_default:
                               type: boolean
                               description: |
-                                The flag for preselecting a value as the default on the storefront.
+                                The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                               example: false
                             label:
                               type: string
@@ -1643,7 +1643,7 @@ paths:
                     is_default:
                       type: boolean
                       description: |
-                        The flag for preselecting a value as the default on the storefront.
+                        The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                       example: false
                     label:
                       type: string
@@ -1690,7 +1690,7 @@ paths:
                           is_default:
                             type: boolean
                             description: |
-                              The flag for preselecting a value as the default on the storefront.
+                              The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                             example: false
                           label:
                             type: string
@@ -1818,7 +1818,7 @@ paths:
                           is_default:
                             type: boolean
                             description: |
-                              The flag for preselecting a value as the default on the storefront.
+                              The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                             example: false
                           label:
                             type: string
@@ -1925,7 +1925,7 @@ paths:
                     is_default:
                       type: boolean
                       description: |
-                        The flag for preselecting a value as the default on the storefront.
+                        The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                       example: false
                     label:
                       type: string
@@ -1980,7 +1980,7 @@ paths:
                           is_default:
                             type: boolean
                             description: |
-                              The flag for preselecting a value as the default on the storefront.
+                              The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
                             example: false
                           label:
                             type: string
@@ -2160,7 +2160,7 @@ components:
         is_default:
           type: boolean
           description: |
-            The flag for preselecting a value as the default on the storefront.
+            The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
           example: false
         label:
           type: string

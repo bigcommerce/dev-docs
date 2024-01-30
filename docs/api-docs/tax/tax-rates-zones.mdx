@@ -266,56 +266,6 @@ To delete tax zones, send a request to the [Delete tax zones](/docs/rest-managem
   </Tab>
 </Tabs>
 
-### Check tax zone
-
-You can find the tax zone that applies to a given region and customer group by sending a request to [Check tax zone](/docs/rest-management/tax-rates-and-zones/tax-zone-check#check-tax-zone).
-
-The following example request returns the tax zone that applies to a shopper in the US; the endpoint does not return all tax zones that have the given the country code. Responses include only one tax zone.
-
-<Tabs items={[`Request`, `Response`]}>
-  <Tab>
-    ```http filename="Example request: Check tax zone" showLineNumbers copy
-    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zonecheck
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    Content-Type: application/json
-    Accept: application/json
-
-    {
-      "country_code": "US"
-    }
-    ```
-  </Tab>
-  <Tab>
-    ```http filename="Example response: Check tax zone" showLineNumbers copy
-    {
-      "data": {
-        "id": 3,
-        "name": "United States",
-        "enabled": true,
-        "price_display_settings": {
-          "show_inclusive": true,
-          "show_both_on_detail_view": true,
-          "show_both_on_list_view": true
-        },
-        "shopper_target_settings": {
-          "locations": [
-            {
-              "country_code": "US",
-              "subdivision_codes": [],
-              "postal_codes": []
-            }
-          ],
-          "customer_groups": [
-            0
-          ]
-        }
-      },
-      "meta": {}
-    }
-    ```
-  </Tab>
-</Tabs>
-
 ## Tax rates
 
 After creating a zone, you can add rates to the zone. You can add multiple rates to a zone to help the store collect and report taxes to one or more taxation authorities. You can add a rate for each tax class in your store.
@@ -504,7 +454,6 @@ To delete tax rates, send a request to the [Delete tax rates](/docs/rest-managem
 - [Update tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#update-tax-zones)
 - [Get tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#get-tax-zones)
 - [Delete tax zones](/docs/rest-management/tax-rates-and-zones/tax-zones#delete-tax-zones)
-- [Check tax zone](/docs/rest-management/tax-rates-and-zones/tax-zone-check#check-tax-zone)
 
 ### Tax Rates reference
 - [Create tax rates](/docs/rest-management/tax-rates-and-zones/tax-rates#create-tax-rates)
