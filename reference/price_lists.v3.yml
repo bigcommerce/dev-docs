@@ -437,10 +437,10 @@ paths:
       description: Deletes a *Price List*. All associated price records are also removed. Optional parameters can be passed in.
       operationId: deletePriceLists
       parameters:
-        - name: id
+        - name: id:in
           in: query
           description: |
-            Filter items by ID.
+            Filter by `id`. Accepts multiple comma-separated values.
           schema:
             type: integer
         - name: name
@@ -455,6 +455,7 @@ paths:
           content:
             application/json:
               schema:
+                title: Delete Price Lists Response
                 type: object
                 nullable: true
   '/pricelists/{price_list_id}':
