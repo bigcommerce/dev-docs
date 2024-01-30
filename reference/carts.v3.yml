@@ -844,7 +844,7 @@ paths:
                 $ref: '#/components/schemas/MetaFieldCollectionResponse'
               example:
                 data: 
-                  "id": 24
+                  "id": "24"
                   "key": Staff Name
                   "value": Sam
                   "namespace": Sales Department
@@ -3008,7 +3008,7 @@ components:
         - type: object
           properties:
             id:
-              type: integer
+              type: string
               description: The unique identifier for the metafield.
             date_created:
               type: string
