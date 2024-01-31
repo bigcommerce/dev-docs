@@ -241,6 +241,7 @@ paths:
         - $ref: '#/components/parameters/is_deleted'
         - $ref: '#/components/parameters/channel_id'
         - $ref: '#/components/parameters/order_includes'
+        - $ref: '#/components/parameters/external_order_id'
       responses:
         '200':
           $ref: '#/components/responses/orderCollection_Resp'
@@ -1042,6 +1043,12 @@ components:
       schema:
         type: string
         default: 'application/json'
+    external_order_id:
+      name: external_order_id
+      in: query
+      description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request.
+      schema: 
+        type: integer
     min_id:
       name: min_id
       in: query
