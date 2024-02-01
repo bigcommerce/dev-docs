@@ -1509,6 +1509,7 @@ paths:
           content:
             application/json:
               schema:
+                title: Brand Image Response
                 type: object
                 properties:
                   data:
