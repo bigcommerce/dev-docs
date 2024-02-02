@@ -1733,7 +1733,6 @@ paths:
           description: The requested category was not found.
           content:
             application/json:
-              title: Not Found 
               schema:
                 $ref: '#/components/schemas/error_Base'
     put:
