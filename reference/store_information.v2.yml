@@ -42,6 +42,7 @@ paths:
                 response:
                   value:
                     id: abc123
+                    account_uuid: "8d4d492f-17a1-4d95-b396-e1c5720815a5"
                     domain: my-awesome.store
                     secure_url: 'https://my-awesome.store'
                     control_panel_base_url: 'https://store-{store_hash}.mybigcommerce.com'
@@ -79,10 +80,14 @@ paths:
                     dimension_thousands_token: ','
                     plan_name: Standard
                     plan_level: Standard
-                    industry: ''
+                    plan_is_trial: false
+                    industry: Technology
                     logo:
                       url: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png'
                     is_price_entered_with_tax: false
+                    store_id: 4884484848484
+                    default_channel_id: 1
+                    default_site_id: 1000
                     active_comparison_modules: []
                     features:
                       stencil_enabled: true
@@ -151,9 +156,14 @@ components:
         - Models
       properties:
         id:
-          description: Unique store identifier.
+          description: The store hash, a unique store identifier.
           example: store_hash
           type: string
+        account_uuid:
+          description: |-
+            The UUID of the account to which the store belongs.
+          type: string
+          format: uuid
         domain:
           description: Primary domain name.
           example: 'your-store-url.com'
@@ -166,6 +176,10 @@ components:
           type: string
           example: 'https://store-abc123.mybigcommerce.com'
           description: The secure hostname of the control panel.
+        status:
+          description: The status of the store.
+          type: string
+          example: live
         name:
           description: Store’s name.
           example: BigCommerce
@@ -254,6 +268,10 @@ components:
           description: Level of the BigCommerce plan to which this store is subscribed.
           example: Standard
           type: string
+        plan_is_trial:
+          description: Whether the payment plan associated with the store is still in the trial phase.
+          type: boolean
+          example: false
         industry:
           description: 'Industry, or vertical category, in which the business operates. (As selected from drop-down list during the store sign-up process.)'
           example: Technology
@@ -272,6 +290,18 @@ components:
           description: A Boolean value that indicates whether or not prices are entered with tax.
           example: false
           type: boolean
+        store_id:
+          description: The numeric ID of the store. This is a different unique ID than the store hash.
+          type: integer
+        default_channel_id:
+          description: The ID of the default channel. The ID of the first hosted storefront created on the store is `1`.
+          default: 1
+          example: 1
+          type: integer
+        default_site_id:
+          description: The BigCommerce ID of the website associated with the default storefront.
+          type: integer
+          example: 1000
         active_comparison_modules:
           description: ''
           type: array
@@ -340,19 +370,6 @@ components:
                   example: 15
                   description: |-
                     Describes the total number of storefronts associated with the store, including both active and inactive storefronts. The default varies based on store plan.
-        account_uuid:
-          type: string
-        default_channel_id:
-          type: integer
-        default_site_id:
-          type: integer
-        plan_is_trial:
-          type: boolean
-        store_id:
-          type: integer
-        status:
-          type: string
-          example: live
     Timezone:
       title: Time Zone
       type: object
