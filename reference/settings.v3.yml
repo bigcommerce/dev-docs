@@ -2227,7 +2227,8 @@ components:
       title: ScopeIdentifier
       x-internal: false
     StoreProfile:
-      description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
+      title: Store Profile
+      description: The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.
       type: object
       x-internal: false
       properties:

@@ -23,7 +23,8 @@ tags:
 paths:
   '/store':
     get:
-      description: Returns metadata about a store.
+      description: -|
+        Returns metadata about the global settings for a store. Some of these values are independently configurable on a per-storefront or per-channel basis. For channel overrides, see [Store Settings](/docs/rest-management/settings).
       summary: Get Store Information
       operationId: getStoreInformation
       tags:
@@ -85,9 +86,16 @@ paths:
                     active_comparison_modules: []
                     features:
                       stencil_enabled: true
-                      sitewidehttps_enabled: false
+                      sitewidehttps_enabled: true
                       facebook_catalog_id: ''
                       checkout_type: optimized
+                      wishlists_enabled: true
+                      graphql_storefront_api_enabled: true
+                      shopper_consent_tracking_enabled: true
+                      multi_storefront_enabled: true
+                      storefront_limits: 
+                        active: 3
+                        total_including_inactive: 4
   '/time':
     get:
       description: Returns the system timestamp at the time of the request. The time resource is useful for validating API authentication details and testing client connections.
@@ -275,34 +283,64 @@ components:
             + `facebook_catalog_id` (string)
           type: object
           properties:
-            checkout_type:
-              type: string
-              example: optimized
-              description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
-            facebook_catalog_id:
-              type: string
-              description: ID of the facebook by meta catalog. If there is none, it returns an empty string.
-            graphql_storefront_api_enabled:
-              type: boolean
             stencil_enabled:
               type: boolean
               example: true
+              default: true
               description: Indicates whether a store is using a Stencil theme.
             sitewidehttps_enabled:
               type: boolean
               example: false
               description: Indicates whether there is site-wide https.
-            multi_storefront_enabled:
-              type: boolean
-              description: |-
-                Indicates whether MSF feature flag is enabled on a store.
-
-                Returns `true` when MSF feature flag is enabled.
-                Returns `false` when MSF feature flag is disabled.
-            shopper_consent_tracking_enabled:
-              type: boolean
+            facebook_catalog_id:
+              type: string
+              description: The ID of the Facebook by Meta catalog. If there is none, this endpoint returns an empty string.
+            checkout_type:
+              type: string
+              example: optimized
+              description: -|
+                What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.
+              enum:
+                - optimized
+                - single
+                - single_customizable
+                - klarna
             wishlists_enabled:
               type: boolean
+              example: false
+            graphql_storefront_api_enabled:
+              type: boolean
+              default: true
+              example: true
+              description: -|
+                Describes whether you can use the [GraphQL Storefront API](/graphql-storefront/reference) on this store.
+            shopper_consent_tracking_enabled:
+              type: boolean
+              example: true
+              description: -|
+                Indicates whether the store is tracking the values of the cookie and privacy consent settings that the shopper consented to and configured.
+            multi_storefront_enabled:
+              type: boolean
+              example: true
+              default: false
+              description: |-
+                Indicates whether the storeʼs plan provides the possibility of using more than one storefront or sales channel. Internally, this value indicates whether the store has the MSF feature flag enabled. 
+            storefront_limits:
+              type: object
+              properties:
+                active:
+                  type: integer
+                  minimum: 1
+                  default: 1
+                  example: 3
+                  description: -|
+                    Describes the number of storefronts active on the store. If `multi_storefront_enabled` is `false`, this value is `1`.
+                total_including_inactive:
+                  type: integer
+                  minimum: 1
+                  example: 15
+                  description: -|
+                    Describes the total number of storefronts associated with the store, including both active and inactive storefronts. The default varies based on store plan.
         account_uuid:
           type: string
         default_channel_id:
