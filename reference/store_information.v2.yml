@@ -23,7 +23,7 @@ tags:
 paths:
   '/store':
     get:
-      description: -|
+      description: |-
         Returns metadata about the global settings for a store. Some of these values are independently configurable on a per-storefront or per-channel basis. For channel overrides, see [Store Settings](/docs/rest-management/settings).
       summary: Get Store Information
       operationId: getStoreInformation
@@ -278,9 +278,7 @@ components:
           items: {}
         features:
           description: |-
-            + `stencil_enabled`: `true` (boolean)
-            + `sitewidehttps_enabled`: `false` (boolean)
-            + `facebook_catalog_id` (string)
+            Describes some aspects of the storeʼs tech stack and configuration settings that affect the features available for the store to use.
           type: object
           properties:
             stencil_enabled:
@@ -298,7 +296,7 @@ components:
             checkout_type:
               type: string
               example: optimized
-              description: -|
+              description: |-
                 What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.
               enum:
                 - optimized
@@ -312,12 +310,12 @@ components:
               type: boolean
               default: true
               example: true
-              description: -|
+              description: |-
                 Describes whether you can use the [GraphQL Storefront API](/graphql-storefront/reference) on this store.
             shopper_consent_tracking_enabled:
               type: boolean
               example: true
-              description: -|
+              description: |-
                 Indicates whether the store is tracking the values of the cookie and privacy consent settings that the shopper consented to and configured.
             multi_storefront_enabled:
               type: boolean
@@ -333,13 +331,14 @@ components:
                   minimum: 1
                   default: 1
                   example: 3
-                  description: -|
+                  description: |-
                     Describes the number of storefronts active on the store. If `multi_storefront_enabled` is `false`, this value is `1`.
                 total_including_inactive:
                   type: integer
                   minimum: 1
+                  default: 1
                   example: 15
-                  description: -|
+                  description: |-
                     Describes the total number of storefronts associated with the store, including both active and inactive storefronts. The default varies based on store plan.
         account_uuid:
           type: string
