@@ -171,6 +171,9 @@ The following query returns details about the users of an account's stores:
               name
               storeHash
               users {
+                  collectionInfo {
+                    totalItems
+                  }
                 edges {
                   node {
                     id
@@ -224,6 +227,9 @@ The following query returns details about the users of an account's stores:
                   "name": "Plant Market",
                   "storeHash": "{store_hash}",
                   "users": {
+                    "collectionInfo": {
+                      "totalItems": 4
+                    },
                     "edges": [
                       {
                         "node": {
