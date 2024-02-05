@@ -2493,7 +2493,7 @@ components:
             type: object
             properties:
               option_id:
-                type: number
+                type: integer
               option_value:
                 type: integer
               name:
