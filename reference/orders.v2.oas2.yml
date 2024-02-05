@@ -631,7 +631,19 @@ paths:
 
         3. Supply a custom `tracking_link`: By providing a value for the `tracking_link` property, you can use your own tracking link within the BigCommerce control panel and in customer-facing emails. The API response will return your supplied tracking link as part of the `tracking_link` property in the response. In situations when there isn't a `generated_tracking_link`, the property in the API response will remain empty. 
         
-        Acceptable values for `shipping_provider` include an empty string (`""`), `auspost`, `carrier_{your_carrier_id}` (only used if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping)), `canadapost`, `endicia`, `usps`, `fedex`, `royalmail`, `ups`, `upsready`, `upsonline`, or `shipperhq`.
+        Acceptable values for `shipping_provider` include the following, and this list may be updated at any time: 
+         - `""`, an empty string
+         - `auspost`
+         - `canadapost
+         - `endicia`
+         - `usps`
+         - `fedex`
+         - `royalmail`
+         - `ups`
+         - `upsready`
+         - `upsonline`
+         - `shipperhq`
+         - `carrier_{your_carrier_id}`, when the carrier is a [third-party Shipping Provider](/docs/integrations/shipping) 
         
         Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
       summary: Create Order Shipment
@@ -3162,26 +3174,32 @@ components:
           example: Ship by Weight
           type: string
         shipping_provider:
-          type: string
-          description: Enum of the BigCommerce shipping-carrier integration/module.
-          enum:
-            - auspost
-            - canadapost
-            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping))
-            - endicia
-            - usps
-            - fedex
-            - ups
-            - upsready
-            - upsonline
-            - shipperhq
-            - ''
+          anyOf:
+            - type: string
+              description: An enum identifying one of several core shipping providers.
+              enum:
+                - auspost
+                - canadapost
+                - endicia
+                - usps
+                - fedex
+                - ups
+                - upsready
+                - upsonline
+                - shipperhq
+                - royalmail
+                - ''
+              example: shipperhq
+            - type: string
+              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
+              example: carrier_1234567
         tracking_carrier:
           type: string
           title: Tracking Carrier
           description: |-
             Tracking carrier for the shipment.
             Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
+          example: ""
         tracking_link:
           type: string
           description: The custom tracking link supplied on POST or PUT shipments. For the auto-generated tracking link see the `generated_tracking_link` property.
@@ -3562,25 +3580,32 @@ components:
           example: Ship by Weight
           type: string
         shipping_provider:
-          type: string
-          description: Enum of the BigCommerce shipping-carrier integration/module.
-          enum:
-            - auspost
-            - canadapost
-            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping))
-            - endicia
-            - usps
-            - fedex
-            - ups
-            - upsready
-            - upsonline
-            - shipperhq
+          anyOf:
+            - type: string
+              description: An enum identifying one of several core shipping providers.
+              enum:
+                - auspost
+                - canadapost
+                - endicia
+                - usps
+                - fedex
+                - ups
+                - upsready
+                - upsonline
+                - shipperhq
+                - royalmail
+                - ''
+              example: shipperhq
+            - type: string
+              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
+              example: carrier_1234567
         tracking_carrier:
           type: string
           title: Tracking Carrier
           description: |-
             Tracking carrier for the shipment.
             Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
+          example: ""
         comments:
           type: string
           description: Comments the shipper wishes to add.
@@ -3617,25 +3642,32 @@ components:
           example: Ship by Weight
           type: string
         shipping_provider:
-          type: string
-          description: Enum of the BigCommerce shipping-carrier integration/module.
-          enum:
-            - auspost
-            - canadapost
-            - carrier_{your_carrier_id} (only used if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping))
-            - endicia
-            - usps
-            - fedex
-            - ups
-            - upsready
-            - upsonline
-            - shipperhq
+          anyOf:
+            - type: string
+              description: An enum identifying one of several core shipping providers.
+              enum:
+                - auspost
+                - canadapost
+                - endicia
+                - usps
+                - fedex
+                - ups
+                - upsready
+                - upsonline
+                - shipperhq
+                - royalmail
+                - ''
+              example: shipperhq
+            - type: string
+              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
+              example: carrier_1234567
         tracking_carrier:
           type: string
           title: Tracking Carrier
           description: |-
             Tracking carrier for the shipment.
             Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid [tracking-carrier values](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
+          example: ""
         tracking_link:
           type: string
           description: The custom tracking link supplied on POST or PUT shipments. For the auto-generated tracking link see the `generated_tracking_link` property.
