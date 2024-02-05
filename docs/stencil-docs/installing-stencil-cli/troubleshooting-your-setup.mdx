@@ -6,7 +6,8 @@ When you encounter unexpected behavior while developing your Stencil theme, star
 In some cases, the terminal provides verbose error messages specifying where to look for problems. These have the potential to provide insight into the root cause of errors. For error messages that may not be helpful in revealing the issue you're experiencing, diagnostic suggestions are listed in this article.
 
 <Callout type="warning">
-  BigCommerce is currently targeting January 31, 2024, to sunset its node-sass fork in favor of the latest [sass/node-sass (GitHub)](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the [latest Node.js version with long-term support](https://nodejs.org/en) or the maintenance node version to run the Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](#incompatible-scss-directives), which can cause errors and consistency issues with your storefront's CSS.
+  BigCommerce is sunsetting its node-sass fork in favor of the latest [sass/node-sass (GitHub)](https://github.com/sass/node-sass). To ensure that your storefront is up to date, use the [latest Node.js version with long-term support](https://nodejs.org/en) or the maintenance node version to run the Stencil CLI and use the CLI command to resolve [incompatible SCSS directives](#incompatible-scss-directives), which can cause errors and consistency issues with your storefront's CSS. Your current production site will continue to function as designed, but all future updates will require you to address any SCSS compatibility issues with Node.js 18. This upgrade is necessary to ensure the security of our platform and that you are not running out-of-date packages that may expose your projects to additional security vulnerabilities.
+
 </Callout>
 
 ## Incompatible SCSS directives
