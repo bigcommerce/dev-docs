@@ -373,9 +373,13 @@ paths:
               - total_sold
         - name: 'categories:in'
           in: query
-          description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
+          description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12,15`.'
+          style: form
+          explode: false
           schema:
-            type: integer
+            type: array
+            items:
+              type: integer
         - name: sku
           in: query
           description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/docs/rest-catalog/product-variants#get-all-product-variants). '
