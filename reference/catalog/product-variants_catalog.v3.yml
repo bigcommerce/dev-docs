@@ -338,14 +338,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/productVariant_Full'
-                  errors: 
-                    $ref: '#/components/schemas/errorMultiStatus'
-                  meta:
-                    $ref: '#/components/schemas/metaCollection_Full'
+                $ref: '#/components/schemas/MultiStatus'
         '404':
           description: |
             The resource was not found.
@@ -521,14 +514,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/productVariant_Full'
-                  errors: 
-                    $ref: '#/components/schemas/errorMultiStatus'
-                  meta:
-                    $ref: '#/components/schemas/metaCollection_Full'
+                $ref: '#/components/schemas/MultiStatus'
         '404':
           description: |
             The resource was not found.
@@ -2214,6 +2200,15 @@ components:
           $ref: '#/components/schemas/pagination_Full'
       description: 'Data about the response, including pagination and collection totals.'
       x-internal: false
+    MultiStatus:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/productVariant_Full'
+        errors: 
+          $ref: '#/components/schemas/errorMultiStatus'
+        meta:
+          $ref: '#/components/schemas/metaCollection_Full'
     pagination_Full:
       title: pagination_Full
       type: object
