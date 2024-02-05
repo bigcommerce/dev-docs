@@ -132,14 +132,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/GetCategories'
-                  meta:
-                    $ref: '#/components/schemas/MetaPagination'
+                $ref: '#/components/schemas/CategoryList'
               examples:
                 Get Category 12:
                   value:
@@ -382,15 +375,8 @@ paths:
           description: List of category trees.
           content:
             application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Tree'
-                  meta:
-                    $ref: '#/components/schemas/MetaPaginationObject'
+              schema: 
+                $ref: '#/components/schemas/CategoryTreeList'
               example:
                 data:
                   - id: 0
@@ -426,28 +412,14 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Tree_req'
-            example:
-              - id: 0
-                name: string
-                channels:
-                  - 0
+              '$ref': '#/components/schemas/CategoryTreeListRequest'
       responses:
         '200':
           description: Created a category tree.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Tree'
-                  meta:
-                    $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/CategoryTree'
               example:
                 data:
                   - id: 0
@@ -505,14 +477,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/CategoryNode'
-                  meta:
-                    $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/CategoryNodeTree'
               example:
                 data:
                   - id: 0
@@ -704,6 +669,42 @@ components:
             - avg_customer_review
             - price_asc
             - price_desc
+    CategoryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetCategories'
+        meta:
+          $ref: '#/components/schemas/MetaPagination'
+    CategoryNodeTree: 
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/CategoryNode'
+            meta:
+              $ref: '#/components/schemas/metaEmpty_Full'
+    CategoryTreeList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tree'
+        meta:
+          $ref: '#/components/schemas/MetaPaginationObject'
+    CategoryTree:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tree'
+        meta:
+          $ref: '#/components/schemas/metaEmpty_Full'
     MetaPagination:
       type: object
       properties:
@@ -856,21 +857,15 @@ components:
             type: integer
       x-tags:
         - Models
-    Tree_req:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-          minLength: 1
-          maxLength: 255
-        channels:
-          type: array
-          items:
-            type: integer
-      x-tags:
-        - Models
+    CategoryTreeListRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tree'
+      example:
+        - id: 0
+          name: string
+          channels:
+            - 0
     CategoryNode:
       type: object
       properties:
