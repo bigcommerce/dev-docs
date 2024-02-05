@@ -2662,6 +2662,28 @@ components:
       type: apiKey
       in: header
   schemas:
+    shipping_provider_standard:
+      title: Standard Shipping Provider
+      type: string
+      description: An enum identifying one of several core shipping providers.
+      enum:
+        - auspost
+        - canadapost
+        - endicia
+        - usps
+        - fedex
+        - ups
+        - upsready
+        - upsonline
+        - shipperhq
+        - royalmail
+        - ''
+      example: shipperhq
+    shipping_provider_custom:
+      title: Custom Shipping Provider
+      type: string
+      description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
+      example: carrier_1234567
     order_Resp:
       title: order_Resp
       description: Order object returned in responses.
@@ -3175,24 +3197,8 @@ components:
           type: string
         shipping_provider:
           anyOf:
-            - type: string
-              description: An enum identifying one of several core shipping providers.
-              enum:
-                - auspost
-                - canadapost
-                - endicia
-                - usps
-                - fedex
-                - ups
-                - upsready
-                - upsonline
-                - shipperhq
-                - royalmail
-                - ''
-              example: shipperhq
-            - type: string
-              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
-              example: carrier_1234567
+            - $ref: '#/components/schemas/shipping_provider_standard'
+            - $ref: '#/components/schemas/shipping_provider_custom'
         tracking_carrier:
           type: string
           title: Tracking Carrier
@@ -3581,24 +3587,8 @@ components:
           type: string
         shipping_provider:
           anyOf:
-            - type: string
-              description: An enum identifying one of several core shipping providers.
-              enum:
-                - auspost
-                - canadapost
-                - endicia
-                - usps
-                - fedex
-                - ups
-                - upsready
-                - upsonline
-                - shipperhq
-                - royalmail
-                - ''
-              example: shipperhq
-            - type: string
-              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
-              example: carrier_1234567
+            - $ref: '#/components/schemas/shipping_provider_standard'
+            - $ref: '#/components/schemas/shipping_provider_custom'
         tracking_carrier:
           type: string
           title: Tracking Carrier
@@ -3643,24 +3633,8 @@ components:
           type: string
         shipping_provider:
           anyOf:
-            - type: string
-              description: An enum identifying one of several core shipping providers.
-              enum:
-                - auspost
-                - canadapost
-                - endicia
-                - usps
-                - fedex
-                - ups
-                - upsready
-                - upsonline
-                - shipperhq
-                - royalmail
-                - ''
-              example: shipperhq
-            - type: string
-              description: A string identifying the shipping provider. Some shipping providers may not be listed in the preceding enum list. In addition, if the carrier is a [third-party Shipping Provider](/docs/integrations/shipping), the string takes the form `carrier_{your_carrier_id}`.
-              example: carrier_1234567
+            - $ref: '#/components/schemas/shipping_provider_standard'
+            - $ref: '#/components/schemas/shipping_provider_custom'
         tracking_carrier:
           type: string
           title: Tracking Carrier
