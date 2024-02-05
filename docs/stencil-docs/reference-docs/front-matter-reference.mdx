@@ -1,20 +1,18 @@
 # Front Matter Reference
 
-
-
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](/docs/storefront/stencil/themes/context/frontmatter#declaring-front-matter-objects).
 
 ## Supported templates
-You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
+You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
 You cannot use front matter for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
 * `templates/pages/custom/`
 
-
 ## Global attributes
+
 ​Global attributes are available on all pages.
 ​
 ```yaml showLineNumbers
@@ -56,9 +54,10 @@ products:
 ```yaml showLineNumbers 
 carousel: true    # displays carousel on the storefront unless set to null
 ```
+
 | Property | Description |
 |:---------|:------------|
-|`carousel`|Boolean indicating whether to display a carousel on a storefront. No filtering available.|
+| `carousel` | Boolean indicating whether to display a carousel on a storefront. No filtering available. |
 
 ```yaml showLineNumbers
 blog:	
@@ -78,7 +77,7 @@ cart: true    # show cart data
 ```
 | Property | Description |
 |:---------|:------------|
-|`cart`|Boolean indicating whether to retrieve cart data. false: Do not return cart data.|
+| `cart` | Boolean indicating whether to retrieve cart data. false: Do not return cart data. |
 
 ```yaml showLineNumbers
 categories: true      # displays category tree
@@ -100,21 +99,23 @@ shop_by_brand: true   # displays brand list
 |`shop_by_brand`|Typically used in a footer or sidebar. null: Do not display this brand list. If not defined, it returns 10 brands, ordered by the number of products per brand.|
 
 ## Category attributes
+
 Category attributes are available in the context of a category.
 
 ```yaml showLineNumbers
 category:	
   shop_by_price: true   # displays shop by price controls
-  products: 10          # displays 10 products per page for this category 
+  products:
     limit:  10          # limits products per page for this category to 10
 ```
 
 | Property | Description |
 |:---------|:------------|
-|`shop_by_price`|Boolean indicating whether to display Shop-by-Price controls.|
-|`products`|Defines the number of products displayed per page for this category. The range of possible values is 1–100 products.|
+| `shop_by_price` | Boolean indicating whether to display Shop-by-Price controls. |
+| `products` | Defines the number of products displayed per page for this category. The range of possible values is 1–100 products. |
 
 ## Blog attributes
+
 Blog attributes are available in the context of a blog.
 
 ```yaml showLineNumbers
@@ -133,6 +134,7 @@ blog:
 |`summary`|sets the number of characters to display in each blog-post summary. If not defined, it displays 250 characters.|
 
 ## Product attributes
+
 Product attributes are available in the context of a product.
 
 ```yaml showLineNumbers
@@ -150,10 +152,8 @@ product:
 ```
 
 <Callout type="info">
-NOTE: The `similar_by_views` property is not currently active.
+Note: The `similar_by_views` property is not currently active.
 </Callout>
-
-
 
 | Property | Description |
 |:---------|:------------|
@@ -195,6 +195,7 @@ query reviewsByProductId(
     }
   }
 ```
+
 ## Brand attributes
 
 ```yaml showLineNumbers
@@ -218,7 +219,6 @@ brands:
 |:---------|:------------|
 |`brands`|When retrieving a collection of brands, the default sorting is by brand id, from lowest to highest. `limit` sets the number of brands displayed in the list. If `limit` is not defined, returns all brands, up to a maximum of 50.|
 
-
 ## Search attributes
 
 ```yaml showLineNumbers
@@ -232,7 +232,8 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL Storefront API](/docs/storefront/graphql) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+
+You can add [GraphQL Storefront API](/docs/storefront/graphql) queries to your theme using the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
  ```yaml showLineNumbers
 product:
@@ -263,9 +264,8 @@ gql: "query productById($productId: Int!) {
 ```
 
 <Callout type="info">
-NOTE: The `similar_by_views` property is not currently active.
+Note: The `similar_by_views` property is not currently active.
 </Callout>
-
 
 We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. If your query contains double quotes `"`, replace them with single quotes `'` or escape the double-quotes `\"`. You can launch the playground from your store by going to **Settings** >  **API** > **Storefront API Playground** in your store control panel.
 
