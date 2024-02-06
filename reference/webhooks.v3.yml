@@ -1162,7 +1162,6 @@ components:
       description: |
         Fires for all `store/category` events.
       x-examples: {}
-      allOf: []
       x-tags:
         - created
       x-internal: false
@@ -1293,7 +1292,6 @@ components:
     store_channel_wildcard:
       title: store/channel/*
       description: Fires for all `store/channel` events.
-      allOf: []
       x-tags:
         - created
       x-internal: false
@@ -1395,7 +1393,6 @@ components:
       description: |
         Fires for all `store/customer` events.
       x-examples: {}
-      allOf: []
       x-tags:
         - created
       x-internal: false
