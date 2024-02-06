@@ -5,7 +5,7 @@ keywords: payments, bigpay, currencies, currency, rest, v3, payment access token
 
 # Payments API
 
-The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Store Management Checkouts API](/docs/rest-storefront/checkouts) endpoint or the [Orders API](/docs/rest-management/orders#create-an-order).
+The Payments API lets you process payments through the store’s connected payment gateways. Merchants can receive a payment for an order that was created using either the [Store Management Checkouts API](/docs/rest-storefront/checkouts) endpoint or the [Orders API](/docs/rest-management/orders#create-an-order).
 
 Process payments by making a sequence of requests to the following two API endpoints:
 * Create a payment token:  `https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens`
@@ -89,10 +89,10 @@ The following table lists the payment gateways that are compatible with our publ
 
 <Callout type="warning">
 #### Test payment gateway
-The Payments API does not support the [BigCommerce Test Payment Gateway](https://support.bigcommerce.com/s/article/Testing-Shipping-Tax-and-Payment-Settings?language=en_US#test-gateway).
+The Payments API does not support the [BigCommerce Test Payment Gateway (Help Center)](https://support.bigcommerce.com/s/article/Testing-Shipping-Tax-and-Payment-Settings?language=en_US#test-gateway).
 </Callout>
 
-To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
+To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways (Help Center)](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
 ## Stored cards, PayPal and bank accounts
 
@@ -113,9 +113,14 @@ The payment gateway must support making charges to **stored payment instruments*
 The store must:
 * be on a BigCommerce Plus plan or higher;
 * use Optimized One-Page Checkout;
-* have stored credit cards enabled.
+* have stored credit cards and/or stored PayPal accounts enabled.
 
-Use the active MSF-enabled store's control panel to enable charging stored credit cards. Navigate to **Settings ›  Setup > Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+**Enabling Stored Credit Cards**\
+Use the store control panel to enable stored credit cards. Navigate to **[Settings > Setup > Payments](https://login.bigcommerce.com/deep-links/manage/settings/payment)** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**.
+
+**Enabling Stored PayPal Accounts**\
+PayPal Powered By Braintree is the only provider that currently supports the ability to store PayPal accounts, which you can use as payment instruments with this API. For more information on enabling stored payment methods, see [Enabling Stored Payment Methods (Help Center)](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+
 
 ### Using Braintree ACH stored bank accounts
 
@@ -147,21 +152,21 @@ Accept: application/json
 {
   "data": [
     {
-      "id": "bigcommerce.gift_certificate",
-      "name": "Gift Certificate",
-      "test_mode": false,
-      "type": "gift_certificate",
-      "supported_instruments": [],
-      "stored_instruments": []
-    },
+      "id": "bigcommerce.gift_certificate",
+      "name": "Gift Certificate",
+      "test_mode": false,
+      "type": "gift_certificate",
+      "supported_instruments": [],
+      "stored_instruments": []
+    },
     {
-      "id": "bigcommerce.store_credit",
-      "name": "Store Credit",
-      "test_mode": false,
-      "type": "store_credit",
-      "supported_instruments": [],
-      "stored_instruments": []
-    },
+      "id": "bigcommerce.store_credit",
+      "name": "Store Credit",
+      "test_mode": false,
+      "type": "store_credit",
+      "supported_instruments": [],
+      "stored_instruments": []
+    },
     {
       "id": "stripe.card",
       "name": "Stripe",
@@ -537,7 +542,7 @@ Accept: application/json
 
 ### Using test credit cards
 
-The following is a list of links to the test credit card numbers for our supported gateways. These can be useful during the development process. Check your credit card setup in both [BigCommerce](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) and the payment gateway to make sure it is configured properly. If the credit cards do not work or stop working, please reach out to the payment provider as these are not maintained by BigCommerce.
+The following is a list of links to the test credit card numbers for our supported gateways. These can be useful during the development process. Check your credit card setup in both [BigCommerce (Help Center)](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) and the payment gateway to make sure it is configured properly. If the credit cards do not work or stop working, please reach out to the payment provider as these are not maintained by BigCommerce.
 
 * [Authorize.Net](https://developer.authorize.net/hello_world/testing_guide/)
 * [PayPal Powered by Braintree](https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php)
@@ -576,9 +581,9 @@ You can create orders using the [Server to Server API Endpoints](/docs/rest-mana
 |-|-|  - |  - |
 | `10000` | We're experiencing difficulty processing your transaction. Please try again later.  |  Connection error | Try the request again |
 | `10001` | Unable to process the payment because invalid data was supplied with the transaction. | Missing or incorrect Fields |  Check the request for any data that is incorrect or is missing |
-| `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
-| `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br /> Reach out to the payment gateway to check that the information is correct. |
-| `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
+| `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways (Help Center)](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
+| `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways (Help Center)](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br /> Reach out to the payment gateway to check that the information is correct. |
+| `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards (Help Center)](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
 | `30003` | Order could not be found. | The order does not exist. <br /> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/docs/rest-management/orders#get-all-orders) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br /> Recreate the order <br /> Ensure the store settings for taxes and discounts are setup correctly|
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br /> * `expiry_month` is two digits<br />* `expiry_year` is four digits |
@@ -596,19 +601,19 @@ You can create orders using the [Server to Server API Endpoints](/docs/rest-mana
 
 **How do I get a list of stored credit cards?**
 
-Use the Get Payment Methods to get a list of stored payment instruments. 
+Use the [Get Payment Methods](/docs/rest-payments/methods#get-accepted-payment-methods) endpoint to get a list of stored payment instruments.
 
 **Can I add my payment gateway?**
 
-The Payments API does not support adding a third-party gateway. Payments are processed through BigCommerce.
+The Payments API does not support using gateways that are not on the list of [compatible payment gateways](#compatible-payment-gateways).
 
 **Can I issue a refund?**
 
-You can issue a refund using the [control panel](https://support.bigcommerce.com/s/article/Processing-Refunds), the Refunds API, or through the payment gateway directly.
+You can issue a refund [using the store control panel (Help Center)](https://support.bigcommerce.com/s/article/Processing-Refunds), the Refunds API, or through the payment gateway directly.
 
 **How do I process payment for a capture credit card?**
 
-Once you have an authorized payment, perform the capture step using the [control panel](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically) or the Capture API.
+Once you have an authorized payment, perform the capture step using the [store control panel (Help Center)](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically) or the Capture API.
 
 **Can I use this on orders with more than one shipping address?**
 Yes, checkouts and orders with more than one consignment can use the Payments API.
@@ -626,19 +631,20 @@ Store credit is _not_ available for orders created by guest shoppers.
 Yes, the Payments API supports the gift certificate payment method. However, it is only available when a store has the gift certificate feature enabled for the order’s transactional currency.
 
 **Are offline payment methods supported?**
-The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
+
+The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods (Help Center)](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
 
 **Is Strong Customer Authentication supported?**
 
-Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to the Help Center's [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) page.
+Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to the Help Center's [Available Payment Gateways (Help Center)](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) page.
 
 ## Related resources
 
 ### Articles
-* [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways)
-* [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards)
-* [Manually Capturing Transactions (Authorize Only)](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically)
-* [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds)
+* [Available Payment Gateways (Help Center)](https://support.bigcommerce.com/s/article/Available-Payment-Gateways)
+* [Enabling Stored Credit Cards (Help Center)](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards)
+* [Manually Capturing Transactions - Authorize Only (Help Center)](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically)
+* [Processing Refunds (Help Center)](https://support.bigcommerce.com/s/article/Processing-Refunds)
 
 
 ### Endpoints and mutations
