@@ -26,6 +26,7 @@ tags:
   - name: Redirects
   - name: Settings
   - name: Metafields
+  - name: Batch metafields
 paths:
   '/carts':
     parameters:
@@ -177,76 +178,41 @@ paths:
                   currency:
                     code: usd
                   locale: en-US
-        description: |-
+        description: ""
         required: true
         x-examples:
-          Simple Product: |-
-            {
-              "line_items": [
-                {
-                  "quantity": 5,
-                  "product_id": 191
-                }
-              ]
-            }
-          Create a Cart with a Variant: |-
-            {
-                "line_items":[
-                    {
-                        "quantity": 2,
-                        "product_id": 107,
-                        "variant_id": 185
-                    }
-                ]
-            }
-          Create a Cart using Date Option: |-
-            {
-              "line_items": [
-                {
-                  "quantity": 5,
-                  "product_id": 191,
-                  "variant_id": 185,
-                  "option_selections": [
-                    {
-                      "option_id": 440,
-                      "option_value": 1743570000
-                    }
-                  ]
-                }
-              ]
-            } 
-          With a Variant of Checkbox and Picklist: |-
-            {
-              "line_items": [
-                {
-                  "quantity": 1,
-                  "product_id": 77,
-                  "option_selections": [
-                    {
-                      "option_id": 120,
-                      "option_value": 69
-                    },
-                    {
-                      "option_id": 121,
-                      "option_value": 10
-                    },
-
-                    {
-                      "option_id": 124,
-                      "option_value": 106
-                    },
-                    {
-                      "option_id": 122,
-                      "option_value": "Hello"
-                    },
-                    {
-                      "option_id": 123, 
-                      "option_value": 104
-                    }
-                  ]
-                }
-              ]
-            } 
+          Simple Product:
+            line_items:
+              - quantity: 5
+                product_id: 191
+          Create a Cart with a Variant:
+            line_items:
+              - quantity: 2
+                product_id: 107
+                variant_id: 185
+          Create a Cart using Date Option:
+            line_items:
+              - quantity: 5
+                product_id: 191
+                variant_id: 185
+                option_selections: 
+                  - option_id: 440
+                    option_value: 1743570000
+          With a Variant of Checkbox and Picklist: 
+            line_items:
+              - quantity: 1
+                product_id: 77
+                option_selections:
+                  - option_id: 120
+                    option_value: 69
+                  - option_id: 121
+                    option_value: 10
+                  - option_id: 124
+                    option_value: 106
+                  - option_id: 122
+                    option_value: "Hello"
+                  - option_id: 123 
+                    option_value: 104
           Custom Item:
             custom_items:
               - sku: abc-123
@@ -534,7 +500,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/cartId'
     get:
-      description: Returns a store's *Cart*.
+      description: Returns a storeʼs *Cart*.
       parameters:
         - name: include
           in: query
@@ -561,7 +527,7 @@ paths:
       operationId: getCart
     put:
       description: |-
-        Updates a *Cart's* `customer_id`.
+        Updates a *Cartʼs* `customer_id`.
 
         **Notes**
 
@@ -779,7 +745,7 @@ paths:
       tags:
         - Metafields
       description: Get all cart metafields.
-      operationId: getAllCartMetafields
+      operationId: getCartMetafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
         - $ref: '#/components/parameters/LimitParam'
@@ -796,7 +762,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can result from duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -823,15 +789,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MetafieldPost' 
+              $ref: '#/components/schemas/MetafieldBase_Post' 
             example:
-                    {
-                      "permission_set": app_only,
-                      "namespace": Sales Department,
-                      "key": Staff Name,
-                      "value": Sam,
-                      "description": Name of staff member
-                      }
+              permission_set: app_only
+              namespace: Sales Department
+              key: Staff Name
+              value: Sam
+              description: Name of staff member
         description: ''
         required: true
       responses:
@@ -885,7 +849,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can result from duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -918,7 +882,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MetafieldPost'
+              $ref: '#/components/schemas/MetafieldBase_Post'
             examples: {}
         description: |
           A `Metafield` object.
@@ -965,6 +929,142 @@ paths:
         in: path
         required: true
         description: The unique ID of the subject `Metafield`.
+  '/carts/metafields':
+    get:
+      summary: Get All Metafields
+      tags:
+        - Batch metafields
+      description: Get all cart metafields.
+      operationId: getCartsMetafields
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_Batch'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldKeyInParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceInParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    post:
+      summary: Create multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: createCartsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      resource_id:
+                        type: string
+                        example: "42"
+                        description: |
+                          The ID for the cart with which the metafield is associated.
+                    required:
+                      - resource_id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of created `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_Batch_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    put:
+      summary: Update multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: updateCartsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        example: "42"
+                        description: |
+                          The ID of metafield to update.
+                    required:
+                      - id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of updated `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_Batch_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    delete:
+      summary: Delete All Metafields
+      tags:
+        - Batch metafields
+      description: Delete all cart metafields.
+      operationId: deleteCartsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: List of metafield `id`s.
+      responses:
+        '200':
+          description: |
+            Response object for metafields deletion with success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionDeleteResponseSuccess'
+        '422':
+          description: |
+            Response object for metafields deletion with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   schemas:
     CartUpdateRequest:
@@ -2126,7 +2226,7 @@ components:
           description: SKU of the variant.
         name:
           type: string
-          description: The item's product name.
+          description: The itemʼs product name.
           example: T-Shirt
         url:
           description: The product URL.
@@ -2373,7 +2473,7 @@ components:
       type: object
       title: Item Custom
       description: |-
-        Add a custom item to the shopper's cart.
+        Add a custom item to the shopperʼs cart.
 
         * Custom items are not added to the catalog.
         * The price should be set to match the store settings for taxes.
@@ -2397,7 +2497,7 @@ components:
       type: object
       title: Item Custom
       description: |-
-        Add a custom item to the shopper's cart.
+        Add a custom item to the shopperʼs cart.
 
         * Custom items are not added to the catalog.
         * The price should be set to match the store settings for taxes.
@@ -3013,13 +3113,18 @@ components:
             date_created:
               type: string
               format: date-time
-              description: Date and time of the metafield's creation.
+              description: Date and time of the metafieldʼs creation.
               example: '2022-06-16T18:39:00+00:00'
             date_modified:
               type: string
               format: date-time
               description: Date and time when the metafield was last updated.
               example: '2022-06-16T18:39:00+00:00'
+            owner_client_id:
+              type: string
+              description: Client ID for the metafieldʼs creator.
+              example: asdfasdfasdfasdfasdfasdfasdf
+              readOnly: true
       x-internal: false
     MetafieldBase:
       type: object
@@ -3036,8 +3141,8 @@ components:
             | `app_only` | Private to the app that owns the field. |
             | `read` | Visible to other API consumers. |
             | `write` | Open for reading and writing by other API consumers. |
-            | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
-            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
           enum:
             - app_only
             - read
@@ -3091,12 +3196,6 @@ components:
           readOnly: true
       required:
         - permission_set
-    MetafieldPost:
-      description: |
-        The model for a POST to create metafield.
-      allOf:
-        - $ref: '#/components/schemas/MetafieldBase_Post'
-      x-internal: false
     MetafieldBase_Post:
       type: object
       description: |
@@ -3112,8 +3211,8 @@ components:
             | `app_only` | Private to the app that owns the field. |
             | `read` | Visible to other API consumers. |
             | `write` | Open for reading and writing by other API consumers. |
-            | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
-            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
           enum:
             - app_only
             - read
@@ -3163,13 +3262,167 @@ components:
         meta:
           $ref: '#/components/schemas/CollectionMeta'
       x-internal: false
+    MetaFieldCollectionResponse_Batch:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+    MetaFieldCollectionResponse_Batch_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+    MetaFieldCollectionDeleteResponseSuccess:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example:
+            - 123
+            - 124
+            - 125
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/WriteCollectionSuccessMeta'
+      x-internal: false
+    MetaFieldCollectionResponsePartialSuccess_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+    MetaFieldCollectionResponsePartialSuccess_DELETE:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+      x-internal: false
+    Error:
+      type: object
+      description: |
+        Error response payload for the BigCommerce API.
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code for the error.
+          example: 422
+        title:
+          type: string
+          description: |
+            The error title.
+          example: Bulk operation has failed
+        type:
+          type: string
+          description: |
+            The error type.
+          example: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          $ref: '#/components/schemas/ErrorDetail'
+    ErrorDetail:
+      type: object
+      description: |
+        Error detail response payload for the BigCommerce API.
+      example:
+        "1": "Unauthorized to delete"
+        "2": "Metafield does not exist"
+    WriteCollectionSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 3
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 0
+      title: Collection Meta
+      x-internal: false
+    WriteCollectionPartialSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 1
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 2
+      title: Collection Meta
+      x-internal: false
     CollectionMeta:
       type: object
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       properties:
         pagination:
           type: object
-          description: 'Data about the response, including pagination and collection totals.'
+          description: Data about the response, including pagination and collection totals.
           title: Pagination
           properties:
             total:
@@ -3330,17 +3583,39 @@ components:
     MetafieldKeyParam:
       name: key
       in: query
-      description: Filter based on a metafield's key.
+      description: Filter based on a metafieldʼs key.
       required: false
       schema:
         type: string
+    MetafieldKeyInParam:
+      name: key:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     MetafieldNamespaceParam:
       name: namespace
       in: query
-      description: Filter based on a metafield's key.
+      description: Filter based on a metafieldʼs namespaces.
       required: false
       schema:
         type: string
+    MetafieldNamespaceInParam:
+      name: namespace:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     LimitParam:
       name: limit
       description: |

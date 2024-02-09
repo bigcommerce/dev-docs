@@ -16,7 +16,7 @@ info:
 
     ### Platform
 
-    A channel's `type` and `platform` combination must be a valid pair as indicated in the table below.
+    A channelʼs `type` and `platform` combination must be a valid pair as indicated in the table below.
 
     | Platform            | Accepted Type |
     |:--------------------|:--------------|
@@ -58,7 +58,7 @@ info:
 
     ### Status
 
-    Allowed values for a channel's `status` vary by channel `type` and `platform`.
+    Allowed values for a channelʼs `status` vary by channel `type` and `platform`.
 
     |Type|Platform|Allowed Statuses|
     |--|--|--|
@@ -94,14 +94,15 @@ servers:
 security:
   - X-Auth-Token: []
 tags:
+  - name: Batch metafields
   - name: Channels
-  - name: Channel Active Theme
-  - name: Channel Currency Assignments
-  - name: Channel Listings
-  - name: Channel Site
-  - name: Channel Site Checkout Url
-  - name: Channel Menus
-  - name: Channel Metafields
+  - name: Metafields
+  - name: Menus
+  - name: Active Theme
+  - name: Currency Assignments
+  - name: Listings
+  - name: Site
+  - name: Site Checkout URL
 paths:
   '/channels':
     parameters:
@@ -222,7 +223,7 @@ paths:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
-        - Channel Active Theme
+        - Active Theme
       summary: Get a Channel Active Theme
       operationId: getChannelActiveTheme
       description: |-
@@ -238,7 +239,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Get All Channels Currency Assignments
       operationId: getAllCurrencyAssignments
       description: Returns a list of currency assignments for all channels.
@@ -247,7 +248,7 @@ paths:
           $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
     post:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       parameters:
         - $ref: '#/components/parameters/ContentType'
       summary: Create Multiple Channels Currency Assignments
@@ -269,7 +270,7 @@ paths:
           $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
     put:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Update Multiple Channels Currency Assignments
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -295,7 +296,7 @@ paths:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Get Channel Currency Assignments
       operationId: getSingleChannelCurrencyAssignments
       description: Returns a list of currency assignments for a specific channel.
@@ -306,7 +307,7 @@ paths:
           $ref: '#/components/responses/channel_not_found_resp'
     post:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Create Channel Currency Assignments
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -328,7 +329,7 @@ paths:
           $ref: '#/components/responses/missing_or_invalid_single_channel_currency_assignments_data_resp'
     put:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Update Channel Currency Assignments
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -350,7 +351,7 @@ paths:
           $ref: '#/components/responses/missing_or_invalid_single_channel_currency_assignments_data_resp'
     delete:
       tags:
-        - Channel Currency Assignments
+        - Currency Assignments
       summary: Delete Channel Currency Assignments
       operationId: deleteSingleChannelCurrencyAssignments
       description: 'Deletes currency assignments for a specific channel. Once done, this channel will inherit the store’s currency settings.'
@@ -365,7 +366,7 @@ paths:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
       tags:
-        - Channel Listings
+        - Listings
       summary: Get Channel Listings
       operationId: getChannelListings
       description: 'Returns a list of all *Channel Listings* for a specific channel. Note that if the *Channel* is not found or there is no listing associated to the *Channel*, it will return a 200 response with empty data.'
@@ -388,7 +389,7 @@ paths:
           $ref: '#/components/responses/invalid_filters_resp'
     post:
       tags:
-        - Channel Listings
+        - Listings
       summary: Create Channel Listings
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -412,7 +413,7 @@ paths:
           $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_post_resp'
     put:
       tags:
-        - Channel Listings
+        - Listings
       summary: Update Channel Listings
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -450,7 +451,7 @@ paths:
       - $ref: '#/components/parameters/listing_id_path_param'
     get:
       tags:
-        - Channel Listings
+        - Listings
       summary: Get a Channel Listing
       operationId: getChannelListing
       description: Returns a *Channel Listing* for a specific channel.
@@ -464,10 +465,10 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/channel_id_path_param'
     put:
-      summary: Upsert a Site's Checkout URL
+      summary: Upsert a Siteʼs Checkout URL
       tags:
-        - Channel Site Checkout Url
-      description: Creates or updates (upserts) a site's checkout URL
+        - Site Checkout URL
+      description: Creates or updates (upserts) a siteʼs checkout URL
       operationId: updateCheckoutUrl
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -487,35 +488,26 @@ paths:
             Example 1:
               examples:
                 response:
-                  value: |-
-                    {
-                        "id": 1,
-                        "url": "https://kittens.mybigcommerce.com/",
-                        "channel_id": 1,
-                        "created_at": "2018-01-04T04:15:50.000Z",
-                        "updated_at": "2018-01-04T04:15:50.000Z",
-                        "urls": [
-                            {
-                                "url": "https://kittens.mybigcommerce.com",
-                                "type": "primary",
-                                "created_at": "2022-03-22T13:08:59Z",
-                                "updated_at": "2022-03-22T13:08:59Z"
-                            },
-                            {
-                                "url": "https://store-abc.store.bcdev",
-                                "type": "canonical",
-                                "created_at": "2022-03-22T13:08:59Z",
-                                "updated_at": "2022-03-22T13:08:59Z"
-                            },
-                            {
-                                "url": "https://checkout.kittens.mybigcommerce.com",
-                                "type": "checkout",
-                                "created_at": "2022-03-23T10:21:11Z",
-                                "updated_at": "2022-03-29T13:44:22Z"
-                            }
-                        ],
-                        "is_checkout_url_customized": true
-                    }
+                  value: 
+                    id: 1
+                    url: 'https://kittens.mybigcommerce.com/'
+                    channel_id: 1
+                    created_at: "2018-01-04T04:15:50.000Z"
+                    updated_at: "2018-01-04T04:15:50.000Z"
+                    urls: 
+                      - url: "https://kittens.mybigcommerce.com"
+                        type: primary
+                        created_at: "2022-03-22T13:08:59Z"
+                        updated_at: "2022-03-22T13:08:59Z"
+                      - url: 'https://store-abc.store.bcdev'
+                        type: canonical
+                        created_at: "2022-03-22T13:08:59Z"
+                        updated_at: "2022-03-22T13:08:59Z"
+                      - url: 'https://checkout.kittens.mybigcommerce.com'
+                        type: checkout
+                        created_at: '2022-03-23T10:21:11Z'
+                        updated_at: '2022-03-29T13:44:22Z'
+                    is_checkout_url_customized: true
         '422':
           description: Unprocessable Entity. Your checkout and storefront must be within the same main domain like `example.com` and `subdomain.example.com`
           content:
@@ -541,11 +533,11 @@ paths:
                   errors:
                     type: object
     delete:
-      summary: Delete a Site's Checkout URL
+      summary: Delete a Siteʼs Checkout URL
       operationId: deleteCheckoutUrl
       description: Deletes a siteʼs checkout URL. After deletion, a shared checkout URL is used.
       tags:
-        - Channel Site Checkout Url
+        - Site Checkout URL
       responses:
         '200':
           description: OK. `data` and `meta` are empty objects.
@@ -574,7 +566,7 @@ paths:
         '200':
           $ref: '#/components/responses/site_Resp'
       tags:
-        - Channel Site
+        - Site
     put:
       responses:
         '200':
@@ -592,7 +584,7 @@ paths:
           application/json:
             url: 'https://example.com/'
       tags:
-        - Channel Site
+        - Site
       description: Updates a site for provided channel.
     post:
       responses:
@@ -612,7 +604,7 @@ paths:
             url: 'http://kittens.mybigcommerce.com/'
             channel_id: 123
       tags:
-        - Channel Site
+        - Site
       description: Alias of POST `/sites`. Creates a site for provided channel.
     delete:
       responses:
@@ -623,10 +615,10 @@ paths:
               schema:
                 type: object
                 properties: {}
-      description: Deletes the Channel's site.
+      description: Deletes the Channelʼs site.
       operationId: deleteChannelSite
       tags:
-        - Channel Site
+        - Site
       summary: Delete a Channel Site
   '/channels/{channel_id}/channel-menus':
     parameters:
@@ -641,7 +633,7 @@ paths:
         '200':
           $ref: '#/components/responses/channel_menus_Resp'
       tags:
-        - Channel Menus
+        - Menus
     post:
       responses:
         '200':
@@ -657,7 +649,7 @@ paths:
               $ref: '#/components/schemas/channel_menus_Post'
             examples: {}
       tags:
-        - Channel Menus
+        - Menus
       description: Creates or replaces list of control panel side navigation menus for a channel.
     delete:
       responses:
@@ -679,7 +671,7 @@ paths:
       description: Deletes control panel side navigation menus for a channel.
       operationId: deleteChannelMenus
       tags:
-        - Channel Menus
+        - Menus
       summary: Delete Channel Menus
   '/channels/{channel_id}/metafields':
     parameters:
@@ -688,7 +680,7 @@ paths:
     get:
       summary: Get Channel Metafields
       tags:
-        - Channel Metafields
+        - Metafields
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
@@ -715,7 +707,7 @@ paths:
               $ref: '#/components/schemas/metafield_Post'
             examples: {}
       tags:
-        - Channel Metafields
+        - Metafields
       description: |-
         Creates a channel metafield.
 
@@ -732,7 +724,7 @@ paths:
     get:
       summary: Get a Channel Metafield
       tags:
-        - Channel Metafields
+        - Metafields
       responses:
         '200':
           $ref: '#/components/responses/metafield_200'
@@ -752,7 +744,7 @@ paths:
             schema:
               $ref: '#/components/schemas/metafield_Put'
       tags:
-        - Channel Metafields
+        - Metafields
       description: |-
         Updates a single channel metafield.
 
@@ -765,8 +757,124 @@ paths:
         '204':
           description: No Content
       tags:
-        - Channel Metafields
+        - Metafields
       description: Deletes a single channel metafield.
+  '/channels/metafields':
+    get:
+      summary: Get All Metafields
+      tags:
+        - Batch metafields
+      description: Get all channel metafields.
+      operationId: getChannelsMetafields
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldKeyInParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceInParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    post:
+      summary: Create multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: createChannelsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetafieldPost'
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of created `Metafield` objects.  
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    put:
+      summary: Update multiple Metafields
+      tags:
+        - Batch metafields
+      description: Update multiple metafields.
+      operationId: updateChannelsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetafieldPut'
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of updated `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    delete:
+      summary: Delete All Metafields
+      tags:
+        - Batch metafields
+      description: Delete all channel metafields.
+      operationId: deleteChannelsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: List of metafield IDs.
+      responses:
+        '200':
+          description: |
+            Response object for metafields deletion with success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionDeleteResponseSuccess'
+        '422':
+          description: |
+            Response object for metafields deletion with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   parameters:
     Accept:
@@ -805,17 +913,39 @@ components:
       name: key
       in: query
       description: |
-        Filter based on a metafield's key.
+        Filter based on a metafieldʼs key.
       required: false
       schema:
         type: string
+    MetafieldKeyInParam:
+      name: key:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     MetafieldNamespaceParam:
       name: namespace
       in: query
-      description: Filter based on a metafield's namespace.
+      description: Filter based on a metafieldʼs namespace.
       required: false
       schema:
         type: string
+    MetafieldNamespaceInParam:
+      name: namespace:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     LimitParam:
       name: limit
       description: |
@@ -826,7 +956,8 @@ components:
         type: integer
     DirectionParam:
       name: direction
-      description: Sort direction.
+      description: |-
+        Sort direction. Acceptable values are: `asc`, `desc`.
       required: false
       in: query
       schema:
@@ -1395,7 +1526,7 @@ components:
               date_created:
                 type: string
                 description: |
-                  Date and time of the metafield's creation. Read-Only.
+                  Date and time of the metafieldʼs creation. Read-Only.
                 format: date-time
                 example: '2018-05-07T20:14:17.000Z'
               date_modified:
@@ -1539,17 +1670,17 @@ components:
               name: Terrarium with fish
         - product_id: 100
           state: pending
-          name: Women's Bold T-Shirt
+          name: Womenʼs Bold T-Shirt
           description: 'The same t-shirt, but not a [Sample]'
           variants:
             - product_id: 100
               variant_id: 91
               state: pending
-              name: Small women's bold t-shirt
+              name: Small womenʼs bold t-shirt
             - product_id: 100
               variant_id: 92
               state: pending
-              name: Medium women's bold t-shirt
+              name: Medium womenʼs bold t-shirt
     update_single_listing_req_example:
       value:
         - listing_id: 882998595
@@ -1575,12 +1706,12 @@ components:
         - listing_id: 882789362
           product_id: 100
           state: pending
-          name: Women's Bold T-Shirt
+          name: Womenʼs Bold T-Shirt
           variants:
             - product_id: 100
               variant_id: 91
               state: pending
-              name: Small women's bold t-shirt
+              name: Small womenʼs bold t-shirt
     multiple_channels_without_currencies_resp_example:
       value:
         data:
@@ -1794,7 +1925,7 @@ components:
             listing_id: 882789362
             product_id: 100
             state: pending
-            name: Women's Bold T-Shirt
+            name: Womenʼs Bold T-Shirt
             description: 'The same t-shirt, but not a [Sample]'
             date_created: '2021-05-24T17:46:33Z'
             date_modified: '2021-05-24T17:46:33Z'
@@ -1803,14 +1934,14 @@ components:
                 product_id: 100
                 variant_id: 91
                 state: pending
-                name: Small women's bold t-shirt
+                name: Small womenʼs bold t-shirt
                 date_created: '2021-05-24T17:46:33Z'
                 date_modified: '2021-05-24T17:46:33Z'
               - channel_id: 664177
                 product_id: 100
                 variant_id: 92
                 state: pending
-                name: Medium women's bold t-shirt
+                name: Medium womenʼs bold t-shirt
                 date_created: '2021-05-24T17:46:33Z'
                 date_modified: '2021-05-24T17:46:33Z'
         meta:
@@ -1929,8 +2060,8 @@ components:
         title: 'The following fields are invalid: type, platform'
         type: /api-docs/getting-started/api-status-codes
         errors:
-          type: The field 'type' can not be updated after channel is created.
-          platform: The field 'platform' can not be updated after channel is created.
+          type: "The field 'type' can not be updated after channel is created."
+          platform: "The field 'platform' can not be updated after channel is created."
     error_422_prevent_update_deleted_channel_resp_example:
       value:
         status: 422
@@ -2135,7 +2266,7 @@ components:
         date_created:
           type: string
           description: |
-            Date and time of the metafield's creation. Read-Only.
+            Date and time of the metafieldʼs creation. Read-Only.
           format: date-time
           example: '2018-05-07T20:14:17.000Z'
         date_modified:
@@ -2144,6 +2275,470 @@ components:
             Date and time when the metafield was last updated. Read-Only.
           format: date-time
           example: '2018-05-07T20:14:17.000Z'
+    Metafield:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          example: order
+          minLength: 0
+          maxLength: 255
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          enum:
+            - brand
+            - product
+            - variant
+            - category
+            - cart
+            - channel
+            - location
+            - order
+            - customer
+          example: cart
+        resource_id:
+          type: integer
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
+          example: 424242
+          readOnly: true
+        id:
+          type: integer
+          description: The unique identifier for the metafield.
+        date_created:
+          type: string
+          format: date-time
+          description: Date and time of the metafieldʼs creation.
+          example: '2022-06-16T18:39:00+00:00'
+        date_modified:
+          type: string
+          format: date-time
+          description: Date and time when the metafield was last updated.
+          example: '2022-06-16T18:39:00+00:00'
+        owner_client_id:
+          type: string
+          description: Client ID for the metafieldʼs creator.
+          example: asdfasdfasdfasdfasdfasdfasdf
+          readOnly: true
+      required:
+        - namespace
+        - key
+        - value
+        - permission_set
+        - resource_type
+        - resource_id
+        - description
+        - id
+        - date_created
+        - date_modified
+    MetaFieldCollectionResponse:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: false
+    MetaFieldCollectionResponse_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+    MetaFieldCollectionResponsePartialSuccess_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+    MetaFieldCollectionResponsePartialSuccess_DELETE:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+      x-internal: false
+    MetaFieldCollectionDeleteResponseSuccess:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example:
+            - 123
+            - 124
+            - 125
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/WriteCollectionSuccessMeta'
+      x-internal: false
+    WriteCollectionPartialSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 1
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 2
+      title: Collection Meta
+      x-internal: false
+    WriteCollectionSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 3
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 0
+      title: Collection Meta
+      x-internal: false
+    Total:
+      type: integer
+      description: |
+        Total number of items in the result set.
+      example: 3
+    Success:
+      type: integer
+      description: |
+        Total number of items that were successfully deleted.
+      example: 1
+    Failed:
+      type: integer
+      description: |
+        Total number of items that failed to be deleted.
+      example: 2
+    Error:
+      type: object
+      description: |
+        Error response payload for the BigCommerce API.
+      properties:
+        status:
+          type: integer
+          format: int32
+          description: |
+            The HTTP status code for the error.
+          example: 422
+        title:
+          type: string
+          description: |
+            The error title describing the particular error.
+          example: Bulk operation has failed
+        type:
+          type: string
+          description: |
+            The error type.
+          example: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          $ref: '#/components/schemas/ErrorDetail'
+    ErrorDetail:
+      type: object
+      description: |
+        Error detail response payload for the BigCommerce API.
+      example:
+        "1": "Unauthorized to delete"
+        "2": "Metafield does not exist"
+    CollectionMeta:
+      type: object
+      description: Data about the response, including pagination and collection totals.
+      properties:
+        pagination:
+          type: object
+          description: Data about the response, including pagination and collection totals.
+          title: Pagination
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+      additionalProperties: true
+      title: Collection Meta
+      x-internal: false
+    MetafieldBase_Post:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    MetafieldPost:
+      description: |
+        The model for a POST to create metafield.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase_Post'
+        - type: object
+          properties:
+            resource_id:
+              type: integer
+              example: 42
+              description: |
+                The ID for the resource with which the metafield is associated.
+          required:
+            - resource_id
+      x-internal: false
+    MetafieldBase_Put:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
+    MetafieldPut:
+      description: |
+        The model for a PUT to create metafield.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase_Put'
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 42
+              description: |
+                The ID of metafield to update.
+          required:
+            - id
+      x-internal: false
     PutCheckoutUrl:
       type: object
       properties:
@@ -2342,7 +2937,7 @@ components:
                     deprecated: true
                   query_path:
                     type: string
-                    description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
+                    description: The value that will be passed to the appʼs iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
                     deprecated: true
       x-examples:
         example-1:
@@ -2616,7 +3211,7 @@ components:
       x-internal: false
     ActiveTheme:
       type: object
-      description: Details about the Channel's relationship to Themes.
+      description: Details about the Channelʼs relationship to Themes.
       properties:
         active_theme_uuid:
           type: string
@@ -2688,23 +3283,6 @@ components:
             type: string
             description: Value used in the `section` query param.
         x-internal: false
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-          description: The HTTP status code.
-        title:
-          type: string
-          description: The error title describing the particular error.
-        type:
-          type: string
-          description: Link to a list of BigCommerce API status codes.
-        errors:
-          type: object
-          description: Provides more details to errors.
-      x-internal: false
     MetaWithFullPagination:
       type: object
       description: 'Data about the response, including pagination.'

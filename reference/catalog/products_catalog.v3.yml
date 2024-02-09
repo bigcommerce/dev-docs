@@ -42,6 +42,7 @@ servers:
 security:
   - X-Auth-Token: []
 tags:
+  - name: Batch metafields
   - name: Products
   - name: Bulk Pricing Rules
   - name: Complex Rules
@@ -1229,7 +1230,7 @@ paths:
         > The maximum number of products you can delete at one time is 250.
 
         **Example**:
-        To delete products with the id's of 1,2 and 3, use `DELETE /v3/catalog/products?id:in=1,2,3`.
+        To delete products with IDs 1,2 and 3, use `DELETE /v3/catalog/products?id:in=1,2,3`.
       operationId: deleteProducts
       parameters:
         - name: name
@@ -2046,13 +2047,13 @@ paths:
                     is_thumbnail:
                       type: boolean
                       description: |
-                        Flag for identifying whether the image is used as the product's thumbnail.
+                        Flag for identifying whether the image is used as the productʼs thumbnail.
                     sort_order:
                       maximum: 2147483647
                       minimum: -2147483648
                       type: integer
                       description: |
-                        The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the image's new `sort_order` value will have their `sort_order`s reordered.
+                        The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
                     description:
                       type: string
                       description: |
@@ -2114,13 +2115,13 @@ paths:
                     is_thumbnail:
                       type: boolean
                       description: |
-                        Flag for identifying whether the image is used as the product's thumbnail.
+                        Flag for identifying whether the image is used as the productʼs thumbnail.
                     sort_order:
                       maximum: 2147483647
                       minimum: -2147483648
                       type: integer
                       description: |
-                        The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the image's new `sort_order` value will have their `sort_order`s reordered.
+                        The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
                     description:
                       type: string
                       description: |
@@ -2191,13 +2192,13 @@ paths:
                           is_thumbnail:
                             type: boolean
                             description: |
-                              Flag for identifying whether the image is used as the product's thumbnail.
+                              Flag for identifying whether the image is used as the productʼs thumbnail.
                           sort_order:
                             maximum: 2147483647
                             minimum: -2147483648
                             type: integer
                             description: |
-                              The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the image's new `sort_order` value will have their `sort_order`s reordered.
+                              The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
                           description:
                             type: string
                             description: |
@@ -2468,13 +2469,13 @@ paths:
                           is_thumbnail:
                             type: boolean
                             description: |
-                              Flag for identifying whether the image is used as the product's thumbnail.
+                              Flag for identifying whether the image is used as the productʼs thumbnail.
                           sort_order:
                             maximum: 2147483647
                             minimum: -2147483648
                             type: integer
                             description: |
-                              The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the image's new `sort_order` value will have their `sort_order`s reordered.
+                              The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
                           description:
                             type: string
                             description: |
@@ -2668,7 +2669,7 @@ paths:
                     sort_order: 3
                     title: TOP WORKPLACES 2016 - Austin American Statesman + BigCommerce
                     description: |-
-                      We've been named one of Austin American-Statesman's Top WorkPlaces for the 5th year in a row! Here's what some employees have to say:
+                      We've been named one of Austin American-Statesmanʼs Top WorkPlaces for the 5th year in a row! Hereʼs what some employees have to say:
 
                       “I am given the freedom and trust to make a difference.”
 
@@ -2735,7 +2736,7 @@ paths:
                       example: 1
                       type: integer
                       description: |
-                        The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+                        The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
                     type:
                       type: string
                       description: |
@@ -2787,7 +2788,7 @@ paths:
                             minimum: -2147483648
                             type: integer
                             description: |
-                              The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+                              The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
                           type:
                             type: string
                             description: |
@@ -2949,7 +2950,7 @@ paths:
                       minimum: -2147483648
                       type: integer
                       description: |
-                        The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+                        The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
                     type:
                       type: string
                       description: |
@@ -2999,7 +3000,7 @@ paths:
                             minimum: -2147483648
                             type: integer
                             description: |
-                              The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+                              The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
                           type:
                             type: string
                             description: |
@@ -3211,7 +3212,7 @@ paths:
                 enabled:
                   type: boolean
                   description: |
-                    Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+                    Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
                   example: true
                 stop:
                   type: boolean
@@ -3343,7 +3344,7 @@ paths:
                       enabled:
                         type: boolean
                         description: |
-                          Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+                          Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
                         example: true
                       stop:
                         type: boolean
@@ -3567,7 +3568,7 @@ paths:
                       enabled:
                         type: boolean
                         description: |
-                          Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+                          Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
                         example: true
                       stop:
                         type: boolean
@@ -3740,7 +3741,7 @@ paths:
                 enabled:
                   type: boolean
                   description: |
-                    Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+                    Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
                   example: true
                 stop:
                   type: boolean
@@ -3871,7 +3872,7 @@ paths:
                       enabled:
                         type: boolean
                         description: |
-                          Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+                          Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
                         example: true
                       stop:
                         type: boolean
@@ -5069,12 +5070,12 @@ paths:
         - name: key
           in: query
           description: |
-            Filter based on a metafield's key.
+            Filter based on a metafieldʼs key.
           schema:
             type: string
         - name: namespace
           in: query
-          description: Filter based on a metafield's namespace.
+          description: Filter based on a metafieldʼs namespace.
           schema:
             type: string
         - name: include_fields
@@ -5205,7 +5206,7 @@ paths:
                 meta: {}
         '409':
           description: |
-            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client ID, namespace, key, resource_type, and resource_id.
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the appʼs client ID, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -6243,7 +6244,7 @@ paths:
                       inventory_value:
                         type: number
                         description: |
-                          Total value of store's inventory.
+                          Total value of storeʼs inventory.
                         format: double
                         example: 267000
                       primary_category_id:
@@ -6285,6 +6286,142 @@ paths:
                     $ref: '#/components/schemas/metaEmpty_Full'
     parameters:
       - $ref: '#/components/parameters/Accept'
+  '/catalog/products/metafields':
+    get:
+      summary: Get All Metafields
+      tags:
+        - Batch metafields
+      description: Get all product metafields.
+      operationId: getProductsMetafields
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldKeyInParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceInParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    post:
+      summary: Create multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: createProductsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      resource_id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID for the product with which the metafield is associated.
+                    required:
+                      - resource_id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of created `Metafield` objects.  
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    put:
+      summary: Update multiple Metafields
+      tags:
+        - Batch metafields
+      description: Update multiple metafields.
+      operationId: updateProductsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Put'
+                  - type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID of metafield to update.
+                    required:
+                      - id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of updated `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    delete:
+      summary: Delete All Metafields
+      tags:
+        - Batch metafields
+      description: Delete all product metafields.
+      operationId: deleteProductsMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: List of metafield IDs.
+      responses:
+        '200':
+          description: |
+            Response object for metafields deletion with success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionDeleteResponseSuccess'
+        '422':
+          description: |
+            Response object for metafields deletion with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   schemas:
     productModifier_Base:
@@ -6500,21 +6637,21 @@ components:
           minimum: 0
           type: number
           description: |
-            Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default width (set in the Product resource's `width` field) will be used as the base width.
+            Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
           format: double
           nullable: true
         height:
           minimum: 0
           type: number
           description: |
-            Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default height (set in the Product resource's `height` field) will be used as the base height.
+            Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
           format: double
           nullable: true
         depth:
           minimum: 0
           type: number
           description: |
-            Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default depth (set in the Product resource's `depth` field) will be used as the base depth.
+            Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
           format: double
           nullable: true
         is_free_shipping:
@@ -6603,7 +6740,7 @@ components:
               type: string
             option_values:
               type: array
-              description: Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.
+              description: Array of option and option values IDs that make up this variant. Will be empty if the variant is the productʼs base variant.
               items:
                 $ref: '#/components/schemas/productVariantOptionValue_Full'
             calculated_price:
@@ -6686,21 +6823,21 @@ components:
           minimum: 0
           type: number
           description: |
-            Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default width (set in the Product resource's `width` field) will be used as the base width.
+            Width of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default width (set in the Product resourceʼs `width` field) will be used as the base width.
           format: double
           nullable: true
         height:
           minimum: 0
           type: number
           description: |
-            Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default height (set in the Product resource's `height` field) will be used as the base height.
+            Height of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default height (set in the Product resourceʼs `height` field) will be used as the base height.
           format: double
           nullable: true
         depth:
           minimum: 0
           type: number
           description: |
-            Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the product's default depth (set in the Product resource's `depth` field) will be used as the base depth.
+            Depth of the variant, which can be used when calculating shipping costs. If this value is `null`, the productʼs default depth (set in the Product resourceʼs `depth` field) will be used as the base depth.
           format: double
           nullable: true
         is_free_shipping:
@@ -6867,13 +7004,13 @@ components:
         is_thumbnail:
           type: boolean
           description: |
-            Flag for identifying whether the image is used as the product's thumbnail.
+            Flag for identifying whether the image is used as the productʼs thumbnail.
         sort_order:
           maximum: 2147483647
           minimum: -2147483648
           type: integer
           description: |
-            The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the image's new `sort_order` value will have their `sort_order`s reordered.
+            The order in which the image will be displayed on the product page. Higher integers give the image a lower priority. When updating, if the image is given a lower priority, all images with a `sort_order` the same as or greater than the imageʼs new `sort_order` value will have their `sort_order`s reordered.
         description:
           type: string
           description: |
@@ -6941,7 +7078,7 @@ components:
           maximum: 2147483647
           minimum: -2147483648
           description: |
-            The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+            The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the videoʼs new `sort_order` value will have their `sort_order`s reordered.
           example: 1
         type:
           type: string
@@ -7078,7 +7215,7 @@ components:
         enabled:
           type: boolean
           description: |
-            Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.
+            Flag for determining whether the rule is to be used when adjusting a productʼs price, weight, image, or availabilty.
           example: true
         stop:
           type: boolean
@@ -7431,11 +7568,11 @@ components:
         product_list_adjusts_pricing:
           type: boolean
           description: |
-            (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+            (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price.
         product_list_shipping_calc:
           type: string
           description: |
-            (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+            (product_list, product_list_with_images) How to factor the optional productʼs weight and package dimensions into the shipping quote. Values: `none` - donʼt adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
           example: weight
           enum:
             - none
@@ -7468,7 +7605,7 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/pagination_Full'
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       x-internal: false
     pagination_Full:
       title: pagination_Full
@@ -7517,7 +7654,7 @@ components:
                 Link to the next page returned in the response.
           description: |
             Pagination links for the previous and next parts of the whole collection.
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       x-internal: false
     metaEmpty_Full:
       type: object
@@ -7910,11 +8047,11 @@ components:
         product_list_adjusts_pricing:
           type: boolean
           description: |
-            (product_list, product_list_with_images) Flag to add the optional product's price to the main product's price.
+            (product_list, product_list_with_images) Flag to add the optional productʼs price to the main productʼs price.
         product_list_shipping_calc:
           type: string
           description: |
-            (product_list, product_list_with_images) How to factor the optional product's weight and package dimensions into the shipping quote. Values: `none` - don't adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
+            (product_list, product_list_with_images) How to factor the optional productʼs weight and package dimensions into the shipping quote. Values: `none` - donʼt adjust; `weight` - use shipping weight only; `package` - use weight and dimensions.
           example: weight
           enum:
             - none
@@ -8140,7 +8277,7 @@ components:
           minimum: 0
           type: number
           description: |
-            If entered, the sale price will be used instead of value in the price field when calculating the product's cost.
+            If entered, the sale price will be used instead of value in the price field when calculating the productʼs cost.
           format: float
         map_price:
           type: number
@@ -8156,7 +8293,7 @@ components:
           minLength: 0
           type: string
           description: |
-            Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerce's Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax provider's documentation.
+            Tax Codes, such as AvaTax System Tax Codes, identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to a tax provider integration, such as BigCommerceʼs Avalara Premium, can calculate sales taxes more accurately. Stores without a tax provider will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. For details, please see the tax providerʼs documentation.
         categories:
           type: array
           description: |
@@ -8192,7 +8329,7 @@ components:
           minimum: 0
           type: integer
           description: |
-            Inventory warning level for the product. When the product's inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect.
+            Inventory warning level for the product. When the productʼs inventory level drops below the warning level, the store owner will be informed. Simple inventory tracking must be enabled (see the `inventory_tracking` field) for this to take any effect.
         inventory_tracking:
           type: string
           description: |
@@ -8264,7 +8401,7 @@ components:
         availability:
           type: string
           description: |
-            Availability of the product. (Corresponds to the product's [Purchasability](https://support.bigcommerce.com/s/article/Adding-Products-v3?language=en_US#sections) section in the control panel.) Supported values: `available` - the product is available for purchase; `disabled` - the product is listed on the storefront, but cannot be purchased; `preorder` - the product is listed for pre-orders.
+            Availability of the product. (Corresponds to the productʼs [Purchasability](https://support.bigcommerce.com/s/article/Adding-Products-v3?language=en_US#sections) section in the control panel.) Supported values: `available` - the product is available for purchase; `disabled` - the product is listed on the storefront, but cannot be purchased; `preorder` - the product is listed for pre-orders.
           enum:
             - available
             - disabled
@@ -8296,7 +8433,7 @@ components:
         condition:
           type: string
           description: |
-            The product condition. Will be shown on the product page if the `is_condition_shown` field's value is `true`. Possible values: `New`, `Used`, `Refurbished`.
+            The product condition. Will be shown on the product page if the `is_condition_shown` fieldʼs value is `true`. Possible values: `New`, `Used`, `Refurbished`.
           enum:
             - New
             - Used
@@ -8328,7 +8465,7 @@ components:
           maxLength: 65535
           minLength: 0
           description: |
-            Custom meta keywords for the product page. If not defined, the store's default keywords will be used.
+            Custom meta keywords for the product page. If not defined, the storeʼs default keywords will be used.
           items:
             type: string
         meta_description:
@@ -8336,7 +8473,7 @@ components:
           minLength: 0
           type: string
           description: |
-            Custom meta description for the product page. If not defined, the store's default meta description will be used.
+            Custom meta description for the product page. If not defined, the storeʼs default meta description will be used.
         view_count:
           maximum: 1000000000
           minimum: 0
@@ -8347,7 +8484,7 @@ components:
         preorder_release_date:
           type: string
           description: |
-            Pre-order release date. See the `availability` field for details on setting a product's availability to accept pre-orders.
+            Pre-order release date. See the `availability` field for details on setting a productʼs availability to accept pre-orders.
           format: date-time
           nullable: true
         preorder_message:
@@ -8365,7 +8502,7 @@ components:
         is_price_hidden:
           type: boolean
           description: |
-            False by default, indicating that this product's price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.)
+            False by default, indicating that this productʼs price should be shown on the product page. If set to `true`, the price is hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.)
         price_hidden_label:
           maxLength: 200
           minLength: 0
@@ -8503,7 +8640,7 @@ components:
             date_created:
               type: string
               description: |
-                Date and time of the metafield's creation. Read-Only.
+                Date and time of the metafieldʼs creation. Read-Only.
               readOnly: true
               format: date-time
               example: '2018-05-07T20:14:17+00:00'
@@ -8640,6 +8777,439 @@ components:
               $ref: '#/components/schemas/beta5DetailedErrors'
       x-tags:
         - Models
+    Metafield:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          example: order
+          minLength: 0
+          maxLength: 255
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          enum:
+            - brand
+            - product
+            - variant
+            - category
+            - cart
+            - channel
+            - location
+            - order
+            - customer
+          example: cart
+        resource_id:
+          type: integer
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
+          example: 424242
+          readOnly: true
+        id:
+          type: integer
+          description: The unique identifier for the metafield.
+        date_created:
+          type: string
+          format: date-time
+          description: Date and time of the metafieldʼs creation.
+          example: '2022-06-16T18:39:00+00:00'
+        date_modified:
+          type: string
+          format: date-time
+          description: Date and time when the metafield was last updated.
+          example: '2022-06-16T18:39:00+00:00'
+        owner_client_id:
+          type: string
+          description: Client ID for the metafieldʼs creator.
+          example: asdfasdfasdfasdfasdfasdfasdf
+          readOnly: true
+      required:
+        - namespace
+        - key
+        - value
+        - permission_set
+        - resource_type
+        - resource_id
+        - description
+        - id
+        - date_created
+        - date_modified
+    MetaFieldCollectionResponse:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: false
+    MetaFieldCollectionResponse_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+    MetaFieldCollectionResponsePartialSuccess_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+    MetaFieldCollectionResponsePartialSuccess_DELETE:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+      x-internal: false
+    MetaFieldCollectionDeleteResponseSuccess:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+            - 124
+            - 125
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/WriteCollectionSuccessMeta'
+      x-internal: false
+    WriteCollectionPartialSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 1
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 2
+      title: Collection Meta
+      x-internal: false
+    WriteCollectionSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 3
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 0
+      title: Collection Meta
+      x-internal: false
+    Total:
+      type: integer
+      description: |
+        Total number of items in the result set.
+      example: 3
+    Success:
+      type: integer
+      description: |
+        Total number of items that were successfully deleted.
+      example: 1
+    Failed:
+      type: integer
+      description: |
+        Total number of items that failed to be deleted.
+      example: 2
+    Error:
+      type: object
+      description: |
+        Error response payload for the BigCommerce API.
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code for the error.
+          example: 422
+        title:
+          type: string
+          description: |
+            The error title.
+          example: Bulk operation has failed
+        type:
+          type: string
+          description: |
+            The error type.
+          example: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          $ref: '#/components/schemas/ErrorDetail'
+    ErrorDetail:
+      type: object
+      description: |
+        Error detail response payload for the BigCommerce API.
+      example:
+        "1": "Unauthorized to delete"
+        "2": "Metafield does not exist"
+    CollectionMeta:
+      type: object
+      description: Data about the response, including pagination and collection totals.
+      properties:
+        pagination:
+          type: object
+          description: Data about the response, including pagination and collection totals.
+          title: Pagination
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+      additionalProperties: true
+      title: Collection Meta
+      x-internal: false
+    MetafieldBase_Post:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    MetafieldBase_Put:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
   parameters:
     ProductIdParam:
       name: product_id
@@ -8720,6 +9290,69 @@ components:
       schema:
         type: string
         default: 'application/json'
+    PageParam:
+      name: page
+      description: |
+        Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    MetafieldKeyParam:
+      name: key
+      in: query
+      description: Filter based on a metafieldʼs key.
+      required: false
+      schema:
+        type: string
+    MetafieldKeyInParam:
+      name: key:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+    MetafieldNamespaceParam:
+      name: namespace
+      in: query
+      description: Filter based on a metafieldʼs namespaces.
+      required: false
+      schema:
+        type: string
+    MetafieldNamespaceInParam:
+      name: namespace:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+    LimitParam:
+      name: limit
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    DirectionParam:
+      name: direction
+      description: |
+        Sort direction. Acceptable values are: `asc`, `desc`.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token

@@ -46,6 +46,7 @@ servers:
 security:
   - X-Auth-Token: []
 tags:
+  - name: Batch metafields
   - name: Metafields
   - name: Images
   - name: Sort Order
@@ -389,7 +390,7 @@ paths:
                 parent_id:
                   type: integer
                   description: |-
-                    The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                    The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
                     Required in a POST if creating a child category.
                   example: 2
                   x-required:
@@ -399,7 +400,7 @@ paths:
                   minLength: 1
                   type: string
                   description: |-
-                    The name displayed for the category. Name is unique with respect to the category's siblings.
+                    The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
                     Required in a POST.
                   example: Bath
                   x-required:
@@ -437,7 +438,7 @@ paths:
                 meta_keywords:
                   type: array
                   description: |
-                    Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                    Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
                   items:
                     type: string
                 meta_description:
@@ -445,7 +446,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                    Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
                 layout_file:
                   maxLength: 500
                   minLength: 0
@@ -831,7 +832,7 @@ paths:
                 parent_id:
                   type: integer
                   description: |-
-                    The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                    The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
                     Required in a POST if creating a child category.
                   example: 2
                   x-required:
@@ -841,7 +842,7 @@ paths:
                   minLength: 1
                   type: string
                   description: |-
-                    The name displayed for the category. Name is unique with respect to the category's siblings.
+                    The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
                     Required in a POST.
                   example: Bath
                   x-required:
@@ -879,7 +880,7 @@ paths:
                 meta_keywords:
                   type: array
                   description: |
-                    Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                    Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
                   items:
                     type: string
                 meta_description:
@@ -887,7 +888,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                    Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
                 layout_file:
                   maxLength: 500
                   minLength: 0
@@ -969,7 +970,7 @@ paths:
                       parent_id:
                         type: integer
                         description: |-
-                          The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+                          The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
                           Required in a POST if creating a child category.
                         example: 2
                         x-required:
@@ -979,7 +980,7 @@ paths:
                         minLength: 1
                         type: string
                         description: |-
-                          The name displayed for the category. Name is unique with respect to the category's siblings.
+                          The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
                           Required in a POST.
                         example: Bath
                         x-required:
@@ -1017,7 +1018,7 @@ paths:
                       meta_keywords:
                         type: array
                         description: |
-                          Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+                          Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
                         items:
                           type: string
                       meta_description:
@@ -1025,7 +1026,7 @@ paths:
                         minLength: 0
                         type: string
                         description: |
-                          Custom meta description for the category page. If not defined, the store's default meta description will be used.
+                          Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
                       layout_file:
                         maxLength: 500
                         minLength: 0
@@ -1255,12 +1256,12 @@ paths:
         - name: key
           in: query
           description: |
-            Filter based on a metafield's key.
+            Filter based on a metafieldʼs key.
           schema:
             type: string
         - name: namespace
           in: query
-          description: Filter based on a metafield's namespace.
+          description: Filter based on a metafieldʼs namespace.
           schema:
             type: string
         - name: include_fields
@@ -1394,7 +1395,7 @@ paths:
                 meta: {}
         '409':
           description: |
-            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -1783,6 +1784,142 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
+  '/catalog/categories/metafields':
+    get:
+      summary: Get All Metafields
+      tags:
+        - Batch metafields
+      description: Get all category metafields.
+      operationId: getCategoriesMetafields
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldKeyInParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceInParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    post:
+      summary: Create multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: createCategoriesMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      resource_id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID for the category with which the metafield is associated.
+                    required:
+                      - resource_id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of created `Metafield` objects.  
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    put:
+      summary: Update multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: updateCategoriesMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Put'
+                  - type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID of metafield to update.
+                    required:
+                      - id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of updated `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    delete:
+      summary: Delete All Metafields
+      tags:
+        - Batch metafields
+      description: Delete all category metafields.
+      operationId: deleteCategoriesMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: List of metafield IDs.
+      responses:
+        '200':
+          description: |
+            Response object for metafields deletion with success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionDeleteResponseSuccess'
+        '422':
+          description: |
+            Response object for metafields deletion with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   schemas:
     category_Full:
@@ -1800,7 +1937,7 @@ components:
         parent_id:
           type: integer
           description: |-
-            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
             Required in a POST if creating a child category.
           example: 2
           x-required:
@@ -1810,7 +1947,7 @@ components:
           minLength: 1
           type: string
           description: |-
-            The name displayed for the category. Name is unique with respect to the category's siblings.
+            The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
             Required in a POST.
           example: Bath
           x-required:
@@ -1848,7 +1985,7 @@ components:
         meta_keywords:
           type: array
           description: |
-            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+            Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
           items:
             type: string
         meta_description:
@@ -1856,7 +1993,7 @@ components:
           minLength: 0
           type: string
           description: |
-            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+            Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
         layout_file:
           maxLength: 500
           minLength: 0
@@ -1985,7 +2122,7 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/pagination_Full'
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       x-internal: false
     pagination_Full:
       title: pagination_Full
@@ -2034,7 +2171,7 @@ components:
                 Link to the next page returned in the response.
           description: |
             Pagination links for the previous and next parts of the whole collection.
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       x-internal: false
     metaEmpty_Full:
       type: object
@@ -2098,7 +2235,7 @@ components:
             date_created:
               type: string
               description: |
-                Date and time of the metafield's creation. Read-Only.
+                Date and time of the metafieldʼs creation. Read-Only.
               readOnly: true
               format: date-time
               example: '2018-05-07T20:14:17+00:00'
@@ -2151,7 +2288,6 @@ components:
           properties:
             custom_url:
               $ref: '#/components/schemas/Url'
-      x-examples: {}
     Url:
       type: object
       properties:
@@ -2188,7 +2324,7 @@ components:
           minLength: 1
           type: string
           description: |-
-            The name displayed for the category. Name is unique with respect to the category's siblings.
+            The name displayed for the category. Name is unique with respect to the categoryʼs siblings.
             Required in a POST.
           example: Bath
     description:
@@ -2242,7 +2378,7 @@ components:
         meta_keywords:
           type: array
           description: |
-            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+            Custom meta keywords for the category page. If not defined, the storeʼs default keywords will be used. Must post as an array like: ["awesome","sauce"].
           items:
             type: string
     layout_file:
@@ -2283,7 +2419,7 @@ components:
           minLength: 0
           type: string
           description: |
-            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+            Custom meta description for the category page. If not defined, the storeʼs default meta description will be used.
     id:
       title: id
       type: object
@@ -2301,9 +2437,442 @@ components:
         parent_id:
           type: integer
           description: |-
-            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            The unique numeric ID of the categoryʼs parent. This field controls where the category sits in the tree of categories that organize the catalog.
             Required in a POST if creating a child category.
           example: 2
+    Metafield:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          example: order
+          minLength: 0
+          maxLength: 255
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          enum:
+            - brand
+            - product
+            - variant
+            - category
+            - cart
+            - channel
+            - location
+            - order
+            - customer
+          example: cart
+        resource_id:
+          type: integer
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
+          example: 424242
+          readOnly: true
+        id:
+          type: integer
+          description: The unique identifier for the metafield.
+        date_created:
+          type: string
+          format: date-time
+          description: Date and time of the metafieldʼs creation.
+          example: '2022-06-16T18:39:00+00:00'
+        date_modified:
+          type: string
+          format: date-time
+          description: Date and time when the metafield was last updated.
+          example: '2022-06-16T18:39:00+00:00'
+        owner_client_id:
+          type: string
+          description: Client ID for the metafieldʼs creator.
+          example: asdfasdfasdfasdfasdfasdfasdf
+          readOnly: true
+      required:
+        - namespace
+        - key
+        - value
+        - permission_set
+        - resource_type
+        - resource_id
+        - description
+        - id
+        - date_created
+        - date_modified
+    MetaFieldCollectionResponse:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: false
+    MetaFieldCollectionResponse_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+    MetaFieldCollectionResponsePartialSuccess_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+    MetaFieldCollectionResponsePartialSuccess_DELETE:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+      x-internal: false
+    MetaFieldCollectionDeleteResponseSuccess:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+            - 124
+            - 125
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/WriteCollectionSuccessMeta'
+      x-internal: false
+    WriteCollectionPartialSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 1
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 2
+      title: Collection Meta
+      x-internal: false
+    WriteCollectionSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 3
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 0
+      title: Collection Meta
+      x-internal: false
+    Total:
+      type: integer
+      description: |
+        Total number of items in the result set.
+      example: 3
+    Success:
+      type: integer
+      description: |
+        Total number of items that were successfully deleted.
+      example: 1
+    Failed:
+      type: integer
+      description: |
+        Total number of items that failed to be deleted.
+      example: 2
+    Error:
+      type: object
+      description: |
+        Error response payload for the BigCommerce API.
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code for the error.
+          example: 422
+        title:
+          type: string
+          description: |
+            The error title.
+          example: Bulk operation has failed
+        type:
+          type: string
+          description: |
+            The error type.
+          example: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          $ref: '#/components/schemas/ErrorDetail'
+    ErrorDetail:
+      type: object
+      description: |
+        Error detail response payload for the BigCommerce API.
+      example:
+        "1": "Unauthorized to delete"
+        "2": "Metafield does not exist"
+    CollectionMeta:
+      type: object
+      description: Data about the response, including pagination and collection totals.
+      properties:
+        pagination:
+          type: object
+          description: Data about the response, including pagination and collection totals.
+          title: Pagination
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+      additionalProperties: true
+      title: Collection Meta
+      x-internal: false
+    MetafieldBase_Post:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
+      required:
+        - permission_set
+        - namespace
+        - key
+        - value
+    MetafieldBase_Put:
+      type: object
+      description: |
+        Common Metafield properties.
+      x-internal: false
+      properties:
+        permission_set:
+          type: string
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
+            | Value | Description |
+            | :--- | :--- |
+            | `app_only` | Private to the app that owns the field. |
+            | `read` | Visible to other API consumers. |
+            | `write` | Open for reading and writing by other API consumers. |
+            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          example: Sales Department
+          minLength: 1
+          maxLength: 64
+        key:
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`.
+          minLength: 1
+          maxLength: 64
+          example: Staff Name
+        value:
+          type: string
+          description: |
+            The value of the field, for example: `1`, `blue`.
+          minLength: 1
+          maxLength: 65535
+          example: Ronaldo
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+          example: Name of Staff Member
   responses:
     General207Status:
       description: 'Multi-status. Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL or inventory data has failed.'
@@ -2344,6 +2913,69 @@ components:
       schema:
         type: string
         default: 'application/json'
+    PageParam:
+      name: page
+      description: |
+        Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    MetafieldKeyParam:
+      name: key
+      in: query
+      description: Filter based on a metafieldʼs key.
+      required: false
+      schema:
+        type: string
+    MetafieldKeyInParam:
+      name: key:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+    MetafieldNamespaceParam:
+      name: namespace
+      in: query
+      description: Filter based on a metafieldʼs namespaces.
+      required: false
+      schema:
+        type: string
+    MetafieldNamespaceInParam:
+      name: namespace:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+    LimitParam:
+      name: limit
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    DirectionParam:
+      name: direction
+      description: |
+        Sort direction. Acceptable values are: `asc`, `desc`.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token

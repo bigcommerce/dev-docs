@@ -24,6 +24,7 @@ tags:
   - name: Payment Actions
   - name: Transactions
   - name: Order Settings
+  - name: Batch metafields
 paths:
   '/orders/{order_id}/payment_actions/capture':
     post:
@@ -96,7 +97,7 @@ paths:
       tags:
         - Transactions
       description: |-
-        Returns an **order's** transactions.
+        Returns an **orderʼs** transactions.
 
         **Usage Notes**
         * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
@@ -498,34 +499,24 @@ paths:
             Example 1:
               examples:
                 response:
-                  value: |-
-                    {
-                        "data": [
-                            {
-                                "order_id": 1,
-                                "total_refund_amount": 1.99,
-                                "total_refund_tax_amount": 1.95,
-                                "rounding": 1,
-                                "adjustment": 0.05,
-                                "tax_inclusive": true,
-                                "refund_methods": [
-                                    ""
-                                ]
-                            }
-                        ],
-                        "errors": [
-                            {
-                                "order_id": 1,
-                                "status": 422,
-                                "error": "Refund amount is greater than remaining amount"
-                            }
-                        ],
-                        "meta": {
-                            "failure": 1,
-                            "success": 1,
-                            "total": 2
-                        }
-                    }
+                  value: 
+                    data: 
+                      - order_id: 1
+                        total_refund_amount: 1.99
+                        total_refund_tax_amount: 1.95
+                        rounding: 1
+                        adjustment: 0.05
+                        tax_inclusive: true
+                        refund_methods: 
+                          - ""
+                    errors:
+                      - order_id: 1
+                        status: 422
+                        error: "Refund amount is greater than remaining amount"
+                    meta:
+                      failure: 1
+                      success: 1
+                      total: 2
         '503':
           description: Every request in the batch failed. The error object describes the failure for each component request.
           content:
@@ -617,7 +608,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MetafieldPost'
+              $ref: '#/components/schemas/MetafieldBase_Post'
             examples: {}
         description: |
           A `Metafield` object.
@@ -632,7 +623,7 @@ paths:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
           description: |
-            The `Metafield` conflicts with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client ID, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicts with another `Metafield`. This can result from duplicate unique key combinations of the appʼs client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
@@ -873,6 +864,142 @@ paths:
           type: string
         description: Channel ID
         required: true
+  '/orders/metafields':
+    get:
+      summary: Get All Metafields
+      tags:
+        - Batch metafields
+      description: Get all order metafields.
+      operationId: getOrdersMetafields
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse'
+        '500':
+          description: Internal Server Error
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
+        - $ref: '#/components/parameters/MetafieldKeyInParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: '#/components/parameters/MetafieldNamespaceInParam'
+        - $ref: '#/components/parameters/DirectionParam'
+    post:
+      summary: Create multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: createOrdersMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      resource_id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID for the order with which the metafield is associated.
+                    required:
+                      - resource_id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of created `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    put:
+      summary: Update multiple Metafields
+      tags:
+        - Batch metafields
+      description: Create multiple metafields.
+      operationId: updateOrdersMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Post'
+                  - type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID of metafield to update.
+                    required:
+                      - id
+        description: ''
+      responses:
+        '200':
+          description: |
+            List of updated `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+        '422':
+          description: |
+            Response object for metafields creation with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_POST_PUT'
+        '500':
+          description: Internal Server Error
+    delete:
+      summary: Delete All Metafields
+      tags:
+        - Batch metafields
+      description: Delete all order metafields.
+      operationId: deleteOrdersMetafields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: List of metafield IDs.
+      responses:
+        '200':
+          description: |
+            Response object for metafields deletion with success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionDeleteResponseSuccess'
+        '422':
+          description: |
+            Response object for metafields deletion with partial success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   schemas:
     GetReturnsSettings:
@@ -1110,7 +1237,7 @@ components:
       x-internal: false
     Pagination:
       type: object
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       title: Pagination
       properties:
         total:
@@ -1293,11 +1420,11 @@ components:
       x-internal: false
     CollectionMeta:
       type: object
-      description: 'Data about the response, including pagination and collection totals.'
+      description: Data about the response, including pagination and collection totals.
       properties:
         pagination:
           type: object
-          description: 'Data about the response, including pagination and collection totals.'
+          description: Data about the response, including pagination and collection totals.
           title: Pagination
           properties:
             total:
@@ -1351,7 +1478,7 @@ components:
       properties:
         meta:
           type: object
-          description: 'Data about the response, including pagination and collection totals.'
+          description: Data about the response, including pagination and collection totals.
           title: Pagination
           properties:
             total:
@@ -1773,7 +1900,7 @@ components:
               properties:
                 remaining_balance:
                   description: |
-                    Remaining balance of shopper's store credit.
+                    Remaining balance of shopperʼs store credit.
                   type: number
                   format: float
                   example: 35.42
@@ -1876,7 +2003,7 @@ components:
       properties:
         remaining_balance:
           description: |
-            Remaining balance of shopper's store credit.
+            Remaining balance of shopperʼs store credit.
           type: number
           format: float
           example: 35.42
@@ -2134,6 +2261,7 @@ components:
             Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
 
             For example, if the order was placed by a combination of store credit and bank deposit the refund methods would be:
+
             ```json
             {
               "refund_methods": [
@@ -2528,7 +2656,7 @@ components:
           description: Reference to order ID.
         user_id:
           type: integer
-          description: Reference to the user's ID who create this refund. This is automatically populated by BigCommerce.
+          description: Reference to the userʼs ID who create this refund. This is automatically populated by BigCommerce.
           readOnly: true
         created:
           type: string
@@ -2687,6 +2815,22 @@ components:
         meta:
           $ref: '#/components/schemas/CollectionMeta'
       x-internal: false
+    MetaFieldCollectionResponse_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: false
     MetafieldResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -2841,7 +2985,7 @@ components:
               type: string
               format: date-time
               description: |
-                Date and time of the metafield's creation.
+                Date and time of the metafieldʼs creation.
               example: '2022-06-16T18:39:00+00:00'
             date_modified:
               type: string
@@ -2849,13 +2993,11 @@ components:
               description: |
                 Date and time when the metafield was last updated.
               example: '2022-06-16T18:39:00+00:00'
-      x-internal: false
-      x-examples: {}
-    MetafieldPost:
-      description: |
-        The model for a POST to create metafield.
-      allOf:
-        - $ref: '#/components/schemas/MetafieldBase_Post'
+            owner_client_id:
+              type: string
+              description: Client ID for the metafieldʼs creator.
+              example: asdfasdfasdfasdfasdfasdfasdf
+              readOnly: true
       x-internal: false
       x-examples: {}
     MetafieldPut:
@@ -2897,6 +3039,184 @@ components:
       x-examples:
         example-1:
           $ref: '#/components/examples/EnableMultipleOrderNotifications/value'
+    MetaFieldCollectionResponsePartialSuccess_POST_PUT:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metafield'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+    MetaFieldCollectionResponsePartialSuccess_DELETE:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+        meta:
+          $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
+      x-internal: false
+    MetaFieldCollectionDeleteResponseSuccess:
+      type: object
+      description: |
+        Response payload for the BigCommerce API.
+      properties:
+        data:
+          type: array
+          items:
+            type: integer
+            description: |
+              The unique identifier for the metafield.
+          example: 
+            - 123
+            - 124
+            - 125
+        errors:
+          type: array
+          description: Empty for 200 responses.
+          example: []
+        meta:
+          $ref: '#/components/schemas/WriteCollectionSuccessMeta'
+      x-internal: false
+    WriteCollectionPartialSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 1
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 2
+      title: Collection Meta
+      x-internal: false
+    WriteCollectionSuccessMeta:
+      type: object
+      description: Additional data about the response.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 3
+        success:
+          type: integer
+          description: |
+            Total number of items that were successfully deleted.
+          example: 3
+        failed:
+          type: integer
+          description: |
+            Total number of items that failed to be deleted.
+          example: 0
+      title: Collection Meta
+      x-internal: false
+    Total:
+      type: integer
+      description: |
+        Total number of items in the result set.
+      example: 3
+    Success:
+      type: integer
+      description: |
+        Total number of items that were successfully deleted.
+      example: 1
+    Failed:
+      type: integer
+      description: |
+        Total number of items that failed to be deleted.
+      example: 2
+    Error:
+      type: object
+      description: |
+        Error response payload for the BigCommerce API.
+      properties:
+        status:
+          type: integer
+          description: |
+            The HTTP status code for the error.
+          example: 422
+        title:
+          type: string
+          description: |
+            The error title.
+          example: Bulk operation has failed
+        type:
+          type: string
+          description: |
+            The error type.
+          example: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          $ref: '#/components/schemas/ErrorDetail'
+    ErrorDetail:
+      type: object
+      description: |
+        Error detail response payload for the BigCommerce API.
+      example:
+        "1": "Unauthorized to delete"
+        "2": "Metafield does not exist"
+    MetafieldPost_Batch:
+      description: |
+        The model for a POST to create metafield.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase_Post'
+        - type: object
+          properties:
+            resource_id:
+              type: integer
+              example: 42
+              description: |
+                The ID for the resource with which the metafield is associated.
+          required:
+            - resource_id
+      x-internal: false
+    MetafieldPut_Batch:
+      description: |
+        The model for a PUT to create metafield.
+      allOf:
+        - $ref: '#/components/schemas/MetafieldBase_Post'
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 42
+              description: |
+                The ID of metafield to update.
+            resource_id:
+              type: integer
+              example: 42
+              description: |
+                The ID for the resource with which the metafield is associated.
+          required:
+            - id
+      x-internal: false
     ChannelOrderSettings:
       type: object
       properties:
@@ -3379,18 +3699,40 @@ components:
       name: key
       in: query
       description: |
-        Filter based on a metafield's key.
+        Filter based on a metafieldʼs key.
       required: false
       schema:
         type: string
+    MetafieldKeyInParam:
+      name: key:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     MetafieldNamespaceParam:
       name: namespace
       in: query
       description: |
-        Filter based on a metafield's key.
+        Filter based on a metafieldʼs key.
       required: false
       schema:
         type: string
+    MetafieldNamespaceInParam:
+      name: namespace:in
+      in: query
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
     LimitParam:
       name: limit
       description: |
