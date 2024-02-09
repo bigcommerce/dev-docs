@@ -15,15 +15,18 @@ This article assumes you have familiarity with the following concepts:
 
 ### Prerequisites
 
-* Store API credentials with the following permissions.
-	- **Carts:** `Modify`
-	- **Channel Settings:** `Modify`
-	- **Sites & Routes:** `Modify`
-	- **Products:** `Read Only`
+Store-level or app-level API credentials with the following scopes:
 
-For more information, see [OAuth Scopes](/docs/start/authentication/api-accounts#oauth-scopes).
+| Resource | Permission level |
+|:---------|:-----------------|
+| Carts | `modify` |
+| Channel Settings | `modify` |
+| Sites & Routes | `modify` |
+| Products | `read-only` |
 
-* The [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
+For more information, see the [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
+
+* The [BigCommerce Checkout JS SDK (GitHub)](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
 
 ## Creating a channel
 
@@ -139,15 +142,15 @@ If you are creating a cart for a specific customer, pass in the `customer_id` in
 The response contains a cart ID you can use in subsequent requests:
 
 ```json filename="Example response: Create a cart" showLineNumbers copy
-{
+  {
     "data": {
-        "id": "33608b81-ba34-4ff2-8bab-2771aeab3f73",
+      "id": "33608b81-ba34-4ff2-8bab-2771aeab3f73",
     ...
     }
-}
+  }
 ```
 
-To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. Use the cart ID returned with the [Create a cart](https://developer.bigcommerce.com/docs/rest-management/carts/carts-single#create-a-cart) response as the cartId path parameter value.
+To generate a cart redirect URL, send a request to the [Create cart redirect URL](/docs/rest-management/carts/redirects#create-cart-redirect-url) endpoint. Use the cart ID returned with the [Create a cart](/docs/rest-management/carts/carts-single#create-a-cart) response as the cartId path parameter value.
 
 ```http filename="Example response: Create cart redirect URLs" showLineNumbers copy
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
@@ -166,9 +169,9 @@ Content-Type: application/json
 
 For some use cases, you may want your customer to sign in before they can begin the checkout process.
 
-Customers can sign in using the [Customer Login API](/docs/start/authentication/customer-login).
+Customers can sign in using the [Customer Login API](/docs/start/authentication/customer-login). Guest shoppers do not need to be signed in. Skip to [Embedding the checkout](#embedding-the-checkout) for more information on the guest shopper flow.
 
-You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/docs/start/authentication/customer-login#create-jwt-using-the-debugger-tool).
+To redirect a signed-in customer, use the JSON Web Token Standard to create a Customer Login JWT. Use a [JWT library (jwt.io)](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/docs/start/authentication/customer-login#create-jwt-using-the-debugger-tool).
 
 Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
@@ -180,14 +183,22 @@ Next, include the `embedded_checkout_url` as part of the request payload you sen
   "operation": "customer_login",
   "store_hash": {{store_hash}},
   "customer_id": 2,
+  "channel_id": 123,
   "redirect_to": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "request_ip": "111.222.333.444"
 }
 ```
 
-<Callout type="info">
-The `request_ip` field is optional.
-</Callout>
+### Data properties in the Customer Login JWT
+
+The following table clarifies where the data properties for the embedded checkout JWT differ from the [core Customer Login JWT properties](/docs/start/authentication/customer-login#customer-login-jwt-payload-reference).
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `operation` | string | The value is always `customer_login`. |
+| `customer_id` | integer | The ID of the customer who wants to check out. |
+| `channel_id` | integer | The sales channel that the customer is signing in to. In a headless implemention, this is the storefront's channel ID. Required for embedded checkout. | 
+| `redirect_to` | string, URL | The cart redirect URL you generated in a previous step. |
 
 ## Embedding the checkout
 
@@ -219,7 +230,7 @@ This will render the checkout to an HTML element with the `id` you chose.
 <div id="foo-bar-checkout"></div>
 ```
 
-Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/EmbeddedCheckoutOptions.md).
+Read more about the [JSON object (GitHub)](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options (GitHub)](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/EmbeddedCheckoutOptions.md).
 
 ## FAQ
 
@@ -227,19 +238,22 @@ Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js
 
 You can use ngrok to test Embedded Checkout locally. 
 Steps:
-1. Run your app on localhost.
-2. Create a [ngrok](https://ngrok.com/docs#getting-started-expose) tunnel for the localhost port to your app.
+1. Start the development server using your local copy of the storefront.
+2. Create an [ngrok tunnel (ngrok.com)](https://ngrok.com/docs#getting-started-expose) to serve your localhost over a fully-qualified SSL connection.
 3. Set your Channel Site URL to the HTTPS URL of the ngrok tunnel.
-4. View your app from the ngrok URL.
+4. View your checkout using the ngrok URL.
 
-NOTE: Use https://127.0.0.1 as the Channel site URL if you do not want to use ngrok.
+<Callout type="info">
+  Note: If you don't want to use ngrok, use https://127.0.0.1 as the Channel site URL.
+</Callout>
 
 ### Are hosted payment gateways supported with Embedded Checkout?
-At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
+
+At this time, you cannot embed a checkout that uses a hosted payment gateway. See [Available Payment Gateways (Help Center)](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
 
 ### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?
 
-For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari).
+For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings,like Apple's Safari, your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress (Help Center)](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari).
 
 ### How do I make sure that authenticated shoppers who sign out from the checkout page are also signed out of the headless storefront?
 
@@ -247,5 +261,26 @@ To ensure you sign shoppers out of the checkout page and the headless storefront
 
 ## Related resources
 
-### Endpoints
-- [Channels API reference](/docs/rest-management/channels#channels)
+* [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes)
+* [Customer Login API](/docs/start/authentication/customer-login)
+* [Create JWT Using the Debugger Tool](/docs/start/authentication/customer-login#create-jwt-using-the-debugger-tool).
+* [REST Management API, Channels](/docs/rest-management/channels#channels)
+* [REST Management API, Carts](/docs/rest-management/carts)
+* [Checkout JS SDK (GitHub)](https://github.com/bigcommerce/checkout-sdk-js)
+
+### Help Center
+
+* [Available Payment Gateways (Help Center)](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available)
+* [BigCommerce for WordPress (Help Center)](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari)
+
+### Store control panel
+
+* [Channel manager](https://login.bigcommerce.com/deep-links/manage/channel-manager)
+* [Advanced search feature on the products view page](https://login.bigcommerce.com/deep-links/manage/products/search)
+* [Sort customers by channel](https://login.bigcommerce.com/deep-links/manage/customers?limit=20&page=1&sortField=channel)
+* [Create custom views of orders](https://login.bigcommerce.com/deep-links/manage/orders/create-view)
+
+### External 
+
+* [JWT library (jwt.io)](https://jwt.io/#libraries-io)
+* [ngrok (ngrok.com)](https://ngrok.com/docs#getting-started-expose)

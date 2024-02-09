@@ -29,18 +29,16 @@ Storefront customers are signed in using the access point URL `/login/token/{tok
 
 JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/).
 
-You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. The default `channel_id` value is `1`.
-
 ### Customer Login JWT payload reference
 
 | Field Name | Type | Description |
 |:-----------|:-----|:------------|
-| `iss` | string | Indicates the token's issuer. This is your API account's client ID.|
-| `iat` | integer| The time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
-| `jti` | string | A unique request ID (ex. uuid).|
-| `operation` | string | Must contain the string `"customer_login"`.|
+| `iss` | string | The *issuer*; The API account's client ID. |
+| `iat` | integer, UNIX time | The *issued at* time; when the JWT was issued. |
+| `jti` | string, UUID | The *JWT ID*; a unique identifier for the JWT. |
+| `operation` | string | The value is always `customer_login` |
 | `store_hash` | string | The store hash identifying the store the shopper is signing in to.|
-| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. Depending on your implementation, omitting the `channel_id` can lead to CORS errors; for example, see [Managing Carts](/docs/storefront/headless/cart-checkout/carts#channel-id-is-mandatory). |
+| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. Depending on your implementation, omitting the `channel_id` can lead to CORS errors; for example, see [Managing Carts](/docs/storefront/headless/cart-checkout/carts#channel-id-is-mandatory). You must include the `channel_id` when using JWTs to embed checkout on a headless storefront. The default `channel_id` value is `1`. |
 | `customer_id` | integer | The ID of the shopper who is signing in.|
 | `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
 | `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to sign in.|
