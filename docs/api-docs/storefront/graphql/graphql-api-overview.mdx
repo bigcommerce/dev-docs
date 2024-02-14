@@ -102,7 +102,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL Storefront API token](/docs/rest-authentication/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API.
+Use the [Create a storefront token](/docs/rest-authentication/tokens#create-a-token) REST endpoint to request JWT bearer tokens that authenticate requests to the GraphQL Storefront API. Add a [token creation scope](/docs/start/authentication/api-accounts#token-creation-scopes) to the [store-level or app-level API account](/docs/start/authentication/api-accounts) you use to generate tokens.
 
 This type of token is the most appropriate for use directly within web browsers. If you're creating a token for an application that will make server-to-server requests to the GraphQL Storefront API, a [Customer Impersonation Token](#customer-impersonation-tokens) may be more appropriate for your use case. This special token is not necessary if you only wish to query information from an anonymous shopper's perspective.
 
@@ -158,7 +158,7 @@ This auto-generated token has an expiry period of 24-48 hours and will periodica
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server or headless interactions with a trusted consumer using the [Create a customer impersonation token](/docs/rest-authentication/tokens#customer-impersonation-tokens) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
+You can use Customer Impersonation Tokens to authenticate requests to the GraphQL Storefront API in server-to-server and headless interactions. Add the [Storefront API Customer Impersonation Tokens scope](/docs/start/authentication/api-accounts#token-creation-scopes) to the [store-level or app-level API account](/docs/start/authentication/api-accounts) you use when you [Create a customer impersonation token](/docs/rest-authentication/tokens/customer-impersonation-token). 
 
 <Tabs items={['Request', 'Response']}>
 <Tab>
