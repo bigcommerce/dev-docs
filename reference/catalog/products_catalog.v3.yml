@@ -401,6 +401,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get All Products Response'
                 type: object
                 properties:
                   data:
@@ -548,6 +549,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Update Products (Batch) Success Response'
                 type: object
                 properties:
                   data:
@@ -807,6 +809,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Update Products (Batch) Multi-status Response'
                 type: object
                 properties:
                   data:
@@ -3313,6 +3316,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Complex Rule Create Response'
                 type: object
                 properties:
                   data:
@@ -3538,6 +3542,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Product Complex Rule Response'
                 type: object
                 properties:
                   data:
@@ -3842,6 +3847,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Update Product Complex Rule Response'
                 type: object
                 properties:
                   data:
@@ -4084,6 +4090,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Product Custom Fields Response'
                 type: object
                 properties:
                   data:
@@ -4198,6 +4205,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Create Product Custom Field Response'
                 type: object
                 properties:
                   data:
@@ -4316,6 +4324,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Product Custom Field Response'
                 type: object
                 properties:
                   data:
@@ -4407,6 +4416,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Update Product Custom Field Response'
                 type: object
                 properties:
                   data:
@@ -4571,6 +4581,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Bulk Pricing Rules Response'
                 type: object
                 properties:
                   data:
@@ -4673,6 +4684,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Create Bulk Pricing Rule Response'
                 type: object
                 properties:
                   data:
@@ -4799,6 +4811,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Bulk Pricing Rule Response'
                 type: object
                 properties:
                   data:
@@ -4879,6 +4892,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Update Bulk Pricing Rule Response'
                 type: object
                 properties:
                   data:
@@ -6055,6 +6069,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Products Channel Assignments Response'
                 type: object
                 properties:
                   data:
@@ -6144,6 +6159,7 @@ paths:
           content:
             application/json:
               schema:
+                title: 'Get Products Category Assignments Response'
                 type: object
                 properties:
                   data:
