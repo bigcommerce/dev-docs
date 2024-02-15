@@ -3608,7 +3608,7 @@ components:
     MetafieldNamespaceInParam:
       name: namespace:in
       in: query
-      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter.
+      description: Filter based on comma-separated metafieldʼs namespaces. Could be used with vanilla `namespace` query parameter
       required: false
       style: form
       explode: false

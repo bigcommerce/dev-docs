@@ -1815,6 +1815,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+
         '422':
           description: |
             Response object for metafields creation with partial success.
@@ -2635,6 +2636,7 @@ components:
         meta:
           $ref: '#/components/schemas/WriteCollectionPartialSuccessMeta'
     MetaFieldCollectionResponsePartialSuccess_DELETE:
+
       type: object
       description: |
         Response payload for the BigCommerce API.

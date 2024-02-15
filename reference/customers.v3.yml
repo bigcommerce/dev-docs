@@ -22,12 +22,13 @@ servers:
 security:
   - X-Auth-Token: []
 tags:
-  - name: Batch metafields
+
   - name: Customers
-    description: BigCommerce Customers API Definition.
   - name: Consent
   - name: Validate Credentials
   - name: Metafields
+  - name: Customer Metafields
+  - name: Customer Batch Metafields
   - name: Addresses
   - name: Attributes
   - name: Attribute Values
@@ -1623,13 +1624,151 @@ paths:
         name: customerId
         in: path
         required: true
+  '/customers/{customerId}/metafields':
+    get:
+      summary: Get Customer metafields
+      tags:
+        - Customer Metafields
+      description: Get a customer's metafields.
+      operationId: getCustomersMetafields
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+        - name: customerId
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+             $ref: '#/components/schemas/Metafield'
+      responses:
+        '200':
+          description: |
+            List of `Metafield` objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/MetafieldResponse_Post'
+        '500':
+          description: Internal Server Error
+    post:
+      summary: Create Customer Metafields
+      tags:
+      - Customer Metafields
+      description: Creates Customer metafields.
+      operationId: createCustomerMetafields
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+        - name: customerId
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              items:
+                $ref: '#/components/schemas/MetafieldBase_Post'
+      responses:
+        '200':
+          $ref: '#/components/responses/MetafieldResponse_Post'
+  '/customers/{customerId}/metafields/{metafieldId}':
+    get:
+      summary: Get Metafields by CustomerId
+      description: |
+        Lists all available metafields for a customer. Use both `customerId` and `metafieldId` in the parameters to retrieve the full list.
+      operationId: getMetafieldsCustomerId
+      tags:
+        - Customer Metafields
+      parameters: 
+        - name: customerId
+          in: path
+          description: The ID that belongs to the customer.
+          required: true
+          schema:
+            type: integer
+        - name: metafieldId
+          in: path
+          description: The ID that is assigned to a metafield when created.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Metafield'
+      responses:
+        '200':
+          $ref: '#/components/responses/MetafieldCollectionResponse'
+    put:
+      summary: Update a metafield
+      tags:
+      - Customer Metafields
+      description: Updates Customer metafields. Use both 'customerId' and 'metafield' in the parameter to update the customer metafields.
+      operationId: updateCustomerMetafield
+      parameters: 
+        - name: metafieldId
+          in: query
+          description: The ID that is assigned to a metafield when created.
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/metafieldId'
+        - $ref: '#/components/parameters/customerId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/MetafieldBase_Put'
+                  - type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 42
+                        description: |
+                          The ID of metafield to update.
+                    required:
+                      - id
+        description: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/MetafieldResponse_Post'
+    delete:
+      summary: Delete customer metafields
+      tags:
+        - Customer Metafields
+      description: |
+        Deletes customer metafields. Use both 'customerId' and 'metafieldId' in the parameter to delete the customer metafields.
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+        - $ref: '#/components/parameters/metafieldId'
+      operationId: deleteCustomerMetafieldsId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+        description: ''
+      responses:
+        '204':
+          description: | 
+            Response object for customer metafields deletion with success.
   '/customers/metafields':
     get:
       summary: Get All Metafields
       tags:
-        - Batch metafields
+        - Customer Batch Metafields
       description: Get all customer metafields.
-      operationId: getCustomersMetafields
+      operationId: getallCustomersMetafields
       responses:
         '200':
           description: |
@@ -1651,7 +1790,7 @@ paths:
     post:
       summary: Create multiple Metafields
       tags:
-        - Batch metafields
+        - Customer Batch Metafields
       description: Create multiple metafields.
       operationId: createCustomersMetafields
       requestBody:
@@ -1692,7 +1831,7 @@ paths:
     put:
       summary: Update multiple Metafields
       tags:
-        - Batch metafields
+        - Customer Batch Metafields
       description: Create multiple metafields.
       operationId: updateCustomersMetafields
       requestBody:
@@ -1733,7 +1872,7 @@ paths:
     delete:
       summary: Delete All Metafields
       tags:
-        - Batch metafields
+        - Customer Batch Metafields
       description: Delete all customer metafields.
       operationId: deleteCustomersMetafields
       requestBody:
@@ -1761,13 +1900,20 @@ paths:
                 $ref: '#/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE'
 components:
   parameters:
+    metafieldId:
+      name: metafieldId
+      in: path
+      description: The ID of the metafield belonging to the customer. The metafieldId is a generated response when sending a POST query to the Create a Customer Metafields endpoint.
+      required: true
+      schema:
+        type: integer
     customerId:
       name: customerId
       in: path
       required: true
-      description: ''
+      description: The ID of the customer.
       schema:
-        type: string
+        type: integer
     PageParam:
       name: page
       description: |
@@ -1786,7 +1932,7 @@ components:
     MetafieldKeyInParam:
       name: key:in
       in: query
-      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla `key` query parameter.
+      description: Filter based on comma-separated metafieldʼs keys. Could be used with vanilla 'key' query parameter.
       required: false
       style: form
       explode: false
@@ -2672,6 +2818,193 @@ components:
                     name: What is your favorite pizza topping?
                     value: Mushrooms
                 meta: {}
+    MetafieldResponse_Post:
+      description: Response payload for the BigCommerce API.
+    application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+            id: 
+              type: integer
+              description: Unique ID of the *Metafield*. Read-Only.
+              readOnly: true
+              example: 24
+            key:
+              type: string
+              description: The key for the metafields.
+            value:
+              type: string
+              description: The description for the metafield.
+            namespace:
+              type: string
+              description: |
+                Namespace for the metafield, for organizational purposes.
+              example: Sales Department
+              minLength: 1
+              maxLength: 64
+            permission_set:
+              type: string
+              description: |
+                Determines the visibility and writeability of the field by other API consumers.
+                | Value | Description |
+                | :--- | :--- |
+                | `app_only` | Private to the app that owns the field. |
+                | `read` | Visible to other API consumers. |
+                | `write` | Open for reading and writing by other API consumers. |
+                | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
+                | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+              enum:
+                - app_only
+                - read
+                - write
+                - read_and_sf_access
+                - write_and_sf_access
+            resource_type:
+              type: string
+              description: |
+                The type of resource with which the metafield is associated.
+              enum:
+                - brand
+                - product
+                - variant
+                - category
+                - cart
+                - channel
+                - location
+                - order
+                - customer
+              example: cart 
+            resource_id:
+              type: integer
+              description: |
+                The unique identifier for the resource with which the metafield is associated.
+              example: 424242
+              readOnly: true
+            description:
+              type: string
+              description: |
+                Description for the metafields.
+            date_created:
+              type: string
+              format: date-time
+              description: Date and time of the metafieldʼs creation.
+              example: '2022-06-16T18:39:00+00:00'
+            date_modified:
+              type: string
+              format: date-time
+              description: Date and time when the metafield was last updated.
+              example: '2022-06-16T18:39:00+00:00'
+            owner_client_id:
+              type: string
+              description: Client ID for the metafield's creator.
+              readOnly: true     
+          required:
+            - namespace
+            - key
+            - value
+            - permission_set
+            - resource_type
+            - resource_id
+            - description
+            - id
+            - date_created
+            - date_modified     
+    MetafieldCollectionResponse:
+      description: Response payload for the BigCommerce API.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+              id: 
+                type: integer
+                description: Unique ID of the *Metafield*. Read-Only.
+                readOnly: true
+                example: 24
+              key:
+                type: string
+                description: The key for the metafields.
+              value:
+                type: string
+                description: The description for the metafield.
+              namespace:
+                type: string
+                description: |
+                  Namespace for the metafield, for organizational purposes.
+                example: Sales Department
+                minLength: 1
+                maxLength: 64
+              permission_set:
+                type: string
+                description: |
+                  Determines the visibility and writeability of the field by other API consumers.
+                  | Value | Description |
+                  | :--- | :--- |
+                  | `app_only` | Private to the app that owns the field. |
+                  | `read` | Visible to other API consumers. |
+                  | `write` | Open for reading and writing by other API consumers. |
+                  | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
+                  | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
+                enum:
+                  - app_only
+                  - read
+                  - write
+                  - read_and_sf_access
+                  - write_and_sf_access
+              resource_type:
+                type: string
+                description: |
+                  The type of resource with which the metafield is associated.
+                enum:
+                  - brand
+                  - product
+                  - variant
+                  - category
+                  - cart
+                  - channel
+                  - location
+                  - order
+                  - customer
+                example: cart 
+              resource_id:
+                type: integer
+                description: |
+                  The unique identifier for the resource with which the metafield is associated.
+                example: 424242
+                readOnly: true
+              description:
+                type: string
+                description: |
+                  Description for the metafields.
+              date_created:
+                type: string
+                format: date-time
+                description: Date and time of the metafieldʼs creation.
+                example: '2022-06-16T18:39:00+00:00'
+              date_modified:
+                type: string
+                format: date-time
+                description: Date and time when the metafield was last updated.
+                example: '2022-06-16T18:39:00+00:00'
+              owner_client_id:
+                type: string
+                description: Client ID for the metafield's creator.
+                readOnly: true     
+            required:
+              - namespace
+              - key
+              - value
+              - permission_set
+              - resource_type
+              - resource_id
+              - description
+              - id
+              - date_created
+              - date_modified       
     consent_Resp:
       description: ''
       content:
@@ -4037,8 +4370,7 @@ components:
     Metafield:
       type: object
       description: |
-        Common Metafield properties.
-      x-internal: false
+        Common metafield properties.
       properties:
         permission_set:
           type: string
@@ -4049,8 +4381,8 @@ components:
             | `app_only` | Private to the app that owns the field. |
             | `read` | Visible to other API consumers. |
             | `write` | Open for reading and writing by other API consumers. |
-            | `read_and_sf_access` | Visible to other API consumers, including on the storefront. |
-            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on the storefront. |
+            | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
+            | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
           enum:
             - app_only
             - read
@@ -4135,6 +4467,7 @@ components:
         - id
         - date_created
         - date_modified
+      x-interal: false
     MetaFieldCollectionResponse:
       type: object
       description: |

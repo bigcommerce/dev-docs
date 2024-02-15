@@ -1815,6 +1815,7 @@ paths:
         - Batch metafields
       description: Create multiple metafields.
       operationId: createCategoriesMetafields
+
       requestBody:
         content:
           application/json:
@@ -1856,6 +1857,7 @@ paths:
         - Batch metafields
       description: Create multiple metafields.
       operationId: updateCategoriesMetafields
+
       requestBody:
         content:
           application/json:
