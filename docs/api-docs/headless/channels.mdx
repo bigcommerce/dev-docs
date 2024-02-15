@@ -5,25 +5,47 @@ keywords: channels, headless, storefronts, rest,
 
 # Creating Channels
 
-This section demonstrates how to create a channel and a channel site for a headless storefront.
+Before you can display products on a headless storefront, you need to create and configure a sales channel for that storefront using the REST Management [Channels API](/docs/rest-management/channels).
 
-## Creating channels
+<Steps>
 
-Before you can display products on a headless storefront, you need to create a channel and a channel site for that storefront. A **channel** is essentially a sales platform such as a headless storefront, a marketplace, or a POS system. A **site** is a domain that links a headless storefront to a sales channel.
+### Prepare
 
-You can create both using the [Channels API](/docs/rest-management/channels).
+You need a primary domain name for your headless storefront and an additional domain for the storefront's checkout page. Subdomains are permitted.
 
-1. Send a `POST` request to the `/channels` endpoint to create a channel for your headless platform. Retrieve the channel ID returned in the response. You will use it to create a channel site and authenticate cross-origin requests.
-2. Pass that channel ID in a `POST` request to `/channels/{channel_id}/site` to create a site for the provided channel.
-3. Create a headless storefront by setting the status of the default BigCommerce storefront to inactive and then create an active headless storefront within that one free storefront limit. 
-4. Give this channel the primary domain and set the checkout domain for the headless storefront by sending a `PUT` request to the `/channels/{channel_id}/site/checkout-url` endpoint.
-5. Optionally, you can add a 3P SSL certificate for the checkout domain by sending a `GET` request to the `/sites/{site_id}/certificate` endpoint. See [Upsert a Site’s SSL/TLS Certificate Information](/docs/rest-management/sites/site-certificate#upsert-a-site’s-ssl/tls-certificate-information) for details.
-6. After setting up the channel, you can authenticate cross-origin requests by [creating a JWT token](/docs/rest-authentication/tokens#create-a-token) through the GraphQL Storefront API. Create your GraphQL Storefront API token with the same channel ID as your headless platform; otherwise, your request will be rejected.
+The API calls that associate domains with your store do not verify domain name ownership.
+
+### Get a storefront seat
 
 <Callout type="info">
- #### Limits
- Every store comes with a default limit of one active storefront that comes for free along with a store. The store can be used as a free sandbox while it is in inactive status. If you want also to make the store active, you need to purchase an additional storefront seat.
+  **Limits:** Every store comes with a default limit of one active storefront that comes for free along with a store. To add additional storefront seats, contact your BigCommerce representative.
 </Callout>
+
+You can open a headless storefront seat by setting the status of the default BigCommerce storefront to inactive. This will break a store that's already transacting on the default storefront, so contact your BigCommerce representative if you have questions about taking this step.
+
+### Create the channel
+
+Send a request to the [Create a channel](/docs/rest-management/channels#create-a-channel) endpoint to create a channel for your headless platform. Note the channel ID returned in the response; you'll use it in successive steps.
+
+### Add the headless site URL
+
+To tell BigCommerce the URL of your headless store, use the [Create a channel site](/docs/rest-management/channels/site#create-a-channel-site) endpoint, along with your channel ID and primary domain name.
+
+### Add a checkout URL
+
+Currently, all checkout pages are hosted. Set the checkout domain for the headless storefront by sending a request to the [Upsert a site's checkout URL](/docs/rest-management/channels/site-checkout-url#upsert-a-siteʼs-checkout-url) endpoint.
+
+### Add 3P SSL to the checkout domain
+
+Optionally, you can add a 3P SSL certificate for the checkout domain by sending a request to the [Upsert a site’s SSL/TLS certificate information](/docs/rest-management/sites/site-certificate#upsert-a-site’s-ssl/tls-certificate-information) endpoint.
+
+### Create tokens for the GraphQL Storefront API
+
+After setting up the channel, you're almost ready to authenticate cross-origin requests to the GraphQL Storefront API. You can [Create customer impersonation tokens](/docs/rest-authentication/tokens/customer-impersonation-token#create-a-token) for most headless or server-to-server interactions, or [Storefront tokens](/docs/rest-authentication/tokens#create-a-token) for static frontend site interactions. Use your new channel ID and, where required, supply your channel site as an allowed_cors_origin; otherwise, your requests will be rejected.
+
+After you have a token, you're ready to get started using the [GraphQL Storefront API](/docs/storefront/graphql).
+
+</Steps>
   
 ## Next steps
 
