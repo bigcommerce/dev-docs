@@ -299,7 +299,7 @@ paths:
               * images
               * custom_fields
               * bulk_pricing_rules
-              * primary_images
+              * primary_image
               * modifiers
               * options
               * videos
