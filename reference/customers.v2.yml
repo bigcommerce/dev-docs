@@ -867,18 +867,6 @@ paths:
                     minLength: 1
                     type: string
                 description: ''
-    delete:
-      tags:
-        - Customer Groups
-      summary: Delete Customer Groups
-      description: |-
-        By default, it deletes all *Customer Groups*. 
-        All existing customers are unassigned from the group when it is deleted.
-      operationId: deleteCustomerGroups
-      responses:
-        '204':
-          description: ''
-          content: {}
   '/customer_groups/{customer_group_id}':
     parameters:
       - $ref: '#/components/parameters/Accept'
