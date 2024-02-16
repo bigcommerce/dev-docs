@@ -803,9 +803,13 @@ paths:
                           next: string
         '207':
           description: |-
-            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
             
-            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+            For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed. 
+            
+            If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+
+            If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
           content:
             application/json:
               schema:
@@ -1152,9 +1156,13 @@ paths:
                 '207':
         '207': 
           description: |-
-            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
             
-            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+            For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed. 
+            
+            If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+          
+            If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
           content:
             application/json:
               schema:
@@ -1784,9 +1792,13 @@ paths:
                 properties: {}
         '207':
           description: |-
-            Multi-status. The product information was updated successfully, but the inventory data failed to update. 
+            Multi-status. Typically indicates that a partial failure has occurred, such as when a POST or PUT request is successful, but saving one of the attributes has failed.
             
-            Verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+            For example, the product information was updated successfully, but the inventory data failed to update or saving the URL failed. 
+            
+            If inventory data failed to update, verify that the inventory-related updates are well-formed and correct; for example, that they donʼt result in negative stock levels. Then consider updating the inventory data again.
+
+            If the URL failed to update, check that the URL uses Latin letters, is no more than 255 characters, and is not taken by any other entity.
           content:
             application/json:
               schema:
