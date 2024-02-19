@@ -761,7 +761,7 @@ paths:
       description: Deletes a single channel metafield.
   '/channels/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Channel Metafields
       tags:
         - Batch metafields
       description: Get all channel metafields.

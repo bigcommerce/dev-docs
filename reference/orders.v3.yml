@@ -557,7 +557,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/OrderIdParam'
     get:
-      summary: Get Metafields
+      summary: Get Order Metafields
       tags:
         - Metafields
       description: |
@@ -866,7 +866,7 @@ paths:
         required: true
   '/orders/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Order Metafields
       tags:
         - Batch metafields
       description: Get all order metafields.

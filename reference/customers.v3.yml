@@ -1764,7 +1764,7 @@ paths:
             Response object for customer metafields deletion with success.
   '/customers/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Customer Metafields
       tags:
         - Customer Batch Metafields
       description: Get all customer metafields.

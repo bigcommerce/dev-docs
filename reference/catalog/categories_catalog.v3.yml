@@ -1185,7 +1185,7 @@ paths:
     get:
       tags:
         - Metafields
-      summary: Get All Category Metafields
+      summary: Get Category Metafields
       description: Returns a list of *Metafields* on a *Category*. Optional filter parameters can be passed in.
       operationId: getCategoryMetafields
       parameters:
@@ -1786,7 +1786,7 @@ paths:
       - $ref: '#/components/parameters/CategoryIdParam'
   '/catalog/categories/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Category Metafields
       tags:
         - Batch metafields
       description: Get all category metafields.

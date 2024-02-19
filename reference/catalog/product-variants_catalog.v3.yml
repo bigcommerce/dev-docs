@@ -556,7 +556,7 @@ paths:
     get:
       tags:
         - Metafields
-      summary: Get All Product Variant Metafields
+      summary: Get Product Variant Metafields
       description: Returns a list of product variant *Metafields*. Optional parameters can be passed in.
       operationId: getProductVariantMetafields
       parameters:
@@ -1719,7 +1719,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
   '/catalog/variants/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Product Variant Metafields
       tags:
         - Batch metafields
       description: Get all variant metafields.

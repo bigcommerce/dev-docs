@@ -995,7 +995,7 @@ paths:
     get:
       tags:
         - Metafields
-      summary: Get All Brand Metafields
+      summary: Get Brand Metafields
       description: 'Returns a list of *Brand Metafields*. Optional filter parameters can be passed in. '
       operationId: getBrandMetafields
       parameters:
@@ -1591,7 +1591,7 @@ paths:
       - $ref: '#/components/parameters/BrandIdParam'
   '/catalog/brands/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Brand Metafields
       tags:
         - Batch metafields
       description: Get all brand metafields.

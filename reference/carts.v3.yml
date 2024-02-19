@@ -741,10 +741,10 @@ paths:
       - $ref: '#/components/parameters/cart_id'
       - $ref: '#/components/parameters/Accept'
     get:
-      summary: Get All Metafields
+      summary: Get Cart Metafields
       tags:
         - Metafields
-      description: Get all cart metafields.
+      description: Get a cart's metafields.
       operationId: getCartMetafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
@@ -931,7 +931,7 @@ paths:
         description: The unique ID of the subject `Metafield`.
   '/carts/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Cart Metafields
       tags:
         - Batch metafields
       description: Get all cart metafields.

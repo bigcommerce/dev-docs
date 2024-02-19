@@ -4529,7 +4529,7 @@ paths:
     get:
       tags:
         - Metafields
-      summary: Get All Product Metafields
+      summary: Get Product Metafields
       description: Returns a list of *Product Metafields*. Optional parameters can be passed in.
       operationId: getProductMetafields
       parameters:
@@ -5766,7 +5766,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
   '/catalog/products/metafields':
     get:
-      summary: Get All Metafields
+      summary: Get All Product Metafields
       tags:
         - Batch metafields
       description: Get all product metafields.
