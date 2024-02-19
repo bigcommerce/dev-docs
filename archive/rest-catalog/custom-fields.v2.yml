@@ -1,0 +1,389 @@
+openapi: '3.0.3'
+info:
+  title: Catalog - Custom Fields V2
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  version: '1.0.1'
+servers:
+  - url: 'https://{{store_url}}/api/v2'
+    variables:
+      store_url:
+        default: store_url
+        description: Permanent url of the BigCommerce store.
+    description: BigCommerce API Gateway
+security:
+  - basicAuth: []
+tags:
+  - name: Custom Fields V2
+paths:
+  '/products/{product_id}/custom_fields':
+    get:
+      tags:
+        - Custom Fields V2
+      summary: List Custom Fields
+      description: Gets custom fields associated with a product.
+      operationId: getProductCustomFields
+      parameters:
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of custom fields.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: |-
+            Controls the number of items per page in a limited (paginated) list of custom fields.
+            The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/customfields'
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+    post:
+      tags:
+        - Custom Fields V2
+      summary: Create a Product Custom Field.
+      description: |-
+        Creates a new custom field associated with a product.
+
+        **Required Fields:**
+        - name
+        - text
+
+        **Name-Value Pair Uniqueness**
+        - Every name-text pair must be unique inside a product.
+
+        **Limits**
+        - 200 custom fields per product limit.
+        - 250 characters per custom field limit.
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/customfieldrequest'
+          'application/xml':
+            schema:
+              $ref: '#/components/schemas/customfieldrequest'
+        required: true
+      responses:
+        '201':
+          $ref: '#/components/responses/customfield'
+        '400':
+          $ref: '#/components/responses/errors'
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+        '406':
+          $ref: '#/components/responses/errors'
+        '415':
+          $ref: '#/components/responses/errors'
+        '422':
+          $ref: '#/components/responses/errors'
+    delete:
+      tags:
+        - Custom Fields V2
+      summary: Deletes multiple custom fields.
+      description: Deletes multiple custom field associated with a product.
+      operationId: deleteProductCustomFields
+      parameters:
+        - name: page
+          in: query
+          description: Specifies the page number in a limited (paginated) list of custom fields you can delete.
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: |-
+            Controls the number of items per page in a limited (paginated) list of custom fields you can delete.
+            The maximum limit is 250. You can use up to 50 `custom_fields` by default if you do not provide a limit.
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 204 No Content
+          content: {}
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+    parameters:
+      - $ref: '#/components/parameters/ProductIdParam'
+  '/products/{product_id}/custom_fields/{id}':
+    get:
+      tags:
+        - Custom Fields V2
+      summary: Get a Product Custom Field.
+      description: Gets a custom field associated with a product.
+      operationId: getProductCustomField
+      responses:
+        '200':
+          $ref: '#/components/responses/customfield'
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+    put:
+      tags:
+        - Custom Fields V2
+      summary: Update a Custom Field.
+      description: |-
+        Updates an existing custom field associated with a product.
+
+        **Required Fields**
+        - name
+        - text
+
+        **Read-Only**
+        - product_id
+      operationId: updateProductCustomField
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/customfieldrequest'
+          'application/xml':
+            schema:
+              $ref: '#/components/schemas/customfieldrequest'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/customfield'
+        '400':
+          $ref: '#/components/responses/errors'
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+        '406':
+          $ref: '#/components/responses/errors'
+        '415':
+          $ref: '#/components/responses/errors'
+        '422':
+          $ref: '#/components/responses/errors'
+    delete:
+      tags:
+        - Custom Fields V2
+      summary: Delete a Product Custom Field.
+      description: Deletes a custom field associated with a product.
+      operationId: deleteProductCustomField
+      responses:
+        '204':
+          description: 204 No Content.
+          content: {}
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+    parameters:
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/CustomFieldIdParam'
+  /products/custom_fields/count:
+    get:
+      tags:
+        - Custom Fields V2
+      summary: Count Custom Fields
+      description: Gets a count of the number of custom fields in the store.
+      operationId: getProductCustomFieldsCount
+      responses:
+        '200':
+          $ref: '#/components/responses/customfieldscount'
+        '401':
+          $ref: '#/components/responses/errors'
+        '403':
+          $ref: '#/components/responses/errors'
+        '404':
+          $ref: '#/components/responses/errors'
+        '405':
+          $ref: '#/components/responses/errors'
+components:
+  schemas:
+    customfield:
+      title: Custom Field response
+      required:
+        - id
+        - product_id
+        - name
+        - text
+      type: object
+      xml:
+        name: customfield
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: |-
+            The unique numeric ID of the custom field increments sequentially. Read-Only.
+          example: 6
+        product_id:
+          minimum: 1
+          type: integer
+          description: |-
+            ID of the associated product.
+            Read-Only
+          example: 6
+        name:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: 'ISBN'
+        text:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: '1234567890123'
+      description: 'Gets custom field associated with a product.'
+    customfieldrequest:
+      title: Custom Field request body
+      required:
+        - name
+        - text
+      type: object
+      properties:
+        name:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: 'ISBN'
+        text:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: '1234567890123'
+      description: 'Request body for custom field create/update'
+    customfieldscount:
+      title: Custom Field Count
+      required:
+        - count
+      type: object
+      properties:
+        count:
+          type: integer
+          description:  A count of the number of custom fields in the store.
+          example: 100
+    error:
+      title: Custom Field response
+      type: object
+      required:
+        - status
+        - message
+      xml:
+        name: error
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+        message:
+          type: string
+          description: Error message
+  responses:
+    errors:
+      description: General error
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/error'
+        'application/xml':
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/error'
+            xml:
+              name: errors
+              wrapped: true
+    customfield:
+      description: Get Custom Field Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/customfield'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/customfield'
+    customfields:
+      description: Gets array of Custom Fields Response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/customfield'
+        'application/xml':
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/customfield'
+            xml:
+              name: customfields
+              wrapped: true
+    customfieldscount:
+      description: 'Gets a count of the total number of custom fields in the store.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/customfieldscount'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/customfieldscount'
+  parameters:
+    CustomFieldIdParam:
+      name: id
+      description: |
+        The ID of the `CustomField`.
+      required: true
+      in: path
+      schema:
+        type: integer
+    ProductIdParam:
+      name: product_id
+      in: path
+      description: |
+        The ID of the `Product` to which the resource belongs.
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

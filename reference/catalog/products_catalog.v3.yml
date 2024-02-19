@@ -4070,7 +4070,7 @@ paths:
         - Custom Fields
       summary: Get Product Custom Fields
       description: |-
-        Returns a list of product *Custom Fields*. Optional parameters can be passed in.
+        Returns a list of product *Custom Fields*. You can pass in optional parameters.
 
         **Note:**
         The default rate limit for this endpoint is 40 concurrent requests.
@@ -4078,12 +4078,12 @@ paths:
       parameters:
         - name: include_fields
           in: query
-          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          description: 'Fields to include in a comma-separated list; returned fields are the ID and specified fields.'
           schema:
             type: string
         - name: exclude_fields
           in: query
-          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          description: 'Fields to exclude in a comma-separated list; responses do not include specified fields, and you can not exclude the ID.'
           schema:
             type: string
         - name: page
@@ -4098,66 +4098,15 @@ paths:
             type: integer
       responses:
         '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Get Product Custom Fields Response'
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      title: Custom Field
-                      required:
-                        - name
-                        - value
-                      type: object
-                      properties:
-                        id:
-                          minimum: 1
-                          type: integer
-                          description: |-
-                            The unique numeric ID of the custom field; increments sequentially.
-                            Read-Only
-                          example: 6
-                        name:
-                          maxLength: 250
-                          minLength: 1
-                          type: string
-                          description: |
-                            The name of the field, shown on the storefront, orders, etc. Required for /POST
-                          example: ISBN
-                          x-required:
-                            - post
-                        value:
-                          maxLength: 250
-                          minLength: 1
-                          type: string
-                          description: |
-                            The name of the field, shown on the storefront, orders, etc. Required for /POST
-                          example: '1234567890123'
-                          x-required:
-                            - post
-                      description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
-                  meta:
-                    $ref: '#/components/schemas/metaCollection_Full'
-              example:
-                data:
-                  - name: Release year
-                    value: '1987'
-                    id: 1
-                meta:
-                  pagination:
-                    total: 1
-                    count: 1
-                    per_page: 50
-                    current_page: 1
-                    total_pages: 1
-                    links:
-                      previous: '?page=1&limit=50'
-                      current: '?page=1&limit=50'
-                      next: '?page=1&limit=50'
+          $ref: '#/components/responses/CustomFieldsResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/GeneralErrorWithErrors'
+        '404':
+          $ref: '#/components/responses/GeneralError'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowedError'
     post:
       tags:
         - Custom Fields
@@ -4169,207 +4118,75 @@ paths:
         - name
         - value
 
+        **Name-Value Pair Uniqueness**
+        - Every name-value pair must be unique inside a product.
+
         **Read-Only:**
         - id
 
         **Limits**
         - 200 custom fields per product limit.
-        - 255 characters per custom field limit.
-        
+        - 250 characters per custom field limit.
+
         **Note:**
-        The default rate limit for this endpoint is 40 concurrent requests. 
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: createProductCustomField
-      parameters:
-        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              title: Custom Field
-              required:
-                - name
-                - value
-              type: object
-              properties:
-                name:
-                  maxLength: 250
-                  minLength: 1
-                  type: string
-                  description: |
-                    The name of the field, shown on the storefront, orders, etc. Required for /POST
-                  example: ISBN
-                  x-required:
-                    - post
-                value:
-                  maxLength: 250
-                  minLength: 1
-                  type: string
-                  description: |
-                    The name of the field, shown on the storefront, orders, etc. Required for /POST
-                  example: '1234567890123'
-                  x-required:
-                    - post
-              description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
+              $ref: '#/components/schemas/customFieldPost'
         required: true
       responses:
         '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Create Product Custom Field Response'
-                type: object
-                properties:
-                  data:
-                    title: Custom Field
-                    required:
-                      - name
-                      - value
-                    type: object
-                    properties:
-                      id:
-                        minimum: 1
-                        type: integer
-                        description: |-
-                          The unique numeric ID of the custom field; increments sequentially.
-                          Read-Only
-                        example: 6
-                      name:
-                        maxLength: 250
-                        minLength: 1
-                        type: string
-                        description: |
-                          The name of the field, shown on the storefront, orders, etc. Required for /POST
-                        example: ISBN
-                        x-required:
-                          - post
-                      value:
-                        maxLength: 250
-                        minLength: 1
-                        type: string
-                        description: |
-                          The name of the field, shown on the storefront, orders, etc. Required for /POST
-                        example: '1234567890123'
-                        x-required:
-                          - post
-                    description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
-                  meta:
-                    $ref: '#/components/schemas/metaEmpty_Full'
-              example:
-                data:
-                  name: Release Year
-                  value: '1976'
-                  id: 2
-                meta: {}
+          $ref: '#/components/responses/CustomFieldResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/GeneralErrorWithErrors'
         '404':
-          description: |
-            The parent resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
+          $ref: '#/components/responses/GeneralError'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowedError'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaTypeError'
         '422':
-          description: |
-            The `CustomField` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-          content:
-            application/json:
-              schema:
-                title: Error Response
-                type: object
-                properties:
-                  errors:
-                    title: Detailed Errors
-                    type: object
-                    properties: {}
-                    additionalProperties: true
-                  instance:
-                    type: string
-                  status:
-                    type: integer
-                    description: |
-                      The HTTP status code.
-                  title:
-                    type: string
-                    description: |
-                      The error title describing the particular error.
-                  type:
-                    type: string
-      x-codegen-request-body-name: CustomField
+          $ref: '#/components/responses/GeneralError'
     parameters:
-      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/custom-fields/{custom_field_id}':
     get:
       tags:
         - Custom Fields
       summary: Get a Product Custom Field
-      description: Returns a single *Custom Field*. Optional parameters can be passed in.
+      description: |
+        Returns a *Custom Field*.
+        
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: getProductCustomField
       parameters:
         - name: include_fields
           in: query
-          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+          description: 'Fields to include in a comma-separated list; returned fields are the ID and specified fields.'
           schema:
             type: string
         - name: exclude_fields
           in: query
-          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+          description: 'Fields to exclude in a comma-separated list; responses do not include specified fields, and you can not exclude the ID.'
           schema:
             type: string
       responses:
         '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Get Product Custom Field Response'
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/productCustomField_Base'
-                  meta:
-                    $ref: '#/components/schemas/metaEmpty_Full'
-              example:
-                data:
-                  name: Release Year
-                  value: '1976'
-                  id: 2
-                meta: {}
+          $ref: '#/components/responses/CustomFieldResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/GeneralErrorWithErrors'
         '404':
-          description: |
-            The resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
+          $ref: '#/components/responses/GeneralError'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowedError'
     put:
       tags:
         - Custom Fields
@@ -4382,144 +4199,31 @@ paths:
 
         **Read-Only**
         - id
+
+        **Note:**
+        The default rate limit for this endpoint is 40 concurrent requests.
       operationId: updateProductCustomField
-      parameters:
-        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              title: Custom Field
-              required:
-                - name
-                - value
-              type: object
-              properties:
-                id:
-                  minimum: 1
-                  type: integer
-                  description: |-
-                    The unique numeric ID of the custom field; increments sequentially.
-                    Read-Only
-                  example: 6
-                name:
-                  maxLength: 250
-                  minLength: 1
-                  type: string
-                  description: |
-                    The name of the field, shown on the storefront, orders, etc. Required for /POST
-                  example: ISBN
-                  x-required:
-                    - post
-                value:
-                  maxLength: 250
-                  minLength: 1
-                  type: string
-                  description: |
-                    The name of the field, shown on the storefront, orders, etc. Required for /POST
-                  example: '1234567890123'
-                  x-required:
-                    - post
-              description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
+              $ref: '#/components/schemas/customFieldPut'
         required: true
       responses:
         '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Update Product Custom Field Response'
-                type: object
-                properties:
-                  data:
-                    title: Custom Field
-                    required:
-                      - name
-                      - value
-                    type: object
-                    properties:
-                      id:
-                        minimum: 1
-                        type: integer
-                        description: |-
-                          The unique numeric ID of the custom field; increments sequentially.
-                          Read-Only
-                        example: 6
-                      name:
-                        maxLength: 250
-                        minLength: 1
-                        type: string
-                        description: |
-                          The name of the field, shown on the storefront, orders, etc. Required for /POST
-                        example: ISBN
-                        x-required:
-                          - post
-                      value:
-                        maxLength: 250
-                        minLength: 1
-                        type: string
-                        description: |
-                          The name of the field, shown on the storefront, orders, etc. Required for /POST
-                        example: '1234567890123'
-                        x-required:
-                          - post
-                    description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
-                  meta:
-                    $ref: '#/components/schemas/metaEmpty_Full'
-              example:
-                data:
-                  name: Release Year
-                  value: '1976'
-                  id: 2
-                meta: {}
+          $ref: '#/components/responses/CustomFieldResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/GeneralErrorWithErrors'
         '404':
-          description: |
-            The resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
+          $ref: '#/components/responses/GeneralError'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowedError'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaTypeError'
         '422':
-          description: |
-            The `CustomField` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-          content:
-            application/json:
-              schema:
-                title: Error Response
-                type: object
-                properties:
-                  errors:
-                    title: Detailed Errors
-                    type: object
-                    properties: {}
-                    additionalProperties: true
-                  instance:
-                    type: string
-                  status:
-                    type: integer
-                    description: |
-                      The HTTP status code.
-                  title:
-                    type: string
-                    description: |
-                      The error title describing the particular error.
-                  type:
-                    type: string
-      x-codegen-request-body-name: CustomField
+          $ref: '#/components/responses/GeneralError'
     delete:
       tags:
         - Custom Fields
@@ -4532,273 +4236,19 @@ paths:
       operationId: deleteProductCustomField
       responses:
         '204':
-          description: '`204 No Content`. Action has been enacted and no further information is to be supplied. `null` is returned.'
+          description: '204 No Content'
           content: {}
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/GeneralErrorWithErrors'
         '404':
-          description: |
-            The resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
+          $ref: '#/components/responses/GeneralError'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowedError'
     parameters:
-      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/CustomFieldIdParam'
-  '/catalog/products/{product_id}/bulk-pricing-rules':
-    get:
-      tags:
-        - Bulk Pricing Rules
-      summary: Get All Bulk Pricing Rules
-      description: Returns a list of *Bulk Pricing Rules*. Optional parameters can be passed in.
-      operationId: getBulkPricingRules
-      parameters:
-        - name: include_fields
-          in: query
-          description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
-          schema:
-            type: string
-        - name: exclude_fields
-          in: query
-          description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Specifies the page number in a limited (paginated) list of products.
-          schema:
-            type: integer
-        - name: limit
-          in: query
-          description: Controls the number of items per page in a limited (paginated) list of products.
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Get Bulk Pricing Rules Response'
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      allOf:
-                        - type: object
-                          properties:
-                            id:
-                              type: integer
-                              description: Unique ID of the *Bulk Pricing Rule*. Read-Only.
-                              readOnly: true
-                          required:
-                            - id
-                        - $ref: '#/components/schemas/bulkPricingRule_Full'
-                  meta:
-                    $ref: '#/components/schemas/metaCollection_Full'
-              example:
-                data:
-                  - id: 83
-                    quantity_min: 1
-                    quantity_max: 3
-                    type: price
-                    amount: 1
-                  - id: 84
-                    quantity_min: 4
-                    quantity_max: 0
-                    type: price
-                    amount: 1
-                meta:
-                  pagination:
-                    total: 2
-                    count: 2
-                    per_page: 50
-                    current_page: 1
-                    total_pages: 1
-                    links:
-                      current: '?page=1&limit=50'
-        '404':
-          description: |
-            The parent resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
-    post:
-      tags:
-        - Bulk Pricing Rules
-      summary: Create a Bulk Pricing Rule
-      description: |-
-        Creates a *Bulk Pricing Rule*.
-
-        **Required Fields**
-        - quantity_min
-        - quantity_max
-        - type
-        - amount
-
-        **Read-Only Fields**
-        - id
-
-        **Limits**
-        - 50 bulk pricing rule per product limit.
-      operationId: createBulkPricingRule
-      parameters:
-        - $ref: '#/components/parameters/ContentType'
-        - name: page
-          in: query
-          description: Specifies the page number in a limited (paginated) list of products.
-          schema:
-            type: integer
-        - name: limit
-          in: query
-          description: Controls the number of items per page in a limited (paginated) list of products.
-          schema:
-            type: integer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/bulkPricingRule_Full'
-        required: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                title: 'Create Bulk Pricing Rule Response'
-                type: object
-                properties:
-                  data:
-                    allOf:
-                      - type: object
-                        properties:
-                          id:
-                            type: integer
-                            description: Unique ID of the *Bulk Pricing Rule*. Read-Only.
-                            readOnly: true
-                        required:
-                          - id
-                      - $ref: '#/components/schemas/bulkPricingRule_Full'
-                  meta:
-                    title: Meta
-                    type: object
-                    description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 83
-                  quantity_min: 1
-                  quantity_max: 3
-                  type: price
-                  amount: 1
-                meta: {}
-        '404':
-          description: |
-            The parent resource was not found.
-          content:
-            application/json:
-              schema:
-                title: Not Found
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: |
-                      404 HTTP status code.
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                description: Error payload for the BigCommerce API.
-        '409':
-          description: |
-            The `BulkPricingRule` was in conflict with another bulk pricing rule. This is the result of quantity range overlapping with existing bulk pricing rules.
-          content:
-            application/json:
-              schema:
-                title: Error Response
-                type: object
-                properties:
-                  errors:
-                    title: Detailed Errors
-                    type: object
-                    properties: {}
-                    additionalProperties: true
-                  instance:
-                    type: string
-                  status:
-                    type: integer
-                    description: |
-                      The HTTP status code.
-                  title:
-                    type: string
-                    description: |
-                      The error title describing the particular error.
-                  type:
-                    type: string
-        '422':
-          description: |
-            The `BulkPricingRule` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-          content:
-            application/json:
-              schema:
-                title: Error Response
-                type: object
-                properties:
-                  errors:
-                    title: Detailed Errors
-                    type: object
-                    properties: {}
-                    additionalProperties: true
-                  instance:
-                    type: string
-                  status:
-                    type: integer
-                    description: |
-                      The HTTP status code.
-                  title:
-                    type: string
-                    description: |
-                      The error title describing the particular error.
-                  type:
-                    type: string
-      x-codegen-request-body-name: BulkPricingRule
-    parameters:
-      - $ref: '#/components/parameters/Accept'
-      - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/bulk-pricing-rules/{bulk_pricing_rule_id}':
     get:
       tags:
@@ -9238,6 +8688,248 @@ components:
           minLength: 0
           maxLength: 255
           example: Name of Staff Member
+    customFieldData:
+      title: Product Custom Field Data
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: |-
+            The unique numeric ID of the custom field increments sequentially. Read-Only.
+          example: 6
+        name:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: 'ISBN'
+        value:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: '1234567890123'
+      description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
+    customFieldPost:
+      title: Custom Field Post
+      required:
+        - name
+        - value
+      type: object
+      properties:
+        name:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: 'ISBN'
+        value:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: '1234567890123'
+      description: 'Payload for POST request to create custom fields associated with a product.'
+    customFieldPut:
+      title: Custom Field Put
+      type: object
+      properties:
+        name:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: 'ISBN'
+        value:
+          maxLength: 250
+          minLength: 1
+          type: string
+          description: |
+            The value of the field, shown on the storefront, orders, etc. This field is a requirement for /POST requests.
+          example: '1234567890123'
+      description: 'Payload for PUT request to update custom fields associated with a product.'
+    metaCollectionFull:
+      title: metaCollectionFull
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 2
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 3
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                  example: '?page=1&limit=50'
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=2&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+                  example: '?page=3&limit=50'
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+          description: 'Data about the response, including pagination and collection totals.'
+      description: 'Data about the response, including pagination and collection totals.'
+    metaEmptyFull:
+      type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
+    GeneralErrorWithErrors:
+      required:
+        - status
+        - title
+        - type
+        - errors
+      title: Error Response
+      type: object
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+        title:
+          type: string
+          description: The error title describes the particular error.
+        type:
+          type: string
+        errors:
+          title: Detailed Errors
+          type: object
+          properties: {}
+          additionalProperties: true
+    GeneralError:
+      required:
+        - status
+        - title
+        - type
+      title: Error Response
+      type: object
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+        title:
+          type: string
+          description: The error title describes the particular error.
+        type:
+          type: string
+        code:
+          type: integer
+          description: The custom code of the error.
+    MethodNotAllowedError:
+      required:
+        - status
+        - title
+        - type
+        - detail
+      title: Error Response
+      type: object
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 405
+        title:
+          type: string
+          description: The error title describes the particular error.
+        type:
+          type: string
+        detail:
+          title: Detailed Errors
+          type: string
+          description: The detailed title describes the particular error.
+  responses:
+    GeneralError:
+      description: General Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralError'
+    GeneralErrorWithErrors:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralErrorWithErrors'
+    UnauthorizedError:
+      description: 401 Unauthorized
+      content:
+        plain/text:
+          schema:
+            type: string
+    MethodNotAllowedError:
+      description: 405 Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MethodNotAllowedError'
+    UnsupportedMediaTypeError:
+      description: 415 Unsupported Media Type
+      content:
+        text/html:
+          schema:
+            type: string
+    CustomFieldsResponse:
+      description: Gets array of Custom fields.
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/customFieldData'
+              meta:
+                $ref: '#/components/schemas/metaCollectionFull'
+    CustomFieldResponse:
+      description: Gets Custom field.
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: '#/components/schemas/customFieldData'
+              meta:
+                $ref: '#/components/schemas/metaEmptyFull'
   parameters:
     ProductIdParam:
       name: product_id
