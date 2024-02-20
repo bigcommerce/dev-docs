@@ -114,9 +114,9 @@ The following is an example of the payload claims encoded in the `signed_payload
 | `exp` | integer, UNIX time | The *expiration* time; when the JWT becomes invalid. Currently, 24 hours after `nbf`. |
 | `jti` | string, UUID | The *JWT ID*; a unique identifier for the JWT. |
 | `sub` | string | Identifies the *subject* store in API requests to `https://api.bigcommerce.com{:http}`; a string of the form `stores/{STORE_HASH}`. |
-| `user.id` | integer | The ID of the user who initiates the callback. |
-| `user.email` | string | The email address of the user who initiates the callback. |
-| `user.locale` | string | The [BCP 47](https://www.rfc-editor.org/info/bcp47) language tag of the user who initiates the callback. |
+| `user.id` | integer | The ID of the store owner. |
+| `user.email` | string | The email address of the store owner. |
+| `user.locale` | string | The [BCP 47](https://www.rfc-editor.org/info/bcp47) language tag of the store owner. |
 | `owner.id` | integer | The ID of the store owner. |
 | `owner.email` | string | The email address of the store owner. |
 | `url` | string | Also known as a *deep link*. A developer-configured path that provides the app more information about the resource that initiated the load callback. |
