@@ -179,14 +179,19 @@ paths:
           schema:
             type: string
             format: date-time
+        - name: 'date_last_imported:not'
+          in: query
+          description: 'Filter items by date_last_imported. For example, `date_last_imported:not=2015-08-21T22%3A53%3A23%2B00%3A00`.'
+          schema:
+            type: string
         - name: 'date_last_imported:max'
           in: query
-          description: 'Filter items by date_last_imported. For example, `date_last_imported:max=2020-06-15`.'
+          description: 'Filter items by date_last_imported. For example, `date_last_imported:max=2015-08-21T22%3A53%3A23%2B00%3A00`.'
           schema:
             type: string
         - name: 'date_last_imported:min'
           in: query
-          description: 'Filter items by date_last_imported. For example, `date_last_imported:min=2018-06-15`.'
+          description: 'Filter items by date_last_imported. For example, `date_last_imported:min=2015-08-21T22%3A53%3A23%2B00%3A00`.'
           schema:
             type: string
         - name: is_visible
@@ -507,6 +512,7 @@ paths:
                     brand_name: Common Good
                     gtin: string
                     mpn: string
+                    date_last_imported: '2015-07-03T18:16:02+00:00'
                     reviews_rating_sum: 3
                     reviews_count: 4
                     total_sold: 80
@@ -627,6 +633,7 @@ paths:
                         brand_name: Common Good
                         gtin: string
                         mpn: string
+                        date_last_imported: '2015-07-03T18:16:02+00:00'
                         reviews_rating_sum: 3
                         reviews_count: 4
                         total_sold: 80
@@ -988,6 +995,7 @@ paths:
                 brand_name: Common Good
                 gtin: string
                 mpn: string
+                date_last_imported: '2015-07-03T18:16:02+00:00'
                 reviews_rating_sum: 3.2
                 reviews_count: 4
                 total_sold: 80
@@ -1292,7 +1300,7 @@ paths:
             format: date-time
         - name: date_last_imported
           in: query
-          description: 'Filter items by date_last_imported. For example `v3/catalog/products?date_last_imported:min=2018-06-15`'
+          description: 'Filter items by date_last_imported. For example `v3/catalog/products?date_last_imported:min=2015-08-21T22%3A53%3A23%2B00%3A00`'
           schema:
             type: string
             format: date-time
@@ -7362,6 +7370,7 @@ components:
             brand_name: Common Good
             gtin: string
             mpn: string
+            date_last_imported: '2015-07-03T18:16:02+00:00'
             reviews_rating_sum: 3.2
             reviews_count: 4
             total_sold: 80
@@ -7638,6 +7647,7 @@ components:
           brand_name: Common Good
           gtin: string
           mpn: string
+          date_last_imported: '2015-07-03T18:16:02+00:00'
           reviews_rating_sum: 3.2
           reviews_count: 4
           total_sold: 80
@@ -8029,6 +8039,9 @@ components:
         mpn:
           type: string
           description: Manufacturer Part Number
+        date_last_imported:
+          type: string
+          description: the date when the Product had been imported
         reviews_rating_sum:
           type: integer
           description: |
