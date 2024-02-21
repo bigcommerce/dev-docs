@@ -331,8 +331,15 @@ paths:
         * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart, and redirecting to the URL from your own application.
         * Redirect URLs can be generated only from carts that were created using the **REST Management API**. 
         * To restore a cart that was created on the storefront, either by a shopper or a Storefront API, first recreate the cart using the **REST Management API**.
+        * When redirecting the shopper, you can add a set of `query_params` to the URL. The `query_params` feature allows passing additional information to the redirect URL.
       tags:
         - Redirects
+        - Cart Redirect URLs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Redirect_urls_Post'
       responses:
         '201':
           $ref: '#/components/responses/CartRedirectResponse'
@@ -2688,6 +2695,19 @@ components:
               - recipient
         custom_items:
           $ref: '#/components/schemas/cart_PostCustomItem'
+    Redirect_urls_Post:
+      type: object
+      title: Redirect_urls_Post
+      properties:
+        query_params:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
     Cart_Line_Item_Update_Post:
       type: object
       title: Cart_Line_Item_Update_Post
