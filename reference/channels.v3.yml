@@ -30,11 +30,11 @@ info:
     | `catch`             | `marketplace` |
     | `ebay`              | `marketplace` |
     | `etsy`              | `marketplace` |
-    | `facebook`  | `marketplace`, `marketing` |
+    | `facebook`          | `marketplace`, `marketing` |
     | `hudsons_bay`       | `marketplace` |
     | `google`            | `marketplace`, `marketing` |
     | `google_shopping` (deprecated)   | `marketing` |
-    | `instagram` | `marketplace`, `marketing` |
+    | `instagram`         | `marketplace`, `marketing` |
     | `macys`             | `marketplace` |
     | `mirakl`            | `marketplace` |
     | `overstock`         | `marketplace` |
@@ -45,12 +45,13 @@ info:
     | `wish`              | `marketplace` |
     | `walmart`           | `marketplace` |
     | `acquia`            | `storefront` |
-    | `bigcommerce`       | `storefront` |
+    | `bigcommerce` (Stencil and Blueprint) | `storefront` |
     | `bloomreach`        | `storefront` |
+    | `catalyst` (BigCommerce Next.js) | `storefront` |
     | `deity`             | `storefront` |
     | `drupal`            | `storefront` |
     | `gatsby`            | `storefront` |
-    | `next`              | `storefront` |
+    | `next` (Next.js Commerce and other Next.js) | `storefront` |
     | `vue`               | `storefront` |
     | `wordpress`         | `storefront` |
     | `custom`            | `storefront`, `pos`, `marketing`, `marketplace` |
@@ -58,13 +59,12 @@ info:
 
     ### Status
 
-    Allowed values for a channelʼs `status` vary by channel `type` and `platform`.
+    Allowed values for a channelʼs `status` vary by channel `type`.
 
-    |Type|Platform|Allowed Statuses|
-    |--|--|--|
-    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `archived`, `deleted`|
-    |`storefront`|**Is not** `bigcommerce` |`prelaunch`, `active`, `inactive`, `archived`, `deleted` 
-    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
+    | Type | Writeable Statuses |
+    |:-----|:-------------------|
+    | `storefront` | `prelaunch`, `active`, `inactive`, `archived`, `deleted` |
+    | `marketing`, `marketplace`, `pos`| `connected`, `disconnected`, `archived`, `deleted` |
 
     > #### Warning
     > * You can restore a Channel with `deleted` status within **90 days** after deletion by contacting the BigCommerce support team. After the 90-days grace period is over, the Channel `status` will become `terminated`.
