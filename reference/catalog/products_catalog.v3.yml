@@ -6227,6 +6227,10 @@ components:
           properties:
             product_id:
               type: integer
+              description: Product ID
+            id:
+              type: integer
+              description: Variant ID
             sku:
               type: string
             option_values:
@@ -6243,6 +6247,8 @@ components:
               type: number
       required:
           - sku
+          - id
+          - product_id
       x-internal: false
       description: ''
       x-examples:
@@ -6608,11 +6614,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/product_Base'
         - type: object
-          properties:
-            variants:
-              type: array
-              items:
-                $ref: '#/components/schemas/productVariant_Put_Product'
       x-internal: false
     metafield_Base:
       title: metafield_Base
@@ -7249,10 +7250,6 @@ components:
             option_set_display:
               type: string
               description: Legacy template setting which controls if the option set shows up to the side of or below the product image and description.
-            variants:
-              type: array
-              items:
-                $ref: '#/components/schemas/productVariant_Full'
       x-internal: false
     productImage_Full:
       title: productImage_Full
