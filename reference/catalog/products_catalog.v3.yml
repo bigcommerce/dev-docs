@@ -6879,6 +6879,10 @@ components:
           x-required:
             - post
             - put
+        create_redirect:
+          type: boolean
+          description: |
+            Optional field. This field automatically creates a dynamic 301 redirect when a product URL change occurs with a PUT request. Existing dynamic redirects will automatically update to a new URL to avoid a loop.
       description: The custom URL for the product on the storefront.
       x-internal: false
     bulkPricingRule_Full:
