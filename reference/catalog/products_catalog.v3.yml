@@ -2046,7 +2046,7 @@ paths:
                       readOnly: true
                       type: string
                       description: |
-                        The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                        The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                     url_standard:
                       readOnly: true
                       type: string
@@ -2114,7 +2114,7 @@ paths:
                       readOnly: true
                       type: string
                       description: |
-                        The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                        The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                     url_standard:
                       readOnly: true
                       type: string
@@ -2191,7 +2191,7 @@ paths:
                             readOnly: true
                             type: string
                             description: |
-                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                           url_standard:
                             readOnly: true
                             type: string
@@ -2248,7 +2248,7 @@ paths:
                             readOnly: true
                             type: string
                             description: |
-                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                           url_standard:
                             readOnly: true
                             type: string
@@ -2468,7 +2468,7 @@ paths:
                             readOnly: true
                             type: string
                             description: |
-                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                           url_standard:
                             readOnly: true
                             type: string
@@ -2524,7 +2524,7 @@ paths:
                             readOnly: true
                             type: string
                             description: |
-                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                              The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
                           url_standard:
                             readOnly: true
                             type: string
@@ -6532,7 +6532,7 @@ components:
               readOnly: true
               type: string
               description: |
-                The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
             url_standard:
               readOnly: true
               type: string
@@ -7271,7 +7271,7 @@ components:
               readOnly: true
               type: string
               description: |
-                The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
+                The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled. You should provide an image smaller than 1280x1280; otherwise, the API returns a resized image.
             url_standard:
               readOnly: true
               type: string
