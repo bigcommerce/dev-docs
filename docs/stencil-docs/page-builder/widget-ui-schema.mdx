@@ -1,11 +1,9 @@
 # Widget UI Schema
 
-
-
 This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](/docs/storefront/widgets/guide). 
 
 ## Tabs and sections
-Within the `schema` property of the Create a Widget Template endpoint, settings are grouped into `tabs` and `sections`.
+Within the `schema` property of the [Create a Widget Template](/docs/rest-content/widgets/widget-template#create-a-widget-template) endpoint, settings are grouped into `tabs` and `sections`.
 
 ### Tabs
 Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
@@ -105,7 +103,7 @@ You can use hidden settings to set up controls which have no user interface draw
 ```
 
 ## Schema settings fields
-The following table contains fields common between schema settings.
+The following table contains fields common between schema settings. For additional details, see the [Create a Widget Template](/docs/rest-content/widgets/widget-template#create-a-widget-template) endpoint.
 
 |Setting|Description|
 |---|---|
@@ -114,7 +112,7 @@ The following table contains fields common between schema settings.
 |`id`|The variable name where the setting value will be available in the widget template.|
 |`default`|The default value to use when rendering the widget for the first time.|
 |`typeMeta`|Additional information needed based on the selected setting type.|
-|`conditional`|An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.|
+|`conditional`|An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. |
 
 For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](/docs/storefront/widgets/input-reference/settings).
 
