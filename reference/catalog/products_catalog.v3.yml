@@ -123,6 +123,12 @@ paths:
             Filter items by name.
           schema:
             type: string
+        - name: mpn
+          in: query
+          description: |
+            Filter items by Manufacturer Part Number (MPN).
+          schema:
+            type: string
         - name: upc
           in: query
           description: |
