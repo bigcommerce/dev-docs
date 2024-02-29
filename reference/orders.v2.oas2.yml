@@ -1059,8 +1059,8 @@ components:
       name: external_order_id
       in: query
       description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request.
-      schema: 
-        type: integer
+      schema:
+        type: string
     min_id:
       name: min_id
       in: query
@@ -2851,13 +2851,13 @@ components:
           example: 1
           type: integer
         base_cost_price:
-          description: The product’s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer) 
+          description: The product’s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer)
           example: '50.0000'
           type: string
         cost_price_inc_tax:
           description: |-
             The product’s cost price including tax. (Float, Float-As-String, Integer)
-            The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. 
+            The cost of your products to you; this is never shown to customers, but can be used for accounting purposes.
           example: '50.0000'
           type: string
         cost_price_ex_tax:
@@ -2966,7 +2966,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-        brand: 
+        brand:
           description: The productʼs brand.
           type: string
         applied_discounts:
@@ -4225,8 +4225,8 @@ components:
                 description: |-
                   The product’s cost price including tax. (Float, Float-As-String, Integer)
                   The cost of your products to you; this is never shown to customers, but can be used for accounting purposes.
-                example: '50.0000' 
-              price_ex_tax:  
+                example: '50.0000'
+              price_ex_tax:
                 type: string
                 description: |-
                   The products cost price excluding tax. (Float, Float-As-String, Integer)
@@ -4429,7 +4429,7 @@ components:
               example: '0'
               type: string
             external_id:
-              description: (Read-only) The order ID in another system, such as the Amazon Order ID if this is an Amazon order.  
+              description: (Read-only) The order ID in another system, such as the Amazon Order ID if this is an Amazon order.
               example: null
               type: string
               nullable: true
@@ -4568,7 +4568,7 @@ components:
               type: string
               nullable: true
               example: external-order-id
-              description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request. 
+              description: The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can update this field using a POST or PUT request.
             total_ex_tax:
               description: Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)
               example: '225.0000'
