@@ -7882,7 +7882,7 @@ components:
               description: ID of channel
             discount_amount:
               type: number
-              description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
+              description: The amount includes order-level automatic promotions plus manual discounts and excludes coupon and product-based discounts.
               format: double
               example: 0.5
             cart_amount_inc_tax:
