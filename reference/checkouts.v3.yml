@@ -3983,9 +3983,9 @@ paths:
                       custom_fields:
                         - field_id: "string"
                           field_value: "string"
-                      line_items:
-                          item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
-                          quantity: 1 
+                    line_items: 
+                      - item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
+                        quantity: 1 
               Pickup Consignment:
                 value: 
                   - line_items:
