@@ -3850,15 +3850,12 @@ components:
           type: string
         tax_provider_id:
           description: |
+            Read-only.
             BasicTaxProvider - Tax is set to manual and order is created in the store.
             
             AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
             
             "" (empty string) - The order is created with the API, or the tax provider is unknown.
-          enum:
-            - BasicTaxProvider
-            - AvaTaxProvider
-            - ''
           type: string
         customer_locale:
           type: string
@@ -4550,15 +4547,12 @@ components:
               type: string
             tax_provider_id:
               description: |
+                Read-only.
                 BasicTaxProvider - Tax is set to manual and order is created in the store.
                 
                 AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
                 
                 "" (empty string) - The order is created with the API, or the tax provider is unknown.
-              enum:
-                - BasicTaxProvider
-                - AvaTaxProvider
-                - ''
               type: string
             customer_locale:
               type: string
