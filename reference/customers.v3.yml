@@ -1626,17 +1626,13 @@ paths:
         required: true
   '/customers/{customerId}/metafields':
     get:
-      summary: Get Customer metafields
+      summary: Get Customer Metafields
       tags:
         - Customer Metafields
-      description: Get a customer's metafields.
+      description: Gets customer metafields by passing the `customerId` in the query parameters.
       operationId: getCustomersMetafields
       parameters:
         - $ref: '#/components/parameters/customerId'
-        - name: customerId
-          in: query
-          schema:
-            type: integer
       requestBody:
         required: true
         content: 
@@ -1645,41 +1641,35 @@ paths:
              $ref: '#/components/schemas/Metafield'
       responses:
         '200':
-          description: |
-            List of `Metafield` objects.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/MetafieldResponse_Post'
+          $ref: '#/components/responses/MetafieldCollectionResponse'
         '500':
           description: Internal Server Error
     post:
       summary: Create Customer Metafields
       tags:
       - Customer Metafields
-      description: Creates Customer metafields.
+      description: Creates Customer metafields by passing the `customerId` in the query parameters.
       operationId: createCustomerMetafields
       parameters:
         - $ref: '#/components/parameters/customerId'
-        - name: customerId
-          in: query
-          schema:
-            type: integer
       requestBody:
+        required: true
         content:
           application/json:
             schema:
-              type: object
-              items:
-                $ref: '#/components/schemas/MetafieldBase_Post'
+              $ref: '#/components/schemas/MetafieldBase_Post'
       responses:
         '200':
-          $ref: '#/components/responses/MetafieldResponse_Post'
+          description: Response payload for the BigCommerce API.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionPostPutResponses'
   '/customers/{customerId}/metafields/{metafieldId}':
     get:
-      summary: Get Metafields by CustomerId
+      summary: Get Customer Metafields List
       description: |
-        Lists all available metafields for a customer. Use both `customerId` and `metafieldId` in the parameters to retrieve the full list.
+        Lists available metafields for a customer. To retrieve the list, use `customerId` and `metafieldId` in the query parameters.
       operationId: getMetafieldsCustomerId
       tags:
         - Customer Metafields
@@ -1692,7 +1682,7 @@ paths:
             type: integer
         - name: metafieldId
           in: path
-          description: The ID that is assigned to a metafield when created.
+          description: The ID that is generated for a metafield when created.
           required: true
           schema:
             type: integer
@@ -1706,15 +1696,15 @@ paths:
         '200':
           $ref: '#/components/responses/MetafieldCollectionResponse'
     put:
-      summary: Update a metafield
+      summary: Update a Metafield
       tags:
       - Customer Metafields
-      description: Updates Customer metafields. Use both 'customerId' and 'metafield' in the parameter to update the customer metafields.
+      description: Updates customer metafields. To update the customer metafields, use 'customerId' and 'metafield' in the query parameters.
       operationId: updateCustomerMetafield
       parameters: 
         - name: metafieldId
           in: query
-          description: The ID that is assigned to a metafield when created.
+          description: The ID that is generated for a metafield when created.
           schema:
             type: integer
         - $ref: '#/components/parameters/metafieldId'
@@ -1739,13 +1729,17 @@ paths:
         description: ''
       responses:
         '200':
-          $ref: '#/components/responses/MetafieldResponse_Post'
+          description: Response payload for the BigCommerce API.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaFieldCollectionPostPutResponses'
     delete:
-      summary: Delete customer metafields
+      summary: Delete Customer Metafields
       tags:
         - Customer Metafields
       description: |
-        Deletes customer metafields. Use both 'customerId' and 'metafieldId' in the parameter to delete the customer metafields.
+        Deletes customer metafields. To delete customer metafields, use 'customerId' and 'metafieldId' in the query parameters.
       parameters:
         - $ref: '#/components/parameters/customerId'
         - $ref: '#/components/parameters/metafieldId'
@@ -1788,7 +1782,7 @@ paths:
         - $ref: '#/components/parameters/MetafieldNamespaceInParam'
         - $ref: '#/components/parameters/DirectionParam'
     post:
-      summary: Create multiple Metafields
+      summary: Create Multiple Metafields
       tags:
         - Customer Batch Metafields
       description: Create multiple metafields.
@@ -1813,12 +1807,11 @@ paths:
         description: ''
       responses:
         '200':
-          description: |
-            List of created `Metafield` objects.
+          description: Response payload for the BigCommerce API.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+                $ref: '#/components/schemas/MetaFieldCollectionPostPutResponses'
         '422':
           description: |
             Response object for metafields creation with partial success.
@@ -1829,7 +1822,7 @@ paths:
         '500':
           description: Internal Server Error
     put:
-      summary: Update multiple Metafields
+      summary: Update Multiple Metafields
       tags:
         - Customer Batch Metafields
       description: Create multiple metafields.
@@ -1854,12 +1847,11 @@ paths:
         description: ''
       responses:
         '200':
-          description: |
-            List of updated `Metafield` objects.
+          description: Response payload for the BigCommerce API.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetaFieldCollectionResponse_POST_PUT'
+                $ref: '#/components/schemas/MetaFieldCollectionPostPutResponses'
         '422':
           description: |
             Response object for metafields creation with partial success.
@@ -2818,99 +2810,6 @@ components:
                     name: What is your favorite pizza topping?
                     value: Mushrooms
                 meta: {}
-    MetafieldResponse_Post:
-      description: Response payload for the BigCommerce API.
-    application/json:
-        schema:
-          type: object
-          properties:
-            data:
-              type: array
-            id: 
-              type: integer
-              description: Unique ID of the *Metafield*. Read-Only.
-              readOnly: true
-              example: 24
-            key:
-              type: string
-              description: The key for the metafields.
-            value:
-              type: string
-              description: The description for the metafield.
-            namespace:
-              type: string
-              description: |
-                Namespace for the metafield, for organizational purposes.
-              example: Sales Department
-              minLength: 1
-              maxLength: 64
-            permission_set:
-              type: string
-              description: |
-                Determines the visibility and writeability of the field by other API consumers.
-                | Value | Description |
-                | :--- | :--- |
-                | `app_only` | Private to the app that owns the field. |
-                | `read` | Visible to other API consumers. |
-                | `write` | Open for reading and writing by other API consumers. |
-                | `read_and_sf_access` | Visible to other API consumers, including on storefront. |
-                | `write_and_sf_access` | Open for reading and writing by other API consumers, including on storefront. |
-              enum:
-                - app_only
-                - read
-                - write
-                - read_and_sf_access
-                - write_and_sf_access
-            resource_type:
-              type: string
-              description: |
-                The type of resource with which the metafield is associated.
-              enum:
-                - brand
-                - product
-                - variant
-                - category
-                - cart
-                - channel
-                - location
-                - order
-                - customer
-              example: cart 
-            resource_id:
-              type: integer
-              description: |
-                The unique identifier for the resource with which the metafield is associated.
-              example: 424242
-              readOnly: true
-            description:
-              type: string
-              description: |
-                Description for the metafields.
-            date_created:
-              type: string
-              format: date-time
-              description: Date and time of the metafieldʼs creation.
-              example: '2022-06-16T18:39:00+00:00'
-            date_modified:
-              type: string
-              format: date-time
-              description: Date and time when the metafield was last updated.
-              example: '2022-06-16T18:39:00+00:00'
-            owner_client_id:
-              type: string
-              description: Client ID for the metafield's creator.
-              readOnly: true     
-          required:
-            - namespace
-            - key
-            - value
-            - permission_set
-            - resource_type
-            - resource_id
-            - description
-            - id
-            - date_created
-            - date_modified     
     MetafieldCollectionResponse:
       description: Response payload for the BigCommerce API.
       content:
@@ -2924,13 +2823,15 @@ components:
                 type: integer
                 description: Unique ID of the *Metafield*. Read-Only.
                 readOnly: true
-                example: 24
+                example: 0
               key:
                 type: string
                 description: The key for the metafields.
+                example: Staff Name
               value:
                 type: string
                 description: The description for the metafield.
+                example: Ronaldo
               namespace:
                 type: string
                 description: |
@@ -2974,12 +2875,13 @@ components:
                 type: integer
                 description: |
                   The unique identifier for the resource with which the metafield is associated.
-                example: 424242
+                example: 0
                 readOnly: true
-              description:
+              description: 
                 type: string
                 description: |
                   Description for the metafields.
+                example: order
               date_created:
                 type: string
                 format: date-time
@@ -2993,7 +2895,8 @@ components:
               owner_client_id:
                 type: string
                 description: Client ID for the metafield's creator.
-                readOnly: true     
+                readOnly: true
+                example: ramciw4fnoz87it3ynjfif2zrkil5p
             required:
               - namespace
               - key
@@ -4454,7 +4357,7 @@ components:
         owner_client_id:
           type: string
           description: Client ID for the metafieldʼs creator.
-          example: asdfasdfasdfasdfasdfasdfasdf
+          example: ramciw4fnoz87it3ynjfif2zrkil5p
           readOnly: true
       required:
         - namespace
@@ -4477,13 +4380,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Metafield'
-        meta:
-          $ref: '#/components/schemas/CollectionMeta'
       x-internal: false
-    MetaFieldCollectionResponse_POST_PUT:
+    MetaFieldCollectionPostPutResponses:
       type: object
-      description: |
-        Response payload for the BigCommerce API.
+      description: Response payload for the BigCommerce API.
       properties:
         data:
           type: array
