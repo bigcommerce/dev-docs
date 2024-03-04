@@ -76,38 +76,6 @@ paths:
             type: array
             items:
               type: integer
-        - name: 'id:min'
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
-        - name: 'id:max'
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
-        - name: 'id:greater'
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
-        - name: 'id:less'
-          in: query
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: integer
         - name: name
           in: query
           description: |
@@ -1379,7 +1347,6 @@ paths:
       description: "Updates a *Brand Metafield*.\n\n**Required Fields**  \n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message.\n* The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center."
       operationId: updateBrandMetafield
       parameters:
-        - $ref: '#/components/parameters/ContentType'
         - name: metafield_id
           in: path
           description: |
@@ -1398,7 +1365,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/metafield_Base'
+              $ref: '#/components/schemas/MetafieldBase_Put'
         required: true
       responses:
         '200':
