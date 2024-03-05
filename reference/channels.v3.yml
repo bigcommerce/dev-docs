@@ -976,7 +976,7 @@ components:
           - currencies
     available:
       name: available
-      description: 'Filter items based on whether the channel is currently available for integration. Setting this query parameter to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, and `connected`. Setting this query parameter to `false` will return channels with the status of `disconnected`, `archived`, `deleted`, and `terminated`.'
+      description: Filter items based on whether the channel is currently available for integration. Setting this query parameter to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, and `connected`. Setting this query parameter to `false` will return channels with the status of `disconnected`, `archived`, `deleted`, and `terminated`.
       in: query
       required: false
       schema:
@@ -986,6 +986,8 @@ components:
       description: Filter items by a comma-separated list of statuses.
       in: query
       required: false
+      style: form
+      explode: false
       schema:
         type: array
         items:
@@ -1004,6 +1006,8 @@ components:
       description: Filter items by a comma-separated list of types.
       in: query
       required: false
+      style: form
+      explode: false
       schema:
         type: array
         items:
@@ -1018,12 +1022,14 @@ components:
       description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](/docs/rest-management/channels#platform).'
       in: query
       required: false
+      style: form
+      explode: false
       schema:
         type: array
         items:
           type: string
         example:
-          - 'facebook by meta, amazon'
+          - 'facebook by meta,amazon'
     date_created:
       name: date_created
       description: 'Filter items by date_created. For example, `date_created=2019-09-04T00:00:00`, `date_created=2019-09-04`, or `date_created=1567573200`'
@@ -1092,6 +1098,8 @@ components:
       description: Filter items by a comma-separated list of product IDs.
       in: query
       required: false
+      style: form
+      explode: false
       schema:
         type: array
         items:
@@ -2757,7 +2765,7 @@ components:
       type: integer
       format: int64
       minimum: 1
-      description: 'The ID of the channel listing that has been created, returned, or updated.'
+      description: The ID of the channel listing that has been created, returned, or updated. In a 422 error, you may receive a response that references the `group_id`. The `group_id` in the Invalid Listing ID example refers to the `listing_id`. Please use `listing_id` instead of `group_id` in the request payload.
       x-internal: false
     ProductId:
       type: integer
