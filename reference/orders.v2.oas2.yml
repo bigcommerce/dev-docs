@@ -3711,8 +3711,6 @@ components:
           description: The value of the base wrapping cost expressed as a floating point number to four decimal places in string format.
           example: '0.0000'
           type: string
-        billing_address:
-          $ref: '#/components/schemas/billingAddress_Base'
         channel_id:
           description: Shows where the order originated. The channel_id will default to 1.
           example: 1
@@ -3725,9 +3723,6 @@ components:
           type: string
         date_created:
           description: The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`.
-          type: string
-        default_currency_code:
-          description: The currency code of the transactional currency the shopper pays in; writeable when multi-currency is enabled.
           type: string
         discount_amount:
           description: Amount of discount for this transaction. (Float, Float-As-String, Integer)
@@ -4114,12 +4109,7 @@ components:
           example: 7
           description: The status ID of the order.
         billing_address:
-          type: object
-          properties:
-            form_fields:
-              type: array
-              items:
-                $ref: '#/components/schemas/formFields'
+          $ref: '#/components/schemas/billingAddress_Resp'
     orderCustomProduct_Put:
       type: object
       title: Custom product
@@ -4585,6 +4575,11 @@ components:
       allOf:
         - type: object
           properties:
+            billing_address:
+              $ref: '#/components/schemas/billingAddress_Base'
+            default_currency_code:
+              description: The currency code of the transactional currency the shopper pays in is writeable when multi-currency is enabled.
+              type: string
             products:
               type: array
               items:
@@ -4609,6 +4604,15 @@ components:
               items:
                 $ref: '#/components/schemas/formFields'
     billingAddress_Put:
+      allOf:
+        - $ref: '#/components/schemas/billingAddress_Base'
+        - type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
+    billingAddress_Resp:
       allOf:
         - $ref: '#/components/schemas/billingAddress_Base'
         - type: object
