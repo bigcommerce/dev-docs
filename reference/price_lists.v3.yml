@@ -778,7 +778,7 @@ paths:
         content: 
           application/json:
             schema:
-              $ref: '#/components/schemas/PriceRecordCollectionPutWithPriceListId'
+              $ref: '#/components/schemas/PriceRecordBatchItem'
         required: true
       responses:
         '200':
@@ -2775,50 +2775,51 @@ components:
               example: 2
         meta:
           $ref: '#/components/schemas/Meta'
-    PriceRecordCollectionPutWithPriceListId:
-      type: array
-      items:
-        $ref: '#/components/schemas/PriceRecordBatchItem'
     PriceRecordBatchItem:
-      description: The `Price Record` object used in batch create or update.
-      allOf:
-      - type: array
+      type: object
+      properties:
+        price_list_id:
+          type: integer
+          description: The price list ID the price record is associated with.
+          example: 1
+        variant_id:
+          type: integer
+          description: The price list with which the price record is associated. Either `variant_id` or `sku` is required.
+          example: 5
+        sku:
+          type: string
+          description: The SKU for the variant with which this price record is associated. Either `sku` or `variant_id` is required.
+          example: SKU-001
+        currency:
+          type: string
+          description: The 3-letter country code with which this price record is associated.
+          format: ISO:4217
+          example: usd
         items:
           $ref: '#/components/schemas/PriceRecordBase'
-        properties:
-          price_list_id:
-            type: integer
-            description: The price list ID the price record is associated with.
-          variant_id:
-            type: integer
-            description: The price list with which the price record is associated. Either `variant_id` or `sku` is required.
-          sku:
-            type: string
-            description: The SKU for the variant with which this price record is associated.  Either `sku` or `variant_id` is required.
-          currency:
-            type: string
-            description: The 3-letter country code with which this price record is associated.
-            format: ISO:4217
     PriceRecordBase:
       type: object
       properties: 
         price: 
           type: number
           description: The list price for the variant mapped in a Price List. Overrides any existing or Catalog list price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
-        
           format: double
+          example: 0
         sale_price:
           type: number
           description: The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
           format: double
+          example: 0
         retail_price:
           type: number
           description: The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product.  If empty, the retail price will be treated as not being set on this variant.
           format: double
+          example: 0
         map_price:
           type: number
           description: The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the `map_ price` will be treated as not being set on this variant.
           format: double
+          example: 0
         bulk_pricing_tiers:
           type: array
           items:
@@ -2830,9 +2831,11 @@ components:
         quantity_min:
           type: integer
           description: The cart's minimum quantity of associated variants needed to qualify for this tier's pricing.
+          example: 1
         quantity_max:
           type: integer
           description: The cart's maximum allowed quantity of associated variants to qualify for this tier's pricing.
+          example: 10
         type:
           type: string
           description: |- 
@@ -2845,13 +2848,22 @@ components:
             - fixed
             - price
             - percent
+          example: fixed
         amount:
           type: number
           description: The price adjustment amount. This value and the type will decide the price per variant for the pricing tier.
           format: double
+          example: 0
     SuccessBatchResponse: 
       type: object
       description: Empty object for Success case for Batch API.
+      properties:
+        data:
+          type: object
+          example: {}
+        meta:
+          type: object
+          example: {}
     PriceRecordBatchErrorResponse:
       type: object
       properties: 
