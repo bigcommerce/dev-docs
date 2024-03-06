@@ -61,7 +61,7 @@ paths:
           in: query
           description: Filter param.
           schema:
-            type: string
+            type: boolean
         - name: url
           in: query
           description: Filter param. Value must be URL encoded.
@@ -84,7 +84,7 @@ paths:
           schema:
             maximum: 50
             exclusiveMinimum: false
-            type: number
+            type: integer
         - name: limit
           in: query
           description: Filter param.
@@ -92,7 +92,7 @@ paths:
             maximum: 250
             exclusiveMaximum: false
             exclusiveMinimum: false
-            type: number
+            type: integer
       responses:
         '200':
           description: ''
@@ -177,7 +177,7 @@ paths:
 
         **Notes**
 
-        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
+        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The following example request includes a `published_date` in RFC 2822 format.
         * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
         * If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.
       operationId: createBlogPosts
@@ -237,7 +237,7 @@ paths:
             maximum: 250
             exclusiveMaximum: false
             exclusiveMinimum: false
-            type: number
+            type: integer
         - name: limit
           in: query
           description: Filter param.
@@ -245,7 +245,7 @@ paths:
             maximum: 50
             exclusiveMaximum: false
             exclusiveMinimum: false
-            type: number
+            type: integer
       responses:
         '204':
           description: ''
@@ -304,7 +304,7 @@ paths:
 
         **Notes**
 
-        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
+        * To include `published_date` in a request, provide a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The following example request includes a `published_date` in RFC 2822 format.
 
         * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
       operationId: updateBlogPost
@@ -350,7 +350,6 @@ paths:
             application/json:
               schema:
                 type: object
-      x-codegen-request-body-name: body
     delete:
       tags:
         - Blog Posts
@@ -475,29 +474,27 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/page_Base'
-            examples:
-              example-1:
-                value:
-                  parent_id: 5
-                  type: page
-                  contact_fields: 'fullname,companyname,phone,orderno,rma'
-                  email: janedoes@example.com
-                  name: Contact Form
-                  url: /contact-us/
-                  meta_description: string
-                  body: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
-                  mobile_body: '0'
-                  has_mobile_version: false
-                  is_visible: true
-                  is_homepage: false
-                  meta_title: string
-                  layout_file: page.html
-                  sort_order: 3
-                  search_keywords: string
-                  meta_keywords: string
-                  feed: string
-                  link: string
-                  content_type: text/html
+            example:
+              parent_id: 5
+              type: page
+              contact_fields: 'fullname,companyname,phone,orderno,rma'
+              email: janedoes@example.com
+              name: Contact Form
+              url: /contact-us/
+              meta_description: string
+              body: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
+              mobile_body: '0'
+              has_mobile_version: false
+              is_visible: true
+              is_homepage: false
+              meta_title: string
+              layout_file: page.html
+              sort_order: 3
+              search_keywords: string
+              meta_keywords: string
+              feed: string
+              link: string
+              content_type: text/html
         required: true
       responses:
         '200':
@@ -533,7 +530,6 @@ paths:
             application/json:
               schema:
                 type: object
-      x-codegen-request-body-name: body
   '/pages/{id}':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -607,7 +603,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/page_Base'
+              $ref: '#/components/schemas/page_Full'
         required: false
       responses:
         '200':
@@ -615,7 +611,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/page_Base'
+                $ref: '#/components/schemas/page_Full'
               example:
                 id: 2
                 name: Shipping & Returns
@@ -642,7 +638,6 @@ paths:
             application/json:
               schema:
                 type: object
-      x-codegen-request-body-name: body
     delete:
       deprecated: true
       tags:
@@ -744,7 +739,6 @@ paths:
                   type: category
                   ref: 3
                 url: 'http://store.example.com/mens'
-      x-codegen-request-body-name: body
     delete:
       deprecated: true
       tags:
@@ -800,7 +794,7 @@ paths:
                 forward:
                   type: product
                   ref: 111
-                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+                url: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
     put:
       tags:
         - Redirects
@@ -855,15 +849,16 @@ paths:
                       example: '111'
                 url:
                   type: string
-                  description: URL of the redirect. READ-ONLY
-                  example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+                  description: URL of the redirect. READ-ONLY.
+                  readOnly: true
+                  example: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
               example:
                 id: 1
                 path: /smith-journal-13/
                 forward:
                   type: product
                   ref: '111'
-                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+                url: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
         required: true
       responses:
         '200':
@@ -878,8 +873,7 @@ paths:
                 forward:
                   type: product
                   ref: 111
-                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
-      x-codegen-request-body-name: body
+                url: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
     delete:
       tags:
         - Redirects
@@ -947,7 +941,8 @@ components:
           properties:
             id:
               type: integer
-              description: ID of this blog post. (READ-ONLY)
+              description: ID of this blog post. READ-ONLY.
+              readOnly: true
               example: 3
         - $ref: '#/components/schemas/blogPost_Base_Res'
       x-internal: false
@@ -963,7 +958,7 @@ components:
           summary: <p>We power ecommerce websites for successful retailers all over the world</p>
           is_published: true
           published_date:
-            timezone_type: '1'
+            timezone_type: 1
             date: '2018-05-18T08:26:42Z'
             timezone: '+00:00'
           published_date_iso8601: '5/18/2018 1:26:42 PM'
@@ -1004,8 +999,9 @@ components:
           properties:
             id:
               type: integer
-              description: ID of the page.
+              description: ID of the page. Read-Only.
               example: 44
+              readOnly: true
         - $ref: '#/components/schemas/page_Base_Res'
       x-internal: false
     redirect:
@@ -1027,15 +1023,16 @@ components:
           $ref: '#/components/schemas/forward'
         url:
           type: string
-          description: URL of the redirect. READ-ONLY
-          example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+          description: URL of the redirect. READ-ONLY.
+          readOnly: true
+          example: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
       example:
         id: 1
         path: /smith-journal-13/
         forward:
           type: product
           ref: 111
-        url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+        url: 'http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/'
       x-internal: false
     forward:
       title: forward
@@ -1061,6 +1058,7 @@ components:
         id:
           type: integer
           description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           example: 1
         _authentication:
           type: object
@@ -1095,11 +1093,13 @@ components:
         date_created:
           type: string
           description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           format: date-time
         date_modified:
           type: string
           description: |
             Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           format: date-time
         store_credit:
           type: string
@@ -1123,12 +1123,14 @@ components:
           type: boolean
           description: |
             Records whether the customer would like to receive marketing content from this store. READ-ONLY.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           example: true
         addresses:
           $ref: '#/components/schemas/addresses'
         form_fields:
           type: array
           description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           items:
             $ref: '#/components/schemas/formField'
         reset_pass_on_login:
@@ -1144,19 +1146,17 @@ components:
           type: string
           description: |-
             + `all` - Customers can access all categories
-             + `specific`  - Customers can access a specific list of categories
+            + `specific`  - Customers can access a specific list of categories
             + `none` - Customers are prevented from viewing any of the categories in this group.
           enum:
             - all
             - specific
             - none
         categories:
+          description: A comma-separated list of category IDs. Should be supplied only if `type` is `specific`.
           type: array
-          description: Is an array of category IDs and should be supplied only if `type` is specific.
-          example:
-            - '18,19,23,34'
           items:
-            type: string
+            type: integer
       x-internal: false
     timeZone:
       title: timeZone
@@ -1164,7 +1164,8 @@ components:
       properties:
         name:
           type: string
-          description: 'A string identifying the time zone, in the format: <Continent-name>/<City-name>.'
+          description: |
+            A string identifying the time zone, in the format: `<Continent-name>/<City-name>`.
           example: America/Chicago
         raw_offset:
           type: integer
@@ -1230,26 +1231,21 @@ components:
     blogPost_Base_Post:
       title: blogPost_Base_Post
       type: object
-      x-internal: false
-      x-examples:
-        example-1:
-          title: Welcome to BigCommerce
-          url: /blog/welcome-bigcommerce/
-          preview_url: /blog/welcome-bigcommerce/
-          body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
-          tags:
-            - string
-          summary: <p>We power ecommerce websites for successful retailers all over the world</p>
-          is_published: true
-          published_date:
-            timezone_type: '1'
-            date: '2018-05-18T08:26:42Z'
-            timezone: '+00:00'
-          published_date_iso8601: '5/18/2018 1:26:42 PM'
-          meta_description: Welcome Post
-          meta_keywords: 'BigCommerce, welcome, ecommerce'
-          author: BigCommerce
-          thumbnail_path: string
+      example:
+        title: Welcome to BigCommerce
+        url: /blog/welcome-bigcommerce/
+        preview_url: /blog/welcome-bigcommerce/
+        body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+        tags:
+          - string
+        summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+        is_published: true
+        published_date: 'Thu, 18 May 2023 13:26:42 -0000'
+        published_date_iso8601: '5/18/2023 1:26:42 PM'
+        meta_description: Welcome Post
+        meta_keywords: 'BigCommerce, welcome, ecommerce'
+        author: BigCommerce
+        thumbnail_path: string
       description: blogPost base for POST requests
       properties:
         title:
@@ -1271,7 +1267,8 @@ components:
             type: string
         is_published:
           type: boolean
-          description: Whether the blog post is published.
+          description: Whether the blog post is published. If you want the post to be or remain published following the request, you must set the field explicitly to true, even if the blog post was already published prior to the request.
+          default: false
           example: true
         meta_description:
           type: string
@@ -1287,7 +1284,7 @@ components:
           example: BigCommerce
         thumbnail_path:
           type: string
-          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+          description: 'Local path to a thumbnail uploaded to `/product_images/` using [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
         published_date:
           type: string
           example: 'Wed, 10 Aug 2022 15:39:15 -0500'
@@ -1297,26 +1294,24 @@ components:
     blogPost_Base:
       title: blogPost_Base
       type: object
-      x-internal: false
-      x-examples:
-        example-1:
-          title: Welcome to BigCommerce
-          url: /blog/welcome-bigcommerce/
-          preview_url: /blog/welcome-bigcommerce/
-          body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
-          tags:
-            - string
-          summary: <p>We power ecommerce websites for successful retailers all over the world</p>
-          is_published: true
-          published_date:
-            timezone_type: '1'
-            date: '2018-05-18T08:26:42Z'
-            timezone: '+00:00'
-          published_date_iso8601: '5/18/2018 1:26:42 PM'
-          meta_description: Welcome Post
-          meta_keywords: 'BigCommerce, welcome, ecommerce'
-          author: BigCommerce
-          thumbnail_path: string
+      example:
+        title: Welcome to BigCommerce
+        url: /blog/welcome-bigcommerce/
+        preview_url: /blog/welcome-bigcommerce/
+        body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
+        tags:
+          - string
+        summary: <p>We power ecommerce websites for successful retailers all over the world</p>
+        is_published: true
+        published_date:
+          timezone_type: 1
+          date: '2018-05-18T08:26:42Z'
+          timezone: '+00:00'
+        published_date_iso8601: '5/18/2018 1:26:42 PM'
+        meta_description: Welcome Post
+        meta_keywords: 'BigCommerce, welcome, ecommerce'
+        author: BigCommerce
+        thumbnail_path: string
       properties:
         title:
           type: string
@@ -1328,7 +1323,8 @@ components:
           example: /blog/welcome-bigcommerce/
         preview_url:
           type: string
-          description: URL to preview the blog post. (READ-ONLY)
+          description: URL to preview the blog post. READ-ONLY.
+          readOnly: true
           example: /blog/welcome-bigcommerce/
         body:
           type: string
@@ -1341,18 +1337,20 @@ components:
             type: string
         summary:
           type: string
-          description: Summary of the blog post. (READ-ONLY)
+          description: Summary of the blog post. READ-ONLY.
+          readOnly: true
           example: <p>We power ecommerce websites for successful retailers all over the world</p>
         is_published:
           type: boolean
-          description: Whether the blog post is published.
+          description: Whether the blog post is published. If you want the post to be or remain published following the request, you must set the field explicitly to true, even if the blog post was already published prior to the request.
+          default: false
           example: true
         published_date:
           $ref: '#/components/schemas/publishedDate'
         published_date_iso8601:
           type: string
           description: Published date in `ISO 8601` format.
-          example: '5/18/2018 1:26:42 PM'
+          example: '5/18/2023 1:26:42 PM'
         meta_description:
           type: string
           description: Description text for this blog post’s `<meta/>` element.
@@ -1367,7 +1365,7 @@ components:
           example: BigCommerce
         thumbnail_path:
           type: string
-          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+          description: 'Local path to a thumbnail uploaded to `/product_images/` using [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
       required:
         - title
         - body
@@ -1388,7 +1386,8 @@ components:
           example: /blog/welcome-bigcommerce/
         preview_url:
           type: string
-          description: URL to preview the blog post. (READ-ONLY)
+          description: URL to preview the blog post. READ-ONLY.
+          readOnly: true
           example: /blog/welcome-bigcommerce/
         body:
           type: string
@@ -1401,18 +1400,20 @@ components:
             type: string
         summary:
           type: string
-          description: Summary of the blog post. (READ-ONLY)
+          description: Summary of the blog post. READ-ONLY.
+          readOnly: true
           example: <p>We power ecommerce websites for successful retailers all over the world</p>
         is_published:
           type: boolean
-          description: Whether the blog post is published.
+          description: Whether the blog post is published. If you want the post to be or remain published following the request, you must set the field explicitly to true, even if the blog post was already published prior to the request.
+          default: false
           example: true
         published_date:
           $ref: '#/components/schemas/publishedDate'
         published_date_iso8601:
           type: string
           description: Published date in `ISO 8601` format.
-          example: '5/18/2018 1:26:42 PM'
+          example: '5/18/2023 1:26:42 PM'
         meta_description:
           type: string
           description: Description text for this blog post’s `<meta/>` element.
@@ -1430,7 +1431,7 @@ components:
           nullable: true
         thumbnail_path:
           type: string
-          description: 'Local path to a thumbnail uploaded to `/product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
+          description: 'Local path to a thumbnail uploaded to `/product_images/` using [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
           nullable: true
     publishedDate:
       type: object
@@ -1472,7 +1473,11 @@ components:
           example: 5
         type:
           type: string
-          description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+          description: |
+            `page`: free-text page
+            `link`: link to another web address
+            `rss_feed`: syndicated content from an RSS feed
+            `contact_form`: When the store’s contact form is used
           enum:
             - page
             - rss_feed
@@ -1485,7 +1490,7 @@ components:
           example: 'fullname,companyname,phone,orderno,rma'
         email:
           type: string
-          description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
+          description: Where the page’s type is a contact form, the email address that receives messages sent using the form.
           example: janedoes@example.com
         name:
           type: string
@@ -1504,7 +1509,7 @@ components:
           example: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
         mobile_body:
           type: string
-          description: HTML to use for this page's body when viewed in the mobile template (deprecated).
+          description: HTML to use for this page’s body when viewed in the mobile template (deprecated).
           example: '0'
         has_mobile_version:
           type: boolean
@@ -1520,7 +1525,7 @@ components:
           example: false
         meta_title:
           type: string
-          description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
+          description: Text specified for this page’s `<title>` element. If empty, the value of the name property is used.
         layout_file:
           type: string
           description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
@@ -1563,7 +1568,11 @@ components:
           example: 5
         type:
           type: string
-          description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+          description: |
+            `page`: free-text page
+            `link`: link to another web address
+            `rss_feed`: syndicated content from an RSS feed
+            `contact_form`: When the store’s contact form is used
           enum:
             - page
             - rss_feed
@@ -1576,7 +1585,7 @@ components:
           example: 'fullname,companyname,phone,orderno,rma'
         email:
           type: string
-          description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
+          description: Where the page’s type is a contact form, the email address that receives messages sent using the form.
           example: janedoes@example.com
         name:
           type: string
@@ -1595,7 +1604,7 @@ components:
           example: "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"
         mobile_body:
           type: string
-          description: HTML to use for this page's body when viewed in the mobile template (deprecated).
+          description: HTML to use for this page’s body when viewed in the mobile template (deprecated).
           example: '0'
         has_mobile_version:
           type: boolean
@@ -1607,11 +1616,11 @@ components:
           example: true
         is_homepage:
           type: boolean
-          description: 'If true, this page is the storefront’s home page.'
+          description: If true, this page is the storefront’s home page.
           example: false
         meta_title:
           type: string
-          description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
+          description: Text specified for this page’s `<title>` element. If empty, the value of the name property is used.
         layout_file:
           type: string
           description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
