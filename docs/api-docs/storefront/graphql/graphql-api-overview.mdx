@@ -513,9 +513,11 @@ If a query's complexity score exceeds the complexity limit, an error response si
 
 ```json filename="Example response with complexity error" showLineNumbers copy
 {
-  "error": {
-    "error": "The query is too complex as it has a complexity score of 12230 out of 10000. Please remove some elements and try again"
-  }
+  "errors": [
+    {
+      "message": "The query is too complex as it has a complexity score of 12230 out of 10000. Please remove some elements and try again"
+    }
+  ]
 }
 ```
 
