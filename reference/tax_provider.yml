@@ -614,113 +614,114 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/request-adjust'
+                $ref: '#/components/schemas/response-quote'
               examples:
-                example-1:
+                response:
                   value:
-                    adjust_description: string
-                    id: string
-                    currency_code: string
-                    customer:
-                      customer_id: string
-                      customer_group_id: '0'
-                      taxability_code: string
-                    transaction_date: '2019-08-24T14:15:22Z'
                     documents:
-                      - id: string
-                        billing_address:
-                          line1: string
-                          line2: string
-                          city: Sydney
-                          region_name: New South Wales
-                          region_code: NSW
-                          country_name: Australia
-                          country_code: AU
-                          postal_code: '2007'
-                          company_name: string
-                          type: RESIDENTIAL
-                        destination_address:
-                          line1: string
-                          line2: string
-                          city: Sydney
-                          region_name: New South Wales
-                          region_code: NSW
-                          country_name: Australia
-                          country_code: AU
-                          postal_code: '2007'
-                          company_name: string
-                          type: RESIDENTIAL
-                        origin_address:
-                          line1: string
-                          line2: string
-                          city: Sydney
-                          region_name: New South Wales
-                          region_code: NSW
-                          country_name: Australia
-                          country_code: AU
-                          postal_code: '2007'
-                          company_name: string
-                          type: RESIDENTIAL
-                        shipping:
-                          id: string
-                          item_code: Flat Rate
-                          item_reference: '12345678'
-                          name: string
-                          price:
-                            amount: 0
-                            tax_inclusive: false
-                          quantity: 0
-                          tax_class:
-                            code: string
-                            class_id: string
-                            name: string
-                          tax_exempt: false
-                          type: shipping
-                        handling:
-                          id: string
-                          item_code: Flat Rate
-                          item_reference: '12345678'
-                          name: string
-                          price:
-                            amount: 0
-                            tax_inclusive: false
-                          quantity: 0
-                          tax_class:
-                            code: string
-                            class_id: string
-                            name: string
-                          tax_exempt: false
-                          type: handling
+                      - id: 5d522b889d3d9
                         items:
-                          - id: string
-                            item_code: Flat Rate
-                            item_reference: '12345678'
-                            name: string
+                          - id: 088c7465-e5b8-4624-a220-0d9faa82e7cb
                             price:
-                              amount: 0
-                              tax_inclusive: false
-                            quantity: 0
-                            tax_class:
-                              code: string
-                              class_id: string
-                              name: string
-                            tax_exempt: false
+                              amount_inclusive: 675
+                              amount_exclusive: 450
+                              total_tax: 225
+                              tax_rate: 0.5
+                              sales_tax_summary:
+                                - name: Brutal Tax
+                                  rate: 0.5
+                                  amount: 225
+                                  tax_class:
+                                    class_id: '0'
+                                    name: Brutal Tax
+                                    code: US
+                                  id: Brutal Tax
                             type: item
                             wrapping:
-                              id: string
-                              item_code: Flat Rate
-                              item_reference: '12345678'
-                              name: string
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
                               price:
-                                amount: 0
-                                tax_inclusive: false
-                              quantity: 0
-                              tax_class:
-                                code: string
-                                class_id: string
-                                name: string
-                              tax_exempt: false
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
                               type: wrapping
+                          - id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                            price:
+                              amount_inclusive: 300
+                              amount_exclusive: 200
+                              total_tax: 100
+                              tax_rate: 0.5
+                              sales_tax_summary:
+                                - name: Brutal Tax
+                                  rate: 0.5
+                                  amount: 100
+                                  tax_class:
+                                    class_id: '0'
+                                    name: Brutal Tax
+                                    code: US
+                                  id: Brutal Tax
+                            type: item
+                            wrapping:
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
+                        shipping:
+                          id: 5d522b889d3d9
+                          price:
+                            amount_inclusive: 15
+                            amount_exclusive: 10
+                            total_tax: 5
+                            tax_rate: 0.5
+                            sales_tax_summary:
+                              - name: Brutal Tax
+                                rate: 0.5
+                                amount: 5
+                                tax_class:
+                                  class_id: '0'
+                                  name: Brutal Tax
+                                  code: US
+                                id: Brutal Tax
+                          type: shipping
+                        handling:
+                          id: 5d522b889d3d9
+                          price:
+                            amount_inclusive: 0
+                            amount_exclusive: 0
+                            total_tax: 0
+                            tax_rate: 0.5
+                            sales_tax_summary:
+                              - name: Brutal Tax
+                                rate: 0.5
+                                amount: 0
+                                tax_class:
+                                  class_id: '0'
+                                  name: Brutal Tax
+                                  code: US
+                                id: Brutal Tax
+                          type: handling
+                    id: 3f0c857e-2c55-443e-a89b-c3c4d8a29605
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
