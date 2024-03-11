@@ -348,6 +348,11 @@ paths:
   '/themes/actions/activate':
     parameters:
       - $ref: '#/components/parameters/Accept'
+      - name: channel_id
+        in: query
+        schema:
+          type: integer
+        description: The ID for the channel where you want to activate the theme.
     post:
       tags:
         - Theme Actions
@@ -1119,7 +1124,6 @@ components:
       description: Request definition for activation endpoint.
       required:
         - variation_id
-        - which
       properties:
         variation_id:
           description: The identifier for the variation to activate.
