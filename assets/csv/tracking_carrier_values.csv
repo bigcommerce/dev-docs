@@ -7,10 +7,10 @@ Tracking Carrier – Company Name,Tracking Carrier – Value
 4-72 Entregando,4-72
 4PX,4px
 绿色国际速递,6ls
-Best Express
 A1Post,a1post
 A2B Express Logistics,a2b-ba
 AAA Cooper,aaa-cooper
+AB Custom Group,abcustom
 ABF Freight,abf
 ABX Express,abxexpress-my
 aCommerce,acommerce
@@ -35,6 +35,7 @@ Always Express,always-express
 Amazon Shipping,amazon-uk-api
 Amazon Shipping + Amazon MCF,amazon
 AMS Group,amsegroup
+Amstan Logistics,amstan
 An Post,an-post
 ANICAM BOX EXPRESS,anicamboxexpress
 Anjun,anjun
@@ -46,6 +47,7 @@ APC Postal Logistics,apc
 APC Overnight,apc-overnight
 APC Overnight Consignment Number,apc-overnight-connum
 APC Overnight Reference,apc-overnight-reference
+APC Postal Logistics,apc
 APG eCommerce Solutions Ltd.,apg
 Aprisa Express,aprisaexpress
 Aquiline,aquiline
@@ -54,6 +56,7 @@ Aramex Australia (formerly Fastway AU),fastway-au
 Arco Spedizioni SP,arco-spedizioni
 Arrow XL,arrowxl
 ASE KARGO,ase
+Asendia Germany,asendia-de
 Asendia APAC,asendia-hk
 Asendia HK (LATAM),skypostal
 Asendia UK,asendia-uk
@@ -61,6 +64,7 @@ Asendia USA,asendia-usa
 ASIGNA,asigna
 ASM(GLS Spain),asm
 Au Express,auexpress
+AuPost China,aupost-china
 Australia Post,australia-post
 Austrian Post (Express),austrian-post
 Austrian Post (Registered),austrian-post-registered
@@ -97,14 +101,17 @@ BRT Bartolini,brt-it
 BRT Bartolini(Parcel ID),brt-it-parcelid
 BRT Bartolini(Sender Reference),brt-it-sender-ref
 Budbee,budbee-webhook
+Buylogic,buylogic
 CAE Delivers,cae-delivers
 Cainiao,cainiao
 Cambodia Post,cambodia-post
 Canada Post,canada-post
 Canpar Courier,canpar
 Captain Express International,cpex
+Caribou,caribou
 Carriers,carriers
 Carry-Flap Co. Ltd.,carry-flap
+CBL Logistics,cbl-logistica
 CDEK,cdek
 CDEK TR,cdek-tr
 CDL Last Mile,cdldelivers
@@ -120,6 +127,7 @@ China EMS (ePacket),china-ems
 China Post,china-post
 Chit Chats,chitchats
 Choir Express Indonesia,choirexpress
+C.H. Robinson Worldwide Inc.,chrobinson
 Chronopost France,chronopost-france
 Chronopost Portugal (DPD),chronopost-portugal
 Chukou1,ec-firstclass
@@ -135,6 +143,7 @@ CJ Packet,cjpacket
 CL E-Logistics Solutions Limited,cle-logistics
 Clevy Links,clevy-links
 Cloudwish Asia,cloudwish-asia
+CND Express,cndexpress
 CNE Express,cnexps
 cnwangtong,cnwangtong
 Colis Privé,colis-prive
@@ -150,7 +159,9 @@ Coordinadora,coordinadora
 Copa Airlines Courier,copa-courier
 Cope Sensitive Freight,cope
 Corporate Couriers,corporatecouriers-webhook
+Correo Argentino,correo-argentino
 Correo Uruguayo,correo-uy
+Correos Chile,correos-chile
 Correos de Mexico,correos-de-mexico
 Correos de España,spain-correos-es
 Correos Express,correosexpress
@@ -179,6 +190,7 @@ DB Schenker Sweden,dbschenker-se
 DB Schenker Sweden,dbschenker-sv
 DD Express Courier,ddexpress
 DealerSend,dealer-send
+Delcart,delcart-in
 Delhivery,delhivery
 Deliver-iT,deliver-it
 deliverE,delivere
@@ -186,6 +198,7 @@ DELIVERYONTIME LOGISTICS PVT LTD,deliveryontime
 Deliver Your Parcel,deliveryourparcel-za
 Delnext,delnext
 Deltec Courier,deltec-courier
+DemandShip,demandship
 Dependable Supply Chain Services,godependable
 Designer Transport,designertransport-webhook
 Destiny Transportation,destiny
@@ -193,6 +206,7 @@ Detrack,detrack
 Deutsche Post DHL,dhl-germany
 Deutsche Post Mail,deutsch-post
 DEX-I,dex-i
+DHL 2-Mann-Handling,dhl-deliverit
 DHL Active Tracing,dhl-active-tracing
 DHL Benelux,dhl-benelux
 DHL eCommerce,dhl-global-mail
@@ -216,14 +230,19 @@ DIDADI Logistics tech,didadi
 Dimerco Express Group,dimerco
 Direct Couriers,directcouriers
 Direct Freight Express,directfreight-au-ref
+Direct Link,directlink
 Directlog,directlog
+Direct Parcels,directparcels
 Direx,direx
+DMM Network,dmm-network
 DMSMatrix,dms-matrix
 DobroPost,dobropost
 Doora Logistics,doora
 DoorDash,doordash-webhook
+Dotzot,dotzot
 DPD,dpd
 DPD Germany,dpd-de
+DPD France,dpd-fr-reference
 DPD France (formerly exapaq),exapaq
 DPD HK,dpd-hk
 DPD Hungary,dpd-hungary
@@ -244,20 +263,25 @@ DTDC India,dtdc
 DX,dx
 Dynamic Logistics,dynamic-logistics
 Easy Mail,easy-mail
+EC-Firstclass,ec-firstclass
 Ecargo,ecargo-asecexpressia
+Ensenda,ensenda
 ECexpress,ecexpress
 Echo,echo
 ECMS International Logistics Co. Ltd.,ecms
 Ecom Express,ecom-express
 ECOSCOOTING,ecoscooting
+eFEx (E-Commerce Fulfillment & Express),efex
 EFS (E-commerce Fulfillment Service),efs
 Ekart,ekart
 ELTA Hellenic Post,elta-courier
 Emirates Post,emirates-post
 EMPS Express,empsexpress
 Endeavour Delivery,endeavour-delivery
+Ensenda,ensenda
 Envialia,envialia
 Envialia Reference,envialia-reference
+EP-Box,ep-box
 eParcel Korea,eparcel-kr
 ePost Global,epostglobal
 Equick China,equick-cn
@@ -274,6 +298,7 @@ EVRi,myhermes-uk
 Exelot Ltd.,exelot-ftp
 Expeditors,expeditors
 Expresssale,expresssale
+EZship,ezship
 FAR international,far-international
 FarGood,fargood
 Fast & Furious,fnf-za
@@ -319,7 +344,9 @@ Gel Express Logistik,gel-express
 GEM Worldwide,gemworldwide
 Geniki Taxydromiki,taxydromiki
 GEODIS - Distribution & Express,geodis-calberson-fr
+Geodis E-space,geodis-espace
 GESWL Express,geswl
+ghn,Giao hàng nhanh
 Giao hàng nhanh,ghn
 Gio Express,gio-express
 Global Post,goglobalpost
@@ -336,6 +363,7 @@ GLS Logistic Systems Canada Ltd./Dicom,dicom
 GLS Netherlands,gls-netherlands
 GLS Slovenia,gls-slovenia
 Go!Express and logistics,general-overnight
+GoFly,gofly
 GoJavas,gojavas
 Gojek,gojek-webhook
 Go Rush,gorush
@@ -358,6 +386,7 @@ Hero Express,heroexpress
 Hipshipper,hipshipper
 Holisol,holisol
 Home Delivery Solutions Ltd,home-delivery-solutions
+Homedirect Logistics,homedirect-logistics
 Hong Kong Post,hong-kong-post
 Hound Express,houndexpress
 HR Parcel,hrparcel
@@ -375,6 +404,7 @@ Iceland Post,postur-is
 iCumulus,icumulus
 IDEX,idexpress
 iDexpress Indonesia,idexpress-id
+IMEX Global Solutions,imexglobalsolutions
 IML,iml
 IMX Mail,imxmail
 India Post Domestic,india-post
@@ -385,6 +415,7 @@ Innovel,descartes
 InPost Paczkomaty,inpost-paczkomaty
 Integra2,integra2-ftp
 Intel-Valley Supply chain (ShenZhen) Co. Ltd,intel-valley
+Interlink Express,interlink-express
 Intelipost (TMS for LATAM),intelipost
 International Seur,international-seur
 Internet Express,intexpress
@@ -395,6 +426,7 @@ INTEX Paketdienst GmbH,intex-de
 Israel Post,israel-post
 Israel Post Domestic,israel-post-domestic
 Italy SDA,italy-sda
+ITIS International,itis
 Ivoy,ivoy-webhook
 J-Net,j-net
 J&T CARGO,jtcargo
@@ -428,7 +460,9 @@ Kerry Express Hong Kong,tgx
 Kerry Express Thailand,kerry-logistics
 Kerry Express (Vietnam) Co Ltd,kerryttc-vn
 Kerry TJ Logistics,kerrytj
+Kerry TTC Express,kerryttc-vn
 KGM Hub,kgmhub
+Kiala,kiala
 Komon Express,komon-express
 Korea Post EMS,korea-post
 Korea Post,korea-post
@@ -441,6 +475,7 @@ Kyungdong Parcel,kdexp
 La Poste,la-poste-colissimo
 Lalamove,lalamove
 Landmark Global,landmark-global
+Landmark Global Reference,landmark-global-reference
 Lao Post,lao-post
 LaserShip,lasership
 Latvijas Pasts,latvijas-pasts
@@ -459,6 +494,7 @@ Lion Parcel,lion-parcel
 Locus,locus-webhook
 Logisters,logisters
 Logistic Worldwide Express,lwe-hk
+Logistika,logistika
 Lone Star Overnight,lonestar
 Loomis Express,loomis-express
 Lotte Global Logistics,lotte
@@ -480,7 +516,6 @@ Matkahuolto,matkahuolto
 MBW Courier Inc.,mbw
 MDS Collivery Pty (Ltd),collivery
 Meest,meest
-Mena 360 (Fetchr),fetchr-webhook
 Mexico AeroFlash,aeroflash
 Mexico Redpack,mexico-redpack
 Mexico Senda Express,mexico-senda-express
@@ -506,16 +541,12 @@ National Sameday,national-sameday
 Nationex,nationex
 Nationwide Express,nationwide-my
 NEW ZEALAND COURIERS,newzealand-couriers
-New Zealand Post,new-zealand-post
-Neway Transport,neway
 Newegg Express,neweggexpress
 Newgistics,newgistics
-Nexive (TNT Post Italy),tntpost-it
 Nhans Solutions,nhans-solutions
 Nhat Tin Logistics,ntlogistics-vn
 Nightline,nightline
 Nim Express,nim-express
-Ninja Van,ninjavan
 Ninja Van Indonesia,ninjavan-id
 Ninja Van Malaysia,ninjavan-my
 Ninja Van Thailand,ninjavan-thai
@@ -524,7 +555,6 @@ NiPost,nipost
 Nippon Express,nippon-express
 Norsk Global,norsk-global
 Nova Poshta,nova-poshta
-NuvoEx,nuvoex
 NYT SUPPLY CHAIN LOGISTICS Co. LTD,nytlogistics
 OCA Argentina,oca-ar
 OCS ANA Group,ocs
@@ -544,7 +574,6 @@ P2P TrakPak,trakpak
 Paack,paack-webhook
 Packlink,packlink
 平安达腾飞快递,padtf
-Pago Logistics,pago
 PAL Express Limited,palexpress
 Palletways,palletways
 Pan-Asia International,pan-asia
@@ -552,10 +581,8 @@ Pandu Logistics,pandulogistics
 Panther,panther
 Panther Reference,panther-reference
 Paper Express,paper-express
-Paperfly Private Limited,paperfly
 Paquetexpress,paquetexpress
 Parcel2Go,parcel2go
-Parcel Express,parcel-express
 Parcel Force,parcel-force
 Parcelink Logistics,parcelinklogistics
 Parcelled.in,parcelled-in
@@ -565,10 +592,8 @@ ParcelPoint Pty Ltd,parcelpoint
 Parcel Post Singapore,parcelpost-sg
 Parcel Right,parcelright
 Parcel To Post,parceltopost
-PARCLL,parcll
 Park N Parcel,parknparcel
 PayPal Package,ppbyb
-PCF Final Mile,pcfcorp
 PFC Express,pfcexpress
 PFL,pflogistics
 Pickrr,pickrr
@@ -579,9 +604,7 @@ PIL Logistics (China) Co. Ltd,pil-logistics
 Pilot Freight Services,pilot-freight
 Pitney Bowes,pitney-bowes
 PITT OHIO,pittohio
-PIXSELL LOGISTICS,pixsell
 Planzer Group,planzer
-Plus UK Logistics,plusuk-webhook
 Poczta Polska,poczta-polska
 Pony express,pony-express
 Portugal CTT,portugal-ctt
@@ -606,13 +629,11 @@ PostNord Denmark,danmark-post
 PostNord Sweden,sweden-posten
 Post ONE,postone
 PostPlus,postplus
-Po_Èta Rom’¢nóÛ,posta-romana
 PRESIDENT TRANSNET CORP,taqbin-taiwan
 Pressio,pressiode
 Professional Couriers,professional-couriers
 "ProMed Delivery, Inc.",promeddelivery
 PT MGLOBAL LOGISTICS INDONESIA,mglobal
-PT Prima Multi Cipta,primamulticipta
 PTS,pts
 PTT Posta,ptt-posta
 Purolator,purolator
@@ -625,8 +646,6 @@ RAF Philippines,raf
 RaidereX,raiderex
 RAM,ramgroup-za
 Red Carpet Logistics,rcl
-Red Express,red-express
-Red Express Waybill,red-express-wb
 Redur Spain,redur-es
 RETS express,ets-express
 Rivo,air-canada-global
@@ -638,10 +657,8 @@ Rocket Parcel International,rocketparcel
 Routific,routific-webhook
 RoyalShipments,royalshipments
 RPD2man Deliveries,rpd2man
-RPX Indonesia,rpx
 RPX Logistics,rpxlogistics
 RPX Online,rpxonline
-RR Donnelley,rrdonnelley
 Russian Post,russian-post
 Ruston,ruston
 RZY Express,rzyexpress
@@ -656,7 +673,6 @@ Scudex Express,scudex-express
 闪电猴,sdh-scm
 Seino,seino
 SEKO Logistics,sekologistics
-SEKO Worldwide LLC,seko-sftp
 Sending Transporte Urgente y Comunicacion S.A.U,sending
 Sendit,sendit
 Sendle,sendle
@@ -667,7 +683,6 @@ SF Express China,sf-express-cn
 SF International,sfb2c
 SFC,sfc
 SFC-SendfromChina,sfcservice
-SGT Corriere Espresso,sgt-it
 Shadowfax,shadowfax
 Shanghai Aqrum Chemical Logistics Co.Ltd,dajin
 Shenzhen 1st International Logistics(Group)Co Ltd,ydex
@@ -678,7 +693,6 @@ ShipEntegra,shipentegra
 ShipGate,shipgate
 Shippit,shippit
 SHIPTER,shipter
-Shiptor,shiptor
 ShipX,shipx
 Shopee Express,spx
 Shopee Xpress,spx-th
@@ -702,7 +716,6 @@ Skynet Worldwide Express UK,skynetworldwide-uk
 SkyPostal,sky-postal
 Slovenská pošta a.s,sk-posta
 SMARTCAT,smartcat
-SMG Direct,smg-express
 Smooth Couriers,smooth
 SMSA Express,smsa-express
 Sonic Transportation & Logistics,sonictl
@@ -714,9 +727,7 @@ Specialised Freight,specialisedfreight-za
 Speed Couriers,speedcouriers-gr
 Spee-Dee Delivery,speedee
 SPEEDEX,speedex
-Speedex Courier,speedexcourier
 SPOTON Logistics Pvt Ltd,spoton
-Spreadel,spreadel
 Spring GDS,spring-gds
 SRE Korea,srekorea
 SRT Transport,srt-transport
@@ -725,7 +736,6 @@ STARKEN,starken
 StarTrack,star-track
 Star Track Courier,star-track-courier
 Star Track Express,star-track-express
-StarTrack,star-track
 STEP FORWARD FREIGHT SERVICE CO LTD,stepforwardfs
 STO Express,sto
 STONE3PL,stone3pl
