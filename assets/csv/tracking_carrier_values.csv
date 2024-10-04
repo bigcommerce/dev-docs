@@ -506,16 +506,12 @@ National Sameday,national-sameday
 Nationex,nationex
 Nationwide Express,nationwide-my
 NEW ZEALAND COURIERS,newzealand-couriers
-New Zealand Post,new-zealand-post
-Neway Transport,neway
 Newegg Express,neweggexpress
 Newgistics,newgistics
-Nexive (TNT Post Italy),tntpost-it
 Nhans Solutions,nhans-solutions
 Nhat Tin Logistics,ntlogistics-vn
 Nightline,nightline
 Nim Express,nim-express
-Ninja Van,ninjavan
 Ninja Van Indonesia,ninjavan-id
 Ninja Van Malaysia,ninjavan-my
 Ninja Van Thailand,ninjavan-thai
@@ -524,7 +520,6 @@ NiPost,nipost
 Nippon Express,nippon-express
 Norsk Global,norsk-global
 Nova Poshta,nova-poshta
-NuvoEx,nuvoex
 NYT SUPPLY CHAIN LOGISTICS Co. LTD,nytlogistics
 OCA Argentina,oca-ar
 OCS ANA Group,ocs
@@ -544,7 +539,6 @@ P2P TrakPak,trakpak
 Paack,paack-webhook
 Packlink,packlink
 平安达腾飞快递,padtf
-Pago Logistics,pago
 PAL Express Limited,palexpress
 Palletways,palletways
 Pan-Asia International,pan-asia
@@ -552,10 +546,8 @@ Pandu Logistics,pandulogistics
 Panther,panther
 Panther Reference,panther-reference
 Paper Express,paper-express
-Paperfly Private Limited,paperfly
 Paquetexpress,paquetexpress
 Parcel2Go,parcel2go
-Parcel Express,parcel-express
 Parcel Force,parcel-force
 Parcelink Logistics,parcelinklogistics
 Parcelled.in,parcelled-in
@@ -565,10 +557,8 @@ ParcelPoint Pty Ltd,parcelpoint
 Parcel Post Singapore,parcelpost-sg
 Parcel Right,parcelright
 Parcel To Post,parceltopost
-PARCLL,parcll
 Park N Parcel,parknparcel
 PayPal Package,ppbyb
-PCF Final Mile,pcfcorp
 PFC Express,pfcexpress
 PFL,pflogistics
 Pickrr,pickrr
@@ -579,9 +569,7 @@ PIL Logistics (China) Co. Ltd,pil-logistics
 Pilot Freight Services,pilot-freight
 Pitney Bowes,pitney-bowes
 PITT OHIO,pittohio
-PIXSELL LOGISTICS,pixsell
 Planzer Group,planzer
-Plus UK Logistics,plusuk-webhook
 Poczta Polska,poczta-polska
 Pony express,pony-express
 Portugal CTT,portugal-ctt
@@ -606,13 +594,11 @@ PostNord Denmark,danmark-post
 PostNord Sweden,sweden-posten
 Post ONE,postone
 PostPlus,postplus
-Po_Èta Rom’¢nóÛ,posta-romana
 PRESIDENT TRANSNET CORP,taqbin-taiwan
 Pressio,pressiode
 Professional Couriers,professional-couriers
 "ProMed Delivery, Inc.",promeddelivery
 PT MGLOBAL LOGISTICS INDONESIA,mglobal
-PT Prima Multi Cipta,primamulticipta
 PTS,pts
 PTT Posta,ptt-posta
 Purolator,purolator
@@ -625,8 +611,6 @@ RAF Philippines,raf
 RaidereX,raiderex
 RAM,ramgroup-za
 Red Carpet Logistics,rcl
-Red Express,red-express
-Red Express Waybill,red-express-wb
 Redur Spain,redur-es
 RETS express,ets-express
 Rivo,air-canada-global
@@ -638,10 +622,8 @@ Rocket Parcel International,rocketparcel
 Routific,routific-webhook
 RoyalShipments,royalshipments
 RPD2man Deliveries,rpd2man
-RPX Indonesia,rpx
 RPX Logistics,rpxlogistics
 RPX Online,rpxonline
-RR Donnelley,rrdonnelley
 Russian Post,russian-post
 Ruston,ruston
 RZY Express,rzyexpress
@@ -656,7 +638,6 @@ Scudex Express,scudex-express
 闪电猴,sdh-scm
 Seino,seino
 SEKO Logistics,sekologistics
-SEKO Worldwide LLC,seko-sftp
 Sending Transporte Urgente y Comunicacion S.A.U,sending
 Sendit,sendit
 Sendle,sendle
@@ -667,7 +648,6 @@ SF Express China,sf-express-cn
 SF International,sfb2c
 SFC,sfc
 SFC-SendfromChina,sfcservice
-SGT Corriere Espresso,sgt-it
 Shadowfax,shadowfax
 Shanghai Aqrum Chemical Logistics Co.Ltd,dajin
 Shenzhen 1st International Logistics(Group)Co Ltd,ydex
@@ -678,7 +658,6 @@ ShipEntegra,shipentegra
 ShipGate,shipgate
 Shippit,shippit
 SHIPTER,shipter
-Shiptor,shiptor
 ShipX,shipx
 Shopee Express,spx
 Shopee Xpress,spx-th
@@ -702,7 +681,6 @@ Skynet Worldwide Express UK,skynetworldwide-uk
 SkyPostal,sky-postal
 Slovenská pošta a.s,sk-posta
 SMARTCAT,smartcat
-SMG Direct,smg-express
 Smooth Couriers,smooth
 SMSA Express,smsa-express
 Sonic Transportation & Logistics,sonictl
@@ -714,9 +692,7 @@ Specialised Freight,specialisedfreight-za
 Speed Couriers,speedcouriers-gr
 Spee-Dee Delivery,speedee
 SPEEDEX,speedex
-Speedex Courier,speedexcourier
 SPOTON Logistics Pvt Ltd,spoton
-Spreadel,spreadel
 Spring GDS,spring-gds
 SRE Korea,srekorea
 SRT Transport,srt-transport
@@ -725,7 +701,6 @@ STARKEN,starken
 StarTrack,star-track
 Star Track Courier,star-track-courier
 Star Track Express,star-track-express
-StarTrack,star-track
 STEP FORWARD FREIGHT SERVICE CO LTD,stepforwardfs
 STO Express,sto
 STONE3PL,stone3pl
